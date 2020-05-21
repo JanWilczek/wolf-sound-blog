@@ -34,17 +34,9 @@ tags:
   - design
   - testing
 ---
-<!--themify-builder:block--><figure class="wp-block-embed-youtube wp-block-embed is-type-video is-provider-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/5DFUH0zCn3Y" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-<div class="wp-block-embed__wrapper">
-  <div class="post-video">
-  </div>
-</div></figure> <figure class="wp-block-embed-youtube wp-block-embed is-type-video is-provider-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio">
-
-<div class="wp-block-embed__wrapper">
-  <div class="post-video">
-  </div>
-</div></figure> 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/OR41NOATLhU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 Today we are going to talk about THIS book:
 

@@ -31,6 +31,8 @@ categories:
 ---
 <!--themify-builder:block-->
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/K-cV30eDCeE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 On this blog we are dealing with the topic of audio programming. But what is it actually?
 
 **Programming** is the art of writing programs to be run on machines. **Audio** here means the sound in general. So audio programming is writing software that is concerned with sound.

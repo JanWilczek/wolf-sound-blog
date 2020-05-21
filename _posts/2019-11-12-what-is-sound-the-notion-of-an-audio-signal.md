@@ -35,6 +35,8 @@ tags:
 ---
 <!--themify-builder:block-->
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Q6NldT7pgEY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 Sound is everywhere around us, when we speak, when we listen to music, when we hear traffic noise and even when everything seems to be silent. But what is sound actually? We need to understand this phenomenon before we are able to store it on a machine and process it.
 
 **Sound** is a _mechanical wave_ that travels in an _elastic medium_. Mechanical wave here means, that material particles are involved and the wave results from particles&#8217; interaction. Elastic medium on the other hand is anything that contains particles with the ability to interact. The simplest example is, of course, the air, but an elastic medium may be any other gas, liquid (like water) or even concrete. You probably know, that sound cannot propagate in space-that&#8217;s because there are no particles there to interact.
