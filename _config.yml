@@ -28,10 +28,15 @@ github_username:  JohnRogue
 
 # Build settings
 theme: jekyll-theme-clean-blog
+markdown:           kramdown
+paginate:           5
+paginate_path:      "/posts/page:num/"
 plugins:
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-seo-tag
+  - jekyll-paginate
+  
 
 # Exclude from processing.
 # The following items will not be processed, by default.
