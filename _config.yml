@@ -27,7 +27,7 @@ url: "https://thewolfsound.com" # the base hostname & protocol for your site, e.
 github_username:  JohnRogue
 
 # Build settings
-theme: minima
+theme: jekyll-theme-clean-blog
 plugins:
   - jekyll-feed
   - jekyll-sitemap
@@ -59,18 +59,18 @@ collections:
     output: true
 
 defaults:
-  - scope:
-     path: ""
-     type: "authors"
-    values:
-     layout: "author"
+#   - scope:
+#      path: ""
+#      type: "authors"
+#     values:
+#      layout: "author"
   - scope:
       path: ""
       type: "posts"
     values:
       layout: "post"
-  - scope:
-      path: ""
-    values:
-      layout: "default"
+#   - scope:
+#       path: ""
+#     values:
+#       layout: "default"
 
