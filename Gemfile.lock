@@ -35,6 +35,8 @@ GEM
       sassc (> 2.0.1, < 3.0)
     jekyll-seo-tag (2.6.1)
       jekyll (>= 3.3, < 5.0)
+    jekyll-sitemap (1.4.0)
+      jekyll (>= 3.7, < 5.0)
     jekyll-watch (2.2.1)
       listen (~> 3.0)
     kramdown (2.2.1)
@@ -77,6 +79,8 @@ PLATFORMS
 DEPENDENCIES
   jekyll (~> 4.0.1)
   jekyll-feed (~> 0.12)
+  jekyll-seo-tag
+  jekyll-sitemap
   minima (~> 2.5)
   tzinfo (~> 1.2)
   tzinfo-data
