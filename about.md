@@ -1,44 +1,9 @@
 ---
-id: 54
-title: Start Here
-date: 2019-11-05T19:29:16+00:00
-author: Jan Wilczek
-layout:
-  - list-post
-guid: https://thewolfsound.com/?page_id=54
-content_width:
-  - default_width
-hide_page_title:
-  - 'yes'
-header_wrap:
-  - solid
-background_repeat:
-  - fullcover
-order:
-  - desc
-orderby:
-  - date
-hide_title:
-  - default
-unlink_title:
-  - default
-hide_date:
-  - default
-media_position:
-  - default
-hide_image:
-  - default
-unlink_image:
-  - default
-hide_navigation:
-  - default
-themify_used_global_styles:
-  - 'a:1:{i:0;s:0:"";}'
-tbp_custom_css:
-  - ""
+layout: page
+title: About
+description: TheWolfSound.com descritption
+background: '/wp-content/uploads/2019/10/Logo-1024x602.png'
 ---
-<!--themify-builder:block-->
-
 Welcome to the Wolf Sound! Thank You for being here.
 
 My name is Jan Wilczek and I have created Wolf Sound to be able to share my passion of audio programming.
@@ -60,7 +25,3 @@ On Wolf Sound you can expect three types of activity (the &#8216;pillars&#8217; 
   * **Services:** consulting, leading seminars, carrying out audio programming tasks on demand; all for the greater good of audio!
 
 See You around on TheWolfSound.com! Don&#8217;t forget to visit and subscribe to the official [YouTube channel](https://www.youtube.com/channel/UCZuWJuoBe046gMqmYcc7Qww)!
-
-<!--themify_builder_static-->
-
-<!--/themify_builder_static-->
