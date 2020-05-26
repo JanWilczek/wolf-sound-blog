@@ -76,6 +76,7 @@ DEPENDENCIES
   jekyll-seo-tag
   jekyll-sitemap
   jekyll-theme-clean-blog
+  rouge
   tzinfo (~> 1.2)
   tzinfo-data
   wdm (~> 0.1.1)

@@ -94,33 +94,23 @@ In theory it is a simple and elegant solution, but in practice it heavily relies
 
 It is much more readable to replace a series of ors and ands with a named function, e.g. isEmpty() instead of size() == 0. It is a simple idea, yet it never occurred to me that extracting the condition as a function would improve readability. (I have to admit I usually put comments explaining the more complicated conditions). Simple but clever one!
 
-<div class="wp-block-columns">
-  <div class="wp-block-column">
-    <pre class="brush: java; gutter: false; title: ; notranslate" title="">
+```java
 if (size() == 0)
 {
    do_stuff();
 }
-</pre>
-    
-    <p>
-      Plain if condition. What was the original purpose?
-    </p>
-  </div>
-  
-  <div class="wp-block-column">
-    <pre class="brush: java; gutter: false; title: ; notranslate" title="">
+```
+
+Plain if condition. What was the original purpose?
+
+```java
 if (isEmpty())
 {
    do_stuff();
 }
-</pre>
-    
-    <p>
-      Encapsulated if condition. It is clear that we want to operate within the &#8220;empty&#8221; state, whatever that means.
-    </p>
-  </div>
-</div>
+```
+
+Encapsulated if condition. It is clear that we want to operate within the &#8220;empty&#8221; state, whatever that means.
 
 ### 3. Write code that works first and then make it clean.
 
