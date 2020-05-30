@@ -96,7 +96,7 @@ How does the spectrum of a sampled signal look? Well, it repeats itself every<im
 Why is that? You can explain it intuitively that having a set of samples, you can always insert one or more periods of a sine between them and it would still get sampled the same way:
 
 ![](https://thewolfsound.com/wp-content/uploads/2019/11/SpectraMultiplicity-2-1024x787.png)
-*Discrete nodes may be viewed as sampling a sine of frequency 0, $f_s$, $2f_s$, etc.*
+*Discrete nodes may be viewed as sampling a sine of frequency 0, $$f_s$$, $$2f_s$$, etc.*
 
 If we do not know anything about the signal that was sampled, we cannot say what frequencies it originally had. But we generally (not always) assume that the frequencies in the original signal were between 0 and<img src="https://thewolfsound.com/wp-content/ql-cache/quicklatex.com-a593f0d1f67ebfe0ee1a026824cfe6df_l3.png" class="ql-img-inline-formula quicklatex-auto-format" alt="&#92;&#102;&#114;&#97;&#99;&#123;&#102;&#95;&#115;&#125;&#123;&#50;&#125;" title="Rendered by QuickLaTeX.com" height="23" width="14" style="vertical-align: -6px;" /> (we ignore negative frequencies as they have no physical meaning). Thus, during reconstruction, we restrict ourselves to these frequencies only.
 

@@ -173,7 +173,7 @@ It never occurred to me that functions should not only do 1 thing, but also 1 th
 ![](https://thewolfsound.com/wp-content/uploads/2020/01/AbstractionLevelsBefore-1.png)
 *`processBlock()` operates on two different level of abstraction: first muddling through particular samples, then calling a higher level function.*
 
-![](ttps://thewolfsound.com/wp-content/uploads/2020/01/AbstractionLevelsAfter.png)
+![](https://thewolfsound.com/wp-content/uploads/2020/01/AbstractionLevelsAfter.png)
 *This function operates on a single level of abstraction. Notice the removal of now redundant comments.*
 
 ## Part 2: The value of testing

@@ -168,8 +168,7 @@ We have discussed the variable speed replay algorithm, which enables to manipula
 
 If you want to learn more I highly encourage you to check out this book &#8220;Digital Audio FX&#8221; by Udo Zölzer et. al.:
 
-[![](https://m.media-amazon.com/images/I/51YOksxKouL._SL110_.jpg)](https://www.amazon.com/gp/product/B005HF2HFE/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B005HF2HFE&linkCode=as2&tag=wolfsound-20&linkId=6c9f7282a7ef876007a8981fb1f5baa6)
-
+[![](https://m.media-amazon.com/images/I/51YOksxKouL._SL160_.jpg)](https://www.amazon.com/gp/product/B005HF2HFE/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B005HF2HFE&linkCode=as2&tag=wolfsound-20&linkId=6c9f7282a7ef876007a8981fb1f5baa6)
 
 It contains an even broader perspective on the variable speed replay algorithm and many more; it is one of the best books to learn about audio algorithms!
 
