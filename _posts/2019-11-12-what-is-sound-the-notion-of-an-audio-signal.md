@@ -35,8 +35,6 @@ tags:
   - digital audio
   - sound wave
 ---
-<!--themify-builder:block-->
-
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Q6NldT7pgEY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 Sound is everywhere around us, when we speak, when we listen to music, when we hear traffic noise and even when everything seems to be silent. But what is sound actually? We need to understand this phenomenon before we are able to store it on a machine and process it.
@@ -47,7 +45,8 @@ A source of any sound is a vibrating element. The simplest one you can think of 
 
 How do you hear then? Well, the propagating wave (groups of particles hitting against the others farther and farther from the source) reaches the tympanic membrane in your ear what causes it to vibrate as well. In a series of resulting interactions of various ear elements the vibration is transformed into a neural signal transported into the brain, where it is interpreted. It is of course a simplified description, but for now it suffices.<figure class="wp-block-image is-resized">
 
-<img src="https://thewolfsound.com/wp-content/uploads/2019/11/img1-1024x685.png" alt="A vibrating object causes the surrounding medium to vibrate. The induced sound wave travels through the medium and reaches receivers: an ear and a microphone. Suitable processing follows." class="wp-image-89" width="1024" height="685" srcset="https://thewolfsound.com/wp-content/uploads/2019/11/img1-1024x685.png 1024w, https://thewolfsound.com/wp-content/uploads/2019/11/img1-300x201.png 300w, https://thewolfsound.com/wp-content/uploads/2019/11/img1-768x514.png 768w" sizes="(max-width: 1024px) 100vw, 1024px" /> <figcaption>The sound as a mechanical wave travelling through the air medium and reaching receivers: an ear and a microphone. Audio processing (by human body or a machine) follows.</figcaption></figure> 
+![A vibrating object causes the surrounding medium to vibrate. The induced sound wave travels through the medium and reaches receivers: an ear and a microphone. Suitable processing follows.](https://thewolfsound.com/wp-content/uploads/2019/11/img1-1024x685.png)
+*The sound as a mechanical wave travelling through the air medium and reaching receivers: an ear and a microphone. Audio processing (by human body or a machine) follows.*
 
 The same mechanism is used to capture the sound through a microphone. The diaphragm of the microphone vibrates under the incident particles what is transformed into electrical voltage at microphone&#8217;s output. Such output may be then recorded and stored.
 
@@ -58,7 +57,3 @@ Whatever the type of these vibrations, we can always call it a sound wave and pl
 To store the continuous (analog) representation of sound on a computer, we need to transform the signal into the digital domain. To do this, we use the notion of **sampling**, i.e., recording the value of the analog signal at regular time intervals. Sampled sound may be then processed and played through loudspeakers, that in turn change the digial signal into analog one in the form of voltage, that causes the membrane of the speaker to move in a rhythmic manner, that in turn moves the air particles, what enables us to hear the sound again, thus completing the circle of sound-record-store-process-output-sound. 
 
 The topic of sampling and digital representation will be discussed in the next week&#8217;s article, so stick around!
-
-<!--themify_builder_static-->
-
-<!--/themify_builder_static-->

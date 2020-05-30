@@ -31,8 +31,6 @@ background: /wp-content/uploads/2019/10/thumbnail_what_is_audio_programming.PNG
 categories:
   - Sound in general
 ---
-<!--themify-builder:block-->
-
 <iframe width="560" height="315" src="https://www.youtube.com/embed/K-cV30eDCeE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 On this blog we are dealing with the topic of audio programming. But what is it actually?
@@ -62,7 +60,3 @@ The knowledge basis for audio programming consists of:
   * mathematics
 
 To really master the audio programming skill, to be able to &#8220;code sound&#8221; you need to get a good grasp of the above. And that&#8217;s what WolfSound is all about!
-
-<!--themify_builder_static-->
-
-<!--/themify_builder_static-->

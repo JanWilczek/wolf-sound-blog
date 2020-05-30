@@ -1,19 +1,5 @@
-import os
+from get_all_post_paths import get_all_post_paths
 
-def get_posts_path():
-    FILE_DIRECTORY = os.path.dirname(os.path.realpath(__file__))
-    POSTS_DIRECTORY = '_posts'
-    POSTS_PATH = os.path.join(FILE_DIRECTORY, '../', POSTS_DIRECTORY)
-    return POSTS_PATH
-
-def get_md_files(path):
-    md_files = []
-
-    for root, directories, files in os.walk(path):
-        for file in files:
-            if file.endswith('.md'):
-                md_files.append(os.path.join(root, file))
-    return md_files
 
 def image_to_background(post_files):
     for post in post_files:
@@ -33,10 +19,8 @@ def image_to_background(post_files):
         with open(post, 'w') as f:
             f.writelines(output_lines)
 
-
 def main():
-    posts_path = get_posts_path()
-    md_files = get_md_files(posts_path)
+    md_files = get_all_post_paths()
     image_to_background(md_files)
 
 

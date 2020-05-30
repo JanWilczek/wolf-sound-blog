@@ -35,10 +35,7 @@ tags:
   - sample rate
   - sampling
 ---
-
 <iframe width="560" height="315" src="https://www.youtube.com/embed/f53m72uLa2I" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-
 
 To process the audio signal, we need to somehow represent it on our machine. Several different options are possible, but the most common and useful one for sound processing is the discrete sample representation. That&#8217;s where the concepts of sampling and quantization come into play.
 
@@ -48,7 +45,7 @@ Mind you, that in this article expressions _function_ and _signal_ are used inte
 
 The computers and hardware we are using are only capable of storing finite-valued numbers, e.g. 2, -5, 9.5, 10e3, some with less accuracy than others due to binary representation. How to represent a continuous (analog) function through such numbers?
 
-If we know that the observed function of time<img src="https://thewolfsound.com/wp-content/ql-cache/quicklatex.com-b4e3cbf5d4c5c6d9b702dd139f14c147_l3.png" class="ql-img-inline-formula quicklatex-auto-format" alt="&#116;" title="Rendered by QuickLaTeX.com" height="12" width="6" style="vertical-align: 0px;" /> is affine we can write:
+If we know that the observed function of time <img src="https://thewolfsound.com/wp-content/ql-cache/quicklatex.com-b4e3cbf5d4c5c6d9b702dd139f14c147_l3.png" class="ql-img-inline-formula quicklatex-auto-format" alt="&#116;" title="Rendered by QuickLaTeX.com" height="12" width="6" style="vertical-align: 0px;" /> is affine we can write:
 
 <p class="ql-center-displayed-equation" style="line-height: 18px;">
   <span class="ql-right-eqno"> (1) </span><span class="ql-left-eqno"> &nbsp; </span><img src="https://thewolfsound.com/wp-content/ql-cache/quicklatex.com-d13f34dad6df05bce5099ebd52fd6491_l3.png" height="18" width="98" class="ql-img-displayed-equation quicklatex-auto-format" alt="&#92;&#98;&#101;&#103;&#105;&#110;&#123;&#101;&#113;&#117;&#97;&#116;&#105;&#111;&#110;&#42;&#125;&#115;&#40;&#116;&#41;&#32;&#61;&#32;&#97;&#116;&#32;&#43;&#32;&#98;&#92;&#101;&#110;&#100;&#123;&#101;&#113;&#117;&#97;&#116;&#105;&#111;&#110;&#42;&#125;" title="Rendered by QuickLaTeX.com" />
@@ -64,15 +61,11 @@ If the signal is a sinusoid, it is completely determined by its amplitude<img sr
 
 In general, we do not know how does the signal we are observing look like: that&#8217;s the whole point of observing it, right? That&#8217;s where sampling comes in.
 
-<div class="wp-block-columns">
-  <div class="wp-block-column">
-    <figure class="wp-block-image size-large is-resized"><img src="https://thewolfsound.com/wp-content/uploads/2019/11/Sine1Hz-1-1024x723.png" alt="" class="wp-image-157" width="350" height="250" /><figcaption> An example of the observed signal: a 1 Hz sine (one period). </figcaption></figure>
-  </div>
+![](https://thewolfsound.com/wp-content/uploads/2019/11/Sine1Hz-1-1024x723.png)
+*An example of the observed signal: a 1 Hz sine (one period).*
   
-  <div class="wp-block-column">
-    <figure class="wp-block-image size-large is-resized"><img src="https://thewolfsound.com/wp-content/uploads/2019/11/Sine1HzSamples8Hz-2-1024x723.png" alt="" class="wp-image-156" width="350" height="250" /><figcaption>1 Hz sine sampled with sample rate equal to 8 Hz. Red dots mark the samples taken. Clearly the original signal can be reconstructed.</figcaption></figure>
-  </div>
-</div>
+![](https://thewolfsound.com/wp-content/uploads/2019/11/Sine1HzSamples8Hz-2-1024x723.png)
+*1 Hz sine sampled with sample rate equal to 8 Hz. Red dots mark the samples taken. Clearly the original signal can be reconstructed.*
 
 **Sampling** is the process of measuring and storing values of the observed continuous function<img src="https://thewolfsound.com/wp-content/ql-cache/quicklatex.com-a041b68ebbaa6df4e193ec93fb94e088_l3.png" class="ql-img-inline-formula quicklatex-auto-format" alt="&#115;&#40;&#116;&#41;" title="Rendered by QuickLaTeX.com" height="18" width="27" style="vertical-align: -4px;" /> at discrete time intervals<img src="https://thewolfsound.com/wp-content/ql-cache/quicklatex.com-9664e083f6e632f711cbadf4f4da9d33_l3.png" class="ql-img-inline-formula quicklatex-auto-format" alt="&#110;&#84;" title="Rendered by QuickLaTeX.com" height="12" width="24" style="vertical-align: 0px;" /> . From mathematical point of view, we can present it as:
 
@@ -142,7 +135,8 @@ Having discussed the basics of sampling and quantization, we are ready to put th
 
 This example code samples a 1 Hz sine with the sample rate of 8 Hz and displays the results:
 
-<pre class="brush: python; title: ; notranslate" title="">#!/usr/bin/env python3
+```python
+#!/usr/bin/env python3
 """Example of sine sampling"""
 import numpy as np
 import matplotlib.pyplot as plt
@@ -200,11 +194,9 @@ plt.xlabel('t [s]')
 plt.ylabel('s(t)')
 plt.yticks(yticks)
 plt.show()
-</pre>
+```
 
 You can copy the above code and run it yourself!
 
 Reference:  
 [1] Oppenheim, A. V. and Willsky, A. S. Signals & Systems. 2nd ed. Upper Sadle River, New Jersey: Prentice Hall, 1997.
-
-<!--themify-builder:block-->
