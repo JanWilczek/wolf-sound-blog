@@ -27,6 +27,7 @@ header_wrap:
 background_repeat:
   - fullcover
 image: /wp-content/uploads/2020/04/thumbnail.png
+background: /wp-content/uploads/2020/04/thumbnail.png
 categories:
   - C/C++
 tags:
