@@ -42,9 +42,8 @@ tags:
 
 Today we are going to talk about THIS book:
 
-<div class="wp-block-image">
-  <figure class="aligncenter"><a href="https://www.amazon.com/gp/product/0132350882/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0132350882&linkCode=as2&tag=wolfsound-20&linkId=c12b0f1641cfe4056f67e72c68cd57f5" target="_blank" rel="noopener noreferrer"><img src="//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&MarketPlace=US&ASIN=0132350882&ServiceVersion=20070822&ID=AsinImage&WS=1&Format=_SL250_&tag=wolfsound-20" alt="" /></a><figcaption>Click the image to view on Amazon.com</figcaption></figure>
-</div>
+![](//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&MarketPlace=US&ASIN=0132350882&ServiceVersion=20070822&ID=AsinImage&WS=1&Format=_SL250_&tag=wolfsound-20)
+*Click the image to view on Amazon.com*
 
 It is the &#8220;Clean Code&#8221; by Robert C. Martin which is by some considered the ultimate book on &#8220;how to write good code&#8221;. Today I&#8217;d like to share with you my experience with the book and what I&#8217;ve learned from it.
 
@@ -70,9 +69,8 @@ Aspect-oriented programming let&#8217;s you write core business logic in the so-
 
 <div class="wp-block-columns">
   <div class="wp-block-column">
-    <div class="wp-block-image is-style-default">
-      <figure class="aligncenter size-medium is-resized"><img src="https://thewolfsound.com/wp-content/uploads/2020/01/AspectOrientedProgammmingBefore-177x300.png" alt="" class="wp-image-350" width="194" height="329" srcset="https://thewolfsound.com/wp-content/uploads/2020/01/AspectOrientedProgammmingBefore-177x300.png 177w, https://thewolfsound.com/wp-content/uploads/2020/01/AspectOrientedProgammmingBefore-603x1024.png 603w, https://thewolfsound.com/wp-content/uploads/2020/01/AspectOrientedProgammmingBefore.png 715w" sizes="(max-width: 194px) 100vw, 194px" /></figure>
-    </div>
+![](https://thewolfsound.com/wp-content/uploads/2020/01/AspectOrientedProgammmingBefore-177x300.png)
+*None*
     
     <p>
       SRP violation: <code>Account</code> stores information from user <strong>and </strong>handles database update.
@@ -80,9 +78,8 @@ Aspect-oriented programming let&#8217;s you write core business logic in the so-
   </div>
   
   <div class="wp-block-column">
-    <div class="wp-block-image">
-      <figure class="aligncenter size-large"><img src="https://thewolfsound.com/wp-content/uploads/2020/01/AspectOrientedProgammmingAfter-1-1024x953.png" alt="" class="wp-image-351" srcset="https://thewolfsound.com/wp-content/uploads/2020/01/AspectOrientedProgammmingAfter-1-1024x953.png 1024w, https://thewolfsound.com/wp-content/uploads/2020/01/AspectOrientedProgammmingAfter-1-300x279.png 300w, https://thewolfsound.com/wp-content/uploads/2020/01/AspectOrientedProgammmingAfter-1-768x715.png 768w, https://thewolfsound.com/wp-content/uploads/2020/01/AspectOrientedProgammmingAfter-1.png 1305w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
-    </div>
+![](https://thewolfsound.com/wp-content/uploads/2020/01/AspectOrientedProgammmingAfter-1-1024x953.png)
+*None*
     
     <p>
       Each aspect (here <code>DatabaseConnection</code> aspect) adds new logic to the POJO object independently.

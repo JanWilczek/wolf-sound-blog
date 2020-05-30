@@ -46,27 +46,24 @@ To understand the concept of alignment we first have to differentiate between _a
 
 Let&#8217;s imagine that computer&#8217;s memory consists of drawers. Each drawer is of the same size in bytes which is equal to a power of 2, and we can somehow choose which power it is. For example, the whole memory could be made up of 4-byte blocks. We still can address every byte, but only the first address in each block is &#8220;aligned&#8221;. That is the address alignment. 
 
-<div class="wp-block-image">
-  <figure class="aligncenter size-medium"><img src="https://thewolfsound.com/wp-content/uploads/2020/04/memory_aligned-300x263.png" alt="" class="wp-image-384" srcset="https://thewolfsound.com/wp-content/uploads/2020/04/memory_aligned-300x263.png 300w, https://thewolfsound.com/wp-content/uploads/2020/04/memory_aligned-1024x899.png 1024w, https://thewolfsound.com/wp-content/uploads/2020/04/memory_aligned-768x674.png 768w, https://thewolfsound.com/wp-content/uploads/2020/04/memory_aligned.png 1230w" sizes="(max-width: 300px) 100vw, 300px" /></figure>
-</div>
+![](https://thewolfsound.com/wp-content/uploads/2020/04/memory_aligned-300x263.png)
+*None*
 
 ## Datum alignment
 
 Now, if a 4-byte variable is placed completely in one of these 4-byte blocks (it fills all 4 bytes of a block) it is said to be _aligned_. That is datum alignment.
 
-<div class="wp-block-image">
-  <figure class="aligncenter size-medium"><img src="https://thewolfsound.com/wp-content/uploads/2020/04/int_in_memory-300x263.png" alt="Obraz zawierający zegar
+![Obraz zawierający zegar
 
-Opis wygenerowany automatycznie" class="wp-image-385" srcset="https://thewolfsound.com/wp-content/uploads/2020/04/int_in_memory-300x263.png 300w, https://thewolfsound.com/wp-content/uploads/2020/04/int_in_memory-1024x899.png 1024w, https://thewolfsound.com/wp-content/uploads/2020/04/int_in_memory-768x674.png 768w, https://thewolfsound.com/wp-content/uploads/2020/04/int_in_memory.png 1230w" sizes="(max-width: 300px) 100vw, 300px" /></figure>
-</div>
+Opis wygenerowany automatycznie](https://thewolfsound.com/wp-content/uploads/2020/04/int_in_memory-300x263.png)
+*None*
 
 Now, how would it look like, if such a 4-byte variable would not be aligned? It would occupy more than one block (it would cross the block boundary). It could be placed, for example, at address 4n + 1 (where n is a nonnegative integer) and would hence take addresses 4n+1, 4n+2, 4n+3 and 4n+4 = 4(n+1) + 0. 
 
-<div class="wp-block-image">
-  <figure class="aligncenter size-medium"><img src="https://thewolfsound.com/wp-content/uploads/2020/04/bad_int_in_memory-300x263.png" alt="Obraz zawierający zegar
+![Obraz zawierający zegar
 
-Opis wygenerowany automatycznie" class="wp-image-386" srcset="https://thewolfsound.com/wp-content/uploads/2020/04/bad_int_in_memory-300x263.png 300w, https://thewolfsound.com/wp-content/uploads/2020/04/bad_int_in_memory-1024x899.png 1024w, https://thewolfsound.com/wp-content/uploads/2020/04/bad_int_in_memory-768x674.png 768w, https://thewolfsound.com/wp-content/uploads/2020/04/bad_int_in_memory.png 1230w" sizes="(max-width: 300px) 100vw, 300px" /></figure>
-</div>
+Opis wygenerowany automatycznie](https://thewolfsound.com/wp-content/uploads/2020/04/bad_int_in_memory-300x263.png)
+*None*
 
 That means, that in order to read out the variable the processor would need two read operations: one from the first 4-byte block and another one from the second. That in turn is, of course, slightly slower, but may as well be prone to race condition (one thread reads part of the variable, another thread modifies the whole variable and then the first thread reads the other part of the variable; in effect, the retrieved value is completely incorrect).
 

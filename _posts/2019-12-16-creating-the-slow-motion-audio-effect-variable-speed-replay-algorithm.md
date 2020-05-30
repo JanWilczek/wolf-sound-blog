@@ -53,17 +53,15 @@ What would happen if we removed every other sample from the signal? To simplify 
 
 Here we have a 500 Hz sine wave sampled at 16 kHz:
 
-<div class="wp-block-image">
-  <figure class="aligncenter size-large is-resized"><img src="https://thewolfsound.com/wp-content/uploads/2019/12/Sine500HzSampled16000.0HzOriginal-1024x741.png" alt="" class="wp-image-292" width="768" height="556" srcset="https://thewolfsound.com/wp-content/uploads/2019/12/Sine500HzSampled16000.0HzOriginal-1024x741.png 1024w, https://thewolfsound.com/wp-content/uploads/2019/12/Sine500HzSampled16000.0HzOriginal-300x217.png 300w, https://thewolfsound.com/wp-content/uploads/2019/12/Sine500HzSampled16000.0HzOriginal-768x556.png 768w, https://thewolfsound.com/wp-content/uploads/2019/12/Sine500HzSampled16000.0HzOriginal-1536x1112.png 1536w, https://thewolfsound.com/wp-content/uploads/2019/12/Sine500HzSampled16000.0HzOriginal.png 1884w" sizes="(max-width: 768px) 100vw, 768px" /><figcaption>500 Hz sine sampled at 16,000 Hz.</figcaption></figure>
-</div>
+![](https://thewolfsound.com/wp-content/uploads/2019/12/Sine500HzSampled16000.0HzOriginal-1024x741.png)
+*500 Hz sine sampled at 16,000 Hz.*
 
 Let&#8217;s note, that one period is 2 ms long.
 
 Removing every second sample we obtain:
 
-<div class="wp-block-image">
-  <figure class="aligncenter size-large is-resized"><img src="https://thewolfsound.com/wp-content/uploads/2019/12/Sine500HzSampled16000.0HzDecimated-1024x741.png" alt="" class="wp-image-293" width="768" height="556" srcset="https://thewolfsound.com/wp-content/uploads/2019/12/Sine500HzSampled16000.0HzDecimated-1024x741.png 1024w, https://thewolfsound.com/wp-content/uploads/2019/12/Sine500HzSampled16000.0HzDecimated-300x217.png 300w, https://thewolfsound.com/wp-content/uploads/2019/12/Sine500HzSampled16000.0HzDecimated-768x556.png 768w, https://thewolfsound.com/wp-content/uploads/2019/12/Sine500HzSampled16000.0HzDecimated-1536x1112.png 1536w, https://thewolfsound.com/wp-content/uploads/2019/12/Sine500HzSampled16000.0HzDecimated.png 1884w" sizes="(max-width: 768px) 100vw, 768px" /><figcaption>The signal after removing every other sample.</figcaption></figure>
-</div>
+![](https://thewolfsound.com/wp-content/uploads/2019/12/Sine500HzSampled16000.0HzDecimated-1024x741.png)
+*The signal after removing every other sample.*
 
 We can see, that the duration of the sine shrunk to 2.5 ms, what is no surprise, since we basically removed half of the signal and 2.5 ms corresponds to half of 5 ms.
 

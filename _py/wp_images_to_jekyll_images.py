@@ -30,15 +30,15 @@ class WPImagesParser(HTMLParser):
         
         if tag == 'img' and self.parsing_image:
             if self.current_image.link is None:
-                self.current_image.link = attrs['src']
-                self.current_image.alt = attrs['alt']
+                self.current_image.link = attrs['src'].strip()
+                self.current_image.alt = attrs['alt'].strip()
 
         if tag == 'figcaption' and self.parsing_image:
             self.parsing_caption = True
         
     def handle_data(self, data):
         if self.parsing_caption:
-            self.current_image.caption = data
+            self.current_image.caption = data.strip()
             self.parsing_caption = False
 
     def handle_endtag(self, tag):
@@ -64,7 +64,7 @@ def wp_to_jekyll_images(file_contents, wp_images):
         image = wp_images[i]
         tag_start_line = image.start_position[0]
         tag_end_line = image.end_position[0]
-        new_image_entry = f'![{image.alt}]({image.link})\n*{image.caption}*\n\n'
+        new_image_entry = f'![{image.alt}]({image.link})\n*{image.caption}*\n'
         file_contents = file_contents[:tag_start_line-1] + [new_image_entry] + file_contents[tag_end_line:]
     return file_contents
 
@@ -76,8 +76,7 @@ def wp_images_to_jekyll_images(post_paths):
             f.writelines(updated_content)
 
 def main():
-    # post_paths = get_all_post_paths()
-    post_paths = ['/home/jawi/Projects/WolfSound/Page/_posts/2019-11-28-what-is-aliasing-what-causes-it-how-to-avoid-it.md']
+    post_paths = get_all_post_paths()
     wp_images_to_jekyll_images(post_paths)
 
 
