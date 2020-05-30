@@ -110,7 +110,8 @@ As this is a blog about audio _programming_ we will deal with the second option,
 
 Assuming that<img src="https://thewolfsound.com/wp-content/ql-cache/quicklatex.com-ef71511c70f0e4b25cc6bd69f3bc20c2_l3.png" class="ql-img-inline-formula quicklatex-auto-format" alt="&#118;" title="Rendered by QuickLaTeX.com" height="8" width="9" style="vertical-align: 0px;" /> can be displayed as a ratio of integer numbers<img src="https://thewolfsound.com/wp-content/ql-cache/quicklatex.com-333959b06439ff4e227bb8868be76497_l3.png" class="ql-img-inline-formula quicklatex-auto-format" alt="&#118;&#32;&#61;&#32;&#92;&#102;&#114;&#97;&#99;&#123;&#78;&#125;&#123;&#77;&#125;" title="Rendered by QuickLaTeX.com" height="22" width="50" style="vertical-align: -6px;" /> , the schema of the variable speed replay algorithm is as follows:<figure class="wp-block-image size-large">
 
-<img src="https://thewolfsound.com/wp-content/uploads/2019/12/VariableSpeedReplayScheme-1024x223.png" alt="" class="wp-image-300" srcset="https://thewolfsound.com/wp-content/uploads/2019/12/VariableSpeedReplayScheme-1024x223.png 1024w, https://thewolfsound.com/wp-content/uploads/2019/12/VariableSpeedReplayScheme-300x65.png 300w, https://thewolfsound.com/wp-content/uploads/2019/12/VariableSpeedReplayScheme-768x167.png 768w, https://thewolfsound.com/wp-content/uploads/2019/12/VariableSpeedReplayScheme-1536x334.png 1536w, https://thewolfsound.com/wp-content/uploads/2019/12/VariableSpeedReplayScheme-2048x445.png 2048w" sizes="(max-width: 1024px) 100vw, 1024px" /> <figcaption>Variable speed replay algorithm scheme.</figcaption></figure> 
+![](https://thewolfsound.com/wp-content/uploads/2019/12/VariableSpeedReplayScheme-1024x223.png)
+*Variable speed replay algorithm scheme.*
 
 Here<img src="https://thewolfsound.com/wp-content/ql-cache/quicklatex.com-5983fd41f37601a428f9cbb2c59829d7_l3.png" class="ql-img-inline-formula quicklatex-auto-format" alt="&#115;&#95;&#123;&#105;&#110;&#125;&#40;&#116;&#41;" title="Rendered by QuickLaTeX.com" height="18" width="41" style="vertical-align: -4px;" /> and<img src="https://thewolfsound.com/wp-content/ql-cache/quicklatex.com-10b0267a34d9544f86b6301cc6fc88b2_l3.png" class="ql-img-inline-formula quicklatex-auto-format" alt="&#115;&#95;&#123;&#111;&#117;&#116;&#125;&#40;&#116;&#41;" title="Rendered by QuickLaTeX.com" height="18" width="48" style="vertical-align: -4px;" /> denote discrete-time input and output signals respectively,<img src="https://thewolfsound.com/wp-content/ql-cache/quicklatex.com-6b075c9bf2aaf4bda5700c368152dc68_l3.png" class="ql-img-inline-formula quicklatex-auto-format" alt="&#102;&#95;&#99;" title="Rendered by QuickLaTeX.com" height="16" width="15" style="vertical-align: -4px;" /> the cutoff frequency of the low-pass filter,<img src="https://thewolfsound.com/wp-content/ql-cache/quicklatex.com-8672b0e2192d97d6cd1fc6e3bdf45936_l3.png" class="ql-img-inline-formula quicklatex-auto-format" alt="&#102;&#95;&#123;&#115;&#44;&#32;&#105;&#110;&#125;" title="Rendered by QuickLaTeX.com" height="18" width="32" style="vertical-align: -6px;" /> sample rate of the input signal, and<img src="https://thewolfsound.com/wp-content/ql-cache/quicklatex.com-10ebb71bad275c1815a8f2a8c5dea0be_l3.png" class="ql-img-inline-formula quicklatex-auto-format" alt="&#77;" title="Rendered by QuickLaTeX.com" height="12" width="19" style="vertical-align: 0px;" /> and<img src="https://thewolfsound.com/wp-content/ql-cache/quicklatex.com-5793832f979c2268e3694c246d53b1bb_l3.png" class="ql-img-inline-formula quicklatex-auto-format" alt="&#78;" title="Rendered by QuickLaTeX.com" height="12" width="16" style="vertical-align: 0px;" /> are integers such that<img src="https://thewolfsound.com/wp-content/ql-cache/quicklatex.com-83823bd1f59008275c11ea266f71595f_l3.png" class="ql-img-inline-formula quicklatex-auto-format" alt="&#118;&#61;&#92;&#102;&#114;&#97;&#99;&#123;&#78;&#125;&#123;&#77;&#125;" title="Rendered by QuickLaTeX.com" height="22" width="50" style="vertical-align: -6px;" /> . The following subsequent operations are applied to the input signal:
 
@@ -167,7 +168,8 @@ We have discussed the variable speed replay algorithm, which enables to manipula
 
 If you want to learn more I highly encourage you to check out this book &#8220;Digital Audio FX&#8221; by Udo Zölzer et. al.:
 
-<a target="_blank" href="https://www.amazon.com/gp/product/0470665998/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0470665998&linkCode=as2&tag=wolfsound-20&linkId=7934fe656d8291d10cddaa0a7598f2ba" rel="noopener noreferrer"><img border="0" src="//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&MarketPlace=US&ASIN=0470665998&ServiceVersion=20070822&ID=AsinImage&WS=1&Format=_SL250_&tag=wolfsound-20" /></a><img src="//ir-na.amazon-adsystem.com/e/ir?t=wolfsound-20&l=am2&o=1&a=0470665998" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /> 
+[![](https://m.media-amazon.com/images/I/51YOksxKouL._SL110_.jpg)](https://www.amazon.com/gp/product/B005HF2HFE/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B005HF2HFE&linkCode=as2&tag=wolfsound-20&linkId=6c9f7282a7ef876007a8981fb1f5baa6)
+
 
 It contains an even broader perspective on the variable speed replay algorithm and many more; it is one of the best books to learn about audio algorithms!
 
@@ -175,7 +177,8 @@ It contains an even broader perspective on the variable speed replay algorithm a
 
 The following code is a command-line tool to create the slow-motion or &#8216;chipmunk&#8217; sound effect. The &#8216;crude&#8217; version is a direct implementation of the algorithm as presented on the scheme above, the &#8216;smart&#8217; version uses the resampling facility of SciPy and is significantly faster.
 
-<pre class="brush: python; title: ; notranslate" title="">#!/usr/bin/env python3
+```python
+#!/usr/bin/env python3
 """
 Variable speed replay algorithm implementation.
 
@@ -262,8 +265,7 @@ if __name__ == '__main__':
     transformed = variable_speed_replay(data, sample_rate, args.M, args.N, args.process_frame)
 
     play_samples_blocking(transformed, sample_rate, volume=0.4)
-
-</pre>
+```
 
 Feel free to copy and test out the above code. If you are not sure how to use it, then run `variable_speed_replay.py --help` (assuming you copied the code into &#8216;variable\_speed\_replay.py&#8217; file) and follow the instructions given.
 
@@ -271,7 +273,3 @@ Feel free to copy and test out the above code. If you are not sure how to use it
 
 [1] Zölzer, U. DAFX: Digital Audio Effects. 2nd ed. Helmut Schmidt University – University  
 of the Federal Armed Forces, Hamburg, Germany: John Wiley & Sons Ltd, 2011.
-
-
-
-<!--themify-builder:block-->
