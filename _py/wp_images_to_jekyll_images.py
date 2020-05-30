@@ -64,7 +64,9 @@ def wp_to_jekyll_images(file_contents, wp_images):
         image = wp_images[i]
         tag_start_line = image.start_position[0]
         tag_end_line = image.end_position[0]
-        new_image_entry = f'![{image.alt}]({image.link})\n*{image.caption}*\n'
+        new_image_entry = f'![{image.alt}]({image.link})\n'
+        if image.caption is not None:
+            new_image_entry += f'*{image.caption}*\n'
         file_contents = file_contents[:tag_start_line-1] + [new_image_entry] + file_contents[tag_end_line:]
     return file_contents
 

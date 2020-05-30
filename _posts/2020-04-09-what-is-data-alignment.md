@@ -47,23 +47,16 @@ To understand the concept of alignment we first have to differentiate between _a
 Let&#8217;s imagine that computer&#8217;s memory consists of drawers. Each drawer is of the same size in bytes which is equal to a power of 2, and we can somehow choose which power it is. For example, the whole memory could be made up of 4-byte blocks. We still can address every byte, but only the first address in each block is &#8220;aligned&#8221;. That is the address alignment. 
 
 ![](https://thewolfsound.com/wp-content/uploads/2020/04/memory_aligned-300x263.png)
-*None*
 
 ## Datum alignment
 
 Now, if a 4-byte variable is placed completely in one of these 4-byte blocks (it fills all 4 bytes of a block) it is said to be _aligned_. That is datum alignment.
 
-![Obraz zawierający zegar
-
-Opis wygenerowany automatycznie](https://thewolfsound.com/wp-content/uploads/2020/04/int_in_memory-300x263.png)
-*None*
+![](https://thewolfsound.com/wp-content/uploads/2020/04/int_in_memory-300x263.png)
 
 Now, how would it look like, if such a 4-byte variable would not be aligned? It would occupy more than one block (it would cross the block boundary). It could be placed, for example, at address 4n + 1 (where n is a nonnegative integer) and would hence take addresses 4n+1, 4n+2, 4n+3 and 4n+4 = 4(n+1) + 0. 
 
-![Obraz zawierający zegar
-
-Opis wygenerowany automatycznie](https://thewolfsound.com/wp-content/uploads/2020/04/bad_int_in_memory-300x263.png)
-*None*
+![](https://thewolfsound.com/wp-content/uploads/2020/04/bad_int_in_memory-300x263.png)
 
 That means, that in order to read out the variable the processor would need two read operations: one from the first 4-byte block and another one from the second. That in turn is, of course, slightly slower, but may as well be prone to race condition (one thread reads part of the variable, another thread modifies the whole variable and then the first thread reads the other part of the variable; in effect, the retrieved value is completely incorrect).
 
@@ -79,17 +72,19 @@ Of course, one could argue, that in modern computers such microoptimization is u
 
 Consider the following structure:
 
-<pre class="brush: cpp; gutter: false; title: ; notranslate" title="">struct A {
+```cpp
+struct A {
     char c1;
     short s1;
     int i1;
     char c2;
 };
-</pre>
+```
 
 In memory the structure looks rather like the following (due to data alignment done by the compiler):
 
-<pre class="brush: cpp; gutter: false; title: ; notranslate" title="">struct A {
+```cpp
+struct A {
     char c1;
     // 1-byte padding
     short s1;
@@ -97,7 +92,7 @@ In memory the structure looks rather like the following (due to data alignment d
     char c2;
     // 3-byte padding
 };
-</pre>
+```
 
 On my computer, `sizeof(A)` returns 12, what means that due to additional padding `struct`&#8216;s size is 4 bytes larger than the sum of its data members&#8217; sizes (on my machine, running gcc 7.2.0, `char` is 1 byte, `short` is 2 bytes and `int` is 4 bytes long).
 
@@ -111,13 +106,14 @@ This layout of `A` results in 4 bytes wasted per each variable of type `A`. That
 
 What can we do, to get rid of the padding? We could use some nasty implementation-specific preprocessor directives, &#8220;which I will not utter here&#8221;. As already mentioned, forcing data members to be unaligned can increase their access time. However, in this case, we can simply reorder data members of the `struct` in the following way:
 
-<pre class="brush: cpp; gutter: false; title: ; notranslate" title="">struct B {
+```cpp
+struct B {
     int i1;
     short s1;
     char c1;
     char c2;
 };
-</pre>
+```
 
 In struct B `int` is at a 4-byte boundary, `short` at a 2-byte boundary and of course both `char`s at 1-byte boundaries. It is worth mentioning that although `B`&#8216;s alignment requirement is the same as `A`&#8216;s, its size is 4 bytes smaller.
 
@@ -125,14 +121,15 @@ In struct B `int` is at a 4-byte boundary, `short` at a 2-byte boundary and of c
 
 A simple rule to follow in data member order declaration to minimize additional padding is to declare data members in descending order of size (as returned by the `sizeof` operator). We then get the best alignment we could possibly ever get with any ordering. Sometimes a loss is inevitable, as in the following `struct`:
 
-<pre class="brush: cpp; gutter: false; title: ; notranslate" title="">struct C {
+```cpp
+struct C {
     int i1;
     short s1;
     short c1;
     char c2;
     // 3-byte padding
 };
-</pre>
+```
 
 If we wanted to pack variables of type `C` in an array in a way, that uses no additional space beyond the sum of `C` members&#8217; sizes multiplied by the number of the array members, the only option left is to use the preprocessor directives.
 
@@ -189,5 +186,3 @@ _Note: Please be reminded, that_ `int` _does not have to necessarily be 4 bytes 
 [4] Alignment optimality discussion: <https://lemire.me/blog/2012/05/31/data-alignment-for-speed-myth-or-reality/> Access: 09.04.2020 
 
 [5] `std::alignment_of<T>` vs. `alignof`: <https://stackoverflow.com/questions/36981968/stdalignment-of-versus-alignof> Access: 09.04.2020 
-
-<!--themify-builder:block-->

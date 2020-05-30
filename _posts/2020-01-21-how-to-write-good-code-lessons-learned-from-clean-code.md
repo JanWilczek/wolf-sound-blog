@@ -42,7 +42,7 @@ tags:
 
 Today we are going to talk about THIS book:
 
-![](//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&MarketPlace=US&ASIN=0132350882&ServiceVersion=20070822&ID=AsinImage&WS=1&Format=_SL250_&tag=wolfsound-20)
+[![](https://m.media-amazon.com/images/I/41jEbK-jG+L._SL250_.jpg)](https://amzn.to/2MfHG4q)
 *Click the image to view on Amazon.com*
 
 It is the &#8220;Clean Code&#8221; by Robert C. Martin which is by some considered the ultimate book on &#8220;how to write good code&#8221;. Today I&#8217;d like to share with you my experience with the book and what I&#8217;ve learned from it.
@@ -170,23 +170,11 @@ Dealing with and reasoning about multithreaded code is difficult. One needs to t
 
 It never occurred to me that functions should not only do 1 thing, but also 1 thing on a single abstraction level. It can be best explained through examples: Imagine a function or method handling a HTTP request. Should it deal with the format of the message? Should it deal with the correct&nbsp; placement of separators? Should it manipulate the response string? Probably not. Delegating these lower-level tasks makes the code much more readable, much less error-prone and most probably helps you adhere to the Don&#8217;t Repeat Yourself principle.
 
-<div class="wp-block-columns">
-  <div class="wp-block-column">
-    <figure class="wp-block-image size-large is-resized"><img src="https://thewolfsound.com/wp-content/uploads/2020/01/AbstractionLevelsBefore-1.png" alt="" class="wp-image-369" width="350" height="187" srcset="https://thewolfsound.com/wp-content/uploads/2020/01/AbstractionLevelsBefore-1.png 361w, https://thewolfsound.com/wp-content/uploads/2020/01/AbstractionLevelsBefore-1-300x161.png 300w" sizes="(max-width: 350px) 100vw, 350px" /></figure> 
-    
-    <p>
-      <code>processBlock()</code> operates on two different level of abstraction: first muddling through particular samples, then calling a higher level function.
-    </p>
-  </div>
-  
-  <div class="wp-block-column">
-    <figure class="wp-block-image size-large is-resized"><img src="https://thewolfsound.com/wp-content/uploads/2020/01/AbstractionLevelsAfter.png" alt="" class="wp-image-366" width="349" height="96" srcset="https://thewolfsound.com/wp-content/uploads/2020/01/AbstractionLevelsAfter.png 324w, https://thewolfsound.com/wp-content/uploads/2020/01/AbstractionLevelsAfter-300x82.png 300w" sizes="(max-width: 349px) 100vw, 349px" /></figure> 
-    
-    <p>
-      This function operates on a single level of abstraction. Notice the removal of now redundant comments.
-    </p>
-  </div>
-</div>
+![](https://thewolfsound.com/wp-content/uploads/2020/01/AbstractionLevelsBefore-1.png)
+*`processBlock()` operates on two different level of abstraction: first muddling through particular samples, then calling a higher level function.*
+
+![](ttps://thewolfsound.com/wp-content/uploads/2020/01/AbstractionLevelsAfter.png)
+*This function operates on a single level of abstraction. Notice the removal of now redundant comments.*
 
 ## Part 2: The value of testing
 
@@ -232,7 +220,7 @@ That is a little bit related to the previous one. Why write what your method tak
 
 Most often not every line of code is covered with tests. That is to be expected. However, the more tests you have, the more likely you are to catch errors, even the ones present outside your classes! Test failures following certain patterns may reveal not only where the bug is but also unexpected behaviours of the system. That, however, means that testing should be extensive, so keep this in mind when writing test code.
 
-### 7. Using TDD makes your system testable by producing better interfaces.
+### 7. Using Test Driven Development makes your system testable by producing better interfaces.
 
 If you need to interact with your code from the very beginning, you have a concrete proof of how the class you are writing will be used. Having it in code is everything, having it in head is nothing. Tests force you to write clean interfaces. Otherwise you may experience what I have with my poorly developed code: it&#8217;s hard to test, so let&#8217;s not test it. This is not the way of a good programmer. Had I written the tests beforehand the system would be testable from the very beginning.
 
@@ -244,12 +232,10 @@ As Linus Torvalds once said, “Talk is cheap. Show me the code.” I am not the
 
 That&#8217;s about it! What do you think I missed? Do you have your own design methodologies, varying from what has been presented here? Are you convinced to testing or would you rather employ a different methodology? If yes, which one? Tell me in the comments below.
 
-I hope you have benefited from reading this article. If you want to read the book, click on its cover below:<figure class="wp-block-embed-amazon-kindle wp-block-embed is-type-rich is-provider-amazon">
+I hope you have benefited from reading this article. If you want to read the book, click on its cover below:
 
-<div class="wp-block-embed__wrapper">
-  <div class="post-embed">
-  </div>
-</div><figcaption>Click on the image to view on Amazon.com</figcaption></figure> 
+[![](https://m.media-amazon.com/images/I/41jEbK-jG+L._SL250_.jpg)](https://amzn.to/2MfHG4q)
+*Click the image to view on Amazon.com*
 
 And remember: 
 
