@@ -26,6 +26,8 @@ header_wrap:
   - solid
 background_repeat:
   - fullcover
+image: /wp-content/uploads/2019/10/thumbnail_what_is_audio_programming.PNG
+background: /wp-content/uploads/2019/10/thumbnail_what_is_audio_programming.PNG
 categories:
   - Sound in general
 ---
