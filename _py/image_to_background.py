@@ -15,20 +15,23 @@ def get_md_files(path):
                 md_files.append(os.path.join(root, file))
     return md_files
 
-def image_to_files(post_files):
+def image_to_background(post_files):
     for post in post_files:
-        with open(post, 'rw') as f:
+        output_lines = None
+        with open(post, 'r') as f:
             lines = f.readlines()
             try:
-                image_line = next(line for line in lines if line.startswth('image:'))
+                image_line = next(line for line in lines if line.startswith('image:'))
                 image_line_index = lines.index(image_line)
                 words = image_line.split()
                 image_path = words[-1]
-                background_line = f'background: {image_path}'
+                background_line = f'background: {image_path}\n'
                 lines.insert(image_line_index + 1, background_line)
-                f.writelines(lines)
+                output_lines = lines
             except:
-                pass            
+                continue            
+        with open(post, 'w') as f:
+            f.writelines(output_lines)
 
 
 def main():

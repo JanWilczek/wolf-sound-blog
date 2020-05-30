@@ -28,6 +28,7 @@ themify_used_global_styles:
 tbp_custom_css:
   - ""
 image: /wp-content/uploads/2019/12/thumbnail.png
+background: /wp-content/uploads/2019/12/thumbnail.png
 categories:
   - Audio FX
   - Digital Signal Processing
