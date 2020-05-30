@@ -67,25 +67,11 @@ Most programmers know the Single Responsibility Principle (SRP), namely, that on
 
 Aspect-oriented programming let&#8217;s you write core business logic in the so-called Plain-Old Java Objects (POJO)s, as you normally would and then to define additional functionalities, so-called&nbsp; &#8216;aspects&#8217;, that are inserted between your method calls by a specialized framework. As you see, the functionalities are separated. 
 
-<div class="wp-block-columns">
-  <div class="wp-block-column">
 ![](https://thewolfsound.com/wp-content/uploads/2020/01/AspectOrientedProgammmingBefore-177x300.png)
-*None*
-    
-    <p>
-      SRP violation: <code>Account</code> stores information from user <strong>and </strong>handles database update.
-    </p>
-  </div>
-  
-  <div class="wp-block-column">
+*SRP violation: <code>Account</code> stores information from user <strong>and </strong>handles database update.*
+
 ![](https://thewolfsound.com/wp-content/uploads/2020/01/AspectOrientedProgammmingAfter-1-1024x953.png)
-*None*
-    
-    <p>
-      Each aspect (here <code>DatabaseConnection</code> aspect) adds new logic to the POJO object independently.
-    </p>
-  </div>
-</div>
+*Each aspect (here <code>DatabaseConnection</code> aspect) adds new logic to the POJO object independently.*
 
 In theory it is a simple and elegant solution, but in practice it heavily relies on the framework used. But it enables you to separate concerns efficiently and therefore enables smooth scalability of the system, since the modules are loosely coupled.
 
@@ -135,9 +121,7 @@ The book has a ton of examples to support its theses, some of which are over 20 
 
 The authors argue that introducing switch statements is a hint that polymorphism should be used. It may seem obscure at first sight, but if you think about it, it kind of makes sense, because switch implies different types of handlers and different types that do the same thing in various ways is exactly polymorphism. Clever, huh?
 
-<div class="wp-block-columns">
-  <div class="wp-block-column">
-    <pre class="brush: java; gutter: false; title: ; notranslate" title="">
+```java
 void handle_document(Document document)
 {
    switch(document.getType())
@@ -150,15 +134,10 @@ void handle_document(Document document)
          break;
        //...
 }
-</pre>
-    
-    <p>
-      Each usage of <code>Document</code> class is burdened with document&#8217;s type checking.
-    </p>
-  </div>
-  
-  <div class="wp-block-column">
-    <pre class="brush: java; gutter: false; title: ; notranslate" title="">
+```
+*Each usage of <code>Document</code> class is burdened with document&#8217;s type checking.*
+
+```java
 public interface DocumentHandler 
 { 
     void handle(Document document); 
@@ -169,19 +148,15 @@ void handle_document(Document document)
     DocumentHandler handler = getDocumentHandler(document.getType());
     handler.handle(document);
 }
-</pre>
-    
-    <p>
-      Specialized handler for each class takes all worries off <code>handle_document()</code> function. Such designs enables easy addition of new document types (adding new <code>DocumentHandler</code> implementation instead of modifying every usage of <code>Document</code> class).
-    </p>
-  </div>
-</div>
+```    
+*Specialized handler for each class takes all worries off <code>handle_document()</code> function. Such designs enables easy addition of new document types (adding new <code>DocumentHandler</code> implementation instead of modifying every usage of <code>Document</code> class).*
 
 ### 7. Encapsulating boundaries of the system.
 
 How to elegantly include an extern library? It is quite a tricky task for a newbie programmer. I know, because I had to deal with exactly that problem at the very beginning of my career as a software developer. &#8216;Clean Code&#8217; addresses that issue as well: define an interface specifying the operation you want the outer system to perform, namely, use the Adapter or Decorator pattern. It is a simple but profound answer, because it implies that you can create an interface not even knowing which library to pick. It also enables efficient testing through test doubles implementing that interface. It reduces the coupling considerably and makes it easy to replace the library with the newer version or a completely different dependency.<figure class="wp-block-image size-large">
 
-<img src="https://thewolfsound.com/wp-content/uploads/2020/01/Boundaries-1024x358.png" alt="" class="wp-image-354" srcset="https://thewolfsound.com/wp-content/uploads/2020/01/Boundaries-1024x358.png 1024w, https://thewolfsound.com/wp-content/uploads/2020/01/Boundaries-300x105.png 300w, https://thewolfsound.com/wp-content/uploads/2020/01/Boundaries-768x269.png 768w, https://thewolfsound.com/wp-content/uploads/2020/01/Boundaries-1536x537.png 1536w, https://thewolfsound.com/wp-content/uploads/2020/01/Boundaries-2048x717.png 2048w" sizes="(max-width: 1024px) 100vw, 1024px" /> <figcaption>Example of abstracting out the details of how an audio file will be decoded. This boundary of the system is well-protected against change.</figcaption></figure> 
+![](https://thewolfsound.com/wp-content/uploads/2020/01/Boundaries-1024x358.png" alt="" class="wp-image-354" srcset="https://thewolfsound.com/wp-content/uploads/2020/01/Boundaries-1024x358.png)
+*Example of abstracting out the details of how an audio file will be decoded. This boundary of the system is well-protected against change.*
 
 ### 8. Early stop and early start in multithreaded code.
 
