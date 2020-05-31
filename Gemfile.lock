@@ -9,6 +9,7 @@ GEM
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0.6.0)
     eventmachine (1.2.7)
+    execjs (2.7.0)
     ffi (1.12.2)
     forwardable-extended (2.6.0)
     http_parser.rb (0.6.0)
@@ -29,6 +30,9 @@ GEM
       safe_yaml (~> 1.0)
     jekyll-feed (0.13.0)
       jekyll (>= 3.7, < 5.0)
+    jekyll-katex (1.0.0)
+      execjs (~> 2.7)
+      jekyll (>= 3.6, < 5.0)
     jekyll-paginate (1.1.0)
     jekyll-sass-converter (1.5.2)
       sass (~> 3.4)
@@ -72,6 +76,7 @@ PLATFORMS
 DEPENDENCIES
   jekyll (~> 3.6)
   jekyll-feed (~> 0.12)
+  jekyll-katex
   jekyll-paginate
   jekyll-seo-tag
   jekyll-sitemap

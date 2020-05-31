@@ -37,6 +37,8 @@ tags:
 ---
 <iframe width="560" height="315" src="https://www.youtube.com/embed/f53m72uLa2I" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+{% katexmm %}
+
 To process the audio signal, we need to somehow represent it on our machine. Several different options are possible, but the most common and useful one for sound processing is the discrete sample representation. That&#8217;s where the concepts of sampling and quantization come into play.
 
 Mind you, that in this article expressions _function_ and _signal_ are used interchangeably. Both function and signal can be continuous or discrete.
@@ -45,13 +47,13 @@ Mind you, that in this article expressions _function_ and _signal_ are used inte
 
 The computers and hardware we are using are only capable of storing finite-valued numbers, e.g. 2, -5, 9.5, 10e3, some with less accuracy than others due to binary representation. How to represent a continuous (analog) function through such numbers?
 
-If we know that the observed function of time $$t$$ is affine we can write:
+If we know that the observed function of time $t$ is affine we can write:
 
 $$s(t) = at + b$$
 
-and store the a and b coefficients, which are discrete numbers. Whenever someone asks for the $$s$$ value at a particular time $$t$$ we can easily calculate the output using the formula above.
+and store the a and b coefficients, which are discrete numbers. Whenever someone asks for the $s$ value at a particular time $t$ we can easily calculate the output using the formula above.
 
-If the signal is a sinusoid, it is completely determined by its amplitude $$A$$ , frequency  $$f$$ and phase offset $$\phi$$:
+If the signal is a sinusoid, it is completely determined by its amplitude $A$ , frequency  $f$ and phase offset $\phi$:
 
 $$s(t) = A\sin(2\pi f t + \phi)$$
 
@@ -63,9 +65,9 @@ In general, we do not know how does the signal we are observing look like: that&
 ![](https://thewolfsound.com/wp-content/uploads/2019/11/Sine1HzSamples8Hz-2-1024x723.png)
 *1 Hz sine sampled with sample rate equal to 8 Hz. Red dots mark the samples taken. Clearly the original signal can be reconstructed.*
 
-**Sampling** is the process of measuring and storing values of the observed continuous function $$s(t)$$ at discrete time intervals $$nT$$. From mathematical point of view, we can present it as:
+**Sampling** is the process of measuring and storing values of the observed continuous function $s(t)$ at discrete time intervals $nT$. From mathematical point of view, we can present it as:
 
-$$s_{discrete}(n) = s_{continuous}(t) p(t) =  s_{continuous}(t) \delta (t - n T)$$
+$$s_{discrete}(n) = s_{continuous}(t) p(t) =  s_{continuous}(t) \delta (t - n T) \text{   \{eq:sampling\}}$$
 
 <!--  \label{eq:sampling} - not yet supported by KaTeX -->
 
@@ -73,25 +75,15 @@ where
 
 $$p(t) =   \sum_{n=-\infty}^{+\infty}\delta (t - n T)$$
 
-is called an a _sampling function_ or an _impulse-train_ (a series of discrete Dirac impulses spaced at time intervals $$T$$). In the equations above, $$t$$ is the continuous time, whereas $$n$$ is the index of the sample taken. Discrete Dirac&#8217;s delta $$\delta (x)$$ is equal to $$1$$ if $$x$$ is equal to $$0$$ and $$0$$ everywhere else:
+is called an a _sampling function_ or an _impulse-train_ (a series of discrete Dirac impulses spaced at time intervals $T$). In the equations above, $t$ is the continuous time, whereas $n$ is the index of the sample taken. Discrete Dirac&#8217;s delta $\delta (x)$ is equal to $1$ if $x$ is equal to $0$ and $0$ everywhere else:
 
-<!-- $$\delta (x) = \begin{cases}1 & \quad\text{if } x = 0  \\  0 & \quad\text{if } x \ne 0 \end{cases}$$ -->
-<!-- $$\delta (x) = \begin{cases}1 & \text{if } x = 0  \\  0 & \text{if } x \ne 0 \end{cases}$$ -->
-<!-- $$\delta (x) = \begin{cases}1  \quad\text{if } x = 0  0  \quad\text{if } x \ne 0 \end{cases}$$ -->
-$$x = \begin{cases}
-   a &\text{if } b \\
-   c &\text{if } d
-\end{cases}$$
+$$\delta (x) = \begin{cases}1 & \quad\text{if } x = 0  \\  0 & \quad\text{if } x \ne 0 \end{cases}$$
 
-<!-- $$\delta (x) = 1 \quad\text{if } x = 0 $$ -->
+so the right hand side expression in {eq:sampling} is equal to $0$ unless $t = nT$. $T$ is called the sampling period and is equal to the reciprocal of the _sampling frequency_:
 
-so the right hand side expression in (ref{eq:sampling}) is equal to<img src="https://thewolfsound.com/wp-content/ql-cache/quicklatex.com-a5e437be25f29374d30f66cd46adf81c_l3.png" class="ql-img-inline-formula quicklatex-auto-format" alt="&#48;" title="Rendered by QuickLaTeX.com" height="12" width="9" style="vertical-align: 0px;" /> unless<img src="https://thewolfsound.com/wp-content/ql-cache/quicklatex.com-9b470f1001b56cd887eff171807c3de7_l3.png" class="ql-img-inline-formula quicklatex-auto-format" alt="&#116;&#32;&#61;&#32;&#110;&#84;" title="Rendered by QuickLaTeX.com" height="12" width="54" style="vertical-align: 0px;" /> .<img src="https://thewolfsound.com/wp-content/ql-cache/quicklatex.com-f9ed275b0bf1633b7ee83b78fcc28273_l3.png" class="ql-img-inline-formula quicklatex-auto-format" alt="&#84;" title="Rendered by QuickLaTeX.com" height="12" width="13" style="vertical-align: 0px;" /> is called the _sampling period_ and is equal to the reciprocal of the _sampling frequency_:
+$$f_s = \frac{1}{T}$$
 
-<p class="ql-center-displayed-equation" style="line-height: 36px;">
-  <span class="ql-right-eqno"> (6) </span><span class="ql-left-eqno"> &nbsp; </span><img src="https://thewolfsound.com/wp-content/ql-cache/quicklatex.com-804505f2386a2da1d867ab842ef04001_l3.png" height="36" width="54" class="ql-img-displayed-equation quicklatex-auto-format" alt="&#92;&#98;&#101;&#103;&#105;&#110;&#123;&#101;&#113;&#117;&#97;&#116;&#105;&#111;&#110;&#42;&#125;&#102;&#95;&#115;&#32;&#61;&#32;&#92;&#102;&#114;&#97;&#99;&#123;&#49;&#125;&#123;&#84;&#125;&#92;&#101;&#110;&#100;&#123;&#101;&#113;&#117;&#97;&#116;&#105;&#111;&#110;&#42;&#125;" title="Rendered by QuickLaTeX.com" />
-</p>
-
-**Sampling frequency** (or **sampling rate**) is the number of samples of the continuous function (signal) we observe during one second. It is expressed in Hz (<img src="https://thewolfsound.com/wp-content/ql-cache/quicklatex.com-56f3096c4cfcac2ff29e4aab6a43dcbe_l3.png" class="ql-img-inline-formula quicklatex-auto-format" alt="&#92;&#102;&#114;&#97;&#99;&#123;&#49;&#125;&#123;&#115;&#125;" title="Rendered by QuickLaTeX.com" height="22" width="7" style="vertical-align: -6px;" />).
+**Sampling frequency** (or **sampling rate**) is the number of samples of the continuous function (signal) we observe during one second. It is expressed in Hz ($\frac{1}{s}$).
 
 Sampling rate is one of the most fundamentals parameters of any digital system we work with. It determines the behavior of many algorithms and the way we process sound. Most importantly, it specifies how we store and reproduce the sound.
 
@@ -99,27 +91,23 @@ A theorem of utmost importance is the _sampling theorem_.
 
 ## The sampling theorem
 
-If<img src="https://thewolfsound.com/wp-content/ql-cache/quicklatex.com-71bb6069be79963fa181192fd4c18b4f_l3.png" class="ql-img-inline-formula quicklatex-auto-format" alt="&#102;&#95;&#123;&#109;&#97;&#120;&#125;" title="Rendered by QuickLaTeX.com" height="16" width="36" style="vertical-align: -4px;" /> is the maximum frequency in the observed signal<img src="https://thewolfsound.com/wp-content/ql-cache/quicklatex.com-a041b68ebbaa6df4e193ec93fb94e088_l3.png" class="ql-img-inline-formula quicklatex-auto-format" alt="&#115;&#40;&#116;&#41;" title="Rendered by QuickLaTeX.com" height="18" width="27" style="vertical-align: -4px;" /> , it can be uniquely represented by a discrete sequence<img src="https://thewolfsound.com/wp-content/ql-cache/quicklatex.com-d5e10cbada5d6be0f6bb3b8062661dc7_l3.png" class="ql-img-inline-formula quicklatex-auto-format" alt="&#115;&#40;&#110;&#84;&#41;" title="Rendered by QuickLaTeX.com" height="18" width="45" style="vertical-align: -4px;" /> if
+If $f_{max}$ is the maximum frequency in the observed signal $s(t)$, it can be uniquely represented by a discrete sequence $s(nT)$ if
 
-<p class="has-text-align-center">
-  <p class="ql-center-displayed-equation" style="line-height: 36px;">
-    <span class="ql-right-eqno"> (7) </span><span class="ql-left-eqno"> &nbsp; </span><img src="https://thewolfsound.com/wp-content/ql-cache/quicklatex.com-09d968c4b005ca88b382bf53e5cad9d3_l3.png" height="36" width="84" class="ql-img-displayed-equation quicklatex-auto-format" alt="&#92;&#98;&#101;&#103;&#105;&#110;&#123;&#101;&#113;&#117;&#97;&#116;&#105;&#111;&#110;&#42;&#125;&#102;&#95;&#123;&#109;&#97;&#120;&#125;&#32;&#60;&#32;&#92;&#102;&#114;&#97;&#99;&#123;&#102;&#95;&#115;&#125;&#123;&#50;&#125;&#44;&#92;&#101;&#110;&#100;&#123;&#101;&#113;&#117;&#97;&#116;&#105;&#111;&#110;&#42;&#125;" title="Rendered by QuickLaTeX.com" />
-  </p>
-</p>
+$$f_{max} < \frac{f_s}{2},$$
 
-where<img src="https://thewolfsound.com/wp-content/ql-cache/quicklatex.com-a888294c1312057cfc47f87d3455578b_l3.png" class="ql-img-inline-formula quicklatex-auto-format" alt="&#116;&#32;&#92;&#105;&#110;&#32;&#92;&#109;&#97;&#116;&#104;&#98;&#98;&#123;&#82;&#125;" title="Rendered by QuickLaTeX.com" height="13" width="41" style="vertical-align: -1px;" /> ,<img src="https://thewolfsound.com/wp-content/ql-cache/quicklatex.com-99d1c594479400a10d54e8668db60c41_l3.png" class="ql-img-inline-formula quicklatex-auto-format" alt="&#110;&#32;&#92;&#105;&#110;&#32;&#92;&#109;&#97;&#116;&#104;&#98;&#98;&#123;&#90;&#125;" title="Rendered by QuickLaTeX.com" height="13" width="44" style="vertical-align: -1px;" /> and<img src="https://thewolfsound.com/wp-content/ql-cache/quicklatex.com-76ecdcc71175854cf39974ec7add250d_l3.png" class="ql-img-inline-formula quicklatex-auto-format" alt="&#84;&#32;&#61;&#32;&#92;&#102;&#114;&#97;&#99;&#123;&#49;&#125;&#123;&#102;&#95;&#115;&#125;" title="Rendered by QuickLaTeX.com" height="25" width="52" style="vertical-align: -9px;" /> .
+where $t \in \mathbb{R}$, $n \in \mathbb{Z}$ and $T = \frac{1}{f_s}$.
 
 What sampling theorem says, is that you need to take at least 3 samples per function&#8217;s period in order to be able to restore it to the continuous form. How the restoration will not be explained here.
 
 This theorem goes by many names, among which different combinations of names Nyquist, Shannon and Kotelnikov are used. Its significance can be seen in its multiple corollaries and many applications, also in sound programming.
 
-The quantity of<img src="https://thewolfsound.com/wp-content/ql-cache/quicklatex.com-a593f0d1f67ebfe0ee1a026824cfe6df_l3.png" class="ql-img-inline-formula quicklatex-auto-format" alt="&#92;&#102;&#114;&#97;&#99;&#123;&#102;&#95;&#115;&#125;&#123;&#50;&#125;" title="Rendered by QuickLaTeX.com" height="23" width="14" style="vertical-align: -6px;" /> is referred to as _Nyquist frequency_. In general, the signal we wish to observe, should not contain frequencies above the Nyquist frequency. Otherwise our sampling is prone to _aliasing_ which will be explained in another article. Suffice it to say, that it disturbes our view of the signal.
+The quantity of $\frac{f_s}{2}$ is referred to as _Nyquist frequency_. In general, the signal we wish to observe, should not contain frequencies above the Nyquist frequency. Otherwise our sampling is prone to _aliasing_ which will be explained in another article. Suffice it to say, that it disturbes our view of the signal.
 
 ## Quantization
 
 Not only we are not able to store continuous functions directly on digital machines, but we also fail to represent all its values precisely. **Quantization** describes, which values can we store adequately.
 
-**Quantization in time** directly follows from the sampling methodology. We are only able to sample as fast as our _analog-to-digital_ _converters_ (ADCs) let us. From a practical perspective, it is quite desirable to have evenly spaced samples, rather than intervals of varying length between successive samples. It lets us analyze the signal more easily and apply various mathematical operations (e.g. we are able to formulate it with the use of the impulse-train function<img src="https://thewolfsound.com/wp-content/ql-cache/quicklatex.com-c7bd0d6cbbf9516f73e9757ea88a7b85_l3.png" class="ql-img-inline-formula quicklatex-auto-format" alt="&#112;&#40;&#116;&#41;" title="Rendered by QuickLaTeX.com" height="18" width="29" style="vertical-align: -4px;" /> ).
+**Quantization in time** directly follows from the sampling methodology. We are only able to sample as fast as our _analog-to-digital_ _converters_ (ADCs) let us. From a practical perspective, it is quite desirable to have evenly spaced samples, rather than intervals of varying length between successive samples. It lets us analyze the signal more easily and apply various mathematical operations (e.g. we are able to formulate it with the use of the impulse-train function $p(t)$).
 
 **Quantization in amplitude** restricts the precision of our observation in the value of the samples we take. It starts in ADCs and can be changed throughout the digital system. Whenever we change quantization to a less fine-grained system, we lose information.
 
@@ -196,3 +184,5 @@ You can copy the above code and run it yourself!
 
 Reference:  
 [1] Oppenheim, A. V. and Willsky, A. S. Signals & Systems. 2nd ed. Upper Sadle River, New Jersey: Prentice Hall, 1997.
+
+{% endkatexmm %}
