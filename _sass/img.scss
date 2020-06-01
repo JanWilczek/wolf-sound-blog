@@ -1,0 +1,10 @@
+$img_max_width: 100%;
+$img_height: auto;
+
+img {
+    max-width: $img_max_width;
+    height: $img_height;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}

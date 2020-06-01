@@ -149,13 +149,13 @@ void handle_document(Document document)
     handler.handle(document);
 }
 ```    
-*Specialized handler for each class takes all worries off <code>handle_document()</code> function. Such designs enables easy addition of new document types (adding new <code>DocumentHandler</code> implementation instead of modifying every usage of <code>Document</code> class).*
+*Specialized handler for each class takes all worries off `handle_document()` function. Such designs enables easy addition of new document types (adding new `DocumentHandler` implementation instead of modifying every usage of `Document` class).*
 
 ### 7. Encapsulating boundaries of the system.
 
-How to elegantly include an extern library? It is quite a tricky task for a newbie programmer. I know, because I had to deal with exactly that problem at the very beginning of my career as a software developer. &#8216;Clean Code&#8217; addresses that issue as well: define an interface specifying the operation you want the outer system to perform, namely, use the Adapter or Decorator pattern. It is a simple but profound answer, because it implies that you can create an interface not even knowing which library to pick. It also enables efficient testing through test doubles implementing that interface. It reduces the coupling considerably and makes it easy to replace the library with the newer version or a completely different dependency.<figure class="wp-block-image size-large">
+How to elegantly include an extern library? It is quite a tricky task for a newbie programmer. I know, because I had to deal with exactly that problem at the very beginning of my career as a software developer. &#8216;Clean Code&#8217; addresses that issue as well: define an interface specifying the operation you want the outer system to perform, namely, use the Adapter or Decorator pattern. It is a simple but profound answer, because it implies that you can create an interface not even knowing which library to pick. It also enables efficient testing through test doubles implementing that interface. It reduces the coupling considerably and makes it easy to replace the library with the newer version or a completely different dependency.
 
-![](https://thewolfsound.com/wp-content/uploads/2020/01/Boundaries-1024x358.png" alt="" class="wp-image-354" srcset="https://thewolfsound.com/wp-content/uploads/2020/01/Boundaries-1024x358.png)
+![](https://thewolfsound.com/wp-content/uploads/2020/01/Boundaries-1024x358.png)
 *Example of abstracting out the details of how an audio file will be decoded. This boundary of the system is well-protected against change.*
 
 ### 8. Early stop and early start in multithreaded code.
