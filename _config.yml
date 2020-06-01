@@ -26,6 +26,7 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://thewolfsound.com" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  JohnRogue
 youtube_channel: https://www.youtube.com/channel/UCZuWJuoBe046gMqmYcc7Qww
+logo_title_path: /wp-content/uploads/2019/10/LogoNameOnly.png
 
 # Build settings
 theme: jekyll-theme-clean-blog
