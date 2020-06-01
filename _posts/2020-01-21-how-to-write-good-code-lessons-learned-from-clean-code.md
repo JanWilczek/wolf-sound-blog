@@ -68,10 +68,10 @@ Most programmers know the Single Responsibility Principle (SRP), namely, that on
 Aspect-oriented programming let&#8217;s you write core business logic in the so-called Plain-Old Java Objects (POJO)s, as you normally would and then to define additional functionalities, so-called&nbsp; &#8216;aspects&#8217;, that are inserted between your method calls by a specialized framework. As you see, the functionalities are separated. 
 
 ![](https://thewolfsound.com/wp-content/uploads/2020/01/AspectOrientedProgammmingBefore-177x300.png)
-*SRP violation: <code>Account</code> stores information from user <strong>and </strong>handles database update.*
+*SRP violation: `Account` stores information from user <strong>and </strong>handles database update.*
 
 ![](https://thewolfsound.com/wp-content/uploads/2020/01/AspectOrientedProgammmingAfter-1-1024x953.png)
-*Each aspect (here <code>DatabaseConnection</code> aspect) adds new logic to the POJO object independently.*
+*Each aspect (here `DatabaseConnection` aspect) adds new logic to the POJO object independently.*
 
 In theory it is a simple and elegant solution, but in practice it heavily relies on the framework used. But it enables you to separate concerns efficiently and therefore enables smooth scalability of the system, since the modules are loosely coupled.
 
@@ -135,7 +135,7 @@ void handle_document(Document document)
        //...
 }
 ```
-*Each usage of <code>Document</code> class is burdened with document&#8217;s type checking.*
+*Each usage of `Document` class is burdened with document&#8217;s type checking.*
 
 ```java
 public interface DocumentHandler 
