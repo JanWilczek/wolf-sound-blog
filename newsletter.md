@@ -47,16 +47,17 @@ hide_navigation:
 <form action="https://thewolfsound.us20.list-manage.com/subscribe/post?u=5da91b45702ac45410802e155&amp;id=b6e8fb4e61" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
     <div id="mc_embed_signup_scroll">
 	
-<div class="indicates-required"><span class="asterisk">*</span> indicates required</div>
+<div class="indicates-required"><span class="asterisk">*</span> indicates required</div> <br>
 <div class="mc-field-group">
-	<label for="mce-FNAME">First Name </label>
+	<label for="mce-FNAME">First Name </label><br>
 	<input type="text" value="" name="FNAME" class="" id="mce-FNAME">
 </div>
+<br>
 <div class="mc-field-group">
 	<label for="mce-EMAIL">Email Address  <span class="asterisk">*</span>
-</label>
+</label> <br>
 	<input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
-</div>
+</div> <br>
 	<div id="mce-responses" class="clear">
 		<div class="response" id="mce-error-response" style="display:none"></div>
 		<div class="response" id="mce-success-response" style="display:none"></div>
