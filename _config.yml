@@ -22,7 +22,7 @@ title: WolfSound
 email: jan.wilczek@thewolfsound.com
 author: Jan Wilczek
 description: >- # this means to ignore newlines until "baseurl:"
-  Welcome to WolfSound – the ultimate blog about sound programming!
+  Welcome to WolfSound – the "rough" blog about audio programming!
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://thewolfsound.com" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  JohnRogue

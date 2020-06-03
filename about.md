@@ -1,9 +1,11 @@
 ---
 layout: page
 title: About
-description: TheWolfSound.com descritption
+description: What is WolfSound all about?
 background: '/wp-content/uploads/2019/10/Logo-1024x602.png'
 ---
+<iframe width="560" height="315" src="https://www.youtube.com/embed/5A4y6pUL1CM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 Welcome to the Wolf Sound! Thank You for being here.
 
 My name is Jan Wilczek and I have created Wolf Sound to be able to share my passion of audio programming.
