@@ -72,29 +72,19 @@ def plot_signals_3d(signals, filepath):
 
     fig = plt.figure()
     ax = fig.add_subplot(1, 1, 1, projection='3d')
+    ax.view_init(20, 250)
     for i in range(signals.shape[0]):
-        depth = 1 - signals.shape[0] + i
+        depth = 0.2* (i - 1)
         for j in range(signals.shape[1]):
-            line = art3d.Line3D(*zip((j, depth, 0), (j, depth, signals[i,j])), marker='o', markevery=(1, 1))
+            line = art3d.Line3D(*zip((j, depth, 0), (j, depth, signals[i,j])), marker='o', markevery=(1, 1), linestyle='-', color=COLORS[i])
             ax.add_line(line)
     plt.xlim(xlim)
-    plt.ylim([-1.1, 1.1])
-    plt.yticks(np.arange(-1,1.1,0.25), labels=['-1','','','','0','','','','1'])
-    # plt.grid(b=True)
-    
-    ax = plt.gca()
+    # plt.ylim([-1.1, 1.1])
+    ax.set_yticklabels([])
+    ax.set_ylim([-0.3, 0.5])
+    # ax.set_zticks(np.arange(-1,1.1,0.25))
+    # ax.set_zticklabels(['-1','','','','0','','','','1'])
 
-    # Move left y-axis and bottim x-axis to centre, passing through (0,0)
-    # ax.spines['left'].set_position(('data', 0.0))
-    # ax.spines['bottom'].set_position(('data', 0.0))
-
-    # Eliminate upper and right axes
-    # ax.spines['right'].set_color('none')
-    # ax.spines['top'].set_color('none')
-
-    # Show ticks in the left and lower axes only
-    # ax.xaxis.set_ticks_position('bottom')
-    # ax.yaxis.set_ticks_position('left')
     plt.savefig(filepath.absolute(), bbox_inches='tight', dpi=300)
     # plt.show()
 
@@ -119,21 +109,16 @@ def main():
     plot_signals(x_single, post_images_path.joinpath('x_single.png'))
 
     h_single = np.zeros((len(x),len(y)))
-    # h_domain_visualization = mtlb.repmat(np.arange(0.0,len(y),1.0), h_single.shape[0], 1)
     for i in range(len(x)):
         h_single[i,:] = np.convolve(x_single[i,:],h)
         plot_signal(h_single[i,:], post_images_path.joinpath(f'h_single_{i}.png'), color=COLORS[i])
 
-        # SHIFT_FACTOR = 0.1
-        # h_domain_visualization[i,:] =  np.add(h_domain_visualization[i,:], SHIFT_FACTOR * (1 - len(x) + i))
     
-    # print(h_domain_visualization)
     plot_signals_3d(h_single, post_images_path.joinpath('h_superposed.png'))
-    
-    
-    
 
-    
+    h_summed = np.sum(h_single, axis=0)
+    plot_signal(h_summed, post_images_path.joinpath('h_summed.png'))
+        
 
 if __name__ == '__main__':
     main()

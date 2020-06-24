@@ -96,7 +96,44 @@ The same thing happens for green $x[2]$ and red $x[3]$:
 ![]({{ page.images | absolute_url | append: "/h_single_2.png"}})
 ![]({{ page.images | absolute_url | append: "/h_single_3.png"}})
 
-Summing all these "partial" responses up we obtain:
+Viewing all these "partial" responses on a plot shows the impact of each individual input sample over time:
+![]({{ page.images | absolute_url | append: "/h_superposed.png"}})
 
+Summing them all up (as if summing over $k$ in the convolution formula) we obtain:
+![]({{ page.images | absolute_url | append: "/h_single_0.png"}})
+what corresponds to the $y[n]$ signal above.
+
+# Continuous convolution
+Convolution is defined for continuous signals as well (notice the conventional use of round brackets for non-discrete functions):
+
+$$ x(t) \ast h(t) = \int \limits_{-\infty}^{\infty} x(\tau) h(t - \tau) d\tau $$
+
+Although it may not be as intuitive in interpretation as the discrete convolution, nevertheless, we could try to imagine the continuous case as an infinitely densely sampled discrete signal (so that sum over discrete samples changes to integral over continuous functions). But keep in mind that it is only an intuitive view!
+
+# Properties of convolution
+In this article the following properties of the convolution are discussed:
+ * commutativity: $x \ast h = h \ast x$
+ * linearity (associativity + distributivity):  
+ $(\alpha x_1 + \beta x_2) \ast h = \alpha (x_1\ast h) + \beta (x_2 \ast h)$
+
+Their formulations and proofs are provided for the discrete as well as continuous cases.
+
+## Commutativity
+Commutativity of an operation means that its operands can be exchanged without affecting the result:
+
+$$ x[n] \ast h[n] = h[n] \ast x[n] $$
+$$ x(t) \ast h(t) = h(t) \ast x(t) $$
+
+It has a very interesting interpretation in the context of signal processing: it turns out we can interpret system's impact on the signal as signal's impact on the system's impulse response. In particular, the filtering operation can be viewed as if the input signal was filtering the filter's impulse response. As we already seen, it is completely true: the output of a filter is a sum of its repeatedly scaled and delayed (=filtered) impulse response.
+
+### Proof for the discrete case
+$$ x[n] \ast h[n] = \sum_{k=-\infty}^{\infty} x[k] h[n - k] = | k' = n-k; k = n - k'| \\ =\sum_{k'=-\infty}^{\infty} x[n-k'] h[k'] = \sum_{k'=-\infty}^{\infty} h]k'] x[n-k'] = h[n] \ast x[n]. $$
+
+### Proof for the continuous case
+$$ x(t) \ast h(t) = \int \limits_{-\infty}^{\infty} x(\tau) h(t - \tau) d\tau \\ = | \tau' = t - \tau; \tau = t - \tau'; d\tau'| \\= -d\tau | = - \int \limits_{\infty}^{-\infty} x(t - \tau') h(\tau') d\tau' = \int \limits_{-\infty}^{\infty} h(\tau') x(t - \tau') d\tau' \\= h(t) \ast x(t).$$
+
+*Note the inversion of boundaries and the resulting change of the sign.*
+
+## Linearity (associativity + distributivity)
 
 {% endkatexmm %}
