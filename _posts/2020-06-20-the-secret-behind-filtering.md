@@ -113,16 +113,17 @@ Although it may not be as intuitive in interpretation as the discrete convolutio
 # Properties of convolution
 In this article the following properties of the convolution are discussed:
  * commutativity: $x \ast h = h \ast x$
- * linearity (associativity + distributivity):  
+ * associativity: $x \ast (h_1 \ast h_2) = (x \ast h_1) \ast h_2$
+ * linearity:  
  $(\alpha x_1 + \beta x_2) \ast h = \alpha (x_1\ast h) + \beta (x_2 \ast h)$
+*$x$ and $h$ here can be both discrete or both continuous.*
 
 Their formulations and proofs are provided for the discrete as well as continuous cases.
 
 ## Commutativity
 Commutativity of an operation means that its operands can be exchanged without affecting the result:
 
-$$ x[n] \ast h[n] = h[n] \ast x[n] $$
-$$ x(t) \ast h(t) = h(t) \ast x(t) $$
+$$ x \ast h = h \ast x $$
 
 It has a very interesting interpretation in the context of signal processing: it turns out we can interpret system's impact on the signal as signal's impact on the system's impulse response. In particular, the filtering operation can be viewed as if the input signal was filtering the filter's impulse response. As we already seen, it is completely true: the output of a filter is a sum of its repeatedly scaled and delayed (=filtered) impulse response.
 
@@ -134,6 +135,22 @@ $$ x(t) \ast h(t) = \int \limits_{-\infty}^{\infty} x(\tau) h(t - \tau) d\tau \\
 
 *Note the inversion of boundaries and the resulting change of the sign.*
 
-## Linearity (associativity + distributivity)
+## Associativity
+Associativity of an operation ensures that we can calculate the results of this operation in any order when given a couple of them in series:
+$$x \ast (h_1 \ast h_2) = (x \ast h_1) \ast h_2$$
+
+A practical interpretation of this would be that a series of filters applied one after another is an equivalent system to a convolution of their impulse responses. So a superposition of filters is a convolution of their impulse responses.
+
+### Proof for the discrete case
+$$x[n] \ast (h_1[n] \ast h_2[n]) = x[n] \ast \sum_{k=-\infty}^{\infty} h_1[k]h_2[n-k] \\= \sum_{l=-\infty}^{\infty}\sum_{k=-\infty}^{\infty} x[l]h_1[k]h_2[n-l-k]$$
+
+### Proof for the continuous case
+
+## Linearity
+
+### Proof for the discrete case
+### Proof for the continuous case
+
+# Summary
 
 {% endkatexmm %}
