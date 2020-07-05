@@ -1,6 +1,6 @@
 ---
 title: "Mathematical properties of convolution"
-date: 2020-06-20
+date: 2020-07-05
 author: Jan Wilczek
 layout: post
 permalink: /mathematical-properties-of-convolution/
