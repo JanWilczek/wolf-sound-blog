@@ -100,7 +100,7 @@ Viewing all these "partial" responses on a plot shows the impact of each individ
 ![]({{ page.images | absolute_url | append: "/h_superposed.png"}})
 
 Summing them all up (as if summing over $k$ in the convolution formula) we obtain:
-![]({{ page.images | absolute_url | append: "/h_single_0.png"}})
+![]({{ page.images | absolute_url | append: "/h_summed.png"}})
 what corresponds to the $y[n]$ signal above.
 
 # Continuous convolution
