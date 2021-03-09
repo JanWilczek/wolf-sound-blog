@@ -38,7 +38,7 @@ Whoa, what's happened here? Under the sum we have the two signals, but the secon
 
 ### Important assumptions
 
-In order to make this discussion feasible, we must enforce $x[n]$ and $h[n]$ to have _finite energy_. A signal $s[n]$ is said to have finite energy, if
+In order to make this discussion feasible, we must enforce $x[n]$ and $h[n]$ to have *finite energy*. A signal $s[n]$ is said to have finite energy, if
 
 $$ \sum_{n=-\infty}^{\infty} s^2[n] < \infty,  \quad (2)$$
 
@@ -148,8 +148,8 @@ Up next: [mathematical properties of convolution]({{"/mathematical-properties-of
 
 [1] [Convolution on Wikipedia](https://en.wikipedia.org/wiki/Convolution). Retrieved: 09.03.2021.
 
-[2] Alan V Oppenheim, Ronald W. Schafer _Discrete-Time Signal Processing_, 3rd Edition, Pearson 2010.
+[2] Alan V Oppenheim, Ronald W. Schafer *Discrete-Time Signal Processing*, 3rd Edition, Pearson 2010.
 
-[3] Alan V. Oppenheim, Alan S. Willsky, with S. Hamid _Signals and Systems_, 2nd Edition, Pearson 1997.
+[3] Alan V. Oppenheim, Alan S. Willsky, with S. Hamid *Signals and Systems*, 2nd Edition, Pearson 1997.
 
 {% endkatexmm %}
