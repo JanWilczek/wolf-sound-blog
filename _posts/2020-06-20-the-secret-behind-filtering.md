@@ -32,13 +32,25 @@ Are You ready?
 
 In its simplest form the convolution between two discrete signals $x[n]$ and $h[n]$ can be expressed as an **infinite sum**:
 
-$$ x[n] \ast h[n] = \sum_{k=-\infty}^{\infty} x[k] h[n - k] = y[n]. $$
+$$ x[n] \ast h[n] = \sum_{k=-\infty}^{\infty} x[k] h[n - k] = y[n], \quad n \in \mathbb{Z}. $$
 
 Whoa, what's happened here? Under the sum we have the two signals, but the second one is not only **shifted in time by $n$**, but also **time-reversed**!
 
+### Important assumptions
+
+In order to make this discussion feasible, we must enforce $x[n]$ and $h[n]$ to have _finite energy_. A signal $s[n]$ is said to have finite energy, if
+
+$$ \sum_{n=-\infty}^{\infty} s^2[n] < \infty, $$
+
+i. e., $s[n]$ is square-summable.
+
+Additionally, we also assume that all considered signals are 0 for negative time indices, i. e., $s[n] = 0 \quad \forall n < 0$.
+
 # Intuition
 
-## Filtering
+In order to understand the intuition behind convolution we should look at it from different perspectives.
+
+## Filtering perspective
 
 Let's consider the above equation with $h[n]$ denoting filter's (or any linear time-invariant (LTI) system) impulse response and $x[n]$ as this filter's input signal. From signal processing we know, that any LTI system is completely specified by its impulse response.
 
@@ -50,7 +62,7 @@ $$y[0] = \sum_{k=-\infty}^{\infty} x[k] h[0 - k] = \sum_{k=-\infty}^{\infty} x[k
 
 $$y[1] = \sum_{k=-\infty}^{\infty} x[k] h[1 - k] = x[0]h[1] + x[1]h[0].$$ As you can see, x[0] has moved "further down the road" (further into the filter's buffer) and now constitutes the weight for $h[1]$ from filter's impulse response. At the same time $x[1]$ enters the buffer and (as $x[0]$ previously) weights the $h[0]$. The operation repeats for every following input sample. $x[0]$ stops weighting filter's impulse response when it has weighted the last one of them (unless it is an IIR filter; it then weights the filter's impulse response infinitely).
 
-## Another view
+## Delaying-and-summing perspective
 
 We can also look at that operation from a different perspective. What if we fix $k$? In this case it describes the behaviour of the system if only input sample $x[k]$ was given:
 
@@ -60,7 +72,7 @@ The above equation basically says, that once $x[k]$ enters the filter, it will w
 
 This may all get a little bit confusing at this moment, so let's look at an example, shall we?
 
-# Example
+### Example
 
 Let's consider the following signal $x[n]$:
 
