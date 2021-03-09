@@ -3,10 +3,9 @@ title: "Convolution: The secret behind filtering"
 date: 2020-06-20
 author: Jan Wilczek
 layout: post
-image: assets/img/posts/2020-06-20-the-secret-behind-filtering/h_superposed.png
+background: /assets/img/posts/2020-06-20-the-secret-behind-filtering/h_superposed.png
 permalink: /convolution-the-secret-behind-filtering/
 images: assets/img/posts/2020-06-20-the-secret-behind-filtering
-background:
 categories:
  - DSP
 tags:
@@ -133,16 +132,22 @@ _Figure 11. Summation of signals in Figures 6-9._
 what corresponds to the $y[n]$ signal above.
 
 # Continuous convolution
-Convolution is defined for continuous signals as well (notice the conventional use of round brackets for non-discrete functions):
+Convolution is defined for continuous signals as well (notice the conventional use of round brackets for non-discrete functions)
 
 $$ x(t) \ast h(t) = \int \limits_{-\infty}^{\infty} x(\tau) h(t - \tau) d\tau.   \quad (4)$$
 
-Although it may not be as intuitive in interpretation as the discrete convolution, nevertheless, we could try to imagine the continuous case as an infinitely densely sampled discrete signal (so that sum over discrete samples changes to integral over continuous functions). But keep in mind that it is only an intuitive view!
+Although it may not be as intuitive in interpretation as the discrete convolution, nevertheless, we could try to imagine the continuous case as an infinitely densely sampled discrete signal (so that sum over discrete samples changes to an integral over continuous functions). But keep in mind that it is only an intuitive view!
 
 # Summary
 
 In this article we have introduced the mathematical operation of convolution and given the justification for its form and provided a little bit of intuition how can we view the convolution from different angles. In the next articles we are going to study convolution more closely.
 
 Up next: [mathematical properties of convolution]({{"/mathematical-properties-of-convolution/" | absolute_url}})!.
+
+# Bibliography
+
+[1] [Convolution on Wikipedia](https://en.wikipedia.org/wiki/Convolution). Retrieved: 09.03.2021.
+[2] Alan V Oppenheim, Ronald W. Schafer _Discrete-Time Signal Processing_, 3rd Edition, Pearson 2010.
+[3] Alan V. Oppenheim, Alan S. Willsky, with S. Hamid _Signals and Systems_, 2nd Edition, Pearson 1997.
 
 {% endkatexmm %}
