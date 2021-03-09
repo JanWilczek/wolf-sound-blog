@@ -3,6 +3,7 @@ title: "Convolution: The secret behind filtering"
 date: 2020-06-20
 author: Jan Wilczek
 layout: post
+image: assets/img/posts/2020-06-20-the-secret-behind-filtering/h_superposed.png
 permalink: /convolution-the-secret-behind-filtering/
 images: assets/img/posts/2020-06-20-the-secret-behind-filtering
 background:
@@ -32,7 +33,7 @@ Are You ready?
 
 In its simplest form the convolution between two discrete signals $x[n]$ and $h[n]$ can be expressed as an **infinite sum**:
 
-$$ x[n] \ast h[n] = \sum_{k=-\infty}^{\infty} x[k] h[n - k] = y[n], \quad n \in \mathbb{Z}. $$
+$$ x[n] \ast h[n] = \sum_{k=-\infty}^{\infty} x[k] h[n - k] = y[n], \quad n \in \mathbb{Z}. \quad (1)$$
 
 Whoa, what's happened here? Under the sum we have the two signals, but the second one is not only **shifted in time by $n$**, but also **time-reversed**!
 
@@ -40,7 +41,7 @@ Whoa, what's happened here? Under the sum we have the two signals, but the secon
 
 In order to make this discussion feasible, we must enforce $x[n]$ and $h[n]$ to have _finite energy_. A signal $s[n]$ is said to have finite energy, if
 
-$$ \sum_{n=-\infty}^{\infty} s^2[n] < \infty, $$
+$$ \sum_{n=-\infty}^{\infty} s^2[n] < \infty,  \quad (2)$$
 
 i. e., $s[n]$ is square-summable.
 
@@ -48,13 +49,19 @@ Additionally, we also assume that all considered signals are 0 for negative time
 
 # Intuition
 
-In order to understand the intuition behind convolution we should look at it from different perspectives.
+In order to understand the intuition behind convolution, we should look at it from different perspectives.
 
 ## Filtering perspective
 
-Let's consider the above equation with $h[n]$ denoting filter's (or any linear time-invariant (LTI) system) impulse response and $x[n]$ as this filter's input signal. From signal processing we know, that any LTI system is completely specified by its impulse response.
+Let's consider a generic filter with input $x[n]$, output $y[n]$, and filter's impulse response $h[n]$ (Figure 1).
 
-If we denote the output of the filter by $y[n]$ we may look at the output as a weighted sum of filter's impulse responses. How?
+![]({{ page.images | absolute_url | append: "/filter.png" }})
+_Figure 1. A generic filter._
+
+A filter is a [linear time-invariant (LTI) system](https://en.wikipedia.org/wiki/Linear_time-invariant_system). From signal processing we know that any LTI system is completely specified by its impulse response. The output $y[n]$ of an LTI system is by definition equal to the convolution of the input $x[n]$ with the system's impulse response $h[n]$.
+
+Now, let's consider again Equation 1 with $h[n]$ denoting filter's impulse response and $x[n]$ as this filter's input signal. 
+Now we may look at the filter's output $y[n]$ as a weighted sum of filter's impulse responses. How?
 
 Consider $n=0$. At the output we get
 
@@ -66,7 +73,7 @@ $$y[1] = \sum_{k=-\infty}^{\infty} x[k] h[1 - k] = x[0]h[1] + x[1]h[0].$$ As you
 
 We can also look at that operation from a different perspective. What if we fix $k$? In this case it describes the behaviour of the system if only input sample $x[k]$ was given:
 
-$$ y_k[n] = x[k]h[n-k].$$
+$$ y_k[n] = x[k]h[n-k].  \quad (3)$$
 
 The above equation basically says, that once $x[k]$ enters the filter, it will weigh its entire impulse response delayed by $k$ samples w.r.t $n$. We then just have to sum up over all possible $k$ to conclude, that $y[n]$ is just filter's impulse response, delayed and weighted by $x[n]$.
 
@@ -74,51 +81,61 @@ This may all get a little bit confusing at this moment, so let's look at an exam
 
 ### Example
 
-Let's consider the following signal $x[n]$:
+Let's consider the following signal $x[n]$ of length 4 (containing all 0s apart from 4 adjacent samples)
 
 ![]({{ page.images | absolute_url | append: "/x.png"}})
+_Figure 2. Input signal $x[n]$._
 
-and filter's impulse response $h[n]$:
+and filter's impulse response $h[n]$ of length 3
 
 ![]({{ page.images | absolute_url | append: "/h.png"}})
+_Figure 3. Filter's impulse response $h[n]$._
 
-The result of their convolution is the following signal $y[n]$ (filter's output):
+The result of their convolution is the following signal $y[n]$ (filter's output)
 
 ![]({{ page.images | absolute_url | append: "/y.png"}})
+_Figure 4. Filter's output $y[n]$ after feeding $x[n]$ at the input._
 
 Not very meaningful, is it? The only thing that we can observe is that output's length is the sum of input's and filter's lengths minus one.
 
 Let's try some color coding. We can depict each of $x[n]$'s samples in a different color:
 
 ![]({{ page.images | absolute_url | append: "/x_single.png"}})
+_Figure 5. Color-coded $y[n]$._
 
 We can now examine the impact of particular samples on the filter's output. What would happen if only  blue $x[0]$ entered the filter?
 
 ![]({{ page.images | absolute_url | append: "/h_single_0.png"}})
+_Figure 6. Filter's response to $x[0]$._
 
 We can see, that the entire impulse response of the filter got scaled by $x[0]$ which in this case is equal to $0.1$.
 
 Now, let's imagine, that only second sample, namely orange $x[1]$, entered the filter. What could we observe at the output?
 
 ![]({{ page.images | absolute_url | append: "/h_single_1.png"}})
+_Figure 7. Filter's response to $x[1]$._
 
 Notice that at $n=0$ the filter's output is $0$, because at that time $x[1]$ has not yet entered the filter. But from $n=1$ onwards we get again filter's impulse response scaled by the newly entering sample.
 
 The same thing happens for green $x[2]$ and red $x[3]$:
 ![]({{ page.images | absolute_url | append: "/h_single_2.png"}})
+_Figure 8. Filter's response to $x[2]$._
 ![]({{ page.images | absolute_url | append: "/h_single_3.png"}})
+_Figure 9. Filter's response to $x[3]$._
 
 Viewing all these "partial" responses on a plot shows the impact of each individual input sample over time:
 ![]({{ page.images | absolute_url | append: "/h_superposed.png"}})
+_Figure 10. Overlayed filter's responses to individual samples of $x[n]$._
 
 Summing them all up (as if summing over $k$ in the convolution formula) we obtain:
 ![]({{ page.images | absolute_url | append: "/h_summed.png"}})
+_Figure 11. Summation of signals in Figures 6-9._
 what corresponds to the $y[n]$ signal above.
 
 # Continuous convolution
 Convolution is defined for continuous signals as well (notice the conventional use of round brackets for non-discrete functions):
 
-$$ x(t) \ast h(t) = \int \limits_{-\infty}^{\infty} x(\tau) h(t - \tau) d\tau $$
+$$ x(t) \ast h(t) = \int \limits_{-\infty}^{\infty} x(\tau) h(t - \tau) d\tau.   \quad (4)$$
 
 Although it may not be as intuitive in interpretation as the discrete convolution, nevertheless, we could try to imagine the continuous case as an infinitely densely sampled discrete signal (so that sum over discrete samples changes to integral over continuous functions). But keep in mind that it is only an intuitive view!
 
