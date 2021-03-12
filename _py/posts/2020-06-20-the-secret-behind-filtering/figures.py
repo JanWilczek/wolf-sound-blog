@@ -11,6 +11,8 @@ COLORS = ['C0','C1','C2','C3']
 
 def get_assets_path():
     path = Path.cwd()
+    if (path / 'assets').is_dir():
+        return path
     while path.name != '_py':
         path = path.parent
     return path.parent
@@ -21,6 +23,7 @@ def plot_signal(signal, filepath, color='k'):
     plt.figure()
     plt.stem(signal, use_line_collection=True, basefmt=' ', markerfmt=f'{color}o', linefmt=f'{color}-')
     plt.xlim(xlim)
+    plt.xlabel('$n$')
     plt.ylim([-1.1, 1.1])
     plt.yticks(np.arange(-1,1.1,0.25), labels=['-1','','','','0','','','','1'])
     # plt.grid(b=True)
@@ -48,6 +51,7 @@ def plot_signals(signals, filepath):
         plt.stem([i], [signals[i,i]], use_line_collection=True, basefmt=' ', markerfmt=f'{COLORS[i]}o', linefmt=f'{COLORS[i]}-')
     plt.xlim(xlim)
     plt.ylim([-1.1, 1.1])
+    plt.xlabel('$n$')
     plt.yticks(np.arange(-1,1.1,0.25), labels=['-1','','','','0','','','','1'])
     # plt.grid(b=True)
     
@@ -79,9 +83,11 @@ def plot_signals_3d(signals, filepath):
             line = art3d.Line3D(*zip((j, depth, 0), (j, depth, signals[i,j])), marker='o', markevery=(1, 1), linestyle='-', color=COLORS[i])
             ax.add_line(line)
     plt.xlim(xlim)
+    plt.xlabel('$n$')
     # plt.ylim([-1.1, 1.1])
     ax.set_yticklabels([])
-    ax.set_ylim([-0.3, 0.5])
+    ax.set_ylim([-0.4, 0.5])
+    ax.set_zlim([0,0.6])
     # ax.set_zticks(np.arange(-1,1.1,0.25))
     # ax.set_zticklabels(['-1','','','','0','','','','1'])
 
@@ -91,14 +97,13 @@ def plot_signals_3d(signals, filepath):
 def main():
     assets_path = get_assets_path()
     post_images_path = assets_path.joinpath('assets/img/posts/2020-06-20-the-secret-behind-filtering')
-    filepath = post_images_path.joinpath('x.png')
 
-    x = np.array([0.1, 0.6, 0.4, 0.2])
-    h = np.array([0.7, 0.3, 0.5])
+    x = np.array([0.8, 0.3, -0.6, 0.5])
+    h = np.array([0.7, 0.2, 0.7])
 
     y = np.convolve(x, h)
 
-    plot_signal(x, filepath)
+    plot_signal(x, post_images_path.joinpath('x.png'))
     plot_signal(h, post_images_path.joinpath('h.png'))
     plot_signal(y, post_images_path.joinpath('y.png'))
 
