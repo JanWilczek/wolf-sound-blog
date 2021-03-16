@@ -68,6 +68,8 @@ the transform of their convolution is the multiplication of their transforms [1,
 
 $$x(t) \ast h(t) \stackrel{\mathcal{F}}{\longleftrightarrow} X(j\omega)H(j\omega). \quad (7)$$
 
+*Note: The same holds for the Fourier transform of discrete signals (not to be confused with the discrete Fourier transform). For details, see [2, p. 60].*
+
 ### Proof
 
 We can prove the convolution property by definining
@@ -91,7 +93,8 @@ The convolution property of the Fourier transform has a number of practical appl
 * efficient implementations of various signal processing algorithms via frequency-domain filtering,
 * deconvolution in the frequency domain,
 * frequency-based filter design,
-* cascaded systems analysis.
+* cascaded systems analysis,
+* further transform properties derivations.
 
 Additionally, the convolution property makes the commutativity property from the [previous article]({% post_url 2020-07-05-mathematical-properties-of-convolution %}) immediately obvious, as the multiplication operands $X(j\omega)$ and $H(j\omega)$ can be exchanged.
 
@@ -117,7 +120,7 @@ $$ h(t) \stackrel{\mathcal{L}}{\longleftrightarrow} H(s), \quad s \in R_H, \quad
 
 the Laplace transform of their convolution is the multiplication of their transforms [1, Eq. 9.95]
 
-$$x(t) \ast h(t) \stackrel{\mathcal{F}}{\longleftrightarrow} X(j\omega)H(j\omega), s \in R_{XH}, \quad (13)$$
+$$x(t) \ast h(t) \stackrel{\mathcal{L}}{\longleftrightarrow} X(s)H(s), s \in R_{XH}, \quad (13)$$
 
 where $R_{XH}$ denotes the region of convergence of the transform. It is guaranteed that $(R_X \cap R_H) \subseteq R_{XH}$, but $R_{XH}$ may be larger than just the intersection of the two ROCs. Note that convolution implicitly alters the region of convergence of both involed signals' transforms. 
 
@@ -136,15 +139,33 @@ $$ \mathcal{Z}\{x[n]\} = X(z) = \sum \limits_{n=-\infty}^{\infty} x[n] z^{-n}, \
 
 where $R_X$ denotes the region of convergence of the transform, i. e., the set of values for which the infinite sum in Equation 14 converges.
 
-## Definition
+Again, the relation between $x[n]$ and $X(z)$ is denoted by
+
+$$ x[n] \stackrel{\mathcal{Z}}{\longleftrightarrow} X(z), \quad z \in R_X. \quad (15)$$
 
 ## Convolution Property
+When the following transforms exist
+
+$$ x[n] \stackrel{\mathcal{Z}}{\longleftrightarrow} X(z), \quad z \in R_X, \quad (16) $$
+
+$$ h[n] \stackrel{\mathcal{Z}}{\longleftrightarrow} H(z), \quad z \in R_H, \quad (17) $$
+
+the $z$-transform of their convolution is the multiplication of their transforms [1, Eq. 10.81]
+
+$$x[n] \ast h[n] \stackrel{\mathcal{Z}}{\longleftrightarrow} X(z)H(z), z \in R_{XH}, \quad (13)$$
+
+where $R_{XH}$ denotes the region of convergence of the transform. As in the case of the Laplace transform, it is guaranteed that $(R_X \cap R_H) \subseteq R_{XH}$, but $R_{XH}$ may be larger than the intersection of the two ROCs.
 
 ### Proof
+The proof of the convolution property is rather straightforward
+$$ \mathcal{Z}\{x[n] \ast h[n]\} = \sum \limits_{n=-\infty}^{\infty} (x \ast h)[n] z^{-n} \\
+    = \sum \limits_{n=-\infty}^{\infty} \left(\sum \limits_{k=-\infty}^{\infty} x[k] h[n-k]\right) z^{-n} \\
+    = \sum \limits_{k=-\infty}^{\infty} x[k] z^{-k} \sum \limits_{n=-\infty}^{\infty} h[n-k] z^{-(n-k)} \\
+    = \sum \limits_{k=-\infty}^{\infty} x[k] z^{-k} H(z) \\
+    = X(z)H(z). \quad \Box$$
 
 # Summary
-
-
+In this article the convolution property of the Fourier, Laplace, and $z$-transform were shown along with their proofs. In general, convolution in the time domain corresponds to multiplication in the transform domain. Keep this simple rule in mind, and you'll be able to simplify or speed up your signal processing tasks at hand.
 
 # Bibliography
 
