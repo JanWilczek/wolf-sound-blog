@@ -120,7 +120,7 @@ $$ h(t) \stackrel{\mathcal{L}}{\longleftrightarrow} H(s), \quad s \in R_H, \quad
 
 the Laplace transform of their convolution is the multiplication of their transforms [1, Eq. 9.95]
 
-$$x(t) \ast h(t) \stackrel{\mathcal{L}}{\longleftrightarrow} X(s)H(s), s \in R_{XH}, \quad (13)$$
+$$x(t) \ast h(t) \stackrel{\mathcal{L}}{\longleftrightarrow} X(s)H(s), \quad s \in R_{XH}, \quad (13)$$
 
 where $R_{XH}$ denotes the region of convergence of the transform. It is guaranteed that $(R_X \cap R_H) \subseteq R_{XH}$, but $R_{XH}$ may be larger than just the intersection of the two ROCs. Note that convolution implicitly alters the region of convergence of both involed signals' transforms. 
 
@@ -152,7 +152,7 @@ $$ h[n] \stackrel{\mathcal{Z}}{\longleftrightarrow} H(z), \quad z \in R_H, \quad
 
 the $z$-transform of their convolution is the multiplication of their transforms [1, Eq. 10.81]
 
-$$x[n] \ast h[n] \stackrel{\mathcal{Z}}{\longleftrightarrow} X(z)H(z), z \in R_{XH}, \quad (13)$$
+$$x[n] \ast h[n] \stackrel{\mathcal{Z}}{\longleftrightarrow} X(z)H(z), \quad z \in R_{XH}, \quad (13)$$
 
 where $R_{XH}$ denotes the region of convergence of the transform. As in the case of the Laplace transform, it is guaranteed that $(R_X \cap R_H) \subseteq R_{XH}$, but $R_{XH}$ may be larger than the intersection of the two ROCs.
 

@@ -5,6 +5,7 @@ author: Jan Wilczek
 layout: post
 permalink: /mathematical-properties-of-convolution/
 background: /assets/img/posts/2020-06-20-the-secret-behind-filtering/h_superposed.png
+images: assets/img/posts/2020-07-05-mathematical-properties-of-convolution
 categories:
  - DSP
 tags:
@@ -49,6 +50,13 @@ Commutativity of an operation means that its operands can be exchanged without a
 $$ x \ast h = h \ast x. \quad (3)$$
 
 This property has a very interesting interpretation in the context of signal processing. It turns out, we can interpret a system's impact on a signal as the signal's impact on the system's impulse response. In particular, the filtering operation can be viewed as if the input signal was filtering the filter's impulse response. As we have already seen in the [previous article]({% post_url 2020-06-20-the-secret-behind-filtering %}), it is completely true: the output of a filter is a sum of its repeatedly scaled and delayed (=filtered) impulse response.
+
+Another, even more profound interpretation of the commutativity of convolution is shown on Figure 1.
+
+![]({{ page.images | absolute_url | append: "/commutativity_filters.png" }})
+_Figure 1. Intepretation of the commutativity property in the context of filtering._
+
+The commutativity property means that we can exchange the order in which we apply filters (here represented by impulse responses $h_1[n]$ and $h_2[n]$). Whether we filter input with $h_1$ and then with $h_2$ or the other way around doesn't matter; the result will be the same.
 
 ### Proof for the discrete case
 $$ x[n] \ast h[n] = \sum_{k=-\infty}^{\infty} x[k] h[n - k] = | k' = n-k; k = n - k'| \\ =\sum_{k'=-\infty}^{\infty} x[n-k'] h[k'] = \sum_{k'=-\infty}^{\infty} h[k'] x[n-k'] = h[n] \ast x[n]. $$

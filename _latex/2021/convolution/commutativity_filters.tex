@@ -1,0 +1,34 @@
+\documentclass[preview,border=4mm,convert={density=600,outext=.png}]{standalone}
+ 
+\usepackage{url}
+\usepackage{tikz}
+\usetikzlibrary{dsp,chains}
+
+\DeclareMathAlphabet{\mathpzc}{OT1}{pzc}{m}{it}
+\newcommand{\z}{\mathpzc{z}}
+\usepackage{color}
+\begin{document}
+ 
+\begin{tikzpicture}
+    \node[dspnodeopen] (m00) {};
+    \node[dspfilter, right of=m00,xshift=5mm] (m01) {$h_1[n]$};
+    \node[dspfilter, right of=m01,xshift=10mm] (m02) {$h_2[n]$};
+    \node[dspnodeopen,right of=m02,xshift=5mm] (m03) {};
+    
+    \draw[dspflow] (m00) -- (m01);
+    \draw[dspflow] (m01) -- (m02);	
+    \draw[dspflow] (m02) -- (m03);
+
+    \node[below of=m02,yshift=3mm,xshift=-10mm] (arrow) {$\Updownarrow$};
+
+    \node[dspnodeopen, below of=m00, yshift=-3mm] (k00) {};
+    \node[dspfilter, right of=k00,xshift=5mm] (k01) {$h_2[n]$};
+    \node[dspfilter, right of=k01,xshift=10mm] (k02) {$h_1[n]$};
+    \node[dspnodeopen,right of=k02,xshift=5mm] (k03) {};
+    
+    \draw[dspflow] (k00) -- (k01);
+    \draw[dspflow] (k01) -- (k02);	
+    \draw[dspflow] (k02) -- (k03);
+\end{tikzpicture}
+ 
+\end{document}

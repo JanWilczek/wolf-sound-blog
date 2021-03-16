@@ -12,4 +12,7 @@ To build pngs from latex files:
 ```
 latexmk filename.tex -shell-exec
 ```
-
+or
+```
+latexmk filename.tex -shell-escape
+```
