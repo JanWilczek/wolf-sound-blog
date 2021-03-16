@@ -4,7 +4,7 @@ date: 2020-07-05
 author: Jan Wilczek
 layout: post
 permalink: /mathematical-properties-of-convolution/
-background:
+background: /assets/img/posts/2020-06-20-the-secret-behind-filtering/h_superposed.png
 categories:
  - DSP
 tags:
@@ -18,6 +18,11 @@ Inspecting the mathematical properties of convolution leads to interesting concl
 {% katexmm %}
 
 In the [previous article]({{"/convolution-the-secret-behind-filtering/" | absoulte_url }}) we discussed the definition of the convolution operation. Now, it is time to look more closely at its mathematical properties in the context of digital signal processing.
+
+## The Convolution Series
+1. [Definition of convolution and intuition behind it]({% post_url 2020-06-20-the-secret-behind-filtering %})
+1. **Mathematical properties of convolution**
+1. [Convolution in popular transforms]({% post_url 2021-03-18-convolution-in-popular-transforms %})
 
 ## Recap 
 Let us recap the definition of the discrete convolution. With discrete signals $x[n], h[n]$ being square-summable, their convolution is defined as

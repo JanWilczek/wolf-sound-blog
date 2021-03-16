@@ -18,6 +18,8 @@ Why does filtering work? What enables us to enhance the bass in our audio player
 
 {% katexmm %}
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/WmSGdaz1gFQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 There is one operation that stands behind it all: **convolution**.
 
 In order to fully master filtering, be it **finite impulse response (FIR)** or **infinite impulse response (IIR)** filtering, one needs to understand the definition, derivation and the properties of the convolution operation very well. That will be the topic of this and a few following articles.
@@ -27,6 +29,11 @@ We are going to dig **deep** into the convolution and we will get to know it so 
 This article outlines the mathematical definition of the convolution and gives you some intuition behind it. In the next article we will introduce some basic properties along with their proofs (told you it's going to go deep).
 
 Are you ready?
+
+## The Convolution Series
+1. **Definition of convolution and intuition behind it**
+1. [Mathematical properties of convolution]({% post_url 2020-07-05-mathematical-properties-of-convolution %})
+1. [Convolution in popular transforms]({% post_url 2021-03-18-convolution-in-popular-transforms %})
 
 # Definition
 

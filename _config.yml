@@ -37,6 +37,7 @@ kramdown:
 highlighter:        rouge
 paginate:           5
 paginate_path:      "/posts/page:num/"
+future: true
 plugins:
   - jekyll-feed
   - jekyll-sitemap
