@@ -56,13 +56,13 @@ Another, even more profound interpretation of the commutativity of convolution i
 ![]({{ page.images | absolute_url | append: "/commutativity_filters.png" }})
 _Figure 1. Intepretation of the commutativity property in the context of filtering._
 
-The commutativity property means that we can exchange the order in which we apply filters (here represented by impulse responses $h_1[n]$ and $h_2[n]$). Whether we filter input with $h_1$ and then with $h_2$ or the other way around doesn't matter; the result will be the same.
+The commutativity property means that we can exchange the order in which we apply filters (here represented by impulse responses $h_1[n]$ and $h_2[n]$). It doesn't matter whether we filter input with $h_1$ and then with $h_2$ or the other way around; the result will be the same.
 
 ### Proof for the discrete case
-$$ x[n] \ast h[n] = \sum_{k=-\infty}^{\infty} x[k] h[n - k] = | k' = n-k; k = n - k'| \\ =\sum_{k'=-\infty}^{\infty} x[n-k'] h[k'] = \sum_{k'=-\infty}^{\infty} h[k'] x[n-k'] = h[n] \ast x[n]. $$
+$$ x[n] \ast h[n] = \sum_{k=-\infty}^{\infty} x[k] h[n - k] = | k' = n-k; k = n - k'| \\ =\sum_{k'=-\infty}^{\infty} x[n-k'] h[k'] = \sum_{k'=-\infty}^{\infty} h[k'] x[n-k'] = h[n] \ast x[n]. \quad \Box$$
 
 ### Proof for the continuous case
-$$ x(t) \ast h(t) = \int \limits_{-\infty}^{\infty} x(\tau) h(t - \tau) d\tau \\ = | \tau' = t - \tau; \tau = t - \tau'; d\tau' = -d\tau | \\ = - \int \limits_{\infty}^{-\infty} x(t - \tau') h(\tau') d\tau' = \int \limits_{-\infty}^{\infty} h(\tau') x(t - \tau') d\tau' \\= h(t) \ast x(t).$$
+$$ x(t) \ast h(t) = \int \limits_{-\infty}^{\infty} x(\tau) h(t - \tau) d\tau \\ = | \tau' = t - \tau; \tau = t - \tau'; d\tau' = -d\tau | \\ = - \int \limits_{\infty}^{-\infty} x(t - \tau') h(\tau') d\tau' = \int \limits_{-\infty}^{\infty} h(\tau') x(t - \tau') d\tau' \\= h(t) \ast x(t). \quad \Box$$
 
 Note the inversion of boundaries and the resulting change of the sign.
 
@@ -73,10 +73,10 @@ $$x \ast (h_1 \ast h_2) = (x \ast h_1) \ast h_2. \quad (4)$$
 A practical interpretation of this would be that a series of filters applied one after another constitutes an equivalent system to a system whose impulse response is a convolution of the filters' impulse responses. So the impulse response of filters arranged in a series is a convolution of their impulse responses.
 
 ### Proof for the discrete case
-$$x[n] \ast (h_1[n] \ast h_2[n]) = x[n] \ast \sum_{k=-\infty}^{\infty} h_2[k]h_1[n-k] \\= \sum_{l=-\infty}^{\infty}\sum_{k=-\infty}^{\infty} x[l]h_2[k]h_1[n-l-k] \\=  \sum_{k=-\infty}^{\infty} h_2[k] \sum_{l=-\infty}^{\infty} x[l]h_1[n-k-l] \\=   \sum_{k=-\infty}^{\infty} h_2[k] (x \ast h_1)[n-k] \\= ((x \ast h_1) \ast h_2) [n] \\= (x[n] \ast h_1[n]) \ast h_2[n].$$
+$$x[n] \ast (h_1[n] \ast h_2[n]) = x[n] \ast \sum_{k=-\infty}^{\infty} h_2[k]h_1[n-k] \\= \sum_{l=-\infty}^{\infty}\sum_{k=-\infty}^{\infty} x[l]h_2[k]h_1[n-l-k] \\=  \sum_{k=-\infty}^{\infty} h_2[k] \sum_{l=-\infty}^{\infty} x[l]h_1[n-k-l] \\=   \sum_{k=-\infty}^{\infty} h_2[k] (x \ast h_1)[n-k] \\= ((x \ast h_1) \ast h_2) [n] \\= (x[n] \ast h_1[n]) \ast h_2[n]. \quad \Box$$
 
 ### Proof for the continuous case
-$$x(t) \ast (h_1(t) \ast h_2(t)) \\= x(t) \ast \int \limits_{-\infty}^{\infty} h_2(\tau) h_1(t - \tau) d\tau \\= \int \limits_{-\infty}^{\infty} x(\psi) \int \limits_{-\infty}^{\infty} h_2(\tau) h_1(t - \psi - \tau) d\tau d\psi \\= \int \limits_{-\infty}^{\infty} h_2(\tau) \int \limits_{-\infty}^{\infty} x(\psi)h_1(t - \tau - \psi) d \psi d \tau \\= \int \limits_{-\infty}^{\infty} h_2(\tau) (x \ast h_1)(t - \tau) d\tau = ((x \ast h_1) \ast h_2)(t) = (x(t) \ast h_1(t)) \ast h_2(t).$$
+$$x(t) \ast (h_1(t) \ast h_2(t)) \\= x(t) \ast \int \limits_{-\infty}^{\infty} h_2(\tau) h_1(t - \tau) d\tau \\= \int \limits_{-\infty}^{\infty} x(\psi) \int \limits_{-\infty}^{\infty} h_2(\tau) h_1(t - \psi - \tau) d\tau d\psi \\= \int \limits_{-\infty}^{\infty} h_2(\tau) \int \limits_{-\infty}^{\infty} x(\psi)h_1(t - \tau - \psi) d \psi d \tau \\= \int \limits_{-\infty}^{\infty} h_2(\tau) (x \ast h_1)(t - \tau) d\tau = ((x \ast h_1) \ast h_2)(t) \\= (x(t) \ast h_1(t)) \ast h_2(t). \quad \Box$$
 
 ## Linearity
 The last property to be examined and proved is the linearity property of the convolution
@@ -95,10 +95,10 @@ Sometimes, however, it may be easier to analyze a complex filter by splitting it
 Associativity means simply that it doesn't matter if we scale the input signal (before filtering) or the output signal (after filtering), the resulting signal will be the same.
 
 ### Proof for the discrete case
-$$a(x[n] \ast (h_1[n] + h_2[n])) \\= a \sum_{k=-\infty}^{\infty} x[k] (h_1[n-k] + h_2[n-k]) \\= \sum_{k=-\infty}^{\infty} ax[k]h_1[n-k] + ax[k]h_2[n-k] \\= \sum_{k=-\infty}^{\infty} ax[k]h_1[n-k] + \sum_{k=-\infty}^{\infty} ax[k]h_2[n-k] \\= (ax[n]) \ast h_1[n] + (ax[n]) \ast h_2[n].$$
+$$a(x[n] \ast (h_1[n] + h_2[n])) \\= a \sum_{k=-\infty}^{\infty} x[k] (h_1[n-k] + h_2[n-k]) \\= \sum_{k=-\infty}^{\infty} ax[k]h_1[n-k] + ax[k]h_2[n-k] \\= \sum_{k=-\infty}^{\infty} ax[k]h_1[n-k] + \sum_{k=-\infty}^{\infty} ax[k]h_2[n-k] \\= (ax[n]) \ast h_1[n] + (ax[n]) \ast h_2[n]. \quad \Box$$
 
 ### Proof for the continuous case
-$$a(x(t) \ast (h1(t) + h2(t))) = a \int \limits_{-\infty}^{\infty} x(\tau) (h_1(t - \tau) + h_2(t - \tau)) d\tau \\= \int \limits_{-\infty}^{\infty} (ax(\tau) h_1(t - \tau) + ax(\tau)h_2(t - \tau))d \tau \\= \int \limits_{-\infty}^{\infty} a x(\tau) h_1(t - \tau) d\tau + \int \limits_{-\infty}^{\infty} ax(\tau) h_2(t - \tau) d\tau \\= (ax(t)) \ast h_1(t) + (ax(t)) \ast h_2(t).$$
+$$a(x(t) \ast (h1(t) + h2(t))) = a \int \limits_{-\infty}^{\infty} x(\tau) (h_1(t - \tau) + h_2(t - \tau)) d\tau \\= \int \limits_{-\infty}^{\infty} (ax(\tau) h_1(t - \tau) + ax(\tau)h_2(t - \tau))d \tau \\= \int \limits_{-\infty}^{\infty} a x(\tau) h_1(t - \tau) d\tau + \int \limits_{-\infty}^{\infty} ax(\tau) h_2(t - \tau) d\tau \\= (ax(t)) \ast h_1(t) + (ax(t)) \ast h_2(t). \quad \Box$$
 
 # Summary
 
