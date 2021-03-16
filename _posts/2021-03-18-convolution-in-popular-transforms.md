@@ -31,7 +31,7 @@ Let us briefly recap the definition of the discrete convolution
 $$ x[n] \ast h[n] = \sum_{k=-\infty}^{\infty} x[k] h[n - k], \quad n \in \mathbb{Z} \quad (1)$$
 and the continuous convolution
 $$ x(t) \ast h(t) = \int \limits_{-\infty}^{\infty} x(\tau) h(t - \tau) d\tau, \quad t \in \mathbb{R}. \quad (2)$$
-Here we assume that $x[n], h[n]$ are discrete-time signals and $x(t), h(t)$ are continuous-time signals. No further assumptions on these are made.
+Here we assume that $x[n], h[n]$ are discrete-time, square-summable signals and $x(t), h(t)$ are continuous-time, square-integrable signals.
 
 To understand these properties more easily, we can think of $h$ as a filter's impulse response and $x$ as an input signal to that filter. But I wouldn't like this intuition to cloud the bigger picture; these properties are much more general than this simple intuition.
 
@@ -41,7 +41,7 @@ The main takeaway from this article is that convolution in the time domain chang
 1. For the Laplace transform $x(t) \ast h(t) \stackrel{\mathcal{L}}{\longleftrightarrow} X(s)H(s)$ with the region of convergence (ROC) being the intersection of $X(s)$'s ROC and $H(s)$'s ROC.
 1. For the $z$-transform $x[n] \ast h[n] \stackrel{\mathcal{Z}}{\longleftrightarrow} X(z)H(z)$ with the ROC being the intersection of $X(z)$'s ROC and $H(z)$'s ROC.
 
-Analogously, convolution in the transform domain changes to multiplication in the time domain.
+Analogously, convolution in the transform domain changes to multiplication in the time domain. This symmetry should be clear from the derivations, so I only mention it here.
 
 The article explains these relations in detail and gives proofs of the corresponding convolution property versions.
 
@@ -64,31 +64,78 @@ $$ x(t) \stackrel{\mathcal{F}}{\longleftrightarrow} X(j\omega), \quad (5) $$
 
 $$ h(t) \stackrel{\mathcal{F}}{\longleftrightarrow} H(j\omega), \quad (6) $$
 
-the transform of their convolution is the multiplication of their transforms
+the transform of their convolution is the multiplication of their transforms [1, Eq. 4.56]
 
-$x(t) \ast h(t) \stackrel{\mathcal{F}}{\longleftrightarrow} X(j\omega)H(j\omega). (7)$
+$$x(t) \ast h(t) \stackrel{\mathcal{F}}{\longleftrightarrow} X(j\omega)H(j\omega). \quad (7)$$
 
 ### Proof
 
 We can prove the convolution property by definining
 
-$$ y(t) = x(t) \ast h(t) (8) $$
+$$ y(t) = x(t) \ast h(t) \quad (8) $$
 
 and deriving its Fourier transform
 
+$$  Y(j\omega) = \mathcal{F}\{y(t)\} = \int \limits_{-\infty}^{\infty} y(t) e^{-j\omega t} dt \\
+    = \int \limits_{-\infty}^{\infty} (x \ast h)(t) e^{-j\omega t} dt \\
+    = \int \limits_{-\infty}^{\infty} \int \limits_{-\infty}^{\infty} x(\tau)h(t - \tau) e^{-j\omega t} dt d\tau\\
+    = \int \limits_{-\infty}^{\infty} x(\tau) e^{-j\omega \tau} \int \limits_{-\infty}^{\infty} h(t - \tau) e^{-j\omega (t-\tau)} dt d\tau\\
+    = \int \limits_{-\infty}^{\infty} x(\tau) e^{-j\omega \tau} H(j\omega) d\tau\\
+    = \int \limits_{-\infty}^{\infty} x(\tau) e^{-j\omega \tau} d\tau H(j\omega) \\
+    = X(j\omega) H(j\omega). \quad \Box$$
 
+### Application
 
-### Interpretation
+The convolution property of the Fourier transform has a number of practical applications, namely, it enables
+* the fast convolution algorithms,
+* efficient implementations of various signal processing algorithms via frequency-domain filtering,
+* deconvolution in the frequency domain,
+* frequency-based filter design,
+* cascaded systems analysis.
 
+Additionally, the convolution property makes the commutativity property from the [previous article]({% post_url 2020-07-05-mathematical-properties-of-convolution %}) immediately obvious, as the multiplication operands $X(j\omega)$ and $H(j\omega)$ can be exchanged.
 
 # Laplace transform
-## Definition
+The Laplace transform is another frequently used transform not only in engineering. For example, it plays an important role in solving differential equations. 
+
+The Laplace transform of $x(t)$ is defined as follows [1, Eq. 9.3]
+
+$$ X(s) = \mathcal{L} \{x(t)\} = \int \limits_{-\infty}^{\infty} x(t) e^{-st}, \quad s \in \mathbb{C}, \quad (9) $$
+
+where $s$ is a complex-frequency variable. It is important to note that $X(s)$ may only exist for certain values of $s$. The region in the complex-frequency plane containing all values of $s$ for which the integral in Equation 9 converges is called the **region of convergence (ROC)** of the Laplace transform. In this article, I denoite ROC of $X(s)$ by $R_X$. (Thus, in Equation 9 I should have written $s \in R_X$).
+
+The relationship between $x(t)$ and $X(s)$ is denoted as
+
+$$ x(t) \stackrel{\mathcal{L}}{\longleftrightarrow} X(s). \quad (10) $$
 
 ## Convolution Property
+When the following transforms exist
+
+$$ x(t) \stackrel{\mathcal{L}}{\longleftrightarrow} X(s), \quad s \in R_X, \quad (11) $$
+
+$$ h(t) \stackrel{\mathcal{L}}{\longleftrightarrow} H(s), \quad s \in R_H, \quad (12) $$
+
+the Laplace transform of their convolution is the multiplication of their transforms [1, Eq. 9.95]
+
+$$x(t) \ast h(t) \stackrel{\mathcal{F}}{\longleftrightarrow} X(j\omega)H(j\omega), s \in R_{XH}, \quad (13)$$
+
+where $R_{XH}$ denotes the region of convergence of the transform. It is guaranteed that $(R_X \cap R_H) \subseteq R_{XH}$, but $R_{XH}$ may be larger than just the intersection of the two ROCs. Note that convolution implicitly alters the region of convergence of both involed signals' transforms. 
 
 ### Proof
+By substituting $s = j\omega$ we can notice that the Fourier transform is a special case of the Laplace transform. As such, it is no surprise that the proof of the convolution property of the Laplace transform is analogous to the respective proof for the Fourier transform. Thus, refer back to that proof replacing $j\omega$ with $s$; the result is the same.
+
+### Application
+Just for the sake of completeness, I will mention that the convolution property of the Laplace transform plays an important role in the analysis of [linear time-invariant (LTI) systems](https://en.wikipedia.org/wiki/Linear_time-invariant_system).
 
 # Z-transform
+What the Laplace transform does for continuous-time systems, the $z$-transform does for discrete-time systems. System analysis is typically easier in the complex-frequency domain than directly in time domain.
+
+The $z$-transform of a discrete signal $x[n]$ is defined as follows
+
+$$ \mathcal{Z}\{x[n]\} = X(z) = \sum \limits_{n=-\infty}^{\infty} x[n] z^{-n}, \quad z \in R_X, \quad (14)$$
+
+where $R_X$ denotes the region of convergence of the transform, i. e., the set of values for which the infinite sum in Equation 14 converges.
+
 ## Definition
 
 ## Convolution Property
