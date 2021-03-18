@@ -1,0 +1,55 @@
+\documentclass[preview,border=4mm,convert={density=600,outext=.png}]{standalone}
+ 
+\usepackage{url}
+\usepackage{tikz}
+\usetikzlibrary{dsp,chains}
+
+\DeclareMathAlphabet{\mathpzc}{OT1}{pzc}{m}{it}
+\newcommand{\z}{\mathpzc{z}}
+\usepackage{color}
+\begin{document}
+ 
+\begin{tikzpicture}
+    \node[dspnodeopen] (m00) {};
+    \node[dspmixer,right of=m00, dsp/label=below,xshift=-2mm] (me00) {$a$};
+    \node[dspnodefull, right of=me00] (m01) {};
+    \node[coordinate,above of=m01,yshift=-4mm] (ma02) {};
+    \node[dspfilter, right of=ma02,xshift=2mm] (ma04) {$h_1[n]$};
+    \node[coordinate,right of=ma04,xshift=2mm] (ma05) {};
+
+    \node[dspadder,below of=ma05,yshift=4mm] (m05) {};
+
+    \node[coordinate,below of=m01,yshift=4mm] (mb02) {};
+    \node[dspfilter, right of=mb02,xshift=2mm] (mb04) {$h_2[n]$};
+    \node[coordinate,right of=mb04,xshift=2mm] (mb05) {};
+
+    \node[dspnodeopen,right of=m05] (m06) {};
+    
+    \draw[dspconn] (m00) -- (me00);
+    \draw[dspflow] (me00) -- (m01);
+
+    \draw[dspline] (m01) -- (ma02);
+    \draw[dspconn] (ma02) -- (ma04);
+    \draw[dspline] (ma04) -- (ma05);
+    \draw[dspconn] (ma05) -- (m05);
+
+    \draw[dspflow] (m05) -- (m06);
+
+    \draw[dspline] (m01) -- (mb02);	
+    \draw[dspconn] (mb02) -- (mb04);
+    \draw[dspline] (mb04) -- (mb05);
+    \draw[dspconn] (mb05) -- (m05);
+
+    \node[below of=mb04,yshift=3mm,xshift=-2mm] (arrow) {$\Updownarrow$};
+
+    \node[dspnodeopen, below of=m00, yshift=-10.5mm] (k00) {};
+    \node[dspfilter, right of=k00,xshift=5mm,minimum width=24mm,xshift=7mm] (k01) {$h_1[n] + h_2[n]$};
+    \node[dspmixer, dsp/label=below,right of=k01,xshift=10mm] (k02) {$a$};
+    \node[dspnodeopen,right of=k02] (k03) {};
+    
+    \draw[dspflow] (k00) -- (k01);
+    \draw[dspflow] (k01) -- (k02);	
+    \draw[dspflow] (k02) -- (k03);	
+\end{tikzpicture}
+ 
+\end{document}

@@ -49,12 +49,15 @@ Commutativity of an operation means that its operands can be exchanged without a
 
 $$ x \ast h = h \ast x. \quad (3)$$
 
-This property has a very interesting interpretation in the context of signal processing. It turns out, we can interpret a system's impact on a signal as the signal's impact on the system's impulse response. In particular, the filtering operation can be viewed as if the input signal was filtering the filter's impulse response. As we have already seen in the [previous article]({% post_url 2020-06-20-the-secret-behind-filtering %}), it is completely true: the output of a filter is a sum of its repeatedly scaled and delayed (=filtered) impulse response.
+This property has a very interesting interpretation in the context of signal processing. It turns out, we can interpret a system's impact on a signal as the signal's impact on the system's impulse response. In particular, the filtering operation can be viewed as if the input signal was filtering the filter's impulse response (Figure 1). As we have already seen in the [previous article]({% post_url 2020-06-20-the-secret-behind-filtering %}), it is completely true: the output of a filter is a sum of its repeatedly scaled and delayed (=filtered) impulse response.
 
-Another, even more profound interpretation of the commutativity of convolution is shown on Figure 1.
+![]({{ page.images | absolute_url | append: "/commutativity_input_filter.png" }}){: width="350" }
+_Figure 1. Commutativity of convolution enables an exchange of filter with its input._
+
+Another, even more profound interpretation of the commutativity of convolution is shown in Figure 2.
 
 ![]({{ page.images | absolute_url | append: "/commutativity_filters.png" }})
-_Figure 1. Intepretation of the commutativity property in the context of filtering._
+_Figure 2. Commutativity of convolution makes the ordering of filters in a series irrelevant._
 
 The commutativity property means that we can exchange the order in which we apply filters (here represented by impulse responses $h_1[n]$ and $h_2[n]$). It doesn't matter whether we filter input with $h_1$ and then with $h_2$ or the other way around; the result will be the same.
 
@@ -70,7 +73,10 @@ Note the inversion of boundaries and the resulting change of the sign.
 Associativity of an operation ensures that we can calculate the results of this operation in any order when given a couple of them in series
 $$x \ast (h_1 \ast h_2) = (x \ast h_1) \ast h_2. \quad (4)$$
 
-A practical interpretation of this would be that a series of filters applied one after another constitutes an equivalent system to a system whose impulse response is a convolution of the filters' impulse responses. So the impulse response of filters arranged in a series is a convolution of their impulse responses.
+A practical interpretation of this would be that a series of filters applied one after another constitutes an equivalent system to a system whose impulse response is a convolution of the filters' impulse responses. So the impulse response of filters arranged in a series is a convolution of their impulse responses (Figure 3).
+
+![]({{ page.images | absolute_url | append: "/associativity.png" }})
+_Figure 3. Associativity of the convolution enables us to exchange successive filters with a single filter whose impulse response is a convolution of the initial filters' impulse responses._
 
 ### Proof for the discrete case
 $$x[n] \ast (h_1[n] \ast h_2[n]) = x[n] \ast \sum_{k=-\infty}^{\infty} h_2[k]h_1[n-k] \\= \sum_{l=-\infty}^{\infty}\sum_{k=-\infty}^{\infty} x[l]h_2[k]h_1[n-l-k] \\=  \sum_{k=-\infty}^{\infty} h_2[k] \sum_{l=-\infty}^{\infty} x[l]h_1[n-k-l] \\=   \sum_{k=-\infty}^{\infty} h_2[k] (x \ast h_1)[n-k] \\= ((x \ast h_1) \ast h_2) [n] \\= (x[n] \ast h_1[n]) \ast h_2[n]. \quad \Box$$
@@ -86,13 +92,18 @@ $$ x \ast (h_1 + h_2) = x \ast h_1 + x \ast h_2 \quad (6)$$
 and *associativity with scalar multiplication*
 $$ a (x \ast h) = (ax) \ast h. \quad (7)$$
 
-Distributivity means that a signal filtered with a *superposition* (a sum) of filters is equivalent to summing the output of the individual filters when fed the input signal separately, as if the signal has been filtered by them independently (in parallel). Thus, summing in digital signal processing corresponds to joining two independent paths of processing. 
+Distributivity means that filtering a signal with a *superposition* (a sum) of filters is equivalent to summing the results of filtering with the individual filters. It is as if the signal was filtered by them independently (in parallel). Thus, summing in digital signal processing corresponds to joining two independent paths of processing. 
 
-Thanks to this property we can filter the signal only once (with filters' superposition) rather than filtering the signal with each filter separately and only then summing the filtered outputs. As you can imagine, it can be a significant optimization advantage. 
+Thanks to this property we can filter the signal only once (with filters' superposition) rather than run the signal through each filter separately and only then sum the outputs. As you can imagine, it can be a significant optimization advantage. 
 
-Sometimes, however, it may be easier to analyze a complex filter by splitting its impulse response into separate impulse responses, effectively replacing a filter with a set of parallel filters. This is the idea underlying the *filterbanks*.
+Sometimes, however, it may be easier to analyze a complex filter by splitting its impulse response into constituent impulse responses, effectively replacing a filter with a set of parallel filters. This is the idea underlying the *filterbanks*. It is also used in synthesis of a room impulse response for artificial reverberation (so-called  *modal decomposition*).
 
-Associativity means simply that it doesn't matter if we scale the input signal (before filtering) or the output signal (after filtering), the resulting signal will be the same.
+Associativity with scalar multiplication simply means that it doesn't matter if we scale the input signal (before filtering) or the output signal (after filtering); the resulting signal will be the same.
+
+These equivalencies are depicted in Figure 4.
+
+![]({{ page.images | absolute_url | append: "/linearity.png" }})
+_Figure 4. Distributivity means that a signal filtered in parallel processing paths is effectively filtered by a superposition of these paths. Associativity with scalar multiplication enables us to scale either the input or the output of a system with an equal effect. These two properties determine the linearity of the convolution._
 
 ### Proof for the discrete case
 $$a(x[n] \ast (h_1[n] + h_2[n])) \\= a \sum_{k=-\infty}^{\infty} x[k] (h_1[n-k] + h_2[n-k]) \\= \sum_{k=-\infty}^{\infty} ax[k]h_1[n-k] + ax[k]h_2[n-k] \\= \sum_{k=-\infty}^{\infty} ax[k]h_1[n-k] + \sum_{k=-\infty}^{\infty} ax[k]h_2[n-k] \\= (ax[n]) \ast h_1[n] + (ax[n]) \ast h_2[n]. \quad \Box$$

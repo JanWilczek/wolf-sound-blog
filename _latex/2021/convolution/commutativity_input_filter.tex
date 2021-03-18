@@ -1,0 +1,30 @@
+\documentclass[preview,border=4mm,convert={density=600,outext=.png}]{standalone}
+ 
+\usepackage{url}
+\usepackage{tikz}
+\usetikzlibrary{dsp,chains}
+
+\DeclareMathAlphabet{\mathpzc}{OT1}{pzc}{m}{it}
+\newcommand{\z}{\mathpzc{z}}
+\usepackage{color}
+\begin{document}
+ 
+\begin{tikzpicture}
+    \node[dspnodeopen,dsp/label=above] (m00) {$x[n]$};
+    \node[dspsquare, right of=m00] (m01) {$h[n]$};
+    \node[dspnodeopen,dsp/label=above, right of=m01] (m02) {$y[n]$};
+    
+    \draw[dspflow] (m00) -- (m01);
+    \draw[dspflow] (m01) -- (m02);
+
+    \node[below of=m01,yshift=3.5mm] (arrow) {$\Updownarrow$};
+
+    \node[dspnodeopen,dsp/label=above, below of=m00,yshift=-3mm] (k00) {$h[n]$};
+    \node[dspsquare, right of=k00] (k01) {$x[n]$};
+    \node[dspnodeopen,dsp/label=above, right of=k01] (k02) {$y[n]$};
+    
+    \draw[dspflow] (k00) -- (k01);
+    \draw[dspflow] (k01) -- (k02);	
+\end{tikzpicture}
+ 
+\end{document}
