@@ -33,7 +33,7 @@ Are you ready?
 ## The Convolution Series
 1. **Definition of convolution and intuition behind it**
 1. [Mathematical properties of convolution]({% post_url 2020-07-05-mathematical-properties-of-convolution %})
-1. [Convolution in popular transforms]({% post_url 2021-03-18-convolution-in-popular-transforms %})
+1. [The convolution property in popular transforms]({% post_url 2021-03-18-convolution-in-popular-transforms %})
 
 # Definition
 

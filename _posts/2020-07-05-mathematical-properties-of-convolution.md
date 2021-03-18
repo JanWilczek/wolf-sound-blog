@@ -23,7 +23,7 @@ In the [previous article]({{"/convolution-the-secret-behind-filtering/" | absoul
 ## The Convolution Series
 1. [Definition of convolution and intuition behind it]({% post_url 2020-06-20-the-secret-behind-filtering %})
 1. **Mathematical properties of convolution**
-1. [Convolution in popular transforms]({% post_url 2021-03-18-convolution-in-popular-transforms %})
+1. [The convolution property in popular transforms]({% post_url 2021-03-18-convolution-in-popular-transforms %})
 
 ## Recap 
 Let us recap the definition of the discrete convolution. With discrete signals $x[n], h[n]$ being square-summable, their convolution is defined as
