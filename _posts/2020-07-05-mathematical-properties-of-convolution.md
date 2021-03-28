@@ -16,6 +16,8 @@ tags:
 ---
 Inspecting the mathematical properties of convolution leads to interesting conclusions regarding digital signal processing.
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/kkZMk1E5suU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 {% katexmm %}
 
 In the [previous article]({{"/convolution-the-secret-behind-filtering/" | absoulte_url }}) we discussed the definition of the convolution operation. Now, it is time to look more closely at its mathematical properties in the context of digital signal processing.
