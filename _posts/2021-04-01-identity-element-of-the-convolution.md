@@ -49,20 +49,47 @@ If $\delta[n-k] = 1$ for $k = n$, then $\delta[0]=1$. Thus,
 
 $$\delta[n] = \begin{cases} 1 &\text{ if } n=0,\\ 0 &\text{ if } n \neq 0. \end{cases}\quad (3)$$
 
-And so we have found our neutral element! The signal defined in Equation 3 is called a **unit sample sequence**, a **discrete-time impulse**, or just an **impulse** [2].
+And so we have found our neutral element! The signal defined in Equation 3 is called a **unit sample sequence**, a **discrete-time impulse**, or just an **impulse** [2]. I have also often stumbled upon the name **discrete (Dirac) delta**.
 
 # Identity element of the continuous convolution
 
-* no neutral element among functions
-* Dirac delta (continuous and discrete)
+How does the neutral element look in case of continuous convolution. According to Equation 2, we obtain
+
+$$x(t) \ast \delta(t) = \delta(t) \ast x(t) = \int \limits_{-\infty}^{\infty} x(\tau) \delta(t - \tau) d\tau = x(t). \quad (4) $$
+
+Are you able to extract the formula for $\delta(t)$ out of this equation? Me neither. So how is our $\delta(t)$ defined, then?
+
+It turns out that there exists no *function* satisfying Equation 4. We need another type of entity called a **generalized function** or a **distribution**. Then our $\delta(t)$ is called the **Dirac $\delta$ function** and can be *approximated* by [1, Eq. 15.33a]
+
+$$\delta(t) = \lim_{\epsilon \rightarrow 0} f(t,\epsilon), \quad (5)$$
+
+where
+
+$$ f(t,\epsilon) = \begin{cases} \frac{1}{\epsilon} &\text{ if } |t|<\frac{\epsilon}{2},\\ 0 &\text{ if } |t|\geq\frac{\epsilon}{2}. \end{cases}\quad (6)$$
+
+How to tackle this definition? I try to think about it as a function being 0 everywhere apart from $t=0$. At $t=0$, $\delta(t)$ tends to $+\infty$ like an infinitesimally narrow impulse. But it is just an intuition; a correct mathematical definition is beyond the scope of this article.
+
+Dirac $\delta$ function is ubiquitious in mathematics and engineering. It is often used for defining initial conditions for partial differential equations (PDEs), e.g., the influence of a hammer strucking a piano string in physical modeling sound synthesis. 
+
+# The sifting property
+
+Dirac $\delta$ function has a valuable property
+
+$$ \int \limits_{t-\tau}^{t+\tau} x(\tau) \delta(t-\tau) d\tau = x(t) \quad \forall a > 0.\quad (7)$$
+
+Substituting $a=\infty$ (what we **can** do) yields exactly our desired Equation 4.
+
+The property in Equation 7 is called the **sifting property** of the $\delta$ function, because the $\delta$ function "sifts" our signal only to return the value of $x$ at a point where its argument is equal to 0.
+
+
 * convolution with a delta, the sifting property
 * the concept of delay and its application in DSP
-* notation considerations ([n-n0], etc.)
 * discrete-time signal or sampling as a convolutional sum, a weighted sum of impulses
+* notation considerations ([n-n0], etc.)
 
 # Bibliography
 
-[1] I.N. Bronshtein *Handbook of Mathematics*, 5th Edition, Springer 2007.
+[1] I.N. Bronshtein et. al. *Handbook of Mathematics*, 5th Edition, Springer 2007.
 
 [2] Alan V Oppenheim, Ronald W. Schafer *Discrete-Time Signal Processing*, 3rd Edition, Pearson 2010.
 
