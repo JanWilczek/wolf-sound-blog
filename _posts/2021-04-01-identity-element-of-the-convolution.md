@@ -51,6 +51,8 @@ $$\delta[n] = \begin{cases} 1 &\text{ if } n=0,\\ 0 &\text{ if } n \neq 0. \end{
 
 And so we have found our neutral element! The signal defined in Equation 3 is called a **unit sample sequence**, a **discrete-time impulse**, or just an **impulse** [2]. I have also often stumbled upon the name **discrete (Dirac) delta**.
 
+The definition in Equation 3 makes sense also from a different perspective. In [the first post in the series]({% post_url 2020-06-20-the-secret-behind-filtering %}), we said that convolution in the context of filtering means scaling and delaying the impulse response by the samples of the input signal. If the impulse response consists of a single sample with value 1, convolving a signal with it should yield only delayed successive weights, i. e., just the input signal.
+
 # Identity element of the continuous convolution
 
 How does the neutral element look in case of continuous convolution. According to Equation 2, we obtain
@@ -79,11 +81,35 @@ $$ \int \limits_{t-\tau}^{t+\tau} x(\tau) \delta(t-\tau) d\tau = x(t) \quad \for
 
 Substituting $a=\infty$ (what we **can** do) yields exactly our desired Equation 4.
 
-The property in Equation 7 is called the **sifting property** of the $\delta$ function, because the $\delta$ function "sifts" our signal only to return the value of $x$ at a point where its argument is equal to 0.
+The property in Equation 7 is called the **sifting property** of the $\delta$ function, because the $\delta$ function "sifts" our signal only to return the value of $x$ at a point where the argument of $\delta$ is equal to 0.
+
+In the discrete case, the sifting property was shown in action in Equation 2: there we extracted a single element $x[n]$ out of the (possibly infinite) $x$ sequence.
+
+# Delay
+
+What happens if we shift the argument of the discrete-time impulse by 1?
+
+$$x[n] \ast \delta[n-1] = \sum_{k=-\infty}^{\infty} x[k] \delta[n - 1 - k] = x[n-1], \quad n \in \mathbb{Z}. \quad (8)$$
+
+Looking at the discrete-time instant $n$, applying a convolution with argument-shifted impulse, $\delta[n-1]$, yielded $x[n-1]$, i. e., a samples that was already "known" to us (we are at time $n$ so we already observed $x[n-1]$ at time $n-1$). That is the concept of a unit **delay**.
+
+By adjusting the shift of the argument $n_0$ of $\delta[n-n_0]$ and convolving the result with a signal we can obtain an arbitrarily delayed signal. If $n_0 < 0$, we can even obtain "samples from the future", i. e., $x[n] \ast \delta[n+1] = x[n+1]$. 
+
+The concept of the delay and its application in digital signal processing and audio programming is very profound. Delay is an inherent property of any filter, or more generally, any LTI system. You may have stumbled upon the "Delay effect" as an audio plug-in to a digital audio workstation (DAW); the underlying principle is just that. Examples of other applications of the delay just in the domain of audio effects include artificial reverberation, comb filter, flanger, chorus, Karplus-Strong synthesis, and many more.
+
+In DSP diagrams, unit delay, i. e., with $n_0=1$, is often marked with a $z^{-1}$ box. 
+
+<!-- Figure needed -->
+
+That is because the $z$-transform of $\delta[n-1]$ is equal to $z^{-1}$
+
+$$ \mathcal{Z}\{\delta[n-1]\} = \sum_{n=-\infty}^{\infty} \delta[n-1] z^{-n} = z^{-1}. \quad (9)$$
+
+Notice that Equation 9 could be viewed as another application of the sifting property. From an infinite "stream" of $z^{-n}$ we pick only the one for $n=1$.
+
+# What is a signal, really?
 
 
-* convolution with a delta, the sifting property
-* the concept of delay and its application in DSP
 * discrete-time signal or sampling as a convolutional sum, a weighted sum of impulses
 * notation considerations ([n-n0], etc.)
 
