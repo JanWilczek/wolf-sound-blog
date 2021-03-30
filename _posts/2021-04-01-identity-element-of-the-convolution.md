@@ -112,7 +112,7 @@ Notice that Equation 9 could be viewed as another application of the sifting pro
 
 # What is a signal, really?
 
- Let's recap once again the convolutional sum of Equation 2
+ Let's recap once again the convolutional sum of Equation 2 [2, Eq. 2.5]
 
  $$x[n] = \sum_{k=-\infty}^{\infty} x[k] \delta[n - k], \quad n \in \mathbb{Z}. \quad (10)$$
 
@@ -126,7 +126,7 @@ $$x[n] = \sum_{k=-\infty}^{\infty} x[k] \delta[n - k] = x[n]\delta[n - n] = x[n]
 
 As the value of $n$ changes, the corresponsing shift $k$ of the delta argument must change as well to be equal to 0 and produce a single result $x[n]$. We could think of this change of $k$ as a change of the delay length.
 
-Let's now assume that $x[n]$ starts at 0, i. e., $x[n]=  0 \forall n <0, n \in \mathbb{Z}$. Writing down the sum in Equation 10 explicitly yields
+Let's now assume that $x[n]$ starts at 0, i. e., $x[n]=  0 \forall n <0, n \in \mathbb{Z}$. Writing down the sum in Equation 10 explicitly yields [2]
 
 $$x[n] = x[0]\delta[n] + x[1]\delta[n-1] + x[2]\delta[n-2] + \dots \\+ x[n-1]\delta[n-(n-1)] x[n]\delta[n - n] + \dots \quad (11)$$
 
@@ -134,7 +134,7 @@ Can you see the beauty of it? **$x[n]$ already contains all possible samples of 
 
 # Notational trap
 
-Taking advantage of the introduction of delays, I wanted to warn you against a common pitfall when talking about convolution. The star notation $x[n] \ast h[n]$ is very convenient. It must, however be used with caution.
+Taking advantage of the introduction of delays, I wanted to warn you against a common pitfall when talking about convolution [2]. The star notation $x[n] \ast h[n]$ is very convenient. It must, however be used with caution.
 
 The following notation should be clear to you by now
 
@@ -154,7 +154,7 @@ $$x[n-n_0] \ast h[n-n_0] = \sum_{k=-\infty}^{\infty} x[k-n_0] \delta[n-n_0 - k] 
 
 By blindly substituting $n \rightarrow n-n_0$, we overshot the desired delay by a factor of two.
 
-The correct way to write this is
+The correct way to write this is [2, Eq. 2.52]
 
 $$y[n-n_0] = x[n] \ast h[n-n_0] = \sum_{k=-\infty}^{\infty} x[k] \delta[n-n_0 - k]. \quad (15)$$
 
@@ -162,18 +162,52 @@ But these are not the only problems when using the star notation.
 
 ## Useful notational tip
 
-When the convolution looks any way different from the typical $x[n] \ast h[n]$, I try to bring it back to that basic form, by defining "helper functions". Then I use the definition of the convolution and substitute the original functions again.
+When the convolution looks any way different from the typical $x[n] \ast h[n]$, I try to bring it back to that basic form, by defining "helper functions". Then I use the definition of the convolution and substitute the original functions again, inserting the correct argument.
 
 How this works is best explained through an example.
 ## Example 1: Both convolved signals delayed
 
 Let's say the operands of the convolution we need to perform are both delayed by different amounts, i. e., we want to calculate
 
-$$x[n-n_x] \ast h[n-n_h] = \dots \quad n,n_x,n_h \in \mathbb{Z} \quad (16)$$
+$$x[n-n_x] \ast h[n-n_h] = \dots \quad n,n_x,n_h \in \mathbb{Z}. \quad (16)$$
+
+Let's define two "helper functions" $x_1[n], h_1[n]$
+
+$$x_1[n] = x[n-n_x], \quad (17)$$
+
+$$h_1[n] = h[n-n_h]. \quad (18)$$
+
+Now we can insert these functions into Equation 16
+
+$$x[n-n_x] \ast h[n-n_h] = x_1[n] \ast h_1[n], \quad (19)$$
+
+use the definition of convolution
+
+$$ x_1[n] \ast h_1[n] = \sum_{-\infty}^{\infty} x_1[k] h_1[n-k], \quad (20) $$
+
+and finally substitute the original functions $x[n]$ and $h[n]$ according to Equations 17 and 18 respectively
+
+$$\sum_{-\infty}^{\infty} x_1[k] h_1[n-k] = \sum_{-\infty}^{\infty} x[k-n_x] h[n - k - n_h]. \quad (21)$$
+
+This approach always worked for me. At the same time, any shortcuts in an attempt not to use it inevitably led me to an error in calculations.
 
 ## Example 2: One of the convolved signal is time-reversed
 
+This final example should make clear why "helper functions" ensure us that we correctly evaluate the star notation. In this example, one of the operands is time-reversed.
+
+$$x[n] \ast h[-n] \stackrel{h_2[n]=h[-n]}{=} x[n] \ast h_2[n] = \sum_{-\infty}^{\infty} x[k] h_2[n-k]\\
+\stackrel{h_2[n-k]=h[-(n-k)]}{=} \sum_{-\infty}^{\infty} x[k] h[k-n]. \quad (22)$$
+
+Is it possible to guess the correct answer right away? Yes, definitely. But it is not easy, especially if the arguments get even more complicated and the convolution is a part of a much larger body of derivations.
+
 # Summary
+
+In this article we examined the identity element of the convolution, i. e., $\delta[n]$ for the discrete convolution (Equation 3) and $\delta(t)$ for the continuous convolution (Equation 5). The former is much more easily tractable mathemathically.
+
+We introduced the sifting property of the delta impulse, interpreted it as the delay in context of digital signal processing, and looked at a discrete-time signal as a weighted sum of delayed impulses.
+
+Finally, we discussed notational issues concerning the discrete convolution and how to avoid common pitfalls when using the star notation.
+
 # Bibliography
 
 [1] I.N. Bronshtein et. al. *Handbook of Mathematics*, 5th Edition, Springer 2007.
