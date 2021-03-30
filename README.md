@@ -8,11 +8,12 @@ To run the test server
 bundle exec jekyll serve
 ```
 
+To run the test server when working on an article
+```
+bundle exec jekyll serve --incremental
+```
+
 To build pngs from latex files:
-```
-latexmk filename.tex -shell-exec
-```
-or
 ```
 latexmk filename.tex -shell-escape
 ```

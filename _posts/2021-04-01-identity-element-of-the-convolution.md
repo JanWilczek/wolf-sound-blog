@@ -148,7 +148,7 @@ but...
 
 ![]({{ page.images | absolute_url | append: "/trap.jpg" }})
 
-Let's evaluate the right hand side of Equation 13
+Let's evaluate the right hand side of "Equation" 13
 
 $$x[n-n_0] \ast h[n-n_0] = \sum_{k=-\infty}^{\infty} x[k-n_0] \delta[n-n_0 - k] = \\ \sum_{k=-\infty}^{\infty} x[k] \delta[n-2n_0 - k] = y[n-2n_0]. \quad (14)$$
 
