@@ -5,6 +5,7 @@ author: Jan Wilczek
 layout: post
 permalink: /identity-element-of-the-convolution/
 background: /assets/img/posts/2020-06-20-the-secret-behind-filtering/h_superposed.png
+images: assets/img/posts/2021-04-01-identity-element-of-the-convolution
 categories:
  - DSP
 tags:
@@ -113,7 +114,7 @@ Notice that Equation 9 could be viewed as another application of the sifting pro
 
  Let's recap once again the convolutional sum of Equation 2
 
- $$x[n] = sum_{k=-\infty}^{\infty} x[k] \delta[n - k], \quad n \in \mathbb{Z}. \quad (10)$$
+ $$x[n] = \sum_{k=-\infty}^{\infty} x[k] \delta[n - k], \quad n \in \mathbb{Z}. \quad (10)$$
 
  Let's evaluate it for a few conrete values of $n$.
 
@@ -127,14 +128,50 @@ As the value of $n$ changes, the corresponsing shift $k$ of the delta argument m
 
 Let's now assume that $x[n]$ starts at 0, i. e., $x[n]=  0 \forall n <0, n \in \mathbb{Z}$. Writing down the sum in Equation 10 explicitly yields
 
-$$x[n] = x[0]\delta[n] + x[1]\delta[n-1] + x[2]\delta[n-2] + \dots + x[n-1]\delta[n-(n-1)] x[n]\delta[n - n] + \dots \quad (11)$$
+$$x[n] = x[0]\delta[n] + x[1]\delta[n-1] + x[2]\delta[n-2] + \dots \\+ x[n-1]\delta[n-(n-1)] x[n]\delta[n - n] + \dots \quad (11)$$
 
 Can you see the beauty of it? **$x[n]$ already contains all possible samples of the sequence $x$; we just need to delay it properly to receive the desired sample.** In other words, any discrete-time signal is a convolutional sum, a weighted sum of delayed impulses. Fixing index $n$ to some concrete value sets the delay length accordingly.
 
 # Notational trap
 
+Taking advantage of the introduction of delays, I wanted to warn you against a common pitfall when talking about convolution. The star notation $x[n] \ast h[n]$ is very convenient. It must, however be used with caution.
 
-* notation considerations ([n-n0], etc.)
+The following notation should be clear to you by now
+
+$$y[n] = x[n] \ast h[n], n \in \mathbb{Z}. \quad (12)$$
+
+What if we wanted to obtain a delayed version of $y[n]$, i. e., $y[n-n_0]$? A natural move would be to substitute $n \rightarrow n-n_0$...
+
+$$y[n-n_0] \stackrel{?}{=} x[n-n_0] \ast h[n-n_0], \quad (13)$$
+
+but...
+
+![]({{ page.images | absolute_url | append: "/trap.jpg" }})
+
+Let's evaluate the right hand side of Equation 13
+
+$$x[n-n_0] \ast h[n-n_0] = \sum_{k=-\infty}^{\infty} x[k-n_0] \delta[n-n_0 - k] = \\ \sum_{k=-\infty}^{\infty} x[k] \delta[n-2n_0 - k] = y[n-2n_0]. \quad (14)$$
+
+By blindly substituting $n \rightarrow n-n_0$, we overshot the desired delay by a factor of two.
+
+The correct way to write this is
+
+$$y[n-n_0] = x[n] \ast h[n-n_0] = \sum_{k=-\infty}^{\infty} x[k] \delta[n-n_0 - k]. \quad (15)$$
+
+But these are not the only problems when using the star notation.
+
+## Useful notational tip
+
+When the convolution looks any way different from the typical $x[n] \ast h[n]$, I try to bring it back to that basic form, by defining "helper functions". Then I use the definition of the convolution and substitute the original functions again.
+
+How this works is best explained through an example.
+## Example 1: Both convolved signals delayed
+
+Let's say the operands of the convolution we need to perform are both delayed by different amounts, i. e., we want to calculate
+
+$$x[n-n_x] \ast h[n-n_h] = \dots \quad n,n_x,n_h \in \mathbb{Z} \quad (16)$$
+
+## Example 2: One of the convolved signal is time-reversed
 
 # Summary
 # Bibliography
