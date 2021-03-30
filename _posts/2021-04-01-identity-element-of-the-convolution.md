@@ -93,7 +93,7 @@ $$x[n] \ast \delta[n-1] = \sum_{k=-\infty}^{\infty} x[k] \delta[n - 1 - k] = x[n
 
 Looking at the discrete-time instant $n$, applying a convolution with argument-shifted impulse, $\delta[n-1]$, yielded $x[n-1]$, i. e., a samples that was already "known" to us (we are at time $n$ so we already observed $x[n-1]$ at time $n-1$). That is the concept of a unit **delay**.
 
-By adjusting the shift of the argument $n_0$ of $\delta[n-n_0]$ and convolving the result with a signal we can obtain an arbitrarily delayed signal. If $n_0 < 0$, we can even obtain "samples from the future", i. e., $x[n] \ast \delta[n+1] = x[n+1]$. 
+By adjusting the shift of the argument $n_0$ of $\delta[n-n_0]$ and convolving the result with a signal we can obtain an arbitrarily delayed signal. If $n_0 < 0$, we can even obtain "samples from the future", i. e., $x[n] \ast \delta[n+1] = x[n+1]$. $n_0$ is called **delay length** or simply delay.
 
 The concept of the delay and its application in digital signal processing and audio programming is very profound. Delay is an inherent property of any filter, or more generally, any LTI system. You may have stumbled upon the "Delay effect" as an audio plug-in to a digital audio workstation (DAW); the underlying principle is just that. Examples of other applications of the delay just in the domain of audio effects include artificial reverberation, comb filter, flanger, chorus, Karplus-Strong synthesis, and many more.
 
@@ -107,12 +107,36 @@ $$ \mathcal{Z}\{\delta[n-1]\} = \sum_{n=-\infty}^{\infty} \delta[n-1] z^{-n} = z
 
 Notice that Equation 9 could be viewed as another application of the sifting property. From an infinite "stream" of $z^{-n}$ we pick only the one for $n=1$.
 
+<!-- Figure needed: series of delays -->
+
 # What is a signal, really?
 
+ Let's recap once again the convolutional sum of Equation 2
 
-* discrete-time signal or sampling as a convolutional sum, a weighted sum of impulses
+ $$x[n] = sum_{k=-\infty}^{\infty} x[k] \delta[n - k], \quad n \in \mathbb{Z}. \quad (10)$$
+
+ Let's evaluate it for a few conrete values of $n$.
+
+$$x[0] = \sum_{k=-\infty}^{\infty} x[k] \delta[0 - k] = x[0]\delta[0 - 0] = x[0],$$
+$$x[1] = \sum_{k=-\infty}^{\infty} x[k] \delta[1 - k] = x[1]\delta[1 - 1] = x[1],$$
+$$x[2] = \sum_{k=-\infty}^{\infty} x[k] \delta[2 - k] = x[2]\delta[2 - 2] = x[2],$$
+$$\vdots$$
+$$x[n] = \sum_{k=-\infty}^{\infty} x[k] \delta[n - k] = x[n]\delta[n - n] = x[n].$$
+
+As the value of $n$ changes, the corresponsing shift $k$ of the delta argument must change as well to be equal to 0 and produce a single result $x[n]$. We could think of this change of $k$ as a change of the delay length.
+
+Let's now assume that $x[n]$ starts at 0, i. e., $x[n]=  0 \forall n <0, n \in \mathbb{Z}$. Writing down the sum in Equation 10 explicitly yields
+
+$$x[n] = x[0]\delta[n] + x[1]\delta[n-1] + x[2]\delta[n-2] + \dots + x[n-1]\delta[n-(n-1)] x[n]\delta[n - n] + \dots \quad (11)$$
+
+Can you see the beauty of it? **$x[n]$ already contains all possible samples of the sequence $x$; we just need to delay it properly to receive the desired sample.** In other words, any discrete-time signal is a convolutional sum, a weighted sum of delayed impulses. Fixing index $n$ to some concrete value sets the delay length accordingly.
+
+# Notational trap
+
+
 * notation considerations ([n-n0], etc.)
 
+# Summary
 # Bibliography
 
 [1] I.N. Bronshtein et. al. *Handbook of Mathematics*, 5th Edition, Springer 2007.
