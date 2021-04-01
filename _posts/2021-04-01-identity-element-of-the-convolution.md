@@ -18,6 +18,25 @@ How to convolve and do nothing at the same time?
 
 {% katexmm %}
 
+## The Convolution Series
+1. [Definition of convolution and intuition behind it]({% post_url 2020-06-20-the-secret-behind-filtering %})
+1. [Mathematical properties of convolution]({% post_url 2020-07-05-mathematical-properties-of-convolution %})
+1. [The convolution property in popular transforms]({% post_url 2021-03-18-convolution-in-popular-transforms %})
+1. **Identity element of the convolution**
+
+# Table of Contents
+1. [Introduction](#introduction)
+1. [Justification of the need for an identity element](#why-do-we-need-a-neutral-element)
+1. [Identity element of the discrete convolution](#identity-element-of-the-discrete-convolution)
+1. [Identity element of the continuous convolution](#identity-element-of-the-continuous-convolution)
+1. [The sifting property](#the-sifting-property)
+1. [Delay](#delay)
+1. [Signal representation using delay](#what-is-a-signal-really)
+1. [Star notation: a notational trap](#star-notation-a-notational-trap)
+1. [Summary](#summary)
+
+# Introduction
+
 For any operation, a very important concept is the *neutral* or *identity element*. Adding 0 to any number results in the same number. Multiplying any number by 1 results in the same number. These trivial facts are extensively used to prove numerous theorems of mathematics, especially in engineering. Particularly popular is adding and subtracting a variable or a constant (so adding 0) to introduce a desired element in an inspected equality.
 
 More formally, a **neutral element** or an **identity element** with respect to a binary operation $\ast$ defined on a set $A$ is an element $e \in A$ such that [1, Sec. 5.3.1.2]
@@ -27,12 +46,6 @@ More formally, a **neutral element** or an **identity element** with respect to 
 $$e \ast a = a \ast e = a \quad \forall a \in A. \quad ({% increment equationId  %})$$
 
 What is the identity element of convolution?
-
-## The Convolution Series
-1. [Definition of convolution and intuition behind it]({% post_url 2020-06-20-the-secret-behind-filtering %})
-1. [Mathematical properties of convolution]({% post_url 2020-07-05-mathematical-properties-of-convolution %})
-1. [The convolution property in popular transforms]({% post_url 2021-03-18-convolution-in-popular-transforms %})
-1. **Identity element of the convolution**
 
 # Why do we need a neutral element?
 
@@ -144,7 +157,7 @@ $$x[n] = x[0]\delta[n] + x[1]\delta[n-1] + x[2]\delta[n-2] + \dots \\+ x[n-1]\de
 
 Can you see the beauty of it? **$x[n]$ already contains all possible samples of the sequence $x$; we just need to delay it properly to receive the desired sample.** In other words, any discrete-time signal is a convolutional sum, a weighted sum of delayed impulses. Fixing index $n$ to some concrete value sets the delay length accordingly.
 
-# Notational trap
+# Star notation: a notational trap
 
 Taking advantage of the introduction of delays, I wanted to warn you against a common pitfall when talking about convolution [2]. The star notation $x[n] \ast h[n]$ is very convenient. It must, however be used with caution.
 

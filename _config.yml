@@ -34,6 +34,7 @@ theme: jekyll-theme-clean-blog
 markdown:           kramdown
 kramdown:
   math_engine: mathjax
+  auto_ids: true
 highlighter:        rouge
 paginate:           5
 paginate_path:      "/posts/page:num/"
