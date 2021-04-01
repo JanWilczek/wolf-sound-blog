@@ -22,7 +22,9 @@ For any operation, a very important concept is the *neutral* or *identity elemen
 
 More formally, a **neutral element** or an **identity element** with respect to a binary operation $\ast$ defined on a set $A$ is an element $e \in A$ such that [1, Sec. 5.3.1.2]
 
-$$e \ast a = a \ast e = a \quad \forall a \in A. \quad (1)$$
+{% capture _ %}{% increment equationId  %}{% endcapture %}
+
+$$e \ast a = a \ast e = a \quad \forall a \in A. \quad ({% increment equationId  %})$$
 
 What is the identity element of convolution?
 
@@ -42,13 +44,13 @@ Imagine that you would like to identify the impulse response of a certain system
 
 Let's focus first on discrete convolution. We are looking for a discrete signal, let's denote it $\delta[n]$, such that for any signal $x[n]$ it holds (according to Equation 1) that
 
-$$x[n] \ast \delta[n] = \delta[n] \ast x[n] = \sum_{k=-\infty}^{\infty} x[k] \delta[n - k] = x[n], \quad n \in \mathbb{Z}. \quad (2)$$
+$$x[n] \ast \delta[n] = \delta[n] \ast x[n] = \sum_{k=-\infty}^{\infty} x[k] \delta[n - k] = x[n], \quad n \in \mathbb{Z}. \quad ({% increment equationId  %})$$
 
 From the above it is clear that $\delta[n-k]$ should be equal to 1 if $k = n$ and 0 for every other $k$. In this way, we can pick out untouched $x[n]$ from the infinite sum and **only** $x[n]$.
 
 If $\delta[n-k] = 1$ for $k = n$, then $\delta[0]=1$. Thus,
 
-$$\delta[n] = \begin{cases} 1 &\text{ if } n=0,\\ 0 &\text{ if } n \neq 0. \end{cases}\quad (3)$$
+$$\delta[n] = \begin{cases} 1 &\text{ if } n=0,\\ 0 &\text{ if } n \neq 0. \end{cases}\quad ({% increment equationId  %})$$
 
 And so we have found our neutral element! The signal defined in Equation 3 is called a **unit sample sequence**, a **discrete-time impulse**, or just an **impulse** [2]. I have also often stumbled upon the name **discrete (Dirac) delta**.
 
@@ -58,17 +60,17 @@ The definition in Equation 3 makes sense also from a different perspective. In [
 
 How does the neutral element look in case of continuous convolution. According to Equation 2, we obtain
 
-$$x(t) \ast \delta(t) = \delta(t) \ast x(t) = \int \limits_{-\infty}^{\infty} x(\tau) \delta(t - \tau) d\tau = x(t). \quad (4) $$
+$$x(t) \ast \delta(t) = \delta(t) \ast x(t) = \int \limits_{-\infty}^{\infty} x(\tau) \delta(t - \tau) d\tau = x(t). \quad ({% increment equationId  %}) $$
 
 Are you able to extract the formula for $\delta(t)$ out of this equation? Me neither. So how is our $\delta(t)$ defined, then?
 
 It turns out that there exists no *function* satisfying Equation 4. We need another type of entity called a **generalized function** or a **distribution**. Then our $\delta(t)$ is called the **Dirac $\delta$ function** and can be *approximated* by [1, Eq. 15.33a]
 
-$$\delta(t) = \lim_{\epsilon \rightarrow 0} f(t,\epsilon), \quad (5)$$
+$$\delta(t) = \lim_{\epsilon \rightarrow 0} f(t,\epsilon), \quad ({% increment equationId  %})$$
 
 where
 
-$$ f(t,\epsilon) = \begin{cases} \frac{1}{\epsilon} &\text{ if } |t|<\frac{\epsilon}{2},\\ 0 &\text{ if } |t|\geq\frac{\epsilon}{2}. \end{cases}\quad (6)$$
+$$ f(t,\epsilon) = \begin{cases} \frac{1}{\epsilon} &\text{ if } |t|<\frac{\epsilon}{2},\\ 0 &\text{ if } |t|\geq\frac{\epsilon}{2}. \end{cases}\quad ({% increment equationId  %})$$
 
 How to tackle this definition? I try to think about it as a function being 0 everywhere apart from $t=0$. At $t=0$, $\delta(t)$ tends to $+\infty$ like an infinitesimally narrow impulse. But it is just an intuition; a correct mathematical definition is beyond the scope of this article.
 
@@ -78,7 +80,7 @@ Dirac $\delta$ function is ubiquitious in mathematics and engineering. It is oft
 
 Dirac $\delta$ function has a valuable property
 
-$$ \int \limits_{t-\tau}^{t+\tau} x(\tau) \delta(t-\tau) d\tau = x(t) \quad \forall a > 0.\quad (7)$$
+$$ \int \limits_{t-\tau}^{t+\tau} x(\tau) \delta(t-\tau) d\tau = x(t) \quad \forall a > 0.\quad ({% increment equationId  %})$$
 
 Substituting $a=\infty$ (what we **can** do) yields exactly our desired Equation 4.
 
@@ -90,7 +92,7 @@ In the discrete case, the sifting property was shown in action in Equation 2: th
 
 What happens if we shift the argument of the discrete-time impulse by 1?
 
-$$x[n] \ast \delta[n-1] = \sum_{k=-\infty}^{\infty} x[k] \delta[n - 1 - k] = x[n-1], \quad n \in \mathbb{Z}. \quad (8)$$
+$$x[n] \ast \delta[n-1] = \sum_{k=-\infty}^{\infty} x[k] \delta[n - 1 - k] = x[n-1], \quad n \in \mathbb{Z}. \quad ({% increment equationId  %})$$
 
 Looking at the discrete-time instant $n$, applying a convolution with argument-shifted impulse, $\delta[n-1]$, yielded $x[n-1]$, i. e., a samples that was already "known" to us (we are at time $n$ so we already observed $x[n-1]$ at time $n-1$). That is the concept of a unit **delay**.
 
@@ -105,13 +107,13 @@ _Figure 1. Representation of a delay by $n_0$ samples as a functional block in a
 
 That is because the $z$-transform of $\delta[n-n_0]$ is equal to $z^{-n_0}$
 
-$$ \mathcal{Z}\{\delta[n-n_0]\} = \sum_{n=-\infty}^{\infty} \delta[n-n_0] z^{-n} = z^{-n_0}. \quad (9)$$
+$$ \mathcal{Z}\{\delta[n-n_0]\} = \sum_{n=-\infty}^{\infty} \delta[n-n_0] z^{-n} = z^{-n_0}. \quad ({% increment equationId  %})$$
 
 n_0otice that Equation 9 could be viewed as another application of the sifting property. From an infinite "stream" of $z^{-n}$ we pick only the one for which $n=n_0$.
 
 From the associativity property of the convolution, which we derived in [one of the previous articles]({% post_url 2020-07-05-mathematical-properties-of-convolution %}), it can be inferred that arranging delays in a series results in a delay of length equal to the sum of the individual delay lengths. That is because
 
-$$\delta[n-n_0] \ast \delta[n-n_1] = \sum_{k=-\infty}^{\infty} \delta[k - n_0]\delta[n-n_1 - k] \\= \delta[n-n_0-n_1]. \quad (10)$$
+$$\delta[n-n_0] \ast \delta[n-n_1] = \sum_{k=-\infty}^{\infty} \delta[k - n_0]\delta[n-n_1 - k] \\= \delta[n-n_0-n_1]. \quad ({% increment equationId  %})$$
 
 ($\delta[k - n_0]\delta[n-n_1 - k]=1$ only if $k-n_0=0$ what results in $k=n_0$).
 
@@ -124,7 +126,7 @@ _Figure 2. Appending a delay element to the system results in adding its delay t
 
  Let's recap once again the convolutional sum of Equation 2 [2, Eq. 2.5]
 
- $$x[n] = \sum_{k=-\infty}^{\infty} x[k] \delta[n - k], \quad n \in \mathbb{Z}. \quad (10)$$
+ $$x[n] = \sum_{k=-\infty}^{\infty} x[k] \delta[n - k], \quad n \in \mathbb{Z}. \quad ({% increment equationId  %})$$
 
  Let's evaluate it for a few conrete values of $n$.
 
@@ -136,9 +138,9 @@ $$x[n] = \sum_{k=-\infty}^{\infty} x[k] \delta[n - k] = x[n]\delta[n - n] = x[n]
 
 As the value of $n$ changes, the corresponsing shift $k$ of the delta argument must change as well to be equal to 0 and produce a single result $x[n]$. We could think of this change of $k$ as a change of the delay length.
 
-Let's now assume that $x[n]$ starts at 0, i. e., $x[n]=  0 \forall n <0, n \in \mathbb{Z}$. Writing down the sum in Equation 10 explicitly yields [2]
+Let's now assume that $x[n]$ starts at 0, i. e., $x[n]=  0 \forall n <0, n \in \mathbb{Z}$. Writing down the sum in Equation 11 explicitly yields [2]
 
-$$x[n] = x[0]\delta[n] + x[1]\delta[n-1] + x[2]\delta[n-2] + \dots \\+ x[n-1]\delta[n-(n-1)] x[n]\delta[n - n] + \dots \quad (11)$$
+$$x[n] = x[0]\delta[n] + x[1]\delta[n-1] + x[2]\delta[n-2] + \dots \\+ x[n-1]\delta[n-(n-1)] x[n]\delta[n - n] + \dots \quad ({% increment equationId  %})$$
 
 Can you see the beauty of it? **$x[n]$ already contains all possible samples of the sequence $x$; we just need to delay it properly to receive the desired sample.** In other words, any discrete-time signal is a convolutional sum, a weighted sum of delayed impulses. Fixing index $n$ to some concrete value sets the delay length accordingly.
 
@@ -148,11 +150,11 @@ Taking advantage of the introduction of delays, I wanted to warn you against a c
 
 The following notation should be clear to you by now
 
-$$y[n] = x[n] \ast h[n], n \in \mathbb{Z}. \quad (12)$$
+$$y[n] = x[n] \ast h[n], n \in \mathbb{Z}. \quad ({% increment equationId  %})$$
 
 What if we wanted to obtain a delayed version of $y[n]$, i. e., $y[n-n_0]$? A natural move would be to substitute $n \rightarrow n-n_0$...
 
-$$y[n-n_0] \stackrel{?}{=} x[n-n_0] \ast h[n-n_0], \quad (13)$$
+$$y[n-n_0] \stackrel{?}{=} x[n-n_0] \ast h[n-n_0], \quad ({% increment equationId  %})$$
 
 but...
 
@@ -160,13 +162,13 @@ but...
 
 Let's evaluate the right hand side of "Equation" 13
 
-$$x[n-n_0] \ast h[n-n_0] = \sum_{k=-\infty}^{\infty} x[k-n_0] \delta[n-n_0 - k] = \\ \sum_{k=-\infty}^{\infty} x[k] \delta[n-2n_0 - k] = y[n-2n_0]. \quad (14)$$
+$$x[n-n_0] \ast h[n-n_0] = \sum_{k=-\infty}^{\infty} x[k-n_0] \delta[n-n_0 - k] = \\ \sum_{k=-\infty}^{\infty} x[k] \delta[n-2n_0 - k] = y[n-2n_0]. \quad ({% increment equationId  %})$$
 
 By blindly substituting $n \rightarrow n-n_0$, we overshot the desired delay by a factor of two.
 
 The correct way to write this is [2, Eq. 2.52]
 
-$$y[n-n_0] = x[n] \ast h[n-n_0] = \sum_{k=-\infty}^{\infty} x[k] \delta[n-n_0 - k]. \quad (15)$$
+$$y[n-n_0] = x[n] \ast h[n-n_0] = \sum_{k=-\infty}^{\infty} x[k] \delta[n-n_0 - k]. \quad ({% increment equationId  %})$$
 
 But these are not the only problems when using the star notation.
 
@@ -179,25 +181,25 @@ How this works is best explained through an example.
 
 Let's say the operands of the convolution we need to perform are both delayed by different amounts, i. e., we want to calculate
 
-$$x[n-n_x] \ast h[n-n_h] = \dots \quad n,n_x,n_h \in \mathbb{Z}. \quad (16)$$
+$$x[n-n_x] \ast h[n-n_h] = \dots \quad n,n_x,n_h \in \mathbb{Z}. \quad ({% increment equationId  %})$$
 
 Let's define two "helper functions" $x_1[n], h_1[n]$
 
-$$x_1[n] = x[n-n_x], \quad (17)$$
+$$x_1[n] = x[n-n_x], \quad ({% increment equationId  %})$$
 
-$$h_1[n] = h[n-n_h]. \quad (18)$$
+$$h_1[n] = h[n-n_h]. \quad ({% increment equationId  %})$$
 
-Now we can insert these functions into Equation 16
+Now we can insert these functions into Equation 17
 
-$$x[n-n_x] \ast h[n-n_h] = x_1[n] \ast h_1[n], \quad (19)$$
+$$x[n-n_x] \ast h[n-n_h] = x_1[n] \ast h_1[n], \quad ({% increment equationId  %})$$
 
 use the definition of convolution
 
-$$ x_1[n] \ast h_1[n] = \sum_{-\infty}^{\infty} x_1[k] h_1[n-k], \quad (20) $$
+$$ x_1[n] \ast h_1[n] = \sum_{-\infty}^{\infty} x_1[k] h_1[n-k], \quad ({% increment equationId  %}) $$
 
 and finally substitute the original functions $x[n]$ and $h[n]$ according to Equations 17 and 18 respectively
 
-$$\sum_{-\infty}^{\infty} x_1[k] h_1[n-k] = \sum_{-\infty}^{\infty} x[k-n_x] h[n - k - n_h]. \quad (21)$$
+$$\sum_{-\infty}^{\infty} x_1[k] h_1[n-k] = \sum_{-\infty}^{\infty} x[k-n_x] h[n - k - n_h]. \quad ({% increment equationId  %})$$
 
 This approach always worked for me. At the same time, any shortcuts in an attempt not to use it inevitably led me to an error in calculations.
 
@@ -206,7 +208,7 @@ This approach always worked for me. At the same time, any shortcuts in an attemp
 This final example should make clear why "helper functions" ensure us that we correctly evaluate the star notation. In this example, one of the operands is time-reversed.
 
 $$x[n] \ast h[-n] \stackrel{h_2[n]=h[-n]}{=} x[n] \ast h_2[n] = \sum_{-\infty}^{\infty} x[k] h_2[n-k]\\
-\stackrel{h_2[n-k]=h[-(n-k)]}{=} \sum_{-\infty}^{\infty} x[k] h[k-n]. \quad (22)$$
+\stackrel{h_2[n-k]=h[-(n-k)]}{=} \sum_{-\infty}^{\infty} x[k] h[k-n]. \quad ({% increment equationId  %})$$
 
 Is it possible to guess the correct answer right away? Yes, definitely. But it is not easy, especially if the arguments get even more complicated and the convolution is a part of a much larger body of derivations.
 
