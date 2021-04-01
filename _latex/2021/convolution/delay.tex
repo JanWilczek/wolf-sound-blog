@@ -10,9 +10,9 @@
 \begin{document}
  
 \begin{tikzpicture}
-    \node[dspnodeopen,dsp/label=above] (m00) {};
-    \node[dspsquare, right of=m00] (m01) {$z^{-1}$};
-    \node[dspnodeopen, right of=m01] (m02) {};
+    \node[dspnodeopen,dsp/label=above] (m00) {$x[n]$};
+    \node[dspsquare, right of=m00] (m01) {$z^{-n_0}$};
+    \node[dspnodeopen,dsp/label=above, right of=m01,xshift=2mm] (m02) {$x[n-n_0]$};
     
     \draw[dspflow] (m00) -- (m01);
     \draw[dspflow] (m01) -- (m02);	

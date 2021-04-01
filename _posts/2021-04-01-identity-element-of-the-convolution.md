@@ -94,21 +94,31 @@ $$x[n] \ast \delta[n-1] = \sum_{k=-\infty}^{\infty} x[k] \delta[n - 1 - k] = x[n
 
 Looking at the discrete-time instant $n$, applying a convolution with argument-shifted impulse, $\delta[n-1]$, yielded $x[n-1]$, i. e., a samples that was already "known" to us (we are at time $n$ so we already observed $x[n-1]$ at time $n-1$). That is the concept of a unit **delay**.
 
-By adjusting the shift of the argument $n_0$ of $\delta[n-n_0]$ and convolving the result with a signal we can obtain an arbitrarily delayed signal. If $n_0 < 0$, we can even obtain "samples from the future", i. e., $x[n] \ast \delta[n+1] = x[n+1]$. $n_0$ is called **delay length** or simply delay.
+By adjusting the shift $n_0$ of the argument of $\delta[n-n_0]$ and convolving the result with a signal we can obtain an arbitrarily delayed signal. If $n_0 < 0$, we can even obtain "samples from the future", i. e., $x[n] \ast \delta[n+1] = x[n+1]$. $n_0$ is called **delay length** or simply delay.
 
 The concept of the delay and its application in digital signal processing and audio programming is very profound. Delay is an inherent property of any filter, or more generally, any LTI system. You may have stumbled upon the "Delay effect" as an audio plug-in to a digital audio workstation (DAW); the underlying principle is just that. Examples of other applications of the delay just in the domain of audio effects include artificial reverberation, comb filter, flanger, chorus, Karplus-Strong synthesis, and many more.
 
-In DSP diagrams, unit delay, i. e., with $n_0=1$, is often marked with a $z^{-1}$ box. 
+In DSP diagrams, the delay by $n_0$ samples is often marked with a $z^{-n_0}$ box (Figure 1). 
 
-<!-- Figure needed -->
+![]({{ page.images | absolute_url | append: "/delay.png" }}){: width="350" }
+_Figure 1. Representation of a delay by $n_0$ samples as a functional block in a DSP diagram._
 
-That is because the $z$-transform of $\delta[n-1]$ is equal to $z^{-1}$
+That is because the $z$-transform of $\delta[n-n_0]$ is equal to $z^{-n_0}$
 
-$$ \mathcal{Z}\{\delta[n-1]\} = \sum_{n=-\infty}^{\infty} \delta[n-1] z^{-n} = z^{-1}. \quad (9)$$
+$$ \mathcal{Z}\{\delta[n-n_0]\} = \sum_{n=-\infty}^{\infty} \delta[n-n_0] z^{-n} = z^{-n_0}. \quad (9)$$
 
-Notice that Equation 9 could be viewed as another application of the sifting property. From an infinite "stream" of $z^{-n}$ we pick only the one for $n=1$.
+n_0otice that Equation 9 could be viewed as another application of the sifting property. From an infinite "stream" of $z^{-n}$ we pick only the one for which $n=n_0$.
 
-<!-- Figure needed: series of delays -->
+From the associativity property of the convolution, which we derived in [one of the previous articles]({% post_url 2020-07-05-mathematical-properties-of-convolution %}), it can be inferred that arranging delays in a series results in a delay of length equal to the sum of the individual delay lengths. That is because
+
+$$\delta[n-n_0] \ast \delta[n-n_1] = \sum_{k=-\infty}^{\infty} \delta[k - n_0]\delta[n-n_1 - k] \\= \delta[n-n_0-n_1]. \quad (10)$$
+
+($\delta[k - n_0]\delta[n-n_1 - k]=1$ only if $k-n_0=0$ what results in $k=n_0$).
+
+That means we can stack the delays one after another to delay the signal even more (Figure 2).
+
+![]({{ page.images | absolute_url | append: "/delay-series.png" }})
+_Figure 2. Appending a delay element to the system results in adding its delay to the original delay of the system._
 
 # What is a signal, really?
 
