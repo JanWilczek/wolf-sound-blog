@@ -3,7 +3,7 @@ title: "Star notation of the convolution: a notational trap"
 date: 2021-04-03
 author: Jan Wilczek
 layout: post
-permalink: /_posts/2021-04-03-star-notation-of-the-convolution-a-notational-trap
+permalink: /star-notation-of-the-convolution-a-notational-trap/
 background: /assets/img/posts/2020-06-20-the-secret-behind-filtering/h_superposed.png
 images: assets/img/posts/2021-04-01-identity-element-of-the-convolution
 categories:
