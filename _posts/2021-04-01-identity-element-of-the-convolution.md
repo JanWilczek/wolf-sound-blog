@@ -23,6 +23,7 @@ How to convolve and do nothing at the same time?
 1. [Mathematical properties of convolution]({% post_url 2020-07-05-mathematical-properties-of-convolution %})
 1. [The convolution property in popular transforms]({% post_url 2021-03-18-convolution-in-popular-transforms %})
 1. **Identity element of the convolution**
+1. [Star notation of the convolution]({% post_url 2021-04-03-star-notation-of-the-convolution-a-notational-trap %})
 
 # Table of Contents
 1. [Introduction](#introduction)
@@ -36,7 +37,7 @@ How to convolve and do nothing at the same time?
 
 # Introduction
 
-For any operation, a very important concept is the *neutral* or *identity element*. Adding 0 to any number results in the same number. Multiplying any number by 1 results in the same number. These trivial facts are extensively used to prove numerous theorems of mathematics, especially in engineering. Particularly popular is adding and subtracting a variable or a constant (so adding 0) to introduce a desired element in an inspected equality.
+For any operation, a very important concept is the *neutral* or *identity element*. Adding 0 to any number results in the same number. Multiplying a number by 1 results in the same number. These trivial facts are extensively used to prove numerous theorems of mathematics, especially in engineering. Particularly popular is adding and subtracting a variable or a constant (effectively adding 0) to introduce a desired element in the inspected (in)equality.
 
 More formally, a **neutral element** or an **identity element** with respect to a binary operation $\ast$ defined on a set $A$ is an element $e \in A$ such that [1, Sec. 5.3.1.2]
 
@@ -48,13 +49,16 @@ What is the identity element of convolution?
 
 # Why do we need a neutral element?
 
-We often want to represent a "do nothing" operation in our processing. That holds for the examples mentioned in the introduction. Another example could be the NOP ("no operation") instruction of processors used, for instance, for [memory alignment]({% post_url 2020-04-09-what-is-data-alignment %}).
+We often want to represent a "do nothing" operation in our processing, regardless of the domain. Examples of such operations are "add 0" for addition and "multiply by 1" for multiplication, as mentioned in the introduction. Another example is the NOP ("no operation") instruction of processors used, for instance, for [memory alignment]({% post_url 2020-04-09-what-is-data-alignment %}).
 
-Imagine that you would like to identify the impulse response of a certain system. As we know from [one of the previous articles]({% post_url 2020-06-20-the-secret-behind-filtering %}) the output of an LTI system is the convolution of its impulse response with the input. What if the system does nothing? We need a way to represent the resulting impulse response we obtained.
+Imagine that you would like to identify the impulse response of a certain system. As we know from [one of the previous articles]({% post_url 2020-06-20-the-secret-behind-filtering %}), the output of an LTI system is the convolution of its impulse response with the input. What if the system does nothing? We need a way to represent its impulse response (Figure 1).
+
+![]({{ page.images | absolute_url | append: "/identity_block.png" }}){: width="350" }
+_Figure 1. How to represent a system that does not alter our signal at all?_
 
 # Identity element of the discrete convolution
 
-Let's focus first on discrete convolution. We are looking for a discrete signal, let's denote it $\delta[n]$, such that for any signal $x[n]$ it holds (according to Equation 1) that
+Let's focus on the discrete convolution first. We are looking for a discrete signal, let's denote it by $\delta[n]$, such that for any signal $x[n]$ it holds (according to Equation 1) that
 
 $$x[n] \ast \delta[n] = \delta[n] \ast x[n] = \sum_{k=-\infty}^{\infty} x[k] \delta[n - k] = x[n], \quad n \in \mathbb{Z}. \quad ({% increment page.equationId  %})$$
 
@@ -112,10 +116,10 @@ By adjusting the shift $n_0$ of the argument of $\delta[n-n_0]$ and convolving t
 
 The concept of the delay and its application in digital signal processing and audio programming is very profound. Delay is an inherent property of any filter, or more generally, any LTI system. You may have stumbled upon the "Delay effect" as an audio plug-in to a digital audio workstation (DAW); the underlying principle is just that. Examples of other applications of the delay just in the domain of audio effects include artificial reverberation, comb filter, flanger, chorus, Karplus-Strong synthesis, and many more.
 
-In DSP diagrams, the delay by $n_0$ samples is often marked with a $z^{-n_0}$ box (Figure 1). 
+In DSP diagrams, the delay by $n_0$ samples is often marked with a $z^{-n_0}$ box (Figure 2). 
 
 ![]({{ page.images | absolute_url | append: "/delay.png" }}){: width="350" }
-_Figure 1. Representation of a delay by $n_0$ samples as a functional block in a DSP diagram._
+_Figure 2. Representation of a delay by $n_0$ samples as a functional block in a DSP diagram._
 
 That is because the $z$-transform of $\delta[n-n_0]$ is equal to $z^{-n_0}$
 
@@ -129,12 +133,12 @@ $$\delta[n-n_0] \ast \delta[n-n_1] = \sum_{k=-\infty}^{\infty} \delta[k - n_0]\d
 
 ($\delta[k - n_0]\delta[n-n_1 - k]=1$ only if $k-n_0=0$ what results in $k=n_0$).
 
-That means we can stack the delays one after another to delay the signal even more (Figure 2).
+That means we can stack the delays one after another to delay the signal even more (Figure 3).
 
 ![]({{ page.images | absolute_url | append: "/delay-series.png" }})
-_Figure 2. Appending a delay element to the system results in adding its delay to the original delay of the system._
+_Figure 3. Appending a delay element to the system results in adding its delay to the original delay of the system._
 
-Unsurprisingly, the $z^{-n}$ notation in Figure 2 results directly from the convolutions property of the $z$-transform, which we discussed in [the previous article]({% post_url 2021-03-18-convolution-in-popular-transforms %})
+Unsurprisingly, the $z^{-n}$ notation in Figure 3 results directly from the convolutions property of the $z$-transform, which we discussed in [the previous article]({% post_url 2021-03-18-convolution-in-popular-transforms %})
 
 $$ \mathcal{Z}\{\delta[n-n_0] \ast \delta[n-n_1]\} = \mathcal{Z}\{\delta[n-n_0] \} \mathcal{Z}\{\delta[n-n_1]\} = z^{-n_0} z^{-n_1} = z^{-(n_0+n_1)}. \quad ({% increment page.equationId %})$$
 
