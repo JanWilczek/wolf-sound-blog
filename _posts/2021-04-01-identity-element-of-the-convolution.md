@@ -68,13 +68,13 @@ If $\delta[n-k] = 1$ for $k = n$, then $\delta[0]=1$. Thus,
 
 $$\delta[n] = \begin{cases} 1 &\text{ if } n=0,\\ 0 &\text{ if } n \neq 0. \end{cases}\quad ({% increment page.equationId  %})$$
 
-And so we have found our neutral element! The signal defined in Equation 3 is called a **unit sample sequence**, a **discrete-time impulse**, or just an **impulse** [2]. I have also often stumbled upon the name **discrete (Dirac) delta**.
+And so we have found our neutral element! The signal defined in Equation 3 is called a **unit sample sequence**, a **discrete-time impulse**, or just an **impulse** [2]. I have also often stumbled upon the name **discrete (Dirac) delta (impulse)**.
 
-The definition in Equation 3 makes sense also from a different perspective. In [the first post in the series]({% post_url 2020-06-20-the-secret-behind-filtering %}), we said that convolution in the context of filtering means scaling and delaying the impulse response by the samples of the input signal. If the impulse response consists of a single sample with value 1, convolving a signal with it should yield only delayed successive weights, i. e., just the input signal.
+The definition in Equation 3 makes sense also from a different perspective. In [the first article in the convolution series]({% post_url 2020-06-20-the-secret-behind-filtering %}), we said that convolution in the context of filtering means delaying and scaling the impulse response by the samples of the input signal. If the impulse response consists of a single sample with value 1, convolving a signal with it should yield only delayed successive weights, i. e., just the input signal.
 
 # Identity element of the continuous convolution
 
-How does the neutral element look in case of continuous convolution. According to Equation 2, we obtain
+How does the neutral element look in the case of continuous convolution? According to Equation 2, we obtain
 
 $$x(t) \ast \delta(t) = \delta(t) \ast x(t) = \int \limits_{-\infty}^{\infty} x(\tau) \delta(t - \tau) d\tau = x(t). \quad ({% increment page.equationId  %}) $$
 
@@ -88,7 +88,7 @@ where
 
 $$ f(t,\epsilon) = \begin{cases} \frac{1}{\epsilon} &\text{ if } |t|<\frac{\epsilon}{2},\\ 0 &\text{ if } |t|\geq\frac{\epsilon}{2}. \end{cases}\quad ({% increment page.equationId  %})$$
 
-How to tackle this definition? I try to think about it as a function being 0 everywhere apart from $t=0$. At $t=0$, $\delta(t)$ tends to $+\infty$ like an infinitesimally narrow impulse. But it is just an intuition; a correct mathematical definition is beyond the scope of this article.
+How to tackle this definition? I try to think about it as a function being 0 everywhere apart from $t=0$. At $t=0$, $\delta(t)$ tends to $+\infty$ like an infinitesimally narrow impulse of infinite height. But it is just an intuition; a correct mathematical definition is beyond the scope of this article.
 
 Dirac $\delta$ function is ubiquitious in mathematics and engineering. It is often used for defining initial conditions for partial differential equations (PDEs), e.g., the influence of a hammer strucking a piano string in physical modeling sound synthesis. 
 
@@ -96,13 +96,13 @@ Dirac $\delta$ function is ubiquitious in mathematics and engineering. It is oft
 
 Dirac $\delta$ function has a valuable property
 
-$$ \int \limits_{t-\tau}^{t+\tau} x(\tau) \delta(t-\tau) d\tau = x(t) \quad \forall a > 0.\quad ({% increment page.equationId  %})$$
+$$ \int \limits_{t-a}^{t+a} x(\tau) \delta(t-\tau) d\tau = x(t) \quad \forall a > 0.\quad ({% increment page.equationId  %})$$
 
 Substituting $a=\infty$ (what we **can** do) yields exactly our desired Equation 4.
 
 The property in Equation 7 is called the **sifting property** of the $\delta$ function, because the $\delta$ function "sifts" our signal only to return the value of $x$ at a point where the argument of $\delta$ is equal to 0.
 
-In the discrete case, the sifting property was shown in action in Equation 2: there we extracted a single element $x[n]$ out of the (possibly infinite) $x$ sequence.
+In the discrete case, the sifting property was shown in action in Equation 2; there we extracted a single element $x[n]$ out of the (possibly infinite) $x$ sequence.
 
 # Delay
 
@@ -110,13 +110,15 @@ What happens if we shift the argument of the discrete-time impulse by 1?
 
 $$x[n] \ast \delta[n-1] = \sum_{k=-\infty}^{\infty} x[k] \delta[n - 1 - k] = x[n-1], \quad n \in \mathbb{Z}. \quad ({% increment page.equationId  %})$$
 
-Looking at the discrete-time instant $n$, applying a convolution with argument-shifted impulse, $\delta[n-1]$, yielded $x[n-1]$, i. e., a samples that was already "known" to us (we are at time $n$ so we already observed $x[n-1]$ at time $n-1$). That is the concept of a unit **delay**.
+Looking at the discrete time instant $n$, the convolution with an argument-shifted impulse, $\delta[n-1]$, yielded $x[n-1]$, i. e., a sample that was already "known" to us (we are at time $n$ so we already observed $x[n-1]$ at time $n-1$). That is the concept of a unit **delay**.
 
-By adjusting the shift $n_0$ of the argument of $\delta[n-n_0]$ and convolving the result with a signal we can obtain an arbitrarily delayed signal. If $n_0 < 0$, we can even obtain "samples from the future", i. e., $x[n] \ast \delta[n+1] = x[n+1]$. $n_0$ is called **delay length** or simply delay.
+By adjusting the argument shift $n_0$ of $\delta[n-n_0]$ and convolving the result with a signal we can obtain an arbitrarily delayed signal. If $n_0 < 0$, we can even obtain "samples from the future", i. e., $x[n] \ast \delta[n+1] = x[n+1]$. $n_0$ is called the **delay length** or simply the delay.
 
-The concept of the delay and its application in digital signal processing and audio programming is very profound. Delay is an inherent property of any filter, or more generally, any LTI system. You may have stumbled upon the "Delay effect" as an audio plug-in to a digital audio workstation (DAW); the underlying principle is just that. Examples of other applications of the delay just in the domain of audio effects include artificial reverberation, comb filter, flanger, chorus, Karplus-Strong synthesis, and many more.
+The concept of the delay and its application in digital signal processing and audio programming is very profound. Delay is an inherent property of any filter, or more generally, any LTI system. You may have stumbled upon the "Delay effect" as an audio plug-in to a digital audio workstation (DAW); the underlying principle relies on delaying the input signal and possibly adding it to the original. Delaying one channel with respect to the other helps to set up panning based on interaural time difference (ITD). Examples of other applications of the delay, just in the domain of audio effects, include artificial reverberation, comb filter, flanger, chorus, and Karplus-Strong synthesis.
 
-In DSP diagrams, the delay by $n_0$ samples is often marked with a $z^{-n_0}$ box (Figure 2). 
+## Graphical representation
+
+In DSP diagrams, the delay by $n_0$ samples is marked with a $z^{-n_0}$ box (Figure 2). 
 
 ![]({{ page.images | absolute_url | append: "/delay.png" }}){: width="350" }
 _Figure 2. Representation of a delay by $n_0$ samples as a functional block in a DSP diagram._
@@ -125,7 +127,9 @@ That is because the $z$-transform of $\delta[n-n_0]$ is equal to $z^{-n_0}$
 
 $$ \mathcal{Z}\{\delta[n-n_0]\} = \sum_{n=-\infty}^{\infty} \delta[n-n_0] z^{-n} = z^{-n_0}. \quad ({% increment page.equationId  %})$$
 
-n_0otice that Equation 9 could be viewed as another application of the sifting property. From an infinite "stream" of $z^{-n}$ we pick only the one for which $n=n_0$.
+Notice that Equation 9 could be viewed as an application of the sifting property. From an infinite "stream" of $z^{-n}$ we pick out only the one for which $n=n_0$.
+
+## Arranging delays in a series
 
 From the associativity property of the convolution, which we derived in [one of the previous articles]({% post_url 2020-07-05-mathematical-properties-of-convolution %}), it can be inferred that arranging delays in a series results in a delay of length equal to the sum of the individual delay lengths. That is because
 
@@ -133,22 +137,22 @@ $$\delta[n-n_0] \ast \delta[n-n_1] = \sum_{k=-\infty}^{\infty} \delta[k - n_0]\d
 
 ($\delta[k - n_0]\delta[n-n_1 - k]=1$ only if $k-n_0=0$ what results in $k=n_0$).
 
-That means we can stack the delays one after another to delay the signal even more (Figure 3).
+That means we can stack the delays one after another to increase the delay length (Figure 3).
 
 ![]({{ page.images | absolute_url | append: "/delay-series.png" }})
-_Figure 3. Appending a delay element to the system results in adding its delay to the original delay of the system._
+_Figure 3. Appending a delay element to the system results in adding its delay length to the original delay of the system._
 
-Unsurprisingly, the $z^{-n}$ notation in Figure 3 results directly from the convolutions property of the $z$-transform, which we discussed in [the previous article]({% post_url 2021-03-18-convolution-in-popular-transforms %})
+Unsurprisingly, the $z^{-n}$ notation in Figure 3 results directly from the convolution property of the $z$-transform, which we discussed in [the previous article]({% post_url 2021-03-18-convolution-in-popular-transforms %})
 
-$$ \mathcal{Z}\{\delta[n-n_0] \ast \delta[n-n_1]\} = \mathcal{Z}\{\delta[n-n_0] \} \mathcal{Z}\{\delta[n-n_1]\} = z^{-n_0} z^{-n_1} = z^{-(n_0+n_1)}. \quad ({% increment page.equationId %})$$
+$$ \mathcal{Z}\{\delta[n-n_0] \ast \delta[n-n_1]\} = \mathcal{Z}\{\delta[n-n_0] \} \mathcal{Z}\{\delta[n-n_1]\} \\= z^{-n_0} z^{-n_1} = z^{-(n_0+n_1)}. \quad ({% increment page.equationId %})$$
 
 # What is a signal, really?
 
- Let's recap once again the convolutional sum of Equation 2 [2, Eq. 2.5]
+Let's recap once again the convolutional sum of Equation 2 [2, Eq. 2.5]
 
- $$x[n] = \sum_{k=-\infty}^{\infty} x[k] \delta[n - k], \quad n \in \mathbb{Z}. \quad ({% increment page.equationId  %})$$
+$$x[n] = \sum_{k=-\infty}^{\infty} x[k] \delta[n - k], \quad n \in \mathbb{Z}. \quad ({% increment page.equationId  %})$$
 
- Let's evaluate it for a few conrete values of $n$.
+Let's evaluate it for a few conrete values of $n$.
 
 $$x[0] = \sum_{k=-\infty}^{\infty} x[k] \delta[0 - k] = x[0]\delta[0 - 0] = x[0],$$
 $$x[1] = \sum_{k=-\infty}^{\infty} x[k] \delta[1 - k] = x[1]\delta[1 - 1] = x[1],$$
@@ -156,19 +160,19 @@ $$x[2] = \sum_{k=-\infty}^{\infty} x[k] \delta[2 - k] = x[2]\delta[2 - 2] = x[2]
 $$\vdots$$
 $$x[n] = \sum_{k=-\infty}^{\infty} x[k] \delta[n - k] = x[n]\delta[n - n] = x[n].$$
 
-As the value of $n$ changes, the corresponsing shift $k$ of the delta argument must change as well to be equal to 0 and produce a single result $x[n]$. We could think of this change of $k$ as a change of the delay length.
+As the value of $n$ changes, the corresponsing shift $k$ of the delta argument must change as well to make $n-k$ equal to 0 and produce a single result $x[n]$. We could think of this change of $k$ as a change of the delay length.
 
-Let's now assume that $x[n]$ starts at 0, i. e., $x[n]=  0 \forall n <0, n \in \mathbb{Z}$. Writing down the sum in Equation 11 explicitly yields [2]
+Let's now assume that $x[n]$ starts at 0, i. e., $x[n]=  0 \forall n <0$. Writing down the sum in Equation 12 explicitly yields [2]
 
 $$x[n] = x[0]\delta[n] + x[1]\delta[n-1] + x[2]\delta[n-2] + \dots \\+ x[n-1]\delta[n-(n-1)] x[n]\delta[n - n] + \dots \quad ({% increment page.equationId  %})$$
 
-Can you see the beauty of it? **$x[n]$ already contains all possible samples of the sequence $x$; we just need to delay it properly to receive the desired sample.** In other words, any discrete-time signal is a convolutional sum, a weighted sum of delayed impulses. Fixing index $n$ to some concrete value sets the delay length accordingly.
+Can you see the beauty of it? **$x[n]$ already contains all possible samples of the sequence $x$; we just need to delay it properly to receive the desired sample.** In other words, any discrete-time signal is a convolutional sum, a weighted sum of delayed impulses. Fixing index $n$ to some concrete value sets the delay length accordingly so as to return the signal value for that particular $n$.
 
 # Summary
 
-In this article we examined the identity element of the convolution, i. e., $\delta[n]$ for the discrete convolution (Equation 3) and $\delta(t)$ for the continuous convolution (Equation 5). The former is much more easily tractable mathemathically.
+In this article we examined the identity element of the convolution, i. e., $\delta[n]$ for the discrete convolution (Equation 3) and $\delta(t)$ for the continuous convolution (Equation 5). The former is much more easily tractable mathemathically [2].
 
-We introduced the sifting property of the delta impulse and interpreted it as the delay in context of digital signal processing. 
+We introduced the sifting property of the delta impulse and interpreted it as the delay in the context of digital signal processing. 
 
 Finally, we looked at a discrete-time signal as a weighted sum of delayed impulses.
 
