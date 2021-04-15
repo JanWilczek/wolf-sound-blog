@@ -90,7 +90,7 @@ $$ f(t,\epsilon) = \begin{cases} \frac{1}{\epsilon} &\text{ if } |t|<\frac{\epsi
 
 How to tackle this definition? I try to think about it as a function being 0 everywhere apart from $t=0$. At $t=0$, $\delta(t)$ tends to $+\infty$ like an infinitesimally narrow impulse of infinite height. But it is just an intuition; a correct mathematical definition is beyond the scope of this article.
 
-Dirac $\delta$ function is ubiquitious in mathematics and engineering. It is often used for defining initial conditions for partial differential equations (PDEs), e.g., the influence of a hammer strucking a piano string in physical modeling sound synthesis. 
+Dirac $\delta$ function is ubiquitious in mathematics and engineering. It is often used to define *empirical probability distributions* (i.e., the ones resulting directly from data) [3]. Additionally, I have seen it in action when defining the excitation function of partial differential equations (PDEs), e.g., representing the influence of a hammer strucking a piano string in physical modeling sound synthesis [4]. 
 
 # The sifting property
 
@@ -178,9 +178,16 @@ Finally, we looked at a discrete-time signal as a weighted sum of delayed impuls
 
 # Bibliography
 
-[1] I.N. Bronshtein et. al. *Handbook of Mathematics*, 5th Edition, Springer 2007.
+[1] I.N. Bronshtein et. al. *Handbook of Mathematics*, 5th Edition, Springer, 2007.
 
-[2] Alan V Oppenheim, Ronald W. Schafer *Discrete-Time Signal Processing*, 3rd Edition, Pearson 2010.
+[2] A. V. Oppenheim, R. W. Schafer *Discrete-Time Signal Processing*, 3rd Edition, Pearson, 2010.
+
+[3] I. Goodfellow, Y. Bengio, A. Courville *Deep learning*, MIT press, 2016.
+
+[4] M. Schäfer *Simulation of Distributed Parameter Systems by Transfer Function
+Models* Ph.D. dissertation, Friedrich-Alexander-Universität Erlangen-Nürnberg
+(FAU), 2020.
+
 
 {% endkatexmm %}
 

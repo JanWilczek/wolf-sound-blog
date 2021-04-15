@@ -105,7 +105,7 @@ The Laplace transform is another frequently used transform even outside the fiel
 
 The Laplace transform of $x(t)$ is defined as follows [1, Eq. 9.3]
 
-$$ X(s) = \mathcal{L} \{x(t)\} = \int \limits_{-\infty}^{\infty} x(t) e^{-st}, \quad s \in \mathbb{C}, \quad (9) $$
+$$ X(s) = \mathcal{L} \{x(t)\} = \int \limits_{-\infty}^{\infty} x(t) e^{-st} dt, \quad s \in \mathbb{C}, \quad (9) $$
 
 where $s$ is a complex-frequency variable. It is important to note that $X(s)$ may only exist for certain values of $s$. The region in the complex-frequency plane containing all values of $s$ for which the integral in Equation 9 converges is called the **region of convergence (ROC)** of the Laplace transform. In this article, I denote ROC of $X(s)$ by $R_X$. (Thus, in Equation 9 I should have written $s \in R_X$).
 
@@ -173,6 +173,6 @@ In this article the convolution property of the Fourier, Laplace, and $z$-transf
 
 [1] Alan V. Oppenheim, Alan S. Willsky, with S. Hamid *Signals and Systems*, 2nd Edition, Pearson 1997.
 
-[2] Alan V Oppenheim, Ronald W. Schafer *Discrete-Time Signal Processing*, 3rd Edition, Pearson 2010.
+[2] Alan V. Oppenheim, Ronald W. Schafer *Discrete-Time Signal Processing*, 3rd Edition, Pearson 2010.
 
 {% endkatexmm %}

@@ -66,7 +66,7 @@ Let's consider a generic filter with input $x[n]$, output $y[n]$, and impulse re
 ![]({{ page.images | absolute_url | append: "/filter.png" }})
 _Figure 1. A generic filter._
 
-A filter is a [linear time-invariant (LTI) system](https://en.wikipedia.org/wiki/Linear_time-invariant_system). From signal processing we know that any LTI system is completely specified by its impulse response $h[n]$. The output $y[n]$ of an LTI system is by definition equal to the convolution of the input $x[n]$ with the system's impulse response $h[n]$.
+A filter is a [linear time-invariant (LTI) system](https://en.wikipedia.org/wiki/Linear_time-invariant_system). From signal processing we know that any LTI system is completely specified by its impulse response $h[n]$. The output $y[n]$ of an LTI system is by definition equal to the convolution of the input $x[n]$ with the system's impulse response $h[n]$. That is why the output of an LTI system is called a convolution sum or a superposition sum in case of discrete systems and a convolution integral or a superposition integral in case of continuous systems.
 
 Now, let's consider again Equation 1 with $h[n]$ denoting the filter's impulse response and $x[n]$ denoting the filter's input signal. 
 We may look at the filter's output $y[n]$ as a weighted sum of filter's impulse responses. How?
