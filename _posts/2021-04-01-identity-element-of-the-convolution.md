@@ -182,7 +182,7 @@ Finally, we looked at a discrete-time signal as a weighted sum of delayed impuls
 
 [2] A. V. Oppenheim, R. W. Schafer *Discrete-Time Signal Processing*, 3rd Edition, Pearson, 2010.
 
-[3] I. Goodfellow, Y. Bengio, A. Courville *Deep learning*, MIT press, 2016.
+[3] I. Goodfellow, Y. Bengio, A. Courville *Deep learning*, MIT Press, 2016, [https://www.deeplearningbook.org/](https://www.deeplearningbook.org/).
 
 [4] M. Schäfer *Simulation of Distributed Parameter Systems by Transfer Function
 Models* Ph.D. dissertation, Friedrich-Alexander-Universität Erlangen-Nürnberg
