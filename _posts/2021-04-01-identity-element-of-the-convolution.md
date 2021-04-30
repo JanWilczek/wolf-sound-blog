@@ -4,7 +4,7 @@ date: 2021-04-01
 author: Jan Wilczek
 layout: post
 permalink: /identity-element-of-the-convolution/
-background: /assets/img/posts/2020-06-20-the-secret-behind-filtering/h_superposed.png
+background: /assets/img/posts/2021-04-01-identity-element-of-the-convolution/Thumbnail.png
 images: assets/img/posts/2021-04-01-identity-element-of-the-convolution
 categories:
  - DSP
@@ -15,6 +15,8 @@ tags:
  - dsp
 ---
 How to convolve and do nothing at the same time?
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/XIWXmV92ju4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 {% katexmm %}
 

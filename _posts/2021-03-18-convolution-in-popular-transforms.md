@@ -4,7 +4,7 @@ date: 2021-03-18
 author: Jan Wilczek
 layout: post
 permalink: /convolution-property-in-popular-transforms/
-background: /assets/img/posts/2020-06-20-the-secret-behind-filtering/h_superposed.png
+background: /assets/img/posts/2021-03-18-convolution-in-popular-transforms/Thumbnail.png
 categories:
  - DSP
 tags:
@@ -16,6 +16,8 @@ tags:
  - dsp
 ---
 How does the convolution relate to the most popular transforms in signal processing?
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/f3pjtqYUlW0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 {% katexmm %}
 

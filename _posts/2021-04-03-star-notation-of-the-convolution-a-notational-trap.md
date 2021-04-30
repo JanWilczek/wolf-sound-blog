@@ -4,8 +4,8 @@ date: 2021-04-03
 author: Jan Wilczek
 layout: post
 permalink: /star-notation-of-the-convolution-a-notational-trap/
-background: /assets/img/posts/2020-06-20-the-secret-behind-filtering/h_superposed.png
-images: assets/img/posts/2021-04-01-identity-element-of-the-convolution
+background: /assets/img/posts/2021-04-03-star-notation-of-the-convolution-a-notational-trap/Thumbnail.png
+images: assets/img/posts/2021-04-03-star-notation-of-the-convolution-a-notational-trap
 categories:
  - DSP
 tags:
@@ -13,6 +13,8 @@ tags:
  - maths
 ---
 How not to fall victim to the star notation of the convolution?
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/cMagZegrIns" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 {% katexmm %}
 
@@ -78,11 +80,11 @@ $$x[n-n_x] \ast h[n-n_h] = x_1[n] \ast h_1[n], \quad ({% increment page.equation
 
 use the definition of the convolution
 
-$$ x_1[n] \ast h_1[n] = \sum_{-\infty}^{\infty} x_1[k] h_1[n-k], \quad ({% increment page.equationId2  %}) $$
+$$ x_1[n] \ast h_1[n] = \sum_{k=-\infty}^{\infty} x_1[k] h_1[n-k], \quad ({% increment page.equationId2  %}) $$
 
 and finally substitute the original functions $x[n]$ and $h[n]$ according to Equations 6 and 7 respectively
 
-$$\sum_{-\infty}^{\infty} x_1[k] h_1[n-k] = \sum_{-\infty}^{\infty} x[k-n_x] h[n - k - n_h]. \quad ({% increment page.equationId2  %})$$
+$$\sum_{k=-\infty}^{\infty} x_1[k] h_1[n-k] = \sum_{k=-\infty}^{\infty} x[k-n_x] h[n - k - n_h]. \quad ({% increment page.equationId2  %})$$
 
 This approach always works for me. At the same time, any shortcuts in an attempt not to use it inevitably led me to an error in calculations.
 
@@ -90,8 +92,8 @@ This approach always works for me. At the same time, any shortcuts in an attempt
 
 This final example should make clear why "helper functions" ensure us that we correctly evaluate the star notation. In this example, one of the operands is time-reversed.
 
-$$x[n] \ast h[-n] \stackrel{h_2[n]=h[-n]}{=} x[n] \ast h_2[n] = \sum_{-\infty}^{\infty} x[k] h_2[n-k]\\
-\stackrel{h_2[n-k]=h[-(n-k)]}{=} \sum_{-\infty}^{\infty} x[k] h[k-n]. \quad ({% increment page.equationId2  %})$$
+$$x[n] \ast h[-n] \stackrel{h_2[n]=h[-n]}{=} x[n] \ast h_2[n] = \sum_{k=-\infty}^{\infty} x[k] h_2[n-k]\\
+\stackrel{h_2[n-k]=h[-(n-k)]}{=} \sum_{k=-\infty}^{\infty} x[k] h[k-n]. \quad ({% increment page.equationId2  %})$$
 
 Is it possible to guess the correct answer right away? Yes, definitely. But it is not easy, especially if the arguments get even more complicated and the convolution is a part of a much larger body of derivations.
 
