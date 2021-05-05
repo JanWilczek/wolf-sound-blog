@@ -27,19 +27,29 @@ What is the circular convolution and how does it differ from the linear convolut
 
 # Introduction
 
+{% capture _ %}{% increment equationId20210507  %}{% endcapture %}
+
 Circular convolution is a term that arises in discussions about the discrete Fourier transform (DFT) and fast convolution algorithms. What is it and how does it differ from the linear convolution?
 
 Before we answer that question we need to (somewhat surprisingly) examine the DFT more closely.
 
 # Convolution Theorem of the DFT?
 
-In [one of the previous articles]({% post_url 2021-03-18-convolution-in-popular-transforms %}) we argued that for the continuous-time Fourier transform it holds
+## Definition of the DFT
 
-{% capture _ %}{% increment equationId20210507  %}{% endcapture %}
+Let us recap the definition of the discrete Fourier transform of a finite, discrete-time signal $x[n]$ of length $N \in \mathbb{Z}$
+
+$$ \mathcal{DFT}\{x[n]\} = \sum \limits_{n=0}^{N-1} x[n] e^{-j(2\pi/N)kn}, k \in \mathbb{Z}, \quad ({% increment equationId20210507 %})$$
+
+## Convolution Theorem of the Fourier Transform
+
+In [one of the previous articles]({% post_url 2021-03-18-convolution-in-popular-transforms %}) we argued that for the continuous-time Fourier transform it holds
 
 $$x(t) \ast h(t) \stackrel{\mathcal{F}}{\longleftrightarrow} X(j\omega)H(j\omega), \quad ({% increment equationId20210507 %})$$
 
 i.e., the Fourier transform of a convolution equals the multiplication of the Fourier transforms of the convolved signals. A similar property holds for the Laplace and z-transforms. However, **it does not**, in general, hold for the discrete Fourier transform. Instead, multiplication of discrete Fourier transforms corresponds to the *circular convolution* of the corresponding time-domain signals [1].
+
+## Convolution Theorem of the DFT
 
 In mathematical terms, given two finite, discrete-time signals $x[n]$ and $h[n]$, both of length $N$, and their DFTs
 
@@ -51,6 +61,8 @@ the multiplication of their DFTs corresponds to their circular convolution in th
 
 $$ x[n] \circledast h[n] \stackrel{\mathcal{DFT}}{\longleftrightarrow} X[k] H[k]. \quad ({% increment equationId20210507 %}) $$
 
+## Circular Convolution Definition
+
 Here, $\circledast$ symbol denotes the circular convolution. It is defined as
 
 $$ x[n] \circledast h[n] = \sum \limits_{m=0}^{N-1} x[m] h[(n-m) \% N], \quad ({% increment equationId20210507 %})$$
@@ -59,7 +71,24 @@ where $\%$ denotes the modulo operation, i.e., $0 \% N = 0; 1 \% N = 1; N-1 \% N
 
 Since, both signals are of length $N$ (or shorter) it is called an *N-point circular convolution*.
 
+## Linear Convolution Definition
 
+The name "circular" distinguishes it from the *linear convolution*, as we introduced it in the previous articles
+
+$$ x[n] \ast h[n] = \sum_{m=-\infty}^{\infty} x[m] h[n - m], \quad n \in \mathbb{Z}. \quad ({% increment equationId20210507 %})$$
+
+Note the absence of the modulo operation. Although we do not prove it here, **circular convolution is commutative** exactly like linear convolution.
+
+# Circular Convolution Example
+
+# Why Is the Convolution Circular?
+
+## Discrete Fourier Transform and Discrete Fourier Series
+## Periodicity of the DFT
+## Aliasing in the Time Domain
+### Output Length of Discrete Convolution
+
+# Periodic Convolution
 
 # Bibliography
 
