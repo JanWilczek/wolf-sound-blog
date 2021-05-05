@@ -1,9 +1,9 @@
 ---
-title: "The convolution property in popular transforms"
+title: "Convolution Property of Fourier, Laplace, and Z-Transforms"
 date: 2021-03-18
 author: Jan Wilczek
 layout: post
-permalink: /convolution-property-in-popular-transforms/
+permalink: /convolution-property-of-fourier-laplace-and-z-transforms/
 background: /assets/img/posts/2021-03-18-convolution-in-popular-transforms/Thumbnail.png
 categories:
  - DSP
