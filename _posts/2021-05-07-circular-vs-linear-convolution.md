@@ -81,10 +81,76 @@ Note the absence of the modulo operation. Although we do not prove it here, **ci
 
 # Circular Convolution Example
 
+Let's look at a comparisaon between a linear and circular convolution.
+
+Let's assume we have a signal $x[n]$
+
+![]({{ page.images | absolute_url | append: "/x_short.png" }})
+_Figure 1. $x[n]$._
+
+and a [unit delay]({% post_url 2021-04-01-identity-element-of-the-convolution %}) $h[n]$
+
+![]({{ page.images | absolute_url | append: "/unit_delay.png" }})
+_Figure 2. $h[n]$._
+
+The linear convolution between the two delays $x[n]$ by one sample, as expected
+
+![]({{ page.images | absolute_url | append: "/linear_convolution_shift.png" }})
+_Figure 3. Linear convolution between $x[n]$ and $h[n]$._
+
+However, the circular convolution performs a **circular shift** of the signal $x[n]$
+
+![]({{ page.images | absolute_url | append: "/circular_shift.png" }}){: width="600" }
+_Figure 4. Circular convolution between $x[n]$ and $h[n]$._
+
+Circular shift means that whichever samples "fall off" one end they will reappear at the other end of the signal vector. The excessive samples "wrap around" the signal buffer.
+
 # Why Is the Convolution Circular?
 
+The convolution property of the DFT results directly from the periodicity of the DFT.
+
+The periodicity itself can be explained in at least two ways:
+1. From the relation of the DFT and the discrete Fourier series (DFS).
+1. From the sampling of the discrete-time Fourier transform around the unit circle on the z-plane.
+
 ## Discrete Fourier Transform and Discrete Fourier Series
-## Periodicity of the DFT
+
+Discrete Fourier series is a representation of a **periodic** discrete signal $\tilde{x}[n]$ with period $N$ via a summation
+
+$$ \tilde{x}[n] = \frac{1}{N} \sum \limits_{k=0}^{N-1} \tilde{X}[k] e^{j(2\pi/N)kn}, \quad ({% increment equationId20210507 %})$$
+
+where
+
+$$ \tilde{X}[k] = \sum \limits_{n=0}^{N-1} \tilde{x}[n] e^{-j(2\pi/N)kn}. \quad ({% increment equationId20210507 %})$$
+
+Equation 9 is identical to Equation 1, i.e, the definition of the DFT with the exception that the signal under the sum is periodic (denoted by the tilde). While the DFS assumes that the signal is periodic, i.e., it repeats itself modulo $N$, the DFT assumes that $x[n]$ is 0 for $n$ outside the $\{0, \dots, N-1\}$ index set [1].
+
+The same holds for the DFT coefficients $X[k]$
+
+$$X[k] = \begin{cases} \tilde{X}[k] \quad \text{if } k\in \{0, \dots, N-1\},\\ 0 \quad \text{otherwise}. \end{cases} \quad ({% increment equationId20210507 %})$$
+
+Unfortunately, the fact that $x[n]$ and $X[k]$ are 0 for $n,k \notin \{0, \dots, N-1\}$ is only **implicit**. It means, we can state it, but we cannot enforce it. Since the DFT uses directly the formulas of the DFS, the DFT will behave as if the signal $x[n]$ was periodic with period $N$. The only solution to that, would be padding signal vector $x[n]$ with infinitely many zeros. Hence, the DFT $X[k]$ will also be periodic with period $N$.
+
+### Example
+
+Let's say we have a signal $x[n]$ given as a vector with four samples
+
+![]({{ page.images | absolute_url | append: "/x_vector.png" }})
+_Figure 5. $x[n]$._
+
+You think it is defined as follows
+
+![]({{ page.images | absolute_url | append: "/x_zeros.png" }})
+_Figure 6. $x[n]$ as we wish it to be._
+
+but the DFS (and DFT accordingly) treat it as
+
+![]({{ page.images | absolute_url | append: "/x_repeated.png" }})
+_Figure 7. $x[n]$ as seen by discrete Fourier series and the discrete Fourier transform._
+
+
+
+## Sampling of the Fourier transform
 ## Aliasing in the Time Domain
 ### Output Length of Discrete Convolution
 

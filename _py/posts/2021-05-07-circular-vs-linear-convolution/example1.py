@@ -1,6 +1,12 @@
+from pathlib import Path
 import numpy as np
 import matplotlib.pyplot as plt
 
+
+
+def savefig(filename):
+    OUTPUT_PATH = Path('assets/img/posts/2021-05-07-circular-vs-linear-convolution')
+    plt.savefig(OUTPUT_PATH / filename, bbox_inches='tight', dpi=300)
 
 def plot_signal(x, pre0=4, signal_length=6, ylabel=''):
     n = np.arange(-pre0, signal_length)
@@ -22,13 +28,19 @@ def plot_circular_shift(x):
     h[1] = 1.0
 
     plot_signal(x, ylabel='x[n]')
+    savefig('x_short')
     plot_signal(h, ylabel='h[n]')
+    savefig('unit_delay')
+    linear_convolution_x_h = np.convolve(x, h, 'full')
+    plot_signal(linear_convolution_x_h[:-2], ylabel='$x \ast h[n]$')
+    savefig('linear_convolution_shift')
 
     X = np.fft.fft(x)
     H = np.fft.fft(h)
     circular_convolution_x_h = np.real(np.fft.ifft(np.multiply(X, H)))
 
     plot_signal(circular_convolution_x_h, ylabel='$(x \circledast h)[n]$')
+    savefig('circular_shift')
 
 def plot_x_x_wide(x, x_wide):
     """x_wide should be 5 times longer than x"""
@@ -47,6 +59,7 @@ def plot_x_x_wide(x, x_wide):
     plt.setp(markerline, 'color', '#7c7c7c')
     plt.setp(stemlines, 'color', '#7c7c7c')
 
+    plt.xlim([-8, 10])
     plt.xlabel('n')
     plt.ylabel('x[n]')
     plt.xticks(n)
@@ -55,8 +68,12 @@ def plot_repeated_signal(x):
     x_repeated = np.tile(x, 5)
     x_wide = np.zeros((x_repeated.shape[0],))
 
+    plot_signal(x, pre0=0, signal_length=x.shape[0], ylabel='x[n]')
+    savefig('x_vector')
     plot_x_x_wide(x, x_wide)
+    savefig('x_zeros')
     plot_x_x_wide(x, x_repeated)
+    savefig('x_repeated')
     
 
 def main():
@@ -64,7 +81,7 @@ def main():
     plot_circular_shift(x)
     plot_repeated_signal(x)
 
-    plt.show()
+    # plt.show()
 
 
 if __name__ == '__main__':
