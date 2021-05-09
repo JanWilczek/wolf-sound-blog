@@ -219,13 +219,19 @@ We have seen that the circular convolution somehow distorts the linear convoluti
 
 The conclusion from the previous section is that
 
-> A subset of the circular convolution result corresponds to the linear convolution result.
+**A subset of the circular convolution result corresponds to the linear convolution result.**
 
 The question is: which subset?
 
 ## Example: Common Samples of Linear and Circular Convolution
 
-<!-- Insert convolution comparison with matching samples marked -->
+Figures 11 and 12 present the linear and circular convolution example, respectively, with marked matching samples. They match in terms of indices and amplitude.
+
+![]({{ page.images | absolute_url | append: "/linear_convolution_shift_marked.png" }}){: width="600" }
+_Figure 11. Linear convolution result. Samples marked in red would also be correctly calculated by the circular convolution._
+
+![]({{ page.images | absolute_url | append: "/circular_shift_marked.png" }}){: width="600" }
+_Figure 12. Circular convolution result. Samples marked in red correspond to linear convolution result in terms of index and amplitude._
 
 To understand fully which samples in the circular convolution correspond to the correct samples of linear convolution we need to look at a concept broader than circular convolution: periodic convolution.
 
@@ -233,9 +239,93 @@ To understand fully which samples in the circular convolution correspond to the 
 
 Circular convolution is an example of *periodic convolution*&#8211;a convolution of two periodic sample sequences (with the same period) evaluated over only one period [1]. "But in our case $x$ and $h$ are not periodic!", you might say. Yes, they are not periodic, unless we compute their DFTs. DFT assumes the signal to be perodic and, thus, going into the DFT domain introduces the periodicity permanently. It does not have to be harmful; on the contrary, it can be quite useful. It just requires us to be extra cautious.
 
+Let's again compare linear convolution and periodic convolution. Given signals $x$ and (zero-padded) $h$, their periodic versions look as follows (black indicates samples stored in the vector, grey indicates implicit sample values)
+
+![]({{ page.images | absolute_url | append: "/x_tilde_repeated.png" }}){: width="600" }
+_Figure 13. Signal $\tilde{x}$: periodic version of $x$._
+![]({{ page.images | absolute_url | append: "/h_repeated.png" }}){: width="600" }
+_Figure 14. Signal $\tilde{h}$: periodic version of $h$._
+
+Let's compare the linear convolution of the original $\pmb{x}$ and $\pmb{h}$
+
+![]({{ page.images | absolute_url | append: "/linear_convolution_full.png" }}){: width="600" }
+_Figure 15. Linear convolution of $x$ and $h$. Its length is 5._
+
+with the periodic convolution of their periodic counterparts
+
+![]({{ page.images | absolute_url | append: "/periodic_convolution.png" }}){: width="600" }
+_Figure 16. Circular convolution of $\tilde{x}$ and $\tilde{h}$. Its length is 4 and it's periodic._
+
+We can observe that the circular convolution is a superposition of linear convolution shifted by 4 samples, i.e., 1 sample less than the linear convolution's length. That is why the last sample is "eaten up"; it wraps around and is added to the initial 0 sample.
+
+Once again: $x$ had length 4, $h$ had length 2, their linear convolution had length 5, the circular convolution length 4, and the "valid" samples were the last three. As we will see next the "excessive" one sample wrapped around and "destroyed the first sample, thus we were left with only 3 samples that were identical to linear convolution result.
+
+# Valid Samples of Circular Convolution: The Answer
+
+Let's summarize what we discovered so far:
+* Multiplication in the DFT domain is equivalent to circular convolution in the discrete-time domain.
+* $N$-point DFT treats the signals as $N$-periodic.
+* Linear convolution of discrete signals of length $M$ and $N$ has length $M+N-1$.
+* $N$-point circular convolution has length $N$.
+
+Let's assume that we have two signals, of lenght $M$ and $N$, $M \geq N$. We want to know which samples of their circular convolution are equal to the corresponding samples of their linear convolution.
+
+1. First, we pad the shorter signal with zeros.
+1. The result of the circular convolution has length $M$.
+1. The samples that did not fit the linear convolution wrapped around and were added to the beginning of the output. The exact number of wrapped-around samples is
+
+$$ M + N - 1 - M = N - 1. \quad ({% increment equationId20210507 %})$$
+
+1. The above means that the first $N-1$ samples of the output need to be discarded. This means that the last $M - N + 1$ samples are valid, i.e., samples at indices $\{N, N+1, \dots, M-1\}$ (we start indexing from 0).
+
+# Circular Convolution Implementation
+
+A straightforward implementation of the circular convolution, as presented in Equation 6, is rather brute-force
+
+{% highlight python %}
+import numpy as np
+
+def periodic_convolution_naive(x, h):
+    assert x.shape == h.shape, 'Inputs to periodic convolution '\
+                               'must be of the same period, i.e., shape.'
+
+    N = x.shape[0]
+
+    output = np.zeros_like(x)
+
+    for n in range(N):
+        for m in range(N):
+            output += x[m] * h[(n - m) % N]
+    
+    return output
+{% endhighlight %}
+
+This implementation has time complexity $O(N^2)$.
+
+However, the convolution property of the DFT, as presented in Equation 5, suggests a much more efficient implementation
+
+{% highlight python %}
+import numpy as np
+
+def periodic_convolution_fast(x, h):
+    assert x.shape == h.shape, 'Inputs to periodic convolution '\
+                               'must be of the same period, i.e., shape.'
+
+    X = np.fft.fft(x)
+    H = np.fft.fft(h)
+
+    return np.real(np.fft.ifft(np.multiply(X, H)))
+{% endhighlight %}
+
+The complexity of the "fast" implementation is determined by the complexity of the forward and inverse DFT as implemented in the `numpy.fft` module, which is $O(N \log N)$.
+
+Equal shapes checked in the assertion can be ensured by padding the shorter signal with zeros.
+
+The efficient circular convolution implementation via the Fast Fourier Transform (FFT) will serve as a basis when we will discuss fast linear convolution implementations.
+
 # Summary
 
-In this article, we looked at the difference between the circular and linear convolution. The former treats both given sequences as periodic and is evaluated only for the number of samples corresponding to the period. A subset of samples resulting from circular convolution corresponds to the samples in the linear convolution's output.
+In this article, we looked at the difference between the circular and linear convolution. The former treats both given sequences as periodic and is evaluated only for the number of samples corresponding to the period. A subset of samples resulting from circular convolution corresponds to the samples in the linear convolution's output. Circular convolution can be implemented efficiently via multiplication in the DFT domain.
 
 # Bibliography
 
