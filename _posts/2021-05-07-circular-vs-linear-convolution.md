@@ -1,5 +1,5 @@
 ---
-title: "Circular vs. Linear Convolution: What's the difference?"
+title: "Circular vs. Linear Convolution: What's the Difference?"
 date: 2021-05-07
 author: Jan Wilczek
 layout: post
@@ -25,6 +25,8 @@ What is the circular convolution and how does it differ from the linear convolut
 1. [Star notation of the convolution]({% post_url 2021-04-03-star-notation-of-the-convolution-a-notational-trap %})
 1. **Circular vs. linear convolution**
 
+<!-- Add table of contents -->
+
 # Introduction
 
 {% capture _ %}{% increment equationId20210507  %}{% endcapture %}
@@ -39,11 +41,11 @@ Before we answer that question we need to (somewhat surprisingly) examine the DF
 
 Let us recap the definition of the discrete Fourier transform of a finite, discrete-time signal $x[n]$ of length $N \in \mathbb{Z}$
 
-$$ X[k] = \mathcal{DFT}\{x[n]\} = \sum \limits_{n=0}^{N-1} x[n] e^{-j(2\pi/N)kn}, k \in \mathbb{Z}, \quad ({% increment equationId20210507 %})$$
+$$ X[k] = \mathcal{DFT}\{x[n]\} = \sum \limits_{n=0}^{N-1} x[n] e^{-j(2\pi/N)kn}, k \in \{0, \dots, N-1\}, \quad ({% increment equationId20210507 %})$$
 
 ## Convolution Theorem of the Fourier Transform
 
-In [one of the previous articles]({% post_url 2021-03-18-convolution-in-popular-transforms %}) we argued that for the continuous-time Fourier transform it holds
+In [one of the previous articles]({% post_url 2021-03-18-convolution-in-popular-transforms %}) we argued that for the continuous-time Fourier transform it holds that
 
 $$x(t) \ast h(t) \stackrel{\mathcal{F}}{\longleftrightarrow} X(j\omega)H(j\omega), \quad ({% increment equationId20210507 %})$$
 
@@ -69,7 +71,7 @@ $$ x[n] \circledast h[n] = \sum \limits_{m=0}^{N-1} x[m] h[(n-m) \% N], \quad ({
 
 where $\%$ denotes the modulo operation, i.e., $0 \% N = 0; 1 \% N = 1; N-1 \% N = N-1; N \% N = 0,$ etc.
 
-Since, both signals are of length $N$ (or shorter) it is called an *N-point circular convolution*.
+Since both signals are of length $N$, it is called an *N-point circular convolution*.
 
 ## Linear Convolution Definition
 
@@ -77,11 +79,11 @@ The name "circular" distinguishes it from the *linear convolution*, as we introd
 
 $$ x[n] \ast h[n] = \sum_{m=-\infty}^{\infty} x[m] h[n - m], \quad n \in \mathbb{Z}. \quad ({% increment equationId20210507 %})$$
 
-Note the absence of the modulo operation. Although we do not prove it here, **circular convolution is commutative** exactly like linear convolution.
+Note the absence of the modulo operation. Although we do not prove it here, **circular convolution is commutative**, exactly like the linear convolution.
 
 # Circular Convolution Example
 
-Let's look at a comparisaon between a linear and circular convolution.
+Let's look at a comparison between a linear and a circular convolution.
 
 Let's assume we have a signal $x[n]$
 
@@ -103,35 +105,35 @@ However, the circular convolution performs a **circular shift** of the signal $x
 ![]({{ page.images | absolute_url | append: "/circular_shift.png" }}){: width="600" }
 _Figure 4. Circular convolution between $x[n]$ and $h[n]$._
 
-Circular shift means that whichever samples "fall off" one end they will reappear at the other end of the signal vector. The excessive samples "wrap around" the signal buffer.
+Circular shift means that whichever samples "fall off" one end reappear at the other end of the signal vector. In other words, the excessive samples "wrap around" the signal buffer.
 
 # Why Is the Convolution Circular?
 
 The convolution property of the DFT results directly from the periodicity of the DFT.
 
 The periodicity itself can be explained in at least two ways:
-1. From the relation of the DFT and the discrete Fourier series (DFS).
+1. From the relation of the DFT to the discrete Fourier series (DFS).
 1. From the sampling of the discrete-time Fourier transform around the unit circle on the z-plane.
 
 ## Discrete Fourier Transform and Discrete Fourier Series
 
 Discrete Fourier series is a representation of a **periodic** discrete signal $\tilde{x}[n]$ with period $N$ via a summation
 
-$$ \tilde{x}[n] = \frac{1}{N} \sum \limits_{k=0}^{N-1} \tilde{X}[k] e^{j(2\pi/N)kn}, \quad ({% increment equationId20210507 %})$$
+$$ \tilde{x}[n] = \frac{1}{N} \sum \limits_{k=0}^{N-1} \tilde{X}[k] e^{j(2\pi/N)kn}, \quad n \in \mathbb{Z}, \quad ({% increment equationId20210507 %})$$
 
 where
 
-$$ \tilde{X}[k] = \sum \limits_{n=0}^{N-1} \tilde{x}[n] e^{-j(2\pi/N)kn}. \quad ({% increment equationId20210507 %})$$
+$$ \tilde{X}[k] = \sum \limits_{n=0}^{N-1} \tilde{x}[n] e^{-j(2\pi/N)kn}, \quad n \in \mathbb{Z}. \quad ({% increment equationId20210507 %})$$
 
-Equation 9 is identical to Equation 1, i.e, the definition of the DFT with the exception that the signal under the sum is periodic (denoted by the tilde). While the DFS assumes that the signal is periodic, i.e., it repeats itself modulo $N$, the DFT assumes that $x[n]$ is 0 for $n$ outside the $\{0, \dots, N-1\}$ index set [1].
+Equation 9 is identical to Equation 1, i.e, the definition of the DFT, with the exception that the signal under the sum is periodic (denoted by the tilde) and $n$ is not bounded to the $\{0, \dots, N-1\}$ set. While the DFS assumes that the signal is periodic, i.e., it repeats itself modulo $N$, the DFT assumes that $x[n]$ is 0 for $n$ outside the $\{0, \dots, N-1\}$ index set [1].
 
 The same holds for the DFT coefficients $X[k]$
 
 $$X[k] = \begin{cases} \tilde{X}[k] \quad \text{if } k\in \{0, \dots, N-1\},\\ 0 \quad \text{otherwise}. \end{cases} \quad ({% increment equationId20210507 %})$$
 
-Unfortunately, the fact that $x[n]$ and $X[k]$ are 0 for $n,k \notin \{0, \dots, N-1\}$ is only **implicit**. It means, we can state it, but we cannot enforce it. Since the DFT uses directly the formulas of the DFS, the DFT will behave as if the signal $x[n]$ was periodic with period $N$. The only solution to that, would be padding signal vector $x[n]$ with infinitely many zeros. Hence, the DFT $X[k]$ will also be periodic with period $N$.
+Unfortunately, the fact that $x[n]$ and $X[k]$ are 0 for $n,k \notin \{0, \dots, N-1\}$ is only **implicit**. It means we can state it but we cannot enforce it. Since the DFT uses directly the formulas of the DFS, the DFT will behave as if the signal $x[n]$ was periodic with period $N$. The only solution to that, would be padding the signal vector $x[n]$ with infinitely many zeros. Without such a padding, the DFT $X[k]$ is also periodic with period $N$.
 
-### Example
+### DFT Periodicity Example
 
 Let's say we have a signal $x[n]$ given as a vector with four samples
 
@@ -143,7 +145,7 @@ You may think it is defined as follows
 ![]({{ page.images | absolute_url | append: "/x_zeros.png" }}){: width="600" }
 _Figure 6. $x[n]$ as we wish it to be._
 
-but the DFS (and DFT accordingly) treat it as
+but the DFS (and the DFT accordingly) treat it as
 
 ![]({{ page.images | absolute_url | append: "/x_repeated.png" }}){: width="600" }
 _Figure 7. $x[n]$ as seen by discrete Fourier series and the discrete Fourier transform._
@@ -165,7 +167,7 @@ _Figure 10. True magnitude DFT of $x[n]$._
 
 ## Sampling of the Fourier transform
 
-All of the above observations are confirmed when one treats DFT as sampled version of the band-limited discrete-time Fourier transform. Discrete-time Fourier transform is the z-transform evaluated on the unit circle [2]. The DFT samples the DTFT at the points fixed by the sampling rate. Since we sample around a circle, after $N$ samples we wrap around and start sampling the same points again. Refer to [1] for a more detailed explanation of this approach to DFT's periodicity.
+All of the above observations are confirmed when one treats the DFT as a sampled version of the band-limited discrete-time Fourier transform (DTFT). Discrete-time Fourier transform is the z-transform evaluated on the unit circle [2]. The DFT samples the DTFT at points fixed by the sampling rate. Since we sample around a circle, after $N$ samples we wrap around and start sampling the same points again. Refer to [1] for a more detailed explanation of this approach to DFT's periodicity.
 
 ## Aliasing in the Time Domain
 
@@ -177,17 +179,17 @@ Having established that the DFT is periodic, we can now explain the circular con
 
 Let's recall our signal $x[n]$ from Figure 1. In vector notation, we could denote it as $\pmb{x} = [1, 0.7, 0.3, 0.1]^\text{T}$, where T denotes transposition to make $\pmb{x}$ a column vector. Analogously, $\pmb{h} = [0, 1]^\text{T}$.
 
-Signal $\pmb{x}$ is of length 4, signal $\pmb{h}$ is of length 2. In Figure 3 we can see that the linear convolution between $\pmb{x}$ and $\pmb{h}$ is of length 5. In general, convolution of two sequences of length $N$ and $M$ yields a signal of length $N + M - 1$. <!-- Quotation needed -->
+Signal $\pmb{x}$ is of length 4, signal $\pmb{h}$ is of length 2. In Figure 3 we can see that the linear convolution between $\pmb{x}$ and $\pmb{h}$ is of length 5. In general, a convolution of two sequences of length $N$ and $M$ respectively yields a signal of length $N + M - 1$. <!-- Quotation needed -->
 
 How does it look when we go through the DFT domain?
 
 ### Multiplication in the DFT domain
 
-Adopting the notation from Equations 3 and 4, let's denote by $Y[k]$ the multiplication of $x$ and $h$ DFT's
+Adopting the notation from Equations 3 and 4, let's denote by $Y[k]$ the multiplication of $x$'s and $h$'s DFTs
 
-$$ Y[k] = X[k]H[k] \quad k \in \mathbb{Z}. \quad ({% increment equationId20210507 %})$$
+$$ Y[k] = X[k]H[k] \quad k \in \{0, \dots, 3\}. \quad ({% increment equationId20210507 %})$$
 
-In order to make the index $k$ correspond to the same discrete frequencies, $\pmb{X}$ and $\pmb{H}$ need to be of equal length. We achieve it by padding $\pmb{h}$ with 2 zeros, i.e., $\pmb{h} = [0, 1, 0, 0]^\text{T}$. Now $\pmb{x}$ and $\pmb{h}$ are of equal length and their DFTs are as well. We obtain
+In order to make the index $k$ correspond to the same discrete frequencies for $X[k]$ and $H[k]$, discrete-frequency domain vectors $\pmb{X}$ and $\pmb{H}$ need to be of equal length. We achieve it by padding $\pmb{h}$ with 2 zeros, i.e., replacing the 2-element $\pmb{h}$ with $\pmb{h} = [0, 1, 0, 0]^\text{T}$. Now $\pmb{x}$ and $\pmb{h}$ are of equal length and their DFTs are as well. We obtain
 
 $$\pmb{Y} = \pmb{X} \odot \pmb{H}, \quad ({% increment equationId20210507 %})$$
 
@@ -203,7 +205,7 @@ We can achieve it via inverse discrete Fourier transform (iDFT)
 
 $$y[n] = \mathcal{IDFT}\{Y[k]\} = \sum \limits_{k=0}^{N-1} Y[k] e^{j(2\pi/N)kn}. \quad ({% increment equationId20210507 %})$$
 
-If $x$ and $h$ were continuous-time and we were using Fourier transform instead of discrete Fourier transform, the [convolution theorem]({% post_url 2021-03-18-convolution-in-popular-transforms %}) would tell us that $y$ is the convolution of $x$ and $h$. We explicitly showed that the convolution of $x$ and $h$ should be a discrete signal of length 5. How long is $y$?
+If $x$ and $h$ were continuous-time and we were using the Fourier transform instead of the discrete Fourier transform, the [convolution theorem]({% post_url 2021-03-18-convolution-in-popular-transforms %}) would tell us that $y$ is the convolution of $x$ and $h$. We explicitly showed that the convolution of $x$ and $h$ should be a discrete signal of length 5 (see Figure 3). How long is $y$?
 
 Inverse DFT inherently assumes that the time domain signal is of the same length as the frequency-domain coefficient vector. Thus, $y[n]$ is of length 4. So by multiplying frequency-domain vectors $\pmb{X}$ and $\pmb{H}$ and going back to the discrete-time domain we squashed a 5-element-long vector into a 4-element-long vector. Thus, we introduced aliasing in the time domain; hence the wrap-around of the last sample in Figure 4, and more broadly, circular convolution effect.
 
@@ -213,7 +215,7 @@ $$y[n] =  x[n] \circledast h[n]. \quad ({% increment equationId20210507 %})$$
 
 ### An Important Conclusion
 
-We have seen that the circular convolution somehow distorts the linear convolution. But in our example, $x$ was circularly shifted, not completetely destroyed. Moreover, all but the first and the last samples were valid samples of the linear convolution. Thus, we might suspect that sufficiently lenghtening $\pmb{x}$ and $\pmb{h}$ with zero-padding would allow us to obtain linear convolution out of the circular convolution result. This is the basis of **fast convolution** algorithms, which will be discussed in one of the following articles.
+We have seen that the circular convolution somehow distorts the linear convolution. But in our example, $x$ was circularly shifted, not completetely destroyed. Moreover, all but the first sample were valid samples of the linear convolution. Thus, we might suspect that sufficiently lenghtening $\pmb{x}$ and $\pmb{h}$ with zero-padding would allow us to obtain the linear convolution out of the circular convolution result. This is the basis of **fast convolution** algorithms, which will be discussed in one of the following articles.
 
 # Circular vs. Linear Convolution
 
@@ -231,22 +233,22 @@ Figures 11 and 12 present the linear and circular convolution example, respectiv
 _Figure 11. Linear convolution result. Samples marked in red would also be correctly calculated by the circular convolution._
 
 ![]({{ page.images | absolute_url | append: "/circular_shift_marked.png" }}){: width="600" }
-_Figure 12. Circular convolution result. Samples marked in red correspond to linear convolution result in terms of index and amplitude._
+_Figure 12. Circular convolution result. Samples marked in red correspond to the linear convolution result in terms of index and amplitude._
 
-To understand fully which samples in the circular convolution correspond to the correct samples of linear convolution we need to look at a concept broader than circular convolution: periodic convolution.
+To understand fully which samples in the circular convolution correspond to the correct samples of the linear convolution we need to look at a concept broader than circular convolution: periodic convolution.
 
 # Periodic Convolution
 
-Circular convolution is an example of *periodic convolution*&#8211;a convolution of two periodic sample sequences (with the same period) evaluated over only one period [1]. "But in our case $x$ and $h$ are not periodic!", you might say. Yes, they are not periodic, unless we compute their DFTs. DFT assumes the signal to be perodic and, thus, going into the DFT domain introduces the periodicity permanently. It does not have to be harmful; on the contrary, it can be quite useful. It just requires us to be extra cautious.
+Circular convolution is an example of *periodic convolution*&#8211;a convolution of two periodic sample sequences (with the same period) evaluated over only one period [1]. It's formula is identical to the formula of the circular convolution (Equation 6), but we assume that its output is periodic. "But in our case $x$ and $h$ are not periodic!", you might say. Yes, they are not periodic, unless we compute their DFTs. The DFT assumes the signal to be perodic and, thus, going into the DFT domain introduces the periodicity permanently. It does not have to be harmful; on the contrary, it can be quite useful. It just requires us to be extra cautious.
 
-Let's again compare linear convolution and periodic convolution. Given signals $x$ and (zero-padded) $h$, their periodic versions look as follows (black indicates samples stored in the vector, grey indicates implicit sample values)
+Let's compare the linear convolution and the periodic convolution. Given signals $x$ and (zero-padded) $h$, their periodic versions look as follows (black color indicates samples stored in the vector, grey color indicates implicit sample values)
 
 ![]({{ page.images | absolute_url | append: "/x_tilde_repeated.png" }}){: width="600" }
 _Figure 13. Signal $\tilde{x}$: periodic version of $x$._
 ![]({{ page.images | absolute_url | append: "/h_repeated.png" }}){: width="600" }
 _Figure 14. Signal $\tilde{h}$: periodic version of $h$._
 
-Let's compare the linear convolution of the original $\pmb{x}$ and $\pmb{h}$
+Let's compare the linear convolution of the original $x$ and $h$
 
 ![]({{ page.images | absolute_url | append: "/linear_convolution_full.png" }}){: width="600" }
 _Figure 15. Linear convolution of $x$ and $h$. Its length is 5._
@@ -254,15 +256,15 @@ _Figure 15. Linear convolution of $x$ and $h$. Its length is 5._
 with the periodic convolution of their periodic counterparts
 
 ![]({{ page.images | absolute_url | append: "/periodic_convolution.png" }}){: width="600" }
-_Figure 16. Circular convolution of $\tilde{x}$ and $\tilde{h}$. Its length is 4 and it's periodic._
+_Figure 16. Periodic convolution of $\tilde{x}$ and $\tilde{h}$. Its length is 4 and it's periodic._
 
-We can observe that the circular convolution is a superposition of linear convolution shifted by 4 samples, i.e., 1 sample less than the linear convolution's length. That is why the last sample is "eaten up"; it wraps around and is added to the initial 0 sample.
+We can observe that the circular convolution is a superposition of the linear convolution shifted by 4 samples, i.e., 1 sample less than the linear convolution's length. That is why the last sample is "eaten up"; it wraps around and is added to the initial 0 sample.
 
-Once again: $x$ had length 4, $h$ had length 2, their linear convolution had length 5, the circular convolution length 4, and the "valid" samples were the last three. As we will see next the "excessive" one sample wrapped around and "destroyed the first sample, thus we were left with only 3 samples that were identical to linear convolution result.
+Once again: $x$ had length 4, $h$ had length 2, their linear convolution had length 5, the circular convolution had length 4, and the "valid" samples were the last 3. As we will see next the "excessive" sample wrapped around and "destroyed" the first sample, thus, we were left with only 3 samples that were identical to the linear convolution result. This is what I mean by "time-domain aliasing": the periodic copies of the linear convolution (as implied by the DFT) start overlapping because we didn't left them enough space (="frequency-domain sampling rate") in the DFT domain. Thus, we get time-domain artifacts.
 
 # Valid Samples of Circular Convolution: The Answer
 
-Let's summarize what we discovered so far:
+Let's summarize what we have discovered so far:
 * Multiplication in the DFT domain is equivalent to circular convolution in the discrete-time domain.
 * $N$-point DFT treats the signals as $N$-periodic.
 * Linear convolution of discrete signals of length $M$ and $N$ has length $M+N-1$.
@@ -270,12 +272,9 @@ Let's summarize what we discovered so far:
 
 Let's assume that we have two signals, of lenght $M$ and $N$, $M \geq N$. We want to know which samples of their circular convolution are equal to the corresponding samples of their linear convolution.
 
-1. First, we pad the shorter signal with zeros.
+1. First, we pad the shorter signal with zeros. Now both signals have length $M$.
 1. The result of the circular convolution has length $M$.
-1. The samples that did not fit the linear convolution wrapped around and were added to the beginning of the output. The exact number of wrapped-around samples is
-
-$$ M + N - 1 - M = N - 1. \quad ({% increment equationId20210507 %})$$
-
+1. The samples that did not fit the linear convolution wrapped around and were added to the beginning of the output. The exact number of wrapped-around samples is $ M + N - 1 - M = N - 1.$
 1. The above means that the first $N-1$ samples of the output need to be discarded. This means that the last $M - N + 1$ samples are valid, i.e., samples at indices $\{N, N+1, \dots, M-1\}$ (we start indexing from 0).
 
 # Circular Convolution Implementation
@@ -325,7 +324,11 @@ The efficient circular convolution implementation via the Fast Fourier Transform
 
 # Summary
 
-In this article, we looked at the difference between the circular and linear convolution. The former treats both given sequences as periodic and is evaluated only for the number of samples corresponding to the period. A subset of samples resulting from circular convolution corresponds to the samples in the linear convolution's output. Circular convolution can be implemented efficiently via multiplication in the DFT domain.
+In this article, we looked at the difference between the circular and the linear convolution. The former treats both given sequences as periodic and is evaluated only for the number of samples corresponding to the period. 
+
+A subset of samples resulting from the circular convolution corresponds to the samples of the linear convolution. 
+
+Circular convolution can be implemented efficiently via multiplication in the DFT domain.
 
 # Bibliography
 

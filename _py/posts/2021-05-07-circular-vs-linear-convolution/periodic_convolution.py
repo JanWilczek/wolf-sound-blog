@@ -46,6 +46,7 @@ def plot_periodic_convolution(x, h):
     plot_x_x_wide(x, x_repeated, xlabel='n', ylabel='$\\tilde{x}[n]$')
     savefig('x_tilde_repeated')
     plot_x_x_wide(h, h_repeated, xlabel='n', ylabel='$\\tilde{h}[n]$')
+    savefig('h_repeated')
     plot_x_x_wide(periodic_convolution_x_h, periodic_convolution_x_h_full, xlabel='n', ylabel='$(x \circledast h)[n]$')
     savefig('periodic_convolution')
 
