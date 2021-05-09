@@ -8,7 +8,7 @@ def savefig(filename):
     OUTPUT_PATH = Path('assets/img/posts/2021-05-07-circular-vs-linear-convolution')
     plt.savefig(OUTPUT_PATH / filename, bbox_inches='tight', dpi=300)
 
-def plot_signal(x, pre0=4, signal_length=6, xlabel='n', ylabel=''):
+def plot_signal(x, pre0=4, signal_length=6, xlabel='n', ylabel='', mark_subsamples=[]):
     n = np.arange(-pre0, signal_length)
     x = np.concatenate((np.zeros((pre0,)), x, np.zeros((signal_length - x.shape[0], ))), axis=0)
     
@@ -23,6 +23,10 @@ def plot_signal(x, pre0=4, signal_length=6, xlabel='n', ylabel=''):
     plt.ylabel(ylabel)
     plt.xticks(n)
 
+    if mark_subsamples:
+        _, stemlines, _ = plt.stem(n[mark_subsamples], x[mark_subsamples], linefmt='r-', markerfmt='ro', basefmt=' ')
+        plt.setp(stemlines, 'linewidth', 2)
+
 def plot_circular_shift(x):
     h = np.zeros_like(x)
     h[1] = 1.0
@@ -34,6 +38,9 @@ def plot_circular_shift(x):
     linear_convolution_x_h = np.convolve(x, h, 'full')
     plot_signal(linear_convolution_x_h[:-2], ylabel='$x \ast h[n]$')
     savefig('linear_convolution_shift')
+    mark_subsamples = list(range(5,8))
+    plot_signal(linear_convolution_x_h[:-2], ylabel='$x \ast h[n]$', mark_subsamples=mark_subsamples)
+    savefig('linear_convolution_shift_marked')
 
     X = np.fft.fft(x)
     H = np.fft.fft(h)
@@ -41,6 +48,8 @@ def plot_circular_shift(x):
 
     plot_signal(circular_convolution_x_h, ylabel='$(x \circledast h)[n]$')
     savefig('circular_shift')
+    plot_signal(circular_convolution_x_h, ylabel='$(x \circledast h)[n]$', mark_subsamples=mark_subsamples)
+    savefig('circular_shift_marked')
 
 def plot_x_x_wide(x, x_wide, xlabel='', ylabel=''):
     """x_wide should be 5 times longer than x"""

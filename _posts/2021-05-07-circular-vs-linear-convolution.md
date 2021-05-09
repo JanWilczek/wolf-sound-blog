@@ -207,11 +207,35 @@ If $x$ and $h$ were continuous-time and we were using Fourier transform instead 
 
 Inverse DFT inherently assumes that the time domain signal is of the same length as the frequency-domain coefficient vector. Thus, $y[n]$ is of length 4. So by multiplying frequency-domain vectors $\pmb{X}$ and $\pmb{H}$ and going back to the discrete-time domain we squashed a 5-element-long vector into a 4-element-long vector. Thus, we introduced aliasing in the time domain; hence the wrap-around of the last sample in Figure 4, and more broadly, circular convolution effect.
 
-### Precious Conclusion
+In mathematical terms,
+
+$$y[n] =  x[n] \circledast h[n]. \quad ({% increment equationId20210507 %})$$
+
+### An Important Conclusion
 
 We have seen that the circular convolution somehow distorts the linear convolution. But in our example, $x$ was circularly shifted, not completetely destroyed. Moreover, all but the first and the last samples were valid samples of the linear convolution. Thus, we might suspect that sufficiently lenghtening $\pmb{x}$ and $\pmb{h}$ with zero-padding would allow us to obtain linear convolution out of the circular convolution result. This is the basis of **fast convolution** algorithms, which will be discussed in one of the following articles.
 
+# Circular vs. Linear Convolution
+
+The conclusion from the previous section is that
+
+> A subset of the circular convolution result corresponds to the linear convolution result.
+
+The question is: which subset?
+
+## Example: Common Samples of Linear and Circular Convolution
+
+<!-- Insert convolution comparison with matching samples marked -->
+
+To understand fully which samples in the circular convolution correspond to the correct samples of linear convolution we need to look at a concept broader than circular convolution: periodic convolution.
+
 # Periodic Convolution
+
+Circular convolution is an example of *periodic convolution*&#8211;a convolution of two periodic sample sequences (with the same period) evaluated over only one period [1]. "But in our case $x$ and $h$ are not periodic!", you might say. Yes, they are not periodic, unless we compute their DFTs. DFT assumes the signal to be perodic and, thus, going into the DFT domain introduces the periodicity permanently. It does not have to be harmful; on the contrary, it can be quite useful. It just requires us to be extra cautious.
+
+# Summary
+
+In this article, we looked at the difference between the circular and linear convolution. The former treats both given sequences as periodic and is evaluated only for the number of samples corresponding to the period. A subset of samples resulting from circular convolution corresponds to the samples in the linear convolution's output.
 
 # Bibliography
 
