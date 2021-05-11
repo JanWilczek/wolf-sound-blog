@@ -36,6 +36,7 @@ Are you ready?
 1. [Convolution property of Fourier, Laplace, and z-transforms]({% post_url 2021-03-18-convolution-in-popular-transforms %})
 1. [Identity element of the convolution]({% post_url 2021-04-01-identity-element-of-the-convolution %})
 1. [Star notation of the convolution]({% post_url 2021-04-03-star-notation-of-the-convolution-a-notational-trap %})
+1. [Circular vs. linear convolution]({% post_url 2021-05-07-circular-vs-linear-convolution %})
 
 # Definition
 

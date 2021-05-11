@@ -25,7 +25,26 @@ What is the circular convolution and how does it differ from the linear convolut
 1. [Star notation of the convolution]({% post_url 2021-04-03-star-notation-of-the-convolution-a-notational-trap %})
 1. **Circular vs. linear convolution**
 
-<!-- Add table of contents -->
+# Table of Contents
+1. [Introduction](#introduction)
+1. [Convolution Theorem of the DFT?](#convolution-theorem-of-the-dft)
+   1. [Definition of the DFT](#definition-of-the-dft)
+   1. [Convolution Theorem of the Fourier Transform](#convolution-theorem-of-the-fourier-transform)
+   1. [Convolution Theorem of the DFT](#convolution-theorem-of-the-dft-1)
+   1. [Circular Convolution Definition](#circular-convolution-definition)
+   1. [Linear Convolution Definition](#linear-convolution-definition)
+1. [Circular Convolution Example](#circular-convolution-example)
+1. [Why Is the Convolution Circular?](#why-is-the-convolution-circular)
+   1. [Discrete Fourier Transform and Discrete Fourier Series](#discrete-fourier-transform-and-discrete-fourier-series)
+   1. [Sampling of the Fourier transform](#sampling-of-the-fourier-transform)
+   . [Aliasing in the Time Domain](#aliasing-in-the-time-domain)
+1. [Circular vs. Linear Convolution](#circular-vs-linear-convolution)
+   1. [Example: Common Samples of Linear and Circular Convolution](#example-common-samples-of-linear-and-circular-convolution)
+1. [Periodic Convolution](#periodic-convolution)
+1. [Valid Samples of Circular Convolution: The Answer](#valid-samples-of-circular-convolution-the-answer)
+1. [Circular Convolution Implementation](#circular-convolution-implementation)
+1. [Summary](#summary)
+1. [Bibliography](#bibliography)
 
 # Introduction
 
@@ -90,7 +109,7 @@ Let's assume we have a signal $x[n]$
 ![]({{ page.images | absolute_url | append: "/x_short.png" }}){: width="600" }
 _Figure 1. $x[n]$._
 
-and a [unit delay]({% post_url 2021-04-01-identity-element-of-the-convolution %}) $h[n]$
+and a [discrete-time impulse delayed by 1 sample]({% post_url 2021-04-01-identity-element-of-the-convolution %}) $h[n]$
 
 ![]({{ page.images | absolute_url | append: "/unit_delay.png" }}){: width="600" }
 _Figure 2. $h[n]$._
@@ -177,9 +196,7 @@ Having established that the DFT is periodic, we can now explain the circular con
 
 ### Output Length of Discrete Convolution
 
-Let's recall our signal $x[n]$ from Figure 1. In vector notation, we could denote it as $\pmb{x} = [1, 0.7, 0.3, 0.1]^\text{T}$, where T denotes transposition to make $\pmb{x}$ a column vector. Analogously, $\pmb{h} = [0, 1]^\text{T}$.
-
-Signal $\pmb{x}$ is of length 4, signal $\pmb{h}$ is of length 2. In Figure 3 we can see that the linear convolution between $\pmb{x}$ and $\pmb{h}$ is of length 5. In general, a convolution of two sequences of length $N$ and $M$ respectively yields a signal of length $N + M - 1$. <!-- Quotation needed -->
+Let's recall our signal $x[n]$ from Figure 1 and signal $h[n]$ from Figure 2. $x$ is of length 4, $h$ is of length 2. In Figure 3 we can see that the linear convolution between $x$ and $h$ is of length 5. In general, a convolution of two sequences of length $N$ and $M$ respectively yields a signal of length $N + M - 1$ [3].
 
 How does it look when we go through the DFT domain?
 
@@ -189,11 +206,7 @@ Adopting the notation from Equations 3 and 4, let's denote by $Y[k]$ the multipl
 
 $$ Y[k] = X[k]H[k] \quad k \in \{0, \dots, 3\}. \quad ({% increment equationId20210507 %})$$
 
-In order to make the index $k$ correspond to the same discrete frequencies for $X[k]$ and $H[k]$, discrete-frequency domain vectors $\pmb{X}$ and $\pmb{H}$ need to be of equal length. We achieve it by padding $\pmb{h}$ with 2 zeros, i.e., replacing the 2-element $\pmb{h}$ with $\pmb{h} = [0, 1, 0, 0]^\text{T}$. Now $\pmb{x}$ and $\pmb{h}$ are of equal length and their DFTs are as well. We obtain
-
-$$\pmb{Y} = \pmb{X} \odot \pmb{H}, \quad ({% increment equationId20210507 %})$$
-
-where $\odot$ denotes the Hadamard product of vectors (element-wise multiplication).
+In order to make the index $k$ correspond to the same discrete frequencies for $X[k]$ and $H[k]$, discrete-frequency coefficients $X$ and $H$ need to be of equal length. We achieve it by padding $h$ with 2 zeros, i.e., replacing the 2-element signal $h$ with a 4-element one with values 0, 1, 0, 0 for $k=0,1,2,3$ respectively. Now $x$ and $h$ are of equal length and their DFTs are as well.
 
 ### Back to the time domain
 
@@ -335,5 +348,7 @@ Circular convolution can be implemented efficiently via multiplication in the DF
 [1] Alan V Oppenheim, Ronald W. Schafer *Discrete-Time Signal Processing*, 3rd Edition, Pearson 2010.
 
 [2] Alan V. Oppenheim, Alan S. Willsky, with S. Hamid *Signals and Systems*, 2nd Edition, Pearson 1997.
+
+[3] Frank Wefers *Partitioned convolution algorithms for real-time auralization*, PhD Thesis, Zugl.: Aachen, Techn. Hochsch., 2015.
 
 {% endkatexmm %}
