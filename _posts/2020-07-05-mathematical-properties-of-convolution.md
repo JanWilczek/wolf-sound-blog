@@ -29,6 +29,7 @@ In the [previous article]({{"/convolution-the-secret-behind-filtering/" | absoul
 1. [Identity element of the convolution]({% post_url 2021-04-01-identity-element-of-the-convolution %})
 1. [Star notation of the convolution]({% post_url 2021-04-03-star-notation-of-the-convolution-a-notational-trap %})
 1. [Circular vs. linear convolution]({% post_url 2021-05-07-circular-vs-linear-convolution %})
+1. [Fast convolution]({% post_url 2021-05-14-fast-convolution %})
 
 ## Recap 
 Let us recap the definition of the discrete convolution. With discrete signals $x[n], h[n]$ being square-summable, their convolution is defined as

@@ -25,6 +25,7 @@ How not to fall victim to the star notation of the convolution?
 1. [Identity element of the convolution]({% post_url 2021-04-01-identity-element-of-the-convolution %})
 1. **Star notation of the convolution**
 1. [Circular vs. linear convolution]({% post_url 2021-05-07-circular-vs-linear-convolution %})
+1. [Fast convolution]({% post_url 2021-05-14-fast-convolution %})
 
 # Introduction
 
