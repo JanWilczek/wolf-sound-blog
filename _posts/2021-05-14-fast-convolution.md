@@ -53,21 +53,26 @@ $$ y[n] = x[n] \ast h[n] = \sum_{k=\max\{0,n-N_h+1\}}^{\min\{n, N_x-1\}} x[k] h[
 This translates to the following code
 
 {% highlight python %}
-def convolution(x, h):    
+def naive_convolution(x, h):    
     """Compute the discrete convolution of two sequences"""
     
+    # Make x correspond to the longer signal
     if len(x) < len(h):
         x, h = h, x
         
     M = len(x)
     N = len(h)
     
-    x = zeropad(x, M+2*(N-1))
+    # Convenience transformations
+    x = pad_zeros_to(x, M+2*(N-1))
     x = np.roll(x, N-1)
     
     h = np.flip(h)
     
     y = np.zeros(M+N-1)
+
+    # Delay h and calculate the inner product with the 
+    # corresponding samples in x
     for i in range(len(y)):
         y[i] = x[i:i+N].dot(h)
         
@@ -114,21 +119,28 @@ _Listing 3._
 Wrapping it all together
 
 {% highlight python %}
-def fft_convolution(x, h):
+def fft_convolution(x, h, K=None):
     Nx = x.shape[0]
     Nh = h.shape[0]
-    Ny = Nx + Nh - 1
+    Ny = Nx + Nh - 1 # output length
 
-    K = next_power_of_2(Ny)
+    # Make K smallest optimal
+    if K is None:
+        K = next_power_of_2(Ny)
 
+    # Calculate the fast Fourier transforms 
+    # of the time-domain signals
     X = np.fft.fft(pad_zeros_to(x, K))
     H = np.fft.fft(pad_zeros_to(h, K))
 
+    # Perform circular convolution in the frequency domain
     Y = np.multiply(X, H)
 
-    y = np.real(np.ifft(Y))
+    # Go back to time domain
+    y = np.real(np.fft.ifft(Y))
 
-    return y[:Ny] # trim the signal to the expected length
+    # Trim the signal to the expected length
+    return y[:Ny]
 {% endhighlight %}
 _Listing 4. FFT-based fast convolution._
 
@@ -166,7 +178,7 @@ def overlap_add_convolution(x, h, B, K=None):
     num_input_blocks = np.ceil(M / B).astype(int)
 
     # Pad x to an integer multiple of B
-    xp = zeropad(x, num_input_blocks*B)
+    xp = pad_zeros_to(x, num_input_blocks*B)
 
     # Your turn ...
     output_size = num_input_blocks * B + N - 1
@@ -210,14 +222,14 @@ def overlap_save_convolution(x, h, B, K=None):
     N = len(h)
 
     if K is None:
-        K = max(B, nextPowerOf2(N))
+        K = max(B, next_power_of_2(N))
         
     # Calculate the number of input blocks
-    num_input_blocks = np.ceil(M / B).astype(int) 
+    num_input_blocks = np.ceil(M / B).astype(int) \
                      + np.ceil(K / B).astype(int) - 1
 
     # Pad x to an integer multiple of B
-    xp = zeropad(x, num_input_blocks*B)
+    xp = pad_zeros_to(x, num_input_blocks*B)
 
     output_size = num_input_blocks * B + N - 1
     y = np.zeros((output_size,))
