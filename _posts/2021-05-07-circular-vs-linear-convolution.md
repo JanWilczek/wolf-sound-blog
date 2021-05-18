@@ -38,7 +38,7 @@ What is the circular convolution and how does it differ from the linear convolut
 1. [Why Is the Convolution Circular?](#why-is-the-convolution-circular)
    1. [Discrete Fourier Transform and Discrete Fourier Series](#discrete-fourier-transform-and-discrete-fourier-series)
    1. [Sampling of the Fourier transform](#sampling-of-the-fourier-transform)
-   . [Aliasing in the Time Domain](#aliasing-in-the-time-domain)
+   1. [Aliasing in the Time Domain](#aliasing-in-the-time-domain)
 1. [Circular vs. Linear Convolution](#circular-vs-linear-convolution)
    1. [Example: Common Samples of Linear and Circular Convolution](#example-common-samples-of-linear-and-circular-convolution)
 1. [Periodic Convolution](#periodic-convolution)
@@ -229,7 +229,7 @@ $$y[n] =  x[n] \circledast h[n]. \quad ({% increment equationId20210507 %})$$
 
 ### An Important Conclusion
 
-We have seen that the circular convolution somehow distorts the linear convolution. But in our example, $x$ was circularly shifted, not completetely destroyed. Moreover, all but the first sample were valid samples of the linear convolution. Thus, we might suspect that sufficiently lenghtening $\pmb{x}$ and $\pmb{h}$ with zero-padding would allow us to obtain the linear convolution out of the circular convolution result. This is the basis of **fast convolution** algorithms, which will be discussed in one of the following articles.
+We have seen that the circular convolution somehow distorts the linear convolution. But in our example, $x$ was circularly shifted, not completetely destroyed. Moreover, all but the first sample were valid samples of the linear convolution. Thus, we might suspect that sufficiently lengthening $\pmb{x}$ and $\pmb{h}$ with zero-padding would allow us to obtain the linear convolution out of the circular convolution result. This is the basis of **fast convolution** algorithms, which will be discussed in one of the following articles.
 
 # Circular vs. Linear Convolution
 
@@ -284,7 +284,7 @@ Let's summarize what we have discovered so far:
 * Linear convolution of discrete signals of length $M$ and $N$ has length $M+N-1$.
 * $N$-point circular convolution has length $N$.
 
-Let's assume that we have two signals, of lenght $M$ and $N$, $M \geq N$. We want to know which samples of their circular convolution are equal to the corresponding samples of their linear convolution.
+Let's assume that we have two signals, of length $M$ and $N$, $M \geq N$. We want to know which samples of their circular convolution are equal to the corresponding samples of their linear convolution.
 
 1. First, we pad the shorter signal with zeros. Now both signals have length $M$.
 1. The result of the circular convolution has length $M$.
