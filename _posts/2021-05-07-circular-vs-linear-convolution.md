@@ -12,6 +12,7 @@ tags:
  - convolution
  - maths
  - dsp
+discussion_id: 2021-05-07-circular-vs-linear-convolution
 ---
 What is the circular convolution and how does it differ from the linear convolution?
 

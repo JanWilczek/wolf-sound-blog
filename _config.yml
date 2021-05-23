@@ -53,6 +53,9 @@ katex:
     throw_error: true                       # throwOnError - set to false if you want rendering to output error as text rather than a build error
     error_color: "#cc0000"                  # errorColor
 
+talkyard_server_url: https://comments-for-www-thewolfsound-com.talkyard.net
+talkyard_script_url: https://c1.ty-cdn.net/-/talkyard-comments.min.js
+
 # Exclude from processing.
 # The following items will not be processed, by default.
 # Any item listed under the `exclude:` key here will be automatically added to

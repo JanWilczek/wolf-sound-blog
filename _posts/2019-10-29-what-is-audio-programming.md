@@ -30,6 +30,7 @@ image: /wp-content/uploads/2019/10/thumbnail_what_is_audio_programming.PNG
 background: /wp-content/uploads/2019/10/thumbnail_what_is_audio_programming.PNG
 categories:
   - Sound in general
+discussion_id: 2019-10-29-what-is-audio-programming
 ---
 <iframe width="560" height="315" src="https://www.youtube.com/embed/K-cV30eDCeE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 

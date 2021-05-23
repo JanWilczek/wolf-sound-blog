@@ -13,6 +13,7 @@ tags:
  - filtering
  - maths
  - dsp
+discussion_id: 2020-06-20-the-secret-behind-filtering
 ---
 Why does filtering work? What enables us to enhance the bass in our audio players?
 

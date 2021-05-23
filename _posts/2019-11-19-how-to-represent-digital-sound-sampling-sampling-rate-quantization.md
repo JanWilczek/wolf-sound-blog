@@ -34,6 +34,7 @@ tags:
   - quantization
   - sample rate
   - sampling
+discussion_id: 2019-11-19-how-to-represent-digital-sound-sampling-sampling-rate-quantization
 ---
 <iframe width="560" height="315" src="https://www.youtube.com/embed/f53m72uLa2I" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 

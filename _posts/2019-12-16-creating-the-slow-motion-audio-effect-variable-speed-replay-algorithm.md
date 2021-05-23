@@ -37,6 +37,7 @@ tags:
   - dsp
   - fx
   - slow motion
+discussion_id: 2019-12-16-creating-the-slow-motion-audio-effect-variable-speed-replay-algorithm
 ---
 {% katexmm %}
 

@@ -33,6 +33,7 @@ categories:
 tags:
   - C
   - Cpp
+discussion_id: 2020-04-09-what-is-data-alignment
 ---
 <iframe width="560" height="315" src="https://www.youtube.com/embed/tyw6_B0-QZA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 

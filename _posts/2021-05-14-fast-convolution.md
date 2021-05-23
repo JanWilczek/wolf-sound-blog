@@ -1,9 +1,9 @@
 ---
-title: "Fast Convolution"
+title: "Fast Convolution: FFT-based, Overlap-Add, Overlap-Save, Partitioned"
 date: 2021-05-14
 author: Jan Wilczek
 layout: post
-permalink: /fast-convolution/
+permalink: /fast-convolution-fft-based-overlap-add-overlap-save-partitioned/
 # background: /assets/img/posts/2021-04-03-star-notation-of-the-convolution-a-notational-trap/Thumbnail.png
 images: assets/img/posts/2021-05-14-fast-convolution
 categories:
@@ -12,6 +12,7 @@ tags:
  - convolution
  - filters
  - dsp
+discussion_id: 2021-05-14-fast-convolution
 ---
 How to compute convolution fast for real-time applications?
 

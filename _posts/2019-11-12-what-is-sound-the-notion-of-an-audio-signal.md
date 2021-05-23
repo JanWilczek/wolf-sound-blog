@@ -34,6 +34,7 @@ tags:
   - audio signal
   - digital audio
   - sound wave
+discussion_id: 2019-11-12-what-is-sound-the-notion-of-an-audio-signal
 ---
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Q6NldT7pgEY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 

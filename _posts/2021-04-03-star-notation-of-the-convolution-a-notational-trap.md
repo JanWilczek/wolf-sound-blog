@@ -11,6 +11,7 @@ categories:
 tags:
  - convolution
  - maths
+discussion_id: 2021-04-03-star-notation-of-the-convolution-a-notational-trap
 ---
 How not to fall victim to the star notation of the convolution?
 

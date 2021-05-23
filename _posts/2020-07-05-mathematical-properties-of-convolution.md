@@ -13,6 +13,7 @@ tags:
  - filtering
  - maths
  - dsp
+discussion_id: 2020-07-05-mathematical-properties-of-convolution
 ---
 Inspecting the mathematical properties of convolution leads to interesting conclusions regarding digital signal processing.
 
