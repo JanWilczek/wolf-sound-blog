@@ -4,8 +4,8 @@ date: 2021-05-07
 author: Jan Wilczek
 layout: post
 permalink: /circular-vs-linear-convolution-whats-the-difference/
-# background: /assets/img/posts/2021-04-03-star-notation-of-the-convolution-a-notational-trap/Thumbnail.png
 images: assets/img/posts/2021-05-07-circular-vs-linear-convolution
+background: /assets/img/posts/2021-05-07-circular-vs-linear-convolution/thumbnail.png
 categories:
  - DSP
 tags:
@@ -15,6 +15,8 @@ tags:
 discussion_id: 2021-05-07-circular-vs-linear-convolution
 ---
 What is the circular convolution and how does it differ from the linear convolution?
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/zquMVVCnmuk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 {% katexmm %}
 

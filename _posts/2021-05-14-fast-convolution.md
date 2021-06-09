@@ -4,8 +4,8 @@ date: 2021-05-14
 author: Jan Wilczek
 layout: post
 permalink: /fast-convolution-fft-based-overlap-add-overlap-save-partitioned/
-# background: /assets/img/posts/2021-04-03-star-notation-of-the-convolution-a-notational-trap/Thumbnail.png
 images: assets/img/posts/2021-05-14-fast-convolution
+background: /assets/img/posts/2021-05-14-fast-convolution/Thumbnail.png
 categories:
  - DSP
 tags:
@@ -15,6 +15,8 @@ tags:
 discussion_id: 2021-05-14-fast-convolution
 ---
 How to compute convolution fast for real-time applications?
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/fYggIQTaVx4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 {% katexmm %}
 
