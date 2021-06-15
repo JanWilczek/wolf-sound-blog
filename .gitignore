@@ -4,7 +4,6 @@ _site
 .jekyll-cache
 .jekyll-metadata
 vendor
-_drafts
 
 _deploy.sh
 
