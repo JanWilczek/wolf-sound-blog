@@ -6,27 +6,27 @@ layout: default
 {% if page.background %}
 <header class="masthead" style="background-image: url('{{ page.background | prepend: site.baseurl | replace: '//', '/' }}')">
   {% else %}
-  <header class="masthead">
-    {% endif %}
-    <div class="overlay"></div>
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 col-md-10 mx-auto">
-          <div class="post-heading">
-            <h1>{{ page.title }}</h1>
-            {% if page.subtitle %}
-            <h2 class="subheading">{{ page.subtitle }}</h2>
-            {% endif %}
-            <span class="meta">Posted by
-              <a href="#">{% if page.author %}{{ page.author }}{% else %}{{ site.author }}{% endif %}</a>
-              on {{ page.date | date: '%B %d, %Y' }} &middot; {% include read_time.html
-              content=page.content %}
-            </span>
-          </div>
+<header class="masthead">
+  {% endif %}
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="post-heading">
+          <h1>{{ page.title }}</h1>
+          {% if page.subtitle %}
+          <h2 class="subheading">{{ page.subtitle }}</h2>
+          {% endif %}
+          <span class="meta">Posted by
+            <a href="#">{% if page.author %}{{ page.author }}{% else %}{{ site.author }}{% endif %}</a>
+            on {{ page.date | date: '%B %d, %Y' }} &middot; {% include read_time.html
+            content=page.content %}
+          </span>
         </div>
       </div>
     </div>
-  </header>
+  </div>
+</header>
 
   <div class="container">
     <div class="row">
@@ -54,3 +54,6 @@ layout: default
       </div>
     </div>
   </div>
+
+  <!-- SUMO newsletter forms set-up -->
+  <script async>(function(s,u,m,o,j,v){j=u.createElement(m);v=u.getElementsByTagName(m)[0];j.async=1;j.src=o;j.dataset.sumoSiteId='6d715ff31421c035bcffdced3a4fe8d9e2a82e448b7161bfb7ddfddaa669f2f4';v.parentNode.insertBefore(j,v)})(window,document,'script','//load.sumo.com/');</script>
