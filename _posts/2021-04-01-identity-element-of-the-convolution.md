@@ -29,6 +29,7 @@ How to convolve and do nothing at the same time?
 1. [Star notation of the convolution]({% post_url 2021-04-03-star-notation-of-the-convolution-a-notational-trap %})
 1. [Circular vs. linear convolution]({% post_url 2021-05-07-circular-vs-linear-convolution %})
 1. [Fast convolution]({% post_url 2021-05-14-fast-convolution %})
+1. [Convolution vs. correlation]({% post_url 2021-18-06-convolution-vs-correlation %})
 
 # Table of Contents
 1. [Introduction](#introduction)
