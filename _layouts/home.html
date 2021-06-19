@@ -17,6 +17,7 @@ layout: default
             {% if site.description %}
             <span class="subheading">{{ site.description }}</span>
             {% endif %}
+            <button type="button" class="btn btn-lg btn-primary">Get Started Here</button>
           </div>
         </div>
       </div>
@@ -28,6 +29,25 @@ layout: default
       <div class="col-lg-8 col-md-10 mx-auto">
 
         {{ content }}
+
+        <!-- Most Recent Articles -->
+        <div class="page-header">
+          <h1>Most Recent Articles</h1>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="btn-group btn-group-lg" role="group">
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                  <button type="button" class="btn btn-default btn-xs">All</button>
+                </div>
+                {% for category in site.categories %}
+                  <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <button type="button" class="btn btn-default btn-xs">{{category[0]}}</button>
+                  </div>
+                {% endfor %}
+            </div>
+          </div>
+        </div>
 
         <!-- Home Post List -->
         {% for post in site.posts limit : 5 %}
