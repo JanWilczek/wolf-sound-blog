@@ -7,12 +7,11 @@ background: /assets/img/posts/2020-06-20-the-secret-behind-filtering/h_superpose
 permalink: /convolution-the-secret-behind-filtering/
 images: assets/img/posts/2020-06-20-the-secret-behind-filtering
 categories:
- - DSP
+ - Digital Signal Processing
 tags:
  - convolution
  - filtering
  - maths
- - dsp
 discussion_id: 2020-06-20-the-secret-behind-filtering
 ---
 Why does filtering work? What enables us to enhance the bass in our audio players?

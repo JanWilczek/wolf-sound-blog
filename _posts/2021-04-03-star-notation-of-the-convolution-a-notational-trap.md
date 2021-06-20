@@ -7,7 +7,7 @@ permalink: /star-notation-of-the-convolution-a-notational-trap/
 background: /assets/img/posts/2021-04-03-star-notation-of-the-convolution-a-notational-trap/Thumbnail.png
 images: assets/img/posts/2021-04-03-star-notation-of-the-convolution-a-notational-trap
 categories:
- - DSP
+ - Digital Signal Processing
 tags:
  - convolution
  - maths

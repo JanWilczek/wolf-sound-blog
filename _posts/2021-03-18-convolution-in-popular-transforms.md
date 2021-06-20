@@ -6,14 +6,13 @@ layout: post
 permalink: /convolution-property-of-fourier-laplace-and-z-transforms/
 background: /assets/img/posts/2021-03-18-convolution-in-popular-transforms/Thumbnail.png
 categories:
- - DSP
+ - Digital Signal Processing
 tags:
  - convolution
  - fourier
  - laplace
  - transform
  - maths
- - dsp
 discussion_id: 2021-03-18-convolution-in-popular-transforms
 ---
 How does the convolution relate to the most popular transforms in signal processing?

@@ -7,11 +7,10 @@ permalink: /circular-vs-linear-convolution-whats-the-difference/
 images: assets/img/posts/2021-05-07-circular-vs-linear-convolution
 background: /assets/img/posts/2021-05-07-circular-vs-linear-convolution/thumbnail.png
 categories:
- - DSP
+ - Digital Signal Processing
 tags:
  - convolution
  - maths
- - dsp
 discussion_id: 2021-05-07-circular-vs-linear-convolution
 ---
 What is the circular convolution and how does it differ from the linear convolution?

@@ -7,11 +7,10 @@ permalink: /convolution-vs-correlation-whats-the-difference/
 # images: assets/img/posts/2021-05-14-fast-convolution
 # background: /assets/img/posts/2021-05-14-fast-convolution/Thumbnail.png
 categories:
- - DSP
+ - Digital Signal Processing
 tags:
  - convolution
  - correlation
- - dsp
 discussion_id: 2021-18-06-convolution-vs-correlation
 ---
 Can we calculate correlation using convolution?

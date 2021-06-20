@@ -7,12 +7,11 @@ permalink: /identity-element-of-the-convolution/
 background: /assets/img/posts/2021-04-01-identity-element-of-the-convolution/Thumbnail.png
 images: assets/img/posts/2021-04-01-identity-element-of-the-convolution
 categories:
- - DSP
+ - Digital Signal Processing
 tags:
  - convolution
  - impulse
  - maths
- - dsp
 discussion_id: 2021-04-01-identity-element-of-the-convolution
 ---
 How to convolve and do nothing at the same time?

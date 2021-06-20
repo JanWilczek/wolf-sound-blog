@@ -7,12 +7,11 @@ permalink: /mathematical-properties-of-convolution/
 background: /assets/img/posts/2020-06-20-the-secret-behind-filtering/h_superposed.png
 images: assets/img/posts/2020-07-05-mathematical-properties-of-convolution
 categories:
- - DSP
+ - Digital Signal Processing
 tags:
  - convolution
  - filtering
  - maths
- - dsp
 discussion_id: 2020-07-05-mathematical-properties-of-convolution
 ---
 Inspecting the mathematical properties of convolution leads to interesting conclusions regarding digital signal processing.

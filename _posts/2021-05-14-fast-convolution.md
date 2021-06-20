@@ -7,11 +7,10 @@ permalink: /fast-convolution-fft-based-overlap-add-overlap-save-partitioned/
 images: assets/img/posts/2021-05-14-fast-convolution
 background: /assets/img/posts/2021-05-14-fast-convolution/Thumbnail.png
 categories:
- - DSP
+ - Digital Signal Processing
 tags:
  - convolution
  - filters
- - dsp
 discussion_id: 2021-05-14-fast-convolution
 ---
 How to compute convolution fast for real-time applications?

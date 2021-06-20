@@ -36,14 +36,14 @@ layout: default
         </div>
         <div class="container">
           <div class="row">
-            <div class="btn-group btn-group-lg" role="group">
-                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                  <button type="button" class="btn btn-default btn-xs">All</button>
-                </div>
+            <div class="btn-group btn-group-lg btn-group-toggle" data-toggle="buttons" role="group" aria-label="Article categories">
+                  <label class="btn btn-outline-secondary btn-sm active" aria-pressed="true">
+                    <input type="radio" name="article-categories" id="All" autocomplete="off" checked>All
+                  </label>
                 {% for category in site.categories %}
-                  <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                    <button type="button" class="btn btn-default btn-xs">{{category[0]}}</button>
-                  </div>
+                    <label class="btn btn-outline-secondary btn-sm">
+                      <input type="radio" name="article-categories" id="{{category[0]}}" autocomplete="off">{{category[0]}}
+                    </label>
                 {% endfor %}
             </div>
           </div>
