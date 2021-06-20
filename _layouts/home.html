@@ -31,6 +31,12 @@ layout: default
         {{ content }}
 
         <!-- Most Recent Articles -->
+        <script type="text/javascript">
+          function category_toggle(button) {
+            
+          }
+        </script>
+
         <div class="page-header">
           <h1>Most Recent Articles</h1>
         </div>
@@ -49,8 +55,11 @@ layout: default
           </div>
         </div>
 
+        {% assign test_category = "Digital Signal Processing" %}
+
         <!-- Home Post List -->
-        {% for post in site.posts limit : 5 %}
+        {% assign catogory_articles = site.posts | where_exp: "article", "article.categories contains test_category" %}
+        {% for post in catogory_articles limit : 5 %}
 
         <article class="post-preview">
           <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}">
