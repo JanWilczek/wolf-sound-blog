@@ -31,12 +31,6 @@ layout: default
         {{ content }}
 
         <!-- Most Recent Articles -->
-        <script type="text/javascript">
-          function category_toggle(button) {
-            
-          }
-        </script>
-
         <div class="page-header">
           <h1>Most Recent Articles</h1>
         </div>
@@ -44,46 +38,55 @@ layout: default
           <div class="row">
             <div class="btn-group btn-group-lg btn-group-toggle" data-toggle="buttons" role="group" aria-label="Article categories">
                   <label class="btn btn-outline-secondary btn-sm active" aria-pressed="true">
-                    <input type="radio" name="article-categories" id="All" autocomplete="off" checked>All
+                    <input type="radio" name="article-categories" id="All" autocomplete="off" checked onclick="category_toggle(this);">All
                   </label>
                 {% for category in site.categories %}
                     <label class="btn btn-outline-secondary btn-sm">
-                      <input type="radio" name="article-categories" id="{{category[0]}}" autocomplete="off">{{category[0]}}
+                      <input type="radio" name="article-categories" id="{{category[0]}}" autocomplete="off" onclick="category_toggle(this);">{{category[0]}}
                     </label>
                 {% endfor %}
             </div>
           </div>
         </div>
 
-        {% assign test_category = "Digital Signal Processing" %}
-
         <!-- Home Post List -->
-        {% assign catogory_articles = site.posts | where_exp: "article", "article.categories contains test_category" %}
-        {% for post in catogory_articles limit : 5 %}
+        <div class="preview-block d-block" id="all-preview">
+        {% for post in site.posts limit : 5 %}
+            {% include post-preview.html %}
+            {% endfor %}
+        </div>
 
-        <article class="post-preview">
-          <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}">
-            <h2 class="post-title">{{ post.title }}</h2>
-            {% if post.subtitle %}
-            <h3 class="post-subtitle">{{ post.subtitle }}</h3>
-            {% else %}
-            <h3 class="post-subtitle">{{ post.excerpt | strip_html | truncatewords: 15 }}</h3>
-            {% endif %}
-          </a>
-          <p class="post-meta">Posted by
-            {% if post.author %}
-            {{ post.author }}
-            {% else %}
-            {{ site.author }}
-            {% endif %}
-            on
-            {{ post.date | date: '%B %d, %Y' }} &middot; {% include read_time.html content=post.content %}            
-          </p>
-        </article>
-
-        <hr>
-
+        {% for category in site.categories %}
+          {% assign catogory_articles = site.posts | where_exp: "article", "article.categories contains category[0]" %}
+          <div class="preview-block d-none" id="{{category[0]}}-preview">
+          {% for post in catogory_articles limit : 5 %}
+            {% include post-preview.html %}
+          {% endfor %}
+          </div>
         {% endfor %}
+
+        <script type="text/javascript">
+          function category_toggle(button) {
+            debugger;
+            const categories_radio_buttons = document.querySelectorAll('input[name="article-categories"]');
+            categories_previews = document.querySelectorAll('preview-block');
+            for (preview of categories_previews) {
+              if (preview.classList.contains('d-block'))
+              {
+                preview.classList.remove('d-block');
+                preview.classList.add('d-none');
+              }
+
+              if (preview.id.contains(button.id))
+              {
+                preview.classList.remove('d-none');
+                preview.classList.add('d-block')
+              }
+            }
+            debugger;
+            $('#All').on('click', category_toggle);
+          }
+        </script>
 
         <!-- Pager -->
         <div class="clearfix">
