@@ -37,12 +37,12 @@ layout: default
         <div class="container">
           <div class="row">
             <div class="btn-group btn-group-lg btn-group-toggle" data-toggle="buttons" role="group" aria-label="Article categories">
-                  <label class="btn btn-outline-secondary btn-sm active" aria-pressed="true">
-                    <input type="radio" name="article-categories" id="All" autocomplete="off" checked onclick="category_toggle(this);">All
+                  <label class="btn btn-outline-secondary btn-sm active" aria-pressed="true" id="All" onclick="category_toggle(this);">
+                    <input type="radio" name="article-categories" autocomplete="off" checked>All
                   </label>
                 {% for category in site.categories %}
-                    <label class="btn btn-outline-secondary btn-sm">
-                      <input type="radio" name="article-categories" id="{{category[0]}}" autocomplete="off" onclick="category_toggle(this);">{{category[0]}}
+                    <label class="btn btn-outline-secondary btn-sm"  id="{{category[0]}}" onclick="category_toggle(this);">
+                      <input type="radio" name="article-categories" autocomplete="off">{{category[0]}}
                     </label>
                 {% endfor %}
             </div>
@@ -50,7 +50,7 @@ layout: default
         </div>
 
         <!-- Home Post List -->
-        <div class="preview-block d-block" id="all-preview">
+        <div class="d-block" id="All-preview" name="preview-block">
         {% for post in site.posts limit : 5 %}
             {% include post-preview.html %}
             {% endfor %}
@@ -58,35 +58,14 @@ layout: default
 
         {% for category in site.categories %}
           {% assign catogory_articles = site.posts | where_exp: "article", "article.categories contains category[0]" %}
-          <div class="preview-block d-none" id="{{category[0]}}-preview">
+          <div class="d-none" id="{{category[0]}}-preview" name="preview-block">
           {% for post in catogory_articles limit : 5 %}
             {% include post-preview.html %}
           {% endfor %}
           </div>
         {% endfor %}
 
-        <script type="text/javascript">
-          function category_toggle(button) {
-            debugger;
-            const categories_radio_buttons = document.querySelectorAll('input[name="article-categories"]');
-            categories_previews = document.querySelectorAll('preview-block');
-            for (preview of categories_previews) {
-              if (preview.classList.contains('d-block'))
-              {
-                preview.classList.remove('d-block');
-                preview.classList.add('d-none');
-              }
-
-              if (preview.id.contains(button.id))
-              {
-                preview.classList.remove('d-none');
-                preview.classList.add('d-block')
-              }
-            }
-            debugger;
-            $('#All').on('click', category_toggle);
-          }
-        </script>
+        
 
         <!-- Pager -->
         <div class="clearfix">
@@ -96,3 +75,26 @@ layout: default
       </div>
     </div>
   </div>
+
+  <script type="text/javascript">
+    function category_toggle(button) {
+      const categories_radio_buttons = document.querySelectorAll('input[name="article-categories"]');
+      categories_previews = document.getElementsByName('preview-block');
+      for (preview of categories_previews) {
+        if (preview.classList.contains('d-block'))
+        {
+          preview.classList.remove('d-block');
+          preview.classList.add('d-none');
+        }
+
+        if (preview.id.includes(button.id))
+        {
+          if (preview.classList.contains('d-none'))
+          {
+            preview.classList.remove('d-none');
+            preview.classList.add('d-block');
+          }
+        }
+      }
+    }
+  </script>
