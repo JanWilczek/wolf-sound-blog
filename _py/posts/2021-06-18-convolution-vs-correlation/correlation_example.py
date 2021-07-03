@@ -6,8 +6,9 @@ from pathlib import Path
 
 
 def main():
-    matplotlib.rcParams.update({'font.size': 14})
+    matplotlib.rcParams.update({'font.size': 20})
     matplotlib.rcParams.update({'lines.linewidth': 4})
+    matplotlib.rcParams.update({'figure.autolayout': True})
     plot_dict = {"bbox_inches": 'tight', "dpi": 300}
     yticks = [-1.0, 0.0, 1.0]
     output_dir = Path('assets/img/posts/2021-06-18-convolution-vs-correlation')
@@ -49,6 +50,15 @@ def main():
     plt.ylabel(r'$\phi_{xy}$[n]')
     plt.savefig(output_dir / 'xy_correlation.png', **plot_dict)
 
+    autocorr = np.correlate(x, x, 'full')
+    plt.figure()
+    markerline, stemlines, baseline = plt.stem(nc, autocorr, basefmt=' ')
+    plt.setp(markerline, 'color', 'xkcd:aquamarine')
+    plt.setp(stemlines, 'color', 'xkcd:aquamarine')
+    plt.xlabel('n')
+    plt.ylabel(r'$\phi_{xx}$[n]')
+    plt.savefig(output_dir / 'xx_autocorrelation.png', **plot_dict)
+
     conv = np.convolve(x, y, 'full')
     plt.figure()
     markerline, stemlines, baseline = plt.stem(nc, conv, basefmt=' ')
@@ -66,7 +76,11 @@ def main():
     markerline, stemlines, baseline = ax.stem(nc, visible_c, basefmt=' ')
     plt.setp(markerline, 'color', 'C2')
     plt.setp(stemlines, 'color', 'C2')
-    
+    ax.set_xlabel('n')
+    ax.set_ylabel(r'$\phi_{xy}$[n]')
+    # fig.subplots_adjust(left=0, bottom=0, right=1, top=1, wspace=None, hspace=None)
+    # fig.subplots_adjust(left=None, bottom=None, right=None, top=None, wspace=None, hspace=None)
+
     def update(i):
         id_1 = Nc - i
         id_2 = Nc + i
@@ -78,16 +92,21 @@ def main():
         markerline, stemlines, baseline = ax.stem(nc, visible_c, basefmt=' ')
         plt.setp(markerline, 'color', 'C2')
         plt.setp(stemlines, 'color', 'C2')
-
+        ax.set_xlabel('n')
+        ax.set_ylabel(r'$\phi_{xy}$[n]')
         if i == 0 or i == 1 or i == 2:
             plt.savefig(output_dir / f'correlation{i}.png', **plot_dict)
 
+        # fig.subplots_adjust(left=0, bottom=0, right=1, top=1, wspace=None, hspace=None)
+        # fig.subplots_adjust(left=None, bottom=None, right=None, top=None, wspace=None, hspace=None)
         return markerline, stemlines, baseline
 
     animation1 = animation.FuncAnimation(fig, update, frames=np.arange(0, Nc), interval=500, blit=True, repeat=False)
     FFwriter = animation.FFMpegWriter(fps=8)
     animation1.save(output_dir / 'correlation.mp4', writer=FFwriter)
-
+    
+    visible_c = np.zeros_like(c)
+    animation1.save(output_dir / 'correlation.gif', writer='imagemagick', fps=8)
 
 if __name__=='__main__':
     main()
