@@ -15,6 +15,8 @@ discussion_id: 2021-18-06-convolution-vs-correlation
 ---
 Can we calculate correlation using convolution?
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/R7cn9b7BNyk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 ## The Convolution Series
 1. [Definition of convolution and intuition behind it]({% post_url 2020-06-20-the-secret-behind-filtering %})
 1. [Mathematical properties of convolution]({% post_url 2020-07-05-mathematical-properties-of-convolution %})
@@ -61,9 +63,50 @@ Sometimes $\phi_{xh}[n]$ is referred to as *correlation sequence* to stress its 
 
 In the subsequent discussion, we assume that the integrals in Equations 1 and 3, and sums in Equations 2 and 4 converge.
 
+## Example
+
+Let's assume we have two signals of length 40, $x[n]$
+
+![]({{ page.images | absolute_url | append: "/x.png" }}){: width="700" }
+_Figure 1. $x[n]$._
+
+and $y[n]$
+
+![]({{ page.images | absolute_url | append: "/y.png" }}){: width="700" }
+_Figure 2. $y[n]$._
+
+The convolution between $x$ and $y$ is shown in Figure 3
+
+![]({{ page.images | absolute_url | append: "/xy_convolution.png" }}){: width="700" }
+_Figure 3. Convolution of $x$ and $y$._
+
+and their correlation in Figure 4.
+
+![]({{ page.images | absolute_url | append: "/xy_correlation.png" }}){: width="700" }
+_Figure 4. Correlation of $x$ and $y$._
+
+As you can observe, they are kind of similar.
+
+## Correlation as a Similarity Measure
+
+In the context of signal processing, correlation is interpreted as a similarity measure, i.e., how similar are the two correlated signals for a specific lag in samples (relative shift between the signals).
+
+This concept is best visibile for autocorrelation, which is a measure of *self-similarity*.
+
+In Figure 5, we can see the autocorrelation of signal $x$ from Figure 1.
+
+![]({{ page.images | absolute_url | append: "/xx_autocorrelation.png" }}){: width="700" }
+_Figure 5. Autocorrelation of $x$._
+
+Obviously, autocorrelation achieves its peak value for lag $n=0$ because signal is most similar to an unshifted version of itself.
+
+However, two clear maxima can be observed for relative shifts of $n=20$ and $n=-20$. That is because the period of the sine in signal $x$ is exactly 20. 
+
+As you can see, autocorrelation can help us determine the periodicity of a signal. This property is used in pitch estimation (e.g., estimation of the fundamental frequency of the human voice) and also for tempo estimation in the domain of music information retrieval. Autocorrelation can also help us determine whether the observed signal is periodic at all.
+
 # Relation Between Convolution and Correlation
 
-As we can observe, Equations 1 and 3, and 2 and 4 are somewhat similar. Indeed, only the sign of the "shift" in the argument of $x$ differs. We will now show how to obtain correlation using convolution.
+As we can observe, Equations 1 and 3, 2 and 4 and Figures 3 and 4 are somewhat similar. Indeed, only the sign of the "shift" in the argument of $x$ differs. We will now show how to obtain correlation using convolution.
 
 ## Discrete Correlation Obtained Using Discrete Convolution
 
