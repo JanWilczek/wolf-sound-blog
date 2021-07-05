@@ -31,7 +31,7 @@ The *convolution property* appears in at least in three very important transform
 1. [Star notation of the convolution]({% post_url 2021-04-03-star-notation-of-the-convolution-a-notational-trap %})
 1. [Circular vs. linear convolution]({% post_url 2021-05-07-circular-vs-linear-convolution %})
 1. [Fast convolution]({% post_url 2021-05-14-fast-convolution %})
-1. [Convolution vs. correlation]({% post_url 2021-18-06-convolution-vs-correlation %})
+1. [Convolution vs. correlation]({% post_url 2021-06-18-convolution-vs-correlation %})
 
 # Recap
 Let us briefly recap the definition of the discrete convolution

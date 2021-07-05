@@ -11,7 +11,7 @@ categories:
 tags:
  - convolution
  - correlation
-discussion_id: 2021-18-06-convolution-vs-correlation
+discussion_id: 2021-06-18-convolution-vs-correlation
 ---
 Can we calculate correlation using convolution?
 
