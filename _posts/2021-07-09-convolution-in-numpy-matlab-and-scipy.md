@@ -27,14 +27,104 @@ How to compute convolution using numerical libraries?
 1. [Convolution vs. correlation]({% post_url 2021-06-18-convolution-vs-correlation %})
 1. **Convolution in MATLAB, NumPy, and SciPy**
 
+{% katexmm %}
+
 Most often we won't be implementing convolution every time we need to use it. Therefore, it is important to know functions from numerical libraries we can use.
 
 The most popular implementation of the convolution are `conv` from Matlab, `convolve` from NumPy, and `convolve` from SciPy. I won't be describing any C/C++ convolution implementations here.
 
 # 3 Modes of Convolution
 
-Before we dive into the specific functions, it is important to understand 3 different "modes" the convolution can be calculated with.
+Before we dive into the specific functions, it is important to understand 3 different 'modes' the convolution can be calculated with.
+
+We will observe their effect using the following signals
+
+![]({{ page.images | absolute_url | append: "/x.png" }}){: width="700" }
+_Figure 1. $x[n]$._
+
+and $y[n]$
+
+![]({{ page.images | absolute_url | append: "/y.png" }}){: width="700" }
+_Figure 2. $y[n]$._
 
 ## Full
 
-This is the mathematical implementation of convolution. Having signals of length $M$ and $N$ the 'full' mode returns a signal of length $M + N - 1$. Index 
+'Full' is the mathematical implementation of convolution. Having signals of length $M$ and $N$ the 'full' mode returns a signal of length $M + N - 1$. At points where signals do not overlap, they are padded with zeros.
+
+![]({{ page.images | absolute_url | append: "/xy_full.png" }}){: width="700" }
+_Figure 3. 'Full' mode of the convolution._
+
+This is the default option for Matlab, NumPy, and SciPy.
+
+## Valid
+
+'Valid' mode does not use zero padding at all. The output is calculated only at positions, where signals overlap completely. The result is a very short vector of length $\max(M, N) - \min(M, N) + 1$.
+
+![]({{ page.images | absolute_url | append: "/xy_valid.png" }}){: width="700" }
+_Figure 4. 'Valid' mode of the convolution._
+
+Note that using this mode of convolution shrinks the output signal with each application [4].
+
+## Same
+
+'Same' acts as an intermediate level between 'full' and 'valid'; it crops the middle part out of the 'full' mode. Its length is equal to the length of the longer signal (NumPy, SciPy) or the first signal given (Matlab). This approach comes in handy when we want to keep the size of the convolution output constant.
+
+![]({{ page.images | absolute_url | append: "/xy_same.png" }}){: width="700" }
+_Figure 5. 'Same' mode of the convolution._
+
+# Convolution Functions
+
+Knowing the 3 modes, we can present now convolution functions of different numerical software.
+
+## NumPy
+
+`numpy.convolve` has the following signature
+
+```python
+output = numpy.convolve(x, y, mode='full)
+```
+
+`x` and `y` are 1-D-arrays and `mode` is a string containing the convolution mode name.
+
+## SciPy
+
+`scipy.signal.convolve` has the following signature
+
+```python
+output = scipy.signal.convolve(x, y, mode='full', method='auto')
+```
+
+`x` and `y` are ND-arrays, `mode` is a string containing the convolution mode name, and `method` can be `direct` (evaluation according to convolution definition), `fft` (equivalent to the usage of `scipy.signal.fftconvolve`, i.e., the fast convolution algorithm), or `auto` (let the software determine).
+
+[FFT convolution (fast convolution)]({% post_url 2021-05-14-fast-convolution %}) are recommended for long signals of similar size.
+
+SciPy has another convolution function, namely, `oaconvolve`. This one has the same signature as `scipy.signal.fftconvolve`; it lets the user pick the axes to compute convolution over. It uses the [overlap-add scheme]({% post_url 2021-05-14-fast-convolution %}) and, thus, is recommended for long signals of significanlty different sizes.
+
+## Matlab
+
+Matlab's `conv` has the following signature
+
+```matlab
+output = conv(x, y, shape) % `shape` is 'full' if not explicitly given
+```
+
+`x` and `y` are 1-D, row or column vectors. For 2-D convolution, one may use `conv2` function, and for N-D convolution, there is `convn` function.
+
+# Summary
+
+In this article, we have discussed 3 modes of convolution: `full`, `valid`, and `same` and the implementations of convolution in NumPy, SciPy, and Matlab.
+
+Check out the references below for more details.
+
+# Bibliography
+
+[1] [`numpy.convolve` documentation](https://numpy.org/doc/stable/reference/generated/numpy.convolve.html)
+
+[2] [`scipy.signal.convolve` documentation](https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.convolve.html#scipy.signal.convolve)
+
+[3] [Matlab's `conv` documentation](https://de.mathworks.com/help/matlab/ref/conv.html)
+
+[4] I. Goodfellow, Y. Bengio, A. Courville *Deep learning*, MIT Press, 2016, [https://www.deeplearningbook.org/](https://www.deeplearningbook.org/).
+
+
+{% endkatexmm %}
