@@ -94,11 +94,13 @@ output = numpy.convolve(x, y, mode='full)
 output = scipy.signal.convolve(x, y, mode='full', method='auto')
 ```
 
-`x` and `y` are ND-arrays, `mode` is a string containing the convolution mode name, and `method` can be `direct` (evaluation according to convolution definition), `fft` (equivalent to the usage of `scipy.signal.fftconvolve`, i.e., the fast convolution algorithm), or `auto` (let the software determine).
+`x` and `y` are N-D-arrays, `mode` is a string containing the convolution mode name, and `method` can be `direct` (evaluation according to convolution definition), `fft` (equivalent to the usage of `scipy.signal.fftconvolve`, i.e., the fast convolution algorithm), or `auto` (let the software determine).
 
 [FFT convolution (fast convolution)]({% post_url 2021-05-14-fast-convolution %}) are recommended for long signals of similar size.
 
 SciPy has another convolution function, namely, `oaconvolve`. This one has the same signature as `scipy.signal.fftconvolve`; it lets the user pick the axes to compute convolution over. It uses the [overlap-add scheme]({% post_url 2021-05-14-fast-convolution %}) and, thus, is recommended for long signals of significanlty different sizes.
+
+`oaconvolve` and `fftconvolve` have the same signature as `numpy.convolve` but compute convolution over all dimensions of the input signals.
 
 ## Matlab
 
@@ -117,6 +119,8 @@ In this article, we have discussed 3 modes of convolution: `full`, `valid`, and 
 Check out the references below for more details.
 
 # Bibliography
+
+<!-- TODO: Add links to fftconvolve and oaconvolve -->
 
 [1] [`numpy.convolve` documentation](https://numpy.org/doc/stable/reference/generated/numpy.convolve.html)
 
