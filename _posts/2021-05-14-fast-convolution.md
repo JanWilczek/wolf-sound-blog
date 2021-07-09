@@ -28,6 +28,7 @@ How to compute convolution fast for real-time applications?
 1. [Circular vs. linear convolution]({% post_url 2021-05-07-circular-vs-linear-convolution %})
 1. **Fast convolution**
 1. [Convolution vs. correlation]({% post_url 2021-06-18-convolution-vs-correlation %})
+1. [Convolution in MATLAB, NumPy, and SciPy]({% post_url 2021-07-09-convolution-in-numpy-matlab-and-scipy %})
 
 {% capture _ %}{% increment equationId20210514  %}{% endcapture %}
 

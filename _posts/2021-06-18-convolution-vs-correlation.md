@@ -26,6 +26,7 @@ Can we calculate correlation using convolution?
 1. [Circular vs. linear convolution]({% post_url 2021-05-07-circular-vs-linear-convolution %})
 1. [Fast convolution]({% post_url 2021-05-14-fast-convolution %})
 1. **Convolution vs. correlation**
+1. [Convolution in MATLAB, NumPy, and SciPy]({% post_url 2021-07-09-convolution-in-numpy-matlab-and-scipy %})
 
 {% katexmm %}
 
