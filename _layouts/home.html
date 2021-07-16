@@ -76,25 +76,6 @@ layout: default
     </div>
   </div>
 
-  <script type="text/javascript">
-    function category_toggle(button) {
-      const categories_radio_buttons = document.querySelectorAll('input[name="article-categories"]');
-      categories_previews = document.getElementsByName('preview-block');
-      for (preview of categories_previews) {
-        if (preview.classList.contains('d-block'))
-        {
-          preview.classList.remove('d-block');
-          preview.classList.add('d-none');
-        }
+  <script type="text/javascript" src='/assets/js/wolfsound/toggle_categories.js'></script>
+  {% include cookify.html %}
 
-        if (preview.id.includes(button.id))
-        {
-          if (preview.classList.contains('d-none'))
-          {
-            preview.classList.remove('d-none');
-            preview.classList.add('d-block');
-          }
-        }
-      }
-    }
-  </script>
