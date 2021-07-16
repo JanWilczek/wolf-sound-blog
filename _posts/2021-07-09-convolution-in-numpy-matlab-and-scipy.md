@@ -5,7 +5,7 @@ author: Jan Wilczek
 layout: post
 permalink: /convolution-in-matlab-numpy-and-scipy/
 images: assets/img/posts/2021-07-09-convolution-in-matlab-numpy-and-scipy
-# background: /assets/img/posts/2021-07-09-convolution-in-matlab-numpy-and-scipy/Thumbnail.png
+background: /assets/img/posts/2021-07-09-convolution-in-matlab-numpy-and-scipy/Thumbnail.png
 categories:
  - Digital Signal Processing
  - Python
@@ -15,6 +15,8 @@ tags:
 discussion_id: 2021-07-09-convolution-in-matlab-numpy-and-scipy
 ---
 How to compute convolution using numerical software libraries?
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/9yVowuBuASQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## The Convolution Series
 1. [Definition of convolution and intuition behind it]({% post_url 2020-06-20-the-secret-behind-filtering %})
