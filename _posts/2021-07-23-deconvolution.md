@@ -32,13 +32,42 @@ Can we invert the effect of convolution?
 
 # Deconvolution Definition
 
-## Blind Deconvolution
+Given the output of the convolution operation $y[n]$
 
-## Difference Between Deconvolution and Inverse Filtering
+$$y[n] = x[n] \ast h[n], \quad ({% increment equationId20210618 %})$$
 
-# Deconvolution Via Frequency-Domain Division
+where $x[n]$ is the input signal and $h[n]$ is an impulse response of a [linear time-invariant (LTI) system](https://en.wikipedia.org/wiki/Linear_time-invariant_system), we may want to estimate
 
-# Deconvolution Via Cepstrum Liftering
+1. $x[n]$ given $h[n]$,
+1. $h[n]$ given $x[n]$ (so-called system identification),
+1. both, $x[n]$ and $h[n]$ (blind deconvolution).
+
+While tasks 1. and 2. are somewhat similar thanks to the commutativity of convolution (identify one signal given two others), task 3. poses a significant challenge that is an active area of research.
+
+This article contains a brief description of various methods used to accomplish deconvolution. By no means is this list complete nor are the explanations in-depth. Nevertheless, it will give you an overview of the methodologies used and when to use them.
+
+But before I give you a tour of the deconvolution methods, I will present two vivid use cases for deconvolution. 
+
+## Example Application of Non-Blind Deconvolution
+
+Imagine a voice-controlled TV. Such a device plays back the sound of a movie and at the same time is controlled by voice commands from the viewer. If the speakers playing back the movie soundtrack and the microphone recording the command are placed in one case, then the loudspeakers' signal will be recorded by the microphone along with the 
+
+## Example Application of Blind Deconvolution
+
+Imagine a voice assistant system in a car. Such a system can recognize and execute spoken commands, such as 'Show route to place X'. When the driver speaks up, the system needs to record that speech, perform automatic speech recognition, understand the message conveyed by speech, and ultimately decide what action to take. All these tasks are significantly more dificult when the recorded speech is noisy. To *denoise* it, we need to remove the impact of noise in the car on the speech recording. However, we do know neither the noise nor the speech signal. We only know the recorded noisy speech. And we can still denoise it!
+
+
+# Deconvolution Using Frequency-Domain Division
+
+# Deconvolution Using Complex Cepstrum Liftering
+
+The *complex cepstrum* of a discrete signal $x[n]$ is defined as a stable sequence $\hat{x}[n]$ whose $z$-transform is
+
+$$\hat{X}(z) = \log X(z), \quad ({% increment equationId20210618 %})$$
+
+where $X(z)$ is the $z$-transform of $x[n]$.
+
+As we know from the [convolution property of the $z$-transform]({% post_url 2021-03-18-convolution-in-popular-transforms %}), a convolution of time-domain signals is equivalent to multiplication of their $z$-transforms. If we apply a logarithm function to the multiplication of these transforms, we obtain a summation of the logarithms of the individual transforms. Mathematically speaking,
 
 # Linear Predictive Deconvolution
 
@@ -63,6 +92,8 @@ Can we invert the effect of convolution?
 ## SciPy
 
 ## Matlab
+
+# Difference Between Deconvolution and Inverse Filtering
 
 # Applications
 
