@@ -34,7 +34,7 @@ Can we invert the effect of convolution?
 
 Given the output of the convolution operation $y[n]$
 
-$$y[n] = x[n] \ast h[n], \quad ({% increment equationId20210618 %})$$
+$$y[n] = x[n] \ast h[n], \quad ({% increment equationId20210723 %})$$
 
 where $x[n]$ is the input signal and $h[n]$ is an impulse response of a [linear time-invariant (LTI) system](https://en.wikipedia.org/wiki/Linear_time-invariant_system), we may want to estimate
 
@@ -56,18 +56,79 @@ Imagine a voice-controlled TV. Such a device plays back the sound of a movie and
 
 Imagine a voice assistant system in a car. Such a system can recognize and execute spoken commands, such as 'Show route to place X'. When the driver speaks up, the system needs to record that speech, perform automatic speech recognition, understand the message conveyed by speech, and ultimately decide what action to take. All these tasks are significantly more dificult when the recorded speech is noisy. To *denoise* it, we need to remove the impact of noise in the car on the speech recording. However, we do know neither the noise nor the speech signal. We only know the recorded noisy speech. And we can still denoise it!
 
-
 # Deconvolution Using Frequency-Domain Division
+
+As we know from the [convolution property of the $z$-transform]({% post_url 2021-03-18-convolution-in-popular-transforms %}), a convolution of time-domain signals is equivalent to multiplication of their $z$-transforms. Thus, why not try to deconvolve the signals in the $z$-domain?
+
+In the following we will assume that capital letters denote the $z$-transforms of the time-domain signals. We have
+
+$$y[n] = x[n] \ast h[n], \quad ({% increment equationId20210723 %})$$
+
+$$Y(z) = X(z)H(z). \quad ({% increment equationId20210723 %})$$
+
+With this formulation we can easily obtain the desired time domain signal $h[n]$ if we know $x[n]$
+
+$$h[n] = \mathcal{Z}^{-1} \{H(z)\} = \mathcal{Z}^{-1} \{\frac{Y(z)}{X(z)}\}. \quad ({% increment equationId20210723 %})$$
+
+There are two caveats to this approach:
+1. $X(z)$ mustn't be zero for any $z$ (we mustn't divide by 0),
+1. The inverse $z$-transform in Equation (4) must exist.
+
+With that in mind we can present two numerical software functions that use the above approach.
+
+## Deconvolution Functions in Numerical Software
+
+Deconvolution in numerical software is achieved through $z$-domain polynomial division, as in Equation (4).
+
+In SciPy and Matlab we have two very similar functions for deconvolution:
+
+```python
+quotient, remainder = scipy.signal.deconvolve(signal, divisor)
+```
+```matlab
+[quotient, remainder] = deconv(signal, divisor)
+```
+
+In these functions, the divisor is deconvolved from signal to obtain the quotient. The remainder is the signal that could not be properly deconvolved (typically because of numerical precision). For these operations the following identities should hold
+```python
+signal = convolve(divisor, quotient) + remainder
+```
+```matlab
+signal = conv(divisor, quotient) + remainder
+```
+
+Keep in mind the caveats above: if the divisor signal has zeros in its $z$-transform, then the application of the above functions will lead to noise amplification and, ultimately, worthless output.
+
+# Wiener Filtering (Wiener Deconvolution)
+
+What if $y[n]$ in Equation (1) is not a perfect convolution of $x[n]$ and $h[n]$ but contains some additive noise? Such situations typically occur if $y[n]$ is measured and real-world phenomena influence the result. We could write it as 
+
+$$y[n] = x[n] \ast h[n] + w[n], \quad ({% increment equationId20210723 %})$$
+
+where $w[n]$ denotes the noise signal that is not correlated with either $x[n]$ or $h[n]$ (is not similar to them in any significant way).
 
 # Deconvolution Using Complex Cepstrum Liftering
 
-The *complex cepstrum* of a discrete signal $x[n]$ is defined as a stable sequence $\hat{x}[n]$ whose $z$-transform is
+The *complex cepstrum* of a discrete signal $x[n]$ is defined as a stable sequence $\hat{x}[n]$ whose $z$-transform is [1]
 
-$$\hat{X}(z) = \log X(z), \quad ({% increment equationId20210618 %})$$
+$$\hat{X}(z) = \log X(z), \quad ({% increment equationId20210723 %})$$
 
-where $X(z)$ is the $z$-transform of $x[n]$.
+where $X(z)$ is the $z$-transform of $x[n]$. Thus, $\hat{x}[n]$ can be expressed as
 
-As we know from the [convolution property of the $z$-transform]({% post_url 2021-03-18-convolution-in-popular-transforms %}), a convolution of time-domain signals is equivalent to multiplication of their $z$-transforms. If we apply a logarithm function to the multiplication of these transforms, we obtain a summation of the logarithms of the individual transforms. Mathematically speaking,
+$$\hat{x}[n] = \frac{1}{2 \pi} \int \limits_{-\pi}^{\pi} \log(X(e^{j\omega}))e^{j\omega n} d\omega 
+\\=\frac{1}{2 \pi} \int \limits_{-\pi}^{\pi} (\log |X(e^{j\omega})| + j \angle X(e^{j\omega})) e^{j\omega n} d\omega. \quad ({% increment equationId20210723 %})$$
+
+As we know from the [convolution property of the $z$-transform]({% post_url 2021-03-18-convolution-in-popular-transforms %}), a convolution of time-domain signals is equivalent to multiplication of their $z$-transforms. If we apply a logarithm function to the multiplication of these transforms, we obtain a summation of the logarithms of the individual transforms. Mathematically speaking, if
+
+$$y[n] = x[n] \ast h[n], \quad ({% increment equationId20210723 %})$$
+
+then
+
+$$\hat{y}[n] = \hat{x}[n] + \hat{h}[n]. \quad ({% increment equationId20210723 %})$$
+
+If the nonzero values of $\hat{x}[n]$ and $\hat{h}[n]$ occupy different ranges of the $n$ index (different *quefrencies* of the cepstrum), we can zero-out the corresponding elements of $\hat{y}[n]$ corresponding to, for example, $\hat{h}[n]$ and after computing the inverse cepstrum obtain the signal $x[n]$. This can be done, for example, to extract the glottal excitation from a recording of a human voice. In this case, $x[n]$ is the glottal exciation, $h[n]$ is the vocal tract impulse response (because vocal tract is a filter) and $y[n]$ is a recorded speech signal.
+
+Of course, typically $\hat{x}[n]$ and $\hat{h}[n]$ will overlap in the cepstral domain what makes the task more difficult and perfect deconvolution with this method impossible.
 
 # Linear Predictive Deconvolution
 
@@ -77,7 +138,6 @@ As we know from the [convolution property of the $z$-transform]({% post_url 2021
 
 # Nonlinear Blind Deconvolution
 
-# Wiener Filtering (Wiener Deconvolution)
 
 # Deconvolution Via Pseudo-Inverse of the Convolution Matrix
 
@@ -86,12 +146,6 @@ As we know from the [convolution property of the $z$-transform]({% post_url 2021
 # Regularized Deconvolution
 
 # H1 Estimator
-
-# Deconvolution Functions in Numerical Software
-
-## SciPy
-
-## Matlab
 
 # Difference Between Deconvolution and Inverse Filtering
 
