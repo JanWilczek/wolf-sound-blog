@@ -123,6 +123,27 @@ I think of the quotient in Equation (7) as a fraction of the clean signal presen
 
 Surprisingly, I wasn't able to find the derivation of Equation (7); it probably can be found in the Wiener's original works from the 1940s.
 
+# Deconvolution Via Pseudo-Inverse of the Convolution Matrix
+
+If we write the convolution in Equation (5) in a matrix form it should be easier for us to reason about it. First, let's write $x[n]$ in a vector form
+
+$$\pmb{x}[n] = [x[n], x[n-1], \dots, x[n-M-N+1]]^\text{T}, \quad  ({% increment equationId20210723 %})$$
+
+where $M$ is the length of the impulse response $\pmb{h}$ and $N$ is the lenght of the observation window $\pmb{y}[n]$. 
+
+Second, we can write
+
+$$\pmb{y}[n] = \pmb{H} \pmb{x}[n], \quad ({% increment equationId20210723 %})$$
+
+where $\pmb{H}$ is a *convolution matrix* which has *Toeplitz structure*
+
+$$\pmb{H} = \begin{bmatrix}
+    h[0] & h[1] & \dots & h[M] & 0 & \dots & 0 \\
+    0 & h[0] & h[1] & \dots & h[M] & \dots & 0 \\
+    \vdots &  & \ddots & & & & \vdots \\
+    0 & & \dots & h[0] & h[1] & \dots & h[M]
+\end{bmatrix}$$
+
 # Deconvolution Using Complex Cepstrum Liftering
 
 The *complex cepstrum* of a discrete signal $x[n]$ is defined as a stable sequence $\hat{x}[n]$ whose $z$-transform is [1]
@@ -146,6 +167,8 @@ If the nonzero values of $\hat{x}[n]$ and $\hat{h}[n]$ occupy different ranges o
 
 Of course, typically $\hat{x}[n]$ and $\hat{h}[n]$ will overlap in the cepstral domain what makes the task more difficult and perfect deconvolution with this method impossible.
 
+
+
 # Linear Predictive Deconvolution
 
 # Parametric Modeling
@@ -155,7 +178,6 @@ Of course, typically $\hat{x}[n]$ and $\hat{h}[n]$ will overlap in the cepstral 
 # Nonlinear Blind Deconvolution
 
 
-# Deconvolution Via Pseudo-Inverse of the Convolution Matrix
 
 # Iterative Approach To Deconvolution
 
