@@ -105,7 +105,23 @@ What if $y[n]$ in Equation (1) is not a perfect convolution of $x[n]$ and $h[n]$
 
 $$y[n] = x[n] \ast h[n] + w[n], \quad ({% increment equationId20210723 %})$$
 
-where $w[n]$ denotes the noise signal that is not correlated with either $x[n]$ or $h[n]$ (is not similar to them in any significant way).
+where $w[n]$ denotes the noise signal that is not correlated with either $x[n]$ or $h[n]$; the crosscorrelation between $w[n]$ and either $x[n]$ or $h[n]$ is 0. That means that noise is not similar to $x$ nor $h$ in any significant way.
+
+Assuming we know $h[n]$, we can obtain an estimate of $x[n]$, $\tilde{x}[n]$ by using a Wiener deconvolution filter [3]. This filter is defined in the frequency domain so we have
+
+$$\tilde{x}[n] = \mathcal{F}^{-1} \{X(j\omega)\} = \mathcal{F}^{-1} \{G(j\omega)Y(j\omega)\}, \quad ({% increment equationId20210723 %})$$
+
+where $X(j\omega)$ and $Y(j\omega)$ denote the Fourier transforms of $x[n]$ and $y[n]$ respectively, and $G(j\omega)$ is the inverse filter specified in the frequency domain.
+
+The formula for $G(j\omega)$ is
+
+$$G(j\omega) = \frac{H^*(j\omega)S_{XX}(j\omega)}{|H(j\omega)|^2 S_{XX}(j\omega) + S_{WW}(j\omega)}, \quad ({% increment equationId20210723 %})$$
+
+where $\cdot^*$ denotes complex conjugate, $H(j\omega)$ is the Fourier transform of $h[n]$, $S_{XX}(j\omega)$ and $S_{WW}(j\omega)$ are mean power spectral densities (PSDs) of $x[n]$ and $w[n]$ respectively. (If you don't know what PSD is don't worry; think of it as a probabilistic version of the Fourier transform. Actually, it can be estimated as properly average short-time Fourier transform).
+
+I think of the quotient in Equation (7) as a fraction of the clean signal present in the output $Y(j\omega)$. After all, if there was no noise, then $S_{YX}(j\omega)=H(j\omega)S_{XX}(j\omega)$, where $S_{YX}(j\omega)$ is the cross PSD between $y$ and $x$.
+
+Surprisingly, I wasn't able to find the derivation of Equation (7); it probably can be found in the Wiener's original works from the 1940s.
 
 # Deconvolution Using Complex Cepstrum Liftering
 
@@ -160,5 +176,7 @@ Of course, typically $\hat{x}[n]$ and $\hat{h}[n]$ will overlap in the cepstral 
 [1] DTSP
 
 [2] AFT
+
+[3] [Wiener Deconvolution on Wikipedia](https://en.wikipedia.org/wiki/Wiener_deconvolution)
 
 {% endkatexmm %}
