@@ -38,9 +38,9 @@ $$y[n] = x[n] \ast h[n], \quad ({% increment equationId20210723 %})$$
 
 where $x[n]$ is the input signal and $h[n]$ is the impulse response of a [linear time-invariant (LTI) system](https://en.wikipedia.org/wiki/Linear_time-invariant_system), we may want to estimate
 
-1. $x[n]$ given $h[n]$,
-1. $h[n]$ given $x[n]$ (so-called system identification), or
-1. both, $x[n]$ and $h[n]$ (blind deconvolution).
+1. $x[n]$ given $h[n]$ (input signal given the system),
+1. $h[n]$ given $x[n]$ (system given the input signal, so-called system identification), or
+1. both, $x[n]$ and $h[n]$ (input signal and the system simultaneously, so-called blind deconvolution).
 
 While tasks 1 and 2 are somewhat similar thanks to the commutativity of convolution (identify one signal given two others), task 3 poses a significant challenge that is an active area of research.
 
@@ -91,7 +91,7 @@ With that in mind, we can present two numerical software functions that use the 
 
 ### Deconvolution Functions in Numerical Software
 
-Deconvolution in numerical software is achieved through $z$-domain polynomial division, as in Equation (4).
+Deconvolution in numerical software is achieved through polynomial division in the $z$-domain, as in Equation (4).
 
 In SciPy and Matlab, we have two very similar functions for deconvolution:
 
