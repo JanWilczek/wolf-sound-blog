@@ -36,25 +36,27 @@ Given the output of the convolution operation $y[n]$
 
 $$y[n] = x[n] \ast h[n], \quad ({% increment equationId20210723 %})$$
 
-where $x[n]$ is the input signal and $h[n]$ is an impulse response of a [linear time-invariant (LTI) system](https://en.wikipedia.org/wiki/Linear_time-invariant_system), we may want to estimate
+where $x[n]$ is the input signal and $h[n]$ is the impulse response of a [linear time-invariant (LTI) system](https://en.wikipedia.org/wiki/Linear_time-invariant_system), we may want to estimate
 
 1. $x[n]$ given $h[n]$,
-1. $h[n]$ given $x[n]$ (so-called system identification),
+1. $h[n]$ given $x[n]$ (so-called system identification), or
 1. both, $x[n]$ and $h[n]$ (blind deconvolution).
 
-While tasks 1. and 2. are somewhat similar thanks to the commutativity of convolution (identify one signal given two others), task 3. poses a significant challenge that is an active area of research.
+While tasks 1 and 2 are somewhat similar thanks to the commutativity of convolution (identify one signal given two others), task 3 poses a significant challenge that is an active area of research.
 
 This article contains a brief description of various methods used to accomplish deconvolution. By no means is this list complete nor are the explanations in-depth. Nevertheless, it will give you an overview of the methodologies used and when to use them.
 
-But before I give you a tour of the deconvolution methods, I will present two vivid use cases for deconvolution. 
+But before I give you a tour of the deconvolution methods, I will present two vivid use cases of deconvolution to motivate the topic. 
 
 ## Example Application of Non-Blind Deconvolution
 
-A simple example of deconvolution application is frequency response measurement of loudspeakers. The excitation signal in this case cannot be an impulse, because it could damage the loudspeaker. A fairly often used option is to use an exponential sweep: a signal whose frequency rises exponentially over time. Having recorded the response of a loudspeaker to the exponential sweep excitation, we need to deconvolve it to that we obtain only the loudspeaker's impulse response. The loudspeaker is our unknown $h[n]$, $x[n]$ is the exponential sweep, and $y[n]$ is the recorded response. Thus, it is a system identification problem.
+A simple example of deconvolution application is frequency response measurement of a loudspeaker. The excitation signal in this case cannot be an impulse because it could damage the loudspeaker. A fairly often used option is to use an exponential sweep: a signal whose frequency rises exponentially over time. Having recorded the response of a loudspeaker to the exponential sweep excitation, we need to deconvolve it to obtain just the loudspeaker's impulse response. The loudspeaker is our unknown $h[n]$, $x[n]$ is the exponential sweep, and $y[n]$ is the recorded response. Thus, it is a system identification problem.
 
 ## Example Application of Blind Deconvolution
 
-Imagine a voice assistant system in a smart home setting. Whenever one of the users (inhabitants) speaks up, the system needs to record that speech, perform automatic speech recognition, understand the message conveyed by speech, and ultimately decide what action to take. All these tasks are significantly more dificult when the recorded speech is reverberant; it has the room acoustics impact. The system doesn't know either the speech utterance nor the room impulse response (which varies with user and smart device placement). Thus, it needs to use statistical or machine learning algorithms to infere what is what and improve the quality of the recorded speech.
+Imagine a smart home system. Whenever one of the users (residents) speaks up, the system needs to record that speech, perform automatic speech recognition, understand the message conveyed by speech, and ultimately decide what action to take. All these tasks are significantly more dificult when the recorded speech is reverberant, i.e., bears the impact of room acoustics. The system knows neither the speech utterance nor the room impulse response (which varies with user and smart device positions). Thus, it needs to use statistical or machine learning algorithms to infere which is which and improve the quality of the recorded speech.
+
+In this case, $x[n]$ is the speech signal, $h[n]$ is the room's impulse response, and $y[n]$ is the signal recorded by the smart device.
 
 # A Catalogue of Deconvolution Methods
 
@@ -79,19 +81,19 @@ $$Y(z) = X(z)H(z). \quad ({% increment equationId20210723 %})$$
 
 With this formulation we can easily obtain the desired time domain signal $h[n]$ if we know $x[n]$
 
-$$h[n] = \mathcal{Z}^{-1} \{H(z)\} = \mathcal{Z}^{-1} \{\frac{Y(z)}{X(z)}\}. \quad ({% increment equationId20210723 %})$$
+$$h[n] = \mathcal{Z}^{-1} \{H(z)\} = \mathcal{Z}^{-1} \left\{ \frac{Y(z)}{X(z)} \right\}. \quad ({% increment equationId20210723 %})$$
 
 There are two caveats to this approach:
 1. $X(z)$ mustn't be zero for any $z$ (we mustn't divide by 0),
 1. The inverse $z$-transform in Equation (4) must exist.
 
-With that in mind we can present two numerical software functions that use the above approach.
+With that in mind, we can present two numerical software functions that use the above approach.
 
 ### Deconvolution Functions in Numerical Software
 
 Deconvolution in numerical software is achieved through $z$-domain polynomial division, as in Equation (4).
 
-In SciPy and Matlab we have two very similar functions for deconvolution:
+In SciPy and Matlab, we have two very similar functions for deconvolution:
 
 ```python
 quotient, remainder = scipy.signal.deconvolve(signal, divisor)
@@ -100,7 +102,7 @@ quotient, remainder = scipy.signal.deconvolve(signal, divisor)
 [quotient, remainder] = deconv(signal, divisor)
 ```
 
-In these functions, the divisor is deconvolved from signal to obtain the quotient. The remainder is the signal that could not be properly deconvolved (typically because of numerical precision). For these operations the following identities should hold
+In these functions, the divisor is deconvolved from signal to obtain the quotient. The remainder is the signal that could not be properly deconvolved (typically because of numerical precision). For these operations, the following identities should hold
 ```python
 signal = convolve(divisor, quotient) + remainder
 ```
@@ -114,38 +116,38 @@ Keep in mind the caveats above: if the divisor signal has zeros in its $z$-trans
 
 If we write the convolution in Equation (1) in a matrix form it should be easier for us to reason about it. First, let's write $x[n]$ in a vector form
 
-$$\pmb{x}[n] = [x[n], x[n-1], \dots, x[n-M-N+1]]^\text{T}, \quad  ({% increment equationId20210723 %})$$
+$$\pmb{x}[n] = [x[n], x[n-1], \dots, x[n-M-N+1]]^\top, \quad  ({% increment equationId20210723 %})$$
 
-where $M$ is the length of the impulse response $\pmb{h}$ and $N$ is the length of the observation window $\pmb{y}[n]$. 
+where $M$ is the length of the impulse response $h$ and $N$ is the length of the observation window $\pmb{y}[n]$. 
 
 Second, we can write
 
-$$\pmb{y}[n] = \pmb{H} \pmb{x}[n], \quad ({% increment equationId20210723 %})$$
+$$\pmb{y}[n] = \mathbf{H} \pmb{x}[n], \quad ({% increment equationId20210723 %})$$
 
-where $\pmb{H}$ is a *convolution matrix* which has *Toeplitz structure* (identical elements across each diagonal of the matrix)
+where $\mathbf{H}$ is an $N \times (M+N-1)$ *convolution matrix* which has *Toeplitz structure* (identical elements along each diagonal of the matrix)
 
-$$\pmb{H} = \begin{bmatrix}
-    h[0] & h[1] & \dots & h[M] & 0 & \dots & 0 \\
-    0 & h[0] & h[1] & \dots & h[M] & \dots & 0 \\
+$$\mathbf{H} = \begin{bmatrix}
+    h[0] & h[1] & \dots & h[M-1] & 0 & \dots & 0 \\
+    0 & h[0] & h[1] & \dots & h[M-1] & \dots & 0 \\
     \vdots &  & \ddots & & & & \vdots \\
-    0 & & \dots & h[0] & h[1] & \dots & h[M]
+    0 & & \dots & h[0] & h[1] & \dots & h[M-1]
 \end{bmatrix}. \quad ({% increment equationId20210723 %})$$
 
 To ensure proper understanding, let's write out the elements of $\pmb{y}[n]$ analogously to $\pmb{x}[n]$
 
-$$\pmb{y}[n] = [y[n], y[n-1], \dots, y[n-N+1]]^\text{T}, \quad  ({% increment equationId20210723 %})$$
+$$\pmb{y}[n] = [y[n], y[n-1], \dots, y[n-N+1]]^\top, \quad  ({% increment equationId20210723 %})$$
 
-Since there is no additive noise, we can obtain $\pmb{x}[n]$ by
+Since there is no additive noise, we can obtain $\pmb{x}[n]$ or its estimate $\tilde{\pmb{x}}[n]$ by
 
-* inverting $\pmb{H}$ if $\pmb{H}$ is full-rank and not ill-conditioned
+* inverting $\mathbf{H}$ if $\mathbf{H}$ is full-rank and not ill-conditioned
   
-  $$\pmb{x}[n] = \pmb{H}^{-1} \pmb{y}[n], \quad  ({% increment equationId20210723 %})$$
+  $$\pmb{x}[n] = \mathbf{H}^{-1} \pmb{y}[n], \quad  ({% increment equationId20210723 %})$$
 
-* computing the Moore-Penrose pseudoinverse if $\pmb{H}$ cannot be easily inverted
+* computing the Moore-Penrose pseudoinverse of $\mathbf{H}$ if $\mathbf{H}$ cannot be easily inverted
 
-  $$\pmb{x}[n] = (\pmb{H}^\text{T}\pmb{H} + \delta \pmb{I})^{-1}\pmb{H}^\text{T} \pmb{y}[n], \quad  ({% increment equationId20210723 %})$$
+  $$\tilde{\pmb{x}}[n] = (\mathbf{H}^\top\mathbf{H} + \delta \mathbf{I})^{-1}\mathbf{H}^\top \pmb{y}[n], \quad  ({% increment equationId20210723 %})$$
 
-  where $\delta$ is a small constant added for numerical stability (so-called *Tikhonov regularization*). This is the solution of least squares minimization of the squared difference between the samples of $\pmb{y}[n]$ and $\pmb{H}\pmb{x}[n]$.
+  where $\delta$ is a small constant added for numerical stability (so-called *Tikhonov regularization*). This is the solution of least squares minimization of the squared difference between the samples of $\pmb{y}[n]$ and $\mathbf{H}\pmb{x}[n]$.
 
 ## Wiener Filtering (Wiener Deconvolution)
 
