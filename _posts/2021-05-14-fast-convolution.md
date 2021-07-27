@@ -30,6 +30,7 @@ How to compute convolution fast for real-time applications?
 1. [Convolution vs. correlation]({% post_url 2021-06-18-convolution-vs-correlation %})
 1. [Convolution in MATLAB, NumPy, and SciPy]({% post_url 2021-07-09-convolution-in-numpy-matlab-and-scipy %})
 1. [Deconvolution: Inverse convolution]({% post_url 2021-07-23-deconvolution %})
+1. [Convolution in probability: Sum of independent random variables]({% post_url 2021-07-30-convolution-in-probability %})
 
 {% capture _ %}{% increment equationId20210514  %}{% endcapture %}
 

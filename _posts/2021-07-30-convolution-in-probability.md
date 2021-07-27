@@ -32,13 +32,13 @@ Thanks to convolution, we can obtain the pdf of a sum of independent random vari
 
 {% capture _ %}{% increment equationId20210730  %}{% endcapture %}
 
-So far, we have looked into many aspects of convolution. One of its important applications is in probability: thanks to the convolution, we can obtain the *probability density function* (pdf) of a sum of two independent random variables (RVs). It turns out that the pdf of the sum is a convolution of of the individual pdfs.
+So far, we have looked into many aspects of convolution. One of its important applications is in probability: thanks to the convolution, we can obtain the *probability density function* (pdf) of a sum of two independent random variables (RVs). It turns out that the pdf of the sum is a convolution of probability distribution functions of the two random variables.
 
 In this article, we will show the proof of this theorem. This proof takes advantage of the [convolution property of the Fourier transform]({% post_url 2021-03-18-convolution-in-popular-transforms %}).
 
 # Convolution Theorem in Probability
 
-> The pdf of a sum of statistically independent RVs is the convolution of the contributing pdfs. 
+> The pdf of a sum of statistically independent random variables is the convolution of the contributing pdfs. 
 
 # Proof 
 
@@ -67,7 +67,7 @@ Note that we could separate the integrals only thanks to the independence of the
 
 ## Convolution Property of the Fourier Transform
 
-We found out that the characteristic function of a sum of two independent RVs is equal to the product of the individual characteristic functions of these RVs. Additionally, the characteristic function of an RV with negated argument is the Fourier transform of this RV's pdf. We thus have
+We found out that the characteristic function of a sum of two independent random variables is equal to the product of the individual characteristic functions of these random variables. Additionally, the characteristic function of an random variable with negated argument is the Fourier transform of this random variable's pdf. We thus have
 
 $$f_{X+Y}(x,y) \stackrel{\mathcal{F}}{\longleftrightarrow} \Phi_{X+Y}(-j \omega), \quad ({% increment equationId20210730  %})$$
 
@@ -75,7 +75,7 @@ and
 
 $$\Phi_{X+Y}(-j \omega) = \Phi_{X}(-j \omega) \Phi_{Y}(-j \omega) , \quad ({% increment equationId20210730  %})$$
 
-The [convolution property of the Fourier transform]({% post_url 2021-03-18-convolution-in-popular-transforms %}) tells us that the multiplication in the Fourier domain is equivalent to convolution in the other domain (here: the domain of the RV). Therefore,
+The [convolution property of the Fourier transform]({% post_url 2021-03-18-convolution-in-popular-transforms %}) tells us that the multiplication in the Fourier domain is equivalent to convolution in the other domain (here: the domain of the random variable). Therefore,
 
 $$\Phi_{X+Y}(-j \omega) = \Phi_{X}(-j \omega) \Phi_{Y}(-j \omega) \stackrel{\mathcal{F}}{\longleftrightarrow} f_X(x) \ast f_Y(x) 
 \\= f_{X+Y}(x), \quad ({% increment equationId20210730  %})$$
@@ -88,7 +88,7 @@ This proof can be extended to arbitrary many random variables with the requireme
 
 # Summary
 
-In this article, we have proven that the pdf of a sum of independent RVs is a convolution of these RVs' pdfs.
+In this article, we have proven that the probability distribution function of a sum of independent random variables is a convolution of probability distribution functions of these random variables.
 
 # Bibliography
 
