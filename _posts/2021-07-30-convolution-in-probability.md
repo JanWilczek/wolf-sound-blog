@@ -1,9 +1,9 @@
 ---
-title: "Convolution in Probability: Sum of Independent Random Variables"
+title: "Convolution in Probability: Sum of Independent Random Variables (With Proof)"
 date: 2021-07-30
 author: Jan Wilczek
 layout: post
-permalink: /convolution-in-probability-sum-of-independent-random-variables/
+permalink: /convolution-in-probability-sum-of-independent-random-variables-with-proof/
 images: assets/img/posts/2021-07-30-convolution-in-probability
 background: /assets/img/posts/2021-07-30-convolution-in-probability/Thumbnail.png
 categories:
@@ -13,7 +13,7 @@ tags:
  - probability
 discussion_id: 2021-07-30-convolution-in-probability
 ---
-Thanks to convolution, we can obtain the pdf of a sum of independent random variables.
+Thanks to convolution, we can obtain the probability distribution of a sum of independent random variables.
 
 ## The Convolution Series
 1. [Definition of convolution and intuition behind it]({% post_url 2020-06-20-the-secret-behind-filtering %})
@@ -32,13 +32,13 @@ Thanks to convolution, we can obtain the pdf of a sum of independent random vari
 
 {% capture _ %}{% increment equationId20210730  %}{% endcapture %}
 
-So far, we have looked into many aspects of convolution. One of its important applications is in probability: thanks to the convolution, we can obtain the *probability density function* (pdf) of a sum of two independent random variables (RVs). It turns out that the pdf of the sum is a convolution of probability distribution functions of the two random variables.
+So far, we have looked into many aspects of convolution. One of its important applications is in probability: thanks to the convolution, we can obtain the *probability density function* (pdf) of a sum of two independent random variables (RVs). It turns out that the probability density function of the sum is a convolution of probability distributions of the two random variables.
 
 In this article, we will show the proof of this theorem. This proof takes advantage of the [convolution property of the Fourier transform]({% post_url 2021-03-18-convolution-in-popular-transforms %}).
 
 # Convolution Theorem in Probability
 
-> The pdf of a sum of statistically independent random variables is the convolution of the contributing pdfs. 
+> The probability density function of a sum of statistically independent random variables is the convolution of the contributing probability density functions. 
 
 # Proof 
 
@@ -46,7 +46,7 @@ Before we conduct the actual proof we need to introduce the concept of the *Char
 
 ## The Characteristic Function
 
-The Characteristic Function $\Phi_X(j \omega)$ of a random variable $X$ is the Fourier transform the its pdf $f_X$ with reversed argument $x$:
+The Characteristic Function $\Phi_X(j \omega)$ of a random variable $X$ is the Fourier transform the its probability density function $f_X$ with reversed argument $x$:
 
 $$\Phi_X(j \omega) = \mathbb{E} \left[ e^{j\omega X} \right] = \int \limits_{-\infty}^{\infty} f_X(x) e ^{j\omega x} dx \\= \int \limits_{-\infty}^{\infty} f_X(-x) e ^{-j \omega x} dx = \mathcal{F} \{f_X(-x)\}. \quad ({% increment equationId20210730  %})$$
 
@@ -56,7 +56,7 @@ $$\Phi_X(-j \omega) = \mathcal{F} \{f_X(x)\}. \quad ({% increment equationId2021
 
 ## Sum of Two Independent Random Variables
 
-We have two independent random variables, $X$ and $Y$, with pdfs $f_X$ and $f_Y$ respectively. We want to know what is the pdf of the sum of $X$ and $Y$, i.e., what is the formula for $f_{X+Y}$. To do that, we calculate the characteristic function of $X+Y$:
+We have two independent random variables, $X$ and $Y$, with probability density functions $f_X$ and $f_Y$ respectively. We want to know what is the probability density function of the sum of $X$ and $Y$, i.e., what is the formula for $f_{X+Y}$. To do that, we calculate the characteristic function of $X+Y$:
 
 $$\Phi_{X+Y}(j \omega) = \mathbb{E} \left[ e^{j\omega (X+Y)} \right] 
 \\= \int \limits_{-\infty}^{\infty} \int \limits_{-\infty}^{\infty} f_{X+Y}(x, y) e ^{j\omega (x+y)} dxdy
@@ -67,7 +67,7 @@ Note that we could separate the integrals only thanks to the independence of the
 
 ## Convolution Property of the Fourier Transform
 
-We found out that the characteristic function of a sum of two independent random variables is equal to the product of the individual characteristic functions of these random variables. Additionally, the characteristic function of an random variable with negated argument is the Fourier transform of this random variable's pdf. We thus have
+We found out that the characteristic function of a sum of two independent random variables is equal to the product of the individual characteristic functions of these random variables. Additionally, the characteristic function of an random variable with negated argument is the Fourier transform of this random variable's probability density function. We thus have
 
 $$f_{X+Y}(x,y) \stackrel{\mathcal{F}}{\longleftrightarrow} \Phi_{X+Y}(-j \omega), \quad ({% increment equationId20210730  %})$$
 
@@ -88,7 +88,7 @@ This proof can be extended to arbitrary many random variables with the requireme
 
 # Summary
 
-In this article, we have proven that the probability distribution function of a sum of independent random variables is a convolution of probability distribution functions of these random variables.
+In this article, we have proven that the probability distribution of a sum of independent random variables is a convolution of probability distributions of these random variables.
 
 # Bibliography
 
