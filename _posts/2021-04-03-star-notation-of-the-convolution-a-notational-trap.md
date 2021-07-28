@@ -29,6 +29,8 @@ How not to fall victim to the star notation of the convolution?
 1. [Fast convolution]({% post_url 2021-05-14-fast-convolution %})
 1. [Convolution vs. correlation]({% post_url 2021-06-18-convolution-vs-correlation %})
 1. [Convolution in MATLAB, NumPy, and SciPy]({% post_url 2021-07-09-convolution-in-numpy-matlab-and-scipy %})
+1. [Deconvolution: Inverse convolution]({% post_url 2021-07-23-deconvolution %})
+1. [Convolution in probability: Sum of independent random variables]({% post_url 2021-07-30-convolution-in-probability %})
 
 # Introduction
 
