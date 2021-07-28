@@ -32,7 +32,7 @@ Thanks to convolution, we can obtain the probability distribution of a sum of in
 
 {% capture _ %}{% increment equationId20210730  %}{% endcapture %}
 
-So far, we have looked into many aspects of convolution. One of its important applications is in probability: thanks to the convolution, we can obtain the *probability density function* (pdf) of a sum of two independent random variables (RVs). It turns out that the probability density function of the sum is a convolution of probability distributions of the two random variables.
+So far, we have looked into various aspects of convolution. One of its important applications is in probability: thanks to the convolution, we can obtain the *probability density function* (pdf) of a sum of two independent random variables (RVs). It turns out that the probability density function of that sum is a convolution of probability distributions of the two random variables.
 
 In this article, we will show the proof of this theorem. This proof takes advantage of the [convolution property of the Fourier transform]({% post_url 2021-03-18-convolution-in-popular-transforms %}).
 
@@ -42,11 +42,11 @@ In this article, we will show the proof of this theorem. This proof takes advant
 
 # Proof 
 
-Before we conduct the actual proof we need to introduce the concept of the *Characteristic Function*.
+Before we conduct the actual proof, we need to introduce the concept of the *characteristic function*.
 
 ## The Characteristic Function
 
-The Characteristic Function $\Phi_X(j \omega)$ of a random variable $X$ is the Fourier transform the its probability density function $f_X$ with reversed argument $x$:
+The characteristic function $\Phi_X(j \omega)$ of a random variable $X$ is the Fourier transform its probability density function $f_X$ with reversed argument $x$:
 
 $$\Phi_X(j \omega) = \mathbb{E} \left[ e^{j\omega X} \right] = \int \limits_{-\infty}^{\infty} f_X(x) e ^{j\omega x} dx \\= \int \limits_{-\infty}^{\infty} f_X(-x) e ^{-j \omega x} dx = \mathcal{F} \{f_X(-x)\}. \quad ({% increment equationId20210730  %})$$
 
@@ -56,18 +56,18 @@ $$\Phi_X(-j \omega) = \mathcal{F} \{f_X(x)\}. \quad ({% increment equationId2021
 
 ## Sum of Two Independent Random Variables
 
-We have two independent random variables, $X$ and $Y$, with probability density functions $f_X$ and $f_Y$ respectively. We want to know what is the probability density function of the sum of $X$ and $Y$, i.e., what is the formula for $f_{X+Y}$. To do that, we calculate the characteristic function of $X+Y$:
+We have two independent random variables, $X$ and $Y$, with probability density functions $f_X$ and $f_Y$ respectively. We want to know what is the probability density function of the sum of $X$ and $Y$, i.e., what is the formula for $f_{X+Y}$. To discover that formula, we calculate the characteristic function of $X+Y$:
 
 $$\Phi_{X+Y}(j \omega) = \mathbb{E} \left[ e^{j\omega (X+Y)} \right] 
 \\= \int \limits_{-\infty}^{\infty} \int \limits_{-\infty}^{\infty} f_{X+Y}(x, y) e ^{j\omega (x+y)} dxdy
 \\=  \int \limits_{-\infty}^{\infty} f_X(x) e ^{j\omega x} dx  \int \limits_{-\infty}^{\infty} f_Y(y) e ^{j\omega y} dy 
 \\= \mathbb{E} \left[ e^{j\omega X} \right] \mathbb{E} \left[ e^{j\omega Y} \right] = \Phi_X(j \omega) \Phi_Y(j \omega). \quad ({% increment equationId20210730  %})$$
 
-Note that we could separate the integrals only thanks to the independence of the two variables.
+Note that we could separate the integrals only thanks to the independence of the two random variables.
 
 ## Convolution Property of the Fourier Transform
 
-We found out that the characteristic function of a sum of two independent random variables is equal to the product of the individual characteristic functions of these random variables. Additionally, the characteristic function of an random variable with negated argument is the Fourier transform of this random variable's probability density function. We thus have
+We found out that the characteristic function of a sum of two independent random variables is equal to the product of the individual characteristic functions of these random variables (Equation 3). Additionally, the characteristic function of a random variable with negated argument is the Fourier transform of this random variable's probability density function (Equation 2). We thus have
 
 $$f_{X+Y}(x,y) \stackrel{\mathcal{F}}{\longleftrightarrow} \Phi_{X+Y}(-j \omega), \quad ({% increment equationId20210730  %})$$
 
@@ -82,9 +82,11 @@ $$\Phi_{X+Y}(-j \omega) = \Phi_{X}(-j \omega) \Phi_{Y}(-j \omega) \stackrel{\mat
 
 what concludes the proof $\Box$.
 
+*Note: $x$ is used instead $y$ as the argument of $f_Y$ in Equation 6 because it doesn't matter what letter we use; $f_X$, $f_Y$, and $f_{X+Y}$ are all pdfs of one-dimensional random variables.*
+
 ## Final Remark
 
-This proof can be extended to arbitrary many random variables with the requirement that all of them are mutually independent.
+This proof can be extended to arbitrarily many random variables with the requirement that all of them are mutually independent.
 
 # Summary
 
