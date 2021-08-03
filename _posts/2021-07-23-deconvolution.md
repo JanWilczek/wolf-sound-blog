@@ -170,12 +170,9 @@ $$G(j\omega) = \frac{H^*(j\omega)S_{XX}(j\omega)}{|H(j\omega)|^2 S_{XX}(j\omega)
 
 where $\cdot^*$ denotes complex conjugate, $H(j\omega)$ is the Fourier transform of $h[n]$, $S_{XX}(j\omega)$ and $S_{WW}(j\omega)$ are mean power spectral densities (PSDs) of $x[n]$ and $w[n]$ respectively. (If you don't know what PSD is, don't worry; think of it as a probabilistic version of the Fourier transform. Actually, it can be estimated by properly averaging the short-time Fourier transform).
 
-I think of the quotient in Equation (14) as a fraction of the clean signal present in the output $Y(j\omega)$. After all, if there was no noise, then $S_{WW}(j\omega) = 0$, and $S_{YX}(j\omega)=H(j\omega)S_{XX}(j\omega)$, where $S_{YX}(j\omega)$ is the cross PSD between $y$ and $x$, what yields
+I think of the quotient in Equation (14) as a fraction of the clean signal present in the output $Y(j\omega)$. After all, if there was no noise, then $S_{WW}(j\omega) = 0$, and accordingly $G(j\omega) = \frac{1}{H(j\omega)}$, what brings Equation 12 back to Equation 4.
 
-$$G(j\omega)S_{YX}(j\omega) = \frac{H^*(j\omega)S_{XX}(j\omega)}{|H(j\omega)|^2 S_{XX}(j\omega) + 0} H(j\omega)S_{XX}(j\omega) = S_{XX}(j\omega), \quad ({% increment equationId20210723 %})$$
-i.e., the PSD of the input signal.
-
-Surprisingly, I wasn't able to find the derivation of Equation (14); it probably can be found in the Wiener's original works from the 1940s.
+Surprisingly, I wasn't able to find the derivation of Equation 13; it probably can be found in the Wiener's original works from the 1940s.
 
 ## Deconvolution Using Complex Cepstrum Liftering
 
@@ -200,7 +197,11 @@ and
 
 $$\hat{y}[n] = \hat{x}[n] + \hat{h}[n]. \quad ({% increment equationId20210723 %})$$
 
-If the nonzero values of $\hat{x}[n]$ and $\hat{h}[n]$ occupy different ranges of the $n$ index (different *quefrencies* of the cepstrum), we can zero-out the corresponding elements of $\hat{y}[n]$ corresponding to, for example, $\hat{h}[n]$ and after computing the inverse cepstrum obtain the signal $x[n]$. This can be done, for example, to extract the glottal excitation from a recording of a human voice. In this case, $x[n]$ is the glottal exciation, $h[n]$ is the vocal tract impulse response (because vocal tract is a filter) and $y[n]$ is the recorded speech signal. Take note that this is another example of blind deconvolution (we initially know neither $x[n]$ nor $h[n]$).
+If the nonzero values of $\hat{x}[n]$ and $\hat{h}[n]$ occupy different ranges of the $n$ index (different *quefrencies* of the cepstrum), we can zero-out the corresponding elements of $\hat{y}[n]$ corresponding to, for example, $\hat{h}[n]$ and after computing the inverse cepstrum obtain the signal $x[n]$. 
+
+The operation of manipulating the elements of the cepstrum is called *liftering*.
+
+Deconvolution via complex cepstrum liftering can be done, for example, to extract the glottal excitation from a recording of a human voice. In this case, $x[n]$ is the glottal exciation, $h[n]$ is the vocal tract impulse response (because vocal tract is a filter) and $y[n]$ is the recorded speech signal. Take note that this is another example of blind deconvolution (we initially know neither $x[n]$ nor $h[n]$).
 
 Of course, typically $\hat{x}[n]$ and $\hat{h}[n]$ will overlap in the cepstral domain what makes the task more difficult and renders perfect deconvolution with this method impossible.
 
