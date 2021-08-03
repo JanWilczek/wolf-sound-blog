@@ -224,7 +224,7 @@ export default class Cookify {
                     scriptElement.setAttribute('type', 'text/javascript')
 
                     if (scriptElement.hasAttribute("src")) {
-                        scriptElement.setAttribute("src", element.getAttribute("src"))
+                        scriptElement.setAttribute("src", scriptElement.getAttribute("src"))
                     } else {
                         scriptElement.innerHTML = scriptElement.innerHTML
                     }
