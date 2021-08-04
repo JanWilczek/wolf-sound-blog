@@ -27,6 +27,40 @@
             </a>
           </li>
           {% endif %}
+          {% if site.linkedin_account %}
+          <li class="list-inline-item">
+            <a href="{{ site.linkedin_account }}">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          {% endif %}
+        </ul>
+        <br>
+        <ul class="list-inline text-center">
+          <li class="list-inline-item">
+            <a href="/privacy-policy.html">
+                Privacy Policy
+            </a>
+          </li>
+          <li class="list-inline-item">
+            <i class="fas fa-circle"></i>
+          </li>
+          <li class="list-inline-item">
+            <a href="/cookie-policy.html">
+                Cookie Policy
+            </a>
+          </li>
+          <li class="list-inline-item">
+            <i class="fas fa-circle"></i>
+          </li>
+          <li class="list-inline-item">
+            <a href="/terms-and-conditions.html">
+                Terms and Conditions
+            </a>
+          </li>
         </ul>
         <p class="copyright text-muted">Copyright &copy; {{ site.author }} {{ 'now' | date: "%Y" }}</p>
       </div>
