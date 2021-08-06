@@ -83,7 +83,7 @@ Note that we could separate the integrals only thanks to the independence of the
 
 We found out that the characteristic function of a sum of two independent random variables is equal to the product of the individual characteristic functions of these random variables (Equation 4). Additionally, the characteristic function of a random variable with a negated argument is the Fourier transform of this RV's probability density function (Equation 3). We thus have
 
-$$f_{X+Y}(x,y) \stackrel{\mathcal{F}}{\longleftrightarrow} \Phi_{X+Y}(-j \omega), \quad ({% increment equationId20210730  %})$$
+$$f_{X+Y}(x) \stackrel{\mathcal{F}}{\longleftrightarrow} \Phi_{X+Y}(-j \omega), \quad ({% increment equationId20210730  %})$$
 
 and 
 
