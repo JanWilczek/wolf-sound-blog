@@ -14,6 +14,8 @@ discussion_id: 2021-07-23-deconvolution
 ---
 Can we invert the effect of convolution?
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/pGDfrj_uzdU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 ## The Convolution Series
 1. [Definition of convolution and intuition behind it]({% post_url 2020-06-20-the-secret-behind-filtering %})
 1. [Mathematical properties of convolution]({% post_url 2020-07-05-mathematical-properties-of-convolution %})
