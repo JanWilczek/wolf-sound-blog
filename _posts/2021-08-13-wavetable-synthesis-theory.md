@@ -89,7 +89,7 @@ Equation 5 holds for $\theta \in [0, 2\pi]$. If we want to calculate the values 
 
 $$x = 2\pi l + \phi_x, \quad \phi_x \in [0, 2\pi], \quad ({% increment equationId20210813 %})$$
 
-then we want to find $\phi_x$. In software, it can be done by subtracting or adding $2 \pi$ to $x$ until we obtain a value in the desired range.
+then we want to find $\phi_x$. In software, it can be done by subtracting or adding $2 \pi$ to $x$ until we obtain a value in the desired range. Alternatively, we can use a function called `fmod()`, which allows us to obtain the remainder of a floating-point division.
 
 We can subsequently compute the corresponding index in the wave table from the proportion in Equation 5.
 
