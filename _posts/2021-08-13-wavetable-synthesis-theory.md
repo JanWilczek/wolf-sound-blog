@@ -113,11 +113,29 @@ Each recall of a wave table value is called *wave table lookup*.
 
 We know how to efficiently compute a waveform's value for an arbitrary argument. In theory, given amplitude $A$, frequency $f$, and sampling rate $f_s$ we are able to evaluate Equation 3 for any integer $n$. It means, we can generate an arbitrary waveform at an arbitrary frequency! Now, how to implement it algorithmically?
 
+Thanks to the information on $f$ and $f_s$, we don't have to calculate the $2 \pi f f_s n$ argument of $\sin$ in Equation 3 for each $n$ separately. $n$ gets incremented by 1 on a sample-by-sample basis, so as long $f$ does not change (i.e., we play the same tone), the argument of $\sin$ gets incremented in predictable manner. Actually, the argument $2 \pi f f_s n + \phi$ is called the *phase* of the sine (again, in our considerations $\phi=0$). The difference between the phase of the waveform for neighboring samples is called *phase increment* and can be calculated as
+
+$$\theta_\text{inc}(f) = 2 \pi f f_s (n+1) - 2 \pi f f_s n = 2 \pi f f_s. \quad ({% increment equationId20210813 %})$$
+
+$\theta_\text{inc}(f)$ depends explicitly on $f$ (tone frequency) and implicitly on $f_s$ (which typically remains unchanged during processing so we can treat it as a constant). With $\theta_\text{inc}(f)$ we can initialize a `phase` variable to 0 and increment it by $\theta_\text{inc}(f)$ for each samples. When a note is pressed we reset `phase` to 0, calculate $\theta_\text{inc}(f)$ according to the pressed key, and start producing the samples.
+
+# Wavetable Synthesis Algorihtm
+
+<!-- TODO: Add a schematic of the algorithm -->
+
+
+<!-- TODO: Probably delete this -->
+The whole generation algorithm can now be simplified to a few cases:
+* if there is a note-on event 
+
 As we said, the whole generation process begins with a note-on event. The sound should be generated so long as there is no note-off event (i.e., so long as a key is pressed). Incrementing $n$ from 0 to the last sample to be generated may not be possible; most probably we would exceed $n$'s range in hardware representation. Therefore, we cannot simply increment $n$ and read out the values from the table.
 
 Instead of incrementing the argument into infinity and bringing it back to the desired range, we can simply loop around the wave table; as soon as the index goes out of the feasible range, we subtract the length of the whole waveform.
 
 $$, \quad ({% increment equationId20210813 %})$$
+
+<!-- End delete -->
+
 # Bibliography
 
 [1] [Taylor series expansion of the sine function on MIT Open CourseWare](https://ocw.mit.edu/courses/mathematics/18-01sc-single-variable-calculus-fall-2010/unit-5-exploring-the-infinite/part-b-taylor-series/session-99-taylors-series-continued/MIT18_01SCF10_Ses99c.pdf)
