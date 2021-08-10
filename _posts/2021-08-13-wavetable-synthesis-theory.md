@@ -69,6 +69,55 @@ $$\sin(x) = x - \frac{x^3}{3!} + \frac{x^5}{5!} - \frac{x^7}{7!} \dots \quad ({%
 
 Above expansion is infinite, so on real-world hardware, it needs to be truncated at some point (after obtaining sufficient accuracy). Its advantage is, that it uses operations realizable in hardware (multiplication, division, addition, subtraction). Its disadvantage is that it involves **a lot** of these operations. If we need to produce 44100 samples per second and want to play a few hundred sines simultaneously (what is typical of additive synthesis), we need to be able to compute the $\sin$ function more efficiently.
 
+# A Wave Table
+
+A *wave table* is an array in memory in which we store a fragment of a waveform. A waveform is a plot of a signal over time. Thus, one period of a sine wave stored in memory looks as follows:
+
+<!-- TODO: Add a sine figure with 1024 samples. -->
+
+The above wave table uses 1024 samples to store one period of the sine wave.
+
+$\sin$ period is exactly $2 \pi$. The period of a wave table is its length, let's denote it by $L$. For each sample index $k \in [0, \dots, L-1]$ in the wave table, there exists a corresponding argument $\theta \in [0, 2\pi]$ of the sine function.
+
+$$\frac{k}{L} = \frac{\theta}{2 \pi}. \quad ({% increment equationId20210813 %})$$
+
+The above equation tells us, that there is a mapping between the values in the wave table and the values of the original waveform.
+
+# Computing a Waveform Value from the Wave Table
+
+Equation 5 holds for $\theta \in [0, 2\pi]$. If we want to calculate the values of arbitrary $x \in \mathbb{R}$, we need to remove the multiplicity of $2 \pi$ contained in $x$ to bring it to the $[0, 2\pi]$ range. In other words, if
+
+$$x = 2\pi l + \phi_x, \quad \phi_x \in [0, 2\pi], \quad ({% increment equationId20210813 %})$$
+
+then we want to find $\phi_x$. In software, it can be done by subtracting or adding $2 \pi$ to $x$ until we obtain a value in the desired range.
+
+We can subsequently compute the corresponding index in the wave table from the proportion in Equation 5.
+
+$$k = \frac{\phi_x L}{2\pi}. \quad ({% increment equationId20210813 %})$$
+
+Now `waveTable[k]` should return the value of $\sin(x)$, right? There is one more step that is needed...
+
+# What If $k$ Is Non-Integer?
+
+In most cases, $k$ computed in Equation 7 won't be an integer. It will rather be a floating-point number between some two integers denoting the wave table indices, e.g., $i <= k < i+1, \quad i \in \mathbb{Z}, k \in \mathbb{R}$.
+
+To make $k$ an integer, we have 3 options:
+ * *truncation (0th-order interpolation)*: removing the non-integer part of $k$, a.k.a. `floor(k)`,
+ * *rounding*: rounding $k$ to $i$ or $i+1$, whichever is nearest, a.k.a. `round(k)`,
+ * *linear interpolation (1st-order interpolation)*: using the wave table values corresponding to $i$ and $i+1$ to compute a weighted sum with weights corresponding to $k$ distance to $i+1$ and $i$ respectively, i.e., instead of `waveTable[k]` we return `(k-i)*waveTable[i+1] + (i+1 - k)*waveTable[i]`,
+ * ~~*higher-order interpolation*~~: too expensive and unnecessary for wavetable synthesis.
+
+Each recall of a wave table value is called *wave table lookup*.
+
+# Wave Table Looping
+
+We know how to efficiently compute a waveform's value for an arbitrary argument. In theory, given amplitude $A$, frequency $f$, and sampling rate $f_s$ we are able to evaluate Equation 3 for any integer $n$. It means, we can generate an arbitrary waveform at an arbitrary frequency! Now, how to implement it algorithmically?
+
+As we said, the whole generation process begins with a note-on event. The sound should be generated so long as there is no note-off event (i.e., so long as a key is pressed). Incrementing $n$ from 0 to the last sample to be generated may not be possible; most probably we would exceed $n$'s range in hardware representation. Therefore, we cannot simply increment $n$ and read out the values from the table.
+
+Instead of incrementing the argument into infinity and bringing it back to the desired range, we can simply loop around the wave table; as soon as the index goes out of the feasible range, we subtract the length of the whole waveform.
+
+$$, \quad ({% increment equationId20210813 %})$$
 # Bibliography
 
 [1] [Taylor series expansion of the sine function on MIT Open CourseWare](https://ocw.mit.edu/courses/mathematics/18-01sc-single-variable-calculus-fall-2010/unit-5-exploring-the-infinite/part-b-taylor-series/session-99-taylors-series-continued/MIT18_01SCF10_Ses99c.pdf)
