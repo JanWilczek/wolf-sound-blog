@@ -1,27 +1,27 @@
-// @import '../assets/vendor/bootstrap/css';
-// @import 'bootstrap/variables';
-// @import 'bootstrap/mixins';
-
 .wrapper {
     width: 100%;
   }
   
   #sidebar {
-    min-width: 320px;
-    max-width: 320px;
-    // background: $primary;
-    // color: #fff;
+    $sidebar-width: 340px;
+    min-width: $sidebar-width;
+    max-width: $sidebar-width;
     transition: all 0.3s;
     position: relative;
     z-index: 0;
+    font-size: 18px;
     border-left: 1px solid rgba(0,0,0,.05);
     &.active{
         margin-left: -270px;
     }
 
+    .row {
+        padding: 0px 10px 0px 10px;
+    }
+
     .short-bio {
-        $sidebar-font-size: 14px;
-        font-size: $sidebar-font-size;
+        $short-bio-font-size: 14px;
+        font-size: $short-bio-font-size;
         img {
             width: 100px;
             padding-right: -20px;
@@ -29,10 +29,11 @@
         .card-title {
             text-align: center;
             margin: 0px;
-            padding-right: 10px;
+            // padding-right: 10px;
         }
         .row {
             display: flex;
+            padding: 0px;
           }
           
           .column {
@@ -41,14 +42,19 @@
           }
 
         .card-text {
-            margin: 0px 0px 10px;
             text-align: justify;
-            padding: 0px 10px 0px 10px;
+            margin: 0px;
+        }
+
+        .card-body {
+            .row {
+                margin: 10px 0px 10px;
+            }
         }
 
         .btn {
             padding: 5px;
-            font-size: $sidebar-font-size;
+            font-size: $short-bio-font-size;
         }
     }
 
@@ -56,10 +62,18 @@
         padding: 0;
     }
     ul{
+      padding-inline-start: 0px;
+      list-style-type: none;
       li{
-          font-size: 14px;
+        //   font-size: 16px; // Check this line
+          .row {
+              margin: 0px;
+              padding: 0px;
+              .column {
+                  padding: 5px;
+              }
+          }
           >ul{
-              margin-left: 10px;
               li{
                   font-size: 13px;
                   a{
@@ -71,7 +85,7 @@
               }
           }
           a{
-              padding: 10px 0;
+              padding: 0px;
               display: block;
               color: rgba(0,0,0,1);
               border-bottom: 1px solid rgba(0,0,0,.05);
