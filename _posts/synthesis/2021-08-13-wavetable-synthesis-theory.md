@@ -71,7 +71,7 @@ Above expansion is infinite, so on real-world hardware, it needs to be truncated
 
 # A Wave Table
 
-A *wave table* is an array in memory in which we store a fragment of a waveform. A waveform is a plot of a signal over time. Thus, one period of a sine wave stored in memory looks as follows:
+A *wave table* is an array in memory in which we store a fragment of a waveform. A *waveform* is a plot of a signal over time. Thus, one period of a sine wave stored in memory looks as follows:
 
 <!-- TODO: Add a sine figure with 1024 samples. -->
 
@@ -154,11 +154,16 @@ The output signal $y[n]$ is determined by the wave table used for the lookup and
 
 # Oscillator
 
-The diagram in Figure 1 presents an *oscillator*. An oscillator is any unit capable of generating sound. It is typically depicted as a rectangle combined with a half-circle. That symbol typically has an amplitude input A ($A[n]$ in Figure 1) and a frequency input $f$ (used to calculate $k_\text{inc}[n]$ in Figure 1). 
+The diagram in Figure 1 presents an *oscillator*. An oscillator is any unit capable of generating sound. It is typically depicted as a rectangle combined with a half-circle [3, 4] as in Figure 2. That symbol typically has an amplitude input A ($A[n]$ in Figure 1) and a frequency input $f$ (used to calculate $k_\text{inc}[n]$ in Figure 1). 
+
+![]({{ page.images | absolute_url | append: "/oscillator.png" }}){: alt="Oscillator symbol" }
+_Figure 2. The oscillator symbol._
 
 Additionally, an oscillator pictogram has some indication of what type of waveform is generated, for example, it may have the sine symbol <i class="fas fa-wave-sine"></i> inside to show that it outputs the sine wave.
 
-<!-- Oscillator schematic -->
+Oscillators are sometimes denoted as VCO, which stands for *voltage-controlled oscillator*. This term originates from the analog days of sound synthesis, when electric voltage determined oscillators' amplitude and frequency.
+
+Oscillators are the workhorse of sound synthesis. What is presented in Figure 1 is just one realization of an oscillator but the oscillator itself is a more general concept. Wavetable synthesis is just one way of implementing an oscillator.
 
 # Garbage
 
@@ -179,6 +184,10 @@ $$, \quad ({% increment equationId20210813 %})$$
 [1] [Taylor series expansion of the sine function on MIT Open CourseWare](https://ocw.mit.edu/courses/mathematics/18-01sc-single-variable-calculus-fall-2010/unit-5-exploring-the-infinite/part-b-taylor-series/session-99-taylors-series-continued/MIT18_01SCF10_Ses99c.pdf)
 
 [2] [F. Richard Moore, *Elements of Computer Music*, Prentice Hall 1990](https://www.amazon.com/gp/product/0132525526/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0132525526&linkCode=as2&tag=wolfsound05-20&linkId=71285ec31668f2e8d8cf81094ff51f5f)
+
+[3] [Curtis Roads, *Computer Music Tutorial*, MIT Press 1996](https://www.amazon.com/gp/product/0262680823/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0262680823&linkCode=as2&tag=wolfsound05-20&linkId=86e6c4d45c7126d32c13ab2deff2afa2)
+
+[4] Marek Pluta, *Sound Synthesis for Music Reproduction and Performance*, monograph, AGH University of Science and Technology Press 2019.
 
 {% endkatexmm %}
 
