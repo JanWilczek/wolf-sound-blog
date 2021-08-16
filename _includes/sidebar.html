@@ -1,0 +1,161 @@
+<nav id="sidebar">
+    <div class="p-4 pt-5">
+
+      {% include short-bio.html %}
+
+      {% include share-buttons.html %}
+
+      <h5>Follow me on:</h5>
+      <ul>
+        <li>
+          <a href="{{ site.youtube_channel }}">
+            <div class="row">
+              <div class="column">
+                  <i class="fab fa-youtube"></i>
+              </div>
+              <div class="column">
+                YouTube
+              </div>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="{{ site.linkedin_account }}">
+            <div class="row">
+              <div class="column">
+                  <i class="fab fa-linkedin"></i>
+              </div>
+              <div class="column">
+                LinkedIn
+              </div>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/{{ site.github_username }}">
+            <div class="row">
+              <div class="column">
+                  <i class="fab fa-github"></i>
+              </div>
+              <div class="column">
+                GitHub
+              </div>
+            </div>
+          </a>
+        </li>
+      </ul>
+      
+      <h5>Get to know me:</h5>
+      <ul>
+        <li>
+          <a href="https://www.janwilczek.com">
+            <div class="row">
+              <div class="column">
+                <h5 style='font-family: "Times New Roman", Times, serif'>W</h5>
+              </div>
+              <div class="column">
+                My Personal Webpage
+              </div>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.thewolfofficial.com">
+            <div class="row">
+              <div class="column">
+                  <i class="fas fa-headphones"></i>
+              </div>
+              <div class="column">
+                My Music
+              </div>
+            </div>
+          </a>
+        </li>
+      </ul>
+
+      <h5>Popular series:</h5>
+      <ul>
+        <li>
+          <a href="{% post_url 2020-06-20-the-secret-behind-filtering %}">
+            <div class="row">
+              <img src="{{ "/assets/img/home/convolution_series_logo.png" | absolute_url }}" alt="Logo of the series of articles on convolution"/>
+            </div>
+          </a>
+        </li>
+      </ul>
+
+      <h5>Publication consistency:</h5>
+      <iframe src="https://www.beeminder.com/widget?slug=wolfsound&username=janwilczek&countdown=true" height="245px" width="230px" frameborder="0px" ></iframe>
+
+      <!-- <h5>Categories</h5>
+      <ul class="list-unstyled components mb-5">
+        <li>
+          <a href="#pageSubmenu1" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Mens Shoes</a>
+          <ul class="collapse list-unstyled" id="pageSubmenu1">
+            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span> Casual</a></li>
+            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span> Football</a></li>
+            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span> Jordan</a></li>
+            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span> Lifestyle</a></li>
+            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span> Running</a></li>
+            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span> Soccer</a></li>
+            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span> Sports</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#pageSubmenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Mens Shoes</a>
+          <ul class="collapse list-unstyled" id="pageSubmenu2">
+            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span> Casual</a></li>
+            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span> Football</a></li>
+            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span> Jordan</a></li>
+            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span> Lifestyle</a></li>
+            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span> Running</a></li>
+            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span> Soccer</a></li>
+            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span> Sports</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#pageSubmenu3" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Accessories</a>
+          <ul class="collapse list-unstyled" id="pageSubmenu3">
+            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span> Nicklace</a></li>
+            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span> Ring</a></li>
+            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span> Bag</a></li>
+            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span> Sacks</a></li>
+            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span> Lipstick</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#pageSubmenu4" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Clothes</a>
+          <ul class="collapse list-unstyled" id="pageSubmenu4">
+            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span> Jeans</a></li>
+            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span> T-shirt</a></li>
+            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span> Jacket</a></li>
+            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span> Shoes</a></li>
+            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span> Sweater</a></li>
+          </ul>
+        </li>
+      </ul>
+      <div class="mb-5">
+        <h5>Tag Cloud</h5>
+        <div class="tagcloud">
+          <a href="#" class="tag-cloud-link">dish</a>
+          <a href="#" class="tag-cloud-link">menu</a>
+          <a href="#" class="tag-cloud-link">food</a>
+          <a href="#" class="tag-cloud-link">sweet</a>
+          <a href="#" class="tag-cloud-link">tasty</a>
+          <a href="#" class="tag-cloud-link">delicious</a>
+          <a href="#" class="tag-cloud-link">desserts</a>
+          <a href="#" class="tag-cloud-link">drinks</a>
+        </div>
+      </div>
+      <div class="mb-5">
+        <h5>Newsletter</h5>
+        <form action="#" class="subscribe-form">
+          <div class="form-group d-flex">
+            <div class="icon"><span class="icon-paper-plane"></span></div>
+            <input type="text" class="form-control" placeholder="Enter Email Address">
+          </div>
+        </form>
+      </div> -->
+    </div>
+  </nav>
+  

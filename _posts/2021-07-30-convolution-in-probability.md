@@ -15,6 +15,8 @@ discussion_id: 2021-07-30-convolution-in-probability
 ---
 Thanks to convolution, we can obtain the probability distribution of a sum of independent random variables.
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/9ytYz9upnG4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 ## The Convolution Series
 1. [Definition of convolution and intuition behind it]({% post_url 2020-06-20-the-secret-behind-filtering %})
 1. [Mathematical properties of convolution]({% post_url 2020-07-05-mathematical-properties-of-convolution %})

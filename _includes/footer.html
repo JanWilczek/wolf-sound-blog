@@ -7,16 +7,6 @@
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
         <ul class="list-inline text-center">
-          {% if site.github_username %}
-          <li class="list-inline-item">
-            <a href="https://github.com/{{ site.github_username }}">
-              <span class="fa-stack fa-lg">
-                <i class="fas fa-circle fa-stack-2x"></i>
-                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
-              </span>
-            </a>
-          </li>
-          {% endif %}
           {% if site.youtube_channel %}
           <li class="list-inline-item">
             <a href="{{ site.youtube_channel }}">
@@ -33,6 +23,16 @@
               <span class="fa-stack fa-lg">
                 <i class="fas fa-circle fa-stack-2x"></i>
                 <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          {% endif %}
+          {% if site.github_username %}
+          <li class="list-inline-item">
+            <a href="https://github.com/{{ site.github_username }}">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
               </span>
             </a>
           </li>
