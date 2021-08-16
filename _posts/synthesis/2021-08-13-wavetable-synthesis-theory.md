@@ -125,7 +125,7 @@ $\theta_\text{inc}(f)$ depends explicitly on $f$ (tone frequency) and implicitly
 
 Having the information on phase increment, we can calculate the *index increment*, i.e., how the index to the wave table changes with each sample.
 
-$$k_\text{inc} = (k+1) - k = \frac{(\phi_x + \theta_\text{inc})L}{2\pi} - \frac{\phi_x L}{2\pi} = \frac{\theta_\text{inc} L}{2\pi}. \quad ({% increment equationId20210813 %})$$
+$$k_\text{inc} = (k+1) - k = \frac{(\phi_x + \theta_\text{inc})L}{2\pi} - \frac{\phi_x L}{2\pi} = \frac{\theta_\text{inc} L}{2\pi} = f f_s L. \quad ({% increment equationId20210813 %})$$
 
 For each sample, we increase an `index` variable by $k_\text{inc}$ and do a lookup. When key is pressed, we set `index` to 0. As long as it is pressed $k_\text{inc}$ is nonzero and we perform wave table lookup.
 
@@ -142,11 +142,11 @@ _Figure 1. A diagram of the wavetable synthesis algorithm using index increment.
 
 $k_\text{inc}[n]$ is the increment of the index into the wave table. It is denoted as a digital signal because in practice it can be changed on a sample-by-sample basis. It is directly dependent on the frequency of the played sound. If no sound is played $k_inc[n]$ is 0 and the `index` should be reset to 0. Alternatively, one could specify that if no sound is played this diagram is inactive (no values are supplied or taken from it).
 
-For each new output sample, index increment is added into the `index` variable stored in a 1-sample buffer (denoted by $z^{-1} as explained in the [article on delays]({% post_url 2021-04-01-identity-element-of-the-convolution %})). This index is then "brought back" into the range of wavetable indices $[0, L)$ using the `fmod` operation. We still keep the fractional part of the index.
+For each new output sample, index increment is added into the `index` variable stored in a 1-sample buffer (denoted by $z^{-1}$ as explained in the [article on delays]({% post_url 2021-04-01-identity-element-of-the-convolution %})). This index is then "brought back" into the range of wavetable indices $[0, L)$ using the `fmod` operation. We still keep the fractional part of the index.
 
 Then, we perform the lookup into the wavetable. The lookup can be done using interpolation strategy of choice.
 
-Finally, we multiply the signal by a sample-dependent amplitude $A[n]$. $A[n]$ signal is called the *amplitude envelope*. It may be, for example, a constant, i.e., $A[n] = 1 \quad \forall n \in \mathbb{Z}$.
+Finally, we multiply the signal by a sample-dependent amplitude $A[n]$. $A[n]$ signal is called the *amplitude envelope*. It may be, for example, a constant, i.e., $A[n] = 1, \forall n \in \mathbb{Z}$.
 
 The output signal $y[n]$ is determined by the wave table used for the lookup and currently generated frequency.
 
@@ -154,7 +154,13 @@ The output signal $y[n]$ is determined by the wave table used for the lookup and
 
 # Oscillator
 
-The diagram in Figure 1 presents an *oscillator*. An oscillator is any unit capable of generating
+The diagram in Figure 1 presents an *oscillator*. An oscillator is any unit capable of generating sound. It is typically depicted as a rectangle combined with a half-circle. That symbol typically has an amplitude input A ($A[n]$ in Figure 1) and a frequency input $f$ (used to calculate $k_\text{inc}[n]$ in Figure 1). 
+
+Additionally, an oscillator pictogram has some indication of what type of waveform is generated, for example, it may have the sine symbol <i class="fas fa-wave-sine"></i> inside to show that it outputs the sine wave.
+
+<!-- Oscillator schematic -->
+
+# Garbage
 
 <!-- TODO: Probably delete this -->
 The whole generation algorithm can now be simplified to a few cases:
