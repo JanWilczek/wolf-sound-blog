@@ -37,6 +37,7 @@ markdown:           kramdown
 kramdown:
   math_engine: mathjax
   auto_ids: true
+permalink: /:categories/:title/
 highlighter:        rouge
 paginate:           5
 paginate_path:      "/posts/page:num/"

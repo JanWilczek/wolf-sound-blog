@@ -4,8 +4,8 @@ description: Wavetable is a synthesis technique that loops over a waveform store
 date: 2021-08-13
 author: Jan Wilczek
 layout: post
-permalink: /wavetable-synthesis-algorithm/
-images: assets/img/posts/2021-08-13-wavetable-synthesis-theory
+permalink: /sound-synthesis/wavetable-synthesis-algorithm/
+images: assets/img/posts/synthesis/2021-08-13-wavetable-synthesis-theory
 background: /assets/img/posts/2021-08-13-wavetable-synthesis-theory/Thumbnail.png
 categories:
  - Sound Synthesis
@@ -113,16 +113,48 @@ Each recall of a wave table value is called *wave table lookup*.
 
 We know how to efficiently compute a waveform's value for an arbitrary argument. In theory, given amplitude $A$, frequency $f$, and sampling rate $f_s$ we are able to evaluate Equation 3 for any integer $n$. It means, we can generate an arbitrary waveform at an arbitrary frequency! Now, how to implement it algorithmically?
 
-Thanks to the information on $f$ and $f_s$, we don't have to calculate the $2 \pi f f_s n$ argument of $\sin$ in Equation 3 for each $n$ separately. $n$ gets incremented by 1 on a sample-by-sample basis, so as long $f$ does not change (i.e., we play the same tone), the argument of $\sin$ gets incremented in predictable manner. Actually, the argument $2 \pi f f_s n + \phi$ is called the *phase* of the sine (again, in our considerations $\phi=0$). The difference between the phase of the waveform for neighboring samples is called *phase increment* and can be calculated as
+Thanks to the information on $f$ and $f_s$, we don't have to calculate the $2 \pi f f_s n$ argument of $\sin$ in Equation 3 for each $n$ separately. $n$ gets incremented by 1 on a sample-by-sample basis, so as long $f$ does not change (i.e., we play the same tone), the argument of $\sin$ gets incremented in a predictable manner. Actually, the argument $2 \pi f f_s n + \phi$ is called the *phase* of the sine (again, in our considerations $\phi=0$). The difference between the phase of the waveform for neighboring samples is called *phase increment* and can be calculated as
 
 $$\theta_\text{inc}(f) = 2 \pi f f_s (n+1) - 2 \pi f f_s n = 2 \pi f f_s. \quad ({% increment equationId20210813 %})$$
 
-$\theta_\text{inc}(f)$ depends explicitly on $f$ (tone frequency) and implicitly on $f_s$ (which typically remains unchanged during processing so we can treat it as a constant). With $\theta_\text{inc}(f)$ we can initialize a `phase` variable to 0 and increment it by $\theta_\text{inc}(f)$ for each samples. When a note is pressed we reset `phase` to 0, calculate $\theta_\text{inc}(f)$ according to the pressed key, and start producing the samples.
+$\theta_\text{inc}(f)$ depends explicitly on $f$ (tone frequency) and implicitly on $f_s$ (which typically remains unchanged during processing so we can treat it as a constant). With $\theta_\text{inc}(f)$ we can initialize a `phase` variable to 0 and increment it by $\theta_\text{inc}(f)$ for each samples. When a key is pressed we reset `phase` to 0, calculate $\theta_\text{inc}(f)$ according to the pressed key, and start producing the samples.
 
-# Wavetable Synthesis Algorihtm
+<!-- index increment -->
 
-<!-- TODO: Add a schematic of the algorithm -->
+## Index Increment
 
+Having the information on phase increment, we can calculate the *index increment*, i.e., how the index to the wave table changes with each sample.
+
+$$k_\text{inc} = (k+1) - k = \frac{(\phi_x + \theta_\text{inc})L}{2\pi} - \frac{\phi_x L}{2\pi} = \frac{\theta_\text{inc} L}{2\pi}. \quad ({% increment equationId20210813 %})$$
+
+For each sample, we increase an `index` variable by $k_\text{inc}$ and do a lookup. When key is pressed, we set `index` to 0. As long as it is pressed $k_\text{inc}$ is nonzero and we perform wave table lookup.
+
+## A Note on Efficiency
+
+Phase increment and index increment are two sides of the same coin. The former has a physical meaning, the latter has an implementation meaning. You can keep phase information and use it to calculate the index or you can keep incrementing the index. Index increment is more efficient because we don't need to perform the multiplication by $L$ and division by $2\pi$ for each sample; we calculate the increment only when the instantaneous frequency changes. We'll therefore restrict ourselves to an implementation using index increment.
+
+# Wavetable Synthesis Algorithm
+
+Below is a schematic of how wavetable synthesis using index increment works.
+
+![]({{ page.images | absolute_url | append: "/wavetable-synthesis-algorithm-diagram.png" }}){: alt="A DSP diagram of the wavetable synthesis algorithm" }
+_Figure 1. A diagram of the wavetable synthesis algorithm using index increment. After [2]._
+
+$k_\text{inc}[n]$ is the increment of the index into the wave table. It is denoted as a digital signal because in practice it can be changed on a sample-by-sample basis. It is directly dependent on the frequency of the played sound. If no sound is played $k_inc[n]$ is 0 and the `index` should be reset to 0. Alternatively, one could specify that if no sound is played this diagram is inactive (no values are supplied or taken from it).
+
+For each new output sample, index increment is added into the `index` variable stored in a 1-sample buffer (denoted by $z^{-1} as explained in the [article on delays]({% post_url 2021-04-01-identity-element-of-the-convolution %})). This index is then "brought back" into the range of wavetable indices $[0, L)$ using the `fmod` operation. We still keep the fractional part of the index.
+
+Then, we perform the lookup into the wavetable. The lookup can be done using interpolation strategy of choice.
+
+Finally, we multiply the signal by a sample-dependent amplitude $A[n]$. $A[n]$ signal is called the *amplitude envelope*. It may be, for example, a constant, i.e., $A[n] = 1 \quad \forall n \in \mathbb{Z}$.
+
+The output signal $y[n]$ is determined by the wave table used for the lookup and currently generated frequency.
+
+**We thus created a wavetable synthesizer!**
+
+# Oscillator
+
+The diagram in Figure 1 presents an *oscillator*. An oscillator is any unit capable of generating
 
 <!-- TODO: Probably delete this -->
 The whole generation algorithm can now be simplified to a few cases:
@@ -139,6 +171,8 @@ $$, \quad ({% increment equationId20210813 %})$$
 # Bibliography
 
 [1] [Taylor series expansion of the sine function on MIT Open CourseWare](https://ocw.mit.edu/courses/mathematics/18-01sc-single-variable-calculus-fall-2010/unit-5-exploring-the-infinite/part-b-taylor-series/session-99-taylors-series-continued/MIT18_01SCF10_Ses99c.pdf)
+
+[2] [F. Richard Moore, *Elements of Computer Music*, Prentice Hall 1990](https://www.amazon.com/gp/product/0132525526/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0132525526&linkCode=as2&tag=wolfsound05-20&linkId=71285ec31668f2e8d8cf81094ff51f5f)
 
 {% endkatexmm %}
 
