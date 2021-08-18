@@ -59,7 +59,7 @@ where $f_s$ is the sampling rate, i.e., the number of samples per second that th
 
 After inserting Equation 2 into Equation 1, we obtain the formula for a digital sine wave
 
-$$s[n] = A \sin (2 \pi f f_s n), \quad ({% increment equationId20210813 %})$$
+$$s[n] = A \sin (2 \pi f n / f_s), \quad ({% increment equationId20210813 %})$$
 
 How to compute the $\sin$ in the above formula? In programming languages (and any calculators for that matter), we often have a `sin()` function, but how does it compute its return value?
 
@@ -73,9 +73,10 @@ Above expansion is infinite, so on real-world hardware, it needs to be truncated
 
 A *wave table* is an array in memory in which we store a fragment of a waveform. A *waveform* is a plot of a signal over time. Thus, one period of a sine wave stored in memory looks as follows:
 
-<!-- TODO: Add a sine figure with 1024 samples. -->
+![]({{ page.images | absolute_url | append: "/sine_wave_table.png" }}){: alt="A wave table with 64 samples of the sine waveform." width="600px" }
+_Figure 1. A wave table with 64 samples of the sine waveform._
 
-The above wave table uses 1024 samples to store one period of the sine wave.
+The above wave table uses 64 samples to store one period of the sine wave.
 
 $\sin$ period is exactly $2 \pi$. The period of a wave table is its length, let's denote it by $L$. For each sample index $k \in [0, \dots, L-1]$ in the wave table, there exists a corresponding argument $\theta \in [0, 2\pi]$ of the sine function.
 
@@ -115,7 +116,7 @@ We know how to efficiently compute a waveform's value for an arbitrary argument.
 
 Thanks to the information on $f$ and $f_s$, we don't have to calculate the $2 \pi f f_s n$ argument of $\sin$ in Equation 3 for each $n$ separately. $n$ gets incremented by 1 on a sample-by-sample basis, so as long $f$ does not change (i.e., we play the same tone), the argument of $\sin$ gets incremented in a predictable manner. Actually, the argument $2 \pi f f_s n + \phi$ is called the *phase* of the sine (again, in our considerations $\phi=0$). The difference between the phase of the waveform for neighboring samples is called *phase increment* and can be calculated as
 
-$$\theta_\text{inc}(f) = 2 \pi f f_s (n+1) - 2 \pi f f_s n = 2 \pi f f_s. \quad ({% increment equationId20210813 %})$$
+$$\theta_\text{inc}(f) = 2 \pi f (n+1) / f_s - 2 \pi f n / f_s = 2 \pi f / f_s. \quad ({% increment equationId20210813 %})$$
 
 $\theta_\text{inc}(f)$ depends explicitly on $f$ (tone frequency) and implicitly on $f_s$ (which typically remains unchanged during processing so we can treat it as a constant). With $\theta_\text{inc}(f)$ we can initialize a `phase` variable to 0 and increment it by $\theta_\text{inc}(f)$ for each samples. When a key is pressed we reset `phase` to 0, calculate $\theta_\text{inc}(f)$ according to the pressed key, and start producing the samples.
 
@@ -125,9 +126,11 @@ $\theta_\text{inc}(f)$ depends explicitly on $f$ (tone frequency) and implicitly
 
 Having the information on phase increment, we can calculate the *index increment*, i.e., how the index to the wave table changes with each sample.
 
-$$k_\text{inc} = (k+1) - k = \frac{(\phi_x + \theta_\text{inc})L}{2\pi} - \frac{\phi_x L}{2\pi} = \frac{\theta_\text{inc} L}{2\pi} = f f_s L. \quad ({% increment equationId20210813 %})$$
+$$k_\text{inc} = (k+1) - k = \frac{(\phi_x + \theta_\text{inc})L}{2\pi} - \frac{\phi_x L}{2\pi} \\= \frac{\theta_\text{inc} L}{2\pi} = \frac{fL}{f_s}. \quad ({% increment equationId20210813 %})$$
 
 For each sample, we increase an `index` variable by $k_\text{inc}$ and do a lookup. When key is pressed, we set `index` to 0. As long as it is pressed $k_\text{inc}$ is nonzero and we perform wave table lookup.
+
+When `index` exceeds the wave table size, we need to bring it back to the $[0, \dots, L-1]$. It can be done by subtracting $L$ from `index` but this approach is not always correct. In implementation we can subtract $L$ as long as `index` is greater or equal to $L$ or we can use the `fmod` operation. This "index wrap" results from *phase wrap*: since the signal is periodic, we can shift its phase by the period without changing the signal.
 
 ## A Note on Efficiency
 
@@ -138,9 +141,9 @@ Phase increment and index increment are two sides of the same coin. The former h
 Below is a schematic of how wavetable synthesis using index increment works.
 
 ![]({{ page.images | absolute_url | append: "/wavetable-synthesis-algorithm-diagram.png" }}){: alt="A DSP diagram of the wavetable synthesis algorithm" }
-_Figure 1. A diagram of the wavetable synthesis algorithm using index increment. After [2]._
+_Figure 2. A diagram of the wavetable synthesis algorithm using index increment. After [2]._
 
-$k_\text{inc}[n]$ is the increment of the index into the wave table. It is denoted as a digital signal because in practice it can be changed on a sample-by-sample basis. It is directly dependent on the frequency of the played sound. If no sound is played $k_inc[n]$ is 0 and the `index` should be reset to 0. Alternatively, one could specify that if no sound is played this diagram is inactive (no values are supplied or taken from it).
+$k_\text{inc}[n]$ is the increment of the index into the wave table. It is denoted as a digital signal because in practice it can be changed on a sample-by-sample basis. It is directly dependent on the frequency of the played sound. If no sound is played $k_\text{inc}[n]$ is 0 and the `index` should be reset to 0. Alternatively, one could specify that if no sound is played this diagram is inactive (no values are supplied or taken from it).
 
 For each new output sample, index increment is added into the `index` variable stored in a 1-sample buffer (denoted by $z^{-1}$ as explained in the [article on delays]({% post_url 2021-04-01-identity-element-of-the-convolution %})). This index is then "brought back" into the range of wavetable indices $[0, L)$ using the `fmod` operation. We still keep the fractional part of the index.
 
@@ -154,16 +157,79 @@ The output signal $y[n]$ is determined by the wave table used for the lookup and
 
 # Oscillator
 
-The diagram in Figure 1 presents an *oscillator*. An oscillator is any unit capable of generating sound. It is typically depicted as a rectangle combined with a half-circle [3, 4] as in Figure 2. That symbol typically has an amplitude input A ($A[n]$ in Figure 1) and a frequency input $f$ (used to calculate $k_\text{inc}[n]$ in Figure 1). 
+The diagram in Figure 2 presents an *oscillator*. An oscillator is any unit capable of generating sound. It is typically depicted as a rectangle combined with a half-circle [3, 4] as in Figure 3. That symbol typically has an amplitude input A ($A[n]$ in Figure 2) and a frequency input $f$ (used to calculate $k_\text{inc}[n]$ in Figure 2). 
 
 ![]({{ page.images | absolute_url | append: "/oscillator.png" }}){: alt="Oscillator symbol" }
-_Figure 2. The oscillator symbol._
+_Figure 3. The oscillator symbol._
 
 Additionally, an oscillator pictogram has some indication of what type of waveform is generated, for example, it may have the sine symbol <i class="fas fa-wave-sine"></i> inside to show that it outputs the sine wave.
 
 Oscillators are sometimes denoted as VCO, which stands for *voltage-controlled oscillator*. This term originates from the analog days of sound synthesis, when electric voltage determined oscillators' amplitude and frequency.
 
-Oscillators are the workhorse of sound synthesis. What is presented in Figure 1 is just one realization of an oscillator but the oscillator itself is a more general concept. Wavetable synthesis is just one way of implementing an oscillator.
+Oscillators are the workhorse of sound synthesis. What is presented in Figure 2 is one realization of an oscillator but the oscillator itself is a more general concept. Wavetable synthesis is just one way of implementing an oscillator.
+
+# Sound Example: Sine
+
+Let's use a precomputed wave table with 64 samples of one sine period from Figure 1 to generate 5 seconds of a sine waveform at 440 Hz using 44100 Hz sampling rate.
+
+We thus have $L = 64$, $f=440$, $f_s=44100$, $k_\text{inc} = 0.6395\dots$. The resulting sound is:
+
+{% include embed-audio.html src="/assets/wav/posts/synthesis/2021-08-13-wavetable-synthesis-theory/sine.wav" %}
+
+The magnitude spectrum of this tone is shown below.
+
+![]({{ page.images | absolute_url | append: "/sine_spectrum.png" }}){: alt="Magnitude frequency spectrum of a sine generated with wavetable synthesis" }
+_Figure 4. Magnitude frequency spectrum of a sine generated with wavetable synthesis._
+
+Great! It sounds like a sine and we obtain just one frequency component. Everything as expected! Now, let's generate sound using a different wavetable, shall we?
+
+# Sound Example: Sawtooth
+
+To generate a sawtooth, we use the same parameters as before just a different wave table:
+
+![]({{ page.images | absolute_url | append: "/sawtooth_wave_table.png" }}){: alt="A wave table with 64 samples of the sawtooth waveform." width="600px" }
+_Figure 5. A wave table with 64 samples of the sawtooth waveform._
+
+Let's listen to the output:
+
+{% include embed-audio.html src="/assets/wav/posts/synthesis/2021-08-13-wavetable-synthesis-theory/sawtooth.wav" %}
+
+That sounds ok, but we get some ringing. How does it look in the spectrum?
+
+![]({{ page.images | absolute_url | append: "/sawtooth_spectrum.png" }}){: alt="Magnitude frequency spectrum of a sawtooth generated with wavetable synthesis" }
+_Figure 6. Magnitude frequency spectrum of a sawtooth generated with wavetable synthesis._
+
+We can notice that there are some inharmonic frequency components that do not correspond to the typical decay of the sawtooth spectrum. These are aliased frequencies which occur because the spectrum of the sawtooth crossed the Nyquist frequency. To learn more about why this happens, you can [check out my article on aliasing]({% post_url 2019-11-28-what-is-aliasing-what-causes-it-how-to-avoid-it %})
+
+Aliasing increases if we go 1 octave higher:
+
+{% include embed-audio.html src="/assets/wav/posts/synthesis/2021-08-13-wavetable-synthesis-theory/sawtooth880.wav" %}
+
+Ouch, that doesn't sound nice. The frequency spectrum reveals aliased partials that appear as inharmonicities:
+
+![]({{ page.images | absolute_url | append: "/sawtooth880_spectrum.png" }}){: alt="Magnitude frequency spectrum of a 880 Hz sawtooth generated with wavetable synthesis" }
+_Figure 7. Magnitude frequency spectrum of a 880Hz sawtooth generated with wavetable synthesis._
+
+We've just discovered the main drawback of wavetable synthesis: aliasing at higher frequencies. If we went even higher with the pitch, we would obtain completely distorted signal. 
+
+How to fix aliasing for wave tables that have partials crossing the Nyquist frequency. We can only increase the sampling rate of the system. Since it is not something we would like to do, most often other algorithms are used. This digital distortion was typical of the early digital synthesizers of the 1980s. A lot of effort was put to develop alternative algorithms to synthesize sound. The main focus was to obtain an algorithm that would produce partial-rich waveforms at low frequencies and partial-poor waveforms at high frequencies. These algorithms are sometimes called *antialiasing oscillators*. An example of this can be found in ["Oscillator and Filter Algorithms for Virtual Analog Synthesis" paper by Vesa Välimäki and Antti Huovilainen](https://www.researchgate.net/publication/220386519_Oscillator_and_Filter_Algorithms_for_Virtual_Analog_Synthesis) [5].
+
+# Sampling: Extended Wavetable Synthesis?
+
+Sampling is a technique of recording real-world instruments and playing back these sounds according to user input. We could, for example, record single guitar notes with pitches corresponding to all keys on the piano keyboard. In practice, however, notes for only some of the keys are recorded and the notes in between are interpolated versions of its neighbors. In this way, we store separate samples for high-pitched notes and thus avoid the problem of aliasing because it's not present in the data in the first place.
+
+With sampling a lot more implementation issues come up. Since sampling is not the topic of this article, we will postpone its discussion for now.
+
+# Multiple Wavetable
+# Single-Cycle and Multi-Cycle Wavetable
+
+<!-- Pluta p. 61 -->
+
+
+# Summary
+
+Wavetable synthesis is an efficient method that allows us to generate arbitrary waveforms at arbitrary frequencies. Its low complexity comes at a cost of high amounts of digital distortions coming from the partials crossing the Nyquist frequency at higher pitches. One typically would turn to more sophisticated algorithms for sound synthesis. Nevertheless, wavetable synthesis is a great method to understand the principles of software sound synthesis.
+
 
 # Garbage
 
@@ -188,6 +254,11 @@ $$, \quad ({% increment equationId20210813 %})$$
 [3] [Curtis Roads, *Computer Music Tutorial*, MIT Press 1996](https://www.amazon.com/gp/product/0262680823/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0262680823&linkCode=as2&tag=wolfsound05-20&linkId=86e6c4d45c7126d32c13ab2deff2afa2)
 
 [4] Marek Pluta, *Sound Synthesis for Music Reproduction and Performance*, monograph, AGH University of Science and Technology Press 2019.
+
+[5] [Vesa Välimäki and Antti Huovilainen, *Oscillator and Filter Algorithms for Virtual Analog Synthesis*, Computer Music Journal 30(2):19-31, June 2006](https://www.researchgate.net/publication/220386519_Oscillator_and_Filter_Algorithms_for_Virtual_Analog_Synthesis)
+
+<!-- DePoli -->
+<!-- Russ -->
 
 {% endkatexmm %}
 
