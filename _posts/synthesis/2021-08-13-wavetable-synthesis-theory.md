@@ -22,10 +22,10 @@ How to generate sound in code using the wavetable synthesis technique?
 {% capture _ %}{% increment equationId20210813 %}{% endcapture %}
 
 In this article, you will learn:
- * how to generate sound using wavetables
- * step-by-step synthesis algorithm
- * what are pros and cons of wavetable synthesis
- * how is wavetable synthesis related to other synthesis methods
+ * how to generate sound using wavetables,
+ * step-by-step wavetable synthesis algorithm,
+ * what are pros and cons of wavetable synthesis, and
+ * how is wavetable synthesis related to other synthesis methods.
 
 In the follow-up articles, an implementation of this technique in the Python programming language and the JUCE framework will follow.
 
@@ -33,13 +33,14 @@ In the follow-up articles, an implementation of this technique in the Python pro
 
 *Computer-based sound synthesis is the art of generating sound through software.*
 
-In the early days of digital sound synthesis the sound was also synthesised using specialized digital signal processing hardware but the underlying principles and algorithms remained the same. To obtain real-time performance capabilities with that technology, there was a great need to generate sound efficiently in terms of memory and processing speed. Thus, the wavetable technique was convceived: it is both fast and memory-inexpensive.
+In the early days of digital sound synthesis, sound was synthesised using specialized digital signal processing hardware. Later on, the community started using software for the same purposes but the underlying principles and algorithms remained the same. To obtain real-time performance capabilities with that technology, there was a great need to generate sound efficiently in terms of memory and processing speed. Thus, the wavetable technique was convceived: it is both fast and memory-inexpensive.
 
 # From Gesture to Sound
 
 The process of generating sound begins with a *musician*'s *gesture*. Let's put aside who a musician might be or what kind of gestures they perform. For the purpose of this article, a gesture could be as simple as pressing a key on a MIDI keyboard, clicking on a virtual keybord's key, or pressing a button on any controller device.
 
-<!-- TODO: Add gesture to sound schematic -->
+![]({{ page.images | absolute_url | append: "/gesture_to_sound.png" }}){: alt="Sound synthesis pipeline: gesture, synthesis algorithm, sound." width="600px" }
+_Figure 1. In sound synthesis, a gesture of the musician controls the sound generation process._
 
 A gesture provides *control information*. In the case of pressing a MIDI note-on event, control information would incorporate information on which key was pressed and how fast was it pressed (*velocity* of a keystroke). We can change the note number information into frequency $f$ and the velocity information into amplitude $A$. This information is sufficient to generate sound using most of the popular synthesis algorithms.
 
@@ -74,7 +75,7 @@ Above expansion is infinite, so on real-world hardware, it needs to be truncated
 A *wave table* is an array in memory in which we store a fragment of a waveform. A *waveform* is a plot of a signal over time. Thus, one period of a sine wave stored in memory looks as follows:
 
 ![]({{ page.images | absolute_url | append: "/sine_wave_table.png" }}){: alt="A wave table with 64 samples of the sine waveform." width="600px" }
-_Figure 1. A wave table with 64 samples of the sine waveform._
+_Figure 2. A wave table with 64 samples of the sine waveform._
 
 The above wave table uses 64 samples to store one period of the sine wave.
 
@@ -141,7 +142,7 @@ Phase increment and index increment are two sides of the same coin. The former h
 Below is a schematic of how wavetable synthesis using index increment works.
 
 ![]({{ page.images | absolute_url | append: "/wavetable-synthesis-algorithm-diagram.png" }}){: alt="A DSP diagram of the wavetable synthesis algorithm" }
-_Figure 2. A diagram of the wavetable synthesis algorithm using index increment. After [2]._
+_Figure 3. A diagram of the wavetable synthesis algorithm using index increment. After [2]._
 
 $k_\text{inc}[n]$ is the increment of the index into the wave table. It is denoted as a digital signal because in practice it can be changed on a sample-by-sample basis. It is directly dependent on the frequency of the played sound. If no sound is played $k_\text{inc}[n]$ is 0 and the `index` should be reset to 0. Alternatively, one could specify that if no sound is played this diagram is inactive (no values are supplied or taken from it).
 
@@ -157,20 +158,20 @@ The output signal $y[n]$ is determined by the wave table used for the lookup and
 
 # Oscillator
 
-The diagram in Figure 2 presents an *oscillator*. An oscillator is any unit capable of generating sound. It is typically depicted as a rectangle combined with a half-circle [3, 4] as in Figure 3. That symbol typically has an amplitude input A ($A[n]$ in Figure 2) and a frequency input $f$ (used to calculate $k_\text{inc}[n]$ in Figure 2). 
+The diagram in Figure 3 presents an *oscillator*. An oscillator is any unit capable of generating sound. It is typically depicted as a rectangle combined with a half-circle [3, 4] as in Figure 4. That symbol typically has an amplitude input A ($A[n]$ in Figure 3) and a frequency input $f$ (used to calculate $k_\text{inc}[n]$ in Figure 3). 
 
 ![]({{ page.images | absolute_url | append: "/oscillator.png" }}){: alt="Oscillator symbol" }
-_Figure 3. The oscillator symbol._
+_Figure 4. The oscillator symbol._
 
 Additionally, an oscillator pictogram has some indication of what type of waveform is generated, for example, it may have the sine symbol <i class="fas fa-wave-sine"></i> inside to show that it outputs the sine wave.
 
 Oscillators are sometimes denoted as VCO, which stands for *voltage-controlled oscillator*. This term originates from the analog days of sound synthesis, when electric voltage determined oscillators' amplitude and frequency.
 
-Oscillators are the workhorse of sound synthesis. What is presented in Figure 2 is one realization of an oscillator but the oscillator itself is a more general concept. Wavetable synthesis is just one way of implementing an oscillator.
+Oscillators are the workhorse of sound synthesis. What is presented in Figure 3 is one realization of an oscillator but the oscillator itself is a more general concept. Wavetable synthesis is just one way of implementing an oscillator.
 
 # Sound Example: Sine
 
-Let's use a precomputed wave table with 64 samples of one sine period from Figure 1 to generate 5 seconds of a sine waveform at 440 Hz using 44100 Hz sampling rate.
+Let's use a precomputed wave table with 64 samples of one sine period from Figure 2 to generate 5 seconds of a sine waveform at 440 Hz using 44100 Hz sampling rate.
 
 We thus have $L = 64$, $f=440$, $f_s=44100$, $k_\text{inc} = 0.6395\dots$. The resulting sound is:
 
@@ -179,7 +180,7 @@ We thus have $L = 64$, $f=440$, $f_s=44100$, $k_\text{inc} = 0.6395\dots$. The r
 The magnitude spectrum of this tone is shown below.
 
 ![]({{ page.images | absolute_url | append: "/sine_spectrum.png" }}){: alt="Magnitude frequency spectrum of a sine generated with wavetable synthesis" }
-_Figure 4. Magnitude frequency spectrum of a sine generated with wavetable synthesis._
+_Figure 5. Magnitude frequency spectrum of a sine generated with wavetable synthesis._
 
 Great! It sounds like a sine and we obtain just one frequency component. Everything as expected! Now, let's generate sound using a different wavetable, shall we?
 
@@ -188,7 +189,7 @@ Great! It sounds like a sine and we obtain just one frequency component. Everyth
 To generate a sawtooth, we use the same parameters as before just a different wave table:
 
 ![]({{ page.images | absolute_url | append: "/sawtooth_wave_table.png" }}){: alt="A wave table with 64 samples of the sawtooth waveform." width="600px" }
-_Figure 5. A wave table with 64 samples of the sawtooth waveform._
+_Figure 6. A wave table with 64 samples of the sawtooth waveform._
 
 Let's listen to the output:
 
@@ -197,7 +198,7 @@ Let's listen to the output:
 That sounds ok, but we get some ringing. How does it look in the spectrum?
 
 ![]({{ page.images | absolute_url | append: "/sawtooth_spectrum.png" }}){: alt="Magnitude frequency spectrum of a sawtooth generated with wavetable synthesis" }
-_Figure 6. Magnitude frequency spectrum of a sawtooth generated with wavetable synthesis._
+_Figure 7. Magnitude frequency spectrum of a sawtooth generated with wavetable synthesis._
 
 We can notice that there are some inharmonic frequency components that do not correspond to the typical decay of the sawtooth spectrum. These are aliased frequencies which occur because the spectrum of the sawtooth crossed the Nyquist frequency. To learn more about why this happens, you can [check out my article on aliasing]({% post_url 2019-11-28-what-is-aliasing-what-causes-it-how-to-avoid-it %})
 
@@ -208,7 +209,7 @@ Aliasing increases if we go 1 octave higher:
 Ouch, that doesn't sound nice. The frequency spectrum reveals aliased partials that appear as inharmonicities:
 
 ![]({{ page.images | absolute_url | append: "/sawtooth880_spectrum.png" }}){: alt="Magnitude frequency spectrum of a 880 Hz sawtooth generated with wavetable synthesis" }
-_Figure 7. Magnitude frequency spectrum of a 880Hz sawtooth generated with wavetable synthesis._
+_Figure 8. Magnitude frequency spectrum of a 880Hz sawtooth generated with wavetable synthesis._
 
 We've just discovered the main drawback of wavetable synthesis: aliasing at higher frequencies. If we went even higher with the pitch, we would obtain completely distorted signal. 
 
