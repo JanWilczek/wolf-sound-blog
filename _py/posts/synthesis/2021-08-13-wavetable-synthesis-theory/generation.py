@@ -88,7 +88,9 @@ def output_all(signal_no_fade, name, fs, table):
     S = magnitude_spectrum(signal_1s, normalize_spectrum=True)
     f = np.fft.rfftfreq(signal_1s.shape[0], 1/fs)
     ylim = [-60, 0]
-    plot(f, S, f'{name}_spectrum', img_output_dir, color='C1', xlabel='Frequency [Hz]', ylabel='Magnitude [dB]', ylim=ylim)
+    xlim = [90, fs // 2]
+    xticks = [100, 200, 400, 800, 2000, 8000]
+    plot(f, S, f'{name}_spectrum', img_output_dir, color='C1', xlabel='Frequency [Hz]', ylabel='Magnitude [dB]', ylim=ylim, xlim=xlim, logscale=True, xticks=xticks)
 
 def main():
     setup_pyplot_for_latex()

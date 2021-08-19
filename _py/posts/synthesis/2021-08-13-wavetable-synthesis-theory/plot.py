@@ -38,7 +38,7 @@ def stem(n, x, filename, output_dir, color='C0', xlabel='', ylabel='', yticks=No
     plt.yticks(yticks)
     plt.savefig(output_dir / f'{filename}.png', **plot_dict)
 
-def plot(n, x, filename, output_dir, color='C0', xlabel='', ylabel='', yticks=None, ylim=None):
+def plot(n, x, filename, output_dir, color='C0', xlabel='', ylabel='', yticks=None, ylim=None, xlim=None, logscale=False, xticks=None):
     plot_dict = {"bbox_inches": 'tight', "dpi": 300, "transparent": True}
     output_dir.mkdir(parents=True, exist_ok=True)
 
@@ -53,6 +53,12 @@ def plot(n, x, filename, output_dir, color='C0', xlabel='', ylabel='', yticks=No
     plt.yticks(yticks)
     if ylim:
         plt.ylim(ylim)
+    if xlim:
+        plt.xlim(xlim)
+    if logscale:
+        plt.xscale("log")
+    if xticks:
+        plt.xticks(xticks, [str(tick) for tick in xticks])
     plt.savefig(output_dir / f'{filename}.png', **plot_dict)
 
 def normalized(signal):
