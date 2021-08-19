@@ -40,9 +40,9 @@ In the early days of digital sound synthesis, sound was synthesised using specia
 The process of generating sound begins with a *musician*'s *gesture*. Let's put aside who a musician might be or what kind of gestures they perform. For the purpose of this article, a gesture could be as simple as pressing a key on a MIDI keyboard, clicking on a virtual keybord's key, or pressing a button on any controller device.
 
 ![]({{ page.images | absolute_url | append: "/gesture_to_sound.png" }}){: alt="Sound synthesis pipeline: gesture, synthesis algorithm, sound." width="600px" }
-_Figure 1. In sound synthesis, a gesture of the musician controls the sound generation process._
+_Figure 1. In sound synthesis, a gesture of a musician controls the sound generation process._
 
-A gesture provides *control information*. In the case of pressing a MIDI note-on event, control information would incorporate information on which key was pressed and how fast was it pressed (*velocity* of a keystroke). We can change the note number information into frequency $f$ and the velocity information into amplitude $A$. This information is sufficient to generate sound using most of the popular synthesis algorithms.
+A gesture provides *control information*. In the case of pressing a key on a MIDI keyboard, control information would incorporate information on which key was pressed and how fast was it pressed (*velocity* of a keystroke). We can change the note number information into frequency $f$ and the velocity information into amplitude $A$. This information is sufficient to generate sound using most of the popular synthesis algorithms.
 
 # Sine Generator
 
@@ -64,11 +64,11 @@ $$s[n] = A \sin (2 \pi f n / f_s), \quad ({% increment equationId20210813 %})$$
 
 How to compute the $\sin$ in the above formula? In programming languages (and any calculators for that matter), we often have a `sin()` function, but how does it compute its return value?
 
-`sin()` calls use *Taylor expansion* of the sine function [1]
+`sin()` calls use the *Taylor expansion* of the sine function [1]
 
 $$\sin(x) = x - \frac{x^3}{3!} + \frac{x^5}{5!} - \frac{x^7}{7!} \dots \quad ({% increment equationId20210813 %})$$
 
-Above expansion is infinite, so on real-world hardware, it needs to be truncated at some point (after obtaining sufficient accuracy). Its advantage is, that it uses operations realizable in hardware (multiplication, division, addition, subtraction). Its disadvantage is that it involves **a lot** of these operations. If we need to produce 44100 samples per second and want to play a few hundred sines simultaneously (what is typical of additive synthesis), we need to be able to compute the $\sin$ function more efficiently.
+Above expansion is infinite, so on real-world hardware, it needs to be truncated at some point (after obtaining sufficient accuracy). Its advantage is, that it uses operations realizable in hardware (multiplication, division, addition, subtraction). Its disadvantage is that it involves **a lot** of these operations. If we need to produce 44100 samples per second and want to play a few hundred sines simultaneously (what is typical of additive synthesis), we need to be able to compute the $\sin$ function more efficiently than with Taylor expansion.
 
 # A Wave Table
 
@@ -77,19 +77,19 @@ A *wave table* is an array in memory in which we store a fragment of a waveform.
 ![]({{ page.images | absolute_url | append: "/sine_wave_table.png" }}){: alt="A wave table with 64 samples of the sine waveform." width="600px" }
 _Figure 2. A wave table with 64 samples of the sine waveform._
 
-The above wave table uses 64 samples to store one period of the sine wave.
+The above wave table uses 64 samples to store one period of the sine wave. These values **can** be calculated using the Taylor expansion because we compute them only once and store them in memory.
 
-$\sin$ period is exactly $2 \pi$. The period of a wave table is its length, let's denote it by $L$. For each sample index $k \in [0, \dots, L-1]$ in the wave table, there exists a corresponding argument $\theta \in [0, 2\pi]$ of the sine function.
+$\sin$ period is exactly $2 \pi$. The period of a wave table is its length, let's denote it by $L$. For each sample index $k \in [0, \dots, L-1]$ in the wave table, there exists a corresponding argument $\theta \in [0, 2\pi)$ of the sine function.
 
 $$\frac{k}{L} = \frac{\theta}{2 \pi}. \quad ({% increment equationId20210813 %})$$
 
-The above equation tells us, that there is a mapping between the values in the wave table and the values of the original waveform.
+The above equation tells us that there is a mapping between the values in the wave table and the values of the original waveform.
 
 # Computing a Waveform Value from the Wave Table
 
-Equation 5 holds for $\theta \in [0, 2\pi]$. If we want to calculate the values of arbitrary $x \in \mathbb{R}$, we need to remove the multiplicity of $2 \pi$ contained in $x$ to bring it to the $[0, 2\pi]$ range. In other words, if
+Equation 5 holds for $\theta \in [0, 2\pi)$. If we want to calculate the values of arbitrary $x \in \mathbb{R}$, we need to remove the multiplicity of $2 \pi$ contained in $x$ to bring it to the $[0, 2\pi)$ range. In other words, if
 
-$$x = 2\pi l + \phi_x, \quad \phi_x \in [0, 2\pi], \quad ({% increment equationId20210813 %})$$
+$$x = 2\pi l + \phi_x, \quad \phi_x \in [0, 2\pi), \quad ({% increment equationId20210813 %})$$
 
 then we want to find $\phi_x$. In software, it can be done by subtracting or adding $2 \pi$ to $x$ until we obtain a value in the desired range. Alternatively, we can use a function called `fmod()`, which allows us to obtain the remainder of a floating-point division.
 
@@ -97,11 +97,11 @@ We can subsequently compute the corresponding index in the wave table from the p
 
 $$k = \frac{\phi_x L}{2\pi}. \quad ({% increment equationId20210813 %})$$
 
-Now `waveTable[k]` should return the value of $\sin(x)$, right? There is one more step that is needed...
+Now `waveTable[k]` should return the value of $\sin(x)$, right? There is one more step that we need...
 
 # What If $k$ Is Non-Integer?
 
-In most cases, $k$ computed in Equation 7 won't be an integer. It will rather be a floating-point number between some two integers denoting the wave table indices, e.g., $i <= k < i+1, \quad i \in \mathbb{Z}, k \in \mathbb{R}$.
+In most cases, $k$ computed in Equation 7 won't be an integer. It will rather be a floating-point number between some two integers denoting the wave table indices, i.e., $i <= k < i+1, \quad i \in \{0, \dots, L-1\}, k \in [0, L)$.
 
 To make $k$ an integer, we have 3 options:
  * *truncation (0th-order interpolation)*: removing the non-integer part of $k$, a.k.a. `floor(k)`,
@@ -131,7 +131,7 @@ $$k_\text{inc} = (k+1) - k = \frac{(\phi_x + \theta_\text{inc})L}{2\pi} - \frac{
 
 For each sample, we increase an `index` variable by $k_\text{inc}$ and do a lookup. When key is pressed, we set `index` to 0. As long as it is pressed $k_\text{inc}$ is nonzero and we perform wave table lookup.
 
-When `index` exceeds the wave table size, we need to bring it back to the $[0, \dots, L-1]$. It can be done by subtracting $L$ from `index` but this approach is not always correct. In implementation we can subtract $L$ as long as `index` is greater or equal to $L$ or we can use the `fmod` operation. This "index wrap" results from *phase wrap*: since the signal is periodic, we can shift its phase by the period without changing the signal.
+When `index` exceeds the wave table size, we need to bring it back to the $[0, \dots, L-1]$. It can be done by subtracting $L$ from `index` but this approach is not always correct. In implementation we can subtract $L$ as long as `index` is greater or equal to $L$ or we can use the `fmod` operation. This "index wrap" results from the *phase wrap* which we discussed below Equation 5; since the signal is periodic, we can shift its phase by the period without changing the resulting signal.
 
 ## A Note on Efficiency
 

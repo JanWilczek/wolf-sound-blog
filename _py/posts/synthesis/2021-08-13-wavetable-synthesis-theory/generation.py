@@ -2,7 +2,7 @@ import numpy as np
 from pathlib import Path
 from scipy.io import wavfile
 from Fader import Fader
-from plot import stem, magnitude_spectrum, plot
+from plot import stem, magnitude_spectrum, plot, setup_pyplot_for_latex
 
 
 class Oscillator():
@@ -82,7 +82,7 @@ def output_all(signal_no_fade, name, fs, table):
 
     img_output_dir = Path('assets', 'img', 'posts', 'synthesis', '2021-08-13-wavetable-synthesis-theory')
     n = np.arange(table.shape[0])
-    stem(n, table, f'{name}_wave_table', img_output_dir, xlabel='i', ylabel='Amplitude')
+    stem(n, table, f'{name}_wave_table', img_output_dir, xlabel='Index', ylabel='Amplitude')
 
     signal_1s = fader.fade_in_out(signal_no_fade[:fs])
     S = magnitude_spectrum(signal_1s, normalize_spectrum=True)
@@ -91,6 +91,7 @@ def output_all(signal_no_fade, name, fs, table):
     plot(f, S, f'{name}_spectrum', img_output_dir, color='C1', xlabel='Frequency [Hz]', ylabel='Magnitude [dB]', ylim=ylim)
 
 def main():
+    setup_pyplot_for_latex()
     fs = 44100
 
     # Sine generation

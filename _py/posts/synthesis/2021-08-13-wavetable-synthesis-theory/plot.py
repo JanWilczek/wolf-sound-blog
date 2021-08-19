@@ -3,6 +3,14 @@ import matplotlib
 from matplotlib import pyplot as plt
 from pathlib import Path
 
+
+def setup_pyplot_for_latex():
+    # Use LaTeX font to save the figures in the .png format
+    # (they are too big for a tikzfigure)
+    matplotlib.rc('text', usetex=True)
+    matplotlib.rc('font', **{'family': 'serif', 'serif': ['Computer Modern']})
+    plt.rcParams.update({'font.size': 20})
+
 def stem(n, x, filename, output_dir, color='C0', xlabel='', ylabel='', yticks=None, video=False):
     plot_dict = {"bbox_inches": 'tight', "dpi": 300, "transparent": True}
     if video:
