@@ -95,19 +95,38 @@ def output_all(signal_no_fade, name, fs, table):
 def main():
     setup_pyplot_for_latex()
     fs = 44100
+    wavetable_size = 64
 
     # Sine generation
-    sine_table = generate_wavetable(64, np.sin)
-    sine_no_fade = synthesize(sine_table, 440, 5, fs)
-    output_all(sine_no_fade, 'sine', fs, sine_table)
+    sine_table = generate_wavetable(wavetable_size, np.sin)
+    # sine_no_fade = synthesize(sine_table, 440, 5, fs)
+    # output_all(sine_no_fade, 'sine', fs, sine_table)
 
-    # Sawtooth generation
-    sawtooth_table = generate_wavetable(64, lambda x: (x + np.pi) / np.pi % 2 - 1)
-    sawtooth_no_fade = synthesize(sawtooth_table, 440, 5, fs)
-    output_all(sawtooth_no_fade, 'sawtooth', fs, sawtooth_table)
+    # # Sawtooth generation
+    sawtooth_table = generate_wavetable(wavetable_size, lambda x: (x + np.pi) / np.pi % 2 - 1)
+    # sawtooth_no_fade = synthesize(sawtooth_table, 440, 5, fs)
+    # output_all(sawtooth_no_fade, 'sawtooth', fs, sawtooth_table)
 
-    sawtooth880_no_fade = synthesize(sawtooth_table, 880, 5, fs)
-    output_all(sawtooth880_no_fade, 'sawtooth880', fs, sawtooth_table)
+    # sawtooth880_no_fade = synthesize(sawtooth_table, 880, 5, fs)
+    # output_all(sawtooth880_no_fade, 'sawtooth880', fs, sawtooth_table)
+
+    def gaussian_mixture(x):
+        return np.exp(-3*(x-1)**2) \
+            - 0.4 * np.exp(-3*(x-2.3)**2) \
+            + 0.8 * np.exp(-10*(x-3.3)**2) \
+            - np.exp(-7*(x-4.5)**2) \
+            + 0.3 * np.exp(-2 * (x-5)**2)
+
+    gaussians_table = generate_wavetable(wavetable_size, gaussian_mixture)
+    gaussians_table -= np.mean(gaussians_table)
+    gaussians_table = Fader(5, 5).fade_in_out(gaussians_table)
+    gaussians_waveform_no_fade = synthesize(gaussians_table, 110, 5, fs)
+    output_all(gaussians_waveform_no_fade, 'gaussians', fs, gaussians_table)
+
+    square_table = generate_wavetable(wavetable_size, lambda x: np.sign(np.sin(x)))
+    multi_cycle_table = np.concatenate((sine_table, square_table, sawtooth_table))
+    multi_cycle_no_fade = synthesize(multi_cycle_table, 330, 5, fs)
+    output_all(multi_cycle_no_fade, 'multi_cycle', fs, multi_cycle_table)
     
 
 if __name__=='__main__':

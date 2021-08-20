@@ -22,8 +22,8 @@ How to generate sound in code using the wavetable synthesis technique?
 {% capture _ %}{% increment equationId20210813 %}{% endcapture %}
 
 In this article, you will learn:
- * how to generate sound using wavetables,
- * step-by-step wavetable synthesis algorithm,
+ * how to generate sound using wave tables,
+ * step-by-step wavetable synthesis algorithm (also known as *fixed-waveform synthesis* [7]),
  * what are pros and cons of wavetable synthesis, and
  * how is wavetable synthesis related to other synthesis methods.
 
@@ -215,24 +215,78 @@ How to fix aliasing for harmonic-rich waveforms? We can only increase the sampli
 
 The type of digital distortion seen in Figure 8 was typical of the early digital synthesizers of the 1980s. A lot of effort was put into the development of alternative algorithms to synthesize sound. The main focus was to obtain an algorithm that would produce partial-rich waveforms at low frequencies and partial-poor waveforms at high frequencies. These algorithms are sometimes called *antialiasing oscillators*. An example of such an oscillator can be found in ["Oscillator and Filter Algorithms for Virtual Analog Synthesis" paper by Vesa Välimäki and Antti Huovilainen](https://www.researchgate.net/publication/220386519_Oscillator_and_Filter_Algorithms_for_Virtual_Analog_Synthesis) [5].
 
+# Abstract Waveforms
+
+With wavetable synthesis we can use arbitrary wavetables. For example, in Figure 9, I summed 5 Gaussians, subtracted the mean and introduced a fade-in and fade-out.
+
+![]({{ page.images | absolute_url | append: "/gaussians_wave_table.png" }}){: alt="A wave table constructed with 5 Gaussians." width="600px" }
+_Figure 9. An abstract wave table constructed with 5 Gaussians._
+
+Here is a sound generated using this wave table at 110 Hz.
+
+{% include embed-audio.html src="/assets/wav/posts/synthesis/2021-08-13-wavetable-synthesis-theory/gaussians.wav" %}
+
+Sounds like a horn, doesn't it?
+
+Here's its spectrum:
+
+![]({{ page.images | absolute_url | append: "/gaussians_spectrum.png" }}){: alt="Magnitude frequency spectrum of a 110 Hz sound generated from an abstract wavetable." width="600px" }
+_Figure 10. Magnitude frequency spectrum of a 110 Hz sound generated from an abstract wavetable._
+
+As we can see, it decays quite nicely, so no audible aliasing is present.
+
 # Sampling: Extended Wavetable Synthesis?
 
 Sampling is a technique of recording real-world instruments and playing back these sounds according to user input. We could, for example, record single guitar notes with pitches corresponding to all keys on the piano keyboard. In practice, however, notes for only some of the keys are recorded and the notes in between are interpolated versions of its neighbors. In this way, we store separate samples for high-pitched notes and thus avoid the problem of aliasing because it's not present in the data in the first place.
 
-With sampling, a lot more implementation issues come up. Since sampling is not the topic of this article, we won't discuss it now.
+Wavetable synthesis could be viewed as sampling with the samples truncated to one waveform period [4].
 
-# Multiple Wavetable
-# Single-Cycle and Multi-Cycle Wavetable
+With sampling, a lot more implementation issues come up. Since sampling is not the topic of this article, we won't discuss it here.
 
-<!-- Pluta p. 61 -->
+# Single-Cycle, Multi-Cycle, and Multiple Wavetable
+
+What we discussed so far is a *single-cycle* variant of the wavetable synthesis, where we use just 1 period of a waveform stored in memory to generate the sound. There are more options available.
+
+In *multi-cycle* wavetable synthesis, we effectively concatenate different wavetables, whose order can be fixed or random. For example, we could concatenate sine, square, and sawtooth wave tables to obtain a more interesting timbre.
+
+The resulting wave table would look like this:
+
+![]({{ page.images | absolute_url | append: "/multi_cycle_wave_table.png" }}){: alt="A wave table from a concatenation of sine, square, and sawtooth wave tables." width="600px" }
+_Figure 11. A wave table from a concatenation of sine, square, and sawtooth wave tables._
+
+Here is a sound generated using this wave table at 330 Hz.
+
+{% include embed-audio.html src="/assets/wav/posts/synthesis/2021-08-13-wavetable-synthesis-theory/multi_cycle.wav" %}
+
+One can hear the characteristics of all 3 waveforms.
+
+Here's its spectrum:
+
+![]({{ page.images | absolute_url | append: "/multi_cycle_spectrum.png" }}){: alt="Magnitude frequency spectrum of a 330 Hz sound generated from a concatenation of wave tables." width="600px" }
+_Figure 12. Magnitude frequency spectrum of a 330 Hz sound generated from a concatenation of wave tables._
+
+The above spectrum is heavily aliased. Additionally, we got a frequency component at 110 Hz. That is because by concatenating 3 wave tables, we essentially lengthened the base period of the waveform, effectively lowering its fundamental frequency 3 times. Original waveform was at 330 Hz; the fundamental is now at 110 Hz.
+
+In *multiple wavetable* variant, one mixes a few wave tables at the same time. The impact of each of the used wave tables may depend on control parameters. For example, if we press a key mildly, we can get a sine-like timbre, but if we press it fast, we may hear more high-frequency partials. That could be realized by mixing the sine and sawtooth wave tables. The ratio of these waveforms would directly depend on the velocity of the key stroke. There could also be some gradual change in the ratio while a key is pressed.
 
 # Summary
 
-Wavetable synthesis is an efficient method that allows us to generate arbitrary waveforms at arbitrary frequencies. Its low complexity comes at a cost of high amounts of digital distortion caused by the harmonics crossing the Nyquist frequency at high pitches. 
+Wavetable synthesis is an efficient method that allows us to generate arbitrary waveforms at arbitrary frequencies. Its low complexity comes at a cost of high amounts of digital distortion caused by the harmonics crossing the Nyquist frequency at high pitches.
 
-Software synthesizers typically use more sophisticated algorithms than the one presented in this article. Nevertheless, the discussion of wavetable synthesis allows us to understand the basic principles of digital sound synthesis.
+Pros of wavetable synthesis:
+* computationally efficient,
+* direct frequency-to-parameters mapping,
+* arbitrary waveform generation.
+
+Cons of wavetable synthesis:
+* aliasing already at moderately high frequencies,
+* requires further processing and/or extensions to be musically interesting.
+
+Software synthesizers typically use more sophisticated algorithms than the one presented in this article. Nevertheless, wavetable synthesis underlies many other synthesis methods. The produced waveform could be further transformed. Therefore, the discussion of wavetable synthesis allows us to understand the basic principles of digital sound synthesis.
 
 # Bibliography
+
+These are the references I used for this article. If you are interested in the topic of sound synthesis, each of them is a valuable source of information. Alternatively, [subscribe to WolfSound's newsletter]({% link newsletter.md %}) to stay up to date with the newly published articles on sound synthesis!
 
 [1] [Taylor series expansion of the sine function on MIT Open CourseWare](https://ocw.mit.edu/courses/mathematics/18-01sc-single-variable-calculus-fall-2010/unit-5-exploring-the-infinite/part-b-taylor-series/session-99-taylors-series-continued/MIT18_01SCF10_Ses99c.pdf)
 
@@ -244,8 +298,11 @@ Software synthesizers typically use more sophisticated algorithms than the one p
 
 [5] [Vesa Välimäki and Antti Huovilainen, *Oscillator and Filter Algorithms for Virtual Analog Synthesis*, Computer Music Journal 30(2):19-31, June 2006](https://www.researchgate.net/publication/220386519_Oscillator_and_Filter_Algorithms_for_Virtual_Analog_Synthesis)
 
-<!-- DePoli -->
-<!-- Russ -->
+[6] [Martin Russ, *Sound Synthesis and Sampling*, 3rd Edition, Focal Press, 2009.](https://www.amazon.com/gp/product/0240521056/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0240521056&linkCode=as2&tag=wolfsound05-20&linkId=6b14259801a2e3d4db314d1df0b2b2f1)
+
+[7] [Giovanni De Poli, *A Tutorial on Digital Sound Synthesis Techniques*, Computer Music Journal, January 1992.](https://www.researchgate.net/publication/245122776_A_Tutorial_on_Digital_Sound_Synthesis_Techniques)
+
+<p class="text-muted font-italic" style="font-size: 0.8rem">Links above may be affiliate links. That means that I may earn a commission, if you decide to make a purchase. This does not incur any cost for you. Thank you.</p>
 
 {% endkatexmm %}
 
