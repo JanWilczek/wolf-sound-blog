@@ -125,7 +125,7 @@ def main():
 
     square_table = generate_wavetable(wavetable_size, lambda x: np.sign(np.sin(x)))
     multi_cycle_table = np.concatenate((sine_table, square_table, sawtooth_table))
-    multi_cycle_no_fade = synthesize(multi_cycle_table, 330, 5, fs)
+    multi_cycle_no_fade = synthesize(multi_cycle_table, 330 / 3, 5, fs) # Division by 3 because we concatenated 3 tables
     output_all(multi_cycle_no_fade, 'multi_cycle', fs, multi_cycle_table)
     
 

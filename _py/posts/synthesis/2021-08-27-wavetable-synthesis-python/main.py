@@ -128,7 +128,7 @@ def main():
     # Multi-cycle waveform generation
     square_table = generate_wavetable(wavetable_size, lambda x: np.sign(np.sin(x)))
     multi_cycle_table = np.concatenate((sine_table, square_table, sawtooth_table))
-    multi_cycle = synthesize(multi_cycle_table, 330, 5, sampling_rate)
+    multi_cycle = synthesize(multi_cycle_table, 330 / 3, 5, sampling_rate)  # Frequency is divided by 3 because we concatenated 3 tables
     output_all(multi_cycle, 'multi_cycle', sampling_rate, multi_cycle_table)
 
     # Continuous frequency control
