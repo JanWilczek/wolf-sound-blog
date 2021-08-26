@@ -149,8 +149,7 @@ def generate_wavetable(length, f):
 
 def output_wavs(signal, name, sampling_rate, table):
     """Save the signal and wave table under specified names."""
-    output_dir = Path('assets', 'wav', 'posts', 'synthesis',
-                      '2021-08-27-wavetable-synthesis-python')
+    output_dir = Path('wavetable-synthesis-python')
     output_dir.mkdir(parents=True, exist_ok=True)
 
     wavfile.write(
