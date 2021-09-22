@@ -26,7 +26,7 @@ description: >- # this means to ignore newlines until "baseurl:"
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://thewolfsound.com" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  JanWilczek
-youtube_channel: https://www.youtube.com/channel/UCZuWJuoBe046gMqmYcc7Qww
+youtube_channel: https://www.youtube.com/c/WolfSoundAudio
 linkedin_account: https://www.linkedin.com/in/jan-wilczek-audio-programmer/
 logo_title_path: /wp-content/uploads/2019/10/LogoNameOnly.png
 google_analytics: UA-149437803-2
