@@ -18,6 +18,8 @@ discussion_id: 2021-09-24-wavetable-synthesis-juce
 ---
 Let's write a wavetable synthesizer in JUCE C++ framework!
 
+{% katexmm %}
+
 In previous articles, I explained [how wavetable synthesis algorithm works]({% post_url synthesis/2021-08-13-wavetable-synthesis-theory %}) and showed [an implementation of it in Python]({% post_url synthesis/2021-08-27-wavetable-synthesis-python %}). Now is the time to write a wavetable synth in C++!
 
 *Note: The article presents only code written by me. For the full, operational project, [see the related repository on GitHub](https://github.com/JanWilczek/wavetable-synth).*
@@ -90,7 +92,7 @@ _Listing 1. WavetableSynth.h._
 class WavetableSynth
 {
 public:
-	void prepareToPlay(double sampleRate, int samplesPerBlock); // [1]
+	void prepareToPlay(double sampleRate); // [1]
 	void processBlock(juce::AudioBuffer<float>& buffer, juce::MidiBuffer& midiMessages);  // [2]
 
 private:
@@ -108,15 +110,184 @@ private:
 Below are the explanations of the particular functions.
 
 Public interface:
-[1] `prepareToPlay()` sets the initial parameters for processing (analogously to `prepareToPlay()` from `PluginProcessor`).
+[1] `prepareToPlay()` sets the sample rate for processing (analogously to `prepareToPlay()` from `PluginProcessor`).
+
 [2] `processBlock()` is called from within `PluginProcessor`'s `processBlock()`.
 
 All other member functions serve only to help in the processing.
 
 [3] `generateSineWaveTable()` generates 64 samples of a sine wave period.
+
 [4] `initializeOscillators()` initializes 200 oscillators as wave table oscillators.
+
 [5] `handleMidiEvent()`, well, handles a MIDI event 😉. It translates a MIDI message to synthesizer's parameters change.
+
 [6] `render()` generates samples in the [`beginSample`, `endSample`) range (Standard Template Library-style ranges).
+
 [7] A `vector` of `oscillators` contains all oscillators created by `initializeOscillators()`. To these oscillators particular notes to be played are assigned.
 
 Note that `WavetableSynth` is default-constructed.
+
+## Prepare To Play
+
+Let's implement how our synthesizer will learn about the environment it works in.
+
+_Listing 2. WavetableSynth.cpp: prepareToPlay()._
+```cpp
+void WavetableSynth::prepareToPlay(double sampleRate)
+{
+    this->sampleRate = sampleRate;
+
+    initializeOscillators();
+}
+```
+We store the sample rate and expected samples per block (just in case). Then we initialize the oscillators.
+
+### Oscillator Initialization
+
+_Listing 3. WavetableSynth.cpp: initializeOscillators()._
+```cpp
+void WavetableSynth::initializeOscillators()
+{
+	oscillators.clear(); // [1]
+	constexpr auto OSCILLATOR_COUNT = 200;
+	const auto sineWaveTable = generateSineWaveTable(); // [2]
+
+	for (auto i = 0; i < OSCILLATOR_COUNT; ++i)	// [3]
+	{
+		oscillators.emplace_back(sineWaveTable, sampleRate); // [4]
+	}
+}
+```
+
+Oscillator initialization consists of
+
+1. clearing the `oscillators` vector [1] (it could be nonempty when the change in parameters happened during processing),
+1. generating the sine wave table [2],
+1. and instantiating the oscillators [3].
+
+Here the number of oscillators created (200) is arbitrary. This number could also be specified by the user, but I decided to fix it for simplicity.
+
+### Sine Wave Table Generation
+
+Generating the sine wave table is quite straightforward.
+
+_Listing 4. WavetableSynth.cpp: generateSineWaveTable()._
+```cpp
+std::vector<float> WavetableSynth::generateSineWaveTable()
+{
+	constexpr auto WAVETABLE_LENGTH = 64;
+	const auto PI = std::atanf(1.f) * 4;
+    std::vector<float> sineWaveTable = std::vector<float>(WAVETABLE_LENGTH);
+
+	for (auto i = 0; i < WAVETABLE_LENGTH; ++i)
+	{
+		sineWaveTable[i] = std::sinf(2 * PI * static_cast<float>(i) / WAVETABLE_LENGTH);
+	}
+
+    return sineWaveTable;
+}
+```
+
+Again, the length of the wave table (64) could be made a parameter, but I decided to fix it for simplicity.
+
+In `generateSineWaveTable()` we create a vector of a fixed length and fill it with samples of one period of the sine. Sine's period is $2\pi$ so we increase linearly the phase given to `std::sinf()`.
+
+Oscillators are instances of `WavetableOscillator`. `WavetableOscillator` produces samples by looping over the wavetable. To this end, it needs the sample rate information, the wave table to loop over, and, eventually, (at runtime) the frequency it should play. We will pass the first two to the constructor of `WavetableOscillator` ([4] in Listing 3).
+
+### Connection to PluginProcessor
+
+To connect our `WavetableSynth` with `PluginProcessor` we create a member variable in `PluginProcessor`.
+
+_Listing 5. PluginProcessor.h: synth member variable._
+```cpp
+class WavetableSynthAudioProcessor  : public juce::AudioProcessor
+{
+//...
+private:
+    WavetableSynth synth;
+//...
+};
+```
+
+`synth` will be default-initialized.
+
+We now can implement `PluginProcessor`'s `prepareToPlay()`:
+_Listing 6. PluginProcessor.cpp: prepareToPlay()._
+```cpp
+void WavetableSynthAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBlock)
+{
+    synth.prepareToPlay(sampleRate);
+}
+```
+
+We are prepared to play! Before we write the processing code, let's implement `WavetableOscillator` so that it is capable of producing samples.
+
+# WavetableOscillator
+
+Here is the full interface of `WavetableOscillator
+
+_Listing 7. WavetableOscillator.h._
+```cpp
+#pragma once
+#include <vector>
+
+class WavetableOscillator
+{
+public:
+	WavetableOscillator(std::vector<float> waveTable, double sampleRate); // [1]
+	WavetableOscillator(const WavetableOscillator&) = delete; // [2]
+	WavetableOscillator& operator=(const WavetableOscillator&) = delete; // [2]
+	WavetableOscillator(WavetableOscillator&&) = default; // [3]
+	WavetableOscillator& operator=(WavetableOscillator&&) = default; //[3]
+
+	float getSample();	// [4]
+	void setFrequency(float frequency);	// [5]
+	void stop();	// [6]
+	bool isPlaying() const;	// [7]
+
+private:
+	float interpolateLinearly() const;	// [8]
+
+	float index = 0.f;	// [9]
+	float indexIncrement = 0.f;	// [10]
+	std::vector<float> waveTable;
+	double sampleRate;
+};
+```
+
+Let's quickly cover what's involved here.
+
+The constructor [1] takes the `waveTable` and the `samplingRate` and simply stores them in member variables `waveTable` and `sampleRate` respectively using initializer list.
+
+_Listing 8. WavetableOscillator.cpp: constructor._
+```cpp
+WavetableOscillator::WavetableOscillator(std::vector<float> waveTable, double sampleRate)
+: waveTable{ std::move(waveTable) },
+	sampleRate{ sampleRate }
+{}
+```
+
+Copying oscillators means copying wave tables. It may be expensive. In order to prevent from accidentally copying an oscillators I declared their copy constructor and copy assignment operator as `delete`d [2].
+
+Specifying one of the constructors prevents default generation of other constructors. I want to be able to `std::move` my oscillators so I marked the move constructor and move assignment operator to be `default`-generated by the compiler [3].
+
+
+_Listing . ._
+```cpp
+
+```
+_Listing . ._
+```cpp
+
+```
+_Listing . ._
+```cpp
+
+```
+{% endkatexmm %}
+_Listing . ._
+```cpp
+
+```
+
