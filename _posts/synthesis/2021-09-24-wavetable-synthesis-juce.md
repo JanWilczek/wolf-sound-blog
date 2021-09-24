@@ -416,12 +416,6 @@ Between adjacent MIDI messages no synthesizer parameters are changed (we have no
 
 Sound rendering means iterating over active oscillators and retrieving samples from them.
 
-We render the samples to the first channel only (which we assume is empty before the processing). We do that in the specified interval.
-
-Note, that we *add samples* instead of assigning them. This gives us polyphony (multiple oscillators playing at once).
-
-Afterwards, we copy the contents of that channel to all other channels.
-
 _Listing 15. WavetableSynth.cpp: render()._
 ```cpp
 void WavetableSynth::render(juce::AudioBuffer<float>& buffer, int beginSample, int endSample)
@@ -447,6 +441,12 @@ void WavetableSynth::render(juce::AudioBuffer<float>& buffer, int beginSample, i
     }
 }
 ```
+
+We render the samples to the first channel only (which we assume is empty before the processing). We do that only in the specified interval.
+
+Note that we *add samples* instead of assigning them. This gives us polyphony (multiple oscillators playing at once).
+
+Afterwards, we copy the contents of that channel to all other channels.
 
 ## Note Dispatching
 
@@ -477,25 +477,25 @@ void WavetableSynth::handleMidiEvent(const juce::MidiMessage& midiMessage)
 }
 ```
 
-We check the "interesting" MIDI message types and act on them.
+Here, we check for "interesting" MIDI message types and act on them.
 
-If a key was pressed, we convert its number to frequency in Hz and inform the oscillator under that number that it should start playing by setting its frequency.
+If a key was pressed ("note on"), we convert its number to frequency in Hz and inform the oscillator under that number that it should start playing by setting its frequency.
 
-If a key was released, we stop the oscillator responsible for that key.
+If a key was released ("note off"), we stop the oscillator responsible for that key.
 
-If an "all notes off" message was issued, we stop all oscillators. Such messages are more likely to be present in MIDI files rather than during a live performance.
+If an "all notes off" message was issued, we stop all oscillators. Such messages are more likely to be present in MIDI files rather than during live performances.
 
 ### How to Convert a MIDI Note Number to Frequency?
 
-A MIDI note number takes a value from the [0, 127] integer range. Number 69 corresponds to the A4 note in the scientific notation. In modern-day music, A4 is tuned to have a fundamental frequency of 440 Hz [Müller2015].
+A MIDI note number takes a value from the [0, 127] integer range. Number 69 corresponds to the A4 note in the scientific pitch notation. In modern-day music, A4 is most often tuned to have a fundamental frequency of 440 Hz [Müller2015].
 
 A formula for converting a MIDI note number $p$ to frequency $f$ is
 
 $$f(p) = 440 \cdot 2^{(p - 69) / 12}. \quad (1)$$
 
-440 is the tuning we chose for the A4 note. 69 is the MIDI note number of A4 on the keyboard. 12 is the number of notes in an octave (from C to B).
+Here, 440 is the tuning we chose for the A4 note in Hz. 69 is the MIDI note number of A4 on the keyboard. 12 is the number of notes in an octave (from C to B).
 
-In code it looks as follows:
+In code, it looks as follows:
 
 _Listing 17. WavetableSynth.cpp: midiNoteNumberToFrequency()._
 ```cpp
@@ -512,13 +512,35 @@ float WavetableSynth::midiNoteNumberToFrequency(const int midiNoteNumber)
 
 `float`s instead of `int`s enable floating-point division.
 
+## Plugging Processing into the Processor
+
+To wrap up the implementation, we need to connect our `WavetableSynth`'s `processBlock()` with `PluginProcessor`'s `processBlock()`.
+
+_Listing 18. PluginProcessor.cpp: processBlock()._
+```cpp
+void WavetableSynthAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, 
+                                                 juce::MidiBuffer& midiMessages)
+{
+    juce::ScopedNoDenormals noDenormals;
+
+    for (auto i = 0; i < buffer.getNumChannels(); ++i)
+        buffer.clear(i, 0, buffer.getNumSamples());
+
+    synth.processBlock(buffer, midiMessages);
+}
+```
+
+First, we clean the channels by setting all samples to 0. In this way, we make sure that there is no garbage in them.
+
+Then we call the `processBlock()` member function of `WavetableSynth` passing it the audio buffer and MIDI messages.
+
 ## Launching the Synthesizer Plugin
 
 That's it! We successfully implemented the plugin.
 
 After compilation, you can import it in a digital audio workstation (DAW) of your choice or the JUCE's AudioPluginHost.
 
-One thing you will hear instantly after playing some notes is that there are audible clicks when you press or release a key. That is because we didn't implement a fade-in nor a fade-out amplitude envelope. But that can be a topic of another article 😉
+One thing you will hear instantly after playing some notes is that there are audible clicks when you press or release a key. That is because we didn't implement a fade-in nor a fade-out amplitude envelope. But that could be a topic of another article 😉
 
 ## Summary
 
