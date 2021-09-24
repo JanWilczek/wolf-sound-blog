@@ -22,10 +22,11 @@ How to generate sound in code using the wavetable synthesis technique?
 {% capture _ %}{% increment equationId20210813 %}{% endcapture %}
 
 In this article, you will learn:
- * how to generate sound using wave tables,
- * step-by-step wavetable synthesis algorithm (also known as *fixed-waveform synthesis* [7]),
- * what are pros and cons of wavetable synthesis, and
- * how is wavetable synthesis related to other synthesis methods.
+
+* how to generate sound using wave tables,
+* step-by-step wavetable synthesis algorithm (also known as *fixed-waveform synthesis* [7]),
+* what are pros and cons of wavetable synthesis, and
+* how is wavetable synthesis related to other synthesis methods.
 
 In the follow-up articles, [an implementation of this technique in the Python programming language]({% post_url synthesis/2021-08-27-wavetable-synthesis-python %}) and the JUCE framework will follow.
 
@@ -287,11 +288,13 @@ The impact of each of the used wave tables may depend on control parameters. For
 Wavetable synthesis is an efficient method that allows us to generate arbitrary waveforms at arbitrary frequencies. Its low complexity comes at a cost of high amounts of digital distortion caused by the harmonics crossing the Nyquist frequency at high pitches.
 
 Pros of wavetable synthesis:
+
 * computationally efficient,
 * direct frequency-to-parameters mapping,
 * arbitrary waveform generation.
 
 Cons of wavetable synthesis:
+
 * aliasing already at moderately high frequencies,
 * requires further processing and/or extensions to be musically interesting.
 

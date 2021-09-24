@@ -6,7 +6,7 @@ author: Jan Wilczek
 layout: post
 permalink: /sound-synthesis/wavetable-synth-plugin-in-juce/
 images: assets/img/posts/synthesis/2021-09-24-wavetable-synthesis-juce
-# background: /assets/img/posts/synthesis/2021-08-27-wavetable-synthesis-python/Thumbnail.png
+background: /assets/img/posts/synthesis/2021-08-13-wavetable-synthesis-theory/Thumbnail.png
 categories:
  - Sound Synthesis
 tags:
@@ -20,7 +20,7 @@ Let's write a wavetable synthesizer in JUCE C++ framework!
 
 {% katexmm %}
 
-In previous articles, I explained [how wavetable synthesis algorithm works]({% post_url synthesis/2021-08-13-wavetable-synthesis-theory %}) and showed [an implementation of it in Python]({% post_url synthesis/2021-08-27-wavetable-synthesis-python %}). Now is the time to write a wavetable synth in C++!
+In previous articles, I explained [how wavetable synthesis algorithm works]({% post_url synthesis/2021-08-13-wavetable-synthesis-theory %}) and showed [an implementation of it in Python]({% post_url synthesis/2021-08-27-wavetable-synthesis-python %}). Now is the time to write a real-time wavetable synth in C++!
 
 *Note: The article presents only code written by me. For the full, operational project, [see the related repository on GitHub](https://github.com/JanWilczek/wavetable-synth).*
 
@@ -30,25 +30,27 @@ In previous articles, I explained [how wavetable synthesis algorithm works]({% p
 
 ## What is JUCE?
 
-The [JUCE framework](https://juce.com/) is a C++-based framework for developing audio-related software. It is currently the easiest way to build your own digital audio workstation (DAW) plug-ins. That is why a lot of companies include familiarity with JUCE as one of the nice-to-have for audio developer positions. JUCE is free for personal use, which makes it perfect for our goal of developing a C++ wavetable synthesizer!
+The [JUCE framework](https://juce.com/) is a C++-based framework for developing audio-related software. It is currently the easiest way to build your own digital audio workstation (DAW) plugins and other audio-related software. That is why, a lot of companies include familiarity with JUCE as one of the nice-to-haves for audio developer positions. 
+
+JUCE is free for personal use, which makes it perfect for our goal of developing a C++ wavetable synthesizer!
 
 To understand this article, you only need to know 1 thing about JUCE.
 
 ![]({{ page.images | absolute_url | append: "/InceptionJUCEMeme.jpg" }}){: alt="There is 1 thing you need to know about JUCE meme." width="600px" }
 
-Plug-ins built with JUCE consist of two parts:
+Plugins built with JUCE consist of two parts:
 
 1. A `PluginEditor`.
 1. A `Plugin Processor`.
 
 `PluginEditor` object is responsible for the graphical user interface (GUI) elements. We won't need it for our implementation (yes, you can build a sound synthesizer without a GUI!).
 
-`PluginProcessor` object is concerned with audio processing. More specifically, **the processor connects our processing code with the platform it is running on**. If we are building a VST plug-in, the processor will connect all necessary inputs and output so that we can use the plug-in in a DAW.
+`PluginProcessor` object is concerned with audio processing. More specifically, **the processor connects our processing code with the platform it is running on**. If we are building a VST plugin, the processor will connect all necessary inputs and outputs so that we can use the plugin in a DAW.
 
 `PluginProcessor` has two member functions that we will need:
 
-1. `void prepareToPlay (double sampleRate, int samplesPerBlock)` enables us to configure our synthesizer after plug-in start or after a major settings change, e.g., after changing audio device settings.
-1. `void processBlock (juce::AudioBuffer<float>&, juce::MidiBuffer&)` contains the audio processing code that a developer using JUCE should write. `AudioBuffer` object contains audio samples of the current block and `MidiBuffer` object contain MIDI events that happened during that block.
+1. `void prepareToPlay (double sampleRate, int samplesPerBlock)` enables us to configure our synthesizer after plugin start or after a major settings change, e.g., after changing the audio device settings.
+1. `void processBlock (juce::AudioBuffer<float>&, juce::MidiBuffer&)` contains the audio processing code that a developer using JUCE should write. `AudioBuffer` object contains audio samples of the current block and `MidiBuffer` object contains MIDI events that happened during that block.
 
 If you don't know what an audio block is, [check out this short paragraph]({% post_url 2021-05-14-fast-convolution %}#block-based-convolution).
 
@@ -58,26 +60,28 @@ How do we go about it?
 
 ## The Goal
 
-We want to build a sine wavetable synthesizer that is polyphonic (can play multiple tones at once). We will need a plug-in that has a MIDI input, a MIDI output, and an audio output.
+We want to build a sine wavetable synthesizer that is polyphonic (can play multiple tones at once). We will need a plugin that has a MIDI input, a MIDI output, and an audio output.
 
 ## Project Setup in Projucer
 
-JUCE uses Projucer to set up the projects. From the templates I have chosen "Plugin -> Basic".
+JUCE uses Projucer to set up the projects. From the templates, I chose *Plugin -> Basic*.
 
-Then, taking into consideration our specification above, I selected the following options:
+Then, taking into the consideration our specification above, I selected the following options:
 * Plugin is a Synth,
 * Plugin MIDI Input, and
 * Plugin MIDI Output.
 
-I am using Visual Studio, so I generated a solution for Visual Studio 2019; you can go with the IDE you normally use for C++ development. After compilation, the built VST3 plug-in can be imported to a DAW of choice or JUCE's AudioPluginHost.
+I am using Visual Studio, so I generated a solution for Visual Studio 2019; you can go with the IDE you normally use for C++ development.
 
-After opening the project in the IDE you should have source files related to `PluginEditor` and `PluginProcessor`. Eventually, we will just slightly modify the `PluginProcessor` class (*PluginProcessor.cpp* file).
+After compilation, the built plugin can be imported to a DAW of choice or JUCE's AudioPluginHost.
 
-And that's it when it comes to JUCE project setup!
+After opening the project in the IDE, you should see the source files related to `PluginEditor` and `PluginProcessor`. Eventually, we will just slightly modify the `PluginProcessor` class (*PluginProcessor.cpp* file).
+
+And that's it for the JUCE project setup!
 
 ## The WavetableSynth class
 
-We start building our synthesizer by creating `WavetableSynth` class. It will contain the interface to our synthesizer that will be called from within `processBlock()`. Thus, we will follow the top-down approach.
+We start building our synthesizer by creating the `WavetableSynth` class. It will contain the interface to our synthesizer that will be called from within `processBlock()`. Thus, we will follow the top-down approach.
 
 Here are the contents of the *WavetableSynth.h* header file:
 
@@ -110,6 +114,7 @@ private:
 Below are the explanations of the particular functions.
 
 Public interface:
+
 [1] `prepareToPlay()` sets the sample rate for processing (analogously to `prepareToPlay()` from `PluginProcessor`).
 
 [2] `processBlock()` is called from within `PluginProcessor`'s `processBlock()`.
@@ -122,11 +127,11 @@ All other member functions serve only to help in the processing.
 
 [4] `initializeOscillators()` initializes 128 oscillators as wave table oscillators.
 
-[5] `handleMidiEvent()`, well, handles a MIDI event 😉. It translates a MIDI message to synthesizer's parameters change.
+[5] `handleMidiEvent()`, well, handles a MIDI event 😉. It translates a MIDI message to the synthesizer's parameters change.
 
-[6] `render()` generates samples in the [`beginSample`, `endSample`) range (Standard Template Library-style ranges).
+[6] `render()` generates samples in the [`beginSample`, `endSample`) range (Standard Template Library-style range).
 
-[7] A `vector` of `oscillators` contains all oscillators created by `initializeOscillators()`. To these oscillators particular notes to be played are assigned.
+[7] A `vector` of `oscillators` contains all oscillators created by `initializeOscillators()`. To these oscillators, particular notes are assigned.
 
 Note that `WavetableSynth` is default-constructed.
 
@@ -143,7 +148,7 @@ void WavetableSynth::prepareToPlay(double sampleRate)
     initializeOscillators();
 }
 ```
-We store the sample rate and expected samples per block (just in case). Then we initialize the oscillators.
+We store the sample rate and initialize the oscillators.
 
 ### Oscillator Initialization
 
@@ -164,11 +169,13 @@ void WavetableSynth::initializeOscillators()
 
 Oscillator initialization consists of
 
-1. clearing the `oscillators` vector [1] (it could be nonempty when the change in parameters happened during processing),
+1. clearing the `oscillators` vector [1] (it could be nonempty if the change in parameters happened during processing),
 1. generating the sine wave table [2],
 1. and instantiating the oscillators [3].
 
 Here the number of oscillators created (128) is the number of possible MIDI note number values. This number could also be specified by the user, but I decided to fix it for simplicity.
+
+Oscillators are instances of `WavetableOscillator`. `WavetableOscillator` produces samples by looping over the wavetable. To this end, it needs the sample rate information, the wave table to loop over, and, eventually, (at run time) the frequency it should play. We pass the first two to the constructor of `WavetableOscillator` ([4] in Listing 3).
 
 ### Sine Wave Table Generation
 
@@ -191,15 +198,13 @@ std::vector<float> WavetableSynth::generateSineWaveTable()
 }
 ```
 
-Again, the length of the wave table (64) could be made a parameter, but I decided to fix it for simplicity.
+The length of the wave table (64) could be a parameter, but I decided to fix it for simplicity.
 
-In `generateSineWaveTable()` we create a vector of a fixed length and fill it with samples of one period of the sine. Sine's period is $2\pi$ so we increase linearly the phase given to `std::sinf()`.
-
-Oscillators are instances of `WavetableOscillator`. `WavetableOscillator` produces samples by looping over the wavetable. To this end, it needs the sample rate information, the wave table to loop over, and, eventually, (at runtime) the frequency it should play. We will pass the first two to the constructor of `WavetableOscillator` ([4] in Listing 3).
+In `generateSineWaveTable()` we create a vector of a fixed length and fill it with samples of one period of the sine. Sine's period is $2\pi$ so we increase the phase linearly from 0 to $2\pi - \frac{2\pi}{64}$.
 
 ### Connection to PluginProcessor
 
-To connect our `WavetableSynth` with `PluginProcessor` we create a member variable in `PluginProcessor`.
+To connect our `WavetableSynth` with `PluginProcessor`, we create a member variable in `PluginProcessor`.
 
 _Listing 5. PluginProcessor.h: synth member variable._
 ```cpp
@@ -218,7 +223,7 @@ We now can implement `PluginProcessor`'s `prepareToPlay()`:
 
 _Listing 6. PluginProcessor.cpp: prepareToPlay()._
 ```cpp
-void WavetableSynthAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBlock)
+void WavetableSynthAudioProcessor::prepareToPlay (double sampleRate, int)
 {
     synth.prepareToPlay(sampleRate);
 }
@@ -228,7 +233,7 @@ We are prepared to play! Before we write the processing code, let's implement `W
 
 ## WavetableOscillator
 
-Here is the full interface of `WavetableOscillator
+Here is the full interface of `WavetableOscillator`:
 
 _Listing 7. WavetableOscillator.h._
 ```cpp
@@ -254,14 +259,14 @@ private:
 
    float index = 0.f;   // [9]
    float indexIncrement = 0.f;   // [10]
-   std::vector<float> waveTable;
-   double sampleRate;
+   std::vector<float> waveTable;    //  [11]
+   double sampleRate;   //  [12]
 };
 ```
 
 Let's quickly cover what's involved here.
 
-The constructor [1] takes the `waveTable` and the `samplingRate` and simply stores them in member variables `waveTable` and `sampleRate` respectively using initializer list.
+The constructor [1] takes the `waveTable` and the `samplingRate` and stores them in member variables `waveTable` [11] and `sampleRate` [12] respectively using an initializer list.
 
 _Listing 8. WavetableOscillator.cpp: constructor._
 ```cpp
@@ -271,9 +276,9 @@ WavetableOscillator::WavetableOscillator(std::vector<float> waveTable, double sa
 {}
 ```
 
-Copying oscillators means copying wave tables. It may be expensive. In order to prevent from accidentally copying an oscillators I declared their copy constructor and copy assignment operator as `delete`d [2].
+Copying oscillators means copying wave tables; it may be expensive. In order to prevent from accidentally copying an oscillator, I declared their copy constructor and copy assignment operator as `delete`d [2].
 
-Specifying one of the constructors prevents the default generation of other constructors. I want to be able to `std::move` my oscillators so I marked the move constructor and move assignment operator to be `default`-generated by the compiler [3].
+Specifying one of the constructors prevents the default generation of other constructors. I want to be able to `std::move` my oscillators so I marked the move constructor and the move assignment operator to be `default`-generated by the compiler [3].
 
 ### Wave Table Looping
 
@@ -298,11 +303,11 @@ float WavetableOscillator::getSample()
 
 To enforce the invariant that only an active oscillator will have its `getSample()` member function called, I have added an assertion that it `isPlaying()`.
 
-The next step is to bring the index into the range of wave table indices.
+The next step is to bring the `index` into the range of wave table indices using `std::fmod`. `std::fmod` returns the floating-point remainder of a division and, thus, keeps the `index` within the [0, `waveTable.size()`) range.
 
-Afterwards, we perform linear interpolation of wave table values to get the output sample.
+Afterwards, we perform a linear interpolation of wave table values to get the output sample.
 
-Only then do we increment the index; otherwise, we would never start playing with `index` equal to 0.
+Only then do we increment the index; otherwise, we would never start playing a note with `index` equal to 0 (we would always start looping at `indexIncrement`).
 
 Then we return the generated sample.
 
@@ -310,24 +315,24 @@ The DSP diagram is bigger than the code 😏.
 
 ### Setting the Frequency
 
-`setFrequency()` [5] implements Equation 9 from [wave table theory article]({% post_url synthesis/2021-08-13-wavetable-synthesis-theory %}).
+`setFrequency()` [5] implements Equation 9 from [the wave table theory article]({% post_url synthesis/2021-08-13-wavetable-synthesis-theory %}).
 
 _Listing 10. WavetableOscillator.cpp: setFrequency()._
 ```cpp
 void WavetableOscillator::setFrequency(float frequency)
 {
    indexIncrement = frequency * static_cast<float>(waveTable.size()) 
-                                               / static_cast<float>(sampleRate);
+                                        / static_cast<float>(sampleRate);
 }
 ```
 
-Casting is necessary because `vector`'s `size_type` is implementation-dependent and `sampleRate` is a `double`.
+Casting is necessary, because `vector`'s `size_type` is implementation-dependent and `sampleRate` is a `double`.
 
 This implementation of `setFrequency()` allows continuous frequency changes on a sample-by-sample basis.
 
 ### Stopping the Oscillator
 
-`stop()` [6] resets the `index` and the `indexIncrement` to 0 making further looping impossible.
+`stop()` [6] resets the `index` and the `indexIncrement` to 0, making further looping impossible.
 
 _Listing 11. WavetableOscillator.cpp: stop()._
 ```cpp
@@ -348,11 +353,13 @@ bool WavetableOscillator::isPlaying() const
 }
 ```
 
-Obviously, if `indexIncrement` is 0, we cannot move forward in wave table looping.
+Obviously, if `indexIncrement` is 0, we cannot move forward in wave table looping so the oscillator is not playing.
 
 ### Linear Interpolation
 
-Finally, we need to linearly interpolate the values in the wave table [8]. This should be delegated to a different class (because an oscillator is not an interpolator) but for simplicity and brevity I put the interpolation functionality in the `WavetableOscillator` class. This member function does not alter any member variables so it can be `const`.
+Finally, we need to linearly interpolate between the values in the wave table [8]. This should be delegated to a different class (because an oscillator is not an interpolator) but for simplicity and brevity, I put the interpolation functionality in the `WavetableOscillator` class. 
+
+This member function does not alter any member variables so it can be `const`.
 
 _Listing 13. WavetableOscillator.cpp: interpolateLinearly()._
 ```cpp
@@ -377,7 +384,7 @@ In linear interpolation, we want to return `a * waveTable[truncatedIndex] + b * 
 
 For example, if `index` is nearer to `nextIndex` than to `truncatedIndex`, `b` should be larger than `a` so that the returned value is closer to `waveTable[nextIndex]`. 
 
-Since the samples lie at integer indices, the distance between successive samples is 1 (conceptually also between the last index in the wave table and the first). So we can simply use distances of `index` from neighboring indices as weights, because these distances sum to 1.
+Since the samples lie at integer indices, the distance between successive samples is 1 (conceptually also between the last index in the wave table and the first). So we can simply use distances of `index` to neighboring indices as weights, because these distances sum to 1.
 
 At the end, we return the neighboring samples in the wave table multiplied by their corresponding weights.
 
@@ -385,7 +392,7 @@ At the end, we return the neighboring samples in the wave table multiplied by th
 
 ## Actual Processing Code
 
-After implementing the `WavetableOscillator` we can implement the two remaining member functions of `WavetableSynth`. Let's start with `processBlock()`.
+After implementing the `WavetableOscillator`, we can implement the two remaining member functions of `WavetableSynth`. Let's start with `processBlock()`.
 
 _Listing 14. WavetableSynth.cpp: processBlock()._
 ```cpp
@@ -397,7 +404,7 @@ void WavetableSynth::processBlock(juce::AudioBuffer<float>& buffer,
     for (const auto midiMetadata : midiMessages)
     {
         const auto message = midiMetadata.getMessage();
-        const int messagePosition = static_cast<int>(message.getTimeStamp());
+        const auto messagePosition = static_cast<int>(message.getTimeStamp());
 
         render(buffer, currentSample, messagePosition);
         currentSample = messagePosition;
@@ -410,7 +417,7 @@ void WavetableSynth::processBlock(juce::AudioBuffer<float>& buffer,
 
 Processing amounts to simply reading out available MIDI messages, acting on them, and rendering sound in between. 
 
-Between adjacent MIDI messages no synthesizer parameters are changed (we have no GUI) so the rendering environment stays constant and we can render all the samples in that interval.
+Between adjacent MIDI messages, no synthesizer parameters are changed (we have no GUI) so the rendering environment stays constant and we can simply render all the samples in that interval.
 
 ## Sound Rendering
 
@@ -418,7 +425,8 @@ Sound rendering means iterating over active oscillators and retrieving samples f
 
 _Listing 15. WavetableSynth.cpp: render()._
 ```cpp
-void WavetableSynth::render(juce::AudioBuffer<float>& buffer, int beginSample, int endSample)
+void WavetableSynth::render(juce::AudioBuffer<float>& buffer, 
+                            int beginSample, int endSample)
 {
     auto* firstChannel = buffer.getWritePointer(0);
     for (auto& oscillator : oscillators)
@@ -538,7 +546,7 @@ Then we call the `processBlock()` member function of `WavetableSynth` passing it
 
 That's it! We successfully implemented the plugin.
 
-After compilation, you can import it in a digital audio workstation (DAW) of your choice or the JUCE's AudioPluginHost.
+After compilation, you can import it in a digital audio workstation of your choice or the JUCE's AudioPluginHost.
 
 One thing you will hear instantly after playing some notes is that there are audible clicks when you press or release a key. That is because we didn't implement a fade-in nor a fade-out amplitude envelope. But that could be a topic of another article 😉
 
