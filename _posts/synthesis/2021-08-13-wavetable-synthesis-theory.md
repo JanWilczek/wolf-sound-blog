@@ -315,7 +315,7 @@ These are the references I used for this article. If you are interested in the t
 
 [7] [Giovanni De Poli, *A Tutorial on Digital Sound Synthesis Techniques*, Computer Music Journal, January 1992.](https://www.researchgate.net/publication/245122776_A_Tutorial_on_Digital_Sound_Synthesis_Techniques)
 
-<p class="text-muted font-italic" style="font-size: 0.8rem">Links above may be affiliate links. That means that I may earn a commission, if you decide to make a purchase. This does not incur any cost for you. Thank you.</p>
+{% include affiliate-disclaimer.html %}
 
 {% endkatexmm %}
 

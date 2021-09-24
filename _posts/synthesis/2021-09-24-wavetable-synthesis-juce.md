@@ -26,7 +26,7 @@ In previous articles, I explained [how wavetable synthesis algorithm works]({% p
 
 *Note: I am using JUCE v6.0.5.*
 
-*Note: The purpose of the presented code is __educational__. Please, don't complain that the Single Responsibility Principle (SRP) and other object-oriented programming (OOP) rules are violated. Thanks! 😎*
+*Note: The purpose of the presented code is __educational__. Please, don't complain that the Single Responsibility Principle (SRP) and other object-oriented programming (OOP) rules are violated. Thanks!* 😎
 
 ## What is JUCE?
 
@@ -120,7 +120,7 @@ All other member functions serve only to help in the processing.
 
 [3.5] `midiNoteNumberToFrequency()` converts a MIDI note number (an integer corresponding to a key on a MIDI keyboard) to frequency in Hz (assuming a certain tuning of the piano).
 
-[4] `initializeOscillators()` initializes 200 oscillators as wave table oscillators.
+[4] `initializeOscillators()` initializes 128 oscillators as wave table oscillators.
 
 [5] `handleMidiEvent()`, well, handles a MIDI event 😉. It translates a MIDI message to synthesizer's parameters change.
 
@@ -152,7 +152,7 @@ _Listing 3. WavetableSynth.cpp: initializeOscillators()._
 void WavetableSynth::initializeOscillators()
 {
    oscillators.clear(); // [1]
-   constexpr auto OSCILLATOR_COUNT = 200;
+   constexpr auto OSCILLATOR_COUNT = 128;
    const auto sineWaveTable = generateSineWaveTable(); // [2]
 
    for (auto i = 0; i < OSCILLATOR_COUNT; ++i)   // [3]
@@ -168,7 +168,7 @@ Oscillator initialization consists of
 1. generating the sine wave table [2],
 1. and instantiating the oscillators [3].
 
-Here the number of oscillators created (200) is arbitrary. This number could also be specified by the user, but I decided to fix it for simplicity.
+Here the number of oscillators created (128) is the number of possible MIDI note number values. This number could also be specified by the user, but I decided to fix it for simplicity.
 
 ### Sine Wave Table Generation
 
@@ -360,7 +360,7 @@ float WavetableOscillator::interpolateLinearly() const
 {
     const auto truncatedIndex = static_cast<typename  decltype(waveTable)::size_type>(index);
     const auto nextIndex = static_cast<typename  decltype(waveTable)::size_type>
-                                                            (std::ceil(index)) % waveTable.size();
+                                                    (std::ceil(index)) % waveTable.size();
     const auto nextIndexWeight = index - static_cast<float>(truncatedIndex);
     return waveTable[nextIndex] * nextIndexWeight + 
                             (1.f - nextIndexWeight) * waveTable[truncatedIndex];
@@ -389,7 +389,8 @@ After implementing the `WavetableOscillator` we can implement the two remaining 
 
 _Listing 14. WavetableSynth.cpp: processBlock()._
 ```cpp
-void WavetableSynth::processBlock(juce::AudioBuffer<float>& buffer, juce::MidiBuffer& midiMessages)
+void WavetableSynth::processBlock(juce::AudioBuffer<float>& buffer, 
+                                  juce::MidiBuffer& midiMessages)
 {
     auto currentSample = 0;
 
@@ -440,7 +441,9 @@ void WavetableSynth::render(juce::AudioBuffer<float>& buffer, int beginSample, i
     for (int channel = 1; channel < buffer.getNumChannels(); ++channel)
     {
         auto* channelData = buffer.getWritePointer(channel);
-        std::copy(firstChannel + beginSample, firstChannel + endSample, channelData + beginSample);
+        std::copy(firstChannel + beginSample, 
+            firstChannel + endSample, 
+            channelData + beginSample);
     }
 }
 ```
@@ -482,22 +485,59 @@ If a key was released, we stop the oscillator responsible for that key.
 
 If an "all notes off" message was issued, we stop all oscillators. Such messages are more likely to be present in MIDI files rather than during a live performance.
 
-### How to Convert MIDI Note Number to Frequency?
+### How to Convert a MIDI Note Number to Frequency?
 
-<!-- Mueller formula -->
+A MIDI note number takes a value from the [0, 127] integer range. Number 69 corresponds to the A4 note in the scientific notation. In modern-day music, A4 is tuned to have a fundamental frequency of 440 Hz [Müller2015].
 
-_Listing . ._
+A formula for converting a MIDI note number $p$ to frequency $f$ is
+
+$$f(p) = 440 \cdot 2^{(p - 69) / 12}. \quad (1)$$
+
+440 is the tuning we chose for the A4 note. 69 is the MIDI note number of A4 on the keyboard. 12 is the number of notes in an octave (from C to B).
+
+In code it looks as follows:
+
+_Listing 17. WavetableSynth.cpp: midiNoteNumberToFrequency()._
 ```cpp
-
+float WavetableSynth::midiNoteNumberToFrequency(const int midiNoteNumber)
+{
+    constexpr auto A4_FREQUENCY = 440.f;
+    constexpr auto A4_NOTE_NUMBER = 69.f;
+    constexpr auto NOTES_IN_AN_OCTAVE = 12.f;
+    return A4_FREQUENCY * 
+            std::powf(2, 
+                (static_cast<float>(midiNoteNumber) - A4_NOTE_NUMBER) / NOTES_IN_AN_OCTAVE);
+}
 ```
- MIDI note number takes a value from the [0, 127] integer range.
-_Listing . ._
-```cpp
 
-```
+`float`s instead of `int`s enable floating-point division.
 
-<!-- 1. JUCE -->
-<!-- 2. Mueller -->
-<!-- 3. MIDI specifications -->
+## Launching the Synthesizer Plugin
+
+That's it! We successfully implemented the plugin.
+
+After compilation, you can import it in a digital audio workstation (DAW) of your choice or the JUCE's AudioPluginHost.
+
+One thing you will hear instantly after playing some notes is that there are audible clicks when you press or release a key. That is because we didn't implement a fade-in nor a fade-out amplitude envelope. But that can be a topic of another article 😉
+
+## Summary
+
+In this article, we implemented a wavetable synthesizer plugin in the JUCE C++ framework. If you have any questions or comments, don't hesitate to write them below!
+
+## Bibliography
+
+Here is a list of useful references for the topic:
+
+[My article on how wavetable synthesis algorithm works]({% post_url synthesis/2021-08-13-wavetable-synthesis-theory %}).
+
+[Repository for this article containing the full code and source files](https://github.com/JanWilczek/wavetable-synth)
+
+[JUCE] [JUCE C++ framework](https://juce.com/).
+
+[Müller2015] [Meinard Müller, *Fundamentals of Music Processing*, Springer International Publishing Switzerland 2015](https://amzn.to/39vzWqR) (link leads to an updated, 2021 edition of the book).
+
+[MIDI] [MIDI Standard Specification, retrieved 24.09.2021](https://www.midi.org/specifications).
+
+{% include affiliate-disclaimer.html %}
 
 {% endkatexmm %}
