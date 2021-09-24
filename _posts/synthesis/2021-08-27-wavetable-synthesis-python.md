@@ -6,7 +6,7 @@ author: Jan Wilczek
 layout: post
 permalink: /sound-synthesis/wavetable-synth-in-python/
 images: assets/img/posts/synthesis/2021-08-27-wavetable-synthesis-python
-# background: /assets/img/posts/synthesis/2021-08-27-wavetable-synthesis-python/Thumbnail.png
+background: /assets/img/posts/synthesis/2021-08-13-wavetable-synthesis-theory/Thumbnail.png
 categories:
  - Sound Synthesis
 tags:
@@ -32,6 +32,7 @@ The `main()` function in the listing below synthesizes a sine waveform, a sawtoo
 Should you have any questions, please, write a comment below!
 
 [View the code on GitHub](https://github.com/JanWilczek/wolf-sound-blog/tree/master/_posts/synthesis/_wavetable_synthesis_python.py)
+
 ```python
 {% include_relative _wavetable_synthesis_python.py %}
 ```

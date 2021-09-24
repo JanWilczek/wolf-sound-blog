@@ -25,10 +25,10 @@ How to generate sound in code using the wavetable synthesis technique?
 
 In this article, you will learn:
 
- * how to generate sound using wave tables,
- * step-by-step wavetable synthesis algorithm (also known as *fixed-waveform synthesis* [7]),
- * what are pros and cons of wavetable synthesis, and
- * how is wavetable synthesis related to other synthesis methods.
+* how to generate sound using wave tables,
+* step-by-step wavetable synthesis algorithm (also known as *fixed-waveform synthesis* [7]),
+* what are pros and cons of wavetable synthesis, and
+* how is wavetable synthesis related to other synthesis methods.
 
 In the follow-up articles, [an implementation of this technique in the Python programming language]({% post_url synthesis/2021-08-27-wavetable-synthesis-python %}) and the JUCE framework will follow.
 
@@ -249,14 +249,22 @@ With sampling, a lot more implementation issues come up. Since sampling is not t
 
 # Single-Cycle, Multi-Cycle, and Multiple Wavetable
 
-What we discussed so far is a *single-cycle* variant of the wavetable synthesis, where we use just 1 period of a waveform stored in memory to generate the sound. There are more options available.
+What we discussed so far is a *single-cycle* variant of the wavetable synthesis, where we use just 1 period of a waveform stored in memory to generate the sound (Figure 11). There are more options available.
 
-In *multi-cycle* wavetable synthesis, we effectively concatenate different wavetables, whose order can be fixed or random. For example, we could concatenate sine, square, and sawtooth wave tables to obtain a more interesting timbre.
+![]({{ page.images | absolute_url | append: "/single_cycle_wavetable_synthesis.png" }}){: alt="Single-cycle wavetable synthesis scheme." width="200px" }
+_Figure 11. Single-cycle wavetable synthesis loops over 1 wave table._
+
+In *multi-cycle* wavetable synthesis, we effectively concatenate different wavetables, whose order can be fixed or random (Figure 12). 
+
+![]({{ page.images | absolute_url | append: "/multi_cycle_wavetable_synthesis.png" }}){: alt="Multi-cycle wavetable synthesis scheme." width="400px" }
+_Figure 12. Multi-cycle wavetable synthesis loops over multiple wave tables, possibly in a cycle._
+
+For example, we could concatenate sine, square, and sawtooth wave tables to obtain a more interesting timbre.
 
 The resulting wave table would look like this:
 
 ![]({{ page.images | absolute_url | append: "/multi_cycle_wave_table.png" }}){: alt="A wave table from a concatenation of sine, square, and sawtooth wave tables." width="600px" }
-_Figure 11. A wave table from a concatenation of sine, square, and sawtooth wave tables._
+_Figure 13. A wave table from a concatenation of sine, square, and sawtooth wave tables._
 
 Here is a sound generated using this wave table at 330 Hz.
 
@@ -267,11 +275,16 @@ One can hear the characteristics of all 3 waveforms.
 Here's its spectrum:
 
 ![]({{ page.images | absolute_url | append: "/multi_cycle_spectrum.png" }}){: alt="Magnitude frequency spectrum of a 330 Hz sound generated from a concatenation of wave tables." width="600px" }
-_Figure 12. Magnitude frequency spectrum of a 330 Hz sound generated from a concatenation of wave tables._
+_Figure 14. Magnitude frequency spectrum of a 330 Hz sound generated from a concatenation of wave tables._
 
 The above spectrum is heavily aliased. Additionally, we got a frequency component at 110 Hz. That is because by concatenating 3 wave tables, we essentially lengthened the base period of the waveform, effectively lowering its fundamental frequency 3 times. Original waveform was at 330 Hz; the fundamental is now at 110 Hz.
 
-In *multiple wavetable* variant, one mixes a few wave tables at the same time. The impact of each of the used wave tables may depend on control parameters. For example, if we press a key mildly, we can get a sine-like timbre, but if we press it fast, we may hear more high-frequency partials. That could be realized by mixing the sine and sawtooth wave tables. The ratio of these waveforms would directly depend on the velocity of the key stroke. There could also be some gradual change in the ratio while a key is pressed.
+In *multiple wavetable* variant, one mixes a few wave tables at the same time (Figure 15). 
+
+![]({{ page.images | absolute_url | append: "/multiple_wavetable_synthesis.png" }}){: alt="Multiple wavetable synthesis scheme." width="400px" }
+_Figure 15. Multiple wavetable synthesis mixes between multiple wave tables while looping over them._
+
+The impact of each of the used wave tables may depend on control parameters. For example, if we press a key mildly, we can get a sine-like timbre, but if we press it fast, we may hear more high-frequency partials. That could be realized by mixing the sine and sawtooth wave tables. The ratio of these waveforms would directly depend on the velocity of the key stroke. There could also be some gradual change in the ratio while a key is pressed.
 
 # Summary
 
@@ -308,7 +321,7 @@ These are the references I used for this article. If you are interested in the t
 
 [7] [Giovanni De Poli, *A Tutorial on Digital Sound Synthesis Techniques*, Computer Music Journal, January 1992.](https://www.researchgate.net/publication/245122776_A_Tutorial_on_Digital_Sound_Synthesis_Techniques)
 
-<p class="text-muted font-italic" style="font-size: 0.8rem">Links above may be affiliate links. That means that I may earn a commission, if you decide to make a purchase. This does not incur any cost for you. Thank you.</p>
+{% include affiliate-disclaimer.html %}
 
 {% endkatexmm %}
 
