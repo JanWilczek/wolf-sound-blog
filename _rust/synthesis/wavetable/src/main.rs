@@ -1,6 +1,5 @@
-use std::fs::File;
-use std::io::BufReader;
-use rodio::{Decoder, OutputStream, source::Source};
+use core::time::Duration;
+use rodio::{OutputStream, source::Source};
 
 
 struct WavetableOscillator {
@@ -36,12 +35,34 @@ impl WavetableOscillator {
     }
 } 
 
+impl Source for WavetableOscillator {
+    fn channels(&self) -> u16 {
+        return self.channels;
+    }
+
+    fn sample_rate(&self) -> u32 {
+        return self.sample_rate;
+    }   
+
+    fn current_frame_len(&self) -> Option<usize> {
+        return None;
+    }
+
+    fn total_duration(&self) -> Option<Duration> {
+        return None;
+    }
+}
+
+impl Iterator for WavetableOscillator {
+    type Item = f32;
+    
+    fn next(&mut self) -> Option<Self::Item> {
+        return Some(self.get_sample());
+    }
+}
+
 fn main() {
     let (_stream, stream_handle) = OutputStream::try_default().unwrap();
-
-    // let file = BufReader::new(File::open("gaussians.wav").unwrap());
-
-    // let source = Decoder::new(file).unwrap();
 
     let wave_table_size = 64;
     let mut wave_table: Vec<f32> = Vec::with_capacity(wave_table_size);
@@ -61,8 +82,7 @@ fn main() {
 
     osc.set_frequency(440.0);
 
+    let _result = stream_handle.play_raw(osc.convert_samples());
 
-    // stream_handle.play_raw(source.convert_samples());
-
-    // std::thread::sleep(std::time::Duration::from_secs(5));
+    std::thread::sleep(std::time::Duration::from_secs(5));
 }
