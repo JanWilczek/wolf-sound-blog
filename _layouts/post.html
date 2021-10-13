@@ -32,6 +32,10 @@ layout: default
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
 
+        {% if page.background %}
+        <img src="{{ page.background | prepend: site.baseurl | replace: '//', '/' }}" alt="{{ page.title }} thumbnail" style="max-width: 100%; height: auto;"/>
+        {% endif %}
+
         {{ content }}
 
         {% include share-buttons.html %}
