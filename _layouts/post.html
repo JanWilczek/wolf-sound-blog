@@ -36,7 +36,9 @@ layout: default
         <img src="{{ page.background | prepend: site.baseurl | replace: '//', '/' }}" alt="{{ page.title }} thumbnail" style="max-width: 100%; height: auto;"/>
         {% endif %}
 
-        {{ content }}
+        <div class="post-content">
+            {{ content }}
+        </div>
 
         {% include share-buttons.html %}
 

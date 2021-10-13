@@ -1,0 +1,91 @@
+// Styling for the masthead
+header.masthead {
+  // TIP: Background images are set within the HTML using inline CSS!
+  margin-bottom: 50px;
+  background: no-repeat center top;
+  background-color: $gray-600;
+  background-attachment: scroll;
+  position: relative;
+  @include background-cover;
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: $gray-900;
+    opacity: 0.5;
+  }
+  .background-filter-addon{
+    @media (max-width: #{$tablet-width - 1px}) {
+      backdrop-filter: blur(20px);
+    }
+  }
+  .page-heading,
+  .post-heading,
+  .site-heading {
+    padding: 200px 0 150px;
+    color: white;
+    @media only screen and (min-width: $tablet-width) {
+      padding: 70px 0px 70px;
+    }
+    h1 {
+      text-shadow: 2px 2px 0px rgba($ws-dark-background, 1);
+    }
+  }
+  .page-heading,
+  .site-heading {
+    text-align: left;
+    h1 {
+      font-size: 50px;
+      margin-top: 0;
+    }
+    .subheading {
+      font-size: 20px;
+      font-weight: 400;
+      line-height: 1.1;
+      display: block;
+      text-shadow: 1px 1px 2px rgba($black, 1);
+      margin: 10px 0 0;
+      @include sans-serif-font;
+    }
+    @media only screen and (min-width: 768px) {
+      h1 {
+        font-size: 80px;
+      }
+    }
+  }
+  .post-heading {
+    h1 {
+      font-size: 35px;
+    }
+    .meta,
+    .subheading {
+      line-height: 1.1;
+      display: block;
+    }
+    .subheading {
+      font-size: 24px;
+      font-weight: 600;
+      margin: 10px 0 30px;
+      @include sans-serif-font;
+    }
+    .meta {
+      font-size: 20px;
+      font-weight: 300;
+      font-style: italic;
+      @include serif-font;
+      a {
+        color: $white;
+      }
+    }
+    @media only screen and (min-width: 768px) {
+      h1 {
+        font-size: 55px;
+      }
+      .subheading {
+        font-size: 30px;
+      }
+    }
+  }
+}
