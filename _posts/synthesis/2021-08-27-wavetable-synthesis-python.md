@@ -1,6 +1,6 @@
 ---
 title: "Wavetable Synth in Python Tutorial"
-description: Tutorial on how to code you own wavetable synthesizer in Python.
+description: Tutorial on how to code your own wavetable synthesizer in Python.
 date: 2021-08-27
 author: Jan Wilczek
 layout: post

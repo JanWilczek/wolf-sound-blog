@@ -12,6 +12,17 @@ struct WavetableOscillator {
 }
 
 impl WavetableOscillator {
+    fn new(sample_rate: u32, wave_table: Vec<f32>) -> WavetableOscillator {
+        return WavetableOscillator {
+            channels: 1,
+            sample_rate: sample_rate,
+            frequency: 0.0,
+            wave_table: wave_table,
+            index: 0.0,
+            index_increment: 0.0,
+        };
+    }
+    
     fn set_frequency(&mut self, frequency: f32) {
         self.frequency = frequency;
         self.index_increment = self.frequency * self.wave_table.len() as f32 / self.sample_rate as f32;
@@ -71,14 +82,7 @@ fn main() {
         wave_table.push((2.0 * std::f32::consts::PI * n as f32 / wave_table_size as f32).sin());
     }
 
-    let mut osc = WavetableOscillator {
-        channels: 1,
-        sample_rate: 44100,
-        frequency: 0.0,
-        wave_table: wave_table,
-        index: 0.0,
-        index_increment: 0.0,
-    };
+    let mut osc = WavetableOscillator::new(44100, wave_table);
 
     osc.set_frequency(440.0);
 
