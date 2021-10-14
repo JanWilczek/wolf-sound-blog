@@ -27,6 +27,26 @@
             </a>
           </li>
           {% endif %}
+          {% if site.twitter_account %}
+          <li class="list-inline-item">
+            <a href="{{ site.twitter_account }}">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          {% endif %}
+          {% if site.facebook_page %}
+          <li class="list-inline-item">
+            <a href="{{ site.facebook_page }}">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fab fa-facebook fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          {% endif %}
           {% if site.github_username %}
           <li class="list-inline-item">
             <a href="https://github.com/{{ site.github_username }}">
