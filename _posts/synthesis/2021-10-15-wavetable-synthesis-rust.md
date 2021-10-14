@@ -201,6 +201,20 @@ Note that we need to specify the returned type. Here, it is the `WavetableOscill
 
 ### Setting Oscillator's Frequency
 
+To set the frequency of the oscillator, we need a `set_frequency()` method:
+
+```rust
+impl WavetableOscillator {
+    // (...)
+    fn set_frequency(&mut self, frequency: f32) {
+        self.index_increment = frequency * self.wave_table.len() as f32 / self.sample_rate as f32;
+    }
+}
+```   
+
+This is the exact formula from the [wavetable synthesis algorithm article]({% post_url synthesis/2021-08-13-wavetable-synthesis-theory %}) with the addition of Rust-style casting.
+
+Note that we pass in `&mut self` parameter as the first one. The `self` keyword denotes the receiver of the method, in this case, the struct instance we invoke our method on. `&` represents borrowing of ownership. The `self` will become the owner of the underlying value inside this method. To read more about Rust's ownership, please, refer to the [Rust Programming Language book chapter](https://doc.rust-lang.org/book/ch04-01-what-is-ownership.html). 
 <!-- TODO: Link the synth articles together! -->
 
 {% endkatexmm %}
