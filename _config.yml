@@ -40,15 +40,17 @@ kramdown:
   math_engine: mathjax
   auto_ids: true
 permalink: /:categories/:title/
-highlighter:        rouge
-paginate:           5
-paginate_path:      "/posts/page:num/"
+highlighter: rouge
+pagination:
+  enabled: true
+  per_page: 5
+  permalink: "/posts/page:num/"
 future: true
 plugins:
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-seo-tag
-  - jekyll-paginate
+  - jekyll-paginate-v2
   - jekyll-katex
   
 katex:
