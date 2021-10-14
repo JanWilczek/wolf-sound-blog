@@ -17,8 +17,6 @@ discussion_id: 2021-10-15-wavetable-synthesis-rust
 ---
 Let's write a wavetable synthesizer in Rust!
 
-{% katexmm %}
-
 There are so many programming languages out there. Why would we want to write a wavetable synth in Rust?
 
 After reading this article you will know
@@ -64,6 +62,7 @@ Cargo.toml  src
 ./src:
 main.rs
 ```
+
 As you can see, Cargo created the *wavetable_synth* folder. Inside there is the *Cargo.toml* file with our project's metadata and the *src* folder with the source code in Rust. Inside the *src* folder there is the *main.rs* file that is the entry point for each binary application in Rust.
 
 To finish the setup, run the `cargo run` command inside the *wavetable_synth* folder. You should see "Hello, world!" printed in your shell.
@@ -86,6 +85,8 @@ fn main() {
 
 }
 ```
+
+{% katexmm %}
 
 With these formalities out of the way, let's start with arranging a basic audio output with Rust.
 
@@ -214,7 +215,135 @@ impl WavetableOscillator {
 
 This is the exact formula from the [wavetable synthesis algorithm article]({% post_url synthesis/2021-08-13-wavetable-synthesis-theory %}) with the addition of Rust-style casting.
 
-Note that we pass in `&mut self` parameter as the first one. The `self` keyword denotes the receiver of the method, in this case, the struct instance we invoke our method on. `&` represents borrowing of ownership. The `self` will become the owner of the underlying value inside this method. To read more about Rust's ownership, please, refer to the [Rust Programming Language book chapter](https://doc.rust-lang.org/book/ch04-01-what-is-ownership.html). 
+Note that we pass in `&mut self` parameter as the first one. The `self` keyword denotes the receiver of the method, in this case, the struct instance we invoke our method on. Using `self` frees us from the duty of specifying the type of the argument. I find it similar to Python's `self`.
+
+`&` represents borrowing of ownership. The `self` will become the owner of the underlying value inside this method. To read more about Rust's ownership, please, refer to the [Rust Programming Language book chapter](https://doc.rust-lang.org/book/ch04-01-what-is-ownership.html). 
+
+Finally, by declaring the variable as mutable with `mut`, we provide the possibility of assigning values to the struct's fields.
+
+### Generating a Sample
+
+Generating a sample consists of linear interpolation of the wave table values according to the `index` value and incrementing the index. To see a graphical example of this interpolation, [check out my video excerpt](https://youtu.be/ssIJ8kFG7qs?t=548). We then perform the `fmod` operation, which in Rust can be done using the `%` modulo operator.
+
+```rust
+impl WavetableOscillator {
+    // (...)
+    fn get_sample(&mut self) -> f32 {
+        let sample = self.lerp();
+        self.index += self.index_increment;
+        self.index %= self.wave_table.len() as f32;
+        return sample;
+    }
+
+    fn lerp(&self) -> f32 {
+        let truncated_index = self.index as usize;
+        let next_index = (truncated_index + 1) % self.wave_table.len();
+        
+        let next_index_weight = self.index - truncated_index as f32;
+        let truncated_index_weight = 1.0 - next_index_weight;
+
+        return truncated_index_weight * self.wave_table[truncated_index] + next_index_weight * self.wave_table[next_index];
+    }
+}
+```
+
+`lerp()` is part of the implementation, because it needs the access to the `index` and `wave_table` fields.
+
+## Creating the Oscillator
+
+After writing the `WavetableOscillator` we can construct it in the `main()` function and set its frequency.
+
+```rust
+fn main() {
+    // (...)
+    let mut oscillator = WavetableOscillator::new(44100, wave_table);
+    oscillator.set_frequency(440.0);
+}
+```
+
+We are done with the synthesis code. The last thing to implement is the sound output using `rodio`.
+
+## Playback Using rodio
+
+From the ]documentation of rodio](https://docs.rs/rodio/0.14.0/rodio/), we can learn that the following code should output subsequent samples from the oscillator.
+
+```rust
+fn main() {
+    // (...)
+    let (_stream, stream_handle) = OutputStream::try_default().unwrap();
+    
+    let _result = stream_handle.play_raw(oscillator.convert_samples());
+
+    std::thread::sleep(std::time::Duration::from_secs(5));
+}
+```
+
+We create the output stream, tell it to play the samples, and then allow it to play back for 5 seconds before the main thread terminates. It's rather simplistic, I know 🙂.
+
+But how can we call `oscillator.convert_samples()`? It is because our `WavetableOscillator` has the `Iterator` and `Source` traits implemented. It's again, something to be read out of documentation.
+
+Traits in Rust are interfaces that our struct can implement. If a type implements a trait, it provides the functionality defined by the trait.
+
+### The Iterator Trait
+
+The `Iterator` trait needs a single method, `next()`, to be implemented and the type of the wrapped value declared as `type Item`.
+
+```rust
+impl Iterator for WavetableOscillator {
+    type Item = f32;
+    
+    fn next(&mut self) -> Option<Self::Item> {
+        return Some(self.get_sample());
+    }
+}
+```
+
+Note, how elegantly interfaces can be implemented by particular types in separation from the "main" implementation. The wrapped type is the sample type `f32`. Upon each call to `next()` we want to return 1 sample of the oscillator. However, we cannot simply return the sample. It must be wrapped in the `Option<T>` generic type. This tells the client code that it *can* store a value but it does not have to. If it stores a value, it is `Some<T>`. If not, it is `None`. This provides an additional layer of safety. It forces you to "check for null values".
+
+### The Source Trait
+
+The source trait implements methods that tell `rodio` what characteristics our output has. To implement it succesfully, we need to import the necessary types and traits by inserting `use` directives at the top of our *src/main.rs* file:
+
+```rust
+// main.rs
+
+use core::time::Duration;
+use rodio::{OutputStream, source::Source};
+// (...)
+```
+
+There are 4 methods required to be implemented. Our oscillator is monophonic so the number of channels is 1. The sampling rate was passed by us to the constructing function `new()`.
+
+```rust
+impl Source for WavetableOscillator {
+    fn channels(&self) -> u16 {
+        return 1;
+    }
+
+    fn sample_rate(&self) -> u32 {
+        return self.sample_rate;
+    }   
+
+    fn current_frame_len(&self) -> Option<usize> {
+        return None;
+    }
+
+    fn total_duration(&self) -> Option<Duration> {
+        return None;
+    }
+}
+```
+
+`None` returned by `current_frame_len()` and `total_duration()` means infinite output. Indeed, our oscillator can play back sound infinitely by constantly looping over the wave table. The infinite playback is interrupted by the termination of the main thread.
+
+## Running Our Synthesizer
+
+By executing `cargo run` you should be able to hear 5 seconds of a sine wave at 440 Hz. Phew! We made it!
+
+## Summary
+
+In this article, we implemented a sine wave oscillator using wavetable synthesis in Rust. To this end, we used the rodio library. If you have any questions related to Rust or this implementation, please, leave a comment below!
+
 <!-- TODO: Link the synth articles together! -->
 
 {% endkatexmm %}
