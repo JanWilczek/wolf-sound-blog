@@ -17,6 +17,8 @@ discussion_id: 2021-08-13-wavetable-synthesis-theory
 ---
 How to generate sound in code using the wavetable synthesis technique?
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ssIJ8kFG7qs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 {% katexmm %}
 
 {% capture _ %}{% increment equationId20210813 %}{% endcapture %}
@@ -80,7 +82,7 @@ _Figure 2. A wave table with 64 samples of the sine waveform._
 
 The above wave table uses 64 samples to store one period of the sine wave. These values **can** be calculated using the Taylor expansion because we compute them only once and store them in memory.
 
-$\sin$ period is exactly $2 \pi$. The period of a wave table is its length, let's denote it by $L$. For each sample index $k \in [0, \dots, L-1]$ in the wave table, there exists a corresponding argument $\theta \in [0, 2\pi)$ of the sine function.
+$\sin$ period is exactly $2 \pi$. The period of a wave table is its length, let's denote it by $L$. For each sample index $k \in \{0, \dots, L-1\}$ in the wave table, there exists a corresponding argument $\theta \in [0, 2\pi)$ of the sine function.
 
 $$\frac{k}{L} = \frac{\theta}{2 \pi}. \quad ({% increment equationId20210813 %})$$
 
@@ -105,10 +107,11 @@ Now `waveTable[k]` should return the value of $\sin(x)$, right? There is one mor
 In most cases, $k$ computed in Equation 7 won't be an integer. It will rather be a floating-point number between some two integers denoting the wave table indices, i.e., $i <= k < i+1, \quad i \in \{0, \dots, L-1\}, k \in [0, L)$.
 
 To make $k$ an integer, we have 3 options:
- * *truncation (0th-order interpolation)*: removing the non-integer part of $k$, a.k.a. `floor(k)`,
- * *rounding*: rounding $k$ to $i$ or $i+1$, whichever is nearest, a.k.a. `round(k)`,
- * *linear interpolation (1st-order interpolation)*: computing a weighted sum of the wave table values at $i$ and $i+1$. The weights correspond to $k$'s distance to $i+1$ and $i$ respectively, i.e., we return `(k-i)*waveTable[i+1] + (i+1 - k)*waveTable[i]`,
- * ~~*higher-order interpolation*~~: too expensive and unnecessary for wavetable synthesis.
+
+* *truncation (0th-order interpolation)*: removing the non-integer part of $k$, a.k.a. `floor(k)`,
+* *rounding*: rounding $k$ to $i$ or $i+1$, whichever is nearest, a.k.a. `round(k)`,
+* *linear interpolation (1st-order interpolation)*: computing a weighted sum of the wave table values at $i$ and $i+1$. The weights correspond to $k$'s distance to $i+1$ and $i$ respectively, i.e., we return `(k-i)*waveTable[i+1] + (i+1 - k)*waveTable[i]`,
+* ~~*higher-order interpolation*~~: too expensive and unnecessary for wavetable synthesis.
 
 Each recall of a wave table value is called a *wave table lookup*.
 
@@ -130,7 +133,7 @@ $$k_\text{inc} = (k+1) - k = \frac{(\phi_x + \theta_\text{inc})L}{2\pi} - \frac{
 
 When a key is pressed, we set an `index` variable to 0. For each sample, we increase the `index` variable by $k_\text{inc}$ and do a lookup. As long as the key is pressed, $k_\text{inc}$ is nonzero and we perform the wave table lookup.
 
-When `index` exceeds the wave table size, we need to bring it back to the $[0, L-1)$ range. In implementation, we can keep subtracting $L$ as long as `index` is greater or equal to $L$ or we can use the `fmod` operation. This "index wrap" results from the *phase wrap* which we discussed below Equation 5; since the signal is periodic, we can shift its phase by the period without changing the resulting signal.
+When `index` exceeds the wave table size, we need to bring it back to the $[0, L)$ range. In implementation, we can keep subtracting $L$ as long as `index` is greater or equal to $L$ or we can use the `fmod` operation. This "index wrap" results from the *phase wrap* which we discussed below Equation 5; since the signal is periodic, we can shift its phase by the period without changing the resulting signal.
 
 ## Phase Increment vs Index Increment
 
@@ -172,7 +175,7 @@ Oscillators are the workhorse of sound synthesis. What is presented in Figure 3 
 
 Let's use a precomputed wave table with 64 samples of one sine period from Figure 2 to generate 5 seconds of a sine waveform at 440 Hz using 44100 Hz sampling rate.
 
-We thus have $L = 64$, $f=440$, $f_s=44100$, $k_\text{inc} = 0.6395\dots$. The resulting sound is:
+We thus have $L = 64$, $f=440$ Hz, $f_s=44100$ Hz, $k_\text{inc} = 0.6395\dots$. The resulting sound is:
 
 {% include embed-audio.html src="/assets/wav/posts/synthesis/2021-08-13-wavetable-synthesis-theory/sine.wav" %}
 
@@ -199,7 +202,7 @@ That sounds ok, but we hear some ringing. How does it look in the spectrum?
 ![]({{ page.images | absolute_url | append: "/sawtooth_spectrum.png" }}){: alt="Magnitude frequency spectrum of a sawtooth generated with wavetable synthesis" }
 _Figure 7. Magnitude frequency spectrum of a sawtooth generated with wavetable synthesis._
 
-We can notice that there are some inharmonic frequency components that do not correspond to the typical decay of the sawtooth spectrum. These are aliased partials which occur because the spectrum of the sawtooth crossed the Nyquist frequency. To learn more about why this happens, you can [check out my article on aliasing]({% post_url 2019-11-28-what-is-aliasing-what-causes-it-how-to-avoid-it %})
+We can notice that there are some inharmonic frequency components that do not correspond to the typical decay of the sawtooth spectrum. These are aliased partials which occur because the spectrum of the sawtooth crossed the Nyquist frequency. To learn more about why this happens, you can [check out my article on aliasing]({% post_url 2019-11-28-what-is-aliasing-what-causes-it-how-to-avoid-it %}).
 
 Aliasing increases if we go 1 octave higher:
 
@@ -289,7 +292,7 @@ Wavetable synthesis is an efficient method that allows us to generate arbitrary 
 
 Pros of wavetable synthesis:
 
-* computationally efficient,
+* computational efficiency,
 * direct frequency-to-parameters mapping,
 * arbitrary waveform generation.
 
