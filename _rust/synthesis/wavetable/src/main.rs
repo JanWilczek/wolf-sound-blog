@@ -20,7 +20,8 @@ impl WavetableOscillator {
     }
     
     fn set_frequency(&mut self, frequency: f32) {
-        self.index_increment = frequency * self.wave_table.len() as f32 / self.sample_rate as f32;
+        self.index_increment = frequency * self.wave_table.len() as f32 
+                               / self.sample_rate as f32;
     }
 
     fn get_sample(&mut self) -> f32 {
@@ -37,7 +38,8 @@ impl WavetableOscillator {
         let next_index_weight = self.index - truncated_index as f32;
         let truncated_index_weight = 1.0 - next_index_weight;
 
-        return truncated_index_weight * self.wave_table[truncated_index] + next_index_weight * self.wave_table[next_index];
+        return truncated_index_weight * self.wave_table[truncated_index] 
+               + next_index_weight * self.wave_table[next_index];
     }
 } 
 

@@ -39,4 +39,4 @@ Should you have any questions, please, write a comment below!
 {% include_relative _wavetable_synthesis_python.py %}
 ```
 
-Up next: Wavetable synth implementation in the JUCE C++ framework!
+Up next: Wavetable synth implementation in the [JUCE C++ framework]({% post_url synthesis/2021-09-24-wavetable-synthesis-juce %}) and [Rust]({% post_url synthesis/2021-10-15-wavetable-synthesis-rust %})!
