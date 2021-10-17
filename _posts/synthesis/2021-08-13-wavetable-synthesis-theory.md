@@ -148,7 +148,7 @@ _Figure 3. A diagram of the wavetable synthesis algorithm using index increment.
 
 $k_\text{inc}[n]$ is the increment of the index into the wave table. It is denoted as a digital signal because in practice it can be changed on a sample-by-sample basis. It is directly dependent on the frequency of the played sound. If no sound is played $k_\text{inc}[n]$ is 0 and the `index` should be reset to 0. Alternatively, one could specify that if no sound is played this diagram is inactive (no signals are supplied to or taken from it).
 
-For each new output sample, index increment is added to the `index` variable stored in a single-sample buffer (denoted by $z^{-1}$ as explained in the [article on delays]({% post_url 2021-04-01-identity-element-of-the-convolution %})). This index is then "brought back" into the range of wavetable indices $[0, L)$ using the `fmod` operation. We still keep the fractional part of the index.
+For each new output sample, index increment is added to the `index` variable stored in a single-sample buffer. This index is then "brought back" into the range of wavetable indices $[0, L)$ using the `fmod` operation. We still keep the fractional part of the index.
 
 Then, we perform the lookup into the wavetable. The lookup can be done using an interpolation strategy of choice.
 

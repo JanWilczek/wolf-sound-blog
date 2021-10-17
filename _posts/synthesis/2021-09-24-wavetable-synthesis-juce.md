@@ -54,7 +54,7 @@ Plugins built with JUCE consist of two parts:
 1. `void prepareToPlay (double sampleRate, int samplesPerBlock)` enables us to configure our synthesizer after plugin start or after a major settings change, e.g., after changing the audio device settings.
 1. `void processBlock (juce::AudioBuffer<float>&, juce::MidiBuffer&)` contains the audio processing code that a developer using JUCE should write. `AudioBuffer` object contains audio samples of the current block and `MidiBuffer` object contains MIDI events that happened during that block.
 
-If you don't know what an audio block is, [check out this short paragraph]({% post_url 2021-05-14-fast-convolution %}#block-based-convolution).
+If you don't know what an audio block is,.
 
 **All we need to do is fill two above member functions.**
 

@@ -43,8 +43,10 @@ permalink: /:categories/:title/
 highlighter: rouge
 pagination:
   enabled: true
-  per_page: 5
-  permalink: "/posts/page:num/"
+  per_page: 1
+  permalink: "/page:num/"
+  sort_field: 'date'
+  sort_reverse: true
 future: true
 plugins:
   - jekyll-feed
