@@ -55,6 +55,8 @@ layout: default
         </div>
 
         <!-- Home Post List -->
+        {% include categories.html %}
+
         <div class="d-block" id="All-preview" name="preview-block">
         {% for post in site.posts limit : 5 %}
             {% include post-preview.html %}

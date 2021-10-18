@@ -18,6 +18,24 @@
     color: $white;
     background-color: darken($primary, 7.5) !important;
     border-color: darken($primary, 7.5) !important;
+    box-shadow: 0 0 0 0.2rem $ws-grey;
+  }
+}
+
+.btn-outline-primary {
+  color: $primary;
+  background-color: transparent;
+  border-color: $primary;
+  &:hover,
+  &:focus,
+  &:active {
+    color: $white;
+    background-color: $primary;
+    border-color: darken($primary, 7.5) !important;
+  }
+  &:focus {
+    background-color: darken($primary, 7.5) !important;
+    box-shadow: 0 0 0 0.2rem $ws-grey;
   }
 }
 
