@@ -43,6 +43,7 @@ In this article, we will discuss the digital allpass filter in detail, present i
 
 {% katexmm %}
 {% capture _ %}{% increment equationId20211022  %}{% endcapture %}
+{% capture _ %}{% increment figureId20211022  %}{% endcapture %}
 
 ## Definition of an Allpass Filter
 
@@ -84,12 +85,19 @@ where $x[n]$ is the input signal, $y[n]$ is the output signal, and $d[n-1]$ can 
 
 <!-- TODO: Add a block diagram of the above equation. -->
 
-Why is this system an allpass? Let's calculate its magnitude transfer function at the unit circle, i.e., its frequency-response magnitude, i.e., $H_\text{AP}(z)$ for $z = e^{j\omega}$.
+Why is this system an allpass? Let's calculate its magnitude transfer function at the unit circle, i.e., its magnitude frequency response or $H_\text{AP}(z)$ for $z = e^{j\omega}$.
 
 $$|H_\text{AP}(j\omega)| = |\frac{a_1 + e^{-j\omega}}{1 + a_1e^{-j\omega}}| = |e^{-j\omega} \frac{a_1e^{j\omega} + 1}{a_1e^{-j\omega} + 1}|
 = |e^{-j\omega}| \frac{|\overline{a_1 e^{-j\omega} + 1|}}{|a_1 e^{-j\omega} + 1|} = 1,  \quad ({% increment equationId20211022 %})$$
 
 where $\overline{z}$ denotes the complex conjugate of $z$. We used the facts that $|e^{-j\omega}| = 1$ and $|\frac{\overline{z}}{z}| = 1$.
+
+#### $a_1$ Coefficient
+
+What is the role of the $a_1$ (*allpass*) coefficient? It controls the *break frequency* of the allpass filter. What is the break frequency? It is the frequency at which the phase shift of the filter is exactly $-\frac{\pi}{2} \frac{\text{rad}}{\text{s}}$. To understand the break frequency we need to look at the phase frequency response of the allpass filter.
+
+![]({{ page.images | absolute_url | append: "/allpass_phase_response.png" }})
+_Figure {% increment figureId20211022 %}. ._
 
 ## Bibliography
 
