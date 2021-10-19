@@ -30,12 +30,12 @@
   &:focus,
   &:active {
     color: $white;
-    background-color: $primary;
+    background-color: $primary !important;
     border-color: darken($primary, 7.5) !important;
   }
-  &:focus {
+  &:focus:active {
     background-color: darken($primary, 7.5) !important;
-    box-shadow: 0 0 0 0.2rem $ws-grey;
+    box-shadow: 0 0 0 0.2rem $ws-grey !important;
   }
 }
 
