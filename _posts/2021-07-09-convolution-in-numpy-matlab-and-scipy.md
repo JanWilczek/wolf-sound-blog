@@ -129,8 +129,6 @@ Check out the references below for more details.
 
 # Bibliography
 
-<!-- TODO: Add links to fftconvolve and oaconvolve -->
-
 [1] [`numpy.convolve` documentation](https://numpy.org/doc/stable/reference/generated/numpy.convolve.html)
 
 [2] [`scipy.signal.convolve` documentation](https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.convolve.html)
