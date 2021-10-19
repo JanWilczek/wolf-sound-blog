@@ -35,44 +35,14 @@ layout: default
 
         {{ content }}
 
-        <!-- Most Recent Articles -->
-        <div class="page-header">
-          <h1>Most Recent Articles</h1>
-        </div>
-        <div class="container">
-          <div class="row">
-            <div class="btn-group btn-group-lg btn-group-toggle" data-toggle="buttons" role="group" aria-label="Article categories">
-                  <label class="btn btn-outline-secondary btn-sm active" aria-pressed="true" id="All" onclick="category_toggle(this);">
-                    <input type="radio" name="article-categories" autocomplete="off" checked>All
-                  </label>
-                {% for category in site.categories %}
-                    <label class="btn btn-outline-secondary btn-sm"  id="{{category[0]}}" onclick="category_toggle(this);">
-                      <input type="radio" name="article-categories" autocomplete="off">{{category[0]}}
-                    </label>
-                {% endfor %}
-            </div>
-          </div>
-        </div>
-
         <!-- Home Post List -->
         {% include categories.html %}
 
         <div class="d-block" id="All-preview" name="preview-block">
         {% for post in site.posts limit : 5 %}
             {% include post-preview.html %}
-            {% endfor %}
-        </div>
-
-        {% for category in site.categories %}
-          {% assign catogory_articles = site.posts | where_exp: "article", "article.categories contains category[0]" %}
-          <div class="d-none" id="{{category[0]}}-preview" name="preview-block">
-          {% for post in catogory_articles limit : 5 %}
-            {% include post-preview.html %}
-          {% endfor %}
-          </div>
         {% endfor %}
-
-        
+        </div>
 
         <!-- Pager -->
         <div class="clearfix">
@@ -85,8 +55,3 @@ layout: default
 
     </div>
   </div>
-
-  
-
-  <script data-c-script="necessary" type="text/javascript" src='/assets/js/wolfsound/toggle_categories.js'></script>
-
