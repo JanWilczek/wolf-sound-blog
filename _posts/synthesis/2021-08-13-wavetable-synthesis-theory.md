@@ -30,7 +30,7 @@ In this article, you will learn:
 * what are pros and cons of wavetable synthesis, and
 * how is wavetable synthesis related to other synthesis methods.
 
-In the follow-up articles, [an implementation of this technique in the Python programming language]({% post_url synthesis/2021-08-27-wavetable-synthesis-python %}) and the JUCE framework will follow.
+In the follow-up articles, [an implementation of this technique in the Python programming language]({% post_url synthesis/2021-08-27-wavetable-synthesis-python %}), [the JUCE framework]({% post_url synthesis/2021-09-24-wavetable-synthesis-juce %}), and [the Rust programming language]({% post_url synthesis/2021-10-15-wavetable-synthesis-rust %}) are presented.
 
 # A Need for a Fast and Efficient Synthesis Method
 

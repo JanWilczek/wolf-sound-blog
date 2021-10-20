@@ -556,6 +556,8 @@ One thing you will hear instantly after playing some notes is that there are aud
 
 In this article, we implemented a wavetable synthesizer plugin in the JUCE C++ framework. If you have any questions or comments, don't hesitate to write them below!
 
+If you would like to see a wavetable synthesis implementation in other programming languages, I have [one in Python]({% post_url synthesis/2021-08-27-wavetable-synthesis-python %}) and [one in Rust]({% post_url synthesis/2021-10-15-wavetable-synthesis-rust %}) as well. Make sure to check them out!
+
 ## Bibliography
 
 Here is a list of useful references for the topic:
