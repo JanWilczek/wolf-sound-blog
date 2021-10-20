@@ -47,6 +47,7 @@ pagination:
   permalink: "/page:num/"
   sort_field: 'date'
   sort_reverse: true
+  title: ':title - Page :num'
 future: true
 plugins:
   - jekyll-feed
