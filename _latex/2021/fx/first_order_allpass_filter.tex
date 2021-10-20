@@ -1,0 +1,49 @@
+\documentclass[preview,border=8mm,convert={density=600,outext=.png}]{standalone}
+\usepackage[shellescape]{gmp}   % This saved the day
+\usepackage{tikz}
+\usetikzlibrary{chains,dsp}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+\usepackage{amssymb}                         %
+\usepackage{amsmath}
+\usepackage{color}
+
+\begin{document}
+\begin{tikzpicture}
+    \node[dspnodeopen,dsp/label=above]              (x) {$x[n]$};
+    \node[dspadder, right=of x]              (adder1) {};
+    \node[dspnodefull, right=of adder1,dsp/label=below]              (c0) {$v[n]$};
+    \node[coordinate,above=of c0] (c1) {};
+    \node[dspmixer,right=of c1] (a1_forward) {$a_1$};
+    \node[coordinate,right=of a1_forward] (c3) {};
+    
+    % Unit delay
+    \node[dspsquare,right=of c0] (delay) {$z^{-1}$};
+    \node[dspnodefull,right=of delay] (c4) {};
+    \node[dspadder,right=of c4] (adder) {};
+    \node[dspnodeopen,right=of adder,dsp/label=above] (y) {$y[n]$};
+    \node[coordinate, below=of c4] (c5) {};
+    \node[dspmixer,left= of c5,dsp/label=below] (a1_feedback) {$-a_1$};
+    \node[coordinate,left=of a1_feedback,xshift=-6mm] (c6) {};
+
+    % Feedforward connections
+    \draw[dspconn] (x) -- (adder1);
+    \draw[dspline] (adder1) -- (c0);
+    \draw[dspline] (c0) -- (c1);
+    \draw[dspconn] (c1) -- (a1_forward);
+    \draw[dspline] (a1_forward) -- (c3);
+    \draw[dspconn] (c3) -- (adder);
+
+
+    \draw[dspconn] (c0) -- (delay);
+    \draw[dspline] (delay) -- (c4);
+    \draw[dspconn] (c4) -- (adder);
+    \draw[dspconn] (adder) -- (y);
+
+    % Feedback connections
+    \draw[dspline] (c4) -- (c5);
+    \draw[dspconn] (c5) -- (a1_feedback);
+    \draw[dspline] (a1_feedback) -- (c6);
+    \draw[dspconn] (c6) -- (adder1);
+\end{tikzpicture}
+\end{document}

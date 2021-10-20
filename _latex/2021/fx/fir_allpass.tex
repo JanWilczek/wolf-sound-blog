@@ -1,0 +1,23 @@
+\documentclass[preview,border=8mm,convert={density=600,outext=.png}]{standalone}
+\usepackage[shellescape]{gmp}   % This saved the day
+\usepackage{tikz}
+\usetikzlibrary{chains,dsp}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+\usepackage{amssymb}                         %
+\usepackage{amsmath}
+\usepackage{color}
+
+\begin{document}
+\begin{tikzpicture}
+    \node[dspnodeopen,dsp/label=above]              (x) {$x[n]$};
+    \node[dspsquare,right=of x] (delay) {$z^{-K}$};
+    \node[dspmixer,right=of delay] (c4) {$\pm 1$};
+    \node[dspnodeopen,right=of c4,dsp/label=above] (y) {$y[n]$};
+
+    % Feedforward connections
+    \draw[dspconn] (x) -- (delay);
+    \draw[dspconn] (delay) -- (c4);
+    \draw[dspconn] (c4) -- (y);
+\end{tikzpicture}
+\end{document}
