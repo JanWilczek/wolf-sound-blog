@@ -30,6 +30,19 @@ This article outlines the mathematical definition of the convolution and gives y
 
 Are you ready?
 
+## The Convolution Series
+1. **Definition of convolution and intuition behind it**
+1. [Mathematical properties of convolution]({% post_url 2020-07-05-mathematical-properties-of-convolution %})
+1. [Convolution property of Fourier, Laplace, and z-transforms]({% post_url 2021-03-18-convolution-in-popular-transforms %})
+1. [Identity element of the convolution]({% post_url 2021-04-01-identity-element-of-the-convolution %})
+1. [Star notation of the convolution]({% post_url 2021-04-03-star-notation-of-the-convolution-a-notational-trap %})
+1. [Circular vs. linear convolution]({% post_url 2021-05-07-circular-vs-linear-convolution %})
+1. [Fast convolution]({% post_url 2021-05-14-fast-convolution %})
+1. [Convolution vs. correlation]({% post_url 2021-06-18-convolution-vs-correlation %})
+1. [Convolution in MATLAB, NumPy, and SciPy]({% post_url 2021-07-09-convolution-in-numpy-matlab-and-scipy %})
+1. [Deconvolution: Inverse convolution]({% post_url 2021-07-23-deconvolution %})
+1. [Convolution in probability: Sum of independent random variables]({% post_url 2021-07-30-convolution-in-probability %})
+
 # Definition
 
 In its simplest form, the convolution between two discrete-time signals $x[n]$ and $h[n]$ can be expressed as an **infinite sum**
@@ -143,6 +156,8 @@ Although it may not be as intuitive in interpretation as the discrete convolutio
 # Summary
 
 In this article, we introduced the mathematical operation of convolution, gave the justification for its form, and provided a little bit of intuition on how can we view the convolution from different angles. In the next articles we are going to study convolution more closely.
+
+Up next: [mathematical properties of convolution]({{"/mathematical-properties-of-convolution/" | absolute_url}})!.
 
 # Bibliography
 
