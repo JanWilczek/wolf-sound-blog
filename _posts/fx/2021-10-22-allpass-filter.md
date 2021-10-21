@@ -178,7 +178,21 @@ Note how $f_\text{b}$ is coupled with $c$ but not with $d$ and $f_\text{c}$ is c
 
 #### Phase Response
 
+Phase responses of second-order allpass filters for different cutoff frequencies $f_\text{c}$ look as follows:
 
+![]({{ page.images | absolute_url | append: "/second_order_allpass_phase_response.png" }}){: width="80%" alt="Phase response of the second-order allpass filter with constant bandwidth."}
+_Figure {% increment figureId20211022 %}. Phase response of a second-order allpass filter for different cutoff frequencies frequencies $f_\text{c}$ and bandwidth $f_\text{b} = 0.022$._
+
+As you can see above, the cutoff frequency determines the point of the phase shift by $-\pi$. All slopes, however, have the same curvature.
+
+If instead, we keep the cutoff frequency constant and change the bandwidth parameter, we obtain the following phase responses:
+
+![]({{ page.images | absolute_url | append: "/second_order_allpass_phase_response_break.png" }}){: width="80%" alt="Phase response of the second-order allpass filter with constant cutoff frequency."}
+_Figure {% increment figureId20211022 %}. Phase response of a second-order allpass filter for different bandwidths $f_\text{b}$ and cutoff frequency $f_\text{c} = 1/8$._
+
+The $-\pi$ shift point remains at the same frequency but the curvature of the slope gets milder with increasing $f_\text{b}$ parameter.
+
+What these plots really show? They show that **the second-order allpass filter is an incredibly flexible tool**. We can independently change meaningful parameters such as cutoff frequency and bandwidths while ensuring the filter's stability. This property is crucial for implementing parametric filters (parametric equalizer, EQ), because we want to be able to change filter's properties in an intuitive and safe manner.
 
 #### Implementation
 
