@@ -1,0 +1,130 @@
+\documentclass[preview,border=4mm,convert={density=600,outext=.png}]{standalone}
+\usepackage[shellescape]{gmp}   % This saved the day
+\usepackage{tikz}
+\usetikzlibrary{chains,dsp}
+\usepackage{amssymb}                         %
+\usepackage{amsmath}
+\usepackage{color}
+
+\begin{document}
+\begin{tikzpicture}
+	% Place nodes using a matrix
+	\matrix (m1) [row sep=2.5mm, column sep=5mm]
+	{
+		%--------------------------------------------------------------------
+		\node[dspnodeopen,dsp/label=above] (m00) {$x[n]$};    &
+		\node[dspadder]                  (m01) {};          &
+		\node[coordinate]                 (m02) {};          &
+		\node[dspnodefull]                   (m03) {$v[n]$}; &
+		\node[dspmixer]                 (m04) {$-c$};          &
+		\node[dspadder]                   (m05) {}; &
+		\node[dspnodeopen]                 (m06) {$y[n]$};    \\
+		%--------------------------------------------------------------------
+		\node[coordinate]                  (m10) {};          &
+		\node[coordinate]                  (m11) {};          &
+		\node[coordinate]                  (m12) {};    &
+		\node[dspsquare]                  (m13) {$z^{-1}$};          &
+		\node[coordinate]                   (m14) {};    &
+		\node[coordinate]                  (m15) {};          &
+		\node[coordinate]                  (m16) {};          \\
+		%--------------------------------------------------------------------
+		\\
+		%--------------------------------------------------------------------
+		\node[coordinate]                  (m20) {};          &
+		\node[dspadder]                  (m21) {};          &
+		\node[dspmixer]                  (m22) {$-d(1-c)$};          &
+		\node[dspnodefull,label={below right:$v[n-1]$}]                  (m23) {};          &
+		\node[dspmixer]                    (m24) {$d(1-c)$};          &
+		\node[dspadder]                  (m25) {};          &
+		\node[coordinate]                  (m26) {};          \\
+        %--------------------------------------------------------------------
+        \\
+		% & & & \node[coordinate,dsp/label=right] (l26) {$v[n-1]$}; & & & \\
+        % \node[coordinate]                  (l20) {};          &
+        % \node[coordinate]                  (l21) {};          &
+        % \node[coordinate]                  (l22) {};          &
+        % \node[dspnodeopen,dsp/label=right]  (l23) {$v[n-1]$};          &
+        % \node[coordinate]                  (l24) {};          &
+        % \node[coordinate]                  (l25) {};          &
+        % \node[coordinate]                  (l26) {};          \\
+		%--------------------------------------------------------------------
+        \node[coordinate]                  (m30) {};          &
+		\node[coordinate]                  (m31) {};          &
+		\node[coordinate]                  (m32) {};    &
+		\node[dspsquare]                  (m33) {$z^{-1}$};          &
+		\node[coordinate]                   (m34) {};    &
+		\node[coordinate]                  (m35) {};          &
+		\node[coordinate]                  (m36) {};          \\
+		%--------------------------------------------------------------------
+        \node[coordinate]                  (m40) {};          &
+		\node[coordinate]                  (m41) {};          &
+		\node[dspmixer]                  (m42) {$c$};          &
+		\node[dspnodefull,label={below right:$v[n-2]$}]                  (m43) {};          &
+		\node[coordinate]                    (m44) {};          &
+		\node[coordinate]                  (m45) {};          &
+		\node[coordinate]                  (m46) {};          \\
+		%--------------------------------------------------------------------
+	};
+
+	% Draw connections
+	
+	\begin{scope}[start chain]
+		\chainin (m00);
+		\chainin (m01) [join=by dspconn];
+		\chainin (m02) [join=by dspline];
+		\chainin (m03) [join=by dspline];
+		\chainin (m04) [join=by dspconn];
+		\chainin (m05) [join=by dspconn];
+		\chainin (m06) [join=by dspconn];
+	\end{scope}
+
+    \begin{scope}[start chain]
+		\chainin (m03);
+		\chainin (m13) [join=by dspconn];
+		\chainin (m23) [join=by dspline];
+		\chainin (m33) [join=by dspconn];
+		\chainin (m43) [join=by dspline];
+	\end{scope}
+
+    \begin{scope}[start chain]
+		\chainin (m23);
+		\chainin (m22) [join=by dspconn];
+		\chainin (m21) [join=by dspconn];
+        \chainin (m01) [join=by dspconn];
+	\end{scope}
+
+    \begin{scope}[start chain]
+		\chainin (m23);
+		\chainin (m24) [join=by dspconn];
+		\chainin (m25) [join=by dspconn];
+		\chainin (m05) [join=by dspconn];
+	\end{scope}
+
+    \begin{scope}[start chain]
+		\chainin (m43);
+		\chainin (m42) [join=by dspconn];
+		\chainin (m41) [join=by dspline];
+		\chainin (m21) [join=by dspconn];
+	\end{scope}
+
+    \begin{scope}[start chain]
+		\chainin (m43);
+		\chainin (m45) [join=by dspline];
+		\chainin (m25) [join=by dspconn];
+	\end{scope}
+
+
+	% \foreach \i [evaluate = \i as \j using int(\i+1),
+	%              evaluate = \i as \k using int(\i+2),] in {2,4}
+	% {
+	% 	\begin{scope}[start chain]
+	% 		\chainin (m0\i);
+	% 		\chainin (m0\j) [join=by dspconn];
+	% 		\chainin (m0\k) [join=by dspline];
+	% 		\chainin (m1\k) [join=by dspconn];
+	% 		\chainin (m2\k) [join=by dspconn];
+	% 	\end{scope}
+	% 	\draw[dspconn] (m2\i) -- (m2\k);
+	% }
+\end{tikzpicture}
+\end{document}

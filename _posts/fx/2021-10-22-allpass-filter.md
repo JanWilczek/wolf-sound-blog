@@ -108,10 +108,11 @@ $$y[n] = a_1 x[n] - a_1^2 v[n-1] + v[n-1]. \quad ({% increment equationId2021102
 Substitute first $v[n-1]$ by $\frac{y[n-1] - v[n-2]}{a_1}$ (from Eq. 5) and second $v[n-1]$ by $x[n-1] - a_1 v[n-2]$ (from Eq. 4):
 
 $$y[n] = a_1 x[n] - a_1^2 \frac{y[n-1] - v[n-2]}{a_1} + x[n-1] - a_1 v[n-2] 
-\\= a_1 x[n] - a_1 y[n-1] + x[n-1]. \quad ({% increment equationId20211022 %})$$
+\\= a_1 x[n] - a_1 y[n-1] + x[n-1], \quad ({% increment equationId20211022 %})$$
 
+which is equivalent to Eq. 3.
 
-#### Magnitude Transfer Function
+#### Magnitude Response
 
 Why is this system an allpass? Let's calculate its magnitude transfer function at the unit circle, i.e., its magnitude frequency response or $H_\text{AP}(z)$ for $z = e^{j\omega}$.
 
@@ -120,7 +121,7 @@ $$\Bigl\lvert H_\text{AP}(j\omega) \Bigr\rvert = \Bigl\lvert \frac{a_1 + e^{-j\o
 
 where $\overline{z}$ denotes the complex conjugate of $z$. We used the facts that $|e^{-j\omega}| = 1$ and $|\frac{\overline{z}}{z}| = 1$.
 
-#### $a_1$ Coefficient
+#### Phase Response
 
 What is the role of the $a_1$ (*allpass*) coefficient? It controls the *break frequency* of the allpass filter. What is the break frequency? It is the frequency at which the phase shift of the filter is exactly $-\frac{\pi}{2}$ rad. To understand the break frequency we need to look at the phase frequency response of the allpass filter.
 
@@ -154,6 +155,42 @@ When you look at the figure with the phase response of the first-order allpass f
 * The phase shift at DC ($\omega = 0$) is 0.
 * The phase shift at the Nyquist frequency ($\omega = \pi$) is $-\pi$ rad and is **always** the maximum possible phase delay.
 * The phase shift at the break frequency $\omega_\text{b}$ is $-\frac{pi}{2}$ rad.
+
+#### Cascading Allpass Filters
+
+Arranging allpass filters in a series results in the **summation of phase delays**. We can therefore obtain a phase delay of $-N \pi$ at $\omega = \pi$ by cascading $N$ first-order allpass filters.
+
+### Second-Order IIR Allpass
+
+The second-order IIR allpass filter has the following transfer function [3]:
+
+$$H_{\text{AP}_2}(z) = \frac{-c + d(1-c) z^{-1} + z^{-2}}{1 + d(1-c) z^{-1} - c z^{-2}},  \quad ({% increment equationId20211022 %})$$
+
+where the parameter $d$ controls the center (cutoff) frequency of the filter $f_\text{c}$ (at which the phase shift is $-\pi$) and the parameter $c$ is computed from parameter $f_\text{b}$ which determines the bandwidth (the steepness of the slope of the phase transition around the cutoff frequency). The relations between these parameters are specified by these equations:
+
+$$c = \frac{\tan(\pi f_\text{b} / f_s) - 1}{\tan(\pi f_\text{b} / f_s) + 1},  \quad ({% increment equationId20211022 %})$$
+
+$$d = - \cos(2\pi f_\text{c} / f_s),  \quad ({% increment equationId20211022 %})$$
+
+where $f_s$ is the sampling rate. Parameters $f_\text{b}$, $f_\text{c}$, and $f_s$ are given in Hz.
+
+Note how $f_\text{b}$ is coupled with $c$ but not with $d$ and $f_\text{c}$ is coupled with $d$ but not with $c$. This allows us to smoothly control our filter's properties.
+
+#### Phase Response
+
+
+
+#### Implementation
+
+The difference equation of the second-order allpass is
+
+$$v[n] = x[n] - d(1 - c)v[n-1] + c v[n-2],  \quad ({% increment equationId20211022 %})$$
+$$y[n] = -c v[n] + d (1-c) v[n-1] + v[n-2].  \quad ({% increment equationId20211022 %})$$
+
+If that seems complicated, a diagram should make it clear 🙂
+
+![]({{ page.images | absolute_url | append: "/second_order_allpass_filter.png" }}){: alt="Block diagram of the second-order allpass filter."}
+_Figure {% increment figureId20211022 %}. Block diagram of the second-order allpass filter._
 
 
 
