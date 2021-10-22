@@ -67,7 +67,7 @@ $$H_\text{AP}(z) = \pm z^{-K}, \quad ({% increment equationId20211022 %})$$
 
 where $K$ is an integer not smaller than 0, $K \geq 0$. Note that a unit delay $H_\text{AP}(z) = z^{-1}$ is also an allpass filter. Phase can be unaltered or inverted (multiplication by 1 and $-1$ respectively), because we are operating in the real domain.
 
-![]({{ page.images | absolute_url | append: "/fir_allpass.png" }}){: width="80%" alt="Block diagram of the FIR allpass filter."}
+![]({{ page.images | absolute_url | append: "/fir_allpass.webp" }}){: width="80%" alt="Block diagram of the FIR allpass filter."}
 _Figure {% increment figureId20211022 %}. Block diagram of the FIR allpass filter._
 
 [A broader description of the properties of the delay can be found in my article]({% post_url 2021-04-01-identity-element-of-the-convolution %}#delay).
@@ -76,7 +76,7 @@ _Figure {% increment figureId20211022 %}. Block diagram of the FIR allpass filte
 
 A first-order IIR allpass filter is given by the following transfer function [2,3,4]
 
-$$H_\text{AP}(z) = \frac{a_1 + z^{-1}}{1 + a_1z^{-1}}, \quad ({% increment equationId20211022 %})$$
+$$H_{\text{AP}_1}(z) = \frac{a_1 + z^{-1}}{1 + a_1z^{-1}}, \quad ({% increment equationId20211022 %})$$
 
 where $a \in \mathbb{R}$, because we consider real-valued filters only. The above equation corresponds to the following difference equation
 
@@ -88,7 +88,7 @@ where $x[n]$ is the input signal, $y[n]$ is the output signal, and $d[n-1]$ can 
 
 The difference equation 3 is equivalent to the following DSP diagram.
 
-![]({{ page.images | absolute_url | append: "/first_order_allpass_filter.png" }}){: alt="Block diagram of the first-order allpass filter."}
+![]({{ page.images | absolute_url | append: "/first_order_allpass_filter.webp" }}){: alt="Block diagram of the first-order allpass filter."}
 _Figure {% increment figureId20211022 %}. Block diagram of the first-order allpass filter._
 
 How to see the equivalence? First, observe that we have here a combination of two comb filters: a feedback and a feedforward comb filter [4].
@@ -114,9 +114,9 @@ which is equivalent to Eq. 3.
 
 #### Magnitude Response
 
-Why is this system an allpass? Let's calculate its magnitude transfer function at the unit circle, i.e., its magnitude frequency response or $H_\text{AP}(z)$ for $z = e^{j\omega}$.
+Why is this system an allpass? Let's calculate its magnitude transfer function at the unit circle, i.e., its magnitude frequency response or $H_{\text{AP}_1}(z)$ for $z = e^{j\omega}$.
 
-$$\Bigl\lvert H_\text{AP}(j\omega) \Bigr\rvert = \Bigl\lvert \frac{a_1 + e^{-j\omega}}{1 + a_1e^{-j\omega}} \Bigr\rvert = \Bigl\lvert e^{-j\omega} \frac{a_1e^{j\omega} + 1}{a_1e^{-j\omega} + 1} \Bigr\rvert
+$$\Bigl\lvert H_{\text{AP}_1}(j\omega) \Bigr\rvert = \Bigl\lvert \frac{a_1 + e^{-j\omega}}{1 + a_1e^{-j\omega}} \Bigr\rvert = \Bigl\lvert e^{-j\omega} \frac{a_1e^{j\omega} + 1}{a_1e^{-j\omega} + 1} \Bigr\rvert
 = \bigl\lvert e^{-j\omega} \bigr\rvert \frac{\bigl\lvert \overline{a_1 e^{-j\omega} + 1\bigr\rvert}}{\bigl\lvert a_1 e^{-j\omega} + 1\bigr\rvert} = 1,  \quad ({% increment equationId20211022 %})$$
 
 where $\overline{z}$ denotes the complex conjugate of $z$. We used the facts that $|e^{-j\omega}| = 1$ and $|\frac{\overline{z}}{z}| = 1$.
@@ -125,7 +125,7 @@ where $\overline{z}$ denotes the complex conjugate of $z$. We used the facts tha
 
 What is the role of the $a_1$ (*allpass*) coefficient? It controls the *break frequency* of the allpass filter. What is the break frequency? It is the frequency at which the phase shift of the filter is exactly $-\frac{\pi}{2}$ rad. To understand the break frequency we need to look at the phase frequency response of the allpass filter.
 
-![]({{ page.images | absolute_url | append: "/allpass_phase_response.png" }}){: width="80%" alt="Phase response of the first-order allpass filter."}
+![]({{ page.images | absolute_url | append: "/first_order_allpass_phase_response.webp" }}){: width="80%" alt="Phase response of the first-order allpass filter."}
 _Figure {% increment figureId20211022 %}. Phase response of a first-order allpass filter for different break frequencies $\omega_\text{b}$._
 
 We here refer to digital frequency given in radians, where $\omega = 0$ is corresponds to 0 Hz and $\omega = \pi$ corresponds to the Nyquist frequency $\frac{f_s}{2}$ ($f_s$ is the sampling rate in Hz). Digital frequency $\omega$ in radians can be computed out of frequency $f$ in Hz using the following formula:
@@ -138,7 +138,7 @@ $$a_1 = \frac{\tan(\omega_\text{b} / 2) - 1}{\tan(\omega_\text{b} / 2) + 1}.  \q
 
 How is the above formula found? It is the result of transforming an *analog allpass filter* to the digital domain via the *bilinear transform*. Explaining this process is beyond the scope of this article; if you are interested, check out [the great explanation in [4]](https://ccrma.stanford.edu/~jos/pasp/Classic_Virtual_Analog_Phase.html). After the derivations, we arrive exactly at the transfer function from Equation 2.
 
-How are the plots in the above figure generated? They are derived from calculating the [argument (in the complex numbers sense)](https://en.wikipedia.org/wiki/Argument_(complex_analysis)) of the allpass transfer function $H_\text{AP}(j\omega)$. It can be done in software using the `freqz` function of [Matlab](https://www.mathworks.com/help/signal/ref/freqz.html) or [`scipy.signal`](https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.freqz.html). Alternatively, you can use the following out-of-the-box formula [5]
+How are the plots in the above figure generated? They are derived from calculating the [argument (in the complex numbers sense)](https://en.wikipedia.org/wiki/Argument_(complex_analysis)) of the allpass transfer function $H_{\text{AP}_1}(j\omega)$. It can be done in software using the `freqz` function of [Matlab](https://www.mathworks.com/help/signal/ref/freqz.html) or [`scipy.signal`](https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.freqz.html). Alternatively, you can use the following out-of-the-box formula [5]
 
 $$\theta (\omega) = - \omega + 2 \arctan \left( \frac{a_1 \sin \omega}{1 + a_1 \cos \omega} \right),  \quad ({% increment equationId20211022 %})$$
 
@@ -180,14 +180,14 @@ Note how $f_\text{b}$ is coupled with $c$ but not with $d$ and $f_\text{c}$ is c
 
 Phase responses of second-order allpass filters for different cutoff frequencies $f_\text{c}$ look as follows:
 
-![]({{ page.images | absolute_url | append: "/second_order_allpass_phase_response.png" }}){: width="80%" alt="Phase response of the second-order allpass filter with constant bandwidth."}
+![]({{ page.images | absolute_url | append: "/second_order_allpass_phase_response.webp" }}){: width="80%" alt="Phase response of the second-order allpass filter with constant bandwidth."}
 _Figure {% increment figureId20211022 %}. Phase response of a second-order allpass filter for different cutoff frequencies frequencies $f_\text{c}$ and bandwidth $f_\text{b} = 0.022$._
 
 As you can see above, the cutoff frequency determines the point of the phase shift by $-\pi$. All slopes, however, have the same curvature.
 
 If instead, we keep the cutoff frequency constant and change the bandwidth parameter, we obtain the following phase responses:
 
-![]({{ page.images | absolute_url | append: "/second_order_allpass_phase_response_break.png" }}){: width="80%" alt="Phase response of the second-order allpass filter with constant cutoff frequency."}
+![]({{ page.images | absolute_url | append: "/second_order_allpass_phase_response_break.webp" }}){: width="80%" alt="Phase response of the second-order allpass filter with constant cutoff frequency."}
 _Figure {% increment figureId20211022 %}. Phase response of a second-order allpass filter for different bandwidths $f_\text{b}$ and cutoff frequency $f_\text{c} = 1/8$._
 
 The $-\pi$ shift point remains at the same frequency but the curvature of the slope gets milder with increasing $f_\text{b}$ parameter.
@@ -203,10 +203,90 @@ $$y[n] = -c v[n] + d (1-c) v[n-1] + v[n-2].  \quad ({% increment equationId20211
 
 If that seems complicated, a diagram should make it clear 🙂
 
-![]({{ page.images | absolute_url | append: "/second_order_allpass_filter.png" }}){: alt="Block diagram of the second-order allpass filter."}
+![]({{ page.images | absolute_url | append: "/second_order_allpass_filter.webp" }}){: alt="Block diagram of the second-order allpass filter."}
 _Figure {% increment figureId20211022 %}. Block diagram of the second-order allpass filter._
 
+### Higher-Order IIR Allpass Filter
 
+You may have noticed a kind of symmetry in Equations 2 and 12. Indeed, it turns out that every IIR allpass filter must have a transfer function of the form [4]
+
+$$H_\text{AP} (z) = \pm z^{-K} \frac{\tilde{A}(z)}{A(z)},  \quad ({% increment equationId20211022 %})$$
+
+where $K \geq 0$, $A(z) = 1 + a_1 z^{-1} + a_2 z^{-2} + \dots + a_N z^{-N}$, and $\tilde{A}(z) = z^{-N} A(z^{-1})$. In other words, $\tilde{A}(z)$ is obtained by reversing the polynomial coefficients of $A(z)$. 
+
+Note that we added here a possible phase inversion and an additional delay. Thus, this formulation is 100% general and can be applied to every real case.
+
+However, higher-order allpass filters are rarely used in practice of audio programming, because their usage requires complicated analysis and, in most cases, second-order IIR allpass filters suffice.
+
+## Applications of Allpass Filters
+
+Although for a single channel audio, we cannot hear the effect of phase delay, allpass filters are incredibly useful in musical applications. Why?
+
+* They are stable.
+* They meaningful parameters to coefficients mapping (e.g., cutoff frequency to $d$ coefficient in second-order allpass).
+* They are computationally efficient.
+* Their properties are well-known.
+
+How can we use them in audio processing? Well, what happens if we add two sines at the same frequency: one delayed by $-\pi$ with respect to the other? They cancel out (*destructive interference*) and the output is zero. Where can we use this property? Below are some **selected** applications.
+
+### Reverberation
+
+Allpass filter are heavily used in artificial reverberation: an effect creating the impression of listening to music in some space (e.g., a room, a concert hall) [4]. Allpass filters are present in some established approaches to simulate reverberation.
+
+The [**Schroeder reverberator**](https://ccrma.stanford.edu/~jos/pasp/Schroeder_Reverberators.html) consists of a series of allpass filters, a parallel bank of feedback comb filters, and a mixing matrix [4]. It was proposed as early as 1962!
+
+The [**Freeverb**](https://ccrma.stanford.edu/~jos/pasp/Freeverb.html) algorithm uses a parallel bank of feedback comb filters and a series of allpass filters [4].
+
+*Note: If you are interested in how to implement using Rust, check out [this video](https://www.youtube.com/watch?v=Yom9E-67bdI&ab_channel=JUCE) with Ian Hobson (ex-Ableton).*
+
+### Parametric Equalizer
+
+Have you ever wondered, how are highpass, lowpass, shelving, notch or bandpass filters implemented in digital audio workstation (DAW) plugins? Well, I bet most of them use the [RBJ Cookbook](https://webaudio.github.io/Audio-EQ-Cookbook/audio-eq-cookbook.html) as a foundation. The RBJ Cookbook is a set of recipes for stable, controllable, and efficient filters of any type. It turns out, that all these recipes use first- or second- order allpass filters underneath! More details on how to derive these formulae can be found in [3]... but I hope you will be able to read about them on WolfSound as well soon 🙂.
+
+### Phaser
+
+Do you know what's the effect applied to guitars on [Van Halen's Eruption](https://www.youtube.com/watch?v=M4Czx8EWXb0&ab_channel=VanHalen-Topic)? That's a *phaser*: an effect that sweeps notches through the spectrum of the input signal. One of the ways to implement a phaser is to use a chain of allpass filters, whose output is summed with the direct path [3,4,5].
+
+### Phase Equalization
+
+Different microphones may introduce different delays at different frequencies. Mixing them via summation could cause phase cancellation regardless of whether we invert the phase of one of the signals. We can correct it only by selectively adjusting the phase delay of frequency components of one of these signals. What is the system that can change phase delay without changing the magnitude of a frequency component? I hope that you know the answer by now 🙂.
+
+## Example Allpass VST Plugin
+
+In [Reaper's ReaEQ VST plugin](https://www.reaper.fm/reaplugs/) there is an allpass filter available.
+
+![]({{ page.images | absolute_url | append: "/ReaEQAllpass.webp" }}){: width="80%" alt="ReaEQ plugin window with the allpass filter selected."}
+_Figure {% increment figureId20211022 %}. Allpass filter in the Reaper's ReaEQ VST plugin._
+
+How to observe the frequency-dependent phase cancellation with parallel allpass? Here's a quick tutorial:
+
+![]({{ page.images | absolute_url | append: "/ReaEQAllpassAppliedMaster.webp" }}){: alt="Application of a parallel allpass filter with ReaEQ to create a notch."}
+_Figure {% increment figureId20211022 %}. Application of a parallel allpass filter with ReaEQ to create a notch._
+
+Steps to reproduce:
+
+1. Load an audio track to Reaper and double it.
+1. Add [Reaper's ReaEQ VST plugin](https://www.reaper.fm/reaplugs/) to *one* of the tracks.
+1. Open the plugin and remove all but 1 frequency bands.
+1. Change the type of the remaining frequency band to "All Pass".
+1. While listening to the master track, change the "Frequency [Hz]" parameter of the allpass. Can you hear the frequency component being removed?
+1. You can also load ReaEQ on the master track and observe the notch there.
+
+Have fun! 🎧
+
+## Summary
+
+In this article, we have discussed an allpass filter. Now you understand
+
+* what is an allpass filter,
+* what types of musically useful allpass filter exist,
+* how to implement them,
+* how they can be applied to achieve various effects,
+* how to use an allpass filter in a DAW plugin.
+
+Thank you for reading! If you enjoyed the article and want to learn even more, [sign up for my newsletter]({% link newsletter.md %})! You will become an expert in digital audio effects without the need to read thick books on DSP.
+
+If you have any questions, don't hesitate to ask them below!
 
 ## Bibliography
 
