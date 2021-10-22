@@ -29,7 +29,6 @@ A digital allpass filter can be implemented as a finite-impulse response (FIR) f
 
 In this article, we will discuss the digital allpass filter in detail, present its various forms, provide their characteristics, schematics, and implementation, and, finally, discuss how you can use the allpass filter in your musical software like VST or AAX plugins.
 
-<!-- <div class="card summary" style="width: 36rem;"> -->
 <div class="card summary">
   <div class="card-body">
   <h5 class="card-title">In Short</h5>
