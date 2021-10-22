@@ -204,22 +204,22 @@ Note how $BW$ is coupled with $c$ but not with $d$ and $f_\text{b}$ is coupled w
 Phase responses of second-order allpass filters for different break frequencies $f_\text{b}$ look as follows:
 
 ![]({{ page.images | absolute_url | append: "/second_order_allpass_phase_response.webp" }}){: width="80%" alt="Phase response of the second-order allpass filter with constant bandwidth."}
-_Figure {% increment figureId20211022 %}. Phase response of a second-order allpass filter for different break frequencies frequencies $f_\text{b}$ and bandwidth $BW = 0.022$._
+_Figure {% increment figureId20211022 %}. Phase response of a second-order allpass filter for different break frequencies frequencies $f_\text{b}$ and bandwidth $BW / f_s = 0.022$._
 
 As you can see above, the break frequency determines the point of the phase shift by $-\pi$. All slopes, however, have the same curvature.
 
 If instead, we keep the break frequency constant and change the bandwidth parameter, we obtain the following phase responses:
 
 ![]({{ page.images | absolute_url | append: "/second_order_allpass_phase_response_break.webp" }}){: width="80%" alt="Phase response of the second-order allpass filter with constant break frequency."}
-_Figure {% increment figureId20211022 %}. Phase response of a second-order allpass filter for different bandwidths $BW$ and break frequency $f_\text{b} = 1/8$._
+_Figure {% increment figureId20211022 %}. Phase response of a second-order allpass filter for different bandwidths $BW$ and break frequency $f_\text{b} / f_s = 1/8$._
 
-The $-\pi$ shift point remains at the same frequency but the curvature of the slope gets milder with increasing $BW$ parameter.
+The $-\pi$ shift point remains at the same frequency but the curvature of the slope gets milder with the increasing $BW$ parameter.
 
-What these plots really show? They show that **the second-order allpass filter is an incredibly flexible tool**. We can independently change meaningful parameters such as break frequency and bandwidths while ensuring the filter's stability. This property is crucial for implementing parametric filters (parametric equalizer, EQ), because we want to be able to change filter's properties in an intuitive and safe manner.
+What do these plots really show? They show that **the second-order allpass filter is an incredibly flexible tool**. We can independently change meaningful parameters such as the break frequency or the bandwidth while ensuring the filter's stability. This property is crucial for implementing parametric filters (parametric equalizer, EQ), because we want to be able to change filter's properties in an intuitive and safe manner.
 
 #### Implementation
 
-The difference equation of the second-order allpass is
+The difference equation of the second-order allpass is [3]
 
 $$v[n] = x[n] - d(1 - c)v[n-1] + c v[n-2],  \quad ({% increment equationId20211022 %})$$
 $$y[n] = -c v[n] + d (1-c) v[n-1] + v[n-2].  \quad ({% increment equationId20211022 %})$$
@@ -231,45 +231,47 @@ _Figure {% increment figureId20211022 %}. Block diagram of the second-order allp
 
 #### Properties of the Second-Order Allpass Filter
 
-The second-order allpass filter has the following properties.
+The second-order allpass filter has the following properties:
 
 * The phase shift at DC ($f = 0$) is 0.
 * The phase shift at the Nyquist frequency ($f / f_s = 0.5$) is $-2 \pi$ rad and is **always** the maximum possible phase delay.
 * The phase shift at the break frequency $f_\text{b}$ is $-\pi$ rad.
-* We can control the break frequency $f_\text{b}$ and the bandwidth $BW$ independently.
+* We can control the break frequency $f_\text{b}$ and the bandwidth $BW$ independently. This is not possible with the first-order allpass: there, the higher the break frequency, the less steep the slope.
 
 ### Higher-Order IIR Allpass Filter
 
-You may have noticed a kind of symmetry in Equations 2 and 12. Indeed, it turns out that every IIR allpass filter must have a transfer function of the form [4]
+You may have noticed a kind of symmetry in Equations 2 and 11. Indeed, it turns out that every IIR allpass filter must have a transfer function of the form [4]
 
 $$H_\text{AP} (z) = \pm z^{-K} \frac{\tilde{A}(z)}{A(z)},  \quad ({% increment equationId20211022 %})$$
 
 where $K \geq 0$, $A(z) = 1 + a_1 z^{-1} + a_2 z^{-2} + \dots + a_N z^{-N}$, and $\tilde{A}(z) = z^{-N} A(z^{-1})$. In other words, $\tilde{A}(z)$ is obtained by reversing the polynomial coefficients of $A(z)$. 
 
-Note that we added here a possible phase inversion and an additional delay. Thus, this formulation is 100% general and can be applied to every real case.
+Note that we added here a possible phase inversion and an additional delay. Thus, this formulation is 100% general and can be applied to every real-valued case.
 
-However, higher-order allpass filters are rarely used in practice of audio programming, because their usage requires complicated analysis and, in most cases, second-order IIR allpass filters suffice.
+However, higher-order allpass filters are rarely used in practice of audio programming, because their usage requires complicated analysis and, in most cases, first- and second-order IIR allpass filters suffice.
 
 ## Applications of Allpass Filters
 
-Although for a single channel audio, we cannot hear the effect of phase delay, allpass filters are incredibly useful in musical applications. Why?
+Although for the single-channel audio, we cannot hear the effect of the phase delay, allpass filters are incredibly useful in musical applications. Why?
 
 * They are stable.
-* They meaningful parameters to coefficients mapping (e.g., break frequency to $d$ coefficient in second-order allpass).
+* They have a meaningful parameters-to-coefficients mapping (e.g., break frequency to the $d$ coefficient in the second-order allpass).
 * They are computationally efficient.
-* Their properties are well-known.
+* Their properties are well-examined.
 
-How can we use them in audio processing? Well, what happens if we add two sines at the same frequency: one delayed by $-\pi$ with respect to the other? They cancel out (*destructive interference*) and the output is zero. Where can we use this property? Below are some **selected** applications.
+How can we use them in audio processing? For example, what happens if we add two sines at the same frequency: one delayed by $-\pi$ with respect to the other? They cancel out (*destructive interference*) and the output is zero. 
+
+Where can we use the properties of allpass filters? Below are some **selected** applications.
 
 ### Reverberation
 
-Allpass filter are heavily used in artificial reverberation: an effect creating the impression of listening to music in some space (e.g., a room, a concert hall) [4]. Allpass filters are present in some established approaches to simulate reverberation.
+Allpass filters are heavily used in artificial reverberation: an effect creating the impression of listening to music in some space (e.g., a room, a concert hall) [4]. Allpass filters are present in some established approaches to simulate reverberation.
 
 The [**Schroeder reverberator**](https://ccrma.stanford.edu/~jos/pasp/Schroeder_Reverberators.html) consists of a series of allpass filters, a parallel bank of feedback comb filters, and a mixing matrix [4]. It was proposed as early as 1962!
 
 The [**Freeverb**](https://ccrma.stanford.edu/~jos/pasp/Freeverb.html) algorithm uses a parallel bank of feedback comb filters and a series of allpass filters [4].
 
-*Note: If you are interested in how to implement using Rust, check out [this video](https://www.youtube.com/watch?v=Yom9E-67bdI&ab_channel=JUCE) with Ian Hobson (ex-Ableton).*
+*Note: If you are interested in how to implement the Freeverb using Rust, check out [this video](https://www.youtube.com/watch?v=Yom9E-67bdI&ab_channel=JUCE) with Ian Hobson (ex-Ableton).*
 
 ### Parametric Equalizer
 
@@ -277,44 +279,44 @@ Have you ever wondered, how are highpass, lowpass, shelving, notch or bandpass f
 
 ### Phaser
 
-Do you know what's the effect applied to guitars on [Van Halen's Eruption](https://www.youtube.com/watch?v=M4Czx8EWXb0&ab_channel=VanHalen-Topic)? That's a *phaser*: an effect that sweeps notches through the spectrum of the input signal. One of the ways to implement a phaser is to use a chain of allpass filters, whose output is summed with the direct path [3,4,5].
+Do you know what's the effect applied to guitars on [Van Halen's Eruption](https://www.youtube.com/watch?v=M4Czx8EWXb0&ab_channel=VanHalen-Topic)? That's a *phaser*: an effect that sweeps notches through the spectrum of the input signal. One of the ways to implement a digital phaser is to use a chain of allpass filters, whose output is summed with the unfiltered input signal [3,4,5].
 
 ### Phase Equalization
 
-Different microphones may introduce different delays at different frequencies. Mixing them via summation could cause phase cancellation regardless of whether we invert the phase of one of the signals. We can correct it only by selectively adjusting the phase delay of frequency components of one of these signals. What is the system that can change phase delay without changing the magnitude of a frequency component? I hope that you know the answer by now 🙂.
+Different microphones may introduce different frequency-dependent delays. Mixing their signals via summation could cause phase cancellation regardless of whether we invert the phase of one of the signals or not. We can prevent it only by selectively adjusting the phase delay of the frequency components of one of these signals. What is the system that can change the phase delay without changing the magnitude of a frequency component? I hope that you know the answer by now 🙂.
 
 ## Example Allpass VST Plugin
 
-In [Reaper's ReaEQ VST plugin](https://www.reaper.fm/reaplugs/) there is an allpass filter available.
+In [Reaper's ReaEQ VST plugin](https://www.reaper.fm/reaplugs/), there is an allpass filter available.
 
 ![]({{ page.images | absolute_url | append: "/ReaEQAllpass.webp" }}){: width="80%" alt="ReaEQ plugin window with the allpass filter selected."}
 _Figure {% increment figureId20211022 %}. Allpass filter in the Reaper's ReaEQ VST plugin._
 
-How to observe the frequency-dependent phase cancellation with parallel allpass? Here's a quick tutorial:
+How to observe the frequency-dependent phase cancellation with a parallel allpass? Here's a quick tutorial:
 
 ![]({{ page.images | absolute_url | append: "/ReaEQAllpassAppliedMaster.webp" }}){: alt="Application of a parallel allpass filter with ReaEQ to create a notch."}
 _Figure {% increment figureId20211022 %}. Application of a parallel allpass filter with ReaEQ to create a notch._
 
 Steps to reproduce:
 
-1. Load an audio track to Reaper and double it.
+1. Load an audio track to Reaper and duplicate it.
 1. Add [Reaper's ReaEQ VST plugin](https://www.reaper.fm/reaplugs/) to *one* of the tracks.
 1. Open the plugin and remove all but 1 frequency bands.
 1. Change the type of the remaining frequency band to "All Pass".
-1. While listening to the master track, change the "Frequency [Hz]" parameter of the allpass. Can you hear the frequency component being removed?
+1. While listening to the master track, change the "Frequency [Hz]" parameter of the allpass. Can you hear the notch in the frequency spectrum?
 1. You can also load ReaEQ on the master track and observe the notch there.
 
 Have fun! 🎧
 
 ## Summary
 
-In this article, we have discussed an allpass filter. Now you understand
+In this article, we have discussed an allpass filter. Now, you understand
 
 * what is an allpass filter,
-* what types of musically useful allpass filter exist,
+* what types of musically useful allpass filters exist,
 * how to implement them,
-* how they can be applied to achieve various effects,
-* how to use an allpass filter in a DAW plugin.
+* how they are applied in various effects,
+* how to use an allpass filter in a DAW.
 
 Thank you for reading! If you enjoyed the article and want to learn even more, [sign up for my newsletter]({% link newsletter.md %})! You will become an expert in digital audio effects without the need to read thick books on DSP.
 

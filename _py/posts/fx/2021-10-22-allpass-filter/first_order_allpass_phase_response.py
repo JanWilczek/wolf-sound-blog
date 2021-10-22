@@ -40,7 +40,7 @@ if __name__ == '__main__':
         ax1.axis('tight')
 
         ax1.vlines(x=float(fb), ymin=-3.4, ymax=-np.pi / 2, color='b', linestyle='--')
-    plt.legend([f'fb = {fb}' for fb in break_frequencies])
+    plt.legend([r'$f_b / f_s = $' + str(fb) for fb in break_frequencies])
     plt.xlim([0, 0.5])
     plt.ylim([-np.pi - 0.1, 0.1])
     plt.xlabel('f / fs')

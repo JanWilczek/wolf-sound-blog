@@ -53,12 +53,12 @@ if __name__ == '__main__':
     break_frequencies = [Fraction(1, 16), Fraction(1, 8), Fraction(3, 16)] # fs = 1
     bandwidths = [0.022, 0.022, 0.022] # fs = 1
     title = 'second_order_allpass_phase_response'
-    legend = [f'fb = {fb}' for fb in break_frequencies]
+    legend = [r'$f_b / f_s = $' + str(fb) for fb in break_frequencies]
     plot_phase_response(break_frequencies, bandwidths, title, legend)
 
     break_frequencies = [Fraction(1, 8), Fraction(1, 8), Fraction(1, 8)] # fs = 1
     bandwidths = [0.022, 0.044, 0.088] # fs = 1
-    legend = [f'BW = {bw}' for bw in bandwidths]
+    legend = [r'$BW / f_s = $' + str(bw) for bw in bandwidths]
     plot_phase_response(break_frequencies, bandwidths, title + '_break', legend)
 
     
