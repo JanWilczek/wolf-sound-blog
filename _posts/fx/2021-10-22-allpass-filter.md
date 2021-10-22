@@ -5,6 +5,7 @@ date: 2021-10-22
 author: Jan Wilczek
 layout: post
 images: assets/img/posts/fx/2021-10-22-allpass-filter
+background: /assets/img/posts/fx/2021-10-22-allpass-filter/first_order_allpass_filter.webp
 categories:
   - Audio FX
   - Digital Signal Processing
@@ -49,7 +50,7 @@ In this article, we will discuss the digital allpass filter in detail, present i
 
 > An allpass filter is a filter which does not change the magnitude of any frequency component that passes through it [2].
 
-Formally, if we denote the transfer function of the allpass filter by $H_\text{AP}(j\omega)$, we can write $|H_\text{AP}(j\omega)| = 1$.
+Formally, if we denote the transfer function of the allpass filter by $H_\text{AP}(j\omega)$, we can write $|H_\text{AP}(j\omega)| = 1$. Here, $\omega = 2 \pi f / f_s$, where $f$ is a frequency in Hz and $f_s$ is the sampling rate in Hz.
 
 But wait, since the magnitude does not change, what do we need allpass filters for? We need them, because they introduce a **frequency-dependent phase delay**. In other words, we are able to manipulate the phase of the frequency components without altering their magnitude.
 
@@ -126,23 +127,19 @@ where $\overline{z}$ denotes the complex conjugate of $z$. We used the facts tha
 What is the role of the $a_1$ (*allpass*) coefficient? It controls the *break frequency* of the allpass filter. What is the break frequency? It is the frequency at which the phase shift of the filter is exactly $-\frac{\pi}{2}$ rad. To understand the break frequency we need to look at the phase frequency response of the allpass filter.
 
 ![]({{ page.images | absolute_url | append: "/first_order_allpass_phase_response.webp" }}){: width="80%" alt="Phase response of the first-order allpass filter."}
-_Figure {% increment figureId20211022 %}. Phase response of a first-order allpass filter for different break frequencies $\omega_\text{b}$._
+_Figure {% increment figureId20211022 %}. Phase response of a first-order allpass filter for different break frequencies $f_\text{b}$._
 
-We here refer to digital frequency given in radians, where $\omega = 0$ is corresponds to 0 Hz and $\omega = \pi$ corresponds to the Nyquist frequency $\frac{f_s}{2}$ ($f_s$ is the sampling rate in Hz). Digital frequency $\omega$ in radians can be computed out of frequency $f$ in Hz using the following formula:
+We here refer to digital frequency, i.e., the ratio of the frequency $f$ in Hz to the sampling rate $f_s$ in Hz.
 
-$$\omega = 2 \pi f / f_s.  \quad ({% increment equationId20211022 %})$$
+The blue lines in the figure mark the break frequencies of particular curves. The red line marks the phase shift by $-\frac{\pi}{2}$ rad. If we want to set a desired break frequency $f_\text{b}$ in radians, we can use the following formula to compute the $a_1$ coefficient [3,4,5]
 
-The blue lines in the figure mark the break frequencies of particular curves. The red line marks the phase shift by $-\frac{\pi}{2}$ rad. If we want to set a desired break frequency $\omega_\text{b}$ in radians, we can use the following formula to compute the $a_1$ coefficient [3,4,5]
-
-$$a_1 = \frac{\tan(\omega_\text{b} / 2) - 1}{\tan(\omega_\text{b} / 2) + 1}.  \quad ({% increment equationId20211022 %})$$
+$$a_1 = \frac{\tan(\pi f_\text{b} / f_s) - 1}{\tan(\pi f_\text{b} / f_s) + 1}.  \quad ({% increment equationId20211022 %})$$
 
 How is the above formula found? It is the result of transforming an *analog allpass filter* to the digital domain via the *bilinear transform*. Explaining this process is beyond the scope of this article; if you are interested, check out [the great explanation in [4]](https://ccrma.stanford.edu/~jos/pasp/Classic_Virtual_Analog_Phase.html). After the derivations, we arrive exactly at the transfer function from Equation 2.
 
 How are the plots in the above figure generated? They are derived from calculating the [argument (in the complex numbers sense)](https://en.wikipedia.org/wiki/Argument_(complex_analysis)) of the allpass transfer function $H_{\text{AP}_1}(j\omega)$. It can be done in software using the `freqz` function of [Matlab](https://www.mathworks.com/help/signal/ref/freqz.html) or [`scipy.signal`](https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.freqz.html). Alternatively, you can use the following out-of-the-box formula [5]
 
-$$\theta (\omega) = - \omega + 2 \arctan \left( \frac{a_1 \sin \omega}{1 + a_1 \cos \omega} \right),  \quad ({% increment equationId20211022 %})$$
-
-where $\omega$ is the digital frequency in radians.
+$$\text{Phase shift}(f) = - 2 \pi f n / f_s + 2 \arctan \left( \frac{a_1 \sin (2 \pi f / f_s)}{1 + a_1 \cos (2 \pi f / f_s)} \right).  \quad ({% increment equationId20211022 %})$$
 
 #### Derive It Yourself?
 
@@ -152,13 +149,13 @@ Why am I saying that the formula in Equation 7 is out-of-the-box? I wasn't able 
 
 When you look at the figure with the phase response of the first-order allpass filter, you can read out interesting properties.
 
-* The phase shift at DC ($\omega = 0$) is 0.
-* The phase shift at the Nyquist frequency ($\omega = \pi$) is $-\pi$ rad and is **always** the maximum possible phase delay.
-* The phase shift at the break frequency $\omega_\text{b}$ is $-\frac{pi}{2}$ rad.
+* The phase shift at DC ($f = 0$) is 0.
+* The phase shift at the Nyquist frequency ($f / f_s = 0.5$) is $-\pi$ rad and is **always** the maximum possible phase delay.
+* The phase shift at the break frequency $f_\text{b}$ is $-\frac{pi}{2}$ rad.
 
 #### Cascading Allpass Filters
 
-Arranging allpass filters in a series results in the **summation of phase delays**. We can therefore obtain a phase delay of $-N \pi$ at $\omega = \pi$ by cascading $N$ first-order allpass filters.
+Arranging allpass filters in a series results in the **summation of phase delays**. We can therefore obtain a phase delay of $-N \pi$ at $f / f_s = 0.5$ by cascading $N$ first-order allpass filters.
 
 ### Second-Order IIR Allpass
 
@@ -166,33 +163,33 @@ The second-order IIR allpass filter has the following transfer function [3]:
 
 $$H_{\text{AP}_2}(z) = \frac{-c + d(1-c) z^{-1} + z^{-2}}{1 + d(1-c) z^{-1} - c z^{-2}},  \quad ({% increment equationId20211022 %})$$
 
-where the parameter $d$ controls the center (cutoff) frequency of the filter $f_\text{c}$ (at which the phase shift is $-\pi$) and the parameter $c$ is computed from parameter $f_\text{b}$ which determines the bandwidth (the steepness of the slope of the phase transition around the cutoff frequency). The relations between these parameters are specified by these equations:
+where the parameter $d$ controls the break (center, cutoff) frequency of the filter $f_\text{b}$ (at which the phase shift is $-\pi$) and the parameter $c$ is computed from parameter $BW$ which determines the bandwidth (the steepness of the slope of the phase transition around the break frequency). The relations between these parameters are specified by these equations:
 
-$$c = \frac{\tan(\pi f_\text{b} / f_s) - 1}{\tan(\pi f_\text{b} / f_s) + 1},  \quad ({% increment equationId20211022 %})$$
+$$c = \frac{\tan(\pi BW / f_s) - 1}{\tan(\pi BW / f_s) + 1},  \quad ({% increment equationId20211022 %})$$
 
-$$d = - \cos(2\pi f_\text{c} / f_s),  \quad ({% increment equationId20211022 %})$$
+$$d = - \cos(2\pi f_\text{b} / f_s),  \quad ({% increment equationId20211022 %})$$
 
-where $f_s$ is the sampling rate. Parameters $f_\text{b}$, $f_\text{c}$, and $f_s$ are given in Hz.
+where $f_s$ is the sampling rate. Parameters $BW$, $f_\text{b}$, and $f_s$ are given in Hz.
 
-Note how $f_\text{b}$ is coupled with $c$ but not with $d$ and $f_\text{c}$ is coupled with $d$ but not with $c$. This allows us to smoothly control our filter's properties.
+Note how $BW$ is coupled with $c$ but not with $d$ and $f_\text{b}$ is coupled with $d$ but not with $c$. This allows us to smoothly control our filter's properties.
 
 #### Phase Response
 
-Phase responses of second-order allpass filters for different cutoff frequencies $f_\text{c}$ look as follows:
+Phase responses of second-order allpass filters for different break frequencies $f_\text{b}$ look as follows:
 
 ![]({{ page.images | absolute_url | append: "/second_order_allpass_phase_response.webp" }}){: width="80%" alt="Phase response of the second-order allpass filter with constant bandwidth."}
-_Figure {% increment figureId20211022 %}. Phase response of a second-order allpass filter for different cutoff frequencies frequencies $f_\text{c}$ and bandwidth $f_\text{b} = 0.022$._
+_Figure {% increment figureId20211022 %}. Phase response of a second-order allpass filter for different break frequencies frequencies $f_\text{b}$ and bandwidth $BW = 0.022$._
 
-As you can see above, the cutoff frequency determines the point of the phase shift by $-\pi$. All slopes, however, have the same curvature.
+As you can see above, the break frequency determines the point of the phase shift by $-\pi$. All slopes, however, have the same curvature.
 
-If instead, we keep the cutoff frequency constant and change the bandwidth parameter, we obtain the following phase responses:
+If instead, we keep the break frequency constant and change the bandwidth parameter, we obtain the following phase responses:
 
-![]({{ page.images | absolute_url | append: "/second_order_allpass_phase_response_break.webp" }}){: width="80%" alt="Phase response of the second-order allpass filter with constant cutoff frequency."}
-_Figure {% increment figureId20211022 %}. Phase response of a second-order allpass filter for different bandwidths $f_\text{b}$ and cutoff frequency $f_\text{c} = 1/8$._
+![]({{ page.images | absolute_url | append: "/second_order_allpass_phase_response_break.webp" }}){: width="80%" alt="Phase response of the second-order allpass filter with constant break frequency."}
+_Figure {% increment figureId20211022 %}. Phase response of a second-order allpass filter for different bandwidths $BW$ and break frequency $f_\text{b} = 1/8$._
 
-The $-\pi$ shift point remains at the same frequency but the curvature of the slope gets milder with increasing $f_\text{b}$ parameter.
+The $-\pi$ shift point remains at the same frequency but the curvature of the slope gets milder with increasing $BW$ parameter.
 
-What these plots really show? They show that **the second-order allpass filter is an incredibly flexible tool**. We can independently change meaningful parameters such as cutoff frequency and bandwidths while ensuring the filter's stability. This property is crucial for implementing parametric filters (parametric equalizer, EQ), because we want to be able to change filter's properties in an intuitive and safe manner.
+What these plots really show? They show that **the second-order allpass filter is an incredibly flexible tool**. We can independently change meaningful parameters such as break frequency and bandwidths while ensuring the filter's stability. This property is crucial for implementing parametric filters (parametric equalizer, EQ), because we want to be able to change filter's properties in an intuitive and safe manner.
 
 #### Implementation
 
@@ -205,6 +202,15 @@ If that seems complicated, a diagram should make it clear 🙂
 
 ![]({{ page.images | absolute_url | append: "/second_order_allpass_filter.webp" }}){: alt="Block diagram of the second-order allpass filter."}
 _Figure {% increment figureId20211022 %}. Block diagram of the second-order allpass filter._
+
+#### Properties of the Second-Order Allpass Filter
+
+The second-order allpass filter has the following properties.
+
+* The phase shift at DC ($f = 0$) is 0.
+* The phase shift at the Nyquist frequency ($f / f_s = 0.5$) is $-2 \pi$ rad and is **always** the maximum possible phase delay.
+* The phase shift at the break frequency $f_\text{b}$ is $-\pi$ rad.
+* We can control the break frequency $f_\text{b}$ and the bandwidth $BW$ independently.
 
 ### Higher-Order IIR Allpass Filter
 
@@ -223,7 +229,7 @@ However, higher-order allpass filters are rarely used in practice of audio progr
 Although for a single channel audio, we cannot hear the effect of phase delay, allpass filters are incredibly useful in musical applications. Why?
 
 * They are stable.
-* They meaningful parameters to coefficients mapping (e.g., cutoff frequency to $d$ coefficient in second-order allpass).
+* They meaningful parameters to coefficients mapping (e.g., break frequency to $d$ coefficient in second-order allpass).
 * They are computationally efficient.
 * Their properties are well-known.
 
