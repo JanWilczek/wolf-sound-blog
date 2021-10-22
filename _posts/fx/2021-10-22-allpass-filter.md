@@ -42,6 +42,32 @@ In this article, we will discuss the digital allpass filter in detail, present i
   </div>
 </div>
 
+## Table of Contents
+
+2. [Definition of an Allpass Filter](#definition-of-an-allpass-filter)
+3. [Types of Allpass Systems](#types-of-allpass-systems)
+   1. [FIR Allpass System](#fir-allpass-system)
+   2. [First-Order IIR Allpass](#first-order-iir-allpass)
+      1. [Implementation](#implementation)
+      2. [Magnitude Response](#magnitude-response)
+      3. [Phase Response](#phase-response)
+      4. [Derive It Yourself?](#derive-it-yourself)
+      5. [Properties of the First-Order Allpass Filter](#properties-of-the-first-order-allpass-filter)
+      6. [Cascading Allpass Filters](#cascading-allpass-filters)
+   3. [Second-Order IIR Allpass](#second-order-iir-allpass)
+      1. [Phase Response](#phase-response-1)
+      2. [Implementation](#implementation-1)
+      3. [Properties of the Second-Order Allpass Filter](#properties-of-the-second-order-allpass-filter)
+   4. [Higher-Order IIR Allpass Filter](#higher-order-iir-allpass-filter)
+4. [Applications of Allpass Filters](#applications-of-allpass-filters)
+   1. [Reverberation](#reverberation)
+   2. [Parametric Equalizer](#parametric-equalizer)
+   3. [Phaser](#phaser)
+   4. [Phase Equalization](#phase-equalization)
+5. [Example Allpass VST Plugin](#example-allpass-vst-plugin)
+6. [Summary](#summary)
+7. [Bibliography](#bibliography)
+
 {% katexmm %}
 {% capture _ %}{% increment equationId20211022  %}{% endcapture %}
 {% capture _ %}{% increment figureId20211022  %}{% endcapture %}
@@ -139,7 +165,7 @@ How is the above formula found? It is the result of transforming an *analog allp
 
 How are the plots in the above figure generated? They are derived from calculating the [argument (in the complex numbers sense)](https://en.wikipedia.org/wiki/Argument_(complex_analysis)) of the allpass transfer function $H_{\text{AP}_1}(j\omega)$. It can be done in software using the `freqz` function of [Matlab](https://www.mathworks.com/help/signal/ref/freqz.html) or [`scipy.signal`](https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.freqz.html). Alternatively, you can use the following out-of-the-box formula [5]
 
-$$\text{Phase shift}(f) = - 2 \pi f n / f_s + 2 \arctan \left( \frac{a_1 \sin (2 \pi f / f_s)}{1 + a_1 \cos (2 \pi f / f_s)} \right).  \quad ({% increment equationId20211022 %})$$
+$$\text{Phase shift}(f) = - 2 \pi f / f_s + 2 \arctan \left( \frac{a_1 \sin (2 \pi f / f_s)}{1 + a_1 \cos (2 \pi f / f_s)} \right).  \quad ({% increment equationId20211022 %})$$
 
 #### Derive It Yourself?
 
@@ -296,18 +322,16 @@ If you have any questions, don't hesitate to ask them below!
 
 ## Bibliography
 
-[1] Alan V. Oppenheim, Alan S. Willsky, with S. Hamid *Signals and Systems*, 2nd Edition, Pearson 1997.
+[1] [Alan V. Oppenheim, Alan S. Willsky, with S. Hamid *Signals and Systems*, 2nd Edition, Pearson 1997.](https://amzn.to/3m2tZsd)
 
-[2] Alan V Oppenheim, Ronald W. Schafer *Discrete-Time Signal Processing*, 3rd Edition, Pearson 2010.
+[2] [Alan V Oppenheim, Ronald W. Schafer *Discrete-Time Signal Processing*, 3rd Edition, Pearson 2010.](https://amzn.to/3vygXGl)
 
-[3] Zölzer, U. DAFX: Digital Audio Effects. 2nd ed. Helmut Schmidt University – University of the Federal Armed Forces, Hamburg, Germany: John Wiley & Sons Ltd, 2011.
+[3] [Zölzer, U. DAFX: Digital Audio Effects. 2nd ed. Helmut Schmidt University – University of the Federal Armed Forces, Hamburg, Germany: John Wiley & Sons Ltd, 2011.](https://amzn.to/3aZIxT8)
 
-[4] J. O. Smith, *Physical Audio Signal Processing*, [http://ccrma.stanford.edu/~jos/pasp/](http://ccrma.stanford.edu/~jos/pasp/), online
-book, 2010 edition. Retrieved October 19, 2021.
+[4] [J. O. Smith, *Physical Audio Signal Processing*, online book, 2010 edition. Retrieved October 19, 2021.](http://ccrma.stanford.edu/~jos/pasp/)
 
-[5] R. Kiiski, F. Esqueda, and V. Välimäki, *Time-Variant Gray-Box Modeling of a Phaser Pedal*, in
-Proceedings of the 19th International Conference on Digital Audio Effects (DAFx-16), Brno, Czech
-Republic, September 5–9, pp. 121–128, 2016.
+[5] [R. Kiiski, F. Esqueda, and V. Välimäki, *Time-Variant Gray-Box Modeling of a Phaser Pedal*, in Proceedings of the 19th International Conference on Digital Audio Effects (DAFx-16), Brno, Czech Republic, September 5–9, pp. 121–128, 2016.](https://www.dafx.de/paper-archive/2016/dafxpapers/05-DAFx-16_paper_42-PN.pdf)
 
+{% include affiliate-disclaimer.html %}
 
 {% endkatexmm %}
