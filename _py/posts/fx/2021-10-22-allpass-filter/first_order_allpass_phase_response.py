@@ -44,5 +44,6 @@ if __name__ == '__main__':
     plt.xlim([0, 0.5])
     plt.ylim([-np.pi - 0.1, 0.1])
     plt.xlabel('f / fs')
+    plt.yticks([0, -np.pi/4, -np.pi/2, -3 * np.pi/4, -np.pi], ['0', '$-\pi/4$', '$-\pi/2$', '$-3\pi/4$', '$-\pi$'])
     plt.axhline(y=-np.pi/2, color='r')
     plt.savefig(output_dir / f'first_order_allpass_phase_response.png', **plot_dict)

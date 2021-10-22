@@ -201,7 +201,7 @@ Note how $BW$ is coupled with $c$ but not with $d$ and $f_\text{b}$ is coupled w
 
 #### Phase Response
 
-Phase responses of second-order allpass filters for different break frequencies $f_\text{b}$ look as follows:
+Phase response of the second-order allpass filter with different break frequencies $f_\text{b}$ looks as follows:
 
 ![]({{ page.images | absolute_url | append: "/second_order_allpass_phase_response.webp" }}){: width="80%" alt="Phase response of the second-order allpass filter with constant bandwidth."}
 _Figure {% increment figureId20211022 %}. Phase response of a second-order allpass filter for different break frequencies frequencies $f_\text{b}$ and bandwidth $BW / f_s = 0.022$._

@@ -38,6 +38,7 @@ def plot_phase_response(break_frequencies, bandwidths, title, legend):
     plt.ylim([-2 * np.pi - 0.1, 0.1])
     plt.xlabel('f / fs')
     plt.axhline(y=-np.pi, color='r')
+    plt.yticks([0, -np.pi/2, -np.pi, -3 * np.pi/2, - 2 * np.pi], ['0', '$-\pi/2$', '$-\pi$', '$-3\pi/2$', '$-2\pi$'])
     plt.savefig(output_dir / f'{title}.png', **plot_dict)
 
 
