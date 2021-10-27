@@ -125,67 +125,14 @@
       <h5>Publication consistency:</h5>
       <iframe src="https://www.beeminder.com/widget?slug=wolfsound&username=janwilczek&countdown=true" height="245px" width="230px" frameborder="0px" ></iframe>
 
-      <!-- <h5>Categories</h5>
-      <ul class="list-unstyled components mb-5">
-        <li>
-          <a href="#pageSubmenu1" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Mens Shoes</a>
-          <ul class="collapse list-unstyled" id="pageSubmenu1">
-            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span> Casual</a></li>
-            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span> Football</a></li>
-            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span> Jordan</a></li>
-            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span> Lifestyle</a></li>
-            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span> Running</a></li>
-            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span> Soccer</a></li>
-            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span> Sports</a></li>
-          </ul>
-        </li>
-        <li>
-          <a href="#pageSubmenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Mens Shoes</a>
-          <ul class="collapse list-unstyled" id="pageSubmenu2">
-            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span> Casual</a></li>
-            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span> Football</a></li>
-            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span> Jordan</a></li>
-            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span> Lifestyle</a></li>
-            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span> Running</a></li>
-            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span> Soccer</a></li>
-            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span> Sports</a></li>
-          </ul>
-        </li>
-        <li>
-          <a href="#pageSubmenu3" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Accessories</a>
-          <ul class="collapse list-unstyled" id="pageSubmenu3">
-            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span> Nicklace</a></li>
-            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span> Ring</a></li>
-            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span> Bag</a></li>
-            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span> Sacks</a></li>
-            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span> Lipstick</a></li>
-          </ul>
-        </li>
-        <li>
-          <a href="#pageSubmenu4" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Clothes</a>
-          <ul class="collapse list-unstyled" id="pageSubmenu4">
-            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span> Jeans</a></li>
-            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span> T-shirt</a></li>
-            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span> Jacket</a></li>
-            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span> Shoes</a></li>
-            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span> Sweater</a></li>
-          </ul>
-        </li>
-      </ul>
-      <div class="mb-5">
         <h5>Tag Cloud</h5>
         <div class="tagcloud">
-          <a href="#" class="tag-cloud-link">dish</a>
-          <a href="#" class="tag-cloud-link">menu</a>
-          <a href="#" class="tag-cloud-link">food</a>
-          <a href="#" class="tag-cloud-link">sweet</a>
-          <a href="#" class="tag-cloud-link">tasty</a>
-          <a href="#" class="tag-cloud-link">delicious</a>
-          <a href="#" class="tag-cloud-link">desserts</a>
-          <a href="#" class="tag-cloud-link">drinks</a>
+            {% assign sortedtags = site.tags | sort %}
+            {% for tag in sortedtags %}
+                <a href="/tag/{{ tag[0] | slugify }}" class="tag-cloud-link">{{ tag[0] }}</a>
+            {% endfor %}
         </div>
-      </div>
-      <div class="mb-5">
+      <!-- <div class="mb-5">
         <h5>Newsletter</h5>
         <form action="#" class="subscribe-form">
           <div class="form-group d-flex">

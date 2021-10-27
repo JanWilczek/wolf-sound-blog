@@ -5,7 +5,6 @@ date: 2019-12-20T07:22:07+00:00
 author: Jan Wilczek
 layout: page
 description: Want to become an audio programming pro?
-background: '/wp-content/uploads/2019/10/Logo-1024x602.png'
 guid: https://thewolfsound.com/?page_id=312
 content_width:
   - default_width

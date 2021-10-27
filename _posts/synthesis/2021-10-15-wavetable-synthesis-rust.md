@@ -10,7 +10,6 @@ background: /assets/img/posts/synthesis/2021-08-13-wavetable-synthesis-theory/Th
 categories:
  - Sound Synthesis
 tags:
- - synthesis
  - wavetable
  - Rust
 discussion_id: 2021-10-15-wavetable-synthesis-rust

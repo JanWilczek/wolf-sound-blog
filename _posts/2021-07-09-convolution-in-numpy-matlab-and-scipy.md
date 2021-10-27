@@ -12,6 +12,7 @@ categories:
 tags:
  - convolution
  - Matlab
+ - Python
 discussion_id: 2021-07-09-convolution-in-matlab-numpy-and-scipy
 ---
 How to compute convolution using numerical software libraries?

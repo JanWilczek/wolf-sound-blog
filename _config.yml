@@ -33,9 +33,6 @@ facebook_page: https://www.facebook.com/JanWilczekWolfSound
 logo_title_path: /wp-content/uploads/2019/10/LogoNameOnly.png
 google_analytics: UA-149437803-2
 
-# Defaults
-default_background_path: '/wp-content/uploads/2019/10/Logo-1024x602.png'
-
 # Build settings
 theme: jekyll-theme-clean-blog
 markdown:           kramdown
@@ -44,6 +41,7 @@ kramdown:
   auto_ids: true
 permalink: /:title/
 highlighter: rouge
+
 pagination:
   enabled: true
   per_page: 6
@@ -51,6 +49,23 @@ pagination:
   sort_field: 'date'
   sort_reverse: true
   title: ':title - Page :num'
+
+autopages:
+  enabled: true
+  categories:
+    enabled: false
+  collections:
+    enabled: false
+  tags:
+    layouts: 
+      - 'paginator.html'
+    title: 'Posts tagged with ":tag"' # :tag is replaced by the tag name
+    permalink: '/tag/:tag'
+    silent: false
+    slugify:
+      mode: 'default'   # :tag is slugified.
+      case: false
+
 future: true
 plugins:
   - jekyll-feed
@@ -105,6 +120,10 @@ defaults:
       type: "posts"
     values:
       layout: "post"
+  - scope:
+      path: ""
+    values:
+      background: '/wp-content/uploads/2019/10/Logo-1024x602.png'
 #   - scope:
 #       path: ""
 #     values:

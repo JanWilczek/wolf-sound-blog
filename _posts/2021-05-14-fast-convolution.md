@@ -10,7 +10,7 @@ categories:
  - Digital Signal Processing
 tags:
  - convolution
- - filters
+ - filtering
 discussion_id: 2021-05-14-fast-convolution
 ---
 How to compute convolution fast for real-time applications?

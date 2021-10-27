@@ -31,9 +31,8 @@ background: /wp-content/uploads/2020/01/thumbnail.png
 categories:
   - Programming in general
 tags:
-  - architecture
-  - code
-  - design
+  - software architecture
+  - design principles
   - testing
 discussion_id: 2020-01-21-how-to-write-good-code-lessons-learned-from-clean-code
 ---

@@ -10,7 +10,6 @@ background: /assets/img/posts/synthesis/2021-09-24-wavetable-synthesis-juce/Thum
 categories:
  - Sound Synthesis
 tags:
- - synthesis
  - wavetable
  - JUCE
  - C++

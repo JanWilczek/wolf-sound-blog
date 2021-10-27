@@ -10,9 +10,10 @@ background: /assets/img/posts/synthesis/2021-08-13-wavetable-synthesis-theory/Th
 categories:
  - Sound Synthesis
 tags:
- - synthesis
  - wavetable
  - waveform
+ - aliasing
+ - sampling
 discussion_id: 2021-08-13-wavetable-synthesis-theory
 ---
 How to generate sound in code using the wavetable synthesis technique?

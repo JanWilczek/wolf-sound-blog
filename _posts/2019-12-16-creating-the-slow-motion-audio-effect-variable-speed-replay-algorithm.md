@@ -33,9 +33,8 @@ categories:
   - Audio FX
   - Digital Signal Processing
 tags:
-  - audio
-  - fx
-  - slow motion
+  - effects
+  - Python
 discussion_id: 2019-12-16-creating-the-slow-motion-audio-effect-variable-speed-replay-algorithm
 ---
 {% katexmm %}

@@ -10,7 +10,6 @@ background: /assets/img/posts/synthesis/2021-08-27-wavetable-synthesis-python/Th
 categories:
  - Sound Synthesis
 tags:
- - synthesis
  - wavetable
  - Python
 discussion_id: 2021-08-27-wavetable-synthesis-python

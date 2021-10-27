@@ -31,7 +31,6 @@ background: /wp-content/uploads/2019/10/thumbnail_what_is_sound.png
 categories:
   - Sound in general
 tags:
-  - audio signal
   - digital audio
   - sound wave
 discussion_id: 2019-11-12-what-is-sound-the-notion-of-an-audio-signal

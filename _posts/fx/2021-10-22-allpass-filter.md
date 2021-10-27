@@ -11,7 +11,7 @@ categories:
   - Digital Signal Processing
 tags:
   - effects
-  - filters
+  - filtering
 discussion_id: 2021-10-22-allpass-filter
 ---
 What is an allpass filter? What is it used for?
