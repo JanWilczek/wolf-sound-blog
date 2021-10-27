@@ -125,10 +125,9 @@
       <h5>Publication consistency:</h5>
       <iframe src="https://www.beeminder.com/widget?slug=wolfsound&username=janwilczek&countdown=true" height="245px" width="230px" frameborder="0px" ></iframe>
 
-        <h5>Tag Cloud</h5>
+        <h5>Tag cloud</h5>
         <div class="tagcloud">
-            {% assign sortedtags = site.tags | sort %}
-            {% for tag in sortedtags %}
+            {% for tag in site.tags %}
                 <a href="/tag/{{ tag[0] | slugify }}" class="tag-cloud-link">{{ tag[0] }}</a>
             {% endfor %}
         </div>
