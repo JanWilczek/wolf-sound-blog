@@ -13,41 +13,7 @@ tags:
   - learning
 discussion_id: 2021-10-29-how-i-got-started-with-audio-programing
 ---
-
-
-## Referenced Resources
-
-* Programming books
-  * Java for Android Development by Jeff Friesen
-  * Pragmatic Programmer by david thomas and andrew hunt
-  * Programming Pearls by jon bentley
-  * Android 6 for programmers by Alexander Wald, Harvey Deitel and paul deitel
-  * Head first OOA&D
-  * Operating systems by william stallings
-  * Clean Code by robert c martin
-  * The C++ Programming Language by bjarne stroustrup
-  * Design Patterns by gof
-* Sound synthesis books
-  * Roads
-  * Russ
-* University programs
-  * Acoustic Engineering at AGH University of Science and Technology in Cracow
-  * Computer Science at AGH University of Science and Technology in Cracow
-  * Advanced Signal Processing and Communications Engineering at University of Erlangen-Nürnberg
-  * Acoustics and Audio Technology at the Aalto University
-* Techmo sp. z o.o.
-* Researchers in audio
-  * Marek Pluta
-  * Konrad Kowalczyk
-  * Emanuel Habets
-  * Walter Kellermann
-  * Meinard Muller
-  * Vesa Valimaki
-  * Alec Wright
-
-Sign up for WolfSound's newsletter!
-
-[All podcast episodes.]({{"/podcast" | relative_url }})
+My story from zero to... audio programmer and researcher.
 
 Listen on:
 * YouTube
@@ -57,4 +23,55 @@ Listen on:
 * Stitcher
 * TuneIn Radio
 
-## Transcript
+[All podcast episodes.]({{"/podcast" | relative_url }})
+
+[Sign up for WolfSound's newsletter!]({% link newsletter.md %})
+
+## Episode Contents
+
+In this podcast episode, you will learn
+* how mathematics and musics led me to the field of acoustics,
+* how I learned programming from scratch,
+* how I handled two study programmes and a part-time software engineering job,
+* how I learned audio programming basics within and outside of the university,
+* why I decided to pursue a research-focused master's degree in signal processing,
+* why I created WolfSound,
+* where I am going next 🧐. 
+
+## Referenced Resources
+
+Below are all the resources that I referenced in the podcast episode.
+
+* Programming books (newest editions)
+  * [*Java for Android Development* by Jeff Friesen](https://amzn.to/3GFoh8j)
+  * [*The Pragmatic Programmer* by David Thomas and Andrew Hunt](https://amzn.to/3pOBMwb)
+  * [*Programming Pearls* by Jon Bentley](https://amzn.to/3w5rQ2J)
+  * [*Android 6 for Programmers* by Harvey Deitel, Paul Deitel, and Alexander Wald](https://amzn.to/3Em7t42)
+  * [*Head first Object-Oriented Analysis and Design* by Brett D. McLaughlin, Gary Pollice, and Dave West](https://amzn.to/3BoUL2q)
+  * [*Operating Systems* by William Stallings](https://amzn.to/3mk66fT)
+  * [*Clean Code* by Robert C. Martin](https://amzn.to/3bjRMxW)
+  * [*The C++ Programming Language* by Bjarne Stroustrup](https://amzn.to/3nTaQsP)
+  * [*Design Patterns* by the Gang of Four (Erich Gamma, Richard Helm, Ralph Johnson, and John Vlissides)](https://amzn.to/3biujgt)
+* Sound synthesis books
+  * [*The Computer Music Tutorial* by Curtis Roads](https://amzn.to/3nTb9DZ)
+  * [*Sound Synthesis and Sampling* by Martin Russ](https://amzn.to/3GtTNpx)
+* University programs
+  * [Acoustic Engineering at the AGH University of Science and Technology in Cracow (in Polish only)](http://msia.agh.edu.pl/)
+  * [Computer Science at the AGH University of Science and Technology in Cracow (in Polish only)](https://iet.agh.edu.pl/kierunek-informatyka/)
+  * [Advanced Signal Processing and Communications Engineering at the University of Erlangen-Nürnberg](https://www.asc.studium.fau.de/)
+  * [Acoustics and Audio Technology at the Aalto University](https://www.aalto.fi/en/study-options/masters-programme-in-computer-communication-and-information-sciences-acoustics-and)
+* [Techmo sp. z o.o.](https://techmo.pl/)
+  * <a href="https://assetstore.unity.com/packages/tools/audio/soundtoolkit-136305?aid=1101l89AT">SoundToolKit on Unity Asset Store</a>
+* Researchers in audio
+  * [Marek Pluta](https://skos.agh.edu.pl/osoba/marek-pluta-7198.html)
+  * [Konrad Kowalczyk](https://scholar.google.com/citations?user=oqxDPGcAAAAJ)
+  * [Emanuël Habets](https://www.audiolabs-erlangen.de/fau/professor/habets)
+  * [Walter Kellermann](https://www.lms.tf.fau.eu/person/kellermann-walter/)
+  * [Meinard Müller](https://www.audiolabs-erlangen.de/fau/professor/mueller)
+  * [Vesa Välimäki](http://users.spa.aalto.fi/vpv/)
+  * [Alec Wright](https://www.aalto.fi/en/people/alec-wright)
+
+{% include affiliate-disclaimer.html %}
+
+
+<!-- TODO: ## Transcript -->
