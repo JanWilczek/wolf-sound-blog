@@ -15,7 +15,13 @@ discussion_id: 2021-10-29-how-i-got-started-with-audio-programing
 ---
 My story from zero to... audio programmer and researcher.
 
+<!-- <script src="https://cdn.podlove.org/web-player/5.x/embed.js"></script> -->
+<!-- <script> -->
+  <!-- podlovePlayer('#example', '/assets/wav/posts/podcast/2021-10-29-how-i-got-started-with-audio-programming/how_i_got_started_with_audio_programming.wav', '/path/to/configuration/or/object'); -->
+<!-- </script> -->
+
 Listen on:
+* [SoundCloud](https://soundcloud.com/jan-wilczek-wolf-sound/talk001)
 * YouTube
 * Spotify
 * Apple Podcast
@@ -27,13 +33,22 @@ Listen on:
 
 [Sign up for WolfSound's newsletter!]({% link newsletter.md %})
 
+*"How do I get started with audio programming?"*
+
+*"What books do you recommend for doing DSP?"*
+
+*"How to build a synthesizer with technology XYZ?"*
+
+These are some examples of questions I found on various forums throughout the internet. **WolfSound is all about making it easy for you to learn audio programming.** We remove the requirements to read thick books, pay for expensive courses, and attend universities for years. This podcast episode is meant to give you an example way to learn audio programming: my way. I want to share my story with you so that you can relate and believe that you can do it too!
+
 ## Episode Contents
 
 In this podcast episode, you will learn
-* how mathematics and musics led me to the field of acoustics,
+* how mathematics and music led me to study the field of acoustics,
 * how I learned programming from scratch,
 * how I handled two study programmes and a part-time software engineering job,
 * how I learned audio programming basics within and outside of the university,
+* which books I read to learn programming and sound synthesis,
 * why I decided to pursue a research-focused master's degree in signal processing,
 * why I created WolfSound,
 * where I am going next 🧐. 
