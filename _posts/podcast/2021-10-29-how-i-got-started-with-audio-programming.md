@@ -4,7 +4,7 @@ description: "Jan Wilczek's journey to become an audio programmer: university, j
 date: 2021-10-29
 author: Jan Wilczek
 layout: post
-permalink: talk001
+permalink: /talk001/
 categories:
   - Podcast
   - Programming In General
@@ -20,14 +20,16 @@ My story from zero to... audio programmer and researcher.
   <!-- podlovePlayer('#example', '/assets/wav/posts/podcast/2021-10-29-how-i-got-started-with-audio-programming/how_i_got_started_with_audio_programming.wav', '/path/to/configuration/or/object'); -->
 <!-- </script> -->
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/0kBpcACGM6g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 Listen on:
 * [SoundCloud](https://soundcloud.com/jan-wilczek-wolf-sound/talk001)
-* YouTube
-* Spotify
-* Apple Podcast
-* Google Podcast
-* Stitcher
-* TuneIn Radio
+* [YouTube](https://www.youtube.com/watch?v=0kBpcACGM6g&ab_channel=WolfSound)
+<!-- * Spotify -->
+<!-- * Apple Podcast -->
+<!-- * Google Podcast -->
+<!-- * Stitcher -->
+<!-- * TuneIn Radio -->
 
 [All podcast episodes.]({{"/podcast" | relative_url }})
 
