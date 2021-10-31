@@ -49,6 +49,9 @@ pagination:
   sort_field: 'date'
   sort_reverse: true
   title: ':title - Page :num'
+  trail: 
+    before: 3 # The number of links before the current page
+    after: 3  # The number of links after the current page
 
 autopages:
   enabled: true

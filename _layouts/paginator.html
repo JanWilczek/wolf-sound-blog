@@ -32,15 +32,23 @@ layout: page
 <!-- Pager -->
 {% if paginator.total_pages > 1 %}
 
-<div class="clearfix">
+<div class="justify-content-between pagination-numbers">
 
   {% if paginator.previous_page %}
-  <a class="btn btn-primary float-left" href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&larr;
+  <a class="btn btn-primary" href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&larr;
     Newer<span class="d-none d-md-inline"> Posts</span></a>
   {% endif %}
 
+  {% if paginator.page_trail %}
+  {% for trail in paginator.page_trail %}
+    <a class="btn {% if page.url == trail.path %} btn-primary {% else %} btn-outline-primary {% endif %}" href="{{ trail.path | absolute_url | remove: "index.html" }}" title="{{trail.title}}">
+        {{ trail.num }}
+    </a>
+  {% endfor %}
+{% endif %}
+
   {% if paginator.next_page %}
-  <a class="btn btn-primary float-right" href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Older<span class="d-none d-md-inline"> Posts</span> &rarr;</a>
+  <a class="btn btn-primary" href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Older<span class="d-none d-md-inline"> Posts</span> &rarr;</a>
   {% endif %}
 
 </div>
