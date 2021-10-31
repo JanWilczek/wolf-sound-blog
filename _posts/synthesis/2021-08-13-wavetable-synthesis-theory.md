@@ -13,7 +13,7 @@ tags:
  - wavetable
  - waveform
  - aliasing
- - sampling
+ - sampling (sound generation)
 discussion_id: 2021-08-13-wavetable-synthesis-theory
 ---
 How to generate sound in code using the wavetable synthesis technique?
