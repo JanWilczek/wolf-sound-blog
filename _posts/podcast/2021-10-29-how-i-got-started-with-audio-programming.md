@@ -25,11 +25,11 @@ My story from zero to... audio programmer and researcher.
 Listen on:
 * [SoundCloud](https://soundcloud.com/jan-wilczek-wolf-sound/talk001)
 * [YouTube](https://www.youtube.com/watch?v=0kBpcACGM6g&ab_channel=WolfSound)
-<!-- * Spotify -->
-<!-- * Apple Podcast -->
-<!-- * Google Podcast -->
-<!-- * Stitcher -->
+* [Spotify](https://open.spotify.com/episode/5bB2hZO3TVQB07viRIHZvp?si=d433d88770f44946)
+* [Stitcher](https://listen.stitcher.com/yvap/?af_dp=stitcher://episode/87917014&af_web_dp=https://www.stitcher.com/episode/87917014)
 <!-- * TuneIn Radio -->
+<!-- * Google Podcast -->
+<!-- * Apple Podcast -->
 
 [All podcast episodes.]({{"/podcast" | relative_url }})
 
