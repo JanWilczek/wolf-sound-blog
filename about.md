@@ -5,11 +5,11 @@ description: What is WolfSound all about?
 ---
 <iframe width="560" height="315" src="https://www.youtube.com/embed/5A4y6pUL1CM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-Welcome to the Wolf Sound! Thank You for being here.
+Welcome to the WolfSound! Thank You for being here.
 
-My name is Jan Wilczek and I have created Wolf Sound to be able to share my passion of audio programming.
+My name is Jan Wilczek and I have created WolfSound to be able to share my passion of audio programming. If you want to know my story, I described it thoroughly in [the first episode of the WolfTalk podcast]({% post_url podcast/2021-10-29-how-i-got-started-with-audio-programming %}).
 
-On Wolf Sound you can expect three types of activity (the &#8216;pillars&#8217; of the brand):
+On WolfSound you can expect three types of activity (the &#8216;pillars&#8217; of the brand):
 
   * **Knowledge:** videos, articles, courses, books, podcasts etc. concerning the topic of sound programming. My primal area of interests are sound synthesis and music effects programming, but the topics will cover a much wider ground (although always connected to sound, or programming, or both). I want to share my knowledge, but I also want to learn from You-Your suggestions and tips are always welcomed! The following areas are considered significant:
       * sound synthesis
