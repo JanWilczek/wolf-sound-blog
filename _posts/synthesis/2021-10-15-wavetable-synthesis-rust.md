@@ -6,7 +6,7 @@ author: Jan Wilczek
 layout: post
 permalink: /sound-synthesis/wavetable-synth-in-rust/
 images: assets/img/posts/synthesis/2021-10-15-wavetable-synthesis-rust
-background: /assets/img/posts/synthesis/2021-08-13-wavetable-synthesis-theory/Thumbnail.png
+background: /assets/img/posts/synthesis/2021-10-15-wavetable-synthesis-rust/Thumbnail.webp
 categories:
  - Sound Synthesis
 tags:
@@ -15,6 +15,8 @@ tags:
 discussion_id: 2021-10-15-wavetable-synthesis-rust
 ---
 Let's write a wavetable synthesizer in Rust!
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/v0Qp7eWVyes" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 There are so many programming languages out there. Why would we want to write a wavetable synth in Rust?
 

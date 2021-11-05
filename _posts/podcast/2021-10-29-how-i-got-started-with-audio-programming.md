@@ -5,6 +5,7 @@ date: 2021-10-29
 author: Jan Wilczek
 layout: post
 permalink: /talk001/
+background: /assets/img/posts/podcast/talk001/Thumbnail.webp
 categories:
   - Podcast
   - Programming In General
@@ -27,8 +28,8 @@ Listen on:
 * [YouTube](https://www.youtube.com/watch?v=0kBpcACGM6g&ab_channel=WolfSound)
 * [Spotify](https://open.spotify.com/episode/5bB2hZO3TVQB07viRIHZvp?si=d433d88770f44946)
 * [Stitcher](https://listen.stitcher.com/yvap/?af_dp=stitcher://episode/87917014&af_web_dp=https://www.stitcher.com/episode/87917014)
-<!-- * TuneIn Radio -->
-<!-- * Google Podcast -->
+* [TuneIn Radio](http://tun.in/pkRvm)
+* [Google Podcast](https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkcy5zb3VuZGNsb3VkLmNvbS91c2Vycy9zb3VuZGNsb3VkOnVzZXJzOjEwNDU1MDEzNDgvc291bmRzLnJzcw/episode/dGFnOnNvdW5kY2xvdWQsMjAxMDp0cmFja3MvMTE1MDA3NTA5Mw?sa=X&ved=0CAUQkfYCahcKEwjQnKCI44D0AhUAAAAAHQAAAAAQFA)
 <!-- * Apple Podcast -->
 
 [All podcast episodes.]({{"/podcast" | relative_url }})
