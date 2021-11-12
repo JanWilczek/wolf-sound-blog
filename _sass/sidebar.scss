@@ -19,14 +19,16 @@
         padding: 0px 10px 0px 10px;
     }
 
+    $short-bio-font-size: 14px;
     .short-bio {
-        $short-bio-font-size: 14px;
         font-size: $short-bio-font-size;
         img {
             width: 100px;
             padding-right: -20px;
         }
-        
+    }
+
+    .card {
         .row {
             display: flex;
             padding: 0px;
@@ -48,7 +50,6 @@
     .card-title {
         text-align: center;
         margin: 0px;
-        // padding-right: 10px;
     }
 
     .card-text {
@@ -65,6 +66,26 @@
     }
 
     .newsletter-form {
+        font-size: $short-bio-font-size;
+
+        .indicates-required {
+            .asterisk {
+                color: $red;
+            }
+            font-size: small;
+        }
+        
+        input {
+            white-space: normal;
+            width: 100%;        
+        }
+
+        ul {
+            list-style-type: disc;
+            list-style-position: outside;
+            margin-left: 1em;
+        }
+
         .card {
             background-color: $gray-300;
         }
