@@ -68,18 +68,6 @@
     .newsletter-form {
         font-size: $short-bio-font-size;
 
-        .indicates-required {
-            .asterisk {
-                color: $red;
-            }
-            font-size: small;
-        }
-        
-        input {
-            white-space: normal;
-            width: 100%;        
-        }
-
         ul {
             list-style-type: disc;
             list-style-position: outside;
@@ -90,7 +78,7 @@
             background-color: $gray-300;
         }
     }
-
+    
     ul.components{
         padding: 0;
     }

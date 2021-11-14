@@ -1,0 +1,15 @@
+.newsletter-form {
+    .indicates-required {
+        font-size: small;
+        text-align: right;
+    }
+
+    .asterisk {
+        color: $red;
+    }
+    
+    input {
+        white-space: normal;
+        width: 100%;        
+    }
+}
