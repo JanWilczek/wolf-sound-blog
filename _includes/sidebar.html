@@ -1,7 +1,23 @@
 <nav id="sidebar">
     <div class="p-4 pt-5">
 
-        {% include short-bio.html %}
+        <div class="short-bio">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row align-items-center">
+                        <div class="column"><img src="{{ "/assets/img/home/jan_wilczek.png" | absolute_url }}" alt="A photo of Jan Wilczek"/></div>
+                        <div class="column"><h5 class="card-title">Welcome to WolfSound!</h5></div>
+                    </div>
+                    <div class="row">
+                        <p class="card-text">My name is Jan Wilczek. I am an audio programmer, a researcher in the field of music technology, and a musician. Through articles and videos from WolfSound, you will easily understand the main concepts of sound processing using software.</p>
+                    </div>
+                    <div class="row justify-content-center">
+                        <a href="{% link about.md %}" class="btn btn-primary" title="Read more about WolfSound">Read More About WolfSound</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
 
         {% include share-buttons.html %}
 
@@ -15,10 +31,11 @@
                     </div>
                     <div class="row">
                         <p class="card-text">
-                            Through my email list of Audio Programming Wolves, I am able to help you personally. You
+                            Through my email list, I am able to help you personally. You
                             can expect:
                         </p>
                         <ul class="card-text">
+                            <li><strong>possibility to contact me directly,</strong></li>
                             <li>weekly summary of the site activity (no need to check all platforms separately!),</li>
                             <li>occasional special offers from our partners, and</li>
                             <li>tips and tricks regarding audio programming drawn from experience (others and mine).
@@ -73,7 +90,7 @@
                 </div>
             </div>
         </div>
-
+        <br>
         <h5>Follow me on:</h5>
         <ul>
             <li>
@@ -185,7 +202,7 @@
                     <div class="row">
                         <!-- Image used for background: https://www.flickr.com/photos/53416677@N08/4972851531/in/photostream/lightbox/ -->
                         <!-- Distributed under Attribution 2.0 Generic Creative Commons License. Link to the license: https://creativecommons.org/licenses/by/2.0/ -->
-                        <img src="{{ " /assets/img/home/convolution_series_logo.png" | absolute_url }}"
+                        <img src="{{ "/assets/img/home/convolution_series_logo.png" | absolute_url }}"
                             alt="Logo of the series of articles on convolution" />
                     </div>
                 </a>
