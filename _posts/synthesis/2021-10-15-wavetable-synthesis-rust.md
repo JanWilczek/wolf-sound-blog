@@ -34,8 +34,14 @@ This article is self-contained: no knowledge of Rust is necessary.
 Rust is a general-purpose programming language designed for high-performance and high-reliability computing. While these two goals may seem contradictory, Rust actually manages to accomplish both of them thanks to the concept of ownership, similar to C++'s `unique_ptr`s.
 
 ![]({{ page.images | absolute_url | append: "/Rust_programming_language_black_logo.svg" }}){: alt="Rust programming language logo." width="600px" }
+_Figure 1. Rust logo._
 
 Being optimized and safe makes Rust an attractive alternative to C or C++: we could possibly get the same speed and memory performance but at the same time avoid the pitfalls of the C family, for example, invalid pointers.
+
+As an interesting fact, Rust was voted the most loved language on StackOverflow for 6 consecutive years as of 2021.
+
+![]({{ page.images | absolute_url | append: "/SORust.webp" }}){: alt="Stack Overflow's most loved vs most dreaded programming languages in 2021 developer survey." width="100%" }
+_Figure 2. [Most loved vs most dreaded programming languages in 2021 Stack Overflow Developer Survey.](https://insights.stackoverflow.com/survey/2021#technology-most-loved-dreaded-and-wanted)_
 
 Although I really appreciate the features of Rust, I still think that the amount of code written in C ensures that C and C++ programmers will be needed for many years to come 🙂 It also must take some time for Rust to mature... But this language is definitely worth exploring!
 
