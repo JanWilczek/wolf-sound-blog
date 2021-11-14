@@ -47,7 +47,7 @@ Through my email list, I am able to help you personally. You can expect:
 <!-- Begin Mailchimp Signup Form -->
 
 <div id="mc_embed_signup" class="newsletter-form">
-<form action="https://thewolfsound.us20.list-manage.com/subscribe/post?u=5da91b45702ac45410802e155&amp;id=b6e8fb4e61" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+<form action="https://thewolfsound.us20.list-manage.com/subscribe/post?u=5da91b45702ac45410802e155&amp;id=b6e8fb4e61&SIGNUP=NewsletterPage" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
     <div id="mc_embed_signup_scroll">
 	
 <div class="indicates-required"><span class="asterisk">*</span> indicates required</div>
