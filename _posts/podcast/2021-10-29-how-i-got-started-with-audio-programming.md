@@ -1,6 +1,6 @@
 ---
 title: "How I Got Started With Audio Programming | WolfTalk #001"
-description: "Jan Wilczek's journey to become an audio programmer: university, job, self-study, and perseverance.."
+description: "Jan Wilczek's journey to become an audio programmer: university, job, self-study, and perseverance."
 date: 2021-10-29
 author: Jan Wilczek
 layout: post
