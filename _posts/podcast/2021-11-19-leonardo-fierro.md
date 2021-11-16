@@ -22,6 +22,10 @@ In this podcast episode, you will learn
 * how to transition from communications to audio signal processing,
 * what is a PhD in general and what does it mean in the context of audio,
 * what are the advantages and disadvantages of pursuing a PhD,
+* how is a PhD student involved in teaching,
+* significance of audio research,
+* what is the time-scale modification (TSM), methods to achieve it and its applications,
+* what are transients in audio,
 
 ## Referenced Resources
 
@@ -31,6 +35,7 @@ Below are all the resources that are referenced in the podcast episode.
   * [Leonardo Fierro](https://www.leonardofierro.me/), a doctoral candidate at the Aalto University.
   * [Vesa Välimäki](http://users.spa.aalto.fi/vpv/), head of the Audio Signal Processing group at the Aalto Acoustics Lab.
   * [Jussi Rämö](https://www.linkedin.com/in/jussiramo/), Principal Engineer (Audio) at Huawei Technologies, formerly a postdoc researcher at Aalto.
+  * [Eero-Pekka Damskägg](https://www.linkedin.com/in/eero-pekka-damsk%C3%A4gg-b62129111/)
 * Places:
   * [Aalto Acoustics Lab of the Aalto University in Espoo, Finland](https://www.aalto.fi/en/aalto-acoustics-lab)
     * [YouTube channel](https://www.youtube.com/channel/UCpo9G3kZ0qVXGPBIYdlJT9Q)
@@ -39,3 +44,5 @@ Below are all the resources that are referenced in the podcast episode.
     * [Facebook](https://www.facebook.com/HelsinkiRugbyClub/)
   * [Fuego & Shiver rap band](#)
   * [Entropicamente metal rap band](#)
+* Publications:
+  * [SiTraNo app](https://github.com/himynameisfuego/SiTraNo)
