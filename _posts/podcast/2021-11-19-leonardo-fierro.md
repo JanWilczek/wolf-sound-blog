@@ -1,19 +1,22 @@
 ---
-title: "How To Start a Career In Audio Research: From Communications To Audio Signal Processing And Time-Scale Modification With Leonardo Fierro | WolfTalk #002"
+title: "How To Start a Career In Audio Research With Leonardo Fierro | WolfTalk #002"
 description: "PLACEHOLDER"
 date: 2021-11-19
 author: Jan Wilczek
 layout: post
 permalink: /talk002/
-background: /assets/img/posts/podcast/talk001/Thumbnail.webp
+background: /assets/img/posts/podcast/talk002/Thumbnail.webp
 categories:
   - Podcast
-  - Programming In General
+  - Audio FX
 tags:
   - career
   - learning
+  - MATLAB
+  - research
 discussion_id: 2021-11-19-leonardo-fierro
 ---
+From Communications to Audio Signal Processing and Time-Scale Modification.
 
 ## Episode Contents
 
@@ -66,4 +69,7 @@ Below are all the resources that are referenced in the podcast episode.
   * Sines + Transients + Noise (SiTraNo) by Leonardo Fierro:
     * [MATLAB app on GitHub](https://github.com/himynameisfuego/SiTraNo)
     * [Publication on ResearchGate](https://www.researchgate.net/publication/354076466_SiTraNo_A_Matlab_App_For_Sines-Transients-Noise_Decomposition_of_Audio_Signals)
+* Abbreviations:
+  * TSM: Time-Scale Modification.
+  * TA: Teaching Assistant.
 

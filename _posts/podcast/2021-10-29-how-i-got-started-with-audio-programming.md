@@ -16,11 +16,6 @@ discussion_id: 2021-10-29-how-i-got-started-with-audio-programing
 ---
 My story from zero to... audio programmer and researcher.
 
-<!-- <script src="https://cdn.podlove.org/web-player/5.x/embed.js"></script> -->
-<!-- <script> -->
-  <!-- podlovePlayer('#example', '/assets/wav/posts/podcast/2021-10-29-how-i-got-started-with-audio-programming/how_i_got_started_with_audio_programming.wav', '/path/to/configuration/or/object'); -->
-<!-- </script> -->
-
 <iframe width="560" height="315" src="https://www.youtube.com/embed/0kBpcACGM6g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 Listen on:
