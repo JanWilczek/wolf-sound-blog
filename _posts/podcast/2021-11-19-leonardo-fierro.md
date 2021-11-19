@@ -71,7 +71,7 @@ In this podcast episode, you will learn
 Below are all the resources that are referenced in the podcast episode.
 
 * People:
-  * [Leonardo Fierro](https://www.leonardofierro.me/) ([leonard.fierro@aalto.fi](mailto:leonard.fierro@aalto.fi), [Instagram @himynameisfuego](https://www.instagram.com/himynameisfuego/)), a doctoral candidate at the Aalto University.
+  * [Leonardo Fierro](https://www.leonardofierro.me/) ([leonardo.fierro@aalto.fi](mailto:leonardo.fierro@aalto.fi), [Instagram @himynameisfuego](https://www.instagram.com/himynameisfuego/)), a doctoral candidate at the Aalto University.
   * [Vesa Välimäki](http://users.spa.aalto.fi/vpv/), head of the Audio Signal Processing group at the Aalto Acoustics Lab.
   * [Jussi Rämö](https://www.linkedin.com/in/jussiramo/), Principal Engineer (Audio) at Huawei Technologies, formerly a postdoc researcher at Aalto.
   * [Eero-Pekka Damskägg](https://www.linkedin.com/in/eero-pekka-damsk%C3%A4gg-b62129111/), Machine Learning Researcher at Neural DSP Technologies, formerly a researcher at Aalto.
