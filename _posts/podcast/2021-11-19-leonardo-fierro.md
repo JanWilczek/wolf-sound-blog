@@ -25,7 +25,7 @@ Listen on:
 * [YouTube](https://youtu.be/-G5tNfLy84g)
 * [Spotify](https://open.spotify.com/episode/0b5a6Zdu37AWYpUQlX0BsL?si=700d09ef79b84207)
 * [Stitcher](https://www.stitcher.com/show/wolftalk-podcast-about-audio-programming-people-careers-learning/episode/how-to-start-a-career-in-audio-research-with-leonardo-fierro-wolftalk-002-88415578)
-<!-- * [TuneIn Radio](http://tun.in/pkRvm) -->
+* [TuneIn Radio](http://tun.in/pkRvm)
 <!-- * [Google Podcasts](https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkcy5zb3VuZGNsb3VkLmNvbS91c2Vycy9zb3VuZGNsb3VkOnVzZXJzOjEwNDU1MDEzNDgvc291bmRzLnJzcw/episode/dGFnOnNvdW5kY2xvdWQsMjAxMDp0cmFja3MvMTE1MDA3NTA5Mw?sa=X&ved=0CAUQkfYCahcKEwjQnKCI44D0AhUAAAAAHQAAAAAQFA) -->
 * [Apple Podcasts](https://podcasts.apple.com/us/podcast/how-to-start-a-career-in-audio-research-with/id1595913701?i=1000542432837)
 
