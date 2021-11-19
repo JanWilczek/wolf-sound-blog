@@ -25,7 +25,7 @@ Listen on:
 * [Stitcher](https://listen.stitcher.com/yvap/?af_dp=stitcher://episode/87917014&af_web_dp=https://www.stitcher.com/episode/87917014)
 * [TuneIn Radio](http://tun.in/pkRvm)
 * [Google Podcast](https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkcy5zb3VuZGNsb3VkLmNvbS91c2Vycy9zb3VuZGNsb3VkOnVzZXJzOjEwNDU1MDEzNDgvc291bmRzLnJzcw/episode/dGFnOnNvdW5kY2xvdWQsMjAxMDp0cmFja3MvMTE1MDA3NTA5Mw?sa=X&ved=0CAUQkfYCahcKEwjQnKCI44D0AhUAAAAAHQAAAAAQFA)
-<!-- * Apple Podcast -->
+<!-- * [Apple Podcast](https://podcasts.apple.com/us/podcast/wolftalk-podcast-about-audio-programming-people-careers/id1595913701) -->
 
 [All podcast episodes.]({{"/podcast" | relative_url }})
 

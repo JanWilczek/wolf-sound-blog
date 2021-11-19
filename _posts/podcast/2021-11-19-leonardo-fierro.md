@@ -1,6 +1,6 @@
 ---
 title: "How To Start a Career In Audio Research With Leonardo Fierro | WolfTalk #002"
-description: "PLACEHOLDER"
+description: "An interview with Leonardo Fierro, a doctoral candidate in the Aalto Acoustics Lab researching time-scale modification."
 date: 2021-11-19
 author: Jan Wilczek
 layout: post
@@ -17,6 +17,27 @@ tags:
 discussion_id: 2021-11-19-leonardo-fierro
 ---
 From Communications to Audio Signal Processing and Time-Scale Modification.
+
+<!--  YT link -->
+
+<!-- Listen on: -->
+<!-- * [SoundCloud](https://soundcloud.com/jan-wilczek-wolf-sound/talk001) -->
+<!-- * [YouTube](https://www.youtube.com/watch?v=0kBpcACGM6g&ab_channel=WolfSound) -->
+<!-- * [Spotify](https://open.spotify.com/episode/5bB2hZO3TVQB07viRIHZvp?si=d433d88770f44946) -->
+<!-- * [Stitcher](https://listen.stitcher.com/yvap/?af_dp=stitcher://episode/87917014&af_web_dp=https://www.stitcher.com/episode/87917014) -->
+<!-- * [TuneIn Radio](http://tun.in/pkRvm) -->
+<!-- * [Google Podcast](https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkcy5zb3VuZGNsb3VkLmNvbS91c2Vycy9zb3VuZGNsb3VkOnVzZXJzOjEwNDU1MDEzNDgvc291bmRzLnJzcw/episode/dGFnOnNvdW5kY2xvdWQsMjAxMDp0cmFja3MvMTE1MDA3NTA5Mw?sa=X&ved=0CAUQkfYCahcKEwjQnKCI44D0AhUAAAAAHQAAAAAQFA) -->
+<!-- * [Apple Podcast](https://podcasts.apple.com/us/podcast/how-i-got-started-with-audio-programming-and-how-you/id1595913701?i=1000542129741) -->
+
+[All podcast episodes.]({{"/podcast" | relative_url }})
+
+[Sign up for WolfSound's newsletter!]({% link newsletter.md %})
+
+In this episode, I had the privilege to interview Leonard Fierro, a PhD student at the Aalto Acoustics Lab of the Aalto University in Espoo, Finland.
+
+Leonardo comes from Italy and transitioned from Communications to Audio Signal Processing. He's currently (as of 2021) in his third year of the doctoral studies. His focus is on time-scale modification (as in YouTube's 1.5x or 2x speed buttons) and transients. 
+
+In this episode, we are discussing his background and also what is needed to carry out research in the domain of sound processing.
 
 ## Episode Contents
 
@@ -43,6 +64,7 @@ In this podcast episode, you will learn
 * is PhD for everyone,
 * what are the 2 things you need to do a PhD, and
 * what is the purpose of [Aalto Acoustics Lab YouTube channel](https://www.youtube.com/channel/UCpo9G3kZ0qVXGPBIYdlJT9Q) and [Aalto Acoustics Instagram](https://www.instagram.com/aaltoacousticslab/)?
+
 
 ## Referenced Resources
 
@@ -73,3 +95,4 @@ Below are all the resources that are referenced in the podcast episode.
   * TSM: Time-Scale Modification.
   * TA: Teaching Assistant.
 
+<!-- TODO: ## Transcript -->
