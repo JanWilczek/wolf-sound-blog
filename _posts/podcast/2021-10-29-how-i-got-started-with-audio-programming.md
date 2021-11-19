@@ -25,7 +25,7 @@ Listen on:
 * [Stitcher](https://listen.stitcher.com/yvap/?af_dp=stitcher://episode/87917014&af_web_dp=https://www.stitcher.com/episode/87917014)
 * [TuneIn Radio](http://tun.in/pkRvm)
 * [Google Podcast](https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkcy5zb3VuZGNsb3VkLmNvbS91c2Vycy9zb3VuZGNsb3VkOnVzZXJzOjEwNDU1MDEzNDgvc291bmRzLnJzcw/episode/dGFnOnNvdW5kY2xvdWQsMjAxMDp0cmFja3MvMTE1MDA3NTA5Mw?sa=X&ved=0CAUQkfYCahcKEwjQnKCI44D0AhUAAAAAHQAAAAAQFA)
-<!-- * [Apple Podcast](https://podcasts.apple.com/us/podcast/wolftalk-podcast-about-audio-programming-people-careers/id1595913701) -->
+* [Apple Podcast](https://podcasts.apple.com/us/podcast/how-i-got-started-with-audio-programming-and-how-you/id1595913701?i=1000542129741)
 
 [All podcast episodes.]({{"/podcast" | relative_url }})
 
@@ -88,3 +88,5 @@ Below are all the resources that I referenced in the podcast episode.
 
 
 <!-- TODO: ## Transcript -->
+
+What were your beginnings with audio programming? Let me know in the comments!

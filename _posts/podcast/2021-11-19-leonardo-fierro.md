@@ -63,7 +63,7 @@ In this podcast episode, you will learn
 * the 2 approaches to writing a PhD thesis at Aalto,
 * is PhD for everyone,
 * what are the 2 things you need to do a PhD, and
-* what is the purpose of [Aalto Acoustics Lab YouTube channel](https://www.youtube.com/channel/UCpo9G3kZ0qVXGPBIYdlJT9Q) and [Aalto Acoustics Instagram](https://www.instagram.com/aaltoacousticslab/)?
+* what is the purpose of [Aalto Acoustics Lab YouTube channel](https://www.youtube.com/channel/UCpo9G3kZ0qVXGPBIYdlJT9Q) and [Aalto Acoustics Instagram](https://www.instagram.com/aaltoacousticslab/).
 
 
 ## Referenced Resources
@@ -96,3 +96,5 @@ Below are all the resources that are referenced in the podcast episode.
   * TA: Teaching Assistant.
 
 <!-- TODO: ## Transcript -->
+
+Have you ever considered a career in audio research? Is there anything that is holding you back? Please, let me know in the comments!
