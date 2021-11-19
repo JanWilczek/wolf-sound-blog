@@ -18,16 +18,16 @@ discussion_id: 2021-11-19-leonardo-fierro
 ---
 From Communications to Audio Signal Processing and Time-Scale Modification.
 
-<!--  YT link -->
+<iframe width="560" height="315" src="https://www.youtube.com/embed/-G5tNfLy84g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-<!-- Listen on: -->
-<!-- * [SoundCloud](https://soundcloud.com/jan-wilczek-wolf-sound/talk001) -->
-<!-- * [YouTube](https://www.youtube.com/watch?v=0kBpcACGM6g&ab_channel=WolfSound) -->
-<!-- * [Spotify](https://open.spotify.com/episode/5bB2hZO3TVQB07viRIHZvp?si=d433d88770f44946) -->
+Listen on:
+* [SoundCloud](https://soundcloud.com/jan-wilczek-wolf-sound/how-to-start-a-career-in-audio-research-with-leonardo-fierro-wolftalk-002)
+* [YouTube](https://youtu.be/-G5tNfLy84g)
+* [Spotify](https://open.spotify.com/episode/0b5a6Zdu37AWYpUQlX0BsL?si=700d09ef79b84207)
 <!-- * [Stitcher](https://listen.stitcher.com/yvap/?af_dp=stitcher://episode/87917014&af_web_dp=https://www.stitcher.com/episode/87917014) -->
 <!-- * [TuneIn Radio](http://tun.in/pkRvm) -->
 <!-- * [Google Podcast](https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkcy5zb3VuZGNsb3VkLmNvbS91c2Vycy9zb3VuZGNsb3VkOnVzZXJzOjEwNDU1MDEzNDgvc291bmRzLnJzcw/episode/dGFnOnNvdW5kY2xvdWQsMjAxMDp0cmFja3MvMTE1MDA3NTA5Mw?sa=X&ved=0CAUQkfYCahcKEwjQnKCI44D0AhUAAAAAHQAAAAAQFA) -->
-<!-- * [Apple Podcast](https://podcasts.apple.com/us/podcast/how-i-got-started-with-audio-programming-and-how-you/id1595913701?i=1000542129741) -->
+* [Apple Podcast](https://podcasts.apple.com/us/podcast/how-to-start-a-career-in-audio-research-with/id1595913701?i=1000542432837)
 
 [All podcast episodes.]({{"/podcast" | relative_url }})
 
