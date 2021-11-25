@@ -1,5 +1,5 @@
 ---
-title: "How to Design a Parametric Filter Plugin in 4 Simple Steps"
+title: "How to Design a Parametric EQ Plugin in 4 Simple Steps"
 description: "PLACEHOLDER"
 date: 2021-11-26
 author: Jan Wilczek
@@ -68,39 +68,142 @@ Now when we know, what is important for a musically useful plug-in filter we can
 
 Let’s now expand on every of the 4 steps.
 
-## Step 1: Decide On The Filter Type You Want to Implement.
+## Step 1: Decide On The Filter Type.
 
 <!-- Follow editing from here -->
 
-In digital signal processing, there are lots of filter types but in parametric EQ there are only a few. I will shortly explain the most important ones now. The effect of each filter is shown on the example of the pink noise signal. Unfiltered pink noise sounds like this: [PLAY PINK NOISE].
+In digital signal processing, there are lots of filter types but in parametric EQs there are only a few. I will shortly explain the most important ones now. The amplitude response of each filter is shown on the example of the ReaEQ plugin from Reaper.
+<!-- TODO: Add a link to the ReaEQ plugin -->
 
-[SIDE BY SIDE FILTER NAME-PROPERTIES AND REAEQ]
+<div class="card summary">
+  <div class="card-body">
+  <h5 class="card-title">In Short</h5>
+  <h6 class="card-subtitle mb-2 text-muted">Filter Controls</h6>
+    <table class="table">
+    <tr>
+        <th>Filter Type</th>    
+        <th>Controllable Parameters</th>
+    </tr>
+    <tr>
+        <td>Low-Pass, High-Pass</td>
+        <td>
+            <ul>
+                <li>cutoff frequency,</li>
+                <li>resonance</li>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <td>Band-Pass, Notch</td>
+        <td>
+            <ul>
+                <li>center frequency,</li>
+                <li>bandwidth</li>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <td>Shelving</td>
+        <td>
+            <ul>
+                <li>cutoff frequency,</li>
+                <li>bandwidth</li>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <td>Peak</td>
+        <td>
+            <ul>
+                <li>center frequency,</li>
+                <li>bandwidth,</li>
+                <li>gain</li>
+            </ul>
+        </td>
+    </tr>
+    </table>
+  </div>
+</div>
 
-A low-pass filter attenuates all frequencies higher than the cutoff frequency. The cutoff frequency specifies the frequency at which the filter attenuation is -3 dB relative to the unfiltered signal. Another parameter is resonance. Resonance let’s you create a peak around the cutoff frequency in the amplitude response of the filter. The resonance was probably the main factor behind the success of the Moog synthesizer filter section. [MOOG/EMERSON PICTURE]. Additionally, we can control the slope of the filter, so how fast is the amplitude response decaying above the cutoff filter. Here’s how a low-pass filter sounds [REAEQ EXAMPLE PLAY]. In itself, the low-pass filter is a powerful musical tool.
+### Low-Pass Filter
 
-A high-pass filter works exactly the same as the low-pass filter, except that it attenuates frequencies below the cutoff frequency. All the parameters are the same as for the low-pass filter. Here’s how a high-pass filter sounds [REAEQ EXAMPLE PLAY].
+A *low-pass filter* attenuates all frequencies higher than the cutoff frequency.
 
-A band-pass filter passes through frequencies only in a certain range. It cannot additionally boost or attenuate them. The only two parameters it lets us control is the center frequency of the band and the bandwidth. Here’s how a band-pass filter sounds [REAEQ EXAMPLE PLAY].
+<!-- Low-pass filter ReaEQ image -->
 
-A notch filter also called a band-stop or band-reject filter does the opposite than the band-pass filter: it eliminates a certain frequency range from the signal. Again, we can control it through center frequency and bandwidth parameter. Here’s how a notch filter sounds [REAEQ EXAMPLE PLAY].
+<!-- TODO: Mention the Q factor -->
 
-Milder versions of the low-pass and high-pass filters are high-shelving and low-shelving filters respectively. A high-shelving filter lets us boost or attenuate frequencies above the cutoff frequency. Apart from the cutoff frequency and the gain of the shelf, we can also control the steepness or the width of the slope in the transition band. Here’s how a high-shelving filter sounds [REAEQ EXAMPLE PLAY].
+The *cutoff frequency* is the frequency at which the filter attenuation is -3 dB relative to the unfiltered signal. Another parameter is *resonance*. Resonance let’s you create a peak around the cutoff frequency in the amplitude response of the filter. The resonance was probably the main factor behind the success of the Moog synthesizer filter section.
 
-A low-shelving filter, as you might guess at this point, lets us manipulate the shelf below the cutoff frequency. It has exactly the same parameters as the high-shelving filter. Here’s how a low-shelving filter sounds [REAEQ EXAMPLE PLAY].
+ <!-- MOOG/EMERSON PICTURE.  -->
+ 
+Additionally, we can control the slope of the filter, so how fast is the amplitude response decaying above the cutoff filter. 
+ 
+In itself, the low-pass filter is a powerful musical tool.
 
-The final filter that is musically useful is the band filter. A band filter lets us boost or attenuate a frequency range. We can control the center frequency and the bandwidth so the steepness of the slope on the sides of the amplitude response of the band. Here’s how a band filter sounds [REAEQ EXAMPLE PLAY].
+### High-Pass Filter
 
-Now that you know the types of the filters, you can decide on which of them you want to implement. Even if you want to implement them all, start with 1. You have it? Then it’s time for step 2: designing an analog prototype [TRANSITION].
+A *high-pass filter* works exactly the same as the low-pass filter, except that it attenuates frequencies below the cutoff frequency. All the parameters are the same as for the low-pass filter.
 
-Digitizing an analog prototype ensures that we have meaningful controls-to-coefficients mapping and we obtain a computationally efficient and stable IIR filter. To design an analog prototype to obtain a desired filter type, we need to turn to analog filter design theory.
+<!-- High-pass filter ReaEQ image -->
 
-Without going into much detail, there are 3 main classes of analog filter design [SmithDigFil]: Butterworth, Chebyshev, and Elliptic Functions. Each of them is optimal in some sense. Using these, we can construct any of the above-specified filters in the analog domain. The output of this design is an analog transfer function in the Laplace or s-domain. [SHOW AN EXAMPLE TRANSFER FUNCTION FORMULA] [TRANSITION]
+High-pass filter is usually used to remove undesired frequencies below 100 Hz.
+
+### Band-Pass Filter
+
+A *band-pass filter* passes through frequencies only in a certain range. It cannot additionally boost or attenuate them. The only two parameters it lets us control is the *center frequency* of the band and the *bandwidth*.
+
+<!-- Band-pass filter ReaEQ image -->
+
+### Notch Filter
+
+A *notch filter* also called a *band-stop* or *band-reject* filter does the opposite than the band-pass filter: it eliminates a certain frequency range from the signal. Again, we can control it through center frequency and bandwidth parameter.
+
+<!-- Notch filter ReaEQ image -->
+
+### Shelving Filter
+
+Milder versions of the low-pass and high-pass filters are high-shelving and low-shelving filters respectively.
+
+A *high-shelving filter* lets us boost or attenuate frequencies above the cutoff frequency. Apart from the cutoff frequency and the gain of the shelf, we can also control the steepness or the width of the slope in the transition band.
+
+<!-- High-shelving filter ReaEQ image -->
+
+A *low-shelving filter*, as you might guess at this point, lets us manipulate the shelf below the cutoff frequency. It has exactly the same parameters as the high-shelving filter. Here’s how a low-shelving filter sounds [REAEQ EXAMPLE PLAY].
+
+<!-- Low-shelving filter ReaEQ image -->
+
+### Band Filter
+
+The final filter that is musically useful is the *band filter*. A band filter lets us boost or attenuate a frequency range. We can control the center frequency and the bandwidth so the steepness of the slope on the sides of the amplitude response of the band.
+
+<!-- Band filter ReaEQ image -->
+
+Now that you know the types of the filters, you can decide on which of them you want to implement. Even if you want to implement them all, start with 1. You have it? Then it’s time for step 2.
+
+## Step 2: Design an Analog Prototype.
+
+An analog prototype ensures that we have meaningful controls-to-coefficients mapping and we obtain a computationally efficient and stable IIR filter. To design an analog prototype to obtain a desired filter type, we need to turn to analog filter design theory.
+
+Without going into much detail, there are 3 main classes of analog filter design [SmithDigFil]: Butterworth, Chebyshev, and Elliptic Functions. Each of them is optimal in some sense. Using these, we can construct any of the above-specified filters in the analog domain. The output of this design is an analog transfer function in the Laplace or s-domain.
+
+For example, a first-order analog lowpass has the following transfer function:
+
+<!-- TODO: Add 1st-order low-pass formula -->
+
+## Step 3: Digitize the Analog Prototype.
 
 The third step to implement a filter plugin is a digitization of the analog prototype. Again, there are many ways to do this but in practice the most practical one is the bilinear transform, also called {FILL HERE}. The bilinear transform maps the analog frequencies from the jomega analog frequency axis in the s-plane to digital frequencies on the unit circle in the z-plane. This may seem kind of complicated, and frankly it is, but fortunately there are ready-made formulas for this [SHOW THE FORMULAS]. You can make these substitutions in your analog transfer functions and voila: you have a digital filter!
 
+## Shortcut Steps 2 and 3
+
 There is 1 trick that allows you to shortcut steps 2 and 3. The so-called RBJ Cookbook, compiled by Robert Bristow-Johnson, already lists all musically useful filters in their digital forms so you don’t have to derive them all over again. I have linked to the cookbook in the description below. Nevertheless, I still believe it is beneficial to understand the process that stands behind these formulas in order to use them to their full capability and be able to extend them if necessary. [TRANSITION]
 
+## Step 4: Implement the Digital Filter.
+
 The last step in the process is to take that digital filter and implement it in the technology of your choice. Sample technologies may be Python, Matlab, CSound, Pure Data, Android, iOS, Arduino, Raspberry Pi, or… JUCE. The last one may seem the most obvious choice for DAW plugin developers, that is why, I will be showing you how to implement each and every of the mentioned filters in the JUCE C++ framework over the course of the following videos. So stay tuned! [TRANSITION]
+
+## Applications of Parametric Filters
 
 So where can these parametric filters be applied? One obvious answer is your digital audio workstation. In this software, you can use a parametric EQ plugin to manipulate the frequency content of your audio tracks. However, that’s not the only use.
 
@@ -109,6 +212,8 @@ Efficient filters are especially important in game audio or, in a broader sense,
 Another important aspect of parametric EQ is the equalization applied to loudspeaker playback. When striving towards a perfect sound, each loudspeaker should have adjustable characteristics. And although these are often tuned with other techniques or even analog filters, the parametric EQ can still be employed for this purpose.
 
 Finally, where you are listening to music from your computer or mobile phone, you may want to adjust certain frequencies, for example, add more bass. [MOBILE PHONE/COMPUTER STOCK FOOTAGE]. Since the changes in user controls must be immediately reflected in the played back sound, these EQs are often implemented using parametric filters as specified above. [TRANSITION]
+
+## Summary
 
 In summary, in this video I showed you 4 steps to create a filter plugin: from an idea to the implementation. I have also showed you a shortcut in the form of RBJ Cookbook. Over the next couple of videos, I will discuss in detail every step so that you can understand fully the process behind it. Then I will show you sample implementations of the parametric filters in the JUCE C++ framework in the form of plugin design tutorials. So there is a lot ahead of us! If you want to stay up to date with the upcoming videos, subscribe to the channel and turn on notifications so that you are notified when the mentioned videos are published. As usual, I have put the content of this video in an article form on TheWolfSound.com so you can bookmark it for future reference. A big shout-out to Aalto Acoustics lab for letting me record this video in their offices. Thanks for watching and see you in the next one! Take care. 
 
