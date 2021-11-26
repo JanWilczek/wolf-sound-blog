@@ -4,7 +4,7 @@ description: "PLACEHOLDER"
 date: 2021-11-26
 author: Jan Wilczek
 layout: post
-# images: assets/img/posts/fx/2021-10-22-allpass-filter
+images: assets/img/posts/fx/2021-11-26-parametric-eq-design/
 # background: /assets/img/posts/fx/2021-10-22-allpass-filter/first_order_allpass_filter.webp
 categories:
   - Audio FX
@@ -21,6 +21,7 @@ You probably have seen some form of a parametric equalizer in your digital audio
 In this article, I will outline 4 steps necessary to create such software. By the end of this article, you will know exactly what to do when you want to implement a parametric filter, even if it’s just for a university or hobby project.
 
 {% katexmm %}
+{% capture _ %}{% increment equationId20211126  %}{% endcapture %}
 
 ## Basic Definitions
 
@@ -106,7 +107,7 @@ In digital signal processing, there are lots of filter types but in parametric E
         <td>Shelving</td>
         <td>
             <ul>
-                <li>cutoff frequency,</li>
+                <li>crossover frequency,</li>
                 <li>bandwidth</li>
             </ul>
         </td>
@@ -165,11 +166,11 @@ A *notch filter* also called a *band-stop* or *band-reject* filter does the oppo
 
 Milder versions of the low-pass and high-pass filters are high-shelving and low-shelving filters respectively.
 
-A *high-shelving filter* lets us boost or attenuate frequencies above the cutoff frequency. Apart from the cutoff frequency and the gain of the shelf, we can also control the steepness or the width of the slope in the transition band.
+A *high-shelving filter* lets us boost or attenuate frequencies above the crossover frequency. The crossover frequency specifies the frequency at which the gain reaches half of the shelf gain. Apart from the crossover frequency and the gain of the shelf, we can also control the steepness or the width of the slope in the transition band.
 
 <!-- High-shelving filter ReaEQ image -->
 
-A *low-shelving filter*, as you might guess at this point, lets us manipulate the shelf below the cutoff frequency. It has exactly the same parameters as the high-shelving filter. Here’s how a low-shelving filter sounds [REAEQ EXAMPLE PLAY].
+A *low-shelving filter*, as you might guess at this point, lets us manipulate the shelf below the crossover frequency. It has exactly the same parameters as the high-shelving filter.
 
 <!-- Low-shelving filter ReaEQ image -->
 
@@ -185,36 +186,69 @@ Now that you know the types of the filters, you can decide on which of them you 
 
 An analog prototype ensures that we have meaningful controls-to-coefficients mapping and we obtain a computationally efficient and stable IIR filter. To design an analog prototype to obtain a desired filter type, we need to turn to analog filter design theory.
 
-Without going into much detail, there are 3 main classes of analog filter design [SmithDigFil]: Butterworth, Chebyshev, and Elliptic Functions. Each of them is optimal in some sense. Using these, we can construct any of the above-specified filters in the analog domain. The output of this design is an analog transfer function in the Laplace or s-domain.
+Without going into much detail, there are 3 main classes of analog filter design [Smith07]: Butterworth, Chebyshev, and Elliptic Functions. Each of them is optimal in some sense. Using these, we can construct any of the above-specified filters in the analog domain. The output of this design is an analog transfer function in the Laplace or s-domain.
 
-For example, a first-order analog lowpass has the following transfer function:
+For example, a first-order analog Butterworth low-pass has the following transfer function:
 
-<!-- TODO: Add 1st-order low-pass formula -->
+$$H_\text{a}(s) = \frac{\omega_\text{c}}{s + \omega_\text{c}}, \quad ({% increment equationId20211126  %})$$
+
+where $s = \sigma + j \omega$ is the complex variable and $\omega_\text{c}$ is the analog cutoff frequency in radians per second.
 
 ## Step 3: Digitize the Analog Prototype.
 
-The third step to implement a filter plugin is a digitization of the analog prototype. Again, there are many ways to do this but in practice the most practical one is the bilinear transform, also called {FILL HERE}. The bilinear transform maps the analog frequencies from the jomega analog frequency axis in the s-plane to digital frequencies on the unit circle in the z-plane. This may seem kind of complicated, and frankly it is, but fortunately there are ready-made formulas for this [SHOW THE FORMULAS]. You can make these substitutions in your analog transfer functions and voila: you have a digital filter!
+The third step to implement a filter plugin is the digitization of the analog prototype. Again, there are many ways to do this but in practice the most practical one is the *bilinear transform*, also called *Tustin's method*. 
+
+The bilinear transform maps the analog frequencies from the $j\omega$ analog frequency axis in the $s$-plane to digital frequencies on the unit circle in the $z$-plane. This may seem kind of complicated, and frankly it is, but fortunately there are ready-made formulas for this:
+
+![]({{ page.images | absolute_url | append: "/BilinearTransform.webp"}}){: width="70%" alt="Bilinear transform formulas."}
+
+For audio purposes, $c$ is typically set to align cutoff frequencies of $H_\text{a}(s)$ and $H_\text{d}(z)$. You can make these substitutions in your analog transfer functions and voilà: you have a digital filter!
+
+<!-- For example, the first-order low-pass filter from Eq. 1, after digitization becomes -->
+
+<!-- $$H_\text{d}(z) = , \quad ({% increment equationId20211126  %})$$ -->
 
 ## Shortcut Steps 2 and 3
 
-There is 1 trick that allows you to shortcut steps 2 and 3. The so-called RBJ Cookbook, compiled by Robert Bristow-Johnson, already lists all musically useful filters in their digital forms so you don’t have to derive them all over again. I have linked to the cookbook in the description below. Nevertheless, I still believe it is beneficial to understand the process that stands behind these formulas in order to use them to their full capability and be able to extend them if necessary. [TRANSITION]
+There is a trick that allows you to shortcut steps 2 and 3. The so-called [Audio EQ Cookbook](https://webaudio.github.io/Audio-EQ-Cookbook/audio-eq-cookbook.html), compiled by Robert Bristow-Johnson (thus, sometimes called "RBJ Cookbook"), already lists most of the musically useful filters in their digital forms so you don’t have to derive them all over again. Nevertheless, I still believe it is beneficial to understand the process that stands behind these formulas in order to use them to their full capacity and be able to extend them if necessary.
 
 ## Step 4: Implement the Digital Filter.
 
-The last step in the process is to take that digital filter and implement it in the technology of your choice. Sample technologies may be Python, Matlab, CSound, Pure Data, Android, iOS, Arduino, Raspberry Pi, or… JUCE. The last one may seem the most obvious choice for DAW plugin developers, that is why, I will be showing you how to implement each and every of the mentioned filters in the JUCE C++ framework over the course of the following videos. So stay tuned! [TRANSITION]
+The last step in the process is to take that digital filter and implement it in the technology of your choice. Sample technologies may be 
+
+* Python, 
+* Rust,
+* Matlab, 
+* CSound, 
+* Pure Data, 
+* Android, 
+* iOS,
+* JavaScript
+* Arduino, 
+* Raspberry Pi, or… 
+* JUCE. 
+ 
+The last option may seem the most obvious choice for audio plugin developers, that is why, *I will be showing you how to implement each and every of the mentioned filters in the JUCE C++ framework over the course of the following articles and videos*. So stay tuned!
 
 ## Applications of Parametric Filters
 
-So where can these parametric filters be applied? One obvious answer is your digital audio workstation. In this software, you can use a parametric EQ plugin to manipulate the frequency content of your audio tracks. However, that’s not the only use.
+So where can these parametric filters be applied? One obvious answer is your digital audio workstation. In this software, you can use a parametric EQ plugin to manipulate the frequency content of your audio tracks. Thanks to these plugins, you can remove unwanted tones or noise and add coloration to the timbre. However, that’s not the only use.
 
-Efficient filters are especially important in game audio or, in a broader sense, the field of sound design. [VIDEO GAME EXCERPT] In games, the designer must be able to dynamically control user’s environment and tune the system so that the changes in player movements are reflected in the changes of sound. One example could be filtering applied when the player finds themselves behind the curtain; the sounds coming from behind should sound muffled what can be achieved with a low-pass or a high-shelving filter. A similar effect can be put on audio when the player finds themselves under water.
-
-Another important aspect of parametric EQ is the equalization applied to loudspeaker playback. When striving towards a perfect sound, each loudspeaker should have adjustable characteristics. And although these are often tuned with other techniques or even analog filters, the parametric EQ can still be employed for this purpose.
-
-Finally, where you are listening to music from your computer or mobile phone, you may want to adjust certain frequencies, for example, add more bass. [MOBILE PHONE/COMPUTER STOCK FOOTAGE]. Since the changes in user controls must be immediately reflected in the played back sound, these EQs are often implemented using parametric filters as specified above. [TRANSITION]
+Efficient filters are especially important in game audio, virtual reality, or, in a broader sense, the field of sound design. Any virtual environment must be able to dynamically control user’s environment and tune the system so that the changes in player movements are reflected in the changes in sound. One example could be filtering applied when a player finds themselves behind a curtain; the sounds coming from behind should sound muffled what can be achieved with a low-pass or a high-shelving filter. A similar effect can be put on audio when the player finds themselves under water.
 
 ## Summary
 
-In summary, in this video I showed you 4 steps to create a filter plugin: from an idea to the implementation. I have also showed you a shortcut in the form of RBJ Cookbook. Over the next couple of videos, I will discuss in detail every step so that you can understand fully the process behind it. Then I will show you sample implementations of the parametric filters in the JUCE C++ framework in the form of plugin design tutorials. So there is a lot ahead of us! If you want to stay up to date with the upcoming videos, subscribe to the channel and turn on notifications so that you are notified when the mentioned videos are published. As usual, I have put the content of this video in an article form on TheWolfSound.com so you can bookmark it for future reference. A big shout-out to Aalto Acoustics lab for letting me record this video in their offices. Thanks for watching and see you in the next one! Take care. 
+In summary, in this article I showed you 4 steps to create a filter plugin: from an idea to the implementation. I have also showed you a shortcut in the form of Audio EQ Cookbook. 
+
+Over the next couple of articles and videos, I will discuss in detail every step so that you can understand fully the process behind parametric EQ design and implementation. Then I will show you sample implementations of the parametric filters in the JUCE C++ framework in the form of do-it-yourself plugin tutorials. So there is a lot ahead of us!
+
+If you want to be notified about weekly WolfSound content in a condensed form [subscribe to my email list.]({% link newsletter.md %}). Thank you!
+
+## Bibliography
+
+[Smith07] [Smith, J.O. *Introduction to Digital Filters with Audio Applications*,
+http://ccrma.stanford.edu/~jos/filters/](http://ccrma.stanford.edu/~jos/filters/), online book, 2007 edition,
+accessed November 26, 2021.
+
 
 {% endkatexmm %}
