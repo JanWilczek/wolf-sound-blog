@@ -24,10 +24,10 @@ Listen on:
 * [SoundCloud](https://soundcloud.com/jan-wilczek-wolf-sound/how-to-start-a-career-in-audio-research-with-leonardo-fierro-wolftalk-002)
 * [YouTube](https://youtu.be/-G5tNfLy84g)
 * [Spotify](https://open.spotify.com/episode/0b5a6Zdu37AWYpUQlX0BsL?si=700d09ef79b84207)
-<!-- * [Stitcher](https://listen.stitcher.com/yvap/?af_dp=stitcher://episode/87917014&af_web_dp=https://www.stitcher.com/episode/87917014) -->
-<!-- * [TuneIn Radio](http://tun.in/pkRvm) -->
-<!-- * [Google Podcast](https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkcy5zb3VuZGNsb3VkLmNvbS91c2Vycy9zb3VuZGNsb3VkOnVzZXJzOjEwNDU1MDEzNDgvc291bmRzLnJzcw/episode/dGFnOnNvdW5kY2xvdWQsMjAxMDp0cmFja3MvMTE1MDA3NTA5Mw?sa=X&ved=0CAUQkfYCahcKEwjQnKCI44D0AhUAAAAAHQAAAAAQFA) -->
-* [Apple Podcast](https://podcasts.apple.com/us/podcast/how-to-start-a-career-in-audio-research-with/id1595913701?i=1000542432837)
+* [Stitcher](https://www.stitcher.com/show/wolftalk-podcast-about-audio-programming-people-careers-learning/episode/how-to-start-a-career-in-audio-research-with-leonardo-fierro-wolftalk-002-88415578)
+* [TuneIn Radio](http://tun.in/pkRvm)
+* [Google Podcasts](https://shorturl.at/deCFO)
+* [Apple Podcasts](https://podcasts.apple.com/us/podcast/how-to-start-a-career-in-audio-research-with/id1595913701?i=1000542432837)
 
 [All podcast episodes.]({{"/podcast" | relative_url }})
 
@@ -71,7 +71,7 @@ In this podcast episode, you will learn
 Below are all the resources that are referenced in the podcast episode.
 
 * People:
-  * [Leonardo Fierro](https://www.leonardofierro.me/) ([leonard.fierro@aalto.fi](mailto:leonard.fierro@aalto.fi), [Instagram @himynameisfuego](https://www.instagram.com/himynameisfuego/)), a doctoral candidate at the Aalto University.
+  * [Leonardo Fierro](https://www.leonardofierro.me/) ([leonardo.fierro@aalto.fi](mailto:leonardo.fierro@aalto.fi), [Instagram @himynameisfuego](https://www.instagram.com/himynameisfuego/)), a doctoral candidate at the Aalto University.
   * [Vesa Välimäki](http://users.spa.aalto.fi/vpv/), head of the Audio Signal Processing group at the Aalto Acoustics Lab.
   * [Jussi Rämö](https://www.linkedin.com/in/jussiramo/), Principal Engineer (Audio) at Huawei Technologies, formerly a postdoc researcher at Aalto.
   * [Eero-Pekka Damskägg](https://www.linkedin.com/in/eero-pekka-damsk%C3%A4gg-b62129111/), Machine Learning Researcher at Neural DSP Technologies, formerly a researcher at Aalto.
