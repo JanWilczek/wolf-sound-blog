@@ -130,7 +130,8 @@ In digital signal processing, there are lots of filter types but in parametric E
 
 A *low-pass filter* attenuates all frequencies higher than the cutoff frequency.
 
-<!-- Low-pass filter ReaEQ image -->
+![]({{ page.images | absolute_url | append: "/LowPass.webp"}}){: width="70%" alt="Low-pass filter amplitude response."}
+
 
 <!-- TODO: Mention the Q factor -->
 
@@ -146,7 +147,7 @@ In itself, the low-pass filter is a powerful musical tool.
 
 A *high-pass filter* works exactly the same as the low-pass filter, except that it attenuates frequencies below the cutoff frequency. All the parameters are the same as for the low-pass filter.
 
-<!-- High-pass filter ReaEQ image -->
+![]({{ page.images | absolute_url | append: "/HighPass.webp"}}){: width="70%" alt="High-pass filter amplitude response."}
 
 High-pass filter is usually used to remove undesired frequencies below 100 Hz.
 
@@ -154,13 +155,13 @@ High-pass filter is usually used to remove undesired frequencies below 100 Hz.
 
 A *band-pass filter* passes through frequencies only in a certain range. It cannot additionally boost or attenuate them. The only two parameters it lets us control is the *center frequency* of the band and the *bandwidth*.
 
-<!-- Band-pass filter ReaEQ image -->
+![]({{ page.images | absolute_url | append: "/Bandpass.webp"}}){: width="70%" alt="Band-pass filter amplitude response."}
 
 ### Notch Filter
 
 A *notch filter* also called a *band-stop* or *band-reject* filter does the opposite than the band-pass filter: it eliminates a certain frequency range from the signal. Again, we can control it through center frequency and bandwidth parameter.
 
-<!-- Notch filter ReaEQ image -->
+![]({{ page.images | absolute_url | append: "/Notch.webp"}}){: width="70%" alt="Notch filter amplitude response."}
 
 ### Shelving Filter
 
@@ -168,17 +169,17 @@ Milder versions of the low-pass and high-pass filters are high-shelving and low-
 
 A *high-shelving filter* lets us boost or attenuate frequencies above the crossover frequency. The crossover frequency specifies the frequency at which the gain reaches half of the shelf gain. Apart from the crossover frequency and the gain of the shelf, we can also control the steepness or the width of the slope in the transition band.
 
-<!-- High-shelving filter ReaEQ image -->
+![]({{ page.images | absolute_url | append: "/HighShelving.webp"}}){: width="70%" alt="High-shelving filter amplitude response."}
 
 A *low-shelving filter*, as you might guess at this point, lets us manipulate the shelf below the crossover frequency. It has exactly the same parameters as the high-shelving filter.
 
-<!-- Low-shelving filter ReaEQ image -->
+![]({{ page.images | absolute_url | append: "/LowShelving.webp"}}){: width="70%" alt="Low-shelving filter amplitude response."}
 
 ### Band Filter
 
 The final filter that is musically useful is the *band filter*. A band filter lets us boost or attenuate a frequency range. We can control the center frequency and the bandwidth so the steepness of the slope on the sides of the amplitude response of the band.
 
-<!-- Band filter ReaEQ image -->
+![]({{ page.images | absolute_url | append: "/Peak.webp"}}){: width="70%" alt="Peak filter amplitude response."}
 
 Now that you know the types of the filters, you can decide on which of them you want to implement. Even if you want to implement them all, start with 1. You have it? Then it’s time for step 2.
 
