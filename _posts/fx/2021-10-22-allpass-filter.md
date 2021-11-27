@@ -330,9 +330,9 @@ If you have any questions, don't hesitate to ask them below!
 
 [1] [Alan V. Oppenheim, Alan S. Willsky, with S. Hamid *Signals and Systems*, 2nd Edition, Pearson 1997.](https://amzn.to/3m2tZsd)
 
-[2] [Alan V Oppenheim, Ronald W. Schafer *Discrete-Time Signal Processing*, 3rd Edition, Pearson 2010.](https://amzn.to/3vygXGl)
+[2] [Alan V Oppenheim, Ronald W. Schafer, *Discrete-Time Signal Processing*, 3rd Edition, Pearson 2010.](https://amzn.to/3vygXGl)
 
-[3] [Zölzer, U. DAFX: Digital Audio Effects. 2nd ed. Helmut Schmidt University – University of the Federal Armed Forces, Hamburg, Germany: John Wiley & Sons Ltd, 2011.](https://amzn.to/3aZIxT8)
+[3] [Zölzer, U., *DAFX: Digital Audio Effects*, 2nd ed. Helmut Schmidt University – University of the Federal Armed Forces, Hamburg, Germany: John Wiley & Sons Ltd, 2011.](https://amzn.to/3aZIxT8)
 
 [4] [J. O. Smith, *Physical Audio Signal Processing*, online book, 2010 edition. Retrieved October 19, 2021.](http://ccrma.stanford.edu/~jos/pasp/)
 
