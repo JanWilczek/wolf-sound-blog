@@ -207,7 +207,7 @@ where $s = \sigma + j \omega$ is the complex variable and $\omega_\text{c}$ is t
 
 ## Step 3: Digitize the Analog Prototype
 
-The third step to implement a filter plugin is the digitization of the analog prototype. Again, there are many ways to do this but in practice the one most useful for musical purposes is the *bilinear transform*, also called *Tustin's method*. 
+The third step to implement a filter plugin is the digitization of the analog prototype. Again, there are many ways to do this but in practice the one most useful for musical purposes is the *bilinear transform*, also called *Tustin's method* [Smith07,VälimäkiReiss16,Zölzer08,Zölzer11]. 
 
 The bilinear transform maps the analog frequencies from the $j\omega$ analog frequency axis in the $s$-plane to digital frequencies on the unit circle in the $z$-plane. This may seem kind of complicated, and frankly it is, but fortunately there are ready-made formulas for this:
 
@@ -262,6 +262,8 @@ If you want to be notified about weekly WolfSound content in a condensed form, [
 
 ## Bibliography
 
+[Moore90] [F. Richard Moore, *Elements of Computer Music*](https://www.amazon.com/gp/product/0132525526/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0132525526&linkCode=as2&tag=wolfsound05-20&linkId=71285ec31668f2e8d8cf81094ff51f5f), Prentice Hall 1990.
+
 [Smith07] [Julius O. Smith, *Introduction to Digital Filters with Audio Applications*,
 http://ccrma.stanford.edu/~jos/filters/](http://ccrma.stanford.edu/~jos/filters/), online book, 2007 edition,
 accessed November 26, 2021.
@@ -271,6 +273,7 @@ accessed November 26, 2021.
 [Zölzer08] [Zölzer Udo, *Digital Audio Signal Processing*, 2nd ed., Helmut Schmidt University, Hamburg, Germany, John Wiley & Sons Ltd, 2008.](https://amzn.to/30XUTdn)
 
 [Zölzer11] [Zölzer Udo, *DAFX: Digital Audio Effects*. 2nd ed., Helmut Schmidt University, Hamburg, Germany, John Wiley & Sons Ltd, 2011.](https://amzn.to/3aZIxT8)
+
 
 [Robert Bristow-Johnson, *Audio EQ Cookbook*](https://webaudio.github.io/Audio-EQ-Cookbook/audio-eq-cookbook.html).
 
