@@ -28,12 +28,15 @@ In this article, I will outline 4 steps necessary to create such software. By th
 
 An **equalizer (EQ)** is a software program or a device that allows you to adjust the volume of specific frequency ranges. Two main classes of equalizers are parametric equalizers and graphic equalizers [VälimäkiReiss16].
 
-A **parametric equalizer** is an equalizer that gives you the greatest amount of control: you can specify exactly which frequency ranges you want to affect and how much. As such, it is the most powerful and flexible equalizer of all [VälimäkiReiss16]. A parametric EQ consists of different types of *parametric filters*.
+A **parametric equalizer** is an equalizer that gives you the greatest amount of control: you can specify exactly which frequency ranges you want to affect and how much. As such, it is the most powerful and flexible equalizer of all [VälimäkiReiss16]. A parametric EQ consists of different types of *parametric filters*, which are aligned in a series (a *cascade*).
 
-![]({{ page.images | absolute_url | append: "ReaEQ.webp"}}){: alt="Graphical user interface of ReaEQ plugin." width="80%" alt="Graphical user interface of ReaEQ parametric equalizer plugin."}
-_Figure {% increment figureId20211126  %}. Graphical user interface of [ReaEQ parametric equalizer plugin](https://www.reaper.fm/reaplugs/)._
+![]({{ page.images | absolute_url | append: "ParametricEQPlugin.webp"}}){: alt="The architecture of a parametric EQ plugin."}
+_Figure {% increment figureId20211126  %}. Parametric EQ plugin consists of cascaded parametric filters._
 
 An **audio plugin** is a piece of software that runs inside a digital audio workstation (DAW) to modify a certain track containing audio recordings. Sample plugin formats are: VST, AAX, AU.
+
+![]({{ page.images | absolute_url | append: "ReaEQ.webp"}}){: width="80%" alt="Graphical user interface of ReaEQ parametric equalizer plugin."}
+_Figure {% increment figureId20211126  %}. Graphical user interface of [ReaEQ parametric equalizer plugin](https://www.reaper.fm/reaplugs/)._
 
 In this article, we will discuss *how to design and implement a parametric EQ audio effect plugin*.
 
