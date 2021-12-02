@@ -109,6 +109,33 @@ We know that we want to design an analog prototype low-pass using the Butterwort
 
 The goal of the approximation is the *ideal low-pass filter*.
 
-<!-- TODO: Ideal low-pass filter figure. -->
+![]({{ page.images | absolute_url | append: "/IdealLowPass.png"}})
+_Figure {% increment figureId20211203  %}. Amplitude response of the ideal low-pass filter._
+
+Frequency $\omega_\text{a}$ is the analog cutoff frequency in radians per second. We assume that $\omega_\text{a} = 1$, i.e., the filter's transfer function is *normalized*.
+
+Our only constraint is the filter order. According to [Zolzer05] the most commonly used orders are $N = 2$ and $N = 4$.
+
+### Butterworth Low-pass Transfer Function
+
+After necessary derivations, the low-pass transfer function of the second-order Butterworth low-pass is [Zolzer05]
+
+$$H_2(s) = \frac{1}{s^2 + \sqrt{2} + 1}. \quad ({% increment equationId20211203 %})$$
+
+The fourth-order Butterworth low-pass has the following transfer function
+
+$$H_4(s) = \frac{1}{(s^2 + 1.848 s + 1)(s^2 + 0.765 s + 1)}. \quad ({% increment equationId20211203 %})$$
+
+*Hint: To obtain an arbitrary analog cutoff frequency, simply replace $s$ with $s/\omega_\text{a}$ in the above transfer functions.*
+
+### Visualization
+
+To see, how much the Butterworth low-pass filter deviates from the ideal response from Figure 3, let's plot the amplitude responses of both filters against the ideal response.
+
+<!-- TODO: Low-pass comparison. -->
+
+## Summary
+
+We did it! We obtained the transfer function of the ideal low-pass filter which we can now digitze with the bilinear transform and then transform to the desired form (high-pass, band-pass, etc.).
 
 {% endkatexmm %}
