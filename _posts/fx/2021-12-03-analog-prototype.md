@@ -116,6 +116,26 @@ Frequency $\omega_\text{a}$ is the analog cutoff frequency in radians per second
 
 Our only constraint is the filter order. According to [Zolzer05] the most commonly used orders are $N = 2$ and $N = 4$.
 
+### Butterworth Filter Derivation
+
+**WARNING: This part is Math-heavy. It is intended for those who want to fully understand the derivation of analog prototypes. If you don't want to get that deep, just use tabularized, ready-made formulas. You can [skip to their examples here](#butterworth-low-pass-transfer-function).**
+
+*Note: This part is based on a great explanation in [Parks and Burrus].*
+<!-- Variables??? -->
+The Butterworth amplitude response $\mathcal{F}(s) = |H_\text{a}(s)|^2$ is a *Taylor series approximation* of the ideal amplitude response around $\omega=0$.
+
+#### Taylor Series
+
+Taylor series around $\omega=0$ is 
+
+$$H_\text{a}(\omega) = K_0 + K_1 \omega + K_2 \omega^2 + \dots = \sum_{k=0}^{\infty} K_k \omega^k, \quad ({% increment equationId20211203 %})$$
+
+where
+
+$$K_k = \frac{1}{k!} \frac{d^k H_\text{a}(\omega)}{d\omega^k} \Bigr\rvert_{\omega=0}, \quad ({% increment equationId20211203 %})$$
+
+with $K_0 = H_\text{a}(0)$.
+
 ### Butterworth Low-pass Transfer Function
 
 After necessary derivations, the low-pass transfer function of the second-order Butterworth low-pass is [Zolzer05]
