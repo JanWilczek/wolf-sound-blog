@@ -122,19 +122,135 @@ Our only constraint is the filter order. According to [Zolzer05] the most common
 
 *Note: This part is based on a great explanation in [Parks and Burrus].*
 <!-- Variables??? -->
-The Butterworth amplitude response $\mathcal{F}(s) = |H_\text{a}(s)|^2$ is a *Taylor series approximation* of the ideal amplitude response around $\omega=0$.
+
+The Butterworth amplitude response $F(\omega) = |H_\text{a}(j \omega)|$ is a *Taylor series approximation* of the ideal amplitude response around $\omega=0$.
 
 #### Taylor Series
 
 Taylor series around $\omega=0$ is 
 
-$$H_\text{a}(\omega) = K_0 + K_1 \omega + K_2 \omega^2 + \dots = \sum_{k=0}^{\infty} K_k \omega^k, \quad ({% increment equationId20211203 %})$$
+$$F(j\omega) = K_0 + K_1 \omega + K_2 \omega^2 + \dots = \sum_{k=0}^{\infty} K_k \omega^k, \quad ({% increment equationId20211203 %})$$
 
 where
 
-$$K_k = \frac{1}{k!} \frac{d^k H_\text{a}(\omega)}{d\omega^k} \Bigr\rvert_{\omega=0}, \quad ({% increment equationId20211203 %})$$
+$$K_k = \frac{1}{k!} \frac{d^k F(\omega)}{d\omega^k} \Bigr\rvert_{\omega=0}, \quad ({% increment equationId20211203 %})$$
 
-with $K_0 = H_\text{a}(0)$.
+with $K_0 = F(0)$.
+
+#### General Squared Magnitude Response
+
+Function $F(j\omega)$ is the magnitude of the analog frequency response. Let'd denote by $\mathcal{\omega}$ the squared magnitude response of the approximation we seek, i.e.,
+
+$$\mathcal{F}(j\omega) = F^2(j\omega) = |H_\text{a}(j\omega)|^2. \quad ({% increment equationId20211203 %})$$
+
+This squared magnitude response is an *even* function (symmetric with respect to the value axis) so it may be written in a general form as a function of $\omega^2$, i.e., neglecting the odd powers of $\omega$ because they are odd functions. The general form reads
+
+$$\mathcal{F}(k\omega) = \frac{d_0 + d_2 \omega^2 + d_4 \omega^4 + \dots + d_{2M} \omega^{2M}}{c_0 + c_2 \omega^2 + c_4 \omega^4 + \dots + c_{2N} \omega^{2N}}. \quad ({% increment equationId20211203 %})$$
+
+The following observations can already be made with regard to Equation 4.
+
+* We require that $\mathcal{F}(0) = 1$ so we can readily set $c_0 = d_0$.
+* We require that $\mathcal{F}(j\infty) = 0$ which leads to the conclusion that the denominator must have a greater order than the numerator, i.e., $N > M$ and $c_{2N} \neq 0$.
+
+#### Error Formulation
+
+We can write $\mathcal{F}(j\omega)$ in terms of the sum of the desired value at $0$ and approximation error $E(\omega)$
+
+$$\mathcal{F}(j\omega) = 1 + E(\omega). \quad ({% increment equationId20211203 %})$$
+
+We can insert Equation 5 into Equation 4 and obtain
+
+$$d_0 + d_2 \omega^2 + \dots + d_{2M} \omega^{2M} = c_0 + c_2 \omega^2 + \dots + c_{2N} \omega^{2N} \\+ E(\omega) [c_0 + c_2 \omega^2 + \dots + c_{2N} \omega^{2N}]. \quad ({% increment equationId20211203 %})$$
+
+#### Error Minimization
+
+To achieve the closest Taylor approximation possible (minimize error $E(\omega)$), we want to eliminate as many low order terms as possible so we set
+
+$$c_0 = d_0 \text{(as before)}, \quad ({% increment equationId20211203 %})$$
+
+$$c_2 = d_2, \quad ({% increment equationId20211203 %})$$
+
+$$\vdots$$
+
+$$c_{2M} = d_{2M}, \quad ({% increment equationId20211203 %})$$
+
+$$c_{2M+2} = 0, \quad ({% increment equationId20211203 %})$$
+
+$$\vdots$$
+
+$$c_{2N - 2} = 0, \quad ({% increment equationId20211203 %})$$
+
+$$c_{2N} \neq 0. \quad ({% increment equationId20211203 %})$$
+
+Equations 7-12 tell us that the numerator of $\mathcal{F}(j\omega)$ from Equation 4 can be arbitrary, because any setting of parameters $d_0, \dots, d_{2M}$ and subsequent setting of parameters $c_0, \dots, c_{2M}$ will yield equally good Taylor approximation.
+
+That allows us to pick the numerator as we wish. In order to have $\mathcal{F}(j \omega) = 0$, we set $c_0 = d_0 = 1$ and $d_2 = d_4 = \dots = d_{2M} = 0$.
+
+We, thus, obtain
+
+$$\mathcal{F}(j \omega) = \frac{1}{1 + c_{2N} \omega^{2N}}. \quad ({% increment equationId20211203 %})$$
+
+#### Determining the Cutoff Frequency
+
+Parameter $c_{2N}$ determines the analog cutoff frequency $\omega_\text{a}$ so that $\mathcal{F}(\omega_\text{a}) = \frac{1}{2}$ (-3 dB point).
+
+We have already decided that for us $\omega_\text{a} = 1$ so we need to set
+
+$$c_{2N} = 1. \quad ({% increment equationId20211203 %})$$
+
+#### Final Squared Magnitude Response
+
+We obtained the final formula for the analog Butterworth low-pass filter of the $N$-th order
+
+$$\mathcal{F}(j\omega) = \frac{1}{1 + \omega^{2N}}. \quad ({% increment equationId20211203 %})$$
+
+Equation 15 is the Taylor approximation of the ideal low-pass filter squared magnitude response at $\omega = 0$. This means that $\mathcal{F}(j\omega)$ is maximally flat at $\omega = 0$.
+
+It turns out that Equation 15 is at the same time the Taylor approximation at $\omega = \infty$! So $\mathcal{F}(j\omega)$ is maximally flat at both ends: $\omega=0$ and $\omega = \infty$. That is why, Butterworth filter is said to have *maximally flat amplitude response* at the endpoints [SmithDigFilt].
+
+#### Transfer Function Derivation
+
+You may wonder,
+
+**Since Equation 15 is the squared magnitude response, how do we obtain the transfer function over the $s$-domain?**
+
+<!-- To this end, we can use a property of the complex numbers -->
+<!-- TODO: Add commentary -->
+
+$$\mathcal{F}(s) = F(s) F(-s) = \frac{1}{1 + (-s^2)^N}, \quad ({% increment equationId20211203 %})$$
+
+because if we substitute $s = j\omega$, we arrive back at Equation 15.
+
+The fractional on the right side of Equation 16 has exactly $2N$ poles. What are they?
+
+$$(-s^2)^N + 1 = 0, \quad ({% increment equationId20211203 %})$$
+
+$$(-s^2)^N = -1, \quad ({% increment equationId20211203 %})$$
+
+$$(-1)^N s^{2N} = -1, \quad ({% increment equationId20211203 %})$$
+
+$$s^{2N} = (-1)^{N+1}, \quad ({% increment equationId20211203 %})$$
+
+$$s^{2N} = \begin{cases} -1, \quad \text{if } N \text{ is even},\\ 1, \quad \text{if } N \text{ is odd}.\end{cases} \quad ({% increment equationId20211203 %})$$
+
+$$s_k = \begin{cases} e^{i(\pi + 2k\pi)/N}, \quad \text{if } N \text{ is even},\\ e^{i2k\pi/2N}, \quad \text{if } N \text{ is odd.}\end{cases}, \quad k=0,\pm 1, \pm2, \dots ,\pm N-1. \quad ({% increment equationId20211203 %})$$
+
+So $\mathcal{F}(s)$ has $2N$ poles. We want just $F(s)$. Thus, we need to factorize $\mathcal{F}(s)$ into $F(s)$ and $F(-s)$.
+
+For $F(s)$ to be stable, we need all of its poles to lie on the left half-plane of the $s$-plane, i.e., have negative real parts.
+
+We can obtain it by finding the poles of $F(-s)$ (which lie on the right half-plane) and negating their real parts.
+
+Poles of $F(-s)$ are $s_k$ from Equation 22 for 
+
+Regardless whether $N$ is even or odd, $s_k$ always are evenly spaced on the unit circle every $\pi/N$ radians. $F(s)$ and $F(-s)$ need to have $N$ poles each. We, thus, want to "pick" only poles that lie on the left half-plane for $F(s)$, and leave the rest for $F(-s)$.
+
+This separation is possible, because the polynomial in the denominator of Equation 16 has real coefficients. Therefore, its $2N$ roots occur in complex conjugate pairs.
+
+According to [ParksBurrus], we obtain
+
+$$F(s) = \begin{cases} \prod \limits_k \frac{1}{s^2 + 2 \cos(k \pi/2N)s + 1}, k=1,3,5,\dots,N-1 \quad\text{for } N \text{ even,}  \\ \frac{1}{s+1}\prod \limits_k \frac{1}{s^2 + 2 \cos(k \pi/2N)s + 1}, k=0,2,4,\dots,N-1 \quad\text{for } N \text{ odd.}  \end{cases} \quad ({% increment equationId20211203 %})$$
+
 
 ### Butterworth Low-pass Transfer Function
 
