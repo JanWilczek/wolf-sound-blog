@@ -233,28 +233,55 @@ $$s^{2N} = (-1)^{N+1}, \quad ({% increment equationId20211203 %})$$
 
 $$s^{2N} = \begin{cases} -1, \quad \text{if } N \text{ is even},\\ 1, \quad \text{if } N \text{ is odd}.\end{cases} \quad ({% increment equationId20211203 %})$$
 
-$$s_k = \begin{cases} e^{i(\pi + 2k\pi)/N}, \quad \text{if } N \text{ is even},\\ e^{i2k\pi/2N}, \quad \text{if } N \text{ is odd.}\end{cases}, \quad k=0,\pm 1, \pm2, \dots ,\pm N-1. \quad ({% increment equationId20211203 %})$$
+$$s_k = \begin{cases} e^{i(\pi + 2k\pi)/2N}, \quad \text{if } N \text{ is even},\\ e^{i2k\pi/2N}, \quad \text{if } N \text{ is odd.}\end{cases}, \\ \quad k=-(N-1), -(N-2), \dots, 0, 1, 2, \dots , N-1, N. \quad ({% increment equationId20211203 %})$$
 
-So $\mathcal{F}(s)$ has $2N$ poles. We want just $F(s)$. Thus, we need to factorize $\mathcal{F}(s)$ into $F(s)$ and $F(-s)$.
+*Note: This indexing of $k$ is chosen so as to simplify further derivations. Another but equivalent indexing is $k=0,1,2,\dots,2N-1$.
+
+So $\mathcal{F}(s)$ has $2N$ poles. As their number is even, they are symmetrically placed on the unit circle: $N$ on the left half-plane, $N$ on the right half-plane. 
+
+Since we want just $F(s)$, we need to factorize $\mathcal{F}(s)$ into $F(s)$ and $F(-s)$.
 
 For $F(s)$ to be stable, we need all of its poles to lie on the left half-plane of the $s$-plane, i.e., have negative real parts.
 
-We can obtain it by finding the poles of $F(-s)$ (which lie on the right half-plane) and negating their real parts.
+We can obtain it by finding the poles of $F(-s)$ (which lie on the right half-plane) and negating their real parts (because the poles are symmetrical with respect to the imaginary axis).
 
-Poles of $F(-s)$ are $s_k$ from Equation 22 for 
+Poles of $F(-s)$ are $s_k$ from Equation 22 for $k=0,\pm 1,\pm 2,\dots,\pm (N-1)/2$ if $N$ is odd, and for $k=0, \pm 1, \pm 2, \dots, \pm (N/2 -1)$ if $N$ is even. After negating the real part of these $s_k$, we obtain the pole locations of $F(s)$
 
-Regardless whether $N$ is even or odd, $s_k$ always are evenly spaced on the unit circle every $\pi/N$ radians. $F(s)$ and $F(-s)$ need to have $N$ poles each. We, thus, want to "pick" only poles that lie on the left half-plane for $F(s)$, and leave the rest for $F(-s)$.
+$$s_k^{F(s)} = \begin{cases} -e^{-i(\pi + 2k\pi)/2N},k=0, \pm 1, \pm 2, \dots, \pm (N/2 -1) \quad \text{if } N \text{ is even},\\ -e^{-i2k\pi/2N}, k=0,\pm 1,\pm 2,\dots,\pm (N-1)/2 \quad \text{if } N \text{ is odd.}\end{cases} \quad ({% increment equationId20211203 %})$$
 
-This separation is possible, because the polynomial in the denominator of Equation 16 has real coefficients. Therefore, its $2N$ roots occur in complex conjugate pairs.
+*Note: Negating the real part of a complex number is equivalent to negating its complex conjugate.*
 
-According to [ParksBurrus], we obtain
+Knowing all the poles, we can write out $F(s)$ in the factorized version. Let's consider $N$ odd first (so $k=0,\pm 1,\pm 2,\dots,\pm (N-1)/2$).
 
-$$F(s) = \begin{cases} \prod \limits_k \frac{1}{s^2 + 2 \cos(k \pi/2N)s + 1}, k=1,3,5,\dots,N-1 \quad\text{for } N \text{ even,}  \\ \frac{1}{s+1}\prod \limits_k \frac{1}{s^2 + 2 \cos(k \pi/2N)s + 1}, k=0,2,4,\dots,N-1 \quad\text{for } N \text{ odd.}  \end{cases} \quad ({% increment equationId20211203 %})$$
+$$F(s) = \prod \limits_k \frac{1}{s - s_k} = \prod \limits_k \frac{1}{s + e^{-i 2 k \pi / 2N}}. \quad ({% increment equationId20211203 %})$$
 
+We did it! Now let's just polish this formula.
+
+#### Tidying Up the Product
+
+The polynomial in the denominator of Equation 16 has real coefficients. Therefore, all roots occur in complex conjugate pairs apart from $s_0$, which is a real number.
+
+Since the complex conjugate lies on the same half-plane, we can combine combine the roots with their conjugates to create a neat-looking real polynomial in the denominator.
+
+$$F(s) = \frac{1}{s+1} \prod \limits_k \frac{1}{(s + e^{-i 2 k \pi / 2N})(s + e^{i 2 k \pi / 2N})} \\= \frac{1}{s+1} \prod \limits_k \frac{1}{s^2 + 2 \cos (2 k \pi / 2N) s + 1}, \quad ({% increment equationId20211203 %})$$
+
+with $k=1, 2,\dots, (N-1)/2$ (note the lack of nonpositive integers).
+
+For $N$ even, we obtain analogously (without any real roots),
+
+$$F(s) = \prod \limits_k \frac{1}{s^2 + 2 \cos ((\pi + 2 k \pi) / 2N) s + 1}, \quad ({% increment equationId20211203 %})$$
+
+where $k=0, \pm 1, \pm 2, \dots, \pm (N/2 -1)$.
+ 
+According to [ParksBurrus], Equations 25 and 26 are very convenient forms.
+
+We did it! We obtained our analog prototype!
+
+Now, let's analyze it a little bit. 😉
 
 ### Butterworth Low-pass Transfer Function
 
-After necessary derivations, the low-pass transfer function of the second-order Butterworth low-pass is [Zolzer05]
+As an example, the low-pass transfer function of the second-order Butterworth low-pass is [Zolzer05]
 
 $$H_2(s) = \frac{1}{s^2 + \sqrt{2} + 1}. \quad ({% increment equationId20211203 %})$$
 
