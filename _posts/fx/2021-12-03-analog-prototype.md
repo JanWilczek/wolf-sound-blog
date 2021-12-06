@@ -281,9 +281,9 @@ with $k=1, 2,\dots, (N-1)/2$ (note the lack of nonpositive integers).
 
 For $N$ even, we obtain analogously (without any real roots)
 
-$$H_\text{a}(s) = \prod \limits_k \frac{1}{s^2 + 2 \cos ((\pi + 2 k \pi) / 2N) s + 1}, \quad ({% increment equationId20211203 %})$$
+$$H_\text{a}(s) = \prod \limits_m \frac{1}{s^2 + 2 \cos (m \pi / 2N) s + 1}, \quad ({% increment equationId20211203 %})$$
 
-where $k=0, \pm 1, \pm 2, \dots, \pm (N/2 -1),-N/2$.
+where $m = 1, 3, \dots, N-1$ (with $m=2k +1, k=0, 1, \dots, (N/2 -1)$ to facilitate derivations).
  
 According to [ParksBurrus], Equations 25 and 26 are very convenient forms.
 
@@ -295,7 +295,7 @@ Now, let's analyze it a little bit. 😉
 
 As an example, the low-pass transfer function of the second-order Butterworth low-pass is [Zolzer05]
 
-$$H_2(s) = \frac{1}{s^2 + \sqrt{2} + 1}. \quad ({% increment equationId20211203 %})$$
+$$H_2(s) = \frac{1}{s^2 + \sqrt{2} s + 1}. \quad ({% increment equationId20211203 %})$$
 
 The fourth-order Butterworth low-pass has the following transfer function
 
