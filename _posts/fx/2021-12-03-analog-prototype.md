@@ -1,5 +1,5 @@
 ---
-title: "How to Design an Analog Prototype Filter?"
+title: "How to Design an Analog Prototype Filter? Butterworth Filter Derivation"
 description: "PLACEHOLDER"
 date: 2021-12-03
 author: Jan Wilczek
@@ -120,43 +120,55 @@ Our only constraint is the filter order. According to [Zolzer05] the most common
 
 **WARNING: This part is Math-heavy. It is intended for those who want to fully understand the derivation of analog prototypes. If you don't want to get that deep, just use tabularized, ready-made formulas. You can [skip to their examples here](#butterworth-low-pass-transfer-function).**
 
-*Note: This part is based on a great explanation in [Parks and Burrus].*
+*Note: This part is based on the great explanation from [Parks and Burrus].*
 <!-- Variables??? -->
 
-The Butterworth amplitude response $F(\omega) = |H_\text{a}(j \omega)|$ is a *Taylor series approximation* of the ideal amplitude response around $\omega=0$.
+The frequency response of an analog filter is found by evaluating its transfer function $H(s)$ along the imaginary axis, i.e., for $s=j\omega$.
+
+We will formulate the problem of approximating the ideal filter in terms of the squared magnitude response $|H(j\omega)|^2$. That is because $|H(j\omega)|^2$ is an analytic, real-valued function of a real variable, i.e., high-school mathematics apply. Another reason is that $|H(j\omega)|^2$ is proportional to the energy or power of the signal, which may be useful depending on the context.
+
+To be able to get from the squared magnitude response to the transfer function, we introduce an intermediate, complex-valued function of the complex variable $s$
+
+$$\mathcal{H}_\text{a}(s) = H_\text{a}(s) H_\text{a}(-s). \quad ({% increment equationId20211203 %})$$
+
+It can be easily shown that
+
+$$\mathcal{H}_\text{a}(s) \Bigr\rvert_{s=j\omega} = |H_\text{a}(j\omega)|^2. \quad ({% increment equationId20211203 %})$$
+
+The Butterworth squared magnitude response $\mathcal{H}_\text{a}(\omega) = |H_\text{a}(j \omega)|^2$ is a *Taylor series approximation* of the ideal squared magnitude response around $\omega=0$.
 
 #### Taylor Series
 
 Taylor series around $\omega=0$ is 
 
-$$F(j\omega) = K_0 + K_1 \omega + K_2 \omega^2 + \dots = \sum_{k=0}^{\infty} K_k \omega^k, \quad ({% increment equationId20211203 %})$$
+$$H_\text{a}(j\omega) = K_0 + K_1 \omega + K_2 \omega^2 + \dots = \sum_{k=0}^{\infty} K_k \omega^k, \quad ({% increment equationId20211203 %})$$
 
 where
 
-$$K_k = \frac{1}{k!} \frac{d^k F(\omega)}{d\omega^k} \Bigr\rvert_{\omega=0}, \quad ({% increment equationId20211203 %})$$
+$$K_k = \frac{1}{k!} \frac{d^k H_\text{a}(\omega)}{d\omega^k} \Bigr\rvert_{\omega=0}, \quad ({% increment equationId20211203 %})$$
 
-with $K_0 = F(0)$.
+with $K_0 = H_\text{a}(0)$.
 
 #### General Squared Magnitude Response
 
-Function $F(j\omega)$ is the magnitude of the analog frequency response. Let'd denote by $\mathcal{\omega}$ the squared magnitude response of the approximation we seek, i.e.,
+Function $H_\text{a}(j\omega)$ is the magnitude of the analog frequency response. Let'd denote by $\mathcal{\omega}$ the squared magnitude response of the approximation we seek, i.e.,
 
-$$\mathcal{F}(j\omega) = F^2(j\omega) = |H_\text{a}(j\omega)|^2. \quad ({% increment equationId20211203 %})$$
+$$\mathcal{H}_\text{a}(j\omega) = F^2(j\omega) = |H_\text{a}(j\omega)|^2. \quad ({% increment equationId20211203 %})$$
 
 This squared magnitude response is an *even* function (symmetric with respect to the value axis) so it may be written in a general form as a function of $\omega^2$, i.e., neglecting the odd powers of $\omega$ because they are odd functions. The general form reads
 
-$$\mathcal{F}(k\omega) = \frac{d_0 + d_2 \omega^2 + d_4 \omega^4 + \dots + d_{2M} \omega^{2M}}{c_0 + c_2 \omega^2 + c_4 \omega^4 + \dots + c_{2N} \omega^{2N}}. \quad ({% increment equationId20211203 %})$$
+$$\mathcal{H}_\text{a}(k\omega) = \frac{d_0 + d_2 \omega^2 + d_4 \omega^4 + \dots + d_{2M} \omega^{2M}}{c_0 + c_2 \omega^2 + c_4 \omega^4 + \dots + c_{2N} \omega^{2N}}. \quad ({% increment equationId20211203 %})$$
 
 The following observations can already be made with regard to Equation 4.
 
-* We require that $\mathcal{F}(0) = 1$ so we can readily set $c_0 = d_0$.
-* We require that $\mathcal{F}(j\infty) = 0$ which leads to the conclusion that the denominator must have a greater order than the numerator, i.e., $N > M$ and $c_{2N} \neq 0$.
+* We require that $\mathcal{H}_\text{a}(0) = 1$ so we can readily set $c_0 = d_0$.
+* We require that $\mathcal{H}_\text{a}(j\infty) = 0$ which leads to the conclusion that the denominator must have a greater order than the numerator, i.e., $N > M$ and $c_{2N} \neq 0$.
 
 #### Error Formulation
 
-We can write $\mathcal{F}(j\omega)$ in terms of the sum of the desired value at $0$ and approximation error $E(\omega)$
+We can write $\mathcal{H}_\text{a}(j\omega)$ in terms of the sum of the desired value at $0$ and approximation error $E(\omega)$
 
-$$\mathcal{F}(j\omega) = 1 + E(\omega). \quad ({% increment equationId20211203 %})$$
+$$\mathcal{H}_\text{a}(j\omega) = 1 + E(\omega). \quad ({% increment equationId20211203 %})$$
 
 We can insert Equation 5 into Equation 4 and obtain
 
@@ -182,17 +194,17 @@ $$c_{2N - 2} = 0, \quad ({% increment equationId20211203 %})$$
 
 $$c_{2N} \neq 0. \quad ({% increment equationId20211203 %})$$
 
-Equations 7-12 tell us that the numerator of $\mathcal{F}(j\omega)$ from Equation 4 can be arbitrary, because any setting of parameters $d_0, \dots, d_{2M}$ and subsequent setting of parameters $c_0, \dots, c_{2M}$ will yield equally good Taylor approximation.
+Equations 7-12 tell us that the numerator of $\mathcal{H}_\text{a}(j\omega)$ from Equation 4 can be arbitrary, because any setting of parameters $d_0, \dots, d_{2M}$ and subsequent setting of parameters $c_0, \dots, c_{2M}$ will yield equally good Taylor approximation.
 
-That allows us to pick the numerator as we wish. In order to have $\mathcal{F}(j \omega) = 0$, we set $c_0 = d_0 = 1$ and $d_2 = d_4 = \dots = d_{2M} = 0$.
+That allows us to pick the numerator as we wish. In order to have $\mathcal{H}_\text{a}(j \omega) = 0$, we set $c_0 = d_0 = 1$ and $d_2 = d_4 = \dots = d_{2M} = 0$.
 
 We, thus, obtain
 
-$$\mathcal{F}(j \omega) = \frac{1}{1 + c_{2N} \omega^{2N}}. \quad ({% increment equationId20211203 %})$$
+$$\mathcal{H}_\text{a}(j \omega) = \frac{1}{1 + c_{2N} \omega^{2N}}. \quad ({% increment equationId20211203 %})$$
 
 #### Determining the Cutoff Frequency
 
-Parameter $c_{2N}$ determines the analog cutoff frequency $\omega_\text{a}$ so that $\mathcal{F}(\omega_\text{a}) = \frac{1}{2}$ (-3 dB point).
+Parameter $c_{2N}$ determines the analog cutoff frequency $\omega_\text{a}$ so that $\mathcal{H}_\text{a}(\omega_\text{a}) = \frac{1}{2}$ (-3 dB point).
 
 We have already decided that for us $\omega_\text{a} = 1$ so we need to set
 
@@ -202,11 +214,11 @@ $$c_{2N} = 1. \quad ({% increment equationId20211203 %})$$
 
 We obtained the final formula for the analog Butterworth low-pass filter of the $N$-th order
 
-$$\mathcal{F}(j\omega) = \frac{1}{1 + \omega^{2N}}. \quad ({% increment equationId20211203 %})$$
+$$\mathcal{H}_\text{a}(j\omega) = \frac{1}{1 + \omega^{2N}}. \quad ({% increment equationId20211203 %})$$
 
-Equation 15 is the Taylor approximation of the ideal low-pass filter squared magnitude response at $\omega = 0$. This means that $\mathcal{F}(j\omega)$ is maximally flat at $\omega = 0$.
+Equation 15 is the Taylor approximation of the ideal low-pass filter squared magnitude response at $\omega = 0$. This means that $\mathcal{H}_\text{a}(j\omega)$ is maximally flat at $\omega = 0$.
 
-It turns out that Equation 15 is at the same time the Taylor approximation at $\omega = \infty$! So $\mathcal{F}(j\omega)$ is maximally flat at both ends: $\omega=0$ and $\omega = \infty$. That is why, Butterworth filter is said to have *maximally flat amplitude response* at the endpoints [SmithDigFilt].
+It turns out that Equation 15 is at the same time the Taylor approximation at $\omega = \infty$! So $\mathcal{H}_\text{a}(j\omega)$ is maximally flat at both ends: $\omega=0$ and $\omega = \infty$. That is why, Butterworth filter is said to have *maximally flat amplitude response* at the endpoints [SmithDigFilt].
 
 #### Transfer Function Derivation
 
@@ -217,7 +229,7 @@ You may wonder,
 <!-- To this end, we can use a property of the complex numbers -->
 <!-- TODO: Add commentary -->
 
-$$\mathcal{F}(s) = F(s) F(-s) = \frac{1}{1 + (-s^2)^N}, \quad ({% increment equationId20211203 %})$$
+$$\mathcal{H}_\text{a}(s) = H_\text{a}(s) H_\text{a}(-s) = \frac{1}{1 + (-s^2)^N}, \quad ({% increment equationId20211203 %})$$
 
 because if we substitute $s = j\omega$, we arrive back at Equation 15.
 
@@ -235,25 +247,25 @@ $$s^{2N} = \begin{cases} -1, \quad \text{if } N \text{ is even},\\ 1, \quad \tex
 
 $$s_k = \begin{cases} e^{i(\pi + 2k\pi)/2N}, \quad \text{if } N \text{ is even},\\ e^{i2k\pi/2N}, \quad \text{if } N \text{ is odd.}\end{cases}, \\ \quad k=-(N-1), -(N-2), \dots, 0, 1, 2, \dots , N-1, N. \quad ({% increment equationId20211203 %})$$
 
-*Note: This indexing of $k$ is chosen so as to simplify further derivations. Another but equivalent indexing is $k=0,1,2,\dots,2N-1$.
+*Note: This indexing of $k$ is chosen so as to simplify further derivations. Another but equivalent indexing is $k=0,1,2,\dots,2N-1$.*
 
-So $\mathcal{F}(s)$ has $2N$ poles. As their number is even, they are symmetrically placed on the unit circle: $N$ on the left half-plane, $N$ on the right half-plane. 
+So $\mathcal{H}_\text{a}(s)$ has $2N$ poles. As their number is even, they are symmetrically placed on the unit circle: $N$ on the left half-plane, $N$ on the right half-plane. 
 
-Since we want just $F(s)$, we need to factorize $\mathcal{F}(s)$ into $F(s)$ and $F(-s)$.
+Since we want just $H_\text{a}(s)$, we need to factorize $\mathcal{H}_\text{a}(s)$ into $H_\text{a}(s)$ and $H_\text{a}(-s)$.
 
-For $F(s)$ to be stable, we need all of its poles to lie on the left half-plane of the $s$-plane, i.e., have negative real parts.
+For $H_\text{a}(s)$ to be stable, we need all of its poles to lie on the left half-plane of the $s$-plane, i.e., have negative real parts.
 
-We can obtain it by finding the poles of $F(-s)$ (which lie on the right half-plane) and negating their real parts (because the poles are symmetrical with respect to the imaginary axis).
+We can obtain it by finding the poles of $H_\text{a}(-s)$ (which lie on the right half-plane) and negating their real parts (because the poles are symmetrical with respect to the imaginary axis).
 
-Poles of $F(-s)$ are $s_k$ from Equation 22 for $k=0,\pm 1,\pm 2,\dots,\pm (N-1)/2$ if $N$ is odd, and for $k=0, \pm 1, \pm 2, \dots, \pm (N/2 -1)$ if $N$ is even. After negating the real part of these $s_k$, we obtain the pole locations of $F(s)$
+Poles of $H_\text{a}(-s)$ are $s_k$ from Equation 22 with arguments in the $(-\pi/2,\pi/2)$ range, i.e., for $k=0,\pm 1,\pm 2,\dots,\pm (N-1)/2$ if $N$ is odd, and for $k=0, \pm 1, \pm 2, \dots, \pm (N/2 -1),-N/2$ if $N$ is even. After negating the real part of these $s_k$, we obtain the pole locations of $H_\text{a}(s)$
 
-$$s_k^{F(s)} = \begin{cases} -e^{-i(\pi + 2k\pi)/2N},k=0, \pm 1, \pm 2, \dots, \pm (N/2 -1) \quad \text{if } N \text{ is even},\\ -e^{-i2k\pi/2N}, k=0,\pm 1,\pm 2,\dots,\pm (N-1)/2 \quad \text{if } N \text{ is odd.}\end{cases} \quad ({% increment equationId20211203 %})$$
+$$s_k^{H_\text{a}(s)} = \begin{cases} -e^{-i(\pi + 2k\pi)/2N},k=0, \pm 1, \dots, \pm (N/2 -1),-N/2 \quad \text{if } N \text{ is even},\\ -e^{-i2k\pi/2N}, k=0,\pm 1,\pm 2,\dots,\pm (N-1)/2 \quad \text{if } N \text{ is odd.}\end{cases} \quad ({% increment equationId20211203 %})$$
 
 *Note: Negating the real part of a complex number is equivalent to negating its complex conjugate.*
 
-Knowing all the poles, we can write out $F(s)$ in the factorized version. Let's consider $N$ odd first (so $k=0,\pm 1,\pm 2,\dots,\pm (N-1)/2$).
+Knowing all the poles, we can write out $H_\text{a}(s)$ in the factorized version. Let's consider $N$ odd first (so $k=0,\pm 1,\pm 2,\dots,\pm (N-1)/2$).
 
-$$F(s) = \prod \limits_k \frac{1}{s - s_k} = \prod \limits_k \frac{1}{s + e^{-i 2 k \pi / 2N}}. \quad ({% increment equationId20211203 %})$$
+$$H_\text{a}(s) = \prod \limits_k \frac{1}{s - s_k} = \prod \limits_k \frac{1}{s + e^{-i 2 k \pi / 2N}}. \quad ({% increment equationId20211203 %})$$
 
 We did it! Now let's just polish this formula.
 
@@ -263,15 +275,15 @@ The polynomial in the denominator of Equation 16 has real coefficients. Therefor
 
 Since the complex conjugate lies on the same half-plane, we can combine combine the roots with their conjugates to create a neat-looking real polynomial in the denominator.
 
-$$F(s) = \frac{1}{s+1} \prod \limits_k \frac{1}{(s + e^{-i 2 k \pi / 2N})(s + e^{i 2 k \pi / 2N})} \\= \frac{1}{s+1} \prod \limits_k \frac{1}{s^2 + 2 \cos (2 k \pi / 2N) s + 1}, \quad ({% increment equationId20211203 %})$$
+$$H_\text{a}(s) = \frac{1}{s+1} \prod \limits_k \frac{1}{(s + e^{-i 2 k \pi / 2N})(s + e^{i 2 k \pi / 2N})} \\= \frac{1}{s+1} \prod \limits_k \frac{1}{s^2 + 2 \cos (2 k \pi / 2N) s + 1}, \quad ({% increment equationId20211203 %})$$
 
 with $k=1, 2,\dots, (N-1)/2$ (note the lack of nonpositive integers).
 
-For $N$ even, we obtain analogously (without any real roots),
+For $N$ even, we obtain analogously (without any real roots)
 
-$$F(s) = \prod \limits_k \frac{1}{s^2 + 2 \cos ((\pi + 2 k \pi) / 2N) s + 1}, \quad ({% increment equationId20211203 %})$$
+$$H_\text{a}(s) = \prod \limits_k \frac{1}{s^2 + 2 \cos ((\pi + 2 k \pi) / 2N) s + 1}, \quad ({% increment equationId20211203 %})$$
 
-where $k=0, \pm 1, \pm 2, \dots, \pm (N/2 -1)$.
+where $k=0, \pm 1, \pm 2, \dots, \pm (N/2 -1),-N/2$.
  
 According to [ParksBurrus], Equations 25 and 26 are very convenient forms.
 
