@@ -33,19 +33,62 @@ if __name__ == '__main__':
     matplotlib.rcParams['font.sans-serif'] = ['Verdana']
     plot_dict = {"bbox_inches": 'tight', "dpi": 300, "transparent": True}
 
+    # Butterworth filters comparison
+    plt.figure()
     title = 'ButterworthComparison'
 
+    orders = [2, 4, 11]
+    line_styles = ['-', '--', '-.']
+
+    legend = []
+
     b = [1]
-    for order in [2, 4, 12]:
+    for order, line_style in zip(orders, line_styles):
         a = butterworth_denominator_coefficients(order)
         w, h = sig.freqs(b, a, worN=np.logspace(-1, 2, 1000))
         # plt.semilogx(w, 20 * np.log10(abs(h)))
-        plt.semilogx(w, abs(h))
-    plt.semilogx(w, ideal_lowpass_amplitude_response(w, 1))
+        plt.semilogx(w, abs(h), line_style)
+        legend.append(f'$N={order}$')
+    plt.semilogx(w, ideal_lowpass_amplitude_response(w, 1), ':')
+    legend.append('ideal')
     plt.xlabel('Frequency')
     plt.ylabel('Amplitude response')
     plt.grid()
     plt.xlim([0.1, 100])
-    # plt.xticks([1], ['1'])
-    plt.xticks([1], [r'$\omega_a$'])
+    plt.xticks([0.1, 1, 10], ['0.1', r'$\omega_a = 1$', '10'])
+    plt.legend(legend)
     plt.savefig(output_dir / f'{title}.png', **plot_dict)
+
+    # Butterworth filters comparison in decibels
+    plt.figure()
+    title = 'ButterworthComparisonDecibels'
+
+    legend = []
+
+    for order, line_style in zip(orders, line_styles):
+        a = butterworth_denominator_coefficients(order)
+        w, h = sig.freqs(b, a, worN=np.logspace(-1, 2, 1000))
+        plt.semilogx(w, 20 * np.log10(abs(h)), line_style)
+        legend.append(f'$N={order}$')
+    plt.semilogx(w, 20 * np.log10(np.maximum(ideal_lowpass_amplitude_response(w, 1), 1e-6)), ':')
+    legend.append('ideal')
+    plt.xlabel('Frequency')
+    plt.ylabel('Amplitude response [dB]')
+    plt.grid()
+    plt.xlim([0.1, 100])
+    plt.ylim([-60,1])
+    plt.xticks([0.1, 1, 10], ['0.1', r'$\omega_a = 1$', '10'])
+    plt.legend(legend)
+    plt.savefig(output_dir / f'{title}.png', **plot_dict)
+
+    # Ideal low-pass
+    plt.figure()
+    title = 'IdealLowPass'
+    plt.semilogx(w, ideal_lowpass_amplitude_response(w, 1), 'C3')
+    plt.xlabel('Frequency')
+    plt.ylabel('Amplitude response')
+    plt.grid()
+    plt.xlim([0.1, 100])
+    plt.xticks([0.1, 1, 10], ['0.1', r'$\omega_a = 1$', '10'])
+    plt.savefig(output_dir / f'{title}.png', **plot_dict)
+
