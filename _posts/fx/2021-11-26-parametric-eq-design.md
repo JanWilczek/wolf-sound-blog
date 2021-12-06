@@ -271,7 +271,7 @@ If you want to be notified about weekly WolfSound content in a condensed form, [
 http://ccrma.stanford.edu/~jos/filters/](http://ccrma.stanford.edu/~jos/filters/), online book, 2007 edition,
 accessed November 26, 2021.
 
-[VälimäkiReiss16] [Vesa Välimäki, Joshua D. Reiss, *All About AUdio Equalization: Solutions and Frontiers* [PDF]](https://www.mdpi.com/2076-3417/6/5/129/pdf), Applied Sciences, Vol. 6, Issue 5, May 6, 2016.
+[VälimäkiReiss16] [Vesa Välimäki, Joshua D. Reiss, *All About Audio Equalization: Solutions and Frontiers* [PDF]](https://www.mdpi.com/2076-3417/6/5/129/pdf), Applied Sciences, Vol. 6, Issue 5, May 6, 2016.
 
 [Zölzer08] [Zölzer Udo, *Digital Audio Signal Processing*, 2nd ed., Helmut Schmidt University, Hamburg, Germany, John Wiley & Sons Ltd, 2008.](https://amzn.to/30XUTdn)
 

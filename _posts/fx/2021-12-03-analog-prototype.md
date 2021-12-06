@@ -5,7 +5,7 @@ date: 2021-12-03
 author: Jan Wilczek
 layout: post
 images: assets/img/posts/fx/2021-12-03-analog-prototype/
-# background: /assets/img/posts/fx/2021-12-03-analog-prototype/
+background: /assets/img/posts/fx/2021-12-03-analog-prototype/ButterworthComparison.webp
 categories:
   - Audio FX
   - Digital Signal Processing
@@ -31,17 +31,17 @@ In the last article, [add link] I outlined the process of creating a parametric 
 
 Here's how the process looks:
 
-![]({{ page.images | absolute_url | append: "/PipelineUnmarked.png"}}){: alt="" }
-_Figure {% increment figureId20211203 %}. ._
+![]({{ page.images | absolute_url | append: "/PipelineUnmarked.webp"}}){: alt="Parametric filter design workflow." }
+_Figure {% increment figureId20211203 %}. Parametric filter design workflow._
 
 In this article, we'll discuss the second step of the process: **designing the analog prototype**.
 
-![]({{ page.images | absolute_url | append: "/PipelineMarked.png"}}){: alt="" }
-_Figure {% increment figureId20211203 %}. ._
+![]({{ page.images | absolute_url | append: "/PipelineMarked.webp"}}){: alt="Parametric filter design workflow with marked second step." }
+_Figure {% increment figureId20211203 %}. In this article, we discuss analog prototype design._
 
 ## Recap
 
-As you remember from the previous article [link], parametric filters must have [Valimaki]
+As you remember from the previous article [link], parametric filters must have [VälimäkiReiss16]
 
 * interpretable, real-time-adjustable controls and
 * low processing delay.
@@ -97,9 +97,9 @@ There are many methods to achieve this, as there are many optimization methods. 
   </div>
 </div>
 
-But in equalizer filters mostly Butterworth responses are used, because the amplitude response is monotonic (without any ripples) and the higher the frequency above the cutoff frequency, the bigger the filter's attenuation [Zolzer05]. 
+But in equalizer filters mostly Butterworth responses are used, because the amplitude response is monotonic (without any ripples) and the higher the frequency above the cutoff frequency, the bigger the filter's attenuation [Zölzer08]. 
 
-Additionally, it is easy to control the slope of the roll-off above the cutoff frequency with the filter order. If the filter order is $N$ its attenuation in the stopband is $N \cdot 6$ dB per octave (doubling of the frequency) [Zolzer05].
+Additionally, it is easy to control the slope of the roll-off above the cutoff frequency with the filter order. If the filter order is $N$ its attenuation in the stopband is $N \cdot 6$ dB per octave (doubling of the frequency) [Zölzer08].
 
 ## Analog Prototype Butterworth Low-pass
 
@@ -109,19 +109,18 @@ We know that we want to design an analog prototype low-pass using the Butterwort
 
 The goal of the approximation is the *ideal low-pass filter*.
 
-![]({{ page.images | absolute_url | append: "/IdealLowPass.png"}})
+![]({{ page.images | absolute_url | append: "/IdealLowPass.webp"}}){: alt="Amplitude response of the ideal low-pass filter."}
 _Figure {% increment figureId20211203  %}. Amplitude response of the ideal low-pass filter._
 
 Frequency $\omega_\text{a}$ is the analog cutoff frequency in radians per second. We assume that $\omega_\text{a} = 1$, i.e., the filter's transfer function is *normalized*.
 
-Our only constraint is the filter order. According to [Zolzer05] the most commonly used orders are $N = 2$ and $N = 4$.
+Our only constraint is the filter order. According to [Zölzer08] the most commonly used orders are $N = 2$ and $N = 4$.
 
 ### Butterworth Filter Derivation
 
 **WARNING: This part is Math-heavy. It is intended for those who want to fully understand the derivation of analog prototypes. If you don't want to get that deep, just use tabularized, ready-made formulas. You can [skip to their examples here](#butterworth-low-pass-transfer-function).**
 
-*Note: This part is based on the great explanation from [Parks and Burrus].*
-<!-- Variables??? -->
+*Note: This part is based on the great explanation from [ParksBurrus87].*
 
 The frequency response of an analog filter is found by evaluating its transfer function $H(s)$ along the imaginary axis, i.e., for $s=j\omega$.
 
@@ -159,7 +158,7 @@ This squared magnitude response is an *even* function (symmetric with respect to
 
 $$\mathcal{H}_\text{a}(k\omega) = \frac{d_0 + d_2 \omega^2 + d_4 \omega^4 + \dots + d_{2M} \omega^{2M}}{c_0 + c_2 \omega^2 + c_4 \omega^4 + \dots + c_{2N} \omega^{2N}}. \quad ({% increment equationId20211203 %})$$
 
-The following observations can already be made with regard to Equation 4.
+The following observations can already be made with regard to Equation 6.
 
 * We require that $\mathcal{H}_\text{a}(0) = 1$ so we can readily set $c_0 = d_0$.
 * We require that $\mathcal{H}_\text{a}(j\infty) = 0$ which leads to the conclusion that the denominator must have a greater order than the numerator, i.e., $N > M$ and $c_{2N} \neq 0$.
@@ -170,7 +169,7 @@ We can write $\mathcal{H}_\text{a}(j\omega)$ in terms of the sum of the desired 
 
 $$\mathcal{H}_\text{a}(j\omega) = 1 + E(\omega). \quad ({% increment equationId20211203 %})$$
 
-We can insert Equation 5 into Equation 4 and obtain
+We can insert Equation 7 into Equation 6 and obtain
 
 $$d_0 + d_2 \omega^2 + \dots + d_{2M} \omega^{2M} = c_0 + c_2 \omega^2 + \dots + c_{2N} \omega^{2N} \\+ E(\omega) [c_0 + c_2 \omega^2 + \dots + c_{2N} \omega^{2N}]. \quad ({% increment equationId20211203 %})$$
 
@@ -194,7 +193,7 @@ $$c_{2N - 2} = 0, \quad ({% increment equationId20211203 %})$$
 
 $$c_{2N} \neq 0. \quad ({% increment equationId20211203 %})$$
 
-Equations 7-12 tell us that the numerator of $\mathcal{H}_\text{a}(j\omega)$ from Equation 4 can be arbitrary, because any setting of parameters $d_0, \dots, d_{2M}$ and subsequent setting of parameters $c_0, \dots, c_{2M}$ will yield equally good Taylor approximation.
+Equations 9-14 tell us that the numerator of $\mathcal{H}_\text{a}(j\omega)$ from Equation 6 can be arbitrary, because any setting of parameters $d_0, \dots, d_{2M}$ and subsequent setting of parameters $c_0, \dots, c_{2M}$ will yield equally good Taylor approximation.
 
 That allows us to pick the numerator as we wish. In order to have $\mathcal{H}_\text{a}(j \omega) = 0$, we set $c_0 = d_0 = 1$ and $d_2 = d_4 = \dots = d_{2M} = 0$.
 
@@ -218,22 +217,21 @@ $$\mathcal{H}_\text{a}(j\omega) = \frac{1}{1 + \omega^{2N}}. \quad ({% increment
 
 Equation 15 is the Taylor approximation of the ideal low-pass filter squared magnitude response at $\omega = 0$. This means that $\mathcal{H}_\text{a}(j\omega)$ is maximally flat at $\omega = 0$.
 
-It turns out that Equation 15 is at the same time the Taylor approximation at $\omega = \infty$! So $\mathcal{H}_\text{a}(j\omega)$ is maximally flat at both ends: $\omega=0$ and $\omega = \infty$. That is why, Butterworth filter is said to have *maximally flat amplitude response* at the endpoints [SmithDigFilt].
+It turns out that Equation 17 is at the same time the Taylor approximation at $\omega = \infty$! So $\mathcal{H}_\text{a}(j\omega)$ is maximally flat at both ends: $\omega=0$ and $\omega = \infty$. That is why, Butterworth filter is said to have *maximally flat amplitude response* at the endpoints [Smith07].
 
 #### Transfer Function Derivation
 
 You may wonder,
 
-**Since Equation 15 is the squared magnitude response, how do we obtain the transfer function over the $s$-domain?**
+**Since Equation 17 is the squared magnitude response, how do we obtain the transfer function over the $s$-domain?**
 
-<!-- To this end, we can use a property of the complex numbers -->
-<!-- TODO: Add commentary -->
+We can use the definition of $\mathcal{H}_\text{a}(s)$ from Equation 1.
 
 $$\mathcal{H}_\text{a}(s) = H_\text{a}(s) H_\text{a}(-s) = \frac{1}{1 + (-s^2)^N}, \quad ({% increment equationId20211203 %})$$
 
-because if we substitute $s = j\omega$, we arrive back at Equation 15.
+because if we substitute $s = j\omega$, we arrive back at Equation 17.
 
-The fractional on the right side of Equation 16 has exactly $2N$ poles. What are they?
+The fractional on the right side of Equation 18 has exactly $2N$ poles. What are they?
 
 $$(-s^2)^N + 1 = 0, \quad ({% increment equationId20211203 %})$$
 
@@ -257,7 +255,7 @@ For $H_\text{a}(s)$ to be stable, we need all of its poles to lie on the left ha
 
 We can obtain it by finding the poles of $H_\text{a}(-s)$ (which lie on the right half-plane) and negating their real parts (because the poles are symmetrical with respect to the imaginary axis).
 
-Poles of $H_\text{a}(-s)$ are $s_k$ from Equation 22 with arguments in the $(-\pi/2,\pi/2)$ range, i.e., for $k=0,\pm 1,\pm 2,\dots,\pm (N-1)/2$ if $N$ is odd, and for $k=0, \pm 1, \pm 2, \dots, \pm (N/2 -1),-N/2$ if $N$ is even. After negating the real part of these $s_k$, we obtain the pole locations of $H_\text{a}(s)$
+Poles of $H_\text{a}(-s)$ are $s_k$ from Equation 24 with arguments in the $(-\pi/2,\pi/2)$ range, i.e., for $k=0,\pm 1,\pm 2,\dots,\pm (N-1)/2$ if $N$ is odd, and for $k=0, \pm 1, \pm 2, \dots, \pm (N/2 -1),-N/2$ if $N$ is even. After negating the real part of these $s_k$, we obtain the pole locations of $H_\text{a}(s)$
 
 $$s_k^{H_\text{a}(s)} = \begin{cases} -e^{-i(\pi + 2k\pi)/2N},k=0, \pm 1, \dots, \pm (N/2 -1),-N/2 \quad \text{if } N \text{ is even},\\ -e^{-i2k\pi/2N}, k=0,\pm 1,\pm 2,\dots,\pm (N-1)/2 \quad \text{if } N \text{ is odd.}\end{cases} \quad ({% increment equationId20211203 %})$$
 
@@ -271,7 +269,7 @@ We did it! Now let's just polish this formula.
 
 #### Tidying Up the Product
 
-The polynomial in the denominator of Equation 16 has real coefficients. Therefore, all roots occur in complex conjugate pairs apart from $s_0$, which is a real number.
+The polynomial in the denominator of Equation 18 has real coefficients. Therefore, all roots occur in complex conjugate pairs apart from $s_0$, which is a real number.
 
 Since the complex conjugate lies on the same half-plane, we can combine combine the roots with their conjugates to create a neat-looking real polynomial in the denominator.
 
@@ -285,7 +283,7 @@ $$H_\text{a}(s) = \prod \limits_m \frac{1}{s^2 + 2 \cos (m \pi / 2N) s + 1}, \qu
 
 where $m = 1, 3, \dots, N-1$ (with $m=2k +1, k=0, 1, \dots, (N/2 -1)$ to facilitate derivations).
  
-According to [ParksBurrus], Equations 25 and 26 are very convenient forms.
+According to [ParksBurrus87], Equations 27 and 28 are very convenient forms.
 
 We did it! We obtained our analog prototype!
 
@@ -293,7 +291,7 @@ Now, let's analyze it a little bit. 😉
 
 ### Butterworth Low-pass Transfer Function
 
-As an example, the low-pass transfer function of the second-order Butterworth low-pass is [Zolzer05]
+As an example, the low-pass transfer function of the second-order Butterworth low-pass is [Zölzer08]
 
 $$H_2(s) = \frac{1}{s^2 + \sqrt{2} s + 1}. \quad ({% increment equationId20211203 %})$$
 
@@ -307,10 +305,48 @@ $$H_4(s) = \frac{1}{(s^2 + 1.848 s + 1)(s^2 + 0.765 s + 1)}. \quad ({% increment
 
 To see, how much the Butterworth low-pass filter deviates from the ideal response from Figure 3, let's plot the amplitude responses of both filters against the ideal response.
 
-<!-- TODO: Low-pass comparison. -->
+![]({{ page.images | absolute_url | append: "/ButterworthComparison.webp"}}){: alt="Comparison of Butterworth filters amplitude responses for orders 2, 4, and 11, and the ideal low-pass amplitude response." }
+_Figure {% increment figureId20211203 %}. Butterworth low-pass amplitude response for 2nd, 4th, and 11th order plotted against the ideal response._
+
+We can observe that Butterworth filters have cross the cutoff frequency with exactly the same gain, which is $1/\sqrt{2}$. That means that our derivations are valid.
+
+Additionally, we can observe that the higher the filter order, the more steep the slope of the transition band (between the pass band and the stop band).
+
+Figure 4 also shows that the Butterworth approximation is indeed maximally flat at frequencies $\omega=0$ and $\omega=\infty$.
+
+Figure 5 shows the same amplitude responses but this time the amplitude response is expressed in decibels ($20 \log_{10}(\cdot)$). The -3 dB at cutoff frequency is clearly visible.
+
+![]({{ page.images | absolute_url | append: "/ButterworthComparisonDecibels.webp"}}){: alt="Comparison of Butterworth filters amplitude responses on the decibel scale for orders 2, 4, and 11, and the ideal low-pass amplitude response." }
+_Figure {% increment figureId20211203 %}. Butterworth low-pass amplitude response in decibels for 2nd, 4th, and 11th order plotted against the ideal response._
+
+To obtain the above responses I used the `scipy.signal.freqs` function from the Python SciPy library (analogous function exists in Matlab).
+
+To obtain the transfer function automatically I used the `Polynomial` class from the `numpy.polynomial.polynomial` module of the NumPy library.
+
+SciPy has a [ready-made function to obtain the transfer function of an arbitrary analog filter with 5 different design methods](https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.iirfilter.html). Alternatively, you may check out [my implementation for the Butterworth case](https://github.com/JanWilczek/wolf-sound-blog/tree/master/_py/posts/fx/2021-12-03-analog-prototype/butterworth_response.py).
 
 ## Summary
 
-We did it! We obtained the transfer function of the ideal low-pass filter which we can now digitze with the bilinear transform and then transform to the desired form (high-pass, band-pass, etc.).
+We did it! We obtained the transfer function of the ideal low-pass filter which we can now digitize with the bilinear transform and then transform to the desired form (high-pass, band-pass, etc.).
+
+I put a lot of effort into this article: if you found it useful, please, let me know in the comments!
+
+If you have any questions, I would be happy to answer them in the comments as well.
+
+Thank you for reading! 🙂
+
+## Bibliography
+
+[ParksBurrus87]  [T. W. Parks, C. S. Burrus, *Digital Filter Design*, John Wiley & Sons, Inc., 1987.](https://amzn.to/3DyoXJE)
+
+[Smith07] [Julius O. Smith, *Introduction to Digital Filters with Audio Applications*,
+http://ccrma.stanford.edu/~jos/filters/](http://ccrma.stanford.edu/~jos/filters/), online book, 2007 edition,
+accessed November 26, 2021.
+
+[VälimäkiReiss16] [Vesa Välimäki, Joshua D. Reiss, *All About Audio Equalization: Solutions and Frontiers* [PDF]](https://www.mdpi.com/2076-3417/6/5/129/pdf), Applied Sciences, Vol. 6, Issue 5, May 6, 2016.
+
+[Zölzer08] [Zölzer Udo, *Digital Audio Signal Processing*, 2nd ed., Helmut Schmidt University, Hamburg, Germany, John Wiley & Sons Ltd, 2008.](https://amzn.to/30XUTdn)
+
+{% include affiliate-disclaimer.html %}
 
 {% endkatexmm %}
