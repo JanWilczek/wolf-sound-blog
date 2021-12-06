@@ -19,6 +19,11 @@ def butterworth_denominator_coefficients(order):
             denominator *= Polynomial([1, 2 * np.cos(2 * k * np.pi / (2 * order)), 1])
     return list(denominator)
 
+def ideal_lowpass_amplitude_response(frequencies, cutoff_frequency):
+    h = np.ones_like(frequencies)
+    h[frequencies > cutoff_frequency] = 0.0
+    return h
+
 if __name__ == '__main__':
     output_dir = Path('assets', 'img', 'posts', 'fx', '2021-12-03-analog-prototype')
     matplotlib.rcParams.update({'font.size': 16})
@@ -32,14 +37,15 @@ if __name__ == '__main__':
 
     b = [1]
     for order in [2, 4, 12]:
-    # for order in [1, 3, 11]:
         a = butterworth_denominator_coefficients(order)
         w, h = sig.freqs(b, a, worN=np.logspace(-1, 2, 1000))
         # plt.semilogx(w, 20 * np.log10(abs(h)))
         plt.semilogx(w, abs(h))
+    plt.semilogx(w, ideal_lowpass_amplitude_response(w, 1))
     plt.xlabel('Frequency')
-    # plt.ylabel('Amplitude response [dB]')
+    plt.ylabel('Amplitude response')
     plt.grid()
-    # plt.ylim([-60, 0])
-    # plt.xlim([0.00001, 10000])
+    plt.xlim([0.1, 100])
+    # plt.xticks([1], ['1'])
+    plt.xticks([1], [r'$\omega_a$'])
     plt.savefig(output_dir / f'{title}.png', **plot_dict)
