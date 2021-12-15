@@ -4,6 +4,7 @@ _site
 .jekyll-cache
 .jekyll-metadata
 vendor
+.vscode
 
 _deploy.sh
 
