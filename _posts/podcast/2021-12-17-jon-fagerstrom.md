@@ -1,5 +1,5 @@
 ---
-title: "Challenges Beginner Audio Researchers Face And How To Overcome Them With Jon Fagerström | WolfTalk #003"
+title: "Challenges Of Beginner Audio Researchers And How To Overcome Them With Jon Fagerström | WolfTalk #003"
 description: "An interview with Jon Fagerström, a doctoral candidate in the Aalto Acoustics Lab researching algorithimic variation in sampling synthesis."
 date: 2021-12-17
 author: Jan Wilczek
@@ -17,17 +17,18 @@ tags:
   - research
 discussion_id: 2021-12-17-jon-fagerstrom
 ---
-<!-- Extract -->
+Improving reverb and sampling techniques while playing the bass guitar.
+
 <!-- YouTube video -->
 <!-- "Listen on" links -->
-
-
 
 [All podcast episodes.]({{"/podcast" | relative_url }})
 
 [Sign up for WolfSound's newsletter!]({% link newsletter.md %})
 
-<!-- Intro -->
+In this podcast episode, I was lucky to interview another member of the Aalto Acoustics Lab of the Aalto University in Espoo, Finland. Jon Fagerström is conducting his PhD research in the domain of audio signal processing, specifically, sampling synthesis and artificial reverberation. We are discussing what challenges beginning researchers face, how to find your niche in audio research, and what interesting ways there are to end up as an audio researcher.
+
+*Note: if you like the podcast so far, please, go to iTunes and leave me a review there. It will benefit both sides: more reviews means more outreach on iTunes and feedback can help me to improve the show and provide better quality content to you. Thank you for doing this.*
 
 ## Episode Contents
 
@@ -41,7 +42,7 @@ In this podcast episode, you will learn
 * how to relax after research work 😎,
 * what is artificial reverberation, feedback delay networks, and velvet nose,
 * how to generate naturally sounding variation in sampled impact sounds for drum machines, video games, and virtual reality,
-* music practice during pandemic.
+* music bands' reality during pandemic 🎸.
 
 
 ## Referenced Resources
@@ -57,6 +58,7 @@ Below are all the resources that are referenced in the podcast episode.
     * [YouTube channel](https://www.youtube.com/channel/UCpo9G3kZ0qVXGPBIYdlJT9Q)
     * [Instagram](https://www.instagram.com/aaltoacousticslab/)
     * [Acoustics and Audio Technology Master's Programme at Aalto](https://www.aalto.fi/en/study-options/masters-programme-in-computer-communication-and-information-sciences-acoustics-and) <- you can see Jon in the promotional picture!
+    * [Aalto School of Technology's doctoral graduate outfit](https://www.aalto.fi/en/aalto-university/dress-code-of-the-ceremonial-conferment-at-the-schools-of-technology)
   * [Hefio](https://www.hefio.com/), headphone company
   * [Digital Audio FX (DAFX) Conference](https://www.dafx.de/)
 * Publications:
@@ -71,8 +73,11 @@ Below are all the resources that are referenced in the podcast episode.
   * [Facebook](https://www.facebook.com/jon.fagerstrom)
   * [ResearchGate](https://www.researchgate.net/profile/Jon-Fagerstroem-2)
 * Products:
-  * 
+  * [Satisfactory video game](https://www.satisfactorygame.com/)
+  * NieR: Automata video game
+  * Tanzbar analog drum machine
+  * Novation Circuit Mono Station
 
 <!-- TODO: ## Transcript -->
 
-<!-- Thank you for listening & CTA to give a review on Apple Podcast -->
+Thank you for listening! Please, consider rating the podcast on iTunes!
