@@ -19,8 +19,13 @@ discussion_id: 2021-12-17-jon-fagerstrom
 ---
 Improving reverb and sampling techniques while playing the bass guitar.
 
-<!-- YouTube video -->
-<!-- "Listen on" links -->
+<iframe width="560" height="315" src="https://www.youtube.com/embed/AevdiBbtR-0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+Listen on:
+
+* [SoundCloud](https://soundcloud.com/jan-wilczek-wolf-sound/challenges-of-beginner-audio-researchers-and-how-to-overcome-them-with-jon-fagerstrom)
+* [Spotify](https://open.spotify.com/episode/0OCibmk97PtwpCRyQHM2Ib?si=7eeb46c0c93c4c21)
+* [iTunes/Apple Podcasts](https://podcasts.apple.com/pl/podcast/challenges-of-beginner-audio-researchers-and-how/id1595913701?i=1000545558911&l=pl)
 
 [All podcast episodes.]({{"/podcast" | relative_url }})
 
