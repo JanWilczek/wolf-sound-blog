@@ -26,6 +26,9 @@ Listen on:
 * [SoundCloud](https://soundcloud.com/jan-wilczek-wolf-sound/challenges-of-beginner-audio-researchers-and-how-to-overcome-them-with-jon-fagerstrom)
 * [Spotify](https://open.spotify.com/episode/0OCibmk97PtwpCRyQHM2Ib?si=7eeb46c0c93c4c21)
 * [iTunes/Apple Podcasts](https://podcasts.apple.com/pl/podcast/challenges-of-beginner-audio-researchers-and-how/id1595913701?i=1000545558911&l=pl)
+* [Google Podcasts](https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkcy5zb3VuZGNsb3VkLmNvbS91c2Vycy9zb3VuZGNsb3VkOnVzZXJzOjEwNDU1MDEzNDgvc291bmRzLnJzcw/episode/dGFnOnNvdW5kY2xvdWQsMjAxMDp0cmFja3MvMTE4MTM0NDMxMg?sa=X&ved=0CAUQkfYCahgKEwiwquyYn_z0AhUAAAAAHQAAAAAQjAE)
+* [Stitcher](https://www.stitcher.com/show/wolftalk-podcast-about-audio-programming-people-careers-learning/episode/challenges-of-beginner-audio-researchers-how-to-overcome-them-with-jon-fagerstrom-wolftalk-003-89155809)
+* [TuneIn Radio](https://tunein.com/podcasts/Education-Podcasts/WolfTalk-Podcast-About-Audio-Programming-(People-p1562232/?topicId=168564177)
 
 [All podcast episodes.]({{"/podcast" | relative_url }})
 

@@ -77,6 +77,8 @@ Let’s now elaborate on every of the 4 steps.
 
 ## Step 1: Decide On The Filter Type
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/OgCswNzsQTY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 In digital signal processing, there are lots of filter types but in parametric EQs there are only a few. I will shortly explain the most important ones now. With each filter type you will see its amplitude response. Below, I listed the control parameters of each filter.
 
 <div class="card summary">
