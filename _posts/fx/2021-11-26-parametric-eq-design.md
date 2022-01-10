@@ -16,6 +16,8 @@ discussion_id: 2021-11-26-parametric-eq-design
 ---
 Code your own low-pass or shelving filter plugins.
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/8SMAXTg0tMw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 You probably have seen some form of a parametric equalizer in your digital audio workstation. You may be familiar with low-pass or notch filters. How to design them? How to implement them in code as plugins? 
 
 In this article, I will outline 4 steps necessary to create such software. By the end of this article, you will know exactly what to do when you want to implement a parametric filter, even if it’s just for a university or hobby project.
@@ -202,7 +204,7 @@ Now that you know the types of the filters, you can decide on which of them you 
 
 An analog prototype ensures that we have meaningful controls-to-coefficients mapping and we obtain a computationally efficient and stable IIR filter. To design an analog prototype to obtain a desired filter type, we need to turn to analog filter design theory.
 
-Without going into much detail, there are 3 main classes of analog filter design [Smith07,Moore90]: Butterworth, Bessel, Chebyshev, and Elliptic Functions. Each of them is optimal in some sense. Using these, we can construct any of the above-specified filters in the analog domain. The output of this design is an analog transfer function in the Laplace domain ($s$-domain).
+Without going into much detail, there are 4 main classes of analog filter design [Smith07,Moore90]: Butterworth, Bessel, Chebyshev, and Elliptic Functions. Each of them is optimal in some sense. Using these, we can construct any of the above-specified filters in the analog domain. The output of this design is an analog transfer function in the Laplace domain ($s$-domain).
 
 For example, the first-order analog Butterworth low-pass has the following transfer function
 
