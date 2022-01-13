@@ -25,3 +25,27 @@ To design and implement a parametric filter, [4 steps are needed]({% post_url fx
 
 In this article, we'll explain the second step of that process: how to go from an analog prototype to a digital form of the parametric filter.
 
+## System Digitization Methods
+
+<!-- Different transforms -->
+* impulse-invariant transformation
+* bilinear transformation
+
+## The Bilinear Transform
+
+<!-- numerator and denominator are linear in z -->
+<!-- mapping of poles and zeros? -->
+<!-- stable analog filters are stable digital filters -->
+<!-- same filter order of the prototype and digital filter -->
+<!-- optimality is preserved -->
+<!-- cascade of a transformed sections is equivalent to a transform of a cascade of sections -->
+## Frequency Warping
+
+<!-- Add a visualization of the frequency warping with marks -->
+
+## Derivation
+
+<!--  Something about the allpass filter? -->
+
+## Example: Digitization of the Butterworth Low-Pass
+
