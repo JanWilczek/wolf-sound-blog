@@ -5,7 +5,7 @@ date: 2021-11-26
 author: Jan Wilczek
 layout: post
 images: assets/img/posts/fx/2021-11-26-parametric-eq-design/
-background: /assets/img/posts/fx/2021-11-26-parametric-eq-design/LowPass.webp
+background: /assets/img/posts/fx/2021-11-26-parametric-eq-design/Thumbnail.webp
 categories:
   - Audio FX
   - Digital Signal Processing
