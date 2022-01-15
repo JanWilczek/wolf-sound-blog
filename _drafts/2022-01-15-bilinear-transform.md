@@ -163,13 +163,13 @@ The visualization of Equation 14 on Figure 4 perfectly visualizes what is freque
 ## Prewarping
 
 In order to account for frequency warping of the bilinear transform in filter design, we need to perform the so-called *prewarping*.
-We must distort the analog frequency axis so that after it is modified by the bilinear transform some *critical frequency* of our choice has the same transfer function value as a chosen digital frequency.
+The prototype filter frequency scale must be prewarped so that after the bilinear transform the *critical frequencies* are in the correct places.
 
 In other words, we want to have
 
 $$H_\text{a}(j \omega_\text{a0}) = H_\text{d}(\omega_\text{d0}) = H^*, \quad ({% increment equationId20220115 %})$$
 
-where we choose $\omega_\text{a0}$ and $\omega_\text{d0}$.
+where we choose $\omega_\text{a0}$ and $\omega_\text{d0}$ (desired critical ferquencies of the prototype and digital filters respectively).
 
 This goal can be easily achieved by simply scaling the analog frequency axis with a proper scalar.
 
@@ -215,12 +215,42 @@ So prewarping actally lets us set the cutoff frequency of the filter we design �
 
 ## Example: Digitization of the Butterworth Low-Pass
 
+Finally, let's put to practice all that we've learned.
+
+Let us digitize the analog prototype Butterworth low-pass of order 2 that we designed in [the previous article]({% post_url fx/2021-12-03-analog-prototype %}).
+
+It's transfer function in the $s$-domain was
+
+$$H_a(s) = \frac{1}{s^2 + s \sqrt{2} + 1}. \quad ({% increment equationId20220115 %})$$
+
+The cutoff frequency is set to 1.
+
+To obtain a digital filter with digital cutoff frequency equal to $\omega_\text{c}$ from Equation 23, we perform the bilinear transform with prewarping by replacing inserting Equation 22 into Equation 23.
+
+After very simple but tiresome derivations, we obtain
+
+$$H_2(z) = \frac{W^2 + 2W^2 z^{-1} + W^2z^{-2}}{1 + W \sqrt{2} W + W^2 + 2(W^2 - 1)z^{-1} + (W^2 - W\sqrt{2} + W^2)z^{-2}}, \quad ({% increment equationId20220115 %})$$
+
+where $W = \tan(\omega_\text{c} T / 2)$. The above result matches the one in [Zoelzer05].
+
+We now obtained a stable IIR filter of order 2 for which we can set the desired cutoff frequency. Yay!
+
+### Efficiency
+
+The filter in Equation 24 is efficient during processing but setting its cutoff frequency requires calculating the value of 5 coefficients (after normalization). That parameter-to-coefficient mapping is not efficient at all. Therefore, we need to turn to allpass-based filters... But that will be a topic of a different article. 😉
+
 ## Summary
+
+
 
 {% endkatexmm %}
 
 ## Bibiliography
 
+Maximilian Schäfer, *Music Processing - Synthesis* lecture notes, Friedrich-Alexander-Universität Erlangen-Nürnberg, Winter Semester 2020/2021.
+
 [OppenheimSchafer10] Alan V Oppenheim, Ronald W. Schafer *Discrete-Time Signal Processing*, 3rd Edition, Pearson 2010.
 
 [ParksBurrus87]  [T. W. Parks, C. S. Burrus, *Digital Filter Design*, John Wiley & Sons, Inc., 1987.](https://amzn.to/3DyoXJE)
+
+[Zoelzer05] 
