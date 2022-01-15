@@ -116,7 +116,7 @@ The bilinear transform can also be derived by representing a signal as a series 
 
 ## Properties of the Bilinear Transform
 
-The bilinear transform has a number of useful properties [1`2Burrus87].
+The bilinear transform has a number of useful properties [ParksBurrus87].
 
 First of all, it is called *bilinear* because **the numerator and the denominator are linear in $z$.**
 
@@ -126,19 +126,96 @@ Second of all, the bilinear transform maps the left halfplane of the $s$-plane i
 
 As a consequence, the poles from the left half-plane of the $s$-plane are mapped to the poles within the unit circle of the $z$-plane. That means that stable analog filters are transformed into stable digital filters, what is a very desirable property in the context of musically useful parametric filters.
 
+In the same way, the $j\omega_\text{a}$ analog frequency axis from the $s$-plane is mapped to the $z = e^{j\omega_\text{d}T}$ unit circle of the $z$-plane. That means that the infinite frequency response of the analog system gets squashed around a finite-length circle. 
 
-<!-- phase is made nonlinear [OppenheimSchafer10] -->
+The above mappings mean that bilinear transform is a nonlinear mapping of the phase and the frequency. The former results in the nonlinear phase of the resulting IIR filters [OppenheimSchafer10]. The latter manifests itself in the form of [frequency warping](#frequency-warping) as discussed later in the article.
 
-<!-- same filter order of the prototype and digital filter -->
-<!-- optimality is preserved -->
-<!-- cascade of a transformed sections is equivalent to a transform of a cascade of sections -->
+Other properties of the bilinear transform are:
+
+* the obtained filter has the same order as the analog prototype,
+* optimality is preserved (e.g., maximally flat analog prototypes become maximally flat discrete filters),
+* a cascade of systems transformed with the bilinear transform is equivalent to a bilinear transform of a cascade of these systems.
+
 ## Frequency Warping
 
-<!-- Add a visualization of the frequency warping with marks -->
+The bilinear transform maps the full, infinite analog frequency axis to a finite-length discrete frequency axis (unit circle). That results in *frequency warping*: "equal increments along the unit circle in the $z$ plane correspond to larger and larger bandwidths along the $j\omega_\text{a}$ axis in the $s$ plane" [Smith07].
 
+The mathematical relation between the analog frequencies $\omega_\text{a}$ and digital frequencies $\omega_\text{d}$ can be found by evaluating the transform along the analog frequency axis and the digital frequency axis. In other words, we need to insert $s = j \omega_\text{a}$ and $z = e^{j\omega_\text{d} T}$ into Equation 1
 
+$$j \omega_\text{a} = \frac{2}{T}\frac{1 - e^{-j\omega_\text{d}T}}{1 + e^{-j\omega_\text{d}T}}
+= \frac{2}{T}\frac{e^{-j\omega_\text{d}T/2}(e^{j\omega_\text{d}T/2} - e^{-j\omega_\text{d}T/2}}{e^{-j\omega_\text{d}T/2}(e^{2j\omega_\text{d}T/2} + e^{-j\omega_\text{d}T/2})}
+\\= \frac{2}{T} \frac{j \sin(\omega_\text{d} T / 2)}{\cos(\omega_\text{d}T / 2)} = j \frac{2}{T} \tan(\omega_\text{d}T/2). \quad ({% increment equationId20220115 %})$$
+
+Therefore,
+
+$$\omega_\text{a} = \frac{2}{T} \tan(\omega_\text{d}T/2). \quad ({% increment equationId20220115 %})$$
+
+We can also obtain the inverse relation
+
+$$\omega_\text{d} = \frac{2}{T} \text{atan}(\omega_\text{a} T / 2). \quad ({% increment equationId20220115 %})$$
+
+The visualization of Equation 14 on Figure 4 perfectly visualizes what is frequency warping.
+
+<!-- TODO: Add a visualization of the frequency warping with marks (atan plot) -->
+
+<!-- TODO: Add note about omega_a = 2 pi f and omega_d =... -->
+
+## Prewarping
+
+In order to account for frequency warping of the bilinear transform in filter design, we need to perform the so-called *prewarping*.
+We must distort the analog frequency axis so that after it is modified by the bilinear transform some *critical frequency* of our choice has the same transfer function value as a chosen digital frequency.
+
+In other words, we want to have
+
+$$H_\text{a}(j \omega_\text{a0}) = H_\text{d}(\omega_\text{d0}) = H^*, \quad ({% increment equationId20220115 %})$$
+
+where we choose $\omega_\text{a0}$ and $\omega_\text{d0}$.
+
+This goal can be easily achieved by simply scaling the analog frequency axis with a proper scalar.
+
+In the context of parametric filters, our critical frequency will typically be the cutoff frequency of a filter, because that's the frequency for which we want to have a specific transfer function value. But let's derive the general scaling.
+
+### Prewarping Factor Derivation
+
+Given critical frequencies $\omega_\text{a0}$ and $\omega_\text{d0}$, we want to find a scaling factor $K \in \mathbb{R}$ such that 
+
+$$H_\text{a}(j \omega_\text{a0}) = H_\text{d}(\omega_\text{d0}) = H^*, \quad ({% increment equationId20220115 %})$$
+
+and
+
+$$H_\text{d}(z) = H_\text{a}(K s) \forall z \in \mathbb{C}, \quad ({% increment equationId20220115 %})$$
+
+where $s$ is given by Equation 1 (the bilinear transform).
+
+From Equation 15, we know that
+
+$$\omega_\text{a0} = \frac{2}{T} \tan(\omega_\text{d0}T/2). \quad ({% increment equationId20220115 %})$$
+
+Here $\omega_\text{a0}$ and $\omega_\text{d0}$ are coupled; we cannot change them independently. To change this, we introduce the scaling $K$
+
+$$\omega_\text{a0} = K \frac{2}{T} \tan(\omega_\text{d0}T/2). \quad ({% increment equationId20220115 %})$$
+
+Solving for $K$
+
+$$K = \frac{\omega_\text{a0}}{\tan(\omega_\text{d0}T/2)} \frac{T}{2} \quad ({% increment equationId20220115 %})$$
+
+allows us to independently change $\omega_\text{a0}$ and $\omega_\text{d0}$. $\Box$
+
+So the bilinear transform combined with prewarping gives the following formula for $s$ substitution
+
+$$s = \frac{\omega_\text{a0}}{\tan(\omega_\text{d0}T/2)} \frac{1 - z^{-1}}{1 + z^{-1}}. \quad ({% increment equationId20220115 %})$$
+
+### Cutoff Frequency from Prewarping
+
+As you might recall from [the analog prototype design tutorial]({% post_url fx/2021-12-03-analog-prototype %}), we design our analog filters to have the cutoff frequency equal to 1. Since thanks to prewarping, we can independently change $\omega_\text{a0}$ and $\omega_\text{d0}$, we can simply set $\omega_\text{a0} = 1$ and $\omega_\text{d0} = \omega_\text{dc}$ (digital cutoff frequency). Thus, Equation 21 (bilinear transform + prewarping) becomes
+
+$$s = \frac{1}{\tan(\omega_\text{d0} T/2)} \frac{1 - z^{-1}}{1 + z^{-1}}. \quad ({% increment equationId20220115 %})$$
+
+So prewarping actally lets us set the cutoff frequency of the filter we design 🙂
 
 ## Example: Digitization of the Butterworth Low-Pass
+
+## Summary
 
 {% endkatexmm %}
 
