@@ -231,7 +231,7 @@ After very simple but tiresome derivations, we obtain
 
 $$H_2(z) = \frac{W^2 + 2W^2 z^{-1} + W^2z^{-2}}{1 + W \sqrt{2} W + W^2 + 2(W^2 - 1)z^{-1} + (W^2 - W\sqrt{2} + W^2)z^{-2}}, \quad ({% increment equationId20220115 %})$$
 
-where $W = \tan(\omega_\text{c} T / 2)$. The above result matches the one in [Zoelzer05].
+where $W = \tan(\omega_\text{c} T / 2)$. The above result matches the one in [Zölzer08].
 
 We now obtained a stable IIR filter of order 2 for which we can set the desired cutoff frequency. Yay!
 
@@ -241,7 +241,9 @@ The filter in Equation 24 is efficient during processing but setting its cutoff 
 
 ## Summary
 
+In summary, in this article we learned that the bilinear transform is a great method that allows us to digitize analog prototype filters. We learned how to derive the bilinear transform by approximating a continuous-time integrator. We learned the properties of the bilinear transform such as stability and optimality preservation. We also counteracted the frequency warping with prewarping. We learned that with prewarping we can design the analog prototypes to have the cutoff frequency equal to 1 because prewarping alters the cutoff frequency anyway. Finally, we discretized the second-order analog Butterworth low-pass with the bilinear transform and prewarping and obtained an IIR filter.
 
+Thanks for reading! If you have any questions, don't hesitate to ask them in the comments below 🙂
 
 {% endkatexmm %}
 
@@ -253,4 +255,12 @@ Maximilian Schäfer, *Music Processing - Synthesis* lecture notes, Friedrich-Ale
 
 [ParksBurrus87]  [T. W. Parks, C. S. Burrus, *Digital Filter Design*, John Wiley & Sons, Inc., 1987.](https://amzn.to/3DyoXJE)
 
-[Zoelzer05] 
+[Smith07] [Julius O. Smith, *Introduction to Digital Filters with Audio Applications*,
+http://ccrma.stanford.edu/~jos/filters/](http://ccrma.stanford.edu/~jos/filters/), online book, 2007 edition,
+accessed November 26, 2021.
+
+[Zölzer08] [Zölzer Udo, *Digital Audio Signal Processing*, 2nd ed., Helmut Schmidt University, Hamburg, Germany, John Wiley & Sons Ltd, 2008.](https://amzn.to/30XUTdn)
+
+<!-- [VälimäkiReiss16] [Vesa Välimäki, Joshua D. Reiss, *All About Audio Equalization: Solutions and Frontiers* [PDF]](https://www.mdpi.com/2076-3417/6/5/129/pdf), Applied Sciences, Vol. 6, Issue 5, May 6, 2016. -->
+
+{% include affiliate-disclaimer.html %}
