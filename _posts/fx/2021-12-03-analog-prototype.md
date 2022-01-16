@@ -5,7 +5,7 @@ date: 2021-12-03
 author: Jan Wilczek
 layout: post
 images: assets/img/posts/fx/2021-12-03-analog-prototype/
-background: /assets/img/posts/fx/2021-12-03-analog-prototype/ButterworthComparison.webp
+background: /assets/img/posts/fx/2021-12-03-analog-prototype/Thumbnail.webp
 categories:
   - Audio FX
   - Digital Signal Processing
@@ -15,6 +15,8 @@ tags:
 discussion_id: 2021-12-03-analog-prototype
 ---
 Design prototypes for stable, efficient, parametric IIR filters.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/rrMRkPpRQAs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 {% katexmm %}
 {% capture _ %}{% increment equationId20211203  %}{% endcapture %}
