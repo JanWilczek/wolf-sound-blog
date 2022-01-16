@@ -60,7 +60,7 @@ $$z = \frac{1-sT/2}{1+sT/2}, \quad ({% increment equationId20220115 %})$$
 
 what can be directly derived from Equation 1.
 
-The bilinear transform formulas are summarized on Figure 1 (with $c=2/T$).
+The bilinear transform formulas are summarized on Figure 2 (with $c=2/T$).
 
 ![]({{ "assets/img/posts/fx/2021-11-26-parametric-eq-design/" | absolute_url | append: "/BilinearTransform.webp"}}){: width="70%" alt="Bilinear transform formulas."}
 _Figure {% increment figureId20220115  %}. Bilinear transform formulas._
@@ -83,7 +83,7 @@ The Laplace transform of Equation 4 yields
 
 $$Y(s) = \frac{1}{s}X(s), \quad ({% increment equationId20220115 %})$$
 
-where $s \in \mathbb{C}$. Therefore, the integrator can be shown on the diagram as in Figure 2.
+where $s \in \mathbb{C}$. Therefore, the integrator can be shown on the diagram as in Figure 3.
 
 ![]({{ page.images | absolute_url | append: "/IntegratorDiagram.webp"}}){: alt="A diagram of the analog integrator system." width="50%" }
 _Figure {% increment figureId20220115 %}. A diagram of the analog integrator system._
@@ -119,11 +119,13 @@ The bilinear transform can also be derived by representing a signal as a series 
 
 ## Properties of the Bilinear Transform
 
+> In the following, we assume that $\omega_\text{a}$ denotes the analog frequency in radians per second (value on the $j\omega$ axis of the $s$-plane) and $\omega_\text{d}$ denotes the digital frequency in radians per second (angle on the unit circle of the $z$-plane).
+
 The bilinear transform has a number of useful properties [ParksBurrus87].
 
 First of all, it is called *bilinear* because **the numerator and the denominator are linear in $z$.**
 
-Second of all, the bilinear transform maps the left halfplane of the $s$-plane into the interior of of the unit circle in the $z$-plane. This is shown on Figure 3.
+Second of all, the bilinear transform maps the left halfplane of the $s$-plane into the interior of of the unit circle in the $z$-plane. This is shown on Figure 4.
 
 ![]({{ page.images | absolute_url | append: "/BilinearTransformVisualization.webp"}}){: alt="A visualization of the bilinear transform." width="100%" }
 _Figure {% increment figureId20220115 %}. Bilinear transform maps the left half-plane of the $s$-plane into the unit circle of the $z$-plane. The infinitely long analog frequency axis $j\omega$ becomes the finite-length circle. Axis bending in the middle is shown only for the visualization purposes: it is not what is meant by the mathematics._
@@ -158,11 +160,11 @@ We can also obtain the inverse relation
 
 $$\omega_\text{d} = \frac{2}{T} \text{atan}(\omega_\text{a} T / 2). \quad ({% increment equationId20220115 %})$$
 
-The visualization of Equation 14 on Figure 4 perfectly visualizes what is frequency warping.
+The visualization of Equation 14 on Figure 5 shows what is frequency warping.
 
-<!-- TODO: Add a visualization of the frequency warping with marks (atan plot) -->
+![]({{ page.images | absolute_url | append: "/FrequencyWarping.webp"}}){: alt="Plot showing how analog frequencies are mapped to digital frequencies by the bilinear transform." width="70%" }
+_Figure {% increment figureId20220115 %}. Plot showing how analog frequencies are mapped to digital frequencies by the bilinear transform._
 
-<!-- TODO: Add note about omega_a = 2 pi f and omega_d =... -->
 
 ## Prewarping
 
