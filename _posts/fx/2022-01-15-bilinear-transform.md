@@ -60,7 +60,7 @@ $$z = \frac{1-sT/2}{1+sT/2}, \quad ({% increment equationId20220115 %})$$
 
 what can be directly derived from Equation 1.
 
-The bilinear transform formulas are summarized on Figure 2 (with $c=2/T$).
+The bilinear transform formulas are summarized in Figure 2 (with $c=2/T$).
 
 ![]({{ "assets/img/posts/fx/2021-11-26-parametric-eq-design/" | absolute_url | append: "/BilinearTransform.webp"}}){: width="70%" alt="Bilinear transform formulas."}
 _Figure {% increment figureId20220115  %}. Bilinear transform formulas._
@@ -69,7 +69,7 @@ _Figure {% increment figureId20220115  %}. Bilinear transform formulas._
 
 How is the bilinear transform derived? How to come up with the mapping in Equation 1?
 
-Below I give you a simple, intuitive explanation. If you are not interested in it, you can [skip to the properties of the bilinear transform](#properties-of-the-bilinear-transform).
+Below, I give you a simple, intuitive explanation. If you are not interested in it, you can [skip to the properties of the bilinear transform](#properties-of-the-bilinear-transform).
 
 The $s \rightarrow z$ mapping of the bilinear transform may be explained as a derivation of a digital representation of an integrator.
 
@@ -88,7 +88,7 @@ where $s \in \mathbb{C}$. Therefore, the integrator can be shown on the diagram 
 ![]({{ page.images | absolute_url | append: "/IntegratorDiagram.webp"}}){: alt="A diagram of the analog integrator system." width="50%" }
 _Figure {% increment figureId20220115 %}. A diagram of the analog integrator system._
 
-We want to obtain a discrete system described by a discrete transfer function $G(z)$ that behaves like $\frac{1}{s}$. To this end, we observe the output of the continuous system at discrete time points $t = kT$, where $k \in \mathbb{Z}$ and $T$ is the sampling interval.
+We want to obtain a discrete system described by a discrete transfer function $G(z)$ that behaves like $\frac{1}{s}$. To this end, we observe the output of the continuous system at discrete time points $t = kT$, where $k \in \mathbb{Z}$ and $T$ is the sampling interval (inverse of the sampling rate).
 
 $$y(kT) = \int \limits_{0}^{kT} x(\tau) d\tau = \int \limits_{0}^{(k-1)T} x(\tau) d \tau + \int \limits_{(k-1)T}^{kT} x(\tau) d \tau 
 \\= y((k-1)T) + \int \limits_{(k-1)T}^{kT} x(\tau) d \tau. \quad ({% increment equationId20220115 %})$$
@@ -115,7 +115,7 @@ $$\frac{1}{s} = G(z) = \frac{T}{2}\frac{1 + z^{-1}}{1 - z^{-1}}. \quad ({% incre
 
 which after inversion gives Equation 1, i.e., the bilinear transform. $\Box$
 
-The bilinear transform can also be derived by representing a signal as a series of impulses, calculating its Laplace transform and $z$-transform, equating the two and approximating the resulting $s$-to-$z$ mapping with a series expansion. But the integrator derivation seems more intuitive to me, especially the origin of the $\frac{2}{T}$ constant. What do you think? Let me know in the comments below the article. 😉
+The bilinear transform can also be derived by representing a signal as a series of impulses, calculating its Laplace transform and $z$-transform, equating the two, and approximating the resulting $s$-to-$z$ mapping with a series expansion. But the integrator derivation seems more intuitive to me, especially the origin of the $\frac{2}{T}$ constant. What do you think? Let me know in the comments below the article. 😉
 
 ## Properties of the Bilinear Transform
 
