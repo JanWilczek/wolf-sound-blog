@@ -1,6 +1,6 @@
 ---
 title: "Challenges Of Beginner Audio Researchers And How To Overcome Them With Jon Fagerström | WolfTalk #003"
-description: "An interview with Jon Fagerström, a doctoral candidate in the Aalto Acoustics Lab researching algorithimic variation in sampling synthesis."
+description: "An interview with Jon Fagerström, a doctoral candidate in the Aalto Acoustics Lab researching algorithmic variation in sampling synthesis."
 date: 2021-12-17
 author: Jan Wilczek
 layout: post
@@ -28,7 +28,7 @@ Listen on:
 * [iTunes/Apple Podcasts](https://podcasts.apple.com/pl/podcast/challenges-of-beginner-audio-researchers-and-how/id1595913701?i=1000545558911&l=pl)
 * [Google Podcasts](https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkcy5zb3VuZGNsb3VkLmNvbS91c2Vycy9zb3VuZGNsb3VkOnVzZXJzOjEwNDU1MDEzNDgvc291bmRzLnJzcw/episode/dGFnOnNvdW5kY2xvdWQsMjAxMDp0cmFja3MvMTE4MTM0NDMxMg?sa=X&ved=0CAUQkfYCahgKEwiwquyYn_z0AhUAAAAAHQAAAAAQjAE)
 * [Stitcher](https://www.stitcher.com/show/wolftalk-podcast-about-audio-programming-people-careers-learning/episode/challenges-of-beginner-audio-researchers-how-to-overcome-them-with-jon-fagerstrom-wolftalk-003-89155809)
-* [TuneIn Radio](https://tunein.com/podcasts/Education-Podcasts/WolfTalk-Podcast-About-Audio-Programming-(People-p1562232/?topicId=168564177)
+* [TuneIn Radio](http://tun.in/pkRvm)
 
 [All podcast episodes.]({{"/podcast" | relative_url }})
 
