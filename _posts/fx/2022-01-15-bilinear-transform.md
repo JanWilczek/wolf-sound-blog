@@ -5,7 +5,7 @@ date: 2022-01-15
 author: Jan Wilczek
 layout: post
 images: assets/img/posts/fx/2022-01-15-bilinear-transform/
-# background: /assets/img/posts/fx/2022-01-15-bilinear-transform/Thumbnail.webp
+background: /assets/img/posts/fx/2022-01-15-bilinear-transform/Thumbnail.webp
 categories:
   - Audio FX
   - Digital Signal Processing
