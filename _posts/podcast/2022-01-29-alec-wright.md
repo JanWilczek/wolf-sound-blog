@@ -64,7 +64,7 @@ Below are all the resources that are referenced in the podcast episode.
 * Deep learning research
   * [WaveNet: A generative model for raw audio](https://deepmind.com/blog/article/wavenet-generative-model-raw-audio)
   * [Long short-term memory](https://en.wikipedia.org/wiki/Long_short-term_memory)
-  * [Differentiable Digital Signal Processing]((https://magenta.tensorflow.org/ddsp)
+  * [Differentiable Digital Signal Processing](https://magenta.tensorflow.org/ddsp)
 
 <!-- TODO: ## Transcript -->
 
