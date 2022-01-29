@@ -5,7 +5,7 @@ date: 2022-01-15
 author: Jan Wilczek
 layout: post
 images: assets/img/posts/fx/2022-01-15-bilinear-transform/
-# background: /assets/img/posts/fx/2022-01-15-bilinear-transform/Thumbnail.webp
+background: /assets/img/posts/fx/2022-01-15-bilinear-transform/Thumbnail.webp
 categories:
   - Audio FX
   - Digital Signal Processing
@@ -15,6 +15,8 @@ tags:
 discussion_id: 2022-01-15-bilinear-transform
 ---
 Learn how to derive and use the bilinear transform to convert analog systems into digital ones.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/5RLMpdbt6B0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 {% katexmm %}
 {% capture _ %}{% increment equationId20220115 %}{% endcapture %}
