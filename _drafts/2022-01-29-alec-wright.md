@@ -1,5 +1,5 @@
 ---
-title: "Deep Learning for Guitar Amplifier Modeling with Alec Wright | WolfTalk #004"
+title: "Deep Learning for Virtual Analog Modeling with Alec Wright | WolfTalk #004"
 description: "An interview with Alec Wright, a PhD student researching deep learning methods for Virtual Analog modeling of audio effects."
 date: 2022-01-29
 author: Jan Wilczek
@@ -20,6 +20,7 @@ Apply neural networks to Virtual Analog modeling of audio effects.
 
 Listen on:
 
+* [SoundCloud](https://soundcloud.com/jan-wilczek-wolf-sound/talk004)
 
 [All podcast episodes.]({{"/podcast" | relative_url }})
 
@@ -43,7 +44,7 @@ In this podcast episode, you will learn
 * generative models in audio,
 * how transition from the Master's to the PhD mindset,
 * challenges of remote research collaboration during pandemic,
-* transition from Scotland to Finland,
+* transition from Scotland to Finland.
 
 ## Referenced Resources
 
