@@ -5,7 +5,7 @@ date: 2022-01-29
 author: Jan Wilczek
 layout: post
 permalink: /talk004/
-# background: /assets/img/posts/podcast/talk004/Thumbnail.webp
+background: /assets/img/posts/podcast/talk004/Thumbnail.webp
 categories:
   - Podcast
   - Audio FX
