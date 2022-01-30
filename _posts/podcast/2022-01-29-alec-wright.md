@@ -26,7 +26,7 @@ Listen on:
 * [Spotify](https://open.spotify.com/episode/1XQIdxv98GSDNXaJBiWAaN?si=2aaa0c6fd3594dd1)
 * [Apple Podcasts (iTunes)](https://podcasts.apple.com/us/podcast/deep-learning-for-virtual-analog-modeling-with-alec/id1595913701?i=1000549367158)
 * [Stitcher](https://www.stitcher.com/show/wolftalk-podcast-about-audio-programming-people-careers-learning/episode/deep-learning-for-virtual-analog-modeling-with-alec-wright-wolftalk-004-90064162)
-* [TuneIn Radio](https://tunein.com/podcasts/Education-Podcasts/WolfTalk-Podcast-About-Audio-Programming-(People-p1562232/?topicId=169426106)
+* [TuneIn Radio](http://tun.in/tlHczc)
 * [Google Podcasts](https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkcy5zb3VuZGNsb3VkLmNvbS91c2Vycy9zb3VuZGNsb3VkOnVzZXJzOjEwNDU1MDEzNDgvc291bmRzLnJzcw/episode/dGFnOnNvdW5kY2xvdWQsMjAxMDp0cmFja3MvMTIwNTk4MTkzNQ?sa=X&ved=0CAUQkfYCahcKEwig-KzA89n1AhUAAAAAHQAAAAAQAQ)
 
 [All podcast episodes.]({{"/podcast" | relative_url }})
