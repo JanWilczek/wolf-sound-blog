@@ -18,9 +18,16 @@ discussion_id: 2022-01-29-alec-wright
 ---
 Apply neural networks to Virtual Analog modeling of audio effects.
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/joMXK09-lUM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 Listen on:
 
 * [SoundCloud](https://soundcloud.com/jan-wilczek-wolf-sound/talk004)
+* [Spotify](https://open.spotify.com/episode/1XQIdxv98GSDNXaJBiWAaN?si=2aaa0c6fd3594dd1)
+* [Apple Podcasts (iTunes)](https://podcasts.apple.com/us/podcast/deep-learning-for-virtual-analog-modeling-with-alec/id1595913701?i=1000549367158)
+* [Stitcher](https://www.stitcher.com/show/wolftalk-podcast-about-audio-programming-people-careers-learning/episode/deep-learning-for-virtual-analog-modeling-with-alec-wright-wolftalk-004-90064162)
+* [TuneIn Radio](https://tunein.com/podcasts/Education-Podcasts/WolfTalk-Podcast-About-Audio-Programming-(People-p1562232/?topicId=169426106)
+* [Google Podcasts](https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkcy5zb3VuZGNsb3VkLmNvbS91c2Vycy9zb3VuZGNsb3VkOnVzZXJzOjEwNDU1MDEzNDgvc291bmRzLnJzcw/episode/dGFnOnNvdW5kY2xvdWQsMjAxMDp0cmFja3MvMTIwNTk4MTkzNQ?sa=X&ved=0CAUQkfYCahcKEwig-KzA89n1AhUAAAAAHQAAAAAQAQ)
 
 [All podcast episodes.]({{"/podcast" | relative_url }})
 
@@ -45,7 +52,6 @@ In this podcast episode, you will learn
 * how transition from the Master's to the PhD mindset,
 * challenges of remote research collaboration during pandemic,
 * transition from Scotland to Finland.
-
 ## Referenced Resources
 
 Below are all the resources that are referenced in the podcast episode.
