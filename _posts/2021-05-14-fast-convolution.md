@@ -44,8 +44,7 @@ In this article, we first show why the naive approach to the convolution is inef
 
 *Note: An amazing source about fast convolution techniques is [1]. I highly encourage you to check it out especially if you would like to read more on the topic.*
 
-<script async data-c-script="marketing" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6611455743195468"
-     crossorigin="anonymous"></script>
+
 <ins class="adsbygoogle"
      style="display:block; text-align:center;"
      data-ad-layout="in-article"
