@@ -44,6 +44,18 @@ In this article, we first show why the naive approach to the convolution is inef
 
 *Note: An amazing source about fast convolution techniques is [1]. I highly encourage you to check it out especially if you would like to read more on the topic.*
 
+<script async data-c-script="marketing" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6611455743195468"
+     crossorigin="anonymous"></script>
+<ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+     data-ad-layout="in-article"
+     data-ad-format="fluid"
+     data-ad-client="ca-pub-6611455743195468"
+     data-ad-slot="7289385396"></ins>
+<script data-c-script="marketing">
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
 # Notation
 
 In software, the signals are always of finite length. Thus, we will denote a signal $x[n]$ of length $N_x$ by a fixed-size vector $\pmb{x} = [x[0], x[1], \dots, x[N_x-1]]$.

@@ -84,6 +84,18 @@ But wait, since the magnitude does not change, what do we need allpass filters f
 
 *Note: A **transfer function** of a digital filter is a [Fourier transform]({% post_url 2021-03-18-convolution-in-popular-transforms %}#fourier-transform) or a [$z$-transform]({% post_url 2021-03-18-convolution-in-popular-transforms %}#z-transform) of its impulse response. We denote them by $H(j\omega)$ and $H(z)$ respectively.*
 
+<script async data-c-script="marketing" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6611455743195468"
+     crossorigin="anonymous"></script>
+<ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+     data-ad-layout="in-article"
+     data-ad-format="fluid"
+     data-ad-client="ca-pub-6611455743195468"
+     data-ad-slot="7289385396"></ins>
+<script data-c-script="marketing">
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
 ## Types of Allpass Systems
 
 There are many types of systems that have the *allpass property*. They can be roughly divided into FIR and IIR categories.

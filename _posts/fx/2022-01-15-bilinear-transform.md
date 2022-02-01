@@ -44,6 +44,18 @@ There are many methods of digitalization (discretization) of analog (continuous)
 
 Because the impulse-invariant transformation may introduce aliasing, in the music domain, we usually use the bilinear transform. So how is it defined?
 
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6611455743195468"
+     crossorigin="anonymous"></script>
+<ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+     data-ad-layout="in-article"
+     data-ad-format="fluid"
+     data-ad-client="ca-pub-6611455743195468"
+     data-ad-slot="7289385396"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
 ## The Bilinear Transform
 
 > The bilinear transform is a change of variables, mapping the $j \omega$ frequency axis of the $s$-plane to the unit circle of the $z$-plane.
