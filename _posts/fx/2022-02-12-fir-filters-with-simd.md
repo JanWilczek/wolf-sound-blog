@@ -20,7 +20,9 @@ discussion_id: 2022-02-12-fir-filters-with-simd
 ---
 Use vector intrinsics to perform efficient filtering.
 
-Finite-impulse response (FIR) filtering is the cornerstone of digital signal processing. It is especially important in applying reverb to audio, for example, in virtual reality audio or in VST plugins of digital audio workstations. How to perform it fast?
+Finite-impulse response (FIR) filtering is the cornerstone of digital signal processing. It is especially important in applying reverb to audio, for example, in virtual reality audio or in VST plugins of digital audio workstations. Lately, it has been extensively used on smartphones and embedded devices for sound applications. 
+
+How to perform it fast?
 
 {% katexmm %}
 {% capture _ %}{% increment equationId20220212  %}{% endcapture %}
@@ -94,7 +96,61 @@ Whereas the speed-up in execution does not have to increase proportionally with 
 
 In AVX-512 instructions, one can operate on 16 `float`s with a single instruction. Can you imagine a 16-fold decrease in processing time of your code?
 
+And if we use 16-bit `int`egers, we optimistically get... That's right, 32-fold speed-up.
+
 That's the power of SIMD.
+
+
+## How is SIMD Implemented?
+
+* shipped with certain processors
+
+## What SIMD Instructions Are Available?
+
+## How to Access SIMD Instructions?
+
+* assembly
+* intrinsic functions
+* libraries, e.g., JUCE
+
+## MMX, SSE, AVX, NEON...
+
+## Which SIMD To Use?
+
+## The Disadvantages of SIMD
+
+## How to Perform FIR Filtering with SIMD?
+
+## The Anatomy of a FIR Filter
+
+## Assumptions for Coding the Filter
+
+## Plain C FIR Filter
+
+## 3 Levels of FIR Code Optimization
+
+1. Outer/Inner loop vectorization (VOL/VIL).
+2. Outer-inner loop vectorization (VOIL).
+3. Aligned data access.
+
+## Inner Loop Vectorization
+
+### Code
+
+## Outer Loop Vectorization
+
+### Code
+
+
+## Outer-inner Loop Vectorization
+
+## Aligned Data Access
+## Bibliography
+
+https://stackoverflow.com/questions/8456236/how-is-a-vectors-data-aligned
+
+https://en.wikipedia.org/wiki/AVX-512
+
 
 
 
