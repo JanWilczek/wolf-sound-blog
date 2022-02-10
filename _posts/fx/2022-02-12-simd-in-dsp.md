@@ -66,15 +66,58 @@ That's the power of SIMD.
 
 ## How is SIMD Implemented?
 
-* shipped with certain processors
-* special instructions: each processor has their own
-* usually compilers should be aware of them
-* special registers
+SIMD instruction sets are provided by microprocessor manufacturers.
+
+In general, there are a few processor architecture families. The main ones are x86 and ARM.
+
+Each architecture family has a core set of registers and associated instructions that will work on any processor from that family. Each new generation of processors from a family expands upon the instruction set available for the previous generation. Additionally, each processor can have some instructions that are unique to that particular processor model.
+
+Both the generation-specific instruction sets and the processor-specific instructions typically take advantage of additional architectural elements, like additional registers or dedicated arithmetic units.
+
+You may be asking yourself:
+
+> How is it possible to write one version of source code when each processor accepts different instructions?
+
+That's why the presence of high-level programming languages such as C (sic!) is a blessing. 🙂
+
+The role of a compiler is to take the source code that you've written and translate it to processor-specific assembly language. The compilers are very wise at which processors contain which instructions. They are also great at determining which of these instructions to call and in which order to make the software as efficient as possible. In fact, they are better at it than at least 95% of programmers (including me).
+
+Unfortunately, they don't know what we want to achieve with our code. For example, they don't know that this huge amount of multiplications and additions is in fact finitie-impulse response (FIR) filtering. Therefore, they often cannot utilize the full potential of the underlying hardware.
+
+That's where you come in: a programmer, who knows how to code DSP algorithms with processor-specific instructions.
 
 ## What SIMD Instructions Are Available?
 
-* add, multiply
-* sometimes dedicated DSP operations
+Let's state that again: SIMD instructions are simply special processor instructions. That means that they can be found in assembly code, the one that operates directly on registers and memory.
+
+### Load/Store
+
+SIMD typically uses dedicated registers. That means that two kinds of instructions must be available for sure:
+
+* transfer data from memory to the special registers (load),
+* transfer data from the special registers to memory (store), and
+* set the value of the special registers (set).
+
+For example, the [AVX instruction set] for x86 processors has the `vmovups` instruction that loads (`mov`) a vector (`v`) of eight 32-bit floating point numbers (`ps`, single precision) into an AVX register. `u` in the instructions stands for "unaligned", which means that the memory location we load from does not have to be aligned on a 32-byte boundary.
+
+### Operations on Registers
+
+Once the data is in the dedicated registers, we can perform a number of operations on them:
+
+* perform arithmetic operations on 1 register (for example, floor, ceiling, square root),
+* perform arithmetic operations on 2 registers (for example, add, subtract, multiply, or divide them),
+* perform logical operations on 2 registers (for example, logical `AND`, `OR`),
+* convert data types in the register,
+* manipulate variable positions in the registers (for example, permute),
+* perform different operations on even and odd variables in the registers,
+* compare the values in the registers, or even
+* perform DSP operations, like multiply-and-add.
+
+As you can see, the number of the available operations is huge.
+
+To effectively leverage the power of SIMD on any given hardware, one can use the documentation provided by the processor manufacturers.
+
+For example, the list of all available instructions for the AVX instruction set can be found at [Intel's site](https://www.intel.com/content/www/us/en/docs/intrinsics-guide/index.html#techs=AVX).
   
 ## How to Access SIMD Instructions?
 
@@ -89,6 +132,8 @@ That's the power of SIMD.
 ## Which SIMD To Use?
 
 * NEON2SSE
+
+## Why is SIMD useful in DSP?
 
 ## The Disadvantages of SIMD
 
