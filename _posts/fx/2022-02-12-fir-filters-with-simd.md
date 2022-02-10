@@ -65,59 +65,7 @@ Well, for the same reason that we don't use multithreading in audio processing c
 
 ## What is SIMD?
 
-Single instruction, multiple data (SIMD) are special processor instructions that perform some operation on more than 1 variable at a time.
-
-In mathematical terms, we could say that SIMD operate on vectors of variables as "normal" code operates on single variables.
-
-### SIMD Example
-
-Imagine that we have two 8-element vectors, $\pmb{v}_1$ and $\pmb{v}_2$, both containing floating-point variables,. Let's assume that $\pmb{v}_{12} = \pmb{v}_1 + \pmb{v}_2$.
-
-To calculate $\pmb{v}_{12}$ in plain C++ code, we would need to write
-
-```cpp
-for (auto i = 0; i < 8; ++i)
-    v12[i] = v1[i] + v2[i];
-```
-
-That means 8 additions, 8 "add" operations.
-
-What if instead we could simply write
-
-```cpp
-v12 = vector8_add(v1, v2);
-```
-
-which would result in 1 "add" operation?
-
-In theory, such a program would be 8 times faster. And that's not actually far from truth!
-
-Whereas the speed-up in execution does not have to increase proportionally with the usage of multiple threads, SIMD often delivers speed-ups directly proportional to the number of variables that can fit into a data vector.
-
-In AVX-512 instructions, one can operate on 16 `float`s with a single instruction. Can you imagine a 16-fold decrease in processing time of your code?
-
-And if we use 16-bit `int`egers, we optimistically get... That's right, 32-fold speed-up.
-
-That's the power of SIMD.
-
-
-## How is SIMD Implemented?
-
-* shipped with certain processors
-
-## What SIMD Instructions Are Available?
-
-## How to Access SIMD Instructions?
-
-* assembly
-* intrinsic functions
-* libraries, e.g., JUCE
-
-## MMX, SSE, AVX, NEON...
-
-## Which SIMD To Use?
-
-## The Disadvantages of SIMD
+* Link to the previous article
 
 ## How to Perform FIR Filtering with SIMD?
 
@@ -134,6 +82,8 @@ That's the power of SIMD.
 3. Aligned data access.
 
 ## Inner Loop Vectorization
+
+
 
 ### Code
 
