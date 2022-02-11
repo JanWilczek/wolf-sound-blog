@@ -127,6 +127,7 @@ How can we as software developers access them?
 
 I see 3 ways you can embed SIMD instructions in your code
 
+1. **Auto-vectorization.** In certain situations, compilers themselves can be smart enough to vectorize code written without vector instructions.
 1. **Using assembly commands.** One can write entire software in assembly or use just `asm` blocks in C or C++ programming language.
 2. **Intrinsic functions.** Processor manufacturers typically provide C functions that execute the dedicate processor instructions (or their combination) under the hood. The programmer must simply include relevant headers and compile their programs with dedicated compiler options.
     
@@ -138,11 +139,73 @@ I see 3 ways you can embed SIMD instructions in your code
 
 ## MMX, SSE, AVX, NEON...
 
+You may have come across many abbreviations that represent the families of SIMD instruction sets. Below I listed the ones most important for digital signal processing along with short descriptions.
+
+<table class="table table-striped table-responsive small"><caption>Table 1. SIMD instruction sets</caption>
+<thead>
+<tr>
+<th>Abbreviation</th>
+<th>Full Name</th>
+<th>Architecture</th>
+<th>Available Registers</th>
+<th>Remarks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Intel® MMX™</td>
+<td></td>
+<td>x86</td>
+<td>eight 64-bit registers</td>
+<td>* only integer operations</td>
+</tr>
+<tr>
+<td>Intel® SSE</td>
+<td>Streaming SIMD Extensions</td>
+<td>x86</td>
+<td>eight 128-bit registers</td>
+<td>* successor of MMX™ with floating-point processing</td>
+</tr>
+<tr>
+<td>Intel® AVX</td>
+<td>Advanced Vector Extensions</td>
+<td>x86</td>
+<td>eight 256-bit registers (512-bit for AVX-512)</td>
+<td>* successor of SSE</td>
+</tr>
+<tr>
+<td>Arm Neon</td>
+<td>&nbsp;</td>
+<td>ARM</td>
+<td>thirty-two 128-bit registers</td>
+<td>* available on all devices running Android 6.0 or higher,
+<!-- TODO: source -->
+* available on Apple products: iPhones, iPads, and Macs,
+* can be used on x86 architectures with [NEON_2_SSE conversion headers](https://github.com/intel/ARM_NEON_2_x86_SSE).
+</td>
+</tr>
+</tbody>
+</table>
+
 ## Which SIMD To Use?
 
-* NEON2SSE
+Since there are many instruction sets to choose from, one may wonder: how to choose the proper one?
+
+The answer is, as always, it depends.
+
+The first consideration is the architecture family you are writing software for.
+
+For example, if you write software for Android devices, you most likely will use Neon. But not always! There are Android-driven devices that run on x86 architectures.
+
+If you target x86 architectures only and want to leverage SIMD as much as possible, you should provide implementations for all x86 SIMD instruction sets and give software the fallback possibility: if, for example, AVX-512 is not present, maybe SSE can be used. Keep in mind that there is SSE, SSE2, SSE3, SSE4... And there are minor versions too.
+
+If you don't have a clue on which platform your software will run on, you are facing the possibility of implementing every available instruction set support.
+
+That's why compilers are such a blessing: they can do this heavy lifting for us. And make much fewer mistakes along the way. 🙂
 
 ## Why is SIMD useful in DSP?
+
+
 
 ## The Disadvantages of SIMD
 
