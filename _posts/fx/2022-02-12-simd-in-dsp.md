@@ -121,11 +121,20 @@ For example, the list of all available instructions for the AVX instruction set 
   
 ## How to Access SIMD Instructions?
 
-* assembly
-* intrinsic functions
-  * Intel documentation link
-  * ARM documentation link
-* libraries, e.g., JUCE
+We know what SIMD instructions are and what they can do.
+
+How can we as software developers access them?
+
+I see 3 ways you can embed SIMD instructions in your code
+
+1. **Using assembly commands.** One can write entire software in assembly or use just `asm` blocks in C or C++ programming language.
+2. **Intrinsic functions.** Processor manufacturers typically provide C functions that execute the dedicate processor instructions (or their combination) under the hood. The programmer must simply include relevant headers and compile their programs with dedicated compiler options.
+    
+    For example, Intel has published a list of all available SIMD instruction on their architectures called [Intel Instrinsics Guide](https://www.intel.com/content/www/us/en/docs/intrinsics-guide/index.html). ARM has published a [similar list for ARM-based architectures](https://developer.arm.com/architectures/instruction-sets/intrinsics/).
+
+    Examples of special compilation flags are `/arch:AVX` on MSVC and `-mavx` on gcc and clang (to be able to use AVX instructions). The catch is that the processor running the software must have those instructions implemented. That's an additional responsibility put on the developer.
+3. **Dedicated libraries.** There exist software libraries that provide an abstraction layer between the written code and the hardware it runs on. If we think of vector addition, we may guess that every processor that supports SIMD probably has some vector addition instruction. It may be called differently but the functionality will be the same. An example of such a library may be [Open Computing Language (OpenCL)](https://www.khronos.org/opencl/). An example closer to the hearts of audio developers is the [JUCE framework](https://juce.com/). JUCE provides abstractions such as [`SIMDRegister`](https://docs.juce.com/master/structdsp_1_1SIMDRegister.html), which is a wrapper around the platform-native extended register type.
+   This approach is probably the most comfortable one but it requires you to use (and often pay for) 3rd party software.
 
 ## MMX, SSE, AVX, NEON...
 
