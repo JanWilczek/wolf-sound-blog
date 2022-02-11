@@ -205,10 +205,19 @@ That's why compilers are such a blessing: they can do this heavy lifting for us.
 
 ## Why is SIMD useful in DSP?
 
+SIMD is especially advantageous in digital signal processing applications. Why?
 
+1. **DSP algorithm are often defined in terms of vectors.**
+2. **DSP algorithms often require the same tasks on different data.**
+3. **Signal processing is most often done in blocks.**
+4. **SIMD instruction sets often contain DSP-specific functions.**
 
 ## The Disadvantages of SIMD
 
+1. **Programmer's nightmare: supporting all instruction sets.**
+2. **Run-time availability checks.**
+3. **Unaligned data.**
+4. **Edge cases, single samples.**
 
 ## Simple SIMD Code Example
 
