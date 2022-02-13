@@ -1,3 +1,9 @@
 jQuery(document).ready(function() {
-    jQuery(".player").trackSwitch(); // All other players are default
+    var settings = {
+        onlyradiosolo: true,
+        globalsolo: true,
+        repeat: true,
+        spacebar: true
+    };
+    jQuery(".player").trackSwitch(settings);
 });
