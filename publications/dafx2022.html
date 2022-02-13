@@ -2,6 +2,13 @@
 layout: publication
 title: Virtual Analog Modeling Using Neural ODEs
 description: Audio examples for "Virtual Analog Modeling Of Distortion Circuits Using Neural Ordinary Differential Equations" DAFx20in22 conference paper
+assets: /assets/wav/publications/dafx2022/
+custom_css:
+ - https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css
+ - /assets/js/trackswitch/css/trackswitch.min.css
+custom_js:
+ - /assets/js/trackswitch/js/trackswitch.min.js
+ - /assets/js/trackswitch/js/load_trackswitch.js
 ---
 
 <h2>Audio Examples for "Virtual Analog Modeling Of Distortion Circuits Using Neural
@@ -37,6 +44,17 @@ Ordinary Differential Equations" paper presented at the 25th International Confe
 
 <h4>First-Order Diode Clipper</h4>
 
+<div class="player">
+    <p>
+        Example trackswitch.js instance.
+    </p>
+    <!-- <img src="mix.png" class="seekable"/> -->
+    <ts-track title="Bass 1">
+        <ts-source src="{{ page.assets | append: "diode_clipper/22050/Bass1_input.flac" }}" type="audio/flac"></ts-source>
+        <ts-source src="{{ page.assets | append: "diode_clipper/22050/Bass1_input.wav" }}" type="audio/wav"></ts-source>
+    </ts-track>
+  </div>
+
 <table class="table table-striped table-hover table-responsive">
     <caption>First-order diode clipper audio examples.</caption>
     <thead>
@@ -65,7 +83,9 @@ Ordinary Differential Equations" paper presented at the 25th International Confe
         </tr>
         <tr>
             <td>22050</td>
-            <td>file</td>
+            <td>
+                {% include embed-audio.html src="/assets/wav/publications/dafx2022/diode_clipper/22050/Bass1_input.wav" %}
+            </td>
             <td>file</td>
             <td>file</td>
             <td>file</td>

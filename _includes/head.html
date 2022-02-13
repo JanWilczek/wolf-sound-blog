@@ -55,5 +55,16 @@
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"
         integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
         onload="renderMathInElement(document.body);"></script>
-
+    
+    <!-- Additional CSS files -->
+    {% if layout.custom_css %}
+        {% for stylesheet in layout.custom_css %}
+            <link rel="stylesheet" href="{{ stylesheet }}">
+        {% endfor %}
+    {% endif %}
+    {% if page.custom_css %}
+        {% for stylesheet in page.custom_css %}
+            <link rel="stylesheet" href="{{ stylesheet }}">
+        {% endfor %}
+    {% endif %}
 </head>

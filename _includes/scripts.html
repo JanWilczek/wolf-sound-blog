@@ -82,3 +82,11 @@
     });
   </script>
 {% endif %}
+
+
+<!-- Additional JavaScript files -->
+{% if page.custom_js %}
+    {% for js_file in page.custom_js %}
+        <script data-c-script="necessary" type="text/javascript" src="{{ js_file }}"></script>
+    {% endfor %}
+{% endif %}
