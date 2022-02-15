@@ -207,17 +207,22 @@ That's why compilers are such a blessing: they can do this heavy lifting for us.
 
 SIMD is especially advantageous in digital signal processing applications. Why?
 
-1. **DSP algorithm are often defined in terms of vectors.**
-2. **DSP algorithms often require the same tasks on different data.**
-3. **Signal processing is most often done in blocks.**
-4. **SIMD instruction sets often contain DSP-specific functions.**
+1. **DSP algorithms are often defined in terms of vectors.** Additionally, scientists are used to operating on vectors in Matlab or Python. With the power of SIMD, we can use vectors in C/C++ code as well.
+2. **DSP algorithms often require the same tasks on different data.** 
+3. **Signal processing is most often done in blocks.** Blocks of audio samples, image data, or film data typically have length equal to a multiplicity of SIMD registers' size. That makes them easy to vectorize.
+4. **SIMD instruction sets often contain DSP-specific functions.** For example, Neon instructions contain a multiply-and-add operation. That means that we can perform the dot product with a single command.
+<!-- TODO: Link to the above. -->
 
 ## The Disadvantages of SIMD
 
-1. **Programmer's nightmare: supporting all instruction sets.**
+The SIMD is not all blue skies, unfortunately. Here are some disadvantages of SIMD in the context of DSP (but not only).
+
+1. **A programmer's nightmare: supporting all instruction sets.** If you build not just cross-platform applications but applications that are supposed to work similarly on different processor architectures, you may run into the problem of determining the underlying architecture, its features, and handling every possible case. 
+<!-- TODO: Android, Neon, x86, and ARM -->
 2. **Run-time availability checks.**
 3. **Unaligned data.**
 4. **Edge cases, single samples.**
+5. **Little resources on the topic.** 
 
 ## Simple SIMD Code Example
 
