@@ -217,14 +217,127 @@ SIMD is especially advantageous in digital signal processing applications. Why?
 
 The SIMD is not all blue skies, unfortunately. Here are some disadvantages of SIMD in the context of DSP (but not only).
 
-1. **A programmer's nightmare: supporting all instruction sets.** If you build not just cross-platform applications but applications that are supposed to work similarly on different processor architectures, you may run into the problem of determining the underlying architecture, its features, and handling every possible case. 
+1. **A programmer's nightmare: supporting all instruction sets.** If you build not just cross-platform applications but applications that are supposed to work similarly on different processor architectures, you may run into the problem of determining the underlying architecture, its features, and handling every possible case. Think about it: you not only have to write code using specific AVX, SSE or Neon instructions. You also need to implement everywhere compile-time or even run-time checks of which routines to use. This adds *a lot* of additional code on top of the algorithm code.
 <!-- TODO: Android, Neon, x86, and ARM -->
-2. **Run-time availability checks.**
-3. **Unaligned data.**
-4. **Edge cases, single samples.**
-5. **Little resources on the topic.** 
+2. **Run-time availability checks.** As mentioned above, you sometimes need to determine at run time which instruction set to use. That adds additional code and execution time overhead.
+3. **Unaligned data.** Extended instructions sets work best on [aligned data]({% post_url 2020-04-09-what-is-data-alignment.md %}). Unfortunately, your data typically won't be aligned by itself. The necessity to align the vectors on a specific boundary adds yet another layer of code and complexity on top of your algorithm.
+4. **Edge cases, single samples.** What if the signal data that you want to process does not come in blocks which are of size equal to the multiplicity of SIMD register size? You then need to "manually" finish off the algorithm with its scalar version. That means even more complexity.
+5. **Little resources on the topic.** Processing signals with SIMD is not a very well explained topic in the web or on YouTube. One needs to turn to specialized books and research papers to understand the basics. SIMD is a topic that must be discussed in the context it is applied in. It's not easy to transfer tutorials from image processing or 3D graphics to audio processing. These reasons make the entry barrier quite high.
+6. **Low readability.** SIMD code is full of functions like `vrecpeq_f32` or `_mm256_testnzc_ps`, which are not easy to read and understand when you look at the code or pronounce when you talk to your colleagues. These names make very good mnemonics once you get a bit into the intrinsic functions.
 
 ## Simple SIMD Code Example
+
+To round off this article, we will code  small example in C++ using intrinsics.
+
+Specifically, we will use the AVX instruction set available on Intel processors.
+
+The goal of this little program is to compute the inner product of two 8-element vectors of floating-point numbers. AVX registers have 256 bits so each should fit exactly 1  32-bit vector.
+
+```cpp
+#include <vector>
+#include <array>
+#include <cassert>
+#include <random>
+#include <algorithm>
+#include <chrono>
+#include <iostream>
+
+#include <immintrin.h>
+
+using Vector = std::vector<float>;
+
+Vector scalarAdd(const Vector& a, const Vector& b) {
+    assert(a.size() == b.size());
+
+    Vector result(a.size());
+
+    for (auto i = 0u; i < a.size(); ++i) {
+        result[i] = a[i] + b[i];
+    }
+
+    return result;
+}
+
+Vector simdAdd(const Vector& a, const Vector& b) {
+    assert(a.size() == b.size());
+
+    Vector result(a.size());
+
+    constexpr auto FLOATS_IN_AVX_REGISTER = 8;
+
+    auto i = 0u;
+    for (; i < a.size(); i += FLOATS_IN_AVX_REGISTER) {
+        auto aRegister = _mm256_loadu_ps(a.data() + i);
+        auto bRegister = _mm256_loadu_ps(b.data() + i);
+
+        auto intermediateSum = _mm256_add_ps(aRegister, bRegister);
+
+        _mm256_storeu_ps(result.data() + i, intermediateSum);
+    }
+    for (; i < a.size(); ++i) {
+        result[i] = a[i] + b[i];
+    }
+
+    return result;
+}
+
+Vector randomVector(Vector::size_type size) {
+    Vector v(size);
+
+    auto randomEngine = std::default_random_engine();
+    std::uniform_real_distribution<float> uniformDistribution(-1.f, 1.f);
+    auto generator = [&]() { return uniformDistribution(randomEngine); };
+    std::generate(v.begin(), v.end(), generator);
+
+    return v;
+}
+
+int main() {
+    constexpr auto TEST_VECTOR_SIZE = 1000001;
+
+    const auto a = randomVector(TEST_VECTOR_SIZE);
+    const auto b = randomVector(TEST_VECTOR_SIZE);
+
+    assert(scalarAdd(a, b) == simdAdd(a, b));
+
+    constexpr auto TEST_RUN_COUNT = 1000;
+
+    using namespace std::chrono;
+    milliseconds totalScalarTime{};
+    for (auto i = 0u; i < TEST_RUN_COUNT; ++i) {
+        auto start = high_resolution_clock::now();
+        auto result = scalarAdd(a, b);
+        auto end = high_resolution_clock::now();
+        totalScalarTime += duration_cast<milliseconds>(end - start);
+    }
+
+    std::cout << "Average scalarAdd() execution time: " << totalScalarTime.count() / static_cast<float>(TEST_RUN_COUNT) << " ms." << std::endl;
+
+    milliseconds totalSimdTime{};
+    for (auto i = 0u; i < TEST_RUN_COUNT; ++i) {
+        auto start = high_resolution_clock::now();
+        auto result = simdAdd(a, b);
+        auto end = high_resolution_clock::now();
+        totalSimdTime += duration_cast<milliseconds>(end - start);
+    }
+
+    std::cout << "Average simdAdd() execution time: " << totalSimdTime.count() / static_cast<float>(TEST_RUN_COUNT) << " ms." << std::endl;
+}
+```
+
+Compile with
+
+```bash
+g++ -mavx -Wall -O0 InnerProductSIMD.cpp -o InnerProductSIMD.exe 
+```
+
+Sample output:
+
+```bash
+λ .\InnerProductSIMD.exe 
+Average scalarAdd() execution time: 11.695 ms.
+Average simdAdd() execution time: 4.113 ms.
+```
 
 ## Summary
 
