@@ -328,20 +328,42 @@ int main() {
 Compile with
 
 ```bash
-g++ -mavx -Wall -O0 InnerProductSIMD.cpp -o InnerProductSIMD.exe 
+$ g++ -mavx -Wall -O0 InnerProductSIMD.cpp -o InnerProductSIMD.exe 
 ```
 
 Sample output:
 
 ```bash
-λ .\InnerProductSIMD.exe 
+$ .\InnerProductSIMD.exe 
 Average scalarAdd() execution time: 11.695 ms.
 Average simdAdd() execution time: 4.113 ms.
 ```
 
 ## Summary
 
-## Bibliography
+In this article, we discussed the usefulness of single instruction, multiple data (SIMD) instructions in digital signal processing.
+
+SIMD instructions let us perform operations on more than one variable at once using dedicated processor registers.
+
+Different processor architectures and models have different SIMD instructions available.
+
+The main takeaway should be: SIMD instructions can make you DSP code significantly faster at the cost of
+
+* code complexity.
+* portability,
+* expert knowledge on processors.
+
+If you have any questions, feel free to ask them in the comments below!
+
+In the next article, I will show how to implement FIR filtering using SIMD instructions, so stay tuned! 🙂
+
+## Bibliography, Reference, and Further Reading
+
+[Intel SIMD technology comparison](https://www.intel.com/content/www/us/en/develop/documentation/cpp-compiler-developer-guide-and-reference/top/compiler-reference/intrinsics/details-about-intrinsics.html)
+
+[Intel Intrinsics Reference](https://www.intel.com/content/www/us/en/docs/intrinsics-guide/index.html#ig_expand=6926,4362,6209,6201,7244,6247,4362,156,6926)
+
+[Arm Neon Intrinsics Reference](https://developer.arm.com/architectures/instruction-sets/intrinsics/#f:@navigationhierarchiessimdisa=[Neon]&first=100)
 
 https://stackoverflow.com/questions/8456236/how-is-a-vectors-data-aligned
 
