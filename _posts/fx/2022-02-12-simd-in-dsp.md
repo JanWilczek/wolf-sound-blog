@@ -157,31 +157,33 @@ You may have come across many abbreviations that represent the families of SIMD 
 <td></td>
 <td>x86</td>
 <td>eight 64-bit registers</td>
-<td>* only integer operations</td>
+<td><ul><li>only integer operations</li></ul></td>
 </tr>
 <tr>
 <td>Intel® SSE</td>
 <td>Streaming SIMD Extensions</td>
 <td>x86</td>
 <td>eight 128-bit registers</td>
-<td>* successor of MMX™ with floating-point processing</td>
+<td><ul><li>successor of MMX™ with floating-point processing</li></ul></td>
 </tr>
 <tr>
 <td>Intel® AVX</td>
 <td>Advanced Vector Extensions</td>
 <td>x86</td>
 <td>eight 256-bit registers (512-bit for AVX-512)</td>
-<td>* successor of SSE</td>
+<td><ul><li>successor of SSE</li></ul></td>
 </tr>
 <tr>
 <td>Arm Neon</td>
 <td>&nbsp;</td>
 <td>ARM</td>
 <td>thirty-two 128-bit registers</td>
-<td>* available on all devices running Android 6.0 or higher,
-<!-- TODO: source -->
-* available on Apple products: iPhones, iPads, and Macs,
-* can be used on x86 architectures with [NEON_2_SSE conversion headers](https://github.com/intel/ARM_NEON_2_x86_SSE).
+<td>
+<ul>
+<li> available on all devices running Android 6.0 or higher [<a target="_blank" href="https://source.android.com/compatibility/6.0/android-6.0-cdd#3_3_native_api_compatibility">source</a>],</li>
+<li> available on Apple products: iPhones, iPads, and some Macs,</li>
+<li> can be used on x86 architectures with <a target="_blank" href="https://github.com/intel/ARM_NEON_2_x86_SSE">NEON_2_SSE conversion headers</a>.</li>
+</ul>
 </td>
 </tr>
 </tbody>
@@ -195,9 +197,9 @@ The answer is, as always, it depends.
 
 The first consideration is the architecture family you are writing software for.
 
-For example, if you write software for Android devices, you most likely will use Neon. But not always! There are Android-driven devices that run on x86 architectures.
+For example, if you write software for Android devices, you most likely will use Neon. But not always! There are Android-driven devices that run on x86 architectures as well.
 
-If you target x86 architectures only and want to leverage SIMD as much as possible, you should provide implementations for all x86 SIMD instruction sets and give software the fallback possibility: if, for example, AVX-512 is not present, maybe SSE can be used. Keep in mind that there is SSE, SSE2, SSE3, SSE4... And there are minor versions too.
+If you target x86 architectures only and want to leverage SIMD as much as possible, you should provide implementations for all x86 SIMD instruction sets and give software the fallback possibility; if, for example, AVX-512 is not present, maybe SSE can be used. Keep in mind that there is SSE, SSE2, SSE3, SSE4... And there are minor versions too.
 
 If you don't have a clue on which platform your software will run on, you are facing the possibility of implementing every available instruction set support.
 
@@ -207,23 +209,23 @@ That's why compilers are such a blessing: they can do this heavy lifting for us.
 
 SIMD is especially advantageous in digital signal processing applications. Why?
 
-1. **DSP algorithms are often defined in terms of vectors.** Additionally, scientists are used to operating on vectors in Matlab or Python. With the power of SIMD, we can use vectors in C/C++ code as well.
-2. **DSP algorithms often require the same tasks on different data.** 
+1. **DSP algorithms are often defined in terms of vectors.** Additionally, scientists are used to operating on vectors in Matlab or Python. With the power of SIMD, we can efficiently use vectors in C/C++ code as well.
+2. **DSP algorithms often perform the same tasks on different data.** SIMD instructions are meant to perform the same operations on multiple variables at once.
 3. **Signal processing is most often done in blocks.** Blocks of audio samples, image data, or film data typically have length equal to a multiplicity of SIMD registers' size. That makes them easy to vectorize.
-4. **SIMD instruction sets often contain DSP-specific functions.** For example, Neon instructions contain a multiply-and-add operation. That means that we can perform the dot product with a single command.
-<!-- TODO: Link to the above. -->
+4. **SIMD instruction sets often contain DSP-specific functions.** For example, Neon instructions contain a [multiply-and-add operation](https://developer.arm.com/architectures/instruction-sets/intrinsics/vmlaq_f32). That means that we can perform the dot product with a single command.
 
-## The Disadvantages of SIMD
+## Disadvantages of SIMD
 
 The SIMD is not all blue skies, unfortunately. Here are some disadvantages of SIMD in the context of DSP (but not only).
 
-1. **A programmer's nightmare: supporting all instruction sets.** If you build not just cross-platform applications but applications that are supposed to work similarly on different processor architectures, you may run into the problem of determining the underlying architecture, its features, and handling every possible case. Think about it: you not only have to write code using specific AVX, SSE or Neon instructions. You also need to implement everywhere compile-time or even run-time checks of which routines to use. This adds *a lot* of additional code on top of the algorithm code.
-<!-- TODO: Android, Neon, x86, and ARM -->
-2. **Run-time availability checks.** As mentioned above, you sometimes need to determine at run time which instruction set to use. That adds additional code and execution time overhead.
-3. **Unaligned data.** Extended instructions sets work best on [aligned data]({% post_url 2020-04-09-what-is-data-alignment.md %}). Unfortunately, your data typically won't be aligned by itself. The necessity to align the vectors on a specific boundary adds yet another layer of code and complexity on top of your algorithm.
-4. **Edge cases, single samples.** What if the signal data that you want to process does not come in blocks which are of size equal to the multiplicity of SIMD register size? You then need to "manually" finish off the algorithm with its scalar version. That means even more complexity.
-5. **Little resources on the topic.** Processing signals with SIMD is not a very well explained topic in the web or on YouTube. One needs to turn to specialized books and research papers to understand the basics. SIMD is a topic that must be discussed in the context it is applied in. It's not easy to transfer tutorials from image processing or 3D graphics to audio processing. These reasons make the entry barrier quite high.
-6. **Low readability.** SIMD code is full of functions like `vrecpeq_f32` or `_mm256_testnzc_ps`, which are not easy to read and understand when you look at the code or pronounce when you talk to your colleagues. These names make very good mnemonics once you get a bit into the intrinsic functions.
+1. **A programmer's nightmare: supporting all instruction sets.** If you build not just cross-platform applications but applications that are supposed to work similarly on different processor architectures, you may run into the problem of determining the underlying architecture, its features, and handling every possible case. Think about it: you will not only have to write code using specific AVX, SSE, or Neon instructions. You will also need to implement everywhere compile-time or even run-time checks of which routines to use. This adds *a lot* of additional code on top of the algorithm code including macro trickery.
+
+   Don't think that if you write Android-only code, your code will always run on ARM architectures. Nowadays, there are lots of devices running Android on a processor from the x86 family. That is why, it is best to use a library that informs you about current processor's capabilities such as Google's [cpu_features](https://github.com/google/cpu_features) library.
+1. **Run-time availability checks.** As mentioned above, you sometimes need to determine at run time which instruction set to use. That adds additional code and execution time overhead.
+2. **Unaligned data.** Extended instructions sets work best on [aligned data]({% post_url 2020-04-09-what-is-data-alignment %}). Unfortunately, your data typically won't be aligned by itself. The necessity to align the vectors on a specific boundary adds yet another layer of code and complexity on top of your algorithm.
+3. **Edge cases, single samples.** What if the signal data that you want to process does not come in blocks which are of size equal to the multiplicity of the SIMD register size? You will then need to "manually" finish off the algorithm with its scalar version. That means even more complexity.
+4. **Little resources on the topic.** Processing signals with SIMD is not a very well explained topic on the web or on YouTube. One needs to turn to specialized books and research papers to understand the basics. SIMD is a topic that must be discussed in the context it is applied in. It's not easy to transfer tutorials from image processing or 3D graphics to audio processing. These reasons make the entry barrier quite high.
+5. **Low readability.** SIMD code is full of functions like `vrecpeq_f32` or `_mm256_testnzc_ps`, which are not easy to read and understand when you look at the code or pronounce when you talk to your colleagues. On the other hand, these names make very good mnemonics once you get a bit into the intrinsic functions.
 
 ## Simple SIMD Code Example
 
@@ -231,7 +233,7 @@ To round off this article, we will code  small example in C++ using intrinsics.
 
 Specifically, we will use the AVX instruction set available on Intel processors.
 
-The goal of this little program is to compute the inner product of two 8-element vectors of floating-point numbers. AVX registers have 256 bits so each should fit exactly 1  32-bit vector.
+The goal of this little program is to compute the inner product of two vectors of floating-point numbers. AVX registers have 256 bits so each should fit exactly 8  32-bit `float`s.
 
 ```cpp
 #include <vector>
@@ -263,17 +265,23 @@ Vector simdAdd(const Vector& a, const Vector& b) {
 
     Vector result(a.size());
 
-    constexpr auto FLOATS_IN_AVX_REGISTER = 8;
+    constexpr auto FLOATS_IN_AVX_REGISTER = 8u;
+
+    const auto vectorizableSamples = (a.size() / FLOATS_IN_AVX_REGISTER) * FLOATS_IN_AVX_REGISTER;
 
     auto i = 0u;
-    for (; i < a.size(); i += FLOATS_IN_AVX_REGISTER) {
+    for (; i < vectorizableSamples; i += FLOATS_IN_AVX_REGISTER) {
+        // load unaligned data to SIMD registers
         auto aRegister = _mm256_loadu_ps(a.data() + i);
         auto bRegister = _mm256_loadu_ps(b.data() + i);
 
+        // perform the addition
         auto intermediateSum = _mm256_add_ps(aRegister, bRegister);
 
+        // store data back in the data vector
         _mm256_storeu_ps(result.data() + i, intermediateSum);
     }
+    // process the remaining (unvectorized) samples
     for (; i < a.size(); ++i) {
         result[i] = a[i] + b[i];
     }
@@ -311,7 +319,9 @@ int main() {
         totalScalarTime += duration_cast<milliseconds>(end - start);
     }
 
-    std::cout << "Average scalarAdd() execution time: " << totalScalarTime.count() / static_cast<float>(TEST_RUN_COUNT) << " ms." << std::endl;
+    std::cout << "Average scalarAdd() execution time: " 
+              << totalScalarTime.count() / static_cast<float>(TEST_RUN_COUNT) 
+              << " ms." << std::endl;
 
     milliseconds totalSimdTime{};
     for (auto i = 0u; i < TEST_RUN_COUNT; ++i) {
@@ -321,7 +331,9 @@ int main() {
         totalSimdTime += duration_cast<milliseconds>(end - start);
     }
 
-    std::cout << "Average simdAdd() execution time: " << totalSimdTime.count() / static_cast<float>(TEST_RUN_COUNT) << " ms." << std::endl;
+    std::cout << "Average simdAdd() execution time: " 
+              << totalSimdTime.count() / static_cast<float>(TEST_RUN_COUNT) 
+              << " ms." << std::endl;
 }
 ```
 
@@ -347,7 +359,7 @@ SIMD instructions let us perform operations on more than one variable at once us
 
 Different processor architectures and models have different SIMD instructions available.
 
-The main takeaway should be: SIMD instructions can make you DSP code significantly faster at the cost of
+The main takeaway should be: SIMD instructions can make your DSP code significantly faster at the cost of
 
 * code complexity.
 * portability,
@@ -355,17 +367,15 @@ The main takeaway should be: SIMD instructions can make you DSP code significant
 
 If you have any questions, feel free to ask them in the comments below!
 
-In the next article, I will show how to implement FIR filtering using SIMD instructions, so stay tuned! 🙂
+In the next article, I will show you how to implement FIR filtering using SIMD instructions, so stay tuned! 🙂
 
 ## Bibliography, Reference, and Further Reading
 
-[Intel SIMD technology comparison](https://www.intel.com/content/www/us/en/develop/documentation/cpp-compiler-developer-guide-and-reference/top/compiler-reference/intrinsics/details-about-intrinsics.html)
+[Intel® SIMD technology comparison](https://www.intel.com/content/www/us/en/develop/documentation/cpp-compiler-developer-guide-and-reference/top/compiler-reference/intrinsics/details-about-intrinsics.html)
 
-[Intel Intrinsics Reference](https://www.intel.com/content/www/us/en/docs/intrinsics-guide/index.html#ig_expand=6926,4362,6209,6201,7244,6247,4362,156,6926)
+[Intel® Intrinsics Reference](https://www.intel.com/content/www/us/en/docs/intrinsics-guide/index.html#ig_expand=6926,4362,6209,6201,7244,6247,4362,156,6926)
 
 [Arm Neon Intrinsics Reference](https://developer.arm.com/architectures/instruction-sets/intrinsics/#f:@navigationhierarchiessimdisa=[Neon]&first=100)
 
-https://stackoverflow.com/questions/8456236/how-is-a-vectors-data-aligned
-
-https://en.wikipedia.org/wiki/AVX-512
+[Advanced Vector Extensions (AVX) on Wikipedia](https://en.wikipedia.org/wiki/Advanced_Vector_Extensions)
 
