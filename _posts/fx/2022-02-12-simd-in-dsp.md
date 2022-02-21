@@ -17,11 +17,12 @@ discussion_id: 2022-02-12-simd-in-dsp
 ---
 Speed up DSP operations with vector instructions.
 
+{% katexmm %}
 <!-- TOC -->
 
 ## Introduction
 
-Digital signal processing of images or sound requires complicated operations on large amounts of data. For example, to scale (change volume) a second of audio data, we may have to perform 44100 multiplications.
+Digital signal processing of images or sound requires complicated operations on large amounts of data. For example, to scale (change volume) of a second of audio data, we may have to perform 44100 multiplications.
 
 If we want to perform these operations in real time with less than 10 milliseconds reserved for an entire processing pipeline, things get even more difficult.
 
@@ -31,7 +32,7 @@ Thankfully, there are some programming tools that allow us handle these scenario
 
 Single instruction, multiple data (SIMD) are special processor instructions that perform some operation on more than 1 variable at a time.
 
-In mathematical terms, we could say that SIMD operate on vectors ("arrays") of variables as "normal" code operates on single variables.
+In mathematical terms, we could say that SIMD operates on vectors ("arrays") of variables as "normal" code operates on single variables.
 
 ## SIMD Pseudocode Example
 
@@ -60,9 +61,11 @@ Whereas the speed-up in execution does not have to increase proportionally with 
 
 In AVX-512 instructions, one can operate on 16 `float`s with a single instruction. Can you imagine a 16-fold decrease in the processing time of your code?
 
-And if we use 16-bit `int`egers, we optimistically get... That's right, a 32-fold speed-up.
+And if we use 16-bit integers, we optimistically get... That's right, a 32-fold speed-up.
 
 That's the power of SIMD.
+
+*Note: Performance of implementations using SIMD has to be measured on each processor separately. Moreover, the linear speed-up is very unlikely at the first attempt. But that's a topic for a whole different article.*
 
 ## How is SIMD Implemented?
 
@@ -80,9 +83,9 @@ You may be asking yourself:
 
 That's why the presence of high-level programming languages such as C (sic!) is a blessing. 🙂
 
-The role of a compiler is to take the source code that you've written and translate it to processor-specific assembly language. The compilers are very wise at which processors contain which instructions. They are also great at determining which of these instructions to call and in which order to make the software as efficient as possible. In fact, they are better at it than at least 95% of programmers (including me).
+The role of a compiler is to take the source code that you've written and translate it to the processor-specific assembly language. The compilers are very wise about which processors contain which instructions. They are also great at determining which of these instructions to call and in which order to make the software as efficient as possible. In fact, they are better at it than at least 95% of programmers (including me).
 
-Unfortunately, they don't know what we want to achieve with our code. For example, they don't know that this huge amount of multiplications and additions is in fact finitie-impulse response (FIR) filtering. Therefore, they often cannot utilize the full potential of the underlying hardware.
+Unfortunately, they don't know what we want to achieve with our code. For example, they don't know that this huge amount of multiplications and additions is in fact finite-impulse response (FIR) filtering. Therefore, they often cannot utilize the full potential of the underlying hardware.
 
 That's where you come in: a programmer, who knows how to code DSP algorithms with processor-specific instructions.
 
@@ -92,13 +95,13 @@ Let's state that again: SIMD instructions are simply special processor instructi
 
 ### Load/Store
 
-SIMD typically uses dedicated registers. That means that two kinds of instructions must be available for sure:
+SIMD typically uses dedicated registers. That means that three kinds of instructions must be available for sure:
 
 * transfer data from memory to the special registers (load),
 * transfer data from the special registers to memory (store), and
 * set the value of the special registers (set).
 
-For example, the [AVX instruction set] for x86 processors has the `vmovups` instruction that loads (`mov`) a vector (`v`) of eight 32-bit floating point numbers (`ps`, single precision) into an AVX register. `u` in the instructions stands for "unaligned", which means that the memory location we load from does not have to be aligned on a 32-byte boundary.
+For example, the [AVX instruction set](https://www.intel.com/content/www/us/en/docs/intrinsics-guide/index.html#techs=AVX) for x86 processors has the `vmovups` instruction that loads (`mov`) a vector (`v`) of eight 32-bit floating point numbers (`ps`, "single precision") into an AVX register. `u` in the instruction stands for "unaligned", which means that the memory location we load from does not have to be aligned on a 32-byte boundary.
 
 ### Operations on Registers
 
@@ -107,9 +110,9 @@ Once the data is in the dedicated registers, we can perform a number of operatio
 * perform arithmetic operations on 1 register (for example, floor, ceiling, square root),
 * perform arithmetic operations on 2 registers (for example, add, subtract, multiply, or divide them),
 * perform logical operations on 2 registers (for example, logical `AND`, `OR`),
-* convert data types in the register,
+* convert data types in the register, for example, from integers to floating-point numbers,
 * manipulate variable positions in the registers (for example, permute),
-* perform different operations on even and odd variables in the registers,
+* perform different operations on variables in the registers depending on whether their indices are even or odd,
 * compare the values in the registers, or even
 * perform DSP operations, like multiply-and-add.
 
@@ -125,16 +128,16 @@ We know what SIMD instructions are and what they can do.
 
 How can we as software developers access them?
 
-I see 3 ways you can embed SIMD instructions in your code
+I see 4 ways in which you can embed SIMD instructions in your code.
 
 1. **Auto-vectorization.** In certain situations, compilers themselves can be smart enough to vectorize code written without vector instructions.
 1. **Using assembly commands.** One can write entire software in assembly or use just `asm` blocks in C or C++ programming language.
-2. **Intrinsic functions.** Processor manufacturers typically provide C functions that execute the dedicate processor instructions (or their combination) under the hood. The programmer must simply include relevant headers and compile their programs with dedicated compiler options.
+1. **Intrinsic functions.** Processor manufacturers typically provide C functions that execute the dedicated processor instructions (or their combinations) under the hood. The programmer must simply include relevant headers and compile their programs with dedicated compiler options.
     
-    For example, Intel has published a list of all available SIMD instruction on their architectures called [Intel Instrinsics Guide](https://www.intel.com/content/www/us/en/docs/intrinsics-guide/index.html). ARM has published a [similar list for ARM-based architectures](https://developer.arm.com/architectures/instruction-sets/intrinsics/).
+    For example, Intel has published a list of all available SIMD instructions on their architectures called [Intel Instrinsics Guide](https://www.intel.com/content/www/us/en/docs/intrinsics-guide/index.html). ARM has published a [similar list for ARM-based architectures](https://developer.arm.com/architectures/instruction-sets/intrinsics/).
 
     Examples of special compilation flags are `/arch:AVX` on MSVC and `-mavx` on gcc and clang (to be able to use AVX instructions). The catch is that the processor running the software must have those instructions implemented. That's an additional responsibility put on the developer.
-3. **Dedicated libraries.** There exist software libraries that provide an abstraction layer between the written code and the hardware it runs on. If we think of vector addition, we may guess that every processor that supports SIMD probably has some vector addition instruction. It may be called differently but the functionality will be the same. An example of such a library may be [Open Computing Language (OpenCL)](https://www.khronos.org/opencl/). An example closer to the hearts of audio developers is the [JUCE framework](https://juce.com/). JUCE provides abstractions such as [`SIMDRegister`](https://docs.juce.com/master/structdsp_1_1SIMDRegister.html), which is a wrapper around the platform-native extended register type.
+1. **Dedicated libraries.** There exist software libraries that provide an abstraction layer between the written code and the hardware it runs on. If we think of vector addition, we may guess that every processor that supports SIMD probably has some vector addition instruction. It may be called differently but the functionality will be the same. An example of such a library may be [Open Computing Language (OpenCL)](https://www.khronos.org/opencl/). An example closer to the hearts of audio developers is the [JUCE framework](https://juce.com/). JUCE provides abstractions such as [`SIMDRegister`](https://docs.juce.com/master/structdsp_1_1SIMDRegister.html), which is a wrapper around the platform-specific extended register type.
    This approach is probably the most comfortable one but it requires you to use (and often pay for) 3rd party software.
 
 ## MMX, SSE, AVX, NEON...
@@ -267,7 +270,8 @@ Vector simdAdd(const Vector& a, const Vector& b) {
 
     constexpr auto FLOATS_IN_AVX_REGISTER = 8u;
 
-    const auto vectorizableSamples = (a.size() / FLOATS_IN_AVX_REGISTER) * FLOATS_IN_AVX_REGISTER;
+    const auto vectorizableSamples = (a.size() / FLOATS_IN_AVX_REGISTER) 
+                                     * FLOATS_IN_AVX_REGISTER;
 
     auto i = 0u;
     for (; i < vectorizableSamples; i += FLOATS_IN_AVX_REGISTER) {
@@ -340,13 +344,13 @@ int main() {
 Compile with
 
 ```bash
-$ g++ -mavx -Wall -O0 InnerProductSIMD.cpp -o InnerProductSIMD.exe 
+g++ -mavx -Wall -O0 InnerProductSIMD.cpp -o InnerProductSIMD.exe 
 ```
 
 Sample output:
 
 ```bash
-$ .\InnerProductSIMD.exe 
+.\InnerProductSIMD.exe 
 Average scalarAdd() execution time: 11.695 ms.
 Average simdAdd() execution time: 4.113 ms.
 ```
@@ -368,6 +372,8 @@ The main takeaway should be: SIMD instructions can make your DSP code significan
 If you have any questions, feel free to ask them in the comments below!
 
 In the next article, I will show you how to implement FIR filtering using SIMD instructions, so stay tuned! 🙂
+
+{% endkatexmm %}
 
 ## Bibliography, Reference, and Further Reading
 
