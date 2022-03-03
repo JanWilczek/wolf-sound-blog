@@ -6,21 +6,48 @@
         "description": null,
         "resources": [
             {
-                "name": "Book 1",
+                "name": "Discrete-Time Signal Processing",
                 "type": "book",
                 "description": "Book 1 description",
                 "image": "",
                 "affiliate_link": "#"
             },
             {
-                "name": "Book 2",
+                "name": "Signals & Systems",
                 "type": "book",
                 "description": "",
                 "image": "",
                 "affiliate_link": "#"
             },
             {
-                "name": "Book 3",
+                "name": "Introduction to Digital Filters",
+                "type": "book",
+                "description": "",
+                "image": "",
+                "affiliate_link": "#"
+            }
+        ]
+    },
+    {
+        "category": "Sound Synthesis Books",
+        "description": null,
+        "resources": [
+            {
+                "name": "Roads",
+                "type": "book",
+                "description": "Book 1 description",
+                "image": "",
+                "affiliate_link": "#"
+            },
+            {
+                "name": "Russ",
+                "type": "book",
+                "description": "",
+                "image": "",
+                "affiliate_link": "#"
+            },
+            {
+                "name": "Sound Synthesis by Pluta",
                 "type": "book",
                 "description": "",
                 "image": "",
@@ -33,21 +60,159 @@
         "description": null,
         "resources": [
             {
-                "name": "Book 1",
+                "name": "Design Patterns",
                 "type": "book",
                 "description": "Book 1 description",
                 "image": "",
                 "affiliate_link": "#"
             },
             {
-                "name": "Book 2",
+                "name": "Clean Code",
                 "type": "book",
                 "description": "",
                 "image": "",
                 "affiliate_link": "#"
             },
             {
-                "name": "Book 3",
+                "name": "The C++ Programming Language",
+                "type": "book",
+                "description": "",
+                "image": "",
+                "affiliate_link": "#"
+            },
+            {
+                "name": "Pragmatic Programmer",
+                "type": "book",
+                "description": "",
+                "image": "",
+                "affiliate_link": "#"
+            },
+            {
+                "name": "Operating Systems by William Stallings",
+                "type": "book",
+                "description": "",
+                "image": "",
+                "affiliate_link": "#"
+            },
+            {
+                "name": "Kincaid",
+                "type": "book",
+                "description": "",
+                "image": "",
+                "affiliate_link": "#"
+            },
+            {
+                "name": "Introduction to Algorithms",
+                "type": "book",
+                "description": "",
+                "image": "",
+                "affiliate_link": "#"
+            },
+            {
+                "name": "Practical Web Development",
+                "type": "book",
+                "description": "",
+                "image": "",
+                "affiliate_link": "#"               
+            }
+        ]
+    },
+    {
+        "category": "Self-Development Books",
+        "description": null,
+        "resources": [
+            {
+                "name": "A Mind for Numbers",
+                "type": "book",
+                "description": "Book 1 description",
+                "image": "",
+                "affiliate_link": "#"
+            },
+            {
+                "name": "Deep Work",
+                "type": "book",
+                "description": "",
+                "image": "",
+                "affiliate_link": "#"
+            },
+            {
+                "name": "The Power of Habit",
+                "type": "book",
+                "description": "",
+                "image": "",
+                "affiliate_link": "#"
+            },
+            {
+                "name": "Atomic Habits",
+                "type": "book",
+                "description": "",
+                "image": "",
+                "affiliate_link": "#"
+            },
+            {
+                "name": "Essentialist",
+                "type": "book",
+                "description": "",
+                "image": "",
+                "affiliate_link": "#"
+            },
+            {
+                "name": "One Thing",
+                "type": "book",
+                "description": "",
+                "image": "",
+                "affiliate_link": "#"
+            },
+            {
+                "name": "The Millionaire Fastlane",
+                "type": "book",
+                "description": "",
+                "image": "",
+                "affiliate_link": "#"
+            }
+        ]
+    },
+    {
+        "category": "Fiction Books",
+        "description": null,
+        "resources": [
+            {
+                "name": "Harry Potter",
+                "type": "book",
+                "description": "Book 1 description",
+                "image": "",
+                "affiliate_link": "#"
+            },
+            {
+                "name": "Little Nicholas",
+                "type": "book",
+                "description": "",
+                "image": "",
+                "affiliate_link": "#"
+            },
+            {
+                "name": "Artemis Fowl",
+                "type": "book",
+                "description": "",
+                "image": "",
+                "affiliate_link": "#"
+            },
+            {
+                "name": "Dune",
+                "type": "book",
+                "description": "",
+                "image": "",
+                "affiliate_link": "#"
+            },
+            {
+                "name": "Solaris",
+                "type": "book",
+                "description": "",
+                "image": "",
+                "affiliate_link": "#"
+            },
+            {
+                "name": "The Song of Ice and Fire",
                 "type": "book",
                 "description": "",
                 "image": "",
