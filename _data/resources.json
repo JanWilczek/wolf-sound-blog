@@ -1,0 +1,59 @@
+{
+    "all_resources":
+    [
+    {
+        "category": "Digital Signal Processing Books",
+        "description": null,
+        "resources": [
+            {
+                "name": "Book 1",
+                "type": "book",
+                "description": "Book 1 description",
+                "image": "",
+                "affiliate_link": "#"
+            },
+            {
+                "name": "Book 2",
+                "type": "book",
+                "description": "",
+                "image": "",
+                "affiliate_link": "#"
+            },
+            {
+                "name": "Book 3",
+                "type": "book",
+                "description": "",
+                "image": "",
+                "affiliate_link": "#"
+            }
+        ]
+    },
+    {
+        "category": "Software Design Books",
+        "description": null,
+        "resources": [
+            {
+                "name": "Book 1",
+                "type": "book",
+                "description": "Book 1 description",
+                "image": "",
+                "affiliate_link": "#"
+            },
+            {
+                "name": "Book 2",
+                "type": "book",
+                "description": "",
+                "image": "",
+                "affiliate_link": "#"
+            },
+            {
+                "name": "Book 3",
+                "type": "book",
+                "description": "",
+                "image": "",
+                "affiliate_link": "#"
+            }
+        ]
+    }
+    ]
+}
