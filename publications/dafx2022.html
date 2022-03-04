@@ -62,19 +62,19 @@ Ordinary Differential Equations" paper presented at the 25th International Confe
     {% for example in device.examples %}
         <h5>{{ example.name }}</h5>
 
-        <div class="player">
-        {% for example_with_sampling_rate in example.examples_per_sampling_rate %}
-            <p>
-                {{example_with_sampling_rate.sampling_rate}} Hz
-            </p>
-            {% for file in example_with_sampling_rate.files %}
-            <ts-track title="{{file.name}}">
-                <ts-source src="{{ page.assets  | append: device.modeled_device | append: '/' | append: example_with_sampling_rate.sampling_rate | append: '/' | append: file.filename }}" type="audio/flac">
-                </ts-source>
-            </ts-track>
-            {% endfor %}
+        {% for sampling_rate in device.sampling_rates %}
+            <div class="player">
+                <p>
+                    {{sampling_rate}} Hz
+                </p>
+                {% for file in example.files %}
+                    <ts-track title="{{file.name}}">
+                        <ts-source src="{{ page.assets  | append: device.modeled_device | append: '/' | append: sampling_rate | append: '/' | append: file.filename }}" type="audio/flac">
+                        </ts-source>
+                    </ts-track>
+                {% endfor %}
+            </div>
         {% endfor %}
-        </div>
     {% endfor %}
 
 {% endfor %}

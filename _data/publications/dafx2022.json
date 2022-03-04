@@ -3,12 +3,10 @@
         {
             "modeled_device": "diode_clipper",
             "name": "First-Order Diode Clipper",
+            "sampling_rates": [22050, 44100],
             "examples": [
                 {
                     "name": "Bass1",
-                    "examples_per_sampling_rate": [
-                        {
-                            "sampling_rate": 22050,
                             "files": [
                                 {
                                     "name": "Input",
@@ -35,14 +33,9 @@
                                     "filename": "Bass1_ODENET9(IA)_normalized.flac"
                                 }
                             ]
-                        }
-                    ]
                 },
                 {
                     "name": "Bass2",
-                    "examples_per_sampling_rate": [
-                        {
-                            "sampling_rate": 22050,
                             "files": [
                                 {
                                     "name": "Input",
@@ -69,13 +62,9 @@
                                     "filename": "Bass2_ODENET9(IA)_normalized.flac"
                                 }
                             ]
-                        }
-                    ]
                 },
                 {
                     "name": "Guitar1",
-                    "examples_per_sampling_rate": [
-                        {
                             "sampling_rate": 22050,
                             "files": [
                                 {
@@ -103,13 +92,9 @@
                                     "filename": "Guitar1_ODENET9(IA)_normalized.flac"
                                 }
                             ]
-                        }
-                    ]
                 },
                 {
                     "name": "Guitar2",
-                    "examples_per_sampling_rate": [
-                        {
                             "sampling_rate": 22050,
                             "files": [
                                 {
@@ -137,8 +122,6 @@
                                     "filename": "Guitar2_ODENET9(IA)_normalized.flac"
                                 }
                             ]
-                        }
-                    ]
                 }
             ]
         }
