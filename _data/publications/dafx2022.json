@@ -1,0 +1,44 @@
+{
+    "devices": [
+        {
+            "modeled_device": "diode_clipper",
+            "name": "First-Order Diode Clipper",
+            "examples": [
+                {
+                    "name": "Bass1",
+                    "examples_per_sampling_rate": [
+                        {
+                            "sampling_rate": 22050,
+                            "files": [
+                                {
+                                    "name": "Input",
+                                    "filename": "Bass1_input.flac"
+                                },
+                                {
+                                    "name": "Target",
+                                    "filename": "Bass1_target.flac"
+                                },
+                                {
+                                    "name": "LSTM8",
+                                    "filename": "Bass1_ODENET9(FE).flac"
+                                },
+                                {
+                                    "name": "STN3x4",
+                                    "filename": "Bass1_STN3x4.flac"
+                                },
+                                {
+                                    "name": "ODENet9(FE)",
+                                    "filename": "Bass1_ODENET9(FE).flac"
+                                },
+                                {
+                                    "name": "ODENet9(IA)",
+                                    "filename": "Bass1_ODENET9(IA).flac"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
