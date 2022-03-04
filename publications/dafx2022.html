@@ -54,13 +54,24 @@ Ordinary Differential Equations" paper presented at the 25th International Confe
     Werner, Nils, et al. "<strong>trackswitch.js: A Versatile Web-Based Audio Player for Presenting Scientifc Results.</strong>" 3rd web audio conference, London, UK. 2017.
 </p>
 
-<!-- TODO: TOC -->
+<h4>Table of Contents</h4>
+<ol>
+    {% for device in site.data.publications.dafx2022.devices %}
+        <li><a href="#{{ device.name | slugify }}">{{ device.name }}</a></li>
+        <ol>
+            {% for example in device.examples %}
+                <li><a href="#{{ example.name | slugify }}">{{ example.name }}</a></li>
+            {% endfor %}
+        </ol>
+        </li>
+    {% endfor %}
+</ol>
 
 {% for device in site.data.publications.dafx2022.devices %}
-    <h4>{{ device.name }}</h4>
+    <h4 id="{{ device.name | slugify }}">{{ device.name }}</h4>
 
     {% for example in device.examples %}
-        <h5>{{ example.name }}</h5>
+        <h5 id="{{ example.name | slugify }}">{{ example.name }}</h5>
 
         {% for sampling_rate in device.sampling_rates %}
             <div class="player">
