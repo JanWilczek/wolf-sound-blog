@@ -12,27 +12,27 @@
                             "files": [
                                 {
                                     "name": "Input",
-                                    "filename": "Bass1_input.flac"
+                                    "filename": "Bass1_input_normalized.flac"
                                 },
                                 {
                                     "name": "Target",
-                                    "filename": "Bass1_target.flac"
+                                    "filename": "Bass1_target_normalized.flac"
                                 },
                                 {
                                     "name": "LSTM8",
-                                    "filename": "Bass1_LSTM8.flac"
+                                    "filename": "Bass1_LSTM8_normalized.flac"
                                 },
                                 {
                                     "name": "STN3x4",
-                                    "filename": "Bass1_STN3x4.flac"
+                                    "filename": "Bass1_STN3x4_normalized.flac"
                                 },
                                 {
                                     "name": "ODENet9(FE)",
-                                    "filename": "Bass1_ODENET9(FE).flac"
+                                    "filename": "Bass1_ODENET9(FE)_normalized.flac"
                                 },
                                 {
                                     "name": "ODENet9(IA)",
-                                    "filename": "Bass1_ODENET9(IA).flac"
+                                    "filename": "Bass1_ODENET9(IA)_normalized.flac"
                                 }
                             ]
                         }
@@ -46,27 +46,27 @@
                             "files": [
                                 {
                                     "name": "Input",
-                                    "filename": "Bass2_input.flac"
+                                    "filename": "Bass2_input_normalized.flac"
                                 },
                                 {
                                     "name": "Target",
-                                    "filename": "Bass2_target.flac"
+                                    "filename": "Bass2_target_normalized.flac"
                                 },
                                 {
                                     "name": "LSTM8",
-                                    "filename": "Bass2_LSTM8.flac"
+                                    "filename": "Bass2_LSTM8_normalized.flac"
                                 },
                                 {
                                     "name": "STN3x4",
-                                    "filename": "Bass2_STN3x4.flac"
+                                    "filename": "Bass2_STN3x4_normalized.flac"
                                 },
                                 {
                                     "name": "ODENet9(FE)",
-                                    "filename": "Bass2_ODENET9(FE).flac"
+                                    "filename": "Bass2_ODENET9(FE)_normalized.flac"
                                 },
                                 {
                                     "name": "ODENet9(IA)",
-                                    "filename": "Bass2_ODENET9(IA).flac"
+                                    "filename": "Bass2_ODENET9(IA)_normalized.flac"
                                 }
                             ]
                         }
@@ -80,27 +80,27 @@
                             "files": [
                                 {
                                     "name": "Input",
-                                    "filename": "Guitar1_input.flac"
+                                    "filename": "Guitar1_input_normalized.flac"
                                 },
                                 {
                                     "name": "Target",
-                                    "filename": "Guitar1_target.flac"
+                                    "filename": "Guitar1_target_normalized.flac"
                                 },
                                 {
                                     "name": "LSTM8",
-                                    "filename": "Guitar1_LSTM8.flac"
+                                    "filename": "Guitar1_LSTM8_normalized.flac"
                                 },
                                 {
                                     "name": "STN3x4",
-                                    "filename": "Guitar1_STN3x4.flac"
+                                    "filename": "Guitar1_STN3x4_normalized.flac"
                                 },
                                 {
                                     "name": "ODENet9(FE)",
-                                    "filename": "Guitar1_ODENET9(FE).flac"
+                                    "filename": "Guitar1_ODENET9(FE)_normalized.flac"
                                 },
                                 {
                                     "name": "ODENet9(IA)",
-                                    "filename": "Guitar1_ODENET9(IA).flac"
+                                    "filename": "Guitar1_ODENET9(IA)_normalized.flac"
                                 }
                             ]
                         }
@@ -114,27 +114,27 @@
                             "files": [
                                 {
                                     "name": "Input",
-                                    "filename": "Guitar2_input.flac"
+                                    "filename": "Guitar2_input_normalized.flac"
                                 },
                                 {
                                     "name": "Target",
-                                    "filename": "Guitar2_target.flac"
+                                    "filename": "Guitar2_target_normalized.flac"
                                 },
                                 {
                                     "name": "LSTM8",
-                                    "filename": "Guitar2_LSTM8.flac"
+                                    "filename": "Guitar2_LSTM8_normalized.flac"
                                 },
                                 {
                                     "name": "STN3x4",
-                                    "filename": "Guitar2_STN3x4.flac"
+                                    "filename": "Guitar2_STN3x4_normalized.flac"
                                 },
                                 {
                                     "name": "ODENet9(FE)",
-                                    "filename": "Guitar2_ODENET9(FE).flac"
+                                    "filename": "Guitar2_ODENET9(FE)_normalized.flac"
                                 },
                                 {
                                     "name": "ODENet9(IA)",
-                                    "filename": "Guitar2_ODENET9(IA).flac"
+                                    "filename": "Guitar2_ODENET9(IA)_normalized.flac"
                                 }
                             ]
                         }
