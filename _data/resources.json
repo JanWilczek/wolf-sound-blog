@@ -22,11 +22,12 @@
                 "affiliate_link": "#"
             },
             {
-                "name": "Introduction to Digital Filters",
+                "name": "Introduction to Digital Filters with Audio Applications",
+                "authors": ["Julius O. Smith III"],
                 "type": "book",
-                "description": "",
-                "image": null,
-                "affiliate_link": "#"
+                "description": "A great read to understand the rationale behind the digital filters. It is a relatively short book (less than 300 pages) and is available online for free. As it a book accompanying a university course, it tries to explain things intuitively and show the reader various approaches to understanding filters. It shows the relation between the analog and the digital filters and provides a lot of helpful mathematics that underlie the two.",
+                "image": "https://m.media-amazon.com/images/I/31B8qd622aL.jpg",
+                "link": "https://ccrma.stanford.edu/~jos/filters/"
             }
         ]
     },
@@ -35,21 +36,30 @@
         "description": null,
         "resources": [
             {
-                "name": "Roads",
+                "name": "The Computer Music Tutorial",
+                "authors": ["Curtis Roads"],
                 "type": "book",
-                "description": "Book 1 description",
-                "image": null,
+                "description": "Although it may seem to be an old book, it explains the basic concepts of sound synthesis incredibly well. If you consider writing software to generate sound, I recommend starting with this book. It covers sampling, additive synthesis, wavetable synthesis, wave terrain synthesis, granular synthesis, subtractive synthesis, all types of modulation synthesis, and touches also on physical modeling, FOF (formant) synthesis, graphic synthesis, and stochastic synthesis. It also does a nice job of providing names of example works using the described techniques. Some additional useful parts deal with the MIDI protocol and digital signal processors' internals. I've read this book almost in full (I skipped the part on algorithmic composition) and I believe anyone can follow the presented material. There are few code listings and the maths used is very basic. For interested readers, the book contains very useful references albeit quite old ones.",
+                "image": "https://m.media-amazon.com/images/I/41TySzFBccL.jpg",
                 "affiliate_link": "#"
             },
             {
-                "name": "Russ",
+                "name": "Sound Synthesis and Sampling",
+                "authors": ["Martin Russ"],
                 "type": "book",
-                "description": "",
-                "image": null,
+                "description": "A description of sound synthesis techniques from a user's perspective. What do all those knobs mean? There is no code and almost no mathematics inside. Nevertheless, the book is incredibly useful for audio programmers. Here you can find, for example, a thorough explanation of envelope types. There is also a little bit more on sampling than in the book by Curtis Roads. The conversational style of the book keeps you engaged throughout. I've read this one in full and I would do it again.",
+                "image": "https://m.media-amazon.com/images/I/51F6+V3foOS.jpg",
                 "affiliate_link": "#"
             },
             {
-                "name": "Sound Synthesis by Pluta",
+                "name": "Sound Synthesis for Music Reproduction and Performance",
+                "authors": ["Marek Pluta"],
+                "type": "book",
+                "description": "This monograph is not widely distributed and I don't know how to get hold of a copy other than by contacting the author directly. This book is a real sound synthesis encyclopedia. It describes all synthesis techniques you could imagine and two novel methods developed by the author himself. As an educated physicist, violinist, and conductor, he definitely knows what he's writing about. I have only used the book for reference so far but I plan to read it in full soon.",
+                "link": "https://www.researchgate.net/publication/332258464_Sound_Synthesis_for_Music_Reproduction_and_Performance"
+            },
+            {
+                "name": "Physical Audio Signal Processing",
                 "type": "book",
                 "description": "",
                 "image": null,

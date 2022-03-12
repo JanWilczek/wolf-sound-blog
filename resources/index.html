@@ -37,6 +37,7 @@ description: "Resources recommended by WolfSound for learning audio programming"
             {% endif %}
             <h4 class="card-title">{{ resource.name }}</h4>
             {% if resource.authors %}
+                <h5 class="card-subtitle">by</h5>
                 {% for author in resource.authors %}
                     <h5 class="card-subtitle">{{ author }}</h5>
                 {% endfor %}
@@ -44,7 +45,12 @@ description: "Resources recommended by WolfSound for learning audio programming"
             <p class="card-text">
                 {{ resource.description }}
             </p>
-            <button class="btn btn-primary" href="{{ resource.affiliate_link }}">See on Amazon.com</button>
+            {% if resource.affiliate_link %}
+                <button class="btn btn-primary" href="{{ resource.affiliate_link }}">See on Amazon.com</button>
+            {% endif %}
+            {% if resource.link %}
+                <button class="btn btn-primary" href="{{ resource.link }}">See online</button>
+            {% endif %}
         </div>
         {% endfor %}
     </div>
