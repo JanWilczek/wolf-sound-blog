@@ -32,8 +32,15 @@ description: "Resources recommended by WolfSound for learning audio programming"
     <div class="card-columns">
         {% for resource in category.resources %}
         <div class="card">
-            <div class="card-img-top bg-primary"></div>
+            {% if resource.image  %}
+                <div class="card-img-top bg-primary"><img src="{{ resource.image }}" alt="{{ resource.tite }} cover" /></div>
+            {% endif %}
             <h4 class="card-title">{{ resource.name }}</h4>
+            {% if resource.authors %}
+                {% for author in resource.authors %}
+                    <h5 class="card-subtitle">{{ author }}</h5>
+                {% endfor %}
+            {% endif %}
             <p class="card-text">
                 {{ resource.description }}
             </p>

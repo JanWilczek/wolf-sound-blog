@@ -7,23 +7,25 @@
         "resources": [
             {
                 "name": "Discrete-Time Signal Processing",
+                "authors": ["Alan Oppenheim", "Ronald Schafer"],
                 "type": "book",
-                "description": "Book 1 description",
-                "image": "",
+                "description": "An incredible reference book covering all the basics of digital signal processing written by professors from MIT. You'll find here an in-depth explanation of concepts like the z-transform, FIR and IIR filters in their various forms, the discrete Fourier transform, and even a handy appendix reviewing the analog filters as a basis for IIR filter design. I do not plan to read it cover-to-cover but I do want to read some sections in full. Spread over 1000 pages, it contains all you need for computer music understanding and more.",
+                "image": "https://images-na.ssl-images-amazon.com/images/I/51v48p99JjL._SX404_BO1,204,203,200_.jpg",
                 "affiliate_link": "#"
             },
             {
-                "name": "Signals & Systems",
+                "name": "Signals and Systems",
+                "authors": ["Alan V. Oppenheim", "Alan S. Willsky", "S. Hamid Nawab"],
                 "type": "book",
-                "description": "",
-                "image": "",
+                "description": "Yet another reference book from MIT. It covers a little bit wider area than \"Discrete-Time Signal Processing\" and focuses mostly on continuous-time signals (but not only). The most useful sections for audio programmers include the Fourier series, the Fourier transform, sampling, the Laplace transform, the z-transform, and signal modulation.",
+                "image": "https://m.media-amazon.com/images/I/51F6bPQAq9L.jpg",
                 "affiliate_link": "#"
             },
             {
                 "name": "Introduction to Digital Filters",
                 "type": "book",
                 "description": "",
-                "image": "",
+                "image": null,
                 "affiliate_link": "#"
             }
         ]
@@ -36,21 +38,21 @@
                 "name": "Roads",
                 "type": "book",
                 "description": "Book 1 description",
-                "image": "",
+                "image": null,
                 "affiliate_link": "#"
             },
             {
                 "name": "Russ",
                 "type": "book",
                 "description": "",
-                "image": "",
+                "image": null,
                 "affiliate_link": "#"
             },
             {
                 "name": "Sound Synthesis by Pluta",
                 "type": "book",
                 "description": "",
-                "image": "",
+                "image": null,
                 "affiliate_link": "#"
             }
         ]
@@ -63,56 +65,56 @@
                 "name": "Design Patterns",
                 "type": "book",
                 "description": "Book 1 description",
-                "image": "",
+                "image": null,
                 "affiliate_link": "#"
             },
             {
                 "name": "Clean Code",
                 "type": "book",
                 "description": "",
-                "image": "",
+                "image": null,
                 "affiliate_link": "#"
             },
             {
                 "name": "The C++ Programming Language",
                 "type": "book",
                 "description": "",
-                "image": "",
+                "image": null,
                 "affiliate_link": "#"
             },
             {
                 "name": "Pragmatic Programmer",
                 "type": "book",
                 "description": "",
-                "image": "",
+                "image": null,
                 "affiliate_link": "#"
             },
             {
                 "name": "Operating Systems by William Stallings",
                 "type": "book",
                 "description": "",
-                "image": "",
+                "image": null,
                 "affiliate_link": "#"
             },
             {
                 "name": "Kincaid",
                 "type": "book",
                 "description": "",
-                "image": "",
+                "image": null,
                 "affiliate_link": "#"
             },
             {
                 "name": "Introduction to Algorithms",
                 "type": "book",
                 "description": "",
-                "image": "",
+                "image": null,
                 "affiliate_link": "#"
             },
             {
                 "name": "Practical Web Development",
                 "type": "book",
                 "description": "",
-                "image": "",
+                "image": null,
                 "affiliate_link": "#"               
             }
         ]
@@ -125,49 +127,49 @@
                 "name": "A Mind for Numbers",
                 "type": "book",
                 "description": "Book 1 description",
-                "image": "",
+                "image": null,
                 "affiliate_link": "#"
             },
             {
                 "name": "Deep Work",
                 "type": "book",
                 "description": "",
-                "image": "",
+                "image": null,
                 "affiliate_link": "#"
             },
             {
                 "name": "The Power of Habit",
                 "type": "book",
                 "description": "",
-                "image": "",
+                "image": null,
                 "affiliate_link": "#"
             },
             {
                 "name": "Atomic Habits",
                 "type": "book",
                 "description": "",
-                "image": "",
+                "image": null,
                 "affiliate_link": "#"
             },
             {
                 "name": "Essentialist",
                 "type": "book",
                 "description": "",
-                "image": "",
+                "image": null,
                 "affiliate_link": "#"
             },
             {
                 "name": "One Thing",
                 "type": "book",
                 "description": "",
-                "image": "",
+                "image": null,
                 "affiliate_link": "#"
             },
             {
                 "name": "The Millionaire Fastlane",
                 "type": "book",
                 "description": "",
-                "image": "",
+                "image": null,
                 "affiliate_link": "#"
             }
         ]
@@ -180,42 +182,42 @@
                 "name": "Harry Potter",
                 "type": "book",
                 "description": "Book 1 description",
-                "image": "",
+                "image": null,
                 "affiliate_link": "#"
             },
             {
                 "name": "Little Nicholas",
                 "type": "book",
                 "description": "",
-                "image": "",
+                "image": null,
                 "affiliate_link": "#"
             },
             {
                 "name": "Artemis Fowl",
                 "type": "book",
                 "description": "",
-                "image": "",
+                "image": null,
                 "affiliate_link": "#"
             },
             {
                 "name": "Dune",
                 "type": "book",
                 "description": "",
-                "image": "",
+                "image": null,
                 "affiliate_link": "#"
             },
             {
                 "name": "Solaris",
                 "type": "book",
                 "description": "",
-                "image": "",
+                "image": null,
                 "affiliate_link": "#"
             },
             {
                 "name": "The Song of Ice and Fire",
                 "type": "book",
                 "description": "",
-                "image": "",
+                "image": null,
                 "affiliate_link": "#"
             }
         ]
