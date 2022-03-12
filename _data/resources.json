@@ -57,6 +57,22 @@
                 "type": "book",
                 "description": "This monograph is not widely distributed and I don't know how to get hold of a copy other than by contacting the author directly. This book is a real sound synthesis encyclopedia. It describes all synthesis techniques you could imagine and two novel methods developed by the author himself. As an educated physicist, violinist, and conductor, he definitely knows what he's writing about. I have only used the book for reference so far but I plan to read it in full soon.",
                 "link": "https://www.researchgate.net/publication/332258464_Sound_Synthesis_for_Music_Reproduction_and_Performance"
+            }
+        ]
+    },
+    {
+        "category": "Other Digital Audio Books",
+        "description": null,
+        "resources": [
+            {
+                "name": "Digital Audio FX",
+                "type": "book",
+                "description": ""
+            },
+            {
+                "name": "Audio Signal Processing",
+                "type": "book",
+                "description": ""
             },
             {
                 "name": "Physical Audio Signal Processing",
@@ -64,11 +80,16 @@
                 "description": "",
                 "image": null,
                 "affiliate_link": "#"
+            },
+            {
+                "name": "Music Information Retrieval",
+                "type": "book",
+                "description": null
             }
         ]
     },
     {
-        "category": "Software Design Books",
+        "category": "Computer Science Books",
         "description": null,
         "resources": [
             {
@@ -122,6 +143,13 @@
             },
             {
                 "name": "Practical Web Development",
+                "type": "book",
+                "description": "",
+                "image": null,
+                "affiliate_link": "#"               
+            },
+            {
+                "name": "Deep Learning",
                 "type": "book",
                 "description": "",
                 "image": null,
