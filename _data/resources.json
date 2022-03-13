@@ -65,26 +65,36 @@
         "description": null,
         "resources": [
             {
-                "name": "Digital Audio FX",
+                "name": "Digital Audio FX (DAFX)",
+                "authors": ["Udo Zölzer"],
                 "type": "book",
-                "description": ""
-            },
-            {
-                "name": "Audio Signal Processing",
-                "type": "book",
-                "description": ""
-            },
-            {
-                "name": "Physical Audio Signal Processing",
-                "type": "book",
-                "description": "",
-                "image": null,
+                "image": "https://m.media-amazon.com/images/I/51YOksxKouL.jpg",
+                "description": "An amazing compilation of formulas, schematics, and code listings about all kinds of digital audio effects: from filters in all their flavors, through vibratos, compressors, EQs, to reverberation and time stretching. I plan to read this book in full but I have already read big chunks of it: all laid out in plain, understandable English without unnecessary additions. Additionally, every chapter ends with a comprehensive list of references. If you want to code an audio effect, start with this book. Related to this book, is the <a href=\"https://www.dafx.de\">DAFX conference</a>.",
                 "affiliate_link": "#"
             },
             {
-                "name": "Music Information Retrieval",
+                "name": "Digital Audio Signal Processing",
+                "authors": ["Udo Zölzer"],
                 "type": "book",
-                "description": null
+                "image": "https://m.media-amazon.com/images/I/41kVZ47HptS.jpg",
+                "description": "This book covers the middle ground between DSP handbooks and \"Digital Audio FX\". It covers sampling, quantization, AD/DA conversion, audio systems interfacing, equalizers, reverberation, compressors, resampling, and audio coding. Interestingly, it contains some more in-depth derivations and explanations than DAFX. Check it out if you need some more reasoning behind certain algorithms rather than pure algorithms themselves.",
+                "affiliate_link": "#"
+            },
+            {
+                "name": "Physical Audio Signal Processing",
+                "authors": ["Julius O. Smith III"],
+                "type": "book",
+                "description": "A comprehensive and versatile book on physical modeling, including not just sound synthesis but also reverberation and analog audio effects, like filters or phasers. It's a real encyclopedia of computer music... Check it out for sure, since it's free.",
+                "image": "https://m.media-amazon.com/images/I/41+gJPhzIfL.jpg",
+                "link": "https://ccrma.stanford.edu/~jos/pasp/"
+            },
+            {
+                "name": "Fundamentals of Music Processing",
+                "authors": ["Meinard Müller"],
+                "type": "book",
+                "link": "https://www.audiolabs-erlangen.de/fau/professor/mueller/bookFMP",
+                "image": "https://m.media-amazon.com/images/I/41+cqKyxVeL.jpg",
+                "description": "Written by a professor from AudioLabs (joint institution of the Fraunhofer IIS and Friedrich-Alexander University of Erlangen-Nürnberg), who is known as an excellent educator, this book lays out most if not all classic (pre-deep learning) algorithms for music analysis (including the basics of Shazam's audio identification algorithm). On the accompanying website, you can find Jupyter Notebooks, sound examples, and exercises, which make the understanding even easier. I have read big portions of this book and I must admit that rarely any book is so clear as to its mathematical notation. With that being said, you won't find here anything of audio effects or sound synthesis; this is pure music signal analysis. Take a look at least at the table of contents, since the book is available online for free (for example, <a href=\"https://www.researchgate.net/publication/288774112_Fundamentals_of_Music_Processing\">from ResearchGate</a>)."
             }
         ]
     },
@@ -101,6 +111,13 @@
             },
             {
                 "name": "Clean Code",
+                "type": "book",
+                "description": "",
+                "image": null,
+                "affiliate_link": "#"
+            },
+            {
+                "name": "Clean Architecture",
                 "type": "book",
                 "description": "",
                 "image": null,
