@@ -103,22 +103,25 @@
         "description": null,
         "resources": [
             {
-                "name": "Design Patterns",
+                "name": "Design Patterns: Elements of Reusable Object-Oriented Software",
                 "type": "book",
-                "description": "Book 1 description",
-                "image": null,
+                "authors": ["Erich Gamma", "Richard Helm", "Ralph Johnson", "John Vlissides"],
+                "description": "A collection of solutions to commonly recurring problems in software design. This book was a revelation to me. Literally, each and every pattern in this book was a solution for a problem I had encountered while programming. If you know an object-oriented programming language and did some programming (for example, at a university), make it your next read; it will save you lots of time during future development. Some experience is, in my opinion, required, to fully grasp the beauty of the presented solutions.",
+                "image": "https://m.media-amazon.com/images/I/51szD9HC9pL.jpg",
                 "affiliate_link": "#"
             },
             {
                 "name": "Clean Code",
                 "type": "book",
-                "description": "",
-                "image": null,
+                "authors": "Robert C. Martin",
+                "description": "A must-read for every programmer. All the basics of quality code distilled. Makes you realize how small things can yield great benefits. Read <a href=\"/how-to-write-good-code-lessons-learned-from-clean-code/\">my summary of the book here</a>.",
+                "image": "https://images-na.ssl-images-amazon.com/images/I/41xShlnTZTL._SX376_BO1,204,203,200_.jpg",
                 "affiliate_link": "#"
             },
             {
                 "name": "Clean Architecture",
                 "type": "book",
+                "authors": "Robert C. Martin",
                 "description": "",
                 "image": null,
                 "affiliate_link": "#"
