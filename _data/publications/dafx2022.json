@@ -70,7 +70,6 @@
                 },
                 {
                     "name": "Guitar1",
-                    "sampling_rate": 22050,
                     "files": [
                         {
                             "name": "Input",
@@ -100,7 +99,6 @@
                 },
                 {
                     "name": "Guitar2",
-                    "sampling_rate": 22050,
                     "files": [
                         {
                             "name": "Input",
@@ -125,6 +123,83 @@
                         {
                             "name": "ODENet9(IA)",
                             "filename": "Guitar2_ODENET9(IA)_normalized.flac"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "modeled_device": "diode2_clipper",
+            "name": "Second-Order Diode Clipper",
+            "sampling_rates": [
+                22050
+            ],
+            "examples": [
+                {
+                    "name": "Bass1",
+                    "files": [
+                        {
+                            "name": "Input",
+                            "filename": "Bass1_input_normalized.flac"
+                        },
+                        {
+                            "name": "Target",
+                            "filename": "Bass1_target_normalized.flac"
+                        },
+                        {
+                            "name": "STN2x30",
+                            "filename": "Bass1_STN2x30_normalized.flac"
+                        }
+                    ]
+                },
+                {
+                    "name": "Bass2",
+                    "files": [
+                        {
+                            "name": "Input",
+                            "filename": "Bass2_input_normalized.flac"
+                        },
+                        {
+                            "name": "Target",
+                            "filename": "Bass2_target_normalized.flac"
+                        },
+                        {
+                            "name": "STN2x30",
+                            "filename": "Bass2_STN2x30_normalized.flac"
+                        }
+                    ]
+                },
+                {
+                    "name": "Guitar1",
+                    "files": [
+                        {
+                            "name": "Input",
+                            "filename": "Guitar1_input_normalized.flac"
+                        },
+                        {
+                            "name": "Target",
+                            "filename": "Guitar1_target_normalized.flac"
+                        },
+                        {
+                            "name": "STN2x30",
+                            "filename": "Guitar1_STN2x30_normalized.flac"
+                        }
+                    ]
+                },
+                {
+                    "name": "Guitar2",
+                    "files": [
+                        {
+                            "name": "Input",
+                            "filename": "Guitar2_input_normalized.flac"
+                        },
+                        {
+                            "name": "Target",
+                            "filename": "Guitar2_target_normalized.flac"
+                        },
+                        {
+                            "name": "STN2x30",
+                            "filename": "Guitar2_STN2x30_normalized.flac"
                         }
                     ]
                 }
