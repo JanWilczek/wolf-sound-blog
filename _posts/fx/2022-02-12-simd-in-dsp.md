@@ -5,7 +5,7 @@ date: 2022-02-12
 author: Jan Wilczek
 layout: post
 images: assets/img/posts/fx/2022-02-12-simd-in-dsp/
-# background: /assets/img/posts/fx/2022-02-12-simd-in-dsp/Thumbnail.webp
+background: /assets/img/posts/fx/2022-02-12-simd-in-dsp/Thumbnail.webp
 categories:
   - Audio FX
   - Digital Signal Processing
@@ -17,8 +17,27 @@ discussion_id: 2022-02-12-simd-in-dsp
 ---
 Speed up DSP operations with vector instructions.
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/XiaIbmMGqdg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+## Table of Contents
+
+1. [Introduction](#introduction)
+2. [What is SIMD?](#what-is-simd)
+3. [SIMD Pseudocode Example](#simd-pseudocode-example)
+4. [How is SIMD Implemented?](#how-is-simd-implemented)
+5. [What SIMD Instructions Are Available?](#what-simd-instructions-are-available)
+   1. [Load/Store](#loadstore)
+   2. [Operations on Registers](#operations-on-registers)
+6. [How to Access SIMD Instructions?](#how-to-access-simd-instructions)
+7. [MMX, SSE, AVX, NEON...](#mmx-sse-avx-neon)
+8. [Which SIMD To Use?](#which-simd-to-use)
+9. [Why is SIMD useful in DSP?](#why-is-simd-useful-in-dsp)
+10. [Disadvantages of SIMD](#disadvantages-of-simd)
+11. [Simple SIMD Code Example](#simple-simd-code-example)
+12. [Summary](#summary)
+13. [Bibliography, Reference, and Further Reading](#bibliography-reference-and-further-reading)
+
 {% katexmm %}
-<!-- TOC -->
 
 ## Introduction
 
