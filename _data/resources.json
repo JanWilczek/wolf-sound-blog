@@ -183,54 +183,64 @@
     },
     {
         "category": "Self-Development Books",
-        "description": null,
+        "description": "Where the books above give you knowledge about things of science, the books below focus on your ability to learn and use them. They have made me a better student, programmer, scientist, friend; a better person. And I believe they can serve you well too! Let me know in the comments below what would you add to this category 🙂",
         "resources": [
             {
                 "name": "A Mind for Numbers",
                 "type": "book",
-                "description": "Book 1 description",
+                "authors": ["Barbara Oakley"],
+                "description": "A must read for anyone who want to learn well. It is directed specifically towards science students. It's an explanation of how your brain processes knowledge and solves problems. Additionally, it contains tons of testimonials from people who thought couldn't learn anything but eventually succeeded in gaining the desired knowledge. This book allowed me to score 1.0 grade average during my master's degree (the highest one can get in German grading system). Please, read it!",
                 "image": null,
                 "affiliate_link": "#"
             },
             {
                 "name": "Deep Work",
                 "type": "book",
-                "description": "",
+                "authors": ["Cal Newport"],
+                "description": "I could treat this book as my personal work manifesto. When I'm working, I value focus above anything else. This book is not as much a handbook but more of a praise of focus and its value in the world. Since Cal Newport is a computer scientist, I think every programmer or engineering student will find this book extremely inspiring.",
                 "image": null,
                 "affiliate_link": "#"
             },
             {
+                "name": "Getting Things Done",
+                "type": "book",
+                "authors": ["David Allen"],
+                "description": "If you want to know how to handle any project in your life, read this book and just this one. I haven't read any other book on time management and I don't feel the need to. This book just solves the problem. In short: everything in your life is just a list of next steps 😉"
+            },
+            {
                 "name": "The Power of Habit",
                 "type": "book",
-                "description": "",
+                "authors": "Charles Duhigg",
+                "description": "The book that brought the effectiveness of habits to public attention. It is more of an explanatory book: it shows you how habits work and what can they help you achieve. But if you really want to master habits in your personal life to level up your game, I recommend you read the next book...",
                 "image": null,
                 "affiliate_link": "#"
             },
             {
                 "name": "Atomic Habits",
                 "type": "book",
-                "description": "",
+                "authors": ["James Clear"],
+                "description": "This is an incredibly pleasant to read manual to programming your brain. It instructs you incredibly well how to induce good habits in your life and how to eliminate the bad ones. It helped me to improve in my health, relationships, and business. Highly recommended.",
                 "image": null,
                 "affiliate_link": "#"
             },
             {
                 "name": "Essentialist",
                 "type": "book",
-                "description": "",
+                "description": "Another book that I would like to make my manifesto (I'm still a non-essentialist unfortunately!). Do you feel like there's too much to do? Do you feel stretched between various responsibilities, hobbies, and relationships? Are you tired of making microscopic steps in thousands of directions? Then read this book. I already did, twice.",
                 "image": null,
                 "affiliate_link": "#"
             },
             {
                 "name": "One Thing",
                 "type": "book",
-                "description": "",
+                "description": "A little bit similar in topic to \"Essentialist\", you will find more concrete advice how to focus on your ONE thing and make progress. The recurring theme of the two books is that we shouldn't try to do all and please everyone. If you feel guilty about saying no or want to master a certain task, read this book. It's not about doing more!",
                 "image": null,
                 "affiliate_link": "#"
             },
             {
                 "name": "The Millionaire Fastlane",
                 "type": "book",
-                "description": "",
+                "description": "The best book on how to get rich. After reading a lot of books on the topic of personal finance, I was laughing, when this book teared apart all of them, one by one. Getting rich is not easy but if you want to do it, this is your guide (I belive). If I'm every a millionaire, I will recommend this book wholeheartedly. Right now, I can only say that it's one of the best from the ones I've read.",
                 "image": null,
                 "affiliate_link": "#"
             }
@@ -238,47 +248,53 @@
     },
     {
         "category": "Fiction Books",
-        "description": null,
+        "description": "Because everyone needs to chill out 😎",
         "resources": [
             {
                 "name": "Harry Potter",
                 "type": "book",
-                "description": "Book 1 description",
+                "authors": ["J. K. Rowling"],
+                "description": "My favorite book series of all time. I can always go back and read it again. It's also good to read in a foreign language for learning purposes.",
                 "image": null,
                 "affiliate_link": "#"
             },
             {
                 "name": "Little Nicholas",
                 "type": "book",
-                "description": "",
-                "image": null,
+                "authors": ["Rene Goscinny", "with illustrations by Jean-Jacques Sempé."],
+                "description": "The funniest book series I've ever read. I don't know how they sound in English but in Polish and Spanish they are hilarious.",
+                "image": "https://images-na.ssl-images-amazon.com/images/I/51G-kodL-mL._SY291_BO1,204,203,200_QL40_FMwebp_.jpg",
                 "affiliate_link": "#"
             },
             {
                 "name": "Artemis Fowl",
                 "type": "book",
-                "description": "",
+                "authors": ["Eoin Colfer"],
+                "description": "Books about a genius boy, involving a lot of abstract high-tech and programming. Could this have been the book that got me into writing code?",
                 "image": null,
                 "affiliate_link": "#"
             },
             {
                 "name": "Dune",
                 "type": "book",
-                "description": "",
+                "authors": ["Frank Herbert"],
+                "description": "The most impressive science-fiction/fantasy book I've read. Closely behind is \"Hyperion\" by Dan Simmons.",
                 "image": null,
                 "affiliate_link": "#"
             },
             {
                 "name": "Solaris",
                 "type": "book",
-                "description": "",
+                "authors": ["Stanisław Lem"],
+                "description": "A book that is science fiction only on the surface. Below there's so much more... Like Inception 😉",
                 "image": null,
                 "affiliate_link": "#"
             },
             {
                 "name": "The Song of Ice and Fire",
                 "type": "book",
-                "description": "",
+                "authors": ["George R. R. Martin"],
+                "description": "A great mixture of fantasy and politics... I doubt I need to describe it 😅",
                 "image": null,
                 "affiliate_link": "#"
             }
