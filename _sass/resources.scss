@@ -1,14 +1,10 @@
 .resource-card-columns {
     column-gap: .5rem;
-    // column-count: 3;
 
     @media (min-width: 576px) {
         column-count: 2;
     }
     
-    // @media (min-width: 768px) {
-        // column-count: 2;
-    // }
     @media (min-width: 1200px) {
         column-count: 3;
     }
@@ -20,6 +16,7 @@
 
 .resource-img {
     width: 100%;
+    max-width: 200px;
     margin-bottom: .75rem;
 }
 

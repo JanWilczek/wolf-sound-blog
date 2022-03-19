@@ -27,7 +27,9 @@ description: "Resources recommended by WolfSound for learning audio programming"
     </p>
 
     {% for category in site.data.resources.all_resources %}
+    <hr/>
     <h2>{{ category.category }}</h2>
+    <hr/>
 
     {% if category.description %}
     <p>{{ category.description }}</p>
@@ -38,7 +40,7 @@ description: "Resources recommended by WolfSound for learning audio programming"
         <div class="card resource-card">
             {% if resource.image  %}
                 <a href="{{ resource.affiliate_link | default: resource.link | default: '#' }}" target="_blank">
-                    <div class="card-img-top bg-primary"><img class="resource-img" src="{{ resource.image }}" alt="{{ resource.tite }} cover" /></div>
+                    <div class="card-img-top bg-transparent"><img class="resource-img" src="{{ resource.image }}" alt="{{ resource.tite }} cover" /></div>
                 </a>
             {% endif %}
             <a href="{{ resource.affiliate_link | default: resource.link | default: '#' }}" target="_blank">
