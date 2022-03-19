@@ -37,9 +37,13 @@ description: "Resources recommended by WolfSound for learning audio programming"
         {% for resource in category.resources %}
         <div class="card">
             {% if resource.image  %}
-                <div class="card-img-top bg-primary"><img src="{{ resource.image }}" alt="{{ resource.tite }} cover" /></div>
+                <a href="{{ resource.affiliate_link | default: resource.link | default: '#' }}" target="_blank">
+                    <div class="card-img-top bg-primary"><img src="{{ resource.image }}" alt="{{ resource.tite }} cover" /></div>
+                </a>
             {% endif %}
-            <h4 class="card-title">{{ resource.name }}</h4>
+            <a href="{{ resource.affiliate_link | default: resource.link | default: '#' }}" target="_blank">
+                <h4 class="card-title">{{ resource.name }}</h4>
+            </a>
             {% if resource.authors %}
                 <h5 class="card-subtitle">by</h5>
                 {% for author in resource.authors %}
