@@ -35,30 +35,34 @@ description: "Resources recommended by WolfSound for learning audio programming"
 
     <div class="card-columns">
         {% for resource in category.resources %}
-        <div class="card">
+        <div class="card resource-card">
             {% if resource.image  %}
                 <a href="{{ resource.affiliate_link | default: resource.link | default: '#' }}" target="_blank">
-                    <div class="card-img-top bg-primary"><img src="{{ resource.image }}" alt="{{ resource.tite }} cover" /></div>
+                    <div class="card-img-top bg-primary"><img class="resource-img" src="{{ resource.image }}" alt="{{ resource.tite }} cover" /></div>
                 </a>
             {% endif %}
             <a href="{{ resource.affiliate_link | default: resource.link | default: '#' }}" target="_blank">
-                <h4 class="card-title">{{ resource.name }}</h4>
+                <h4 class="card-title resource-title">{{ resource.name }}</h4>
             </a>
             {% if resource.authors %}
-                <h5 class="card-subtitle">by</h5>
+                <div class="card-subtitle">
+                <h5 class="resource-authors">by</h5>
                 {% for author in resource.authors %}
-                    <h5 class="card-subtitle">{{ author }}</h5>
+                    <h5 class="resource-authors">{{ author }}</h5>
                 {% endfor %}
+                </div>
             {% endif %}
-            <p class="card-text">
+            <p class="card-text resource-description">
                 {{ resource.description }}
             </p>
+            <div class="resource-btn-container">
             {% if resource.affiliate_link %}
-                <button class="btn btn-primary" href="{{ resource.affiliate_link }}">See on Amazon.com</button>
+                <button class="btn btn-primary resource-btn" href="{{ resource.affiliate_link }}">See on Amazon.com</button>
             {% endif %}
             {% if resource.link %}
-                <button class="btn btn-primary" href="{{ resource.link }}">See online</button>
+                <button class="btn btn-primary resource-btn" href="{{ resource.link }}">See online</button>
             {% endif %}
+            </div>
         </div>
         {% endfor %}
     </div>
