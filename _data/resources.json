@@ -11,7 +11,7 @@
                 "type": "book",
                 "description": "An incredible reference book covering all the basics of digital signal processing written by professors from MIT. You'll find here an in-depth explanation of concepts like the z-transform, FIR and IIR filters in their various forms, the discrete Fourier transform, and even a handy appendix reviewing the analog filters as a basis for IIR filter design. I do not plan to read it cover-to-cover but I do want to read some sections in full. Spread over 1000 pages, it contains all you need for computer music understanding and more.",
                 "image": "https://images-na.ssl-images-amazon.com/images/I/51v48p99JjL._SX404_BO1,204,203,200_.jpg",
-                "affiliate_link": "#"
+                "affiliate_link": "https://amzn.to/3wgK2s9"
             },
             {
                 "name": "Signals and Systems",
@@ -19,7 +19,7 @@
                 "type": "book",
                 "description": "Yet another reference book from MIT. It covers a little bit wider area than \"Discrete-Time Signal Processing\" and focuses mostly on continuous-time signals (but not only). The most useful sections for audio programmers include the Fourier series, the Fourier transform, sampling, the Laplace transform, the z-transform, and signal modulation.",
                 "image": "https://m.media-amazon.com/images/I/51F6bPQAq9L.jpg",
-                "affiliate_link": "#"
+                "affiliate_link": "https://amzn.to/3KXnPU5"
             },
             {
                 "name": "Introduction to Digital Filters with Audio Applications",
@@ -41,7 +41,7 @@
                 "type": "book",
                 "description": "Although it may seem to be an old book, it explains the basic concepts of sound synthesis incredibly well. If you consider writing software to generate sound, I recommend starting with this book. It covers sampling, additive synthesis, wavetable synthesis, wave terrain synthesis, granular synthesis, subtractive synthesis, all types of modulation synthesis, and touches also on physical modeling, FOF (formant) synthesis, graphic synthesis, and stochastic synthesis. It also does a nice job of providing names of example works using the described techniques. Some additional useful parts deal with the MIDI protocol and digital signal processors' internals. I've read this book almost in full (I skipped the part on algorithmic composition) and I believe anyone can follow the presented material. There are few code listings and the maths used is very basic. For interested readers, the book contains very useful references albeit quite old ones.",
                 "image": "https://m.media-amazon.com/images/I/41TySzFBccL.jpg",
-                "affiliate_link": "#"
+                "affiliate_link": "https://amzn.to/3ua1mfM"
             },
             {
                 "name": "Sound Synthesis and Sampling",
@@ -49,7 +49,7 @@
                 "type": "book",
                 "description": "A description of sound synthesis techniques from a user's perspective. What do all those knobs mean? There is no code and almost no mathematics inside. Nevertheless, the book is incredibly useful for audio programmers. Here you can find, for example, a thorough explanation of envelope types. There is also a little bit more on sampling than in the book by Curtis Roads. The conversational style of the book keeps you engaged throughout. I've read this one in full and I would do it again.",
                 "image": "https://m.media-amazon.com/images/I/51F6+V3foOS.jpg",
-                "affiliate_link": "#"
+                "affiliate_link": "https://amzn.to/3Ipv0Tt"
             },
             {
                 "name": "Sound Synthesis for Music Reproduction and Performance",
@@ -70,7 +70,7 @@
                 "type": "book",
                 "image": "https://m.media-amazon.com/images/I/51YOksxKouL.jpg",
                 "description": "An amazing compilation of formulas, schematics, and code listings about all kinds of digital audio effects: from filters in all their flavors, through vibratos, compressors, EQs, to reverberation and time stretching. I plan to read this book in full but I have already read big chunks of it: all laid out in plain, understandable English without unnecessary additions. Additionally, every chapter ends with a comprehensive list of references. If you want to code an audio effect, start with this book. Related to this book, is the <a href=\"https://www.dafx.de\">DAFX conference</a>.",
-                "affiliate_link": "#"
+                "affiliate_link": "https://amzn.to/3Ipv6uj"
             },
             {
                 "name": "Digital Audio Signal Processing",
@@ -78,7 +78,7 @@
                 "type": "book",
                 "image": "https://m.media-amazon.com/images/I/41kVZ47HptS.jpg",
                 "description": "This book covers the middle ground between DSP handbooks and \"Digital Audio FX\". It covers sampling, quantization, AD/DA conversion, audio systems interfacing, equalizers, reverberation, compressors, resampling, and audio coding. Interestingly, it contains some more in-depth derivations and explanations than DAFX. Check it out if you need some more reasoning behind certain algorithms rather than pure algorithms themselves.",
-                "affiliate_link": "#"
+                "affiliate_link": "https://amzn.to/3tn6EFk"
             },
             {
                 "name": "Physical Audio Signal Processing",
@@ -100,7 +100,7 @@
     },
     {
         "category": "Computer Science Books",
-        "description": null,
+        "description": "These books can give you the necessary basics of Computer Science for audio programming.",
         "resources": [
             {
                 "name": "Design Patterns: Elements of Reusable Object-Oriented Software",
@@ -108,7 +108,7 @@
                 "authors": ["Erich Gamma", "Richard Helm", "Ralph Johnson", "John Vlissides"],
                 "description": "A collection of solutions to commonly recurring problems in software design. This book was a revelation to me. Literally, each and every pattern in this book was a solution for a problem I had encountered while programming. If you know an object-oriented programming language and did some programming (for example, at a university), make it your next read; it will save you lots of time during future development. Some experience is, in my opinion, required, to fully grasp the beauty of the presented solutions.",
                 "image": "https://m.media-amazon.com/images/I/51szD9HC9pL.jpg",
-                "affiliate_link": "#"
+                "affiliate_link": "https://amzn.to/3wlu2oF"
             },
             {
                 "name": "Clean Code",
@@ -116,67 +116,68 @@
                 "authors": ["Robert C. Martin"],
                 "description": "A must-read for every programmer. All the basics of quality code distilled. Makes you realize how small things can yield great benefits. Read <a href=\"/how-to-write-good-code-lessons-learned-from-clean-code/\">my summary of the book here</a>.",
                 "image": "https://images-na.ssl-images-amazon.com/images/I/41xShlnTZTL._SX376_BO1,204,203,200_.jpg",
-                "affiliate_link": "#"
+                "affiliate_link": "https://amzn.to/36ygZVW"
             },
             {
                 "name": "Clean Architecture",
                 "type": "book",
                 "authors": ["Robert C. Martin"],
                 "description": "A great follow-up to \"Clean Code\". It contains a summarized version of the most important architectural principles, focuses on component-based design, and advocates dependency-independence. Although it is rather high-level and doesn't contain complex examples, nevertheless, I believe every mid-level developer will benefit from it",
-                "image": null,
-                "affiliate_link": "#"
+                "image": "https://images-na.ssl-images-amazon.com/images/I/41-sN-mzwKL._SX381_BO1,204,203,200_.jpg",
+                "affiliate_link": "https://amzn.to/3IopDDX"
             },
             {
                 "name": "The C++ Programming Language",
                 "type": "book",
                 "authors": ["Bjarne Stroustrup"],
                 "description": "I'm proud to have read that book in full, cover-to-cover (1366 pages). It follows my favorite style of presenting the material: a concept ➡️ an example. The biggest gain for me were certain lesser known C++ and STL features. Another advantage of the book are code examples, which show how C++ was intended to be used: \"encode ideas in types\". Although not up-to-date with C++ 14 and later standards, it is a great read even for complete novices in C++ (thanks to the short but exhaustive \"tour of the language\" at the beginning of the book). Are there better C++ books? Maybe. But getting this knowledge from Bjarne Stroustrup himself has a unique flavor to it.",
-                "image": null,
-                "affiliate_link": "#"
+                "image": "https://images-na.ssl-images-amazon.com/images/I/512IjuTNc-L._SX402_BO1,204,203,200_.jpg",
+                "affiliate_link": "https://amzn.to/3ImzLgf"
             },
             {
                 "name": "The Pragmatic Programmer",
                 "type": "book",
                 "authors": ["David Thomas", "Andrew Hunt"],
                 "description": "I've read the original edition of this book from the 90s; now, there is an updated \"20th anniversary edition\". I wouldn't say it is a must-read; it rather contains some interesting ideas. The ones that most stuck in my mind were: the boy-scout rule, the DRY rule, and the tracer bullets idea. As a fun fact, the book stated that there were only two editors worth considering: emacs and vim. At the point when I read it, I hadn't heard about any of them!",
-                "image": null,
-                "affiliate_link": "#"
+                "image": "https://images-na.ssl-images-amazon.com/images/I/51W1sBPO7tL._SX218_BO1,204,203,200_QL40_FMwebp_.jpg",
+                "affiliate_link": "https://amzn.to/3KYhJ5I"
             },
             {
-                "name": "Operating Systems by William Stallings",
+                "name": "Operating Systems: Internals and Design Principles",
                 "type": "book",
-                "authors": "William Stallings",
+                "authors": ["William Stallings"],
                 "description": "I love reading about operating systems: the most complex software systems ever created. The creativity of a human brain shines to me at the fullest when I read about how specific problems were solved. William Stallings shows you step-by-step, how to construct an operating system starting from a concept of a digital hardware register. Although I don't claim that this book is the best book on the subject, I did like it and want to read it in full eventually. And I do believe every developer should know the basic rules governing an operating systems like processes, threads, memory spaces, disks, and so on. A fun fact: I read a translation of this book, where the translator made fun of the author and his claims... A little embarrassing, in my eyes 🙂",
-                "image": null,
-                "affiliate_link": "#"
+                "image": "https://images-na.ssl-images-amazon.com/images/I/41dBK7WM1ML._SX362_BO1,204,203,200_.jpg",
+                "affiliate_link": "https://amzn.to/36pWURP"
             },
             {
-                "name": "Kincaid",
+                "name": "Numerical Mathematics and Computing",
                 "type": "book",
-                "description": "A good reference book for numerical issues. I use it to check concepts like the floating-point number, interpolation, splines, Newton's method, and Vandermonde matrix.",
-                "image": null,
-                "affiliate_link": "#"
+                "authors": ["E. Ward Cheney", "David R. Kincaid"],
+                "description": "A good reference book for numerical issues. I use it to check concepts like the floating-point number, interpolation, splines, Newton's method, and the Vandermonde matrix.",
+                "image": "https://images-na.ssl-images-amazon.com/images/I/41e3NNRrc5L._SX393_BO1,204,203,200_.jpg",
+                "affiliate_link": "https://amzn.to/3tkjRPo"
             },
             {
                 "name": "Introduction to Algorithms",
                 "type": "book",
                 "description": "A classic book on algorithms which I read in a huge part. Makes a good reference. Contains a great explanation of sorting methods and more complex data structures. Some algorithms were for me a bit tough to understand (for example, node insertion in red-black trees), others I still haven't fully mastered (like dynamic programming). Maybe one day... 🙂",
-                "image": null,
-                "affiliate_link": "#"
+                "image": "https://images-na.ssl-images-amazon.com/images/I/41T0iBxY8FL._SX258_BO1,204,203,200_.jpg",
+                "affiliate_link": "https://amzn.to/3txgwwF"
             },
             {
                 "name": "Practical Web Development",
                 "type": "book",
                 "description": "Maybe somewhat surprising in this list, but I found this book incredibly useful to get a high-level view on web development. Whereas a lot of books teach you \"dots\", like HTML, CSS, JavaScript, or Angular, this book \"connects the dots\": it presents most of the modern web technologies just a little bit and focuses on how these technologies interact. It gives you the vocabulary and knowledge on what to google for when you want to build a webpage or a web app. And, unlike many software books, it's short!",
-                "image": null,
-                "affiliate_link": "#"               
+                "image": "https://images-na.ssl-images-amazon.com/images/I/51LG73F5n6L._SX218_BO1,204,203,200_QL40_FMwebp_.jpg",
+                "affiliate_link": "https://amzn.to/3tlpih1"               
             },
             {
                 "name": "Deep Learning",
                 "type": "book",
                 "authors": ["Ian Goodfellow", "Yoshua Bengio", "Aaron Courville"],
                 "description": "A great introduction to deep learning written by some of the most cited people in that field. It is not overly long and it is free! I read it in full for my master thesis and I don't regret it; it taught me deep learning from scratch. Highly recommended.",
-                "image": null,
+                "image": "https://images-na.ssl-images-amazon.com/images/I/61qbj4KwauL._SX218_BO1,204,203,200_QL40_FMwebp_.jpg",
                 "link": "https://www.deeplearningbook.org/"               
             }
         ]
@@ -190,59 +191,64 @@
                 "type": "book",
                 "authors": ["Barbara Oakley"],
                 "description": "A must read for anyone who want to learn well. It is directed specifically towards science students. It's an explanation of how your brain processes knowledge and solves problems. Additionally, it contains tons of testimonials from people who thought couldn't learn anything but eventually succeeded in gaining the desired knowledge. This book allowed me to score 1.0 grade average during my master's degree (the highest one can get in German grading system). Please, read it!",
-                "image": null,
-                "affiliate_link": "#"
+                "image": "https://m.media-amazon.com/images/I/416sdFXxqJL.jpg",
+                "affiliate_link": "https://amzn.to/3imRQQO"
             },
             {
                 "name": "Deep Work",
                 "type": "book",
                 "authors": ["Cal Newport"],
                 "description": "I could treat this book as my personal work manifesto. When I'm working, I value focus above anything else. This book is not as much a handbook but more of a praise of focus and its value in the world. Since Cal Newport is a computer scientist, I think every programmer or engineering student will find this book extremely inspiring.",
-                "image": null,
-                "affiliate_link": "#"
+                "image": "https://m.media-amazon.com/images/I/51EJRm2IHOL.jpg",
+                "affiliate_link": "https://amzn.to/3Jrsu02"
             },
             {
                 "name": "Getting Things Done",
                 "type": "book",
                 "authors": ["David Allen"],
-                "description": "If you want to know how to handle any project in your life, read this book and just this one. I haven't read any other book on time management and I don't feel the need to. This book just solves the problem. In short: everything in your life is just a list of next steps 😉"
+                "description": "If you want to know how to handle any project in your life, read this book and just this one. I haven't read any other book on time management and I don't feel the need to. This book just solves the problem. In short: everything in your life is just a list of next steps 😉",
+                "image": "https://m.media-amazon.com/images/I/51bGhYfO9KL.jpg",
+                "affiliate_link": "https://amzn.to/3N1lFEP"
             },
             {
                 "name": "The Power of Habit",
                 "type": "book",
                 "authors": "Charles Duhigg",
                 "description": "The book that brought the effectiveness of habits to public attention. It is more of an explanatory book: it shows you how habits work and what can they help you achieve. But if you really want to master habits in your personal life to level up your game, I recommend you read the next book...",
-                "image": null,
-                "affiliate_link": "#"
+                "image": "https://images-na.ssl-images-amazon.com/images/I/517FwF49v+L._SY344_BO1,204,203,200_.jpg",
+                "affiliate_link": "https://amzn.to/3uaM2zB"
             },
             {
                 "name": "Atomic Habits",
                 "type": "book",
                 "authors": ["James Clear"],
                 "description": "This is an incredibly pleasant to read manual to programming your brain. It instructs you incredibly well how to induce good habits in your life and how to eliminate the bad ones. It helped me to improve in my health, relationships, and business. Highly recommended.",
-                "image": null,
-                "affiliate_link": "#"
+                "image": "https://images-na.ssl-images-amazon.com/images/I/51-uspgqWIL._SX329_BO1,204,203,200_.jpg",
+                "affiliate_link": "https://amzn.to/34ZG5gk"
             },
             {
-                "name": "Essentialist",
+                "name": "Essentialism",
                 "type": "book",
+                "authors": ["Greg McKeown"],
                 "description": "Another book that I would like to make my manifesto (I'm still a non-essentialist unfortunately!). Do you feel like there's too much to do? Do you feel stretched between various responsibilities, hobbies, and relationships? Are you tired of making microscopic steps in thousands of directions? Then read this book. I already did, twice.",
-                "image": null,
-                "affiliate_link": "#"
+                "image": "https://images-na.ssl-images-amazon.com/images/I/41U831OHkJL._SX322_BO1,204,203,200_.jpg",
+                "affiliate_link": "https://amzn.to/3N4FbQM"
             },
             {
-                "name": "One Thing",
+                "name": "The ONE Thing",
                 "type": "book",
+                "authors": ["Gary Keller", "Jay Papasan"],
                 "description": "A little bit similar in topic to \"Essentialist\", you will find more concrete advice how to focus on your ONE thing and make progress. The recurring theme of the two books is that we shouldn't try to do all and please everyone. If you feel guilty about saying no or want to master a certain task, read this book. It's not about doing more!",
-                "image": null,
-                "affiliate_link": "#"
+                "image": "https://images-na.ssl-images-amazon.com/images/I/31emFJveEWL._SY291_BO1,204,203,200_QL40_FMwebp_.jpg",
+                "affiliate_link": "https://amzn.to/3tnEieg"
             },
             {
                 "name": "The Millionaire Fastlane",
                 "type": "book",
+                "authors": ["MJ DeMarco"],
                 "description": "The best book on how to get rich. After reading a lot of books on the topic of personal finance, I was laughing, when this book teared apart all of them, one by one. Getting rich is not easy but if you want to do it, this is your guide (I belive). If I'm every a millionaire, I will recommend this book wholeheartedly. Right now, I can only say that it's one of the best from the ones I've read.",
-                "image": null,
-                "affiliate_link": "#"
+                "image": "https://m.media-amazon.com/images/I/511GNjQIDxL.jpg",
+                "affiliate_link": "https://amzn.to/3wgII8F"
             }
         ]
     },
@@ -255,8 +261,8 @@
                 "type": "book",
                 "authors": ["J. K. Rowling"],
                 "description": "My favorite book series of all time. I can always go back and read it again. It's also good to read in a foreign language for learning purposes.",
-                "image": null,
-                "affiliate_link": "#"
+                "image": "https://images-na.ssl-images-amazon.com/images/I/51HSkTKlauL._SY291_BO1,204,203,200_QL40_FMwebp_.jpg",
+                "affiliate_link": "https://amzn.to/3JtolsK"
             },
             {
                 "name": "Little Nicholas",
@@ -264,39 +270,39 @@
                 "authors": ["Rene Goscinny", "with illustrations by Jean-Jacques Sempé."],
                 "description": "The funniest book series I've ever read. I don't know how they sound in English but in Polish and Spanish they are hilarious.",
                 "image": "https://images-na.ssl-images-amazon.com/images/I/51G-kodL-mL._SY291_BO1,204,203,200_QL40_FMwebp_.jpg",
-                "affiliate_link": "#"
+                "affiliate_link": "https://amzn.to/3wl5oVm"
             },
             {
                 "name": "Artemis Fowl",
                 "type": "book",
                 "authors": ["Eoin Colfer"],
                 "description": "Books about a genius boy, involving a lot of abstract high-tech and programming. Could this have been the book that got me into writing code?",
-                "image": null,
-                "affiliate_link": "#"
+                "image": "https://images-na.ssl-images-amazon.com/images/I/61tjtK+Ip9L._SY498_BO1,204,203,200_.jpg",
+                "affiliate_link": "https://amzn.to/34SV4sa"
             },
             {
                 "name": "Dune",
                 "type": "book",
                 "authors": ["Frank Herbert"],
-                "description": "The most impressive science-fiction/fantasy book I've read. Closely behind is \"Hyperion\" by Dan Simmons.",
-                "image": null,
-                "affiliate_link": "#"
+                "description": "The most impressive science-fiction/fantasy book I've read. Closely behind is \"Hyperion\" by Dan Simmons. I have put the Polish edition cover here because it's one of the most beautiful book covers I've ever seen.",
+                "image":"https://bigimg.taniaksiazka.pl/images/popups/AC8/9788381884471.jpg",
+                "affiliate_link": "https://amzn.to/3tnM3kv"
             },
             {
                 "name": "Solaris",
                 "type": "book",
                 "authors": ["Stanisław Lem"],
                 "description": "A book that is science fiction only on the surface. Below there's so much more... Like Inception 😉",
-                "image": null,
-                "affiliate_link": "#"
+                "image": "https://images-na.ssl-images-amazon.com/images/I/31d1DpgbLfL._SY291_BO1,204,203,200_QL40_FMwebp_.jpg",
+                "affiliate_link": "https://amzn.to/3IiFh3C"
             },
             {
                 "name": "The Song of Ice and Fire",
                 "type": "book",
                 "authors": ["George R. R. Martin"],
                 "description": "A great mixture of fantasy and politics... I doubt I need to describe it 😅",
-                "image": null,
-                "affiliate_link": "#"
+                "image": "https://images-na.ssl-images-amazon.com/images/I/51DGe0uFHCL._SY291_BO1,204,203,200_QL40_FMwebp_.jpg",
+                "affiliate_link": "https://amzn.to/37yjS9Q"
             }
         ]
     }
