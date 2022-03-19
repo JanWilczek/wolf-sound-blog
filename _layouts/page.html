@@ -25,13 +25,15 @@ layout: default
 
   <div class="container">
     <div class="row">
-      <div class="col-lg-8 col-md-10 mx-auto">
+      <div class="col mx-auto px-2">
 
         {{ content }}
 
       </div>
       
-      {% include sidebar.html %}
+      <div class="col col-sm-12 col-lg-4">
+        {% include sidebar.html %}
+      </div>
 
     </div>
   </div>
