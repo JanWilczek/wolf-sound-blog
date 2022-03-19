@@ -7,25 +7,16 @@
 }
   
   #sidebar {
-    // $sidebar-width: 340px;
-    // min-width: $sidebar-width;
-    // max-width: $sidebar-width;
     transition: all 0.3s;
     position: relative;
     z-index: 0;
-    // font-size: 1rem;
     border-left: 1px solid rgba(0,0,0,.05);
-    &.active{
-        // margin-left: -270px;
-    }
 
     .row {
         padding: 0px 10px 0px 10px;
     }
 
-    // $short-bio-font-size: 14px;
     .short-bio {
-        // font-size: $short-bio-font-size;
         img {
             width: 100px;
             padding-right: -20px;
@@ -47,7 +38,6 @@
 
         .btn {
             padding: 5px;
-            // font-size: $short-bio-font-size;
         }
     }
 
@@ -70,8 +60,6 @@
     }
 
     .newsletter-form {
-        // font-size: $short-bio-font-size;
-
         ul {
             list-style-type: disc;
             list-style-position: outside;
@@ -90,7 +78,6 @@
       padding-inline-start: 0px;
       list-style-type: none;
       li{
-        //   font-size: 16px; // Check this line
           .row {
               margin: 0px;
               padding: 0px;
@@ -140,7 +127,7 @@
               position: relative;
               i{
                   margin-right: -40px;
-                //   font-size: 14px;
+                  font-size: 14px;
               }
               &.btn-primary{
                   background: transparent;
@@ -216,7 +203,7 @@
           border-radius: 0;
           color: $body-text-color;
           border: 1px solid #ccc;
-        //   font-size :11px;
+          font-size: .75rem;
           &:hover {
               border-color:$primary;
               background: $primary;
