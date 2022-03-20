@@ -38,9 +38,17 @@ description: "Resources recommended by WolfSound for learning audio programming"
         Hereby, I disclose that I am an Amazon Associate. As an Amazon Associate I earn from qualifying purchases. Links below may be affiliate links. That means that I may earn a commission if you decide to make a purchase. This does not incur any cost for you. Thanks to these affiliate contributions, I am able to run the site and provide you with new, high-quality content. Thank you. 
     </p>
 
+    <h2>Jump to Category</h2>
+
+    <ol>
+        {% for category in site.data.resources.all_resources %}
+        <li><a href="#{{ category.category | slugify }}">{{ category.category }}</a></li>
+        {% endfor %}
+    </ol>
+
     {% for category in site.data.resources.all_resources %}
     <hr/>
-    <h2>{{ category.category }}</h2>
+    <h2 id="{{ category.category | slugify }}">{{ category.category }}</h2>
     <hr/>
 
     {% if category.description %}
