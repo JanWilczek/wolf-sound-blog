@@ -59,10 +59,10 @@ description: "Resources recommended by WolfSound for learning audio programming"
             </p>
             <div class="resource-btn-container">
             {% if resource.affiliate_link %}
-                <button class="btn btn-primary resource-btn" href="{{ resource.affiliate_link }}">See on Amazon.com</button>
+                <a class="btn btn-primary resource-btn" target="_blank" href="{{ resource.affiliate_link }}">See on Amazon.com</a>
             {% endif %}
             {% if resource.link %}
-                <button class="btn btn-primary resource-btn" href="{{ resource.link }}">See online</button>
+                <a class="btn btn-primary resource-btn" target="_blank" href="{{ resource.link }}">See online</a>
             {% endif %}
             </div>
         </div>
