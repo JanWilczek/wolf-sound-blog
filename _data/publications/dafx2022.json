@@ -132,7 +132,8 @@
             "modeled_device": "diode2_clipper",
             "name": "Second-Order Diode Clipper",
             "sampling_rates": [
-                22050
+                22050,
+                44100
             ],
             "examples": [
                 {
