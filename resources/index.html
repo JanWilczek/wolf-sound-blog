@@ -1,0 +1,95 @@
+---
+layout: resources
+title: Resources
+description: "Resources recommended by WolfSound for learning audio programming"
+---
+<article>
+    <p>
+        Here are my recommended resources for mastering audio programming (and some other areas of life). All the
+        products on this page were thoroughly tested by me, and I found them <strong>incredibly</strong> useful.
+    </p>
+
+    <p>
+        Before we dive into it, let me just say that if you truly want to learn audio programming, the best way I know to do it is to <a href="{% link newsletter.md %}" target="_blank">subscribe to my newsletter</a>. In this way, you'll have regular and instant access to the most valuable materials on audio programming fundamentals and advanced techniques.
+    </p>
+
+    <p>
+        With this out of the way, I need to stress 2 points about this list:
+    </p>
+    <ol>
+        <li><strong>This is my personal "top" list.</strong> I haven't read all the books that exist on audio programming, therefore I cannot say that these are the best books overall. They are the best books I know personally.</li>
+        <li><strong>This is my personal "top" list.</strong> 😉 If you disagree with my opinion, then please, share it in the comments below! Other readers will benefit from a diversity of opinions.</li>
+    </ol>
+
+    <p>
+        Where possible, I have included links to legal, free versions of the mentioned books.
+    </p>
+
+    <p>
+        If you have any questions to these resources, feel free to ask a comment in the comment section at the bottom of
+        the page.
+    </p>
+
+    <p>
+        Additionally, if you benefited from these products yourself, please, let everyone know as well!
+    </p>
+
+    <p class="text-muted font-italic">
+        Hereby, I disclose that I am an Amazon Associate. As an Amazon Associate I earn from qualifying purchases. Links below may be affiliate links. That means that I may earn a commission if you decide to make a purchase. This does not incur any cost for you. Thanks to these affiliate contributions, I am able to run the site and provide you with new, high-quality content. Thank you. 
+    </p>
+
+    <h2>Jump to Category</h2>
+
+    <ol>
+        {% for category in site.data.resources.all_resources %}
+        <li><a href="#{{ category.category | slugify }}">{{ category.category }}</a></li>
+        {% endfor %}
+    </ol>
+
+    {% for category in site.data.resources.all_resources %}
+    <hr/>
+    <h2 id="{{ category.category | slugify }}">{{ category.category }}</h2>
+    <hr/>
+
+    {% if category.description %}
+    <p>{{ category.description }}</p>
+    {% endif %}
+
+    <div class="card-columns resource-card-columns">
+        {% for resource in category.resources %}
+        <div class="card resource-card">
+            {% if resource.image  %}
+                <a href="{{ resource.affiliate_link | default: resource.link | default: '#' }}" target="_blank">
+                    <div class="card-img-top bg-transparent"><img class="resource-img" src="{{ resource.image }}" alt="{{ resource.tite }} cover" /></div>
+                </a>
+            {% endif %}
+            <a href="{{ resource.affiliate_link | default: resource.link | default: '#' }}" target="_blank">
+                <h4 class="card-title resource-title">{{ resource.name }}</h4>
+            </a>
+            {% if resource.authors %}
+                <div class="card-subtitle">
+                <h5 class="resource-authors">by</h5>
+                {% for author in resource.authors %}
+                    <h5 class="resource-authors">{{ author }}</h5>
+                {% endfor %}
+                </div>
+            {% endif %}
+            <p class="card-text resource-description">
+                {{ resource.description }}
+            </p>
+            <div class="resource-btn-container">
+            {% if resource.affiliate_link %}
+                <a class="btn btn-primary resource-btn" target="_blank" href="{{ resource.affiliate_link }}">See on Amazon.com</a>
+            {% endif %}
+            {% if resource.link %}
+                <a class="btn btn-primary resource-btn" target="_blank" href="{{ resource.link }}">See online</a>
+            {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% endfor %}
+
+    {% include affiliate-disclaimer.html %}
+
+</article>

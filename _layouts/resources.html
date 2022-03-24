@@ -23,15 +23,17 @@ layout: default
     </div>
   </header>
 
-  <div class="container">
+  <div class="container-xl px-4">
     <div class="row">
       <div class="col mx-auto px-2">
 
         {{ content }}
 
+        {% include talkyard-comments.html %}
+
       </div>
       
-      <div class="col-sm-12 col-xl-4">
+      <div class="col-sm-12 col-xl-3">
         {% include sidebar.html %}
       </div>
 

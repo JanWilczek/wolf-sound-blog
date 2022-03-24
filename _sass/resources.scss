@@ -1,0 +1,51 @@
+.resource-card-columns {
+    column-gap: .5rem;
+
+    @media (min-width: 576px) {
+        column-count: 2;
+    }
+    
+    @media (min-width: 1200px) {
+        column-count: 3;
+    }
+
+    @media (min-width: 1800px) {
+        column-count: 4;
+    }
+}
+
+.resource-card {
+    padding: 5%;
+}
+
+.resource-img {
+    width: 100%;
+    max-width: 200px;
+    margin-bottom: .75rem;
+}
+
+.resource-btn-container {
+    width: 100%;
+    padding: 0%;
+    align-content: center;
+}
+
+.resource-btn {
+    width: 100%;
+}
+
+.resource-title {
+    font-weight: 600;
+    font-size: 1.25rem;
+}
+
+.resource-authors {
+    margin-bottom: .4rem;
+    line-height: 1;
+    font-weight: 400;
+    font-size: 1rem;
+}
+
+.resource-description {
+    margin: 15px 0px;
+}
