@@ -180,12 +180,12 @@
                             "filename": "Bass2_input_normalized.flac"
                         },
                         {
-                            "name": "LSTM16",
-                            "filename": "Bass2_LSTM16_normalized.flac"
-                        },
-                        {
                             "name": "Target",
                             "filename": "Bass2_target_normalized.flac"
+                        },
+                        {
+                            "name": "LSTM16",
+                            "filename": "Bass2_LSTM16_normalized.flac"
                         },
                         {
                             "name": "STN2x30",
@@ -221,8 +221,28 @@
                             "filename": "Guitar1_target_normalized.flac"
                         },
                         {
+                            "name": "LSTM16",
+                            "filename": "Guitar1_LSTM16_normalized.flac"
+                        },
+                        {
                             "name": "STN2x30",
                             "filename": "Guitar1_STN2x30_normalized.flac"
+                        },
+                        {
+                            "name": "ODENet20(RK4)",
+                            "filename": "Guitar1_ODENet20(RK4)_normalized.flac"
+                        },
+                        {
+                            "name": "ODENet30(FE)",
+                            "filename": "Guitar1_ODENet30(FE)_normalized.flac"
+                        },
+                        {
+                            "name": "ODENet30(TR)",
+                            "filename": "Guitar1_ODENet30(TR)_normalized.flac"
+                        },
+                        {
+                            "name": "ODENet30(RK4)",
+                            "filename": "Guitar1_ODENet30(RK4)_normalized.flac"
                         }
                     ]
                 },
@@ -238,8 +258,28 @@
                             "filename": "Guitar2_target_normalized.flac"
                         },
                         {
+                            "name": "LSTM16",
+                            "filename": "Guitar2_LSTM16_normalized.flac"
+                        },
+                        {
                             "name": "STN2x30",
                             "filename": "Guitar2_STN2x30_normalized.flac"
+                        },
+                        {
+                            "name": "ODENet20(RK4)",
+                            "filename": "Guitar2_ODENet20(RK4)_normalized.flac"
+                        },
+                        {
+                            "name": "ODENet30(FE)",
+                            "filename": "Guitar2_ODENet30(FE)_normalized.flac"
+                        },
+                        {
+                            "name": "ODENet30(TR)",
+                            "filename": "Guitar2_ODENet30(TR)_normalized.flac"
+                        },
+                        {
+                            "name": "ODENet30(RK4)",
+                            "filename": "Guitar2_ODENet30(RK4)_normalized.flac"
                         }
                     ]
                 }
