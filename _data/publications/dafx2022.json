@@ -133,7 +133,8 @@
             "name": "Second-Order Diode Clipper",
             "sampling_rates": [
                 22050,
-                44100
+                44100,
+                48000
             ],
             "examples": [
                 {
