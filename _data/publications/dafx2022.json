@@ -147,8 +147,28 @@
                             "filename": "Bass1_target_normalized.flac"
                         },
                         {
+                            "name": "LSTM16",
+                            "filename": "Bass1_LSTM16_normalized.flac"
+                        },
+                        {
                             "name": "STN2x30",
                             "filename": "Bass1_STN2x30_normalized.flac"
+                        },
+                        {
+                            "name": "ODENet20(RK4)",
+                            "filename": "Bass1_ODENet20(RK4)_normalized.flac"
+                        },
+                        {
+                            "name": "ODENet30(FE)",
+                            "filename": "Bass1_ODENet30(FE)_normalized.flac"
+                        },
+                        {
+                            "name": "ODENet30(TR)",
+                            "filename": "Bass1_ODENet30(TR)_normalized.flac"
+                        },
+                        {
+                            "name": "ODENet30(RK4)",
+                            "filename": "Bass1_ODENet30(RK4)_normalized.flac"
                         }
                     ]
                 },
@@ -160,12 +180,32 @@
                             "filename": "Bass2_input_normalized.flac"
                         },
                         {
+                            "name": "LSTM16",
+                            "filename": "Bass2_LSTM16_normalized.flac"
+                        },
+                        {
                             "name": "Target",
                             "filename": "Bass2_target_normalized.flac"
                         },
                         {
                             "name": "STN2x30",
                             "filename": "Bass2_STN2x30_normalized.flac"
+                        },
+                        {
+                            "name": "ODENet20(RK4)",
+                            "filename": "Bass2_ODENet20(RK4)_normalized.flac"
+                        },
+                        {
+                            "name": "ODENet30(FE)",
+                            "filename": "Bass2_ODENet30(FE)_normalized.flac"
+                        },
+                        {
+                            "name": "ODENet30(TR)",
+                            "filename": "Bass2_ODENet30(TR)_normalized.flac"
+                        },
+                        {
+                            "name": "ODENet30(RK4)",
+                            "filename": "Bass2_ODENet30(RK4)_normalized.flac"
                         }
                     ]
                 },
