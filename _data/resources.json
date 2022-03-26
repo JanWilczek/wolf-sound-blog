@@ -138,7 +138,7 @@
                 "name": "The Pragmatic Programmer",
                 "type": "book",
                 "authors": ["David Thomas", "Andrew Hunt"],
-                "description": "I've read the original edition of this book from the 90s; now, there is an updated \"20th anniversary edition\". I wouldn't say it is a must-read; it rather contains some interesting ideas. The ones that stuck in my mind were: the boy-scout rule, the DRY rule, and the tracer bullets idea. As a fun fact, the book stated that there were only two editors worth considering: emacs and vim. At the point when I read it, I hadn't heard about any of them!",
+                "description": "I've read the original edition of this book from the 90s; now, there is an updated \"20th anniversary edition\". I wouldn't say it is a must-read; it rather contains some interesting ideas. The ones that stuck in my mind were the DRY rule, and the tracer bullets idea. As a fun fact, the book stated that there were only two editors worth considering: emacs and vim. At the point when I read it, I hadn't heard about any of them!",
                 "image": "https://images-na.ssl-images-amazon.com/images/I/51W1sBPO7tL._SX218_BO1,204,203,200_QL40_FMwebp_.jpg",
                 "affiliate_link": "https://amzn.to/3KYhJ5I"
             },
