@@ -33,7 +33,7 @@ categories:
 tags:
   - quantization
   - sample rate
-  - sampling (A/C conversion)
+  - sampling (A/D conversion)
 discussion_id: 2019-11-19-how-to-represent-digital-sound-sampling-sampling-rate-quantization
 ---
 To process the audio signal, we need to somehow represent it on our machine. Several different options are possible, but the most common and useful one for sound processing is the discrete sample representation. That&#8217;s where the concepts of sampling and quantization come into play.
