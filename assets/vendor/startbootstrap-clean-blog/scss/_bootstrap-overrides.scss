@@ -19,37 +19,9 @@
     background-color: darken($primary, 7.5) !important;
     border-color: darken($primary, 7.5) !important;
   }
-  &:hover,
-  &:focus {
-    box-shadow: 0 0 0 0.2rem $ws-grey !important;
-  }
-}
-
-.btn-outline-primary {
-  color: $primary;
-  background-color: transparent;
-  border-color: $primary;
-  &:hover,
-  &:focus,
-  &:active {
-    color: $white;
-    background-color: $primary !important;
-    border-color: darken($primary, 7.5) !important;
-  }
-  &:focus {
-    box-shadow: 0 0 0 0.2rem $ws-grey !important;
-  }
-  &:focus:active {
-    background-color: darken($primary, 7.5) !important;
-    box-shadow: 0 0 0 0.2rem $ws-grey !important;
-  }
 }
 
 .btn-lg {
   font-size: 16px;
   padding: 25px 35px;
-}
-
-.btn-group {
-  flex-wrap: wrap;
 }

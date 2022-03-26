@@ -38,6 +38,12 @@ gulp.task('vendor', function(cb) {
     ])
     .pipe(gulp.dest('./assets/vendor'))
 
+  // Trackswitch
+  gulp.src([
+      './node_modules/trackswitch/dist/**/*',
+  ])
+  .pipe(gulp.dest('./assets/vendor/trackswitch'))
+
   cb();
 
 });
