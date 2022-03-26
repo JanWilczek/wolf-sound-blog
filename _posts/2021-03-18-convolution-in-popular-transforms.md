@@ -23,7 +23,7 @@ How does the convolution relate to the most popular transforms in signal process
 
 The *convolution property* appears in at least in three very important transforms: the Fourier transform, the Laplace transform, and the $z$-tranform. These are the most often used transforms in continuous and discrete signal processing, so understanding the significance of convolution in them is of great importance to every engineer. In this article the definitions of the aforementioned transforms are presented, followed by their respective convolution property versions with their proofs.
 
-## The Convolution Series
+### The Convolution Series
 1. [Definition of convolution and intuition behind it]({% post_url 2020-06-20-the-secret-behind-filtering %})
 1. [Mathematical properties of convolution]({% post_url 2020-07-05-mathematical-properties-of-convolution %})
 1. **Convolution property of Fourier, Laplace, and z-transforms**
@@ -36,7 +36,7 @@ The *convolution property* appears in at least in three very important transform
 1. [Deconvolution: Inverse convolution]({% post_url 2021-07-23-deconvolution %})
 1. [Convolution in probability: Sum of independent random variables]({% post_url 2021-07-30-convolution-in-probability %})
 
-# Recap
+## Recap
 Let us briefly recap the definition of the discrete convolution
 $$ x[n] \ast h[n] = \sum_{k=-\infty}^{\infty} x[k] h[n - k], \quad n \in \mathbb{Z} \quad (1)$$
 and the continuous convolution
@@ -45,7 +45,7 @@ Here we assume that $x[n], h[n]$ are discrete-time, square-summable signals and 
 
 To understand these properties more easily, we can think of $h$ as a filter's impulse response and $x$ as an input signal to that filter. But I wouldn't like this intuition to cloud the bigger picture; these properties are much more general than this particular interpretation.
 
-# In Short
+## In Short
 The main takeaway from this article is that convolution in the time domain changes to multiplication (possibly with some additional constraints) in the transform domain. In particular,
 1. For the Fourier transform, $x(t) \ast h(t) \stackrel{\mathcal{F}}{\longleftrightarrow} X(j\omega)H(j\omega)$.
 1. For the Laplace transform, $x(t) \ast h(t) \stackrel{\mathcal{L}}{\longleftrightarrow} X(s)H(s)$ with the region of convergence (ROC) containing the intersection of $X(s)$'s ROC and $H(s)$'s ROC.
@@ -55,7 +55,7 @@ Analogously, convolution in the transform domain changes to multiplication in th
 
 The article explains these relations in detail and gives proofs of the corresponding convolution property versions.
 
-# Fourier Transform
+## Fourier Transform
 
 The Fourier transform is without a doubt the most important transform in signal processing. For a continuous signal $x(t)$ it is defined as follows [1, Eq. 4.25]
 
@@ -67,7 +67,7 @@ $$ x(t) \stackrel{\mathcal{F}}{\longleftrightarrow} X(j\omega). \quad (4) $$
 
 While $t$ is interpreted as continuous time, $\omega$ is interpreted as **angular frequency** with the unit of rad/s.
 
-## The Convolution Property
+### The Convolution Property
 The behavior of convolution under any of the three discussed transforms bears the name of the **convolution property**. When the following transforms exist
 
 $$ x(t) \stackrel{\mathcal{F}}{\longleftrightarrow} X(j\omega), \quad (5) $$
@@ -80,7 +80,7 @@ $$x(t) \ast h(t) \stackrel{\mathcal{F}}{\longleftrightarrow} X(j\omega)H(j\omega
 
 *Note: The same holds for the Fourier transform of discrete signals (not to be confused with the discrete Fourier transform). For details, see [2, p. 60].*
 
-### Proof
+#### Proof
 
 We can prove the convolution property by definining
 
@@ -96,7 +96,7 @@ $$  Y(j\omega) = \mathcal{F}\{y(t)\} = \int \limits_{-\infty}^{\infty} y(t) e^{-
     = \int \limits_{-\infty}^{\infty} x(\tau) e^{-j\omega \tau} d\tau H(j\omega) \\
     = X(j\omega) H(j\omega). \quad \Box$$
 
-### Application
+#### Application
 
 The convolution property of the Fourier transform has a number of practical applications, namely, it enables
 * fast convolution algorithms,
@@ -108,7 +108,7 @@ The convolution property of the Fourier transform has a number of practical appl
 
 Additionally, the convolution property makes the commutativity property from the [previous article]({% post_url 2020-07-05-mathematical-properties-of-convolution %}) immediately obvious, as the multiplication operands $X(j\omega)$ and $H(j\omega)$ can be exchanged.
 
-# Laplace transform
+## Laplace transform
 The Laplace transform is another frequently used transform even outside the field of engineering. For example, it plays an important role in solving differential equations. 
 
 The Laplace transform of $x(t)$ is defined as follows [1, Eq. 9.3]
@@ -121,7 +121,7 @@ The relationship between $x(t)$ and $X(s)$ is denoted by
 
 $$ x(t) \stackrel{\mathcal{L}}{\longleftrightarrow} X(s). \quad (10) $$
 
-## Convolution Property
+### Convolution Property
 When the following transforms exist
 
 $$ x(t) \stackrel{\mathcal{L}}{\longleftrightarrow} X(s), \quad s \in R_X, \quad (11) $$
@@ -134,13 +134,13 @@ $$x(t) \ast h(t) \stackrel{\mathcal{L}}{\longleftrightarrow} X(s)H(s), \quad s \
 
 where $R_{XH}$ denotes the region of convergence of the transform. It is guaranteed that $(R_X \cap R_H) \subseteq R_{XH}$, but $R_{XH}$ may be larger than just the intersection of the two ROCs. Note that convolution implicitly alters the region of convergence of both involed signals' transforms. 
 
-### Proof
+#### Proof
 By substituting $s = j\omega$ we can notice that the Fourier transform is a special case of the Laplace transform. As such, it is no surprise that the proof of the convolution property of the Laplace transform is analogous to the respective proof for the Fourier transform. Thus, refer back to that proof replacing $j\omega$ with $s$; the result is the same.
 
-### Application
+#### Application
 Without going into details, let me just mention that the convolution property of the Laplace transform plays an important role in the analysis of [linear time-invariant (LTI) systems](https://en.wikipedia.org/wiki/Linear_time-invariant_system).
 
-# Z-transform
+## Z-transform
 What the Laplace transform does for continuous-time systems, the $z$-transform does for discrete-time systems. System analysis is typically easier in the complex-frequency domain than directly in the time domain.
 
 The $z$-transform of a discrete signal $x[n]$ is defined as follows
@@ -153,7 +153,7 @@ Again, the relation between $x[n]$ and $X(z)$ is denoted by
 
 $$ x[n] \stackrel{\mathcal{Z}}{\longleftrightarrow} X(z), \quad z \in R_X. \quad (15)$$
 
-## Convolution Property
+### Convolution Property
 When the following transforms exist
 
 $$ x[n] \stackrel{\mathcal{Z}}{\longleftrightarrow} X(z), \quad z \in R_X, \quad (16) $$
@@ -166,7 +166,7 @@ $$x[n] \ast h[n] \stackrel{\mathcal{Z}}{\longleftrightarrow} X(z)H(z), \quad z \
 
 where $R_{XH}$ denotes the region of convergence of the transform. As in the case of the Laplace transform, it is guaranteed that $(R_X \cap R_H) \subseteq R_{XH}$, but $R_{XH}$ may be larger than the intersection of the two ROCs.
 
-### Proof
+#### Proof
 The proof of the convolution property is rather straightforward
 $$ \mathcal{Z}\{x[n] \ast h[n]\} = \sum \limits_{n=-\infty}^{\infty} (x \ast h)[n] z^{-n} \\
     = \sum \limits_{n=-\infty}^{\infty} \left(\sum \limits_{k=-\infty}^{\infty} x[k] h[n-k]\right) z^{-n} \\
@@ -174,10 +174,10 @@ $$ \mathcal{Z}\{x[n] \ast h[n]\} = \sum \limits_{n=-\infty}^{\infty} (x \ast h)[
     = \sum \limits_{k=-\infty}^{\infty} x[k] z^{-k} H(z) \\
     = X(z)H(z). \quad \Box$$
 
-# Summary
+## Summary
 In this article the convolution property of the Fourier, Laplace, and $z$-transform were shown along with their proofs. In general, convolution in the time domain corresponds to multiplication in the transform domain. Keep this simple rule in mind, and you'll be able to simplify or speed up your signal processing tasks at hand.
 
-# Bibliography
+## Bibliography
 
 [1] Alan V. Oppenheim, Alan S. Willsky, with S. Hamid *Signals and Systems*, 2nd Edition, Pearson 1997.
 

@@ -19,7 +19,7 @@ How to compute convolution fast for real-time applications?
 
 {% katexmm %}
 
-## The Convolution Series
+### The Convolution Series
 1. [Definition of convolution and intuition behind it]({% post_url 2020-06-20-the-secret-behind-filtering %})
 1. [Mathematical properties of convolution]({% post_url 2020-07-05-mathematical-properties-of-convolution %})
 1. [Convolution property of Fourier, Laplace, and z-transforms]({% post_url 2021-03-18-convolution-in-popular-transforms %})
@@ -34,7 +34,7 @@ How to compute convolution fast for real-time applications?
 
 {% capture _ %}{% increment equationId20210514  %}{% endcapture %}
 
-# Introduction
+## Introduction
 
 Sound engineering and Virtual Reality audio demand real-time performance. Convolutions are inherently embedded in their inner workings, e.g., in the form of finite impulse response (FIR) filtering for artificial reverberation. Convolution evaluated according to the definition is too slow to keep up and introduces audible latency. To mitigate this we reach out to the **fast convolution** methods.
 
@@ -54,11 +54,11 @@ In this article, we first show why the naive approach to the convolution is inef
      (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
-# Notation
+## Notation
 
 In software, the signals are always of finite length. Thus, we will denote a signal $x[n]$ of length $N_x$ by a fixed-size vector $\pmb{x} = [x[0], x[1], \dots, x[N_x-1]]$.
 
-# Naive implementation of convolution
+## Naive implementation of convolution
 
 We could implement the convolution between discrete-time signals $x$ and $h$ by implementing the definition directly [1]
 
@@ -72,14 +72,14 @@ This translates to the following code
 def naive_convolution(x, h):    
     """Compute the discrete convolution of two sequences"""
     
-    # Make x correspond to the longer signal
+    ## Make x correspond to the longer signal
     if len(x) < len(h):
         x, h = h, x
         
     M = len(x)
     N = len(h)
     
-    # Convenience transformations
+    ## Convenience transformations
     x = pad_zeros_to(x, M+2*(N-1))
     x = np.roll(x, N-1)
     
@@ -87,8 +87,8 @@ def naive_convolution(x, h):
     
     y = np.zeros(M+N-1)
 
-    # Delay h and calculate the inner product with the 
-    # corresponding samples in x
+    ## Delay h and calculate the inner product with the 
+    ## corresponding samples in x
     for i in range(len(y)):
         y[i] = x[i:i+N].dot(h)
         
@@ -96,7 +96,7 @@ def naive_convolution(x, h):
 {% endhighlight %}
 _Listing 1. Naive linear convolution._
 
-# FFT-based implementation
+## FFT-based implementation
 
 As we know from the [article on circular convolution]({% post_url 2021-05-07-circular-vs-linear-convolution %}), multiplication in the discrete-frequency domain is equivalent to circular convolution in the discrete-time domain. Element-wise multiplication of 2 vectors has time complexity $O(N)$. This is superior to $O(N^2)$ in case of the naive approach. The bottleneck of frequency-based convolution is the transformation to that domain, but it can be achieved in $O(N \log N)$ time, which is still better than $O(N^2)$. And so arises the FFT-based fast convolution (Figure 1).
 
@@ -138,37 +138,37 @@ Wrapping it all together
 def fft_convolution(x, h, K=None):
     Nx = x.shape[0]
     Nh = h.shape[0]
-    Ny = Nx + Nh - 1 # output length
+    Ny = Nx + Nh - 1 ## output length
 
-    # Make K smallest optimal
+    ## Make K smallest optimal
     if K is None:
         K = next_power_of_2(Ny)
 
-    # Calculate the fast Fourier transforms 
-    # of the time-domain signals
+    ## Calculate the fast Fourier transforms 
+    ## of the time-domain signals
     X = np.fft.fft(pad_zeros_to(x, K))
     H = np.fft.fft(pad_zeros_to(h, K))
 
-    # Perform circular convolution in the frequency domain
+    ## Perform circular convolution in the frequency domain
     Y = np.multiply(X, H)
 
-    # Go back to time domain
+    ## Go back to time domain
     y = np.real(np.fft.ifft(Y))
 
-    # Trim the signal to the expected length
+    ## Trim the signal to the expected length
     return y[:Ny]
 {% endhighlight %}
 _Listing 4. FFT-based fast convolution._
 
 Remember that the above algorithm is fast *algorithmically*. I am not claiming this code is maximally optimized 😉. It is provided for understanding and as a possible baseline implementation.
 
-# Block-based convolution
+## Block-based convolution
 
 FFT-based fast convolution is sufficiently fast for offline computation, but musical and virtual reality applications require real-time performance. In these applications, sound is usually processed in blocks of length 64, 128, 256, or more samples. If the signals to be convolved are longer than the block length, we need to adapt our methods so that we can convolve and output only partial results and handle incoming input.
 
 In this section, we will assume that the input signal is an infinite stream (e.g., a looped source replaying a sound file) that comes in blocks $\pmb{x}$ of $B$ samples, and $\pmb{h}$ is a FIR filter of length $N$. Such a set-up is called *unified input partitioning* because the input comes in blocks and the blocks are of equal size.
 
-## Overlap-Add Scheme
+### Overlap-Add Scheme
 
 The first idea to process the input in blocks is to convolve each incoming block with the full filter using FFT-based convolution, store the results of appropriately many past convolutions, and output sums of their subsequent parts in blocks of the same length as the input signal we process. This scheme can be seen in Figure 2.
 
@@ -181,7 +181,7 @@ Some important remarks concerning this methodology:
 
 * Overlap-Add operation to form the output block is much more difficult than it may seem from the scheme. One needs to store all the convolution results and then sum appropriate indices. This may incur high memory and time cost.
 
-### Implementation
+#### Implementation
 
 {% highlight python %}
 def overlap_add_convolution(x, h, B, K=None):
@@ -190,32 +190,32 @@ def overlap_add_convolution(x, h, B, K=None):
     M = len(x)
     N = len(h)
 
-    # Calculate the number of input blocks
+    ## Calculate the number of input blocks
     num_input_blocks = np.ceil(M / B).astype(int)
 
-    # Pad x to an integer multiple of B
+    ## Pad x to an integer multiple of B
     xp = pad_zeros_to(x, num_input_blocks*B)
 
-    # Your turn ...
+    ## Your turn ...
     output_size = num_input_blocks * B + N - 1
     y = np.zeros((output_size,))
     
-    # Convolve all blocks
+    ## Convolve all blocks
     for n in range(num_input_blocks):
-        # Extract the n-th input block
+        ## Extract the n-th input block
         xb = xp[n*B:(n+1)*B]
 
-        # Fast convolution
+        ## Fast convolution
         u = fft_convolution(xb, h, K)
 
-        # Overlap-Add the partial convolution result
+        ## Overlap-Add the partial convolution result
         y[n*B:n*B+len(u)] += u
 
     return y[:M+N-1]
 {% endhighlight %}
 _Listing 5. Overlap-Add convolution._
 
-## Overlap-Save Scheme
+### Overlap-Save Scheme
 
 A significant drawback of the Overlap-Add scheme is the necessity to store and sum the computed partial convolutions. Can we do better?
 
@@ -228,7 +228,7 @@ The entire scheme can be seen in Figure 3.
 ![]({{ page.images | absolute_url | append: "/overlap-save.png" }}){: width="700" }
 _Figure 3. Overlap-Save convolution scheme. Source: [1]._
 
-### Implementation
+#### Implementation
 
 {% highlight python %}
 def overlap_save_convolution(x, h, B, K=None):
@@ -240,39 +240,39 @@ def overlap_save_convolution(x, h, B, K=None):
     if K is None:
         K = max(B, next_power_of_2(N))
         
-    # Calculate the number of input blocks
+    ## Calculate the number of input blocks
     num_input_blocks = np.ceil(M / B).astype(int) \
                      + np.ceil(K / B).astype(int) - 1
 
-    # Pad x to an integer multiple of B
+    ## Pad x to an integer multiple of B
     xp = pad_zeros_to(x, num_input_blocks*B)
 
     output_size = num_input_blocks * B + N - 1
     y = np.zeros((output_size,))
     
-    # Input buffer
+    ## Input buffer
     xw = np.zeros((K,))
 
-    # Convolve all blocks
+    ## Convolve all blocks
     for n in range(num_input_blocks):
-        # Extract the n-th input block
+        ## Extract the n-th input block
         xb = xp[n*B:n*B+B]
 
-        # Sliding window of the input
+        ## Sliding window of the input
         xw = np.roll(xw, -B)
         xw[-B:] = xb
 
-        # Fast convolution
+        ## Fast convolution
         u = fft_convolution(xw, h, K)
 
-        # Save the valid output samples
+        ## Save the valid output samples
         y[n*B:n*B+B] = u[-B:]
 
     return y[:M+N-1]
 {% endhighlight %}
 _Listing 6. Overlap-Save convolution._
 
-# What If the Filter Is Long Too?
+## What If the Filter Is Long Too?
 
 If the filter we want to convolve the input with has also significant length (e.g., when it represents an impulse response of a large hall with a significant reverberation time), we may have to partition both, the input and the filter. These methods are called *partitioned convolution*.
 
@@ -283,7 +283,7 @@ Non-uniformly partitioned convolution is the current state of the art in artific
 ![]({{ page.images | absolute_url | append: "/nonuniformly-partitioned-convolution.png" }}){: width="700" }
 _Figure 4. Non-uniformly partitioned convolution scheme. Note the presence of frequency-domain delay lines. Source: [1]._
 
-# Summary
+## Summary
 
 In this article, we have reviewed the most important convolution algorithms:
 * naive linear convolution of fixed-length signals,
@@ -293,7 +293,7 @@ In this article, we have reviewed the most important convolution algorithms:
 
 With an understanding of these concepts you can rush off to code an unforgettable sonic Virtual Reality experience!
 
-# Bibliography
+## Bibliography
 
 [1] Frank Wefers *Partitioned convolution algorithms for real-time auralization*, PhD Thesis, Zugl.: Aachen, Techn. Hochsch., 2015.
 

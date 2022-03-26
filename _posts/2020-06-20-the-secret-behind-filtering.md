@@ -30,7 +30,7 @@ This article outlines the mathematical definition of the convolution and gives y
 
 Are you ready?
 
-## The Convolution Series
+### The Convolution Series
 1. **Definition of convolution and intuition behind it**
 1. [Mathematical properties of convolution]({% post_url 2020-07-05-mathematical-properties-of-convolution %})
 1. [Convolution property of Fourier, Laplace, and z-transforms]({% post_url 2021-03-18-convolution-in-popular-transforms %})
@@ -43,7 +43,7 @@ Are you ready?
 1. [Deconvolution: Inverse convolution]({% post_url 2021-07-23-deconvolution %})
 1. [Convolution in probability: Sum of independent random variables]({% post_url 2021-07-30-convolution-in-probability %})
 
-# Definition
+## Definition
 
 In its simplest form, the convolution between two discrete-time signals $x[n]$ and $h[n]$ can be expressed as an **infinite sum**
 
@@ -51,7 +51,7 @@ $$ x[n] \ast h[n] = \sum_{k=-\infty}^{\infty} x[k] h[n - k] = y[n], \quad n \in 
 
 Whoa, what's happened here? Under the sum we have the two signals, but the second one is not only **shifted in time by $n$** but also **time-reversed**!
 
-### Important assumptions
+#### Important assumptions
 
 In order to make this discussion feasible, we must enforce $x[n]$ and $h[n]$ to have *finite energy*. A signal $s[n]$ is said to have finite energy, if
 
@@ -61,11 +61,11 @@ i. e., $s[n]$ is square-summable.
 
 Additionally, we also assume that all considered signals $s[n]$ ($x[n], h[n], y[n]$, etc.) are 0 for negative time indices, i. e., $s[n] = 0 \quad \forall n < 0$.
 
-# Intuition
+## Intuition
 
 In order to get an intuition behind the convolution, we should look at it from different perspectives.
 
-## Filtering perspective
+### Filtering perspective
 
 Let's consider a generic filter with input $x[n]$, output $y[n]$, and impulse response $h[n]$ (Figure 1).
 
@@ -83,7 +83,7 @@ $$y[0] = \sum_{k=-\infty}^{\infty} x[k] h[0 - k] = \sum_{k=-\infty}^{\infty} x[k
 
 $$y[1] = \sum_{k=-\infty}^{\infty} x[k] h[1 - k] = x[0]h[1] + x[1]h[0].$$ As you can see, x[0] has moved "further down the road" (further into the filter's "buffer") and now constitutes the weight for $h[1]$ of filter's impulse response. At the same time $x[1]$ enters the "buffer" and (as $x[0]$ previously) weights $h[0]$. The operation repeats for every following input sample. $x[0]$ stops weighting filter's impulse response when it has weighted its last sample (unless it is an IIR filter which by definition has an infinite impulse response; then, $x[0]$ weights the filter's impulse response infinitely).
 
-## Delaying-and-summing perspective
+### Delaying-and-summing perspective
 
 We can also look at that operation from a different perspective. What if we fix $k$ in Equation 1? In this case, it describes the output of the system if only input sample $x[k]$ was given:
 
@@ -93,7 +93,7 @@ The above equation basically says, that once $x[k]$ enters the filter, it will w
 
 This may all get a little bit confusing at this moment, so let's look at an example, shall we?
 
-### Example
+#### Example
 
 Let's consider the following signal $x[n]$ of length 4, i. e., consisting of $x[0], x[1], x[2]$, and $x[3]$
 
@@ -146,20 +146,20 @@ Summing them all up (as if summing over $k$ in the convolution formula) we obtai
 _Figure 11. Summation of signals in Figures 6-9._
 what corresponds to the $y[n]$ signal above.
 
-# Continuous convolution
+## Continuous convolution
 Convolution is defined for continuous-time signals as well (notice the conventional use of round brackets for non-discrete functions)
 
 $$ x(t) \ast h(t) = \int \limits_{-\infty}^{\infty} x(\tau) h(t - \tau) d\tau.   \quad (4)$$
 
 Although it may not be as intuitive in interpretation as the discrete convolution, nevertheless, we could try to imagine the continuous case as an infinitely densely sampled discrete signal (so that the sum over discrete samples changes to an integral over continuous functions). But keep in mind that it is only an intuitive view not a mathematically strict interpretation.
 
-# Summary
+## Summary
 
 In this article, we introduced the mathematical operation of convolution, gave the justification for its form, and provided a little bit of intuition on how can we view the convolution from different angles. In the next articles we are going to study convolution more closely.
 
 Up next: [mathematical properties of convolution]({{"/mathematical-properties-of-convolution/" | absolute_url}})!.
 
-# Bibliography
+## Bibliography
 
 [1] [Convolution on Wikipedia](https://en.wikipedia.org/wiki/Convolution). Retrieved: 09.03.2021.
 

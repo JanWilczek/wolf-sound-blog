@@ -16,7 +16,7 @@ Can we invert the effect of convolution?
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/pGDfrj_uzdU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-## The Convolution Series
+### The Convolution Series
 1. [Definition of convolution and intuition behind it]({% post_url 2020-06-20-the-secret-behind-filtering %})
 1. [Mathematical properties of convolution]({% post_url 2020-07-05-mathematical-properties-of-convolution %})
 1. [Convolution property of Fourier, Laplace, and z-transforms]({% post_url 2021-03-18-convolution-in-popular-transforms %})
@@ -33,7 +33,7 @@ Can we invert the effect of convolution?
 
 {% capture _ %}{% increment equationId20210723  %}{% endcapture %}
 
-# Deconvolution Definition
+## Deconvolution Definition
 
 Given the output of the convolution operation $y[n]$
 
@@ -51,17 +51,17 @@ This article contains a brief description of various methods used to accomplish 
 
 But before I give you a tour of the deconvolution methods, I will present two vivid use cases of deconvolution to motivate the topic. 
 
-## Example Application of Non-Blind Deconvolution
+### Example Application of Non-Blind Deconvolution
 
 A simple example of deconvolution application is frequency response measurement of a loudspeaker. The excitation signal in this case cannot be an impulse because it could damage the loudspeaker. A fairly often used option is to use an exponential sweep: a signal whose frequency rises exponentially over time. Having recorded the response of a loudspeaker to the exponential sweep excitation, we need to deconvolve it to obtain just the loudspeaker's impulse response. The loudspeaker is our unknown $h[n]$, $x[n]$ is the exponential sweep, and $y[n]$ is the recorded response. Thus, it is a system identification problem.
 
-## Example Application of Blind Deconvolution
+### Example Application of Blind Deconvolution
 
 Imagine a smart home system. Whenever one of the users (residents) speaks up, the system needs to record that speech, perform automatic speech recognition, understand the message conveyed by speech, and ultimately decide what action to take. All these tasks are significantly more dificult when the recorded speech is reverberant, i.e., bears the impact of room acoustics. The system knows neither the speech utterance nor the room impulse response (which varies with user and smart device positions). Thus, it needs to use statistical or machine learning algorithms to infere which is which and improve the quality of the recorded speech.
 
 In this case, $x[n]$ is the speech signal, $h[n]$ is the room's impulse response, and $y[n]$ is the signal recorded by the smart device.
 
-# A Catalogue of Deconvolution Methods
+## A Catalogue of Deconvolution Methods
 
 What follows is a quick tour of some of the deconvolution approaches where either the input signal or the system (but not both) are known. If you are interested in the topic, you are welcome to follow the sources specified at the end.
 
@@ -72,7 +72,7 @@ Here's a navigable table of contents:
 1. [Wiener Filtering (Wiener Deconvolution)](#wiener-filtering-wiener-deconvolution)
 1. [Deconvolution Using Complex Cepstrum Liftering](#deconvolution-using-complex-cepstrum-liftering)
 
-## Deconvolution Using Frequency-Domain Division
+### Deconvolution Using Frequency-Domain Division
 
 As we know from the [convolution property of the $z$-transform]({% post_url 2021-03-18-convolution-in-popular-transforms %}), a convolution of time-domain signals is equivalent to multiplication of their $z$-transforms. Thus, why not try to deconvolve the signals in the $z$-domain?
 
@@ -92,7 +92,7 @@ There are two caveats to this approach:
 
 With that in mind, we can present two numerical software functions that use the above approach.
 
-### Deconvolution Functions in Numerical Software
+#### Deconvolution Functions in Numerical Software
 
 Deconvolution in numerical software is achieved through polynomial division in the $z$-domain, as in Equation (4).
 
@@ -115,7 +115,7 @@ signal = conv(divisor, quotient) + remainder
 
 Keep in mind the caveats above: if the divisor signal has zeros in its $z$-transform, then the application of the above functions will lead to noise amplification and, ultimately, worthless output.
 
-## Deconvolution Via (Pseudo-)Inverse of the Convolution Matrix
+### Deconvolution Via (Pseudo-)Inverse of the Convolution Matrix
 
 If we write the convolution in Equation (1) in a matrix form it should be easier for us to reason about it. First, let's write $x[n]$ in a vector form
 
@@ -152,7 +152,7 @@ Since there is no additive noise, we can obtain $\pmb{x}[n]$ or its estimate $\t
 
   where $\delta$ is a small constant added for numerical stability (so-called *Tikhonov regularization*). This is the solution of least squares minimization of the squared difference between the samples of $\pmb{y}[n]$ and $\mathbf{H}\pmb{x}[n]$.
 
-## Wiener Filtering (Wiener Deconvolution)
+### Wiener Filtering (Wiener Deconvolution)
 
 What if $y[n]$ in Equation (1) is not a perfect convolution of $x[n]$ and $h[n]$ but contains some additive noise? Such situations typically occur if $y[n]$ is measured and real-world phenomena influence the result. We could write it as 
 
@@ -176,7 +176,7 @@ I think of the quotient in Equation (14) as a fraction of the clean signal prese
 
 Surprisingly, I wasn't able to find the derivation of Equation 13; it probably can be found in the Wiener's original works from the 1940s.
 
-## Deconvolution Using Complex Cepstrum Liftering
+### Deconvolution Using Complex Cepstrum Liftering
 
 The *complex cepstrum* of a discrete signal $x[n]$ is defined as a stable sequence $\hat{x}[n]$ whose $z$-transform is [1]
 
@@ -207,31 +207,31 @@ Deconvolution via complex cepstrum liftering can be done, for example, to extrac
 
 Of course, typically $\hat{x}[n]$ and $\hat{h}[n]$ will overlap in the cepstral domain what makes the task more difficult and renders perfect deconvolution with this method impossible.
 
-<!-- # Linear Predictive Deconvolution -->
+<!-- Linear Predictive Deconvolution -->
 
-<!-- # Parametric Modeling -->
+<!-- Parametric Modeling -->
 
-<!-- # Linear Blind Deconvolution -->
+<!-- Linear Blind Deconvolution -->
 
-<!-- # Nonlinear Blind Deconvolution -->
+<!-- Nonlinear Blind Deconvolution -->
 
-<!-- # Iterative Approach To Deconvolution -->
+<!-- Iterative Approach To Deconvolution -->
 
-<!-- # Regularized Deconvolution -->
+<!-- Regularized Deconvolution -->
 
-<!-- # H1 Estimator -->
+<!-- H1 Estimator -->
 
-<!-- # Difference Between Deconvolution and Inverse Filtering -->
+<!-- Difference Between Deconvolution and Inverse Filtering -->
 
-<!-- # Applications -->
+<!-- Applications -->
 
-<!-- ## Image Processing -->
+<!-- Image Processing -->
 
-# Summary
+## Summary
 
 In this article, we discussed 4 deconvolution techniques out of which 1 works in the presence of noise. For further details, please refer to the sources below.
 
-# Bibliography
+## Bibliography
 
 [1] Alan V Oppenheim, Ronald W. Schafer *Discrete-Time Signal Processing*, 3rd Edition, Pearson 2010.
 
