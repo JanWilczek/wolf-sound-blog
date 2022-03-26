@@ -19,7 +19,7 @@ How to compute convolution using numerical software libraries?
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/9yVowuBuASQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-## The Convolution Series
+### The Convolution Series
 1. [Definition of convolution and intuition behind it]({% post_url 2020-06-20-the-secret-behind-filtering %})
 1. [Mathematical properties of convolution]({% post_url 2020-07-05-mathematical-properties-of-convolution %})
 1. [Convolution property of Fourier, Laplace, and z-transforms]({% post_url 2021-03-18-convolution-in-popular-transforms %})
@@ -38,7 +38,7 @@ Most often we won't be implementing convolution every time we need to use it. Th
 
 The most popular implementation of the convolution are `conv` from Matlab, `convolve` from NumPy, and `convolve` from SciPy. I won't be describing any C/C++ convolution implementations here.
 
-# 3 Modes of Convolution
+## 3 Modes of Convolution
 
 Before we dive into the specific functions, it is important to understand 3 different 'modes' the convolution can be calculated with.
 
@@ -52,7 +52,7 @@ and $y[n]$
 ![]({{ page.images | absolute_url | append: "/y.png" }}){: width="700" }
 _Figure 2. $y[n]$._
 
-## Full
+### Full
 
 'Full' is the mathematical implementation of convolution. Having signals of length $M$ and $N$, the 'full' mode returns a signal of length $M + N - 1$. At points where signals do not overlap, they are padded with zeros.
 
@@ -61,7 +61,7 @@ _Figure 3. 'Full' mode of the convolution._
 
 This is the default option for Matlab, NumPy, and SciPy.
 
-## Valid
+### Valid
 
 'Valid' mode does not use zero padding at all. The output is calculated only at positions where signals overlap completely. The result is a very short vector of length $\max(M, N) - \min(M, N) + 1$.
 
@@ -70,18 +70,18 @@ _Figure 4. 'Valid' mode of the convolution._
 
 Note that using this mode of convolution shrinks the output signal with each application [6].
 
-## Same
+### Same
 
 'Same' acts as an intermediate level between 'full' and 'valid'; it crops the middle part out of the 'full' mode. Its length is equal to the length of the longer signal (NumPy, SciPy) or the first signal given (Matlab). This approach comes in handy when we want to keep the size of the convolution output constant.
 
 ![]({{ page.images | absolute_url | append: "/xy_same.png" }}){: width="700" }
 _Figure 5. 'Same' mode of the convolution._
 
-# Convolution Functions
+## Convolution Functions
 
 Knowing the 3 modes, we can present now convolution functions of different numerical software libraries.
 
-## NumPy
+### NumPy
 
 `numpy.convolve` has the following signature
 
@@ -91,7 +91,7 @@ output = numpy.convolve(x, y, mode='full')
 
 `x` and `y` are 1-D-arrays and `mode` is a string containing the convolution mode name.
 
-## SciPy
+### SciPy
 
 `scipy.signal.convolve` has the following signature
 
@@ -112,7 +112,7 @@ scipy.signal.fftconvolve(x, y, mode='full', axes=None)
 scipy.signal.oaconvolve(x, y, mode='full', axes=None)
 ```
 
-## Matlab
+### Matlab
 
 Matlab's `conv` has the following signature
 
@@ -122,13 +122,13 @@ output = conv(x, y, shape) % shape is 'full' if not explicitly given
 
 `x` and `y` are 1-D, row or column vectors. For 2-D convolution, one may use `conv2` function, and for N-D convolution, there is `convn` function.
 
-# Summary
+## Summary
 
 In this article, we have discussed 3 modes of convolution: `full`, `valid`, and `same` and the implementations of convolution in NumPy, SciPy, and Matlab.
 
 Check out the references below for more details.
 
-# Bibliography
+## Bibliography
 
 [1] [`numpy.convolve` documentation](https://numpy.org/doc/stable/reference/generated/numpy.convolve.html)
 
