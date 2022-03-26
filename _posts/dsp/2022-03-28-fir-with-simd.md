@@ -1,6 +1,6 @@
 ---
 title: "Efficient FIR Filter Implementation with SIMD"
-description: "Speed up time-domain filtering via loop vectorization."
+description: "Speed up time-domain filtering via vectorization for virtual reality, computer games, and digital audio workstation plugins."
 date: 2022-03-28
 author: Jan Wilczek
 layout: post
@@ -20,6 +20,7 @@ discussion_id: 2022-03-28-fir-with-simd
 How to make your FIR filters fast in the time domain?
 
 {% katexmm %}
+{% capture _ %}{% increment equationId20220328  %}{% endcapture %}
 
 If you want to make any software execute as fast as possible, there are two ways in which you can achieve this:
 
@@ -78,7 +79,40 @@ We will now discuss these two strategies in detail.
 
 ## Preliminary Assumptions
 
-In order to facilit
+The [linear convolution formula]({% post_url 2020-06-20-the-secret-behind-filtering %}#definition) is
+
+$$ x[n] \ast h[n] = \sum_{k=-\infty}^{\infty} x[k] h[n - k] = y[n], \quad n \in \mathbb{Z}. \quad ({% increment equationId20220328  %})$$
+
+As you might guess, an infinite sum is not very practical. Additionally, reversing the time in the $h$ signal is quite problematic to think about in code. Therefore, we will make some assumptions, which, however, won't change the general nature of our discussion.
+
+### Finite-Length Signals
+
+We will assume that our signals are finite. This was of course true of $h$ but not necessarily of $x$.
+
+We will denote $x$'s length by $N_x$ and $h$'s length by $N_h$.
+
+### Time-Reversing the Filter Coefficients
+
+In practical real-time audio scenarios, like virtual reality, computer games, or digital audio workstations, we know $h$ but don't know $x$.
+
+Therefore, we can time-reverse $h$ right away and reason only about the reversed signal.
+
+In other words, we define signal $c$ of length $N_h$
+
+$$c[n] = h[N_h - n - 1], \quad n = 0, \dots, N_h - 1, \quad ({% increment equationId20220328  %}).$$
+
+**We assume that $c$ is 0 everywhere else.**
+
+### Practical Convolution Formula
+
+After introducing these two assumptions, we can rewrite the convolution formula from Equation 1 into 
+
+$$ y[n] = (x[n] \ast h[n])[n] \\= \sum_{k=0}^{N_h-1} x[n-N_h+1+k] c[k], \quad n = 0, \dots, N_x + N_h - 1. \quad ({% increment equationId20220328  %})$$
+
+As you will see, this will simplify our discussion significantly.
+
+## Naive Linear Convolution
+
 
 ## Loop vectorization
 
@@ -88,7 +122,6 @@ There are 3 types of loop vectorization in the context of FIR filtering:
 2. Outer loop vectorization,
 3. Outer and inner loop vectorization.
 
-## Naive Linear Convolution
 
 ## Inner loop vectorization
 
