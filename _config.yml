@@ -76,6 +76,7 @@ plugins:
   - jekyll-seo-tag
   - jekyll-paginate-v2
   - jekyll-katex
+  - jekyll-redirect-from
   
 katex:
   js_path: "assets/js/katex/" # Path used to search for katex.min.js
