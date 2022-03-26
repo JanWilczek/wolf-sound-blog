@@ -33,13 +33,13 @@ In this article, you will learn:
 
 In the follow-up articles, [an implementation of this technique in the Python programming language]({% post_url synthesis/2021-08-27-wavetable-synthesis-python %}), [the JUCE framework]({% post_url synthesis/2021-09-24-wavetable-synthesis-juce %}), and [the Rust programming language]({% post_url synthesis/2021-10-15-wavetable-synthesis-rust %}) are presented.
 
-# A Need for a Fast and Efficient Synthesis Method
+## A Need for a Fast and Efficient Synthesis Method
 
 *Computer-based sound synthesis is the art of generating sound through software.*
 
 In the early days of digital sound synthesis, sound was synthesised using specialized digital signal processing hardware. Later on, the community started using software for the same purposes but the underlying principles and algorithms remained the same. To obtain real-time performance capabilities with that technology, there was a great need to generate sound efficiently in terms of memory and processing speed. Thus, the wavetable technique was convceived: it is both fast and memory-inexpensive.
 
-# From Gesture to Sound
+## From Gesture to Sound
 
 The process of generating sound begins with a *musician*'s *gesture*. Let's put aside who a musician might be or what kind of gestures they perform. For the purpose of this article, a gesture could be as simple as pressing a key on a MIDI keyboard, clicking on a virtual keybord's key, or pressing a button on any controller device.
 
@@ -48,7 +48,7 @@ _Figure 1. In sound synthesis, a gesture of a musician controls the sound genera
 
 A gesture provides *control information*. In the case of pressing a key on a MIDI keyboard, control information would incorporate information on which key was pressed and how fast was it pressed (*velocity* of a keystroke). We can change the note number information into frequency $f$ and the velocity information into amplitude $A$. This information is sufficient to generate sound using most of the popular synthesis algorithms.
 
-# Sine Generator
+## Sine Generator
 
 Let's imagine that given frequency and amplitude information we want to generate a sine wave. The general formula of a sine waveform is
 
@@ -74,7 +74,7 @@ $$\sin(x) = x - \frac{x^3}{3!} + \frac{x^5}{5!} - \frac{x^7}{7!} \dots \quad ({%
 
 Above expansion is infinite, so on real-world hardware, it needs to be truncated at some point (after obtaining sufficient accuracy). Its advantage is, that it uses operations realizable in hardware (multiplication, division, addition, subtraction). Its disadvantage is that it involves **a lot** of these operations. If we need to produce 44100 samples per second and want to play a few hundred sines simultaneously (what is typical of additive synthesis), we need to be able to compute the $\sin$ function more efficiently than with Taylor expansion.
 
-# A Wave Table
+## A Wave Table
 
 A *wave table* is an array in memory in which we store a fragment of a waveform. A *waveform* is a plot of a signal over time. Thus, one period of a sine wave stored in memory looks as follows:
 
@@ -89,7 +89,7 @@ $$\frac{k}{L} = \frac{\theta}{2 \pi}. \quad ({% increment equationId20210813 %})
 
 The above equation tells us that there is a mapping between the values in the wave table and the values of the original waveform.
 
-# Computing a Waveform Value from the Wave Table
+## Computing a Waveform Value from the Wave Table
 
 Equation 5 holds for $\theta \in [0, 2\pi)$. If we want to calculate the values of arbitrary $x \in \mathbb{R}$, we need to remove the multiplicity of $2 \pi$ contained in $x$ to bring it to the $[0, 2\pi)$ range. In other words, if
 
@@ -103,7 +103,7 @@ $$k = \frac{\phi_x L}{2\pi}. \quad ({% increment equationId20210813 %})$$
 
 Now `waveTable[k]` should return the value of $\sin(x)$, right? There is one more step that we need...
 
-# What If $k$ Is Non-Integer?
+## What If $k$ Is Non-Integer?
 
 In most cases, $k$ computed in Equation 7 won't be an integer. It will rather be a floating-point number between some two integers denoting the wave table indices, i.e., $i <= k < i+1, \quad i \in \{0, \dots, L-1\}, k \in [0, L)$.
 
@@ -116,7 +116,7 @@ To make $k$ an integer, we have 3 options:
 
 Each recall of a wave table value is called a *wave table lookup*.
 
-# Wave Table Looping
+## Wave Table Looping
 
 We know how to efficiently compute a waveform's value for an arbitrary argument. In theory, given amplitude $A$, frequency $f$, and sampling rate $f_s$, we are able to evaluate Equation 3 for any integer $n$. Using different wave tables, we can obtain different waveforms. It means we can generate an arbitrary waveform at an arbitrary frequency! Now, how to implement it algorithmically?
 
@@ -126,7 +126,7 @@ $$\theta_\text{inc}(f) = 2 \pi f (n+1) / f_s - 2 \pi f n / f_s = 2 \pi f / f_s. 
 
 $\theta_\text{inc}(f)$ depends explicitly on $f$ (tone frequency) and implicitly on $f_s$ (which typically remains unchanged during processing so we can treat it as a constant). With $\theta_\text{inc}(f)$ we can initialize a `phase` variable to 0 and increment it by $\theta_\text{inc}(f)$ after generating each sample. When a key is pressed we reset `phase` to 0, calculate $\theta_\text{inc}(f)$ according to the pitch of the pressed key, and start producing the samples.
 
-## Index Increment
+### Index Increment
 
 Having the information on phase increment, we can calculate the *index increment*, i.e., how the index to the wave table changes with each sample.
 
@@ -136,11 +136,11 @@ When a key is pressed, we set an `index` variable to 0. For each sample, we incr
 
 When `index` exceeds the wave table size, we need to bring it back to the $[0, L)$ range. In implementation, we can keep subtracting $L$ as long as `index` is greater or equal to $L$ or we can use the `fmod` operation. This "index wrap" results from the *phase wrap* which we discussed below Equation 5; since the signal is periodic, we can shift its phase by the period without changing the resulting signal.
 
-## Phase Increment vs Index Increment
+### Phase Increment vs Index Increment
 
 Phase increment and index increment are two sides of the same coin. The former has a physical meaning, the latter has an implementational meaning. You can increment the phase and use it to calculate the index or you can increment the index itself. Index increment is more efficient because we don't need to perform the multiplication by $L$ and the division by $2\pi$ for each sample (Equation 7); we calculate only the increment when the instantaneous frequency changes. We'll therefore restrict ourselves to the implementations using the index increment.
 
-# Wavetable Synthesis Algorithm
+## Wavetable Synthesis Algorithm
 
 Below is a schematic of how wavetable synthesis using index increment works.
 
@@ -159,7 +159,7 @@ The output signal $y[n]$ is determined by the wave table used for the lookup and
 
 **We thus created a wavetable synthesizer!**
 
-# Oscillator
+## Oscillator
 
 The diagram in Figure 3 presents an *oscillator*. An oscillator is any unit capable of generating sound. It is typically depicted as a rectangle combined with a half-circle [3, 4] as in Figure 4. That symbol typically has an amplitude input A ($A[n]$ in Figure 3) and a frequency input $f$ (used to calculate $k_\text{inc}[n]$ in Figure 3). 
 
@@ -172,7 +172,7 @@ Oscillators are sometimes denoted using the VCO abbreviation, which stands for *
 
 Oscillators are the workhorse of sound synthesis. What is presented in Figure 3 is one realization of an oscillator but the oscillator itself is a more general concept. Wavetable synthesis is just one way of implementing an oscillator.
 
-# Sound Example: Sine
+## Sound Example: Sine
 
 Let's use a precomputed wave table with 64 samples of one sine period from Figure 2 to generate 5 seconds of a sine waveform at 440 Hz using 44100 Hz sampling rate.
 
@@ -187,7 +187,7 @@ _Figure 5. Magnitude frequency spectrum of a sine generated with wavetable synth
 
 Great! It sounds like a sine and we obtain just one frequency component. Everything as expected! Now, let's generate sound using a different wavetable, shall we?
 
-# Sound Example: Sawtooth
+## Sound Example: Sawtooth
 
 To generate a sawtooth, we use the same parameters as before just a different wave table:
 
@@ -220,7 +220,7 @@ How to fix aliasing for harmonic-rich waveforms? We can only increase the sampli
 
 The type of digital distortion seen in Figure 8 was typical of the early digital synthesizers of the 1980s. A lot of effort was put into the development of alternative algorithms to synthesize sound. The main focus was to obtain an algorithm that would produce partial-rich waveforms at low frequencies and partial-poor waveforms at high frequencies. These algorithms are sometimes called *antialiasing oscillators*. An example of such an oscillator can be found in ["Oscillator and Filter Algorithms for Virtual Analog Synthesis" paper by Vesa Välimäki and Antti Huovilainen](https://www.researchgate.net/publication/220386519_Oscillator_and_Filter_Algorithms_for_Virtual_Analog_Synthesis) [5].
 
-# Abstract Waveforms
+## Abstract Waveforms
 
 With wavetable synthesis we can use arbitrary wavetables. For example, in Figure 9, I summed 5 Gaussians, subtracted the mean and introduced a fade-in and fade-out.
 
@@ -240,7 +240,7 @@ _Figure 10. Magnitude frequency spectrum of a 110 Hz sound generated from an abs
 
 As we can see, it decays quite nicely, so no audible aliasing is present.
 
-# Sampling: Extended Wavetable Synthesis?
+## Sampling: Extended Wavetable Synthesis?
 
 Sampling is a technique of recording real-world instruments and playing back these sounds according to user input. We could, for example, record single guitar notes with pitches corresponding to all keys on the piano keyboard. In practice, however, notes for only some of the keys are recorded and the notes in between are interpolated versions of its neighbors. In this way, we store separate samples for high-pitched notes and thus avoid the problem of aliasing because it's not present in the data in the first place.
 
@@ -248,7 +248,7 @@ Wavetable synthesis could be viewed as sampling with the samples truncated to on
 
 With sampling, a lot more implementation issues come up. Since sampling is not the topic of this article, we won't discuss it here.
 
-# Single-Cycle, Multi-Cycle, and Multiple Wavetable
+## Single-Cycle, Multi-Cycle, and Multiple Wavetable
 
 What we discussed so far is a *single-cycle* variant of the wavetable synthesis, where we use just 1 period of a waveform stored in memory to generate the sound (Figure 11). There are more options available.
 
@@ -287,7 +287,7 @@ _Figure 15. Multiple wavetable synthesis mixes between multiple wave tables whil
 
 The impact of each of the used wave tables may depend on control parameters. For example, if we press a key mildly, we can get a sine-like timbre, but if we press it fast, we may hear more high-frequency partials. That could be realized by mixing the sine and sawtooth wave tables. The ratio of these waveforms would directly depend on the velocity of the key stroke. There could also be some gradual change in the ratio while a key is pressed.
 
-# Summary
+## Summary
 
 Wavetable synthesis is an efficient method that allows us to generate arbitrary waveforms at arbitrary frequencies. Its low complexity comes at a cost of high amounts of digital distortion caused by the harmonics crossing the Nyquist frequency at high pitches.
 
@@ -304,7 +304,7 @@ Cons of wavetable synthesis:
 
 Software synthesizers typically use more sophisticated algorithms than the one presented in this article. Nevertheless, wavetable synthesis underlies many other synthesis methods. The produced waveform could be further transformed. Therefore, the discussion of wavetable synthesis allows us to understand the basic principles of digital sound synthesis.
 
-# Bibliography
+## Bibliography
 
 These are the references I used for this article. If you are interested in the topic of sound synthesis, each of them is a valuable source of information. Alternatively, [subscribe to WolfSound's newsletter]({% link newsletter.md %}) to stay up to date with the newly published articles on sound synthesis!
 

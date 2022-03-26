@@ -1,6 +1,7 @@
 ---
 id: 197
 title: What is aliasing? What causes it? How to avoid it?
+description: "Learn what is aliasing, how it is related to the sampling rate, and how to combat it."
 date: 2019-11-28T16:21:16+00:00
 author: Jan Wilczek
 layout: post
@@ -33,7 +34,7 @@ categories:
 tags:
   - aliasing
   - sample rate
-  - sampling (A/C conversion)
+  - sampling (A/D conversion)
 discussion_id: 2019-11-28-what-is-aliasing-what-causes-it-how-to-avoid-it
 ---
 <iframe width="560" height="315" src="https://www.youtube.com/embed/npeMd5U-5QI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

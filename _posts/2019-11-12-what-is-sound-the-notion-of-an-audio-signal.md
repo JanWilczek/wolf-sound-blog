@@ -1,6 +1,7 @@
 ---
 id: 70
 title: What is sound? The notion of an audio signal.
+description: "Learn the basics of the signal path in processing real-world sound with software and how sound is represented on a computer."
 date: 2019-11-12T15:39:14+00:00
 author: Jan Wilczek
 layout: post
@@ -32,7 +33,7 @@ categories:
   - Sound in general
 tags:
   - sound wave
-  - sampling (A/C conversion)
+  - sampling (A/D conversion)
 discussion_id: 2019-11-12-what-is-sound-the-notion-of-an-audio-signal
 ---
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Q6NldT7pgEY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

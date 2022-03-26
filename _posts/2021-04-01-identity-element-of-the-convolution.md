@@ -20,7 +20,7 @@ How to convolve and do nothing at the same time?
 
 {% katexmm %}
 
-## The Convolution Series
+### The Convolution Series
 1. [Definition of convolution and intuition behind it]({% post_url 2020-06-20-the-secret-behind-filtering %})
 1. [Mathematical properties of convolution]({% post_url 2020-07-05-mathematical-properties-of-convolution %})
 1. [Convolution property of Fourier, Laplace, and z-transforms]({% post_url 2021-03-18-convolution-in-popular-transforms %})
@@ -33,7 +33,7 @@ How to convolve and do nothing at the same time?
 1. [Deconvolution: Inverse convolution]({% post_url 2021-07-23-deconvolution %})
 1. [Convolution in probability: Sum of independent random variables]({% post_url 2021-07-30-convolution-in-probability %})
 
-# Table of Contents
+## Table of Contents
 1. [Introduction](#introduction)
 1. [Justification of the need for an identity element](#why-do-we-need-a-neutral-element)
 1. [Identity element of the discrete convolution](#identity-element-of-the-discrete-convolution)
@@ -43,7 +43,7 @@ How to convolve and do nothing at the same time?
 1. [Signal representation using the delay](#what-is-a-signal-really)
 1. [Summary](#summary)
 
-# Introduction
+## Introduction
 
 For any operation, a very important concept is the *neutral* or *identity element*. Adding 0 to any number results in the same number. Multiplying a number by 1 results in the same number. These trivial facts are extensively used to prove numerous theorems of mathematics, especially in engineering. Particularly popular is adding and subtracting a variable or a constant (effectively adding 0) to introduce a desired element in the inspected (in)equality.
 
@@ -55,7 +55,7 @@ $$e \ast a = a \ast e = a \quad \forall a \in A. \quad ({% increment page.equati
 
 What is the identity element of convolution?
 
-# Why do we need a neutral element?
+## Why do we need a neutral element?
 
 We often want to represent a "do nothing" operation in our processing, regardless of the domain. Examples of such operations are "add 0" for addition and "multiply by 1" for multiplication, as mentioned in the introduction. Another example is the NOP ("no operation") instruction of processors used, for instance, for [memory alignment]({% post_url 2020-04-09-what-is-data-alignment %}).
 
@@ -64,7 +64,7 @@ Imagine that you would like to identify the impulse response of a certain system
 ![]({{ page.images | absolute_url | append: "/identity_block.png" }}){: width="350" }
 _Figure 1. How to represent a system that does not alter our signal at all?_
 
-# Identity element of the discrete convolution
+## Identity element of the discrete convolution
 
 Let's focus on the discrete convolution first. We are looking for a discrete signal, let's denote it by $\delta[n]$, such that for any signal $x[n]$ it holds (according to Equation 1) that
 
@@ -80,7 +80,7 @@ And so we have found our neutral element! The signal defined in Equation 3 is ca
 
 The definition in Equation 3 makes sense also from a different perspective. In [the first article in the convolution series]({% post_url 2020-06-20-the-secret-behind-filtering %}), we said that convolution in the context of filtering means delaying and scaling the impulse response by the samples of the input signal. If the impulse response consists of a single sample with value 1, convolving a signal with it should yield only delayed successive weights, i. e., just the input signal.
 
-# Identity element of the continuous convolution
+## Identity element of the continuous convolution
 
 How does the neutral element look in the case of continuous convolution? According to Equation 2, we obtain
 
@@ -100,7 +100,7 @@ How to tackle this definition? I try to think about it as a function being 0 eve
 
 Dirac $\delta$ function is ubiquitious in mathematics and engineering. It is often used to define *empirical probability distributions* (i.e., the ones resulting directly from data) [3]. Additionally, I have seen it in action when defining the excitation function of partial differential equations (PDEs), e.g., representing the influence of a hammer strucking a piano string in physical modeling sound synthesis [4]. 
 
-# The sifting property
+## The sifting property
 
 Dirac $\delta$ function has a valuable property
 
@@ -112,7 +112,7 @@ The property in Equation 7 is called the **sifting property** of the $\delta$ fu
 
 In the discrete case, the sifting property was shown in action in Equation 2; there we extracted a single element $x[n]$ out of the (possibly infinite) $x$ sequence.
 
-# Delay
+## Delay
 
 What happens if we shift the argument of the discrete-time impulse by 1?
 
@@ -124,7 +124,7 @@ By adjusting the argument shift $n_0$ of $\delta[n-n_0]$ and convolving the resu
 
 The concept of the delay and its application in digital signal processing and audio programming is very profound. Delay is an inherent property of any filter, or more generally, any LTI system. You may have stumbled upon the "Delay effect" as an audio plug-in to a digital audio workstation (DAW); the underlying principle relies on delaying the input signal and possibly adding it to the original. Delaying one channel with respect to the other helps to set up panning based on interaural time difference (ITD). Examples of other applications of the delay, just in the domain of audio effects, include artificial reverberation, comb filter, flanger, chorus, and Karplus-Strong synthesis.
 
-## Graphical representation
+### Graphical representation
 
 In DSP diagrams, the delay by $n_0$ samples is marked with a $z^{-n_0}$ box (Figure 2). 
 
@@ -137,7 +137,7 @@ $$ \mathcal{Z}\{\delta[n-n_0]\} = \sum_{n=-\infty}^{\infty} \delta[n-n_0] z^{-n}
 
 Notice that Equation 9 could be viewed as an application of the sifting property. From an infinite "stream" of $z^{-n}$ we pick out only the one for which $n=n_0$.
 
-## Arranging delays in a series
+### Arranging delays in a series
 
 From the associativity property of the convolution, which we derived in [one of the previous articles]({% post_url 2020-07-05-mathematical-properties-of-convolution %}), it can be inferred that arranging delays in a series results in a delay of length equal to the sum of the individual delay lengths. That is because
 
@@ -154,7 +154,7 @@ Unsurprisingly, the $z^{-n}$ notation in Figure 3 results directly from the conv
 
 $$ \mathcal{Z}\{\delta[n-n_0] \ast \delta[n-n_1]\} = \mathcal{Z}\{\delta[n-n_0] \} \mathcal{Z}\{\delta[n-n_1]\} \\= z^{-n_0} z^{-n_1} = z^{-(n_0+n_1)}. \quad ({% increment page.equationId %})$$
 
-# What is a signal, really?
+## What is a signal, really?
 
 Let's recap once again the convolutional sum of Equation 2 [2, Eq. 2.5]
 
@@ -176,7 +176,7 @@ $$x[n] = x[0]\delta[n] + x[1]\delta[n-1] + x[2]\delta[n-2] + \dots \\+ x[n-1]\de
 
 Can you see the beauty of it? **$x[n]$ already contains all possible samples of the sequence $x$; we just need to delay it properly to receive the desired sample.** In other words, any discrete-time signal is a convolutional sum, a weighted sum of delayed impulses. Fixing index $n$ to some concrete value sets the delay length accordingly so as to return the signal value for that particular $n$.
 
-# Summary
+## Summary
 
 In this article we examined the identity element of the convolution, i. e., $\delta[n]$ for the discrete convolution (Equation 3) and $\delta(t)$ for the continuous convolution (Equation 5). The former is much more easily tractable mathemathically [2].
 
@@ -184,7 +184,7 @@ We introduced the sifting property of the delta impulse and interpreted it as th
 
 Finally, we looked at a discrete-time signal as a weighted sum of delayed impulses.
 
-# Bibliography
+## Bibliography
 
 [1] I.N. Bronshtein et. al. *Handbook of Mathematics*, 5th Edition, Springer, 2007.
 

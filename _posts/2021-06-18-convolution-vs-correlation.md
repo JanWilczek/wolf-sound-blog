@@ -17,7 +17,7 @@ Can we calculate correlation using convolution?
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/R7cn9b7BNyk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-## The Convolution Series
+### The Convolution Series
 1. [Definition of convolution and intuition behind it]({% post_url 2020-06-20-the-secret-behind-filtering %})
 1. [Mathematical properties of convolution]({% post_url 2020-07-05-mathematical-properties-of-convolution %})
 1. [Convolution property of Fourier, Laplace, and z-transforms]({% post_url 2021-03-18-convolution-in-popular-transforms %})
@@ -38,7 +38,7 @@ In many contexts, convolution and correlation are mixed up. One of the biggest s
 
 Let's explain the difference between correlation and convolution once and for all.
 
-# Convolution Definition
+## Convolution Definition
 
 Continuous convolution is defined as
 
@@ -50,7 +50,7 @@ $$ x[n] \ast h[n] = \sum_{k=-\infty}^{\infty} x[n - k] h[k], \quad n \in \mathbb
 
 [Click here]({% post_url 2020-06-20-the-secret-behind-filtering %}) to read about the rationale behind these formulas.
 
-# Correlation Definition
+## Correlation Definition
 
 Correlation is a notion from the field of stochastic processes. In signal processing we simply use an entity called the *correlation function* [1] 
 
@@ -66,7 +66,7 @@ Sometimes $\phi_{xh}[n]$ is referred to as *correlation sequence* to stress its 
 
 In the subsequent discussion, we assume that the integrals in Equations 1 and 3, and sums in Equations 2 and 4 converge.
 
-## Example
+### Example
 
 Let's assume we have two signals of length 40, $x[n]$
 
@@ -90,7 +90,7 @@ _Figure 4. Correlation of $x$ and $y$._
 
 As you can observe, they are kind of similar.
 
-## Correlation as a Similarity Measure
+### Correlation as a Similarity Measure
 
 In the context of signal processing, correlation is interpreted as a similarity measure, i.e., how similar are the two correlated signals for a specific lag in samples (relative shift between the signals).
 
@@ -107,11 +107,11 @@ However, two clear maxima can be observed for relative shifts of $n=20$ and $n=-
 
 As you can see, autocorrelation can help us determine the periodicity of a signal. This property is used in pitch estimation (e.g., estimation of the fundamental frequency of the human voice) and also for tempo estimation in the domain of music information retrieval. Autocorrelation can also help us determine whether the observed signal is periodic at all.
 
-# Relation Between Convolution and Correlation
+## Relation Between Convolution and Correlation
 
 As we can observe, Equations 1 and 3, 2 and 4 and Figures 3 and 4 are somewhat similar. Indeed, only the sign of the "shift" in the argument of $x$ differs. We will now show how to obtain correlation using convolution.
 
-## Discrete Correlation Obtained Using Discrete Convolution
+### Discrete Correlation Obtained Using Discrete Convolution
 
 $$\phi_{xh}[n] \\
 = \sum \limits_{k=-\infty}^{\infty} x[n + k]h[k] \\
@@ -126,7 +126,7 @@ Index $l$ in the substitution formulas was used not to confuse the reader but it
 
 It turned out that correlation can be obtained by convolving the signals to be correlated, with one of them having its element order reversed, and then reversing the output of the convolution.
 
-## Continuous Correlation Obtained Using Continuous Convolution
+### Continuous Correlation Obtained Using Continuous Convolution
 
 Analogously to the discrete case,
 
@@ -135,7 +135,7 @@ $$\phi_{xh}(t) = \int \limits_{-\infty}^{\infty} x(t + \tau) h(\tau) d\tau \\
 = (x(-t) \ast h(t))(-t). 
 \quad ({% increment equationId20210618 %})$$
 
-# Final Test
+## Final Test
 
 To ultimately test the validity of Equation 5, we do a quick in-code test: we generate 100000 samples of uniformly distributed noise, apply the correlation-from-convolution formula, and test for equality to direct correlation up to the machine precision.
 
@@ -161,13 +161,13 @@ if __name__=='__main__':
     main()
 ```
 
-# Application
+## Application
 
 The fact that correlation can be obtained using convolution is significant. For example, one could use the [fast convolution algorithms]({% post_url 2021-05-14-fast-convolution %}) to compute correlation efficiently; that is the basis of *fast correlation* algorithms [2].
 
 This fact also points to how closely convolution and correlation are related. This similarity was mentioned in the introduction in the context of deep learning, where terms "convolution" and "correlation" are used interchangeably [3]. What is more, exactly as we have circular convolution, we also have *circular correlation*. However, the correlation function does not have many useful properties that [convolution has]({% post_url 2020-07-05-mathematical-properties-of-convolution %}), e.g., correlation is not commutative [3].
 
-# Bibliography
+## Bibliography
 
 [1] Alan V. Oppenheim, Alan S. Willsky, with S. Hamid *Signals and Systems*, 2nd Edition, Pearson 1997.
 

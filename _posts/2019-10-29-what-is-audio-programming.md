@@ -1,6 +1,7 @@
 ---
 id: 31
 title: What is audio programming?
+description: "Do you want become an audio programmer? Learn about the problems in digital audio and what you should learn in order to be able to solve them."
 date: 2019-10-29T15:38:42+00:00
 author: Jan Wilczek
 layout: post
