@@ -72,14 +72,14 @@ This translates to the following code
 def naive_convolution(x, h):    
     """Compute the discrete convolution of two sequences"""
     
-    ## Make x correspond to the longer signal
+    # Make x correspond to the longer signal
     if len(x) < len(h):
         x, h = h, x
         
     M = len(x)
     N = len(h)
     
-    ## Convenience transformations
+    # Convenience transformations
     x = pad_zeros_to(x, M+2*(N-1))
     x = np.roll(x, N-1)
     
@@ -87,8 +87,8 @@ def naive_convolution(x, h):
     
     y = np.zeros(M+N-1)
 
-    ## Delay h and calculate the inner product with the 
-    ## corresponding samples in x
+    # Delay h and calculate the inner product with the 
+    # corresponding samples in x
     for i in range(len(y)):
         y[i] = x[i:i+N].dot(h)
         
@@ -138,24 +138,24 @@ Wrapping it all together
 def fft_convolution(x, h, K=None):
     Nx = x.shape[0]
     Nh = h.shape[0]
-    Ny = Nx + Nh - 1 ## output length
+    Ny = Nx + Nh - 1 # output length
 
-    ## Make K smallest optimal
+    # Make K smallest optimal
     if K is None:
         K = next_power_of_2(Ny)
 
-    ## Calculate the fast Fourier transforms 
-    ## of the time-domain signals
+    # Calculate the fast Fourier transforms 
+    # of the time-domain signals
     X = np.fft.fft(pad_zeros_to(x, K))
     H = np.fft.fft(pad_zeros_to(h, K))
 
-    ## Perform circular convolution in the frequency domain
+    # Perform circular convolution in the frequency domain
     Y = np.multiply(X, H)
 
-    ## Go back to time domain
+    # Go back to time domain
     y = np.real(np.fft.ifft(Y))
 
-    ## Trim the signal to the expected length
+    # Trim the signal to the expected length
     return y[:Ny]
 {% endhighlight %}
 _Listing 4. FFT-based fast convolution._
@@ -190,25 +190,25 @@ def overlap_add_convolution(x, h, B, K=None):
     M = len(x)
     N = len(h)
 
-    ## Calculate the number of input blocks
+    # Calculate the number of input blocks
     num_input_blocks = np.ceil(M / B).astype(int)
 
-    ## Pad x to an integer multiple of B
+    # Pad x to an integer multiple of B
     xp = pad_zeros_to(x, num_input_blocks*B)
 
-    ## Your turn ...
+    # Your turn ...
     output_size = num_input_blocks * B + N - 1
     y = np.zeros((output_size,))
     
-    ## Convolve all blocks
+    # Convolve all blocks
     for n in range(num_input_blocks):
-        ## Extract the n-th input block
+        # Extract the n-th input block
         xb = xp[n*B:(n+1)*B]
 
-        ## Fast convolution
+        # Fast convolution
         u = fft_convolution(xb, h, K)
 
-        ## Overlap-Add the partial convolution result
+        # Overlap-Add the partial convolution result
         y[n*B:n*B+len(u)] += u
 
     return y[:M+N-1]
@@ -240,32 +240,32 @@ def overlap_save_convolution(x, h, B, K=None):
     if K is None:
         K = max(B, next_power_of_2(N))
         
-    ## Calculate the number of input blocks
+    # Calculate the number of input blocks
     num_input_blocks = np.ceil(M / B).astype(int) \
                      + np.ceil(K / B).astype(int) - 1
 
-    ## Pad x to an integer multiple of B
+    # Pad x to an integer multiple of B
     xp = pad_zeros_to(x, num_input_blocks*B)
 
     output_size = num_input_blocks * B + N - 1
     y = np.zeros((output_size,))
     
-    ## Input buffer
+    # Input buffer
     xw = np.zeros((K,))
 
-    ## Convolve all blocks
+    # Convolve all blocks
     for n in range(num_input_blocks):
-        ## Extract the n-th input block
+        # Extract the n-th input block
         xb = xp[n*B:n*B+B]
 
-        ## Sliding window of the input
+        # Sliding window of the input
         xw = np.roll(xw, -B)
         xw[-B:] = xb
 
-        ## Fast convolution
+        # Fast convolution
         u = fft_convolution(xw, h, K)
 
-        ## Save the valid output samples
+        # Save the valid output samples
         y[n*B:n*B+B] = u[-B:]
 
     return y[:M+N-1]
