@@ -1,6 +1,7 @@
 ---
 id: 70
 title: What is sound? The notion of an audio signal.
+description: "Learn the basics of the signal path in processing real-world sound with software and how sound is represented on a computer."
 date: 2019-11-12T15:39:14+00:00
 author: Jan Wilczek
 layout: post

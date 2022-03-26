@@ -1,6 +1,7 @@
 ---
 id: 197
 title: What is aliasing? What causes it? How to avoid it?
+description: "Learn what is aliasing, how it is related to the sampling rate, and how to combat it."
 date: 2019-11-28T16:21:16+00:00
 author: Jan Wilczek
 layout: post

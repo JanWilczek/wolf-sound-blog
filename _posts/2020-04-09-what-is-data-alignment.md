@@ -1,6 +1,7 @@
 ---
 id: 379
 title: What is data alignment?
+description: "Learn what is data alignment in C and C++ languages and what are the available functions in the STL library to handle it."
 date: 2020-04-09T14:00:35+00:00
 author: Jan Wilczek
 layout: post

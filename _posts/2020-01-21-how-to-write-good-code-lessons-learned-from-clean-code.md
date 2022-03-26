@@ -1,6 +1,7 @@
 ---
 id: 333
-title: 'How to write good code? Lessons learned from "Clean Code"'
+title: "Clean Code by Robert C. Martin Book Summary"
+description: 'How to write good code? Lessons learned from "Clean Code"'
 date: 2020-01-21T17:40:22+00:00
 author: Jan Wilczek
 layout: post
