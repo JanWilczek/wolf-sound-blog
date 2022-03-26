@@ -17,7 +17,7 @@ Thanks to convolution, we can obtain the probability distribution of a sum of in
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/9ytYz9upnG4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-## The Convolution Series
+### The Convolution Series
 1. [Definition of convolution and intuition behind it]({% post_url 2020-06-20-the-secret-behind-filtering %})
 1. [Mathematical properties of convolution]({% post_url 2020-07-05-mathematical-properties-of-convolution %})
 1. [Convolution property of Fourier, Laplace, and z-transforms]({% post_url 2021-03-18-convolution-in-popular-transforms %})
@@ -38,15 +38,15 @@ So far, we have looked into various aspects of convolution. One of its important
 
 In this article, we will show the proof of this theorem. This proof takes advantage of the [convolution property of the Fourier transform]({% post_url 2021-03-18-convolution-in-popular-transforms %}).
 
-# Convolution Theorem in Probability
+## Convolution Theorem in Probability
 
 > The probability density function of a sum of statistically independent random variables is the convolution of the contributing probability density functions. 
 
-# Proof 
+## Proof 
 
 Before we conduct the actual proof, we need to introduce the concept of the *characteristic function*.
 
-## The Characteristic Function
+### The Characteristic Function
 
 The characteristic function $\Phi_X(j \omega)$ of a random variable $X$ is the Fourier transform of its probability density function $f_X$ with a negated argument $x$:
 
@@ -58,7 +58,7 @@ $$\Phi_X(-j \omega) = \mathcal{F} \{f_X(x)\}. \quad ({% increment equationId2021
 
 Another building block of the proof is the independence assumption which we examine next.
 
-## Independence of Random Variables
+### Independence of Random Variables
 
 Two random variables are called **statistically independent** if their joint probability density function factorizes into the respective pdfs of the RVs.
 
@@ -68,7 +68,7 @@ $$ f_{XY}(x,y) = f_X(x)f_Y(y), \quad ({% increment equationId20210730  %})$$
 
 where $f_{XY}$ is the joint pdf of $X$ and $Y$ (probability density of all possible combinations of $X$ and $Y$ values).
 
-## Sum of Two Independent Random Variables
+### Sum of Two Independent Random Variables
 
 Now to the main part of the proof!
 
@@ -81,7 +81,7 @@ $$\Phi_{X+Y}(j \omega) = \mathbb{E} \left[ e^{j\omega (X+Y)} \right]
 
 Note that we could separate the integrals only thanks to the independence of the two random variables: splitting $f_{XY}$ into a product of $f_X$ and $f_Y$.
 
-## Convolution Property of the Fourier Transform
+### Convolution Property of the Fourier Transform
 
 We found out that the characteristic function of a sum of two independent random variables is equal to the product of the individual characteristic functions of these random variables (Equation 4). Additionally, the characteristic function of a random variable with a negated argument is the Fourier transform of this RV's probability density function (Equation 3). We thus have
 
@@ -100,15 +100,15 @@ what concludes the proof $\Box$.
 
 *Note: $x$ is used instead of $y$ as the argument of $f_Y$ in Equation 7 because it doesn't matter what letter we use; $f_X$, $f_Y$, and $f_{X+Y}$ are all pdfs of one-dimensional random variables.*
 
-## Final Remark
+### Final Remark
 
 This proof can be extended to arbitrarily many random variables with the requirement that all of them are mutually independent.
 
-# Summary
+## Summary
 
 In this article, we have proven that the probability distribution of a sum of independent random variables is a convolution of probability distributions of these random variables.
 
-# Bibliography
+## Bibliography
 
 [1] Walter Kellermann, *Statistical Signal Processing Lecture Notes*, Winter Semester 2019/2020, University of Erlangen-Nürnberg.
 
