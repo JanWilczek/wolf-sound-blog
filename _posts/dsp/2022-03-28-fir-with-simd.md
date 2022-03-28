@@ -230,7 +230,11 @@ float* applyFirFilterAVX_innerLoopVectorization(
 #endif
 ```
 
+This has time complexity equal to $O(\frac{N_h}{8} (N_h + N_x -1))$. Of course, in complexity theory that's the same as the above algorithm. But notice that in the inner loop we do 8 times less iterations. That is because we can operate on vectors of 8 floats with single AVX instructions. So excuse my improper math 😉 
+
 ## Outer loop vectorization
+
+Outer loop vectorization is a little bit crazy. In this approach we try to compute 8 outputs at once in one outer iteration.
 
 ## Outer and inner loop vectorization
 
