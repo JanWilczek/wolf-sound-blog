@@ -21,6 +21,8 @@ How to make your FIR filters fast in the time domain?
 
 {% katexmm %}
 {% capture _ %}{% increment equationId20220328  %}{% endcapture %}
+{% capture _ %}{% increment listingId20220328  %}{% endcapture %}
+{% capture _ %}{% increment figureId20220328  %}{% endcapture %}
 
 If you want to make any software execute as fast as possible, there are two ways in which you can achieve this:
 
@@ -91,6 +93,8 @@ We will assume that our signals are finite. This was of course true of $h$ but n
 
 We will denote $x$'s length by $N_x$ and $h$'s length by $N_h$.
 
+For indices below 0 or above signals' lengths, the signal is assumed to be 0.
+
 ### Time-Reversing the Filter Coefficients
 
 In practical real-time audio scenarios, like virtual reality, computer games, or digital audio workstations, we know $h$ but don't know $x$.
@@ -109,9 +113,59 @@ After introducing these two assumptions, we can rewrite the convolution formula 
 
 $$ y[n] = (x[n] \ast h[n])[n] \\= \sum_{k=0}^{N_h-1} x[n-N_h+1+k] c[k], \quad n = 0, \dots, N_x + N_h - 1. \quad ({% increment equationId20220328  %})$$
 
+This formulation resembles the [correlation]({% post_url 2021-06-18-convolution-vs-correlation %}#correlation-definition) formula a lot but remember that it's still [convolution]({% post_url 2021-06-18-convolution-vs-correlation %}#convolution-definition) albeit written differently.
+
 As you will see, this will simplify our discussion significantly.
 
+### Visualization of Convolution
+
+Equation 3 is visualized on Figure 1.
+
+<!-- TODO: Figure with convolution as the Hadamard product of two vectors. -->
+
+With the above assumptions and convolution format, we may write its implementation.
+
 ## Naive Linear Convolution
+
+Before we improve on the speed of our FIR filter with SIMD, we need to start with a baseline: a non-SIMD implementation.
+
+_The full (very ugly) code referenced in this article [can be found in my GitHub repository](https://github.com/JanWilczek/fir-simd.git)._
+
+That can be implemented as follows.
+
+_Listing {% increment listingId20220328  %}._
+```cpp
+struct FilterInput {
+// assume that these fields are correctly initialized
+  const float* x;  // input signal
+  size_t inputLength;
+  const float* c;  // reversed filter coefficients
+  size_t filterLength;
+  float* y;  // output (filtered) signal
+  size_t outputLength;
+};
+
+
+float* applyFirFilterSingle(FilterInput<float>& input) {
+  const auto* x = input.x;
+  const auto* c = input.c;
+  auto* y = input.y;
+
+  for (auto i = 0u; i < input.outputLength; ++i) {
+    y[i] = x[0] * c[0];
+    for (auto j = 1u; j < input.filterLength; ++j) {
+      y[i] += x[i + j] * c[j];
+    }
+  }
+  return y;
+}
+```
+
+As you can see, this code is not very efficient; we iterate by samples, one-by-one.
+
+Because of the zero-padding, the time complexity of this code is $O(N_h (N_h + N_x - 1))$ (we multiply $N_h$ filter coefficients as many times as there are output samples).
+
+Let's see how we can vectorize this code...
 
 
 ## Loop vectorization
@@ -122,8 +176,59 @@ There are 3 types of loop vectorization in the context of FIR filtering:
 2. Outer loop vectorization,
 3. Outer and inner loop vectorization.
 
+Their names specify where we load the data to the SIMD registers. The easiest one to understand is the inner loop vectorization.
 
 ## Inner loop vectorization
+
+For convenience, I am using the [AVX instruction set] to show example implementations. Its instructions are the most readable from all SIMD I know so they should be easy to understand.
+
+Listing 2 shows how to implement the FIR filter using inner loop vectorization.
+
+_Listing {% increment listingId20220328 %}_
+```cpp
+#ifdef __AVX__
+// The number of floats that fit into an AVX register.
+constexpr auto AVX_FLOAT_COUNT = 8u;
+
+float* applyFirFilterAVX_innerLoopVectorization(
+    FilterInput<float>& input) {
+  const auto* x = input.x;
+  const auto* c = input.c;
+  const auto* y = input.y;
+
+  // A fixed-size array to move the data from registers into
+  std::array<float, AVX_FLOAT_COUNT> outStore;
+
+  // Inner loop vectorization
+  for (auto i = 0u; i < input.outputLength; ++i) {
+    // Set a SIMD register to all zeros;
+    // we will use it as an accumulator
+    auto outChunk = _mm256_setzero_ps();
+
+    for (auto j = 0u; j < input.filterLength; j += AVX_FLOAT_COUNT) {
+      // Load the unaligned input signal data into a SIMD register
+      auto xChunk = _mm256_loadu_ps(x + i + j);
+      // Load the unaligned reversed filter coefficients into a SIMD register
+      auto cChunk = _mm256_loadu_ps(c + j);
+
+      // Multiply both above registers element-wise
+      auto temp = _mm256_mul_ps(xChunk, cChunk);
+
+      // Element-wise add to the accumulator
+      outChunk = _mm256_add_ps(outChunk, temp);
+    }
+
+    // Transfer the contents of the accumulator the array
+    _mm256_storeu_ps(outStore.data(), outChunk);
+
+    // Sum the partial sums in the accumulator and assign to the output
+    y[i] = std::accumulate(outStore.begin(), outStore.end(), 0.f);
+  }
+
+  return y;
+}
+#endif
+```
 
 ## Outer loop vectorization
 
