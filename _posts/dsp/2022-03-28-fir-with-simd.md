@@ -4,7 +4,7 @@ description: "Speed up time-domain filtering via vectorization for virtual reali
 date: 2022-03-28
 author: Jan Wilczek
 layout: post
-images: assets/img/posts/dsp/2022-03-28-fir-with-simd/
+images: /assets/img/posts/dsp/2022-03-28-fir-with-simd/
 # background: /assets/img/posts/dsp/2022-03-28-fir-with-simd/Thumbnail.webp
 categories:
   - Digital Signal Processing
@@ -111,19 +111,26 @@ $$c[n] = h[N_h - n - 1], \quad n = 0, \dots, N_h - 1, \quad ({% increment equati
 
 After introducing these two assumptions, we can rewrite the convolution formula from Equation 1 into 
 
-$$ y[n] = (x[n] \ast h[n])[n] \\= \sum_{k=0}^{N_h-1} x[n-N_h+1+k] c[k], \quad n = 0, \dots, N_x + N_h - 1. \quad ({% increment equationId20220328  %})$$
+$$ y[n] = (x[n] \ast h[n])[n] \\= \sum_{k=0}^{N_h-1} x[n+k] c[k], \quad n = 0, \dots, N_x + N_h - 1. \quad ({% increment equationId20220328  %})$$
 
 This formulation resembles the [correlation]({% post_url 2021-06-18-convolution-vs-correlation %}#correlation-definition) formula a lot but remember that it's still [convolution]({% post_url 2021-06-18-convolution-vs-correlation %}#convolution-definition) albeit written differently.
+
+Note also that Equation 3 is convolution in [same]({% post_url 2021-07-09-convolution-in-numpy-matlab-and-scipy %}#same) mode, i.e., $y[0]$ corresponds to $y[N_h-1]$ of the full mode. 
+
+If we prepend $x$ with $N_h - 1$ zeros, we will get convolution in the [full]({% post_url 2021-07-09-convolution-in-numpy-matlab-and-scipy %}#full) mode.
 
 As you will see, this will simplify our discussion significantly.
 
 ### Visualization of Convolution
 
-Equation 3 is visualized on Figure 1.
+Equation 3 is visualized on Figure 1. It show which elements are multiplied to calculate $y[0]$.
 
-<!-- TODO: Figure with convolution as the Hadamard product of two vectors. -->
+![]({{ page.images | append: "LoopVectorizationSingle.svg" }}){: alt="Scalar linear convolution visualization."}
+_Figure {% increment figureId20220328 %}. Convolution as an inner product of the input vector and the reversed filter coefficients vector._
 
-With the above assumptions and convolution format, we may write its implementation.
+Orange frames mark which elements are multiplied together to compute $y[0]$. The results of multiplications are then summed for the final result.
+
+With the above assumptions and the convolution format, we may write its implementation.
 
 ## Naive Linear Convolution
 
@@ -160,6 +167,8 @@ float* applyFirFilterSingle(FilterInput<float>& input) {
   return y;
 }
 ```
+
+Each multiplication in the inner loop corresponds to one orange frame from Figure 1.
 
 As you can see, this code is not very efficient; we iterate by samples, one-by-one.
 
