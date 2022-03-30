@@ -344,6 +344,85 @@ A question arises: can we do even better? Yes, we can!
 
 The real breakthrough comes when we combine both types of vectorization.
 
+In this approach, we compute 4 outputs on each pass of the outer loop (outer loop vectorization) and compute an inner product of 4-element vectors (a part of the convolution sum) in each pass of the inner loop (inner loop vectorization).
+
+In verbose code, VOIL is presented in Listing 6.
+
+_Listing {% increment listingId20220328 %}_
+```cpp
+std::vector<float> applyFirFilterOuterInnerLoopVectorization(
+    FilterInput<float>& input) {
+  const auto* x = input.x;
+  const auto* c = input.c;
+  auto* y = input.y;
+
+  for (auto i = 0u; i < input.outputLength; i += 4) {
+    y[i] = 0.f;
+    y[i + 1] = 0.f;
+    y[i + 2] = 0.f;
+    y[i + 3] = 0.f;
+    for (auto j = 0u; j < input.filterLength; j += 4) {
+      y[i] += x[i + j] * c[j] + x[i + j + 1] * c[j + 1] +
+              x[i + j + 2] * c[j + 2] + x[i + j + 3] * c[j + 3];
+
+      y[i + 1] += x[i + j + 1] * c[j + 1] + x[i + j + 2] * c[j + 2] +
+                  x[i + j + 3] * c[j + 3] + x[i + j + 4] * c[j + 4];
+
+      y[i + 2] += x[i + j + 2] * c[j + 2] + x[i + j + 3] * c[j + 3] +
+                  x[i + j + 4] * c[j + 4] + x[i + j + 5] * c[j + 5];
+
+      y[i + 3] += x[i + j + 3] * c[j + 3] + x[i + j + 4] * c[j + 4] +
+                  x[i + j + 5] * c[j + 5] + x[i + j + 6] * c[j + 6];
+    }
+  }
+  return input.output();
+}
+```
+
+### VOIL AVX Implementation
+
+```cpp
+#ifdef __AVX__
+std::vector<float> applyFirFilterAVX_outerInnerLoopVectorization(
+    FilterInput<float>& input) {
+  const auto* x = input.x;
+  const auto* c = input.c;
+
+  std::array<float, AVX_FLOAT_COUNT> outStore;
+
+  alignas(AVX_FLOAT_COUNT * alignof(float)) std::array<__m256, AVX_FLOAT_COUNT>
+      outChunk;
+
+  for (auto i = 0u; i < input.outputLength; i += AVX_FLOAT_COUNT) {
+    for (auto k = 0u; k < AVX_FLOAT_COUNT; ++k) {
+      outChunk[k] = _mm256_setzero_ps();
+    }
+
+    for (auto j = 0ul; j < input.filterLength; j += AVX_FLOAT_COUNT) {
+      auto cChunk = _mm256_loadu_ps(c + j);
+
+      for (auto k = 0ul; k < AVX_FLOAT_COUNT; ++k) {
+        auto xChunk = _mm256_loadu_ps(x + i + j + k);
+
+        auto temp = _mm256_mul_ps(xChunk, cChunk);
+
+        outChunk[k] = _mm256_add_ps(outChunk[k], temp);
+      }
+    }
+
+    for (auto k = 0u; k < AVX_FLOAT_COUNT; ++k) {
+      _mm256_storeu_ps(outStore.data(), outChunk[k]);
+
+      if (i + k < input.outputLength)
+        input.y[i + k] = std::accumulate(outStore.begin(), outStore.end(), 0.f);
+    }
+  }
+
+  return input.output();
+}
+#endif
+```
+
 ## Data alignment
 
 ## Bibliography
