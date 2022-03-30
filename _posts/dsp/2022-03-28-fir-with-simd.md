@@ -195,7 +195,7 @@ Let's write that in a verbose manner (Listing 2). We assume that our vectors are
 
 _Listing {% increment listingId20220328 %}_
 ```cpp
-std::vector<float> applyFirFilterInnerLoopVectorization(
+float* applyFirFilterInnerLoopVectorization(
     FilterInput<float>& input) {
   const auto* x = input.x;
   const auto* c = input.c;
@@ -208,13 +208,20 @@ std::vector<float> applyFirFilterInnerLoopVectorization(
               x[i + j + 2] * c[j + 2] + x[i + j + 3] * c[j + 3];
     }
   }
-  return input.output();
+  return y;
 }
 ```
 
 Verbalizing the above code, we can say that in each iteration of the inner loop we do the inner product of 4-element vectors $[x[i + j], x[i + j + 1], x[i + j + 2], x[i + j + 3]]$ and $[c[j], c[j+1], c[j+2], c[j+3]]$. With this, we compute a part of the convolution sum from Equation 3.
 
 Mind you that we assume that the passed in vectors are already zero-padded and are of length which is a multiplicity of 4.
+
+Figure 2 shows what happens in inner loop vectorization.
+
+![]({{ page.images | append: "LoopVectorizationVIL.svg" }}){: alt="Convolution via inner loop vectorization visualization."}
+_Figure {% increment figureId20220328 %}. Inner loop vectorization._
+
+Vectors in orange frames have their inner product calculated in the inner loop (hence the name). Again, one orange frame corresponds to one iteration.
 
 Of course, code from Listing 2 is not more optimal than the code from Listing 1. It is merely rewritten into vector form. But this vector form is now easy to implement with vector instructions.
 
@@ -282,7 +289,7 @@ Outer loop vectorization is a little bit crazy. In this approach we try to compu
 
 In Listing 4, there is the FIR filter code from Listing 1 rewritten in terms of vectors.
 
-_Listing {% increment listingId20220328 %}_
+_Listing {% increment listingId20220328 %}._
 ```cpp
 std::vector<float> applyFirFilterOuterLoopVectorization(
     FilterInput<float>& input) {
@@ -307,6 +314,19 @@ std::vector<float> applyFirFilterOuterLoopVectorization(
 ```
 
 Again, we assume that the passed in vectors are already zero-padded and are of length which is a multiplicity of 4.
+
+Figure 3 shows how code from Listing 4 works.
+
+![]({{ page.images | append: "LoopVectorizationVOL.svg" }}){: alt="Convolution via outer loop vectorization visualization."}
+_Figure {% increment figureId20220328 %}. Outer loop vectorization._
+
+Again, one frame corresponds to one inner loop iteration and again it shows which elements of the two vectors are multiplied. In a way, it can be thought of as multiplying each 4-element vector from $x$ by a scalar (one element from $c$).
+
+The result of multiplications within frames are summed up to produce 4 outputs in one iteration of the outer loop.
+
+So instead of computing 4 elements from the convolution sum (as in VIL), we compute 1 element from 4 convolution sums.
+
+Thus, VOL is no more optimal than VIL.
 
 This code is now easy to implement with SIMD instructions.
 
@@ -387,6 +407,17 @@ std::vector<float> applyFirFilterOuterInnerLoopVectorization(
   return input.output();
 }
 ```
+
+This can be visualized as shown in Figure 4.
+
+![]({{ page.images | append: "LoopVectorizationVOIL.svg" }}){: alt="Convolution via outer-inner loop vectorization visualization."}
+_Figure {% increment figureId20220328 %}. Outer-inner loop vectorization._
+
+Now one **frame style** shows one inner loop iteration. Each frame marks 1 inner product.
+
+As you can see, in 1 inner loop iteration we compute 4 elements of 4 convolution sums. That should give us a 16-fold speed-up if the above code is implemented in SIMD.
+
+And a 64-fold speedup if it's implemented in AVX...
 
 ### VOIL AVX Implementation
 
