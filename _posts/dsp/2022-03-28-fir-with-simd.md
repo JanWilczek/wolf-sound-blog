@@ -168,21 +168,54 @@ Because of the zero-padding, the time complexity of this code is $O(N_h (N_h + N
 Let's see how we can vectorize this code...
 
 
-## Loop vectorization
+## Loop Vectorization
 
 There are 3 types of loop vectorization in the context of FIR filtering:
 
-1. Inner loop vectorization,
-2. Outer loop vectorization,
-3. Outer and inner loop vectorization.
+1. Inner loop vectorization (VIL),
+2. Outer loop vectorization (VOL),
+3. Outer and inner loop vectorization (VOIL).
 
 Their names specify where we load the data to the SIMD registers. The easiest one to understand is the inner loop vectorization.
 
-## Inner loop vectorization
+## Inner Loop Vectorization (VIL)
+
+In _inner loop vectorization_, we vectorize (rewrite in vector notation) the behavior of the inner loop from Listing 1. 
+
+Let's write that in a verbose manner (Listing 2). We assume that our vectors are of length 4. That would correspond to registers that can fit 4 floats (for example, [ARM's Neon registers]({% post_url fx/2022-02-12-simd-in-dsp %}#mmx-sse-avx-neon)).
+
+_Listing {% increment listingId20220328 %}_
+```cpp
+std::vector<float> applyFirFilterInnerLoopVectorization(
+    FilterInput<float>& input) {
+  const auto* x = input.x;
+  const auto* c = input.c;
+  auto* y = input.y;
+
+  for (auto i = 0u; i < input.outputLength; ++i) {
+    y[i] = 0.f;
+    for (auto j = 0u; j < input.filterLength; j += 4) {
+      y[i] += x[i + j] * c[j] + x[i + j + 1] * c[j + 1] +
+              x[i + j + 2] * c[j + 2] + x[i + j + 3] * c[j + 3];
+    }
+  }
+  return input.output();
+}
+```
+
+Verbalizing the above code, we can say that in each iteration of the inner loop we do the inner product of 4-element vectors $[x[i + j], x[i + j + 1], x[i + j + 2], x[i + j + 3]]$ and $[c[j], c[j+1], c[j+2], c[j+3]]$. With this, we compute a part of the convolution sum from Equation 3.
+
+Mind you that we assume that the passed in vectors are already zero-padded and are of length which is a multiplicity of 4.
+
+Of course, code from Listing 2 is not more optimal than the code from Listing 1. It is merely rewritten into vector form. But this vector form is now easy to implement with vector instructions.
+
+How does this implementation look in real SIMD code?
+
+### VIL AVX Implementation
 
 For convenience, I am using the [AVX instruction set] to show example implementations. Its instructions are the most readable from all SIMD I know so they should be easy to understand.
 
-Listing 2 shows how to implement the FIR filter using inner loop vectorization.
+Listing 3 shows how to implement the FIR filter using inner loop vectorization.
 
 _Listing {% increment listingId20220328 %}_
 ```cpp
@@ -230,13 +263,86 @@ float* applyFirFilterAVX_innerLoopVectorization(
 #endif
 ```
 
+Again, we assume that the passed in vectors are already zero-padded and are of length which is a multiplicity of 8 (number of floats we can fit into an AVX register).
+
 This has time complexity equal to $O(\frac{N_h}{8} (N_h + N_x -1))$. Of course, in complexity theory that's the same as the above algorithm. But notice that in the inner loop we do 8 times less iterations. That is because we can operate on vectors of 8 floats with single AVX instructions. So excuse my improper math 😉 
 
-## Outer loop vectorization
+## Outer Loop Vectorization (VOL)
 
-Outer loop vectorization is a little bit crazy. In this approach we try to compute 8 outputs at once in one outer iteration.
+Outer loop vectorization is a little bit crazy. In this approach we try to compute a vector of outputs at once in one outer iteration.
 
-## Outer and inner loop vectorization
+In Listing 4, there is the FIR filter code from Listing 1 rewritten in terms of vectors.
+
+_Listing {% increment listingId20220328 %}_
+```cpp
+std::vector<float> applyFirFilterOuterLoopVectorization(
+    FilterInput<float>& input) {
+  const auto* x = input.x;
+  const auto* c = input.c;
+  auto* y = input.y;
+
+  for (auto i = 0u; i < input.outputLength; i += 4) {
+    y[i] = 0.f;
+    y[i + 1] = 0.f;
+    y[i + 2] = 0.f;
+    y[i + 3] = 0.f;
+    for (auto j = 0u; j < input.filterLength; ++j) {
+      y[i] += x[i + j] * c[j];
+      y[i + 1] += x[i + j + 1] * c[j];
+      y[i + 2] += x[i + j + 2] * c[j];
+      y[i + 3] += x[i + j + 3] * c[j];
+    }
+  }
+  return input.output();
+}
+```
+
+Again, we assume that the passed in vectors are already zero-padded and are of length which is a multiplicity of 4.
+
+This code is now easy to implement with SIMD instructions.
+
+### VOL AVX Implementation
+
+Listing 5 shows how to implement FIR filtering in AVX instructions using outer loop vectorization.
+
+_Listing {% increment listingId20220328 %}_
+```cpp
+#ifdef __AVX__
+float* applyFirFilterAVX_outerLoopVectorization(
+    FilterInput<float>& input) {
+  const auto* x = input.x;
+  const auto* c = input.c;
+  auto* y = input.y;
+
+  for (auto i = 0u; i < input.outputLength; i += AVX_FLOAT_COUNT) {
+    auto yChunk = _mm256_setzero_ps();
+
+    for (auto j = 0u; j < input.filterLength; ++j) {
+      auto xChunk = _mm256_loadu_ps(x + i + j);
+      auto cChunk = _mm256_set1_ps(c[j]);
+
+      auto temp = _mm256_mul_ps(xChunk, cChunk);
+
+      yChunk = _mm256_add_ps(yChunk, temp);
+    }
+
+    _mm256_storeu_ps(y + i, yChunk);
+  }
+
+  return y;
+}
+#endif
+```
+
+This code should be 8 times faster than the one in Listing 1. Of course, the typical speedup wili much smaller.
+
+<!-- TODO: How much smaller? -->
+
+A question arises: can we do even better? Yes, we can!
+
+## Outer and Inner Loop vectorization (VOIL)
+
+The real breakthrough comes when we combine both types of vectorization.
 
 ## Data alignment
 
