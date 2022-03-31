@@ -30,7 +30,7 @@ youtube_channel: https://www.youtube.com/c/WolfSoundAudio
 linkedin_account: https://www.linkedin.com/in/jan-wilczek-audio-programmer/
 twitter_account: https://twitter.com/wilczek_jan
 facebook_page: https://www.facebook.com/JanWilczekWolfSound
-logo_title_path: /wp-content/uploads/2019/10/LogoNameOnly.png
+logo_title_path: /assets/img/home/LogoNameOnly.webp
 google_analytics: UA-149437803-2
 
 # Build settings
@@ -127,7 +127,7 @@ defaults:
   - scope:
       path: ""
     values:
-      background: '/wp-content/uploads/2019/10/Logo-1024x602.png'
+      background: '/assets/img/home/Logo.webp'
 #   - scope:
 #       path: ""
 #     values:
