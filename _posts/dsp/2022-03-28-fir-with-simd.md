@@ -19,6 +19,28 @@ discussion_id: 2022-03-28-fir-with-simd
 ---
 How to make your FIR filters fast in the time domain?
 
+### Table of Contents
+
+1. [When Should We Use Time-Domain Filtering?](#when-should-we-use-time-domain-filtering)
+2. [How to speed up FIR filter Implementation?](#how-to-speed-up-fir-filter-implementation)
+3. [Preliminary Assumptions](#preliminary-assumptions)
+   1. [Finite-Length Signals](#finite-length-signals)
+   2. [Time-Reversing the Filter Coefficients](#time-reversing-the-filter-coefficients)
+   3. [Practical Convolution Formula](#practical-convolution-formula)
+   4. [Visualization of Convolution](#visualization-of-convolution)
+4. [Naive Linear Convolution](#naive-linear-convolution)
+5. [Loop Vectorization](#loop-vectorization)
+6. [Inner Loop Vectorization (VIL)](#inner-loop-vectorization-vil)
+   1. [VIL AVX Implementation](#vil-avx-implementation)
+7. [Outer Loop Vectorization (VOL)](#outer-loop-vectorization-vol)
+   1. [VOL AVX Implementation](#vol-avx-implementation)
+8. [Outer and Inner Loop vectorization (VOIL)](#outer-and-inner-loop-vectorization-voil)
+   1. [VOIL AVX Implementation](#voil-avx-implementation)
+   2. [Why Is This More Optimal?](#why-is-this-more-optimal)
+9. [Data Alignment](#data-alignment)
+10. [Summary](#summary)
+11. [Bibliography](#bibliography)
+
 {% katexmm %}
 {% capture _ %}{% increment equationId20220328  %}{% endcapture %}
 {% capture _ %}{% increment listingId20220328  %}{% endcapture %}
@@ -344,17 +366,25 @@ float* applyFirFilterAVX_outerLoopVectorization(
   auto* y = input.y;
 
   for (auto i = 0u; i < input.outputLength; i += AVX_FLOAT_COUNT) {
+    // Set 8 computed outputs initially to 0
     auto yChunk = _mm256_setzero_ps();
 
     for (auto j = 0u; j < input.filterLength; ++j) {
+      // Load an 8-element vector from x into an AVX register
       auto xChunk = _mm256_loadu_ps(x + i + j);
+
+      // Load c[j] filter coefficient into every element
+      // of an 8-element AVX register
       auto cChunk = _mm256_set1_ps(c[j]);
 
+      // Element-wise multiplication
       auto temp = _mm256_mul_ps(xChunk, cChunk);
 
+      // Add to the accumulators
       yChunk = _mm256_add_ps(yChunk, temp);
     }
 
+    // Store 8 computed values in the result vector
     _mm256_storeu_ps(y + i, yChunk);
   }
 
@@ -363,7 +393,7 @@ float* applyFirFilterAVX_outerLoopVectorization(
 #endif
 ```
 
-This code should be 8 times faster than the one in Listing 1. Of course, the typical speedup wili much smaller.
+This code should be 8 times faster than the one in Listing 1. Unfortunately, because of the additional code, the typical speedup will be smaller.
 
 <!-- TODO: How much smaller? -->
 
@@ -379,7 +409,7 @@ In verbose code, VOIL is presented in Listing 6.
 
 _Listing {% increment listingId20220328 %}_
 ```cpp
-std::vector<float> applyFirFilterOuterInnerLoopVectorization(
+float* applyFirFilterOuterInnerLoopVectorization(
     FilterInput<float>& input) {
   const auto* x = input.x;
   const auto* c = input.c;
@@ -404,7 +434,7 @@ std::vector<float> applyFirFilterOuterInnerLoopVectorization(
                   x[i + j + 5] * c[j + 5] + x[i + j + 6] * c[j + 6];
     }
   }
-  return input.output();
+  return y;
 }
 ```
 
@@ -423,48 +453,89 @@ And a 64-fold speedup if it's implemented in AVX...
 
 ```cpp
 #ifdef __AVX__
-std::vector<float> applyFirFilterAVX_outerInnerLoopVectorization(
+float* applyFirFilterAVX_outerInnerLoopVectorization(
     FilterInput<float>& input) {
   const auto* x = input.x;
   const auto* c = input.c;
+  auto* y = input.y;
 
+  // An 8-element array for transferring data from AVX registers
   std::array<float, AVX_FLOAT_COUNT> outStore;
 
-  alignas(AVX_FLOAT_COUNT * alignof(float)) std::array<__m256, AVX_FLOAT_COUNT>
-      outChunk;
+  // 8 separate accumulators for each of the 8 computed outputs
+  std::array<__m256, AVX_FLOAT_COUNT> outChunk;
 
   for (auto i = 0u; i < input.outputLength; i += AVX_FLOAT_COUNT) {
+    // Initialize the accumulators to 0
     for (auto k = 0u; k < AVX_FLOAT_COUNT; ++k) {
       outChunk[k] = _mm256_setzero_ps();
     }
 
-    for (auto j = 0ul; j < input.filterLength; j += AVX_FLOAT_COUNT) {
+    for (auto j = 0u; j < input.filterLength; j += AVX_FLOAT_COUNT) {
+      // Load filter coefficients into an AVX register
       auto cChunk = _mm256_loadu_ps(c + j);
 
-      for (auto k = 0ul; k < AVX_FLOAT_COUNT; ++k) {
+      for (auto k = 0u; k < AVX_FLOAT_COUNT; ++k) {
+        // Load the input samples into an AVX register
         auto xChunk = _mm256_loadu_ps(x + i + j + k);
 
+        // Element-wise multiplication
         auto temp = _mm256_mul_ps(xChunk, cChunk);
 
+        // Add to the dedicated accumulator
         outChunk[k] = _mm256_add_ps(outChunk[k], temp);
       }
     }
 
+    // Summarize the accumulators
     for (auto k = 0u; k < AVX_FLOAT_COUNT; ++k) {
+      // Transfer the data into the helper array
       _mm256_storeu_ps(outStore.data(), outChunk[k]);
 
       if (i + k < input.outputLength)
-        input.y[i + k] = std::accumulate(outStore.begin(), outStore.end(), 0.f);
+        // Final sum for each of the 8 outputs 
+        // computed in 1 outer loop iteration
+        y[i + k] = std::accumulate(outStore.begin(), outStore.end(), 0.f);
     }
   }
 
-  return input.output();
+  return y;
 }
 #endif
 ```
 
-## Data alignment
+### Why Is This More Optimal?
+
+You may think to yourself: "Okay, but this is just a manual loop unrolling! Why is it faster?".
+
+That is because SIMD instructions using multiple registers "in parallel" as in the VOIL case give more space for the processor to execute them faster. This is in contrast to using just one or two registers as in the VIL or VOL case.
+
+When I say "in parallel", I don't mean multithreading. I mean the internal workings of the processor who can handle things most efficiently.
+
+## Data Alignment
+
+Another reason why VOIL has such a potential for optimization is that we can use *aligned* SIMD instructions to implement it. How? That will be the topic of the next article!
+
+## Summary
+
+In this article, we have discussed what is a FIR filter and how it can be efficiently realized: either by choosing the fast convolution algorithm or by using single instruction, multiple data instructions of modern processors. Of course, you can do both!
+
+We redefined the convolution sum to facilitate the discussion and implementation.
+
+We looked into the implementation of the FIR filter using a technique called *loop vectorization*. We showed plain C implementations of the inner, outer, and outer-inner loop vectorizations, discussed their visualizations, and showed their SIMD equivalents using the AVX instruction set.
+
+Finally, we indicated that we can do even better with aligned data, what will be discussed next.
+
+Please, checkout the useful references below.
+
+And as always, if you have any questions, feel free to post them below.
 
 ## Bibliography
+
+[Shahbarhrami05] Asadollah Shahbahrami, Ben Juurlink, and Stamatis Vassiliadis, *Efficient Vectorization of the FIR Filter* [[PDF](https://www.aes.tu-berlin.de/fileadmin/fg196/publication/old-juurlink/efficient_vectorization_of_the_fir_filter.pdf)]
+
+[Kutil09] Rade Kutil, *Short-Vector SIMD Parallelization in Signal Processing* [[PDF](https://www.cosy.sbg.ac.at/~rkutil/publication/Kutil09b.pdf)]
+
+
 
 {% endkatexmm %}
