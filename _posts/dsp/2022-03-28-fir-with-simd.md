@@ -264,11 +264,11 @@ Their names specify at which line of Listing 1 we load the data to the SIMD regi
 
 ## Inner Loop Vectorization (VIL)
 
-In _inner loop vectorization_, we vectorize (rewrite in vector notation) the behavior of the inner loop from Listing 1. 
+In the _inner loop vectorization_, we vectorize (rewrite in vector notation) the behavior of the inner loop from Listing 1. 
 
 Let's write that in a verbose manner (Listing 2). We assume that our vectors are of length 4. That would correspond to registers that can fit 4 floats (for example, [ARM's Neon registers]({% post_url fx/2022-02-12-simd-in-dsp %}#mmx-sse-avx-neon)).
 
-_Listing {% increment listingId20220328 %}_
+_Listing {% increment listingId20220328 %}. Conceptual inner loop vectorization_
 ```cpp
 float* applyFirFilterInnerLoopVectorization(
     FilterInput<float>& input) {
@@ -278,37 +278,40 @@ float* applyFirFilterInnerLoopVectorization(
 
   for (auto i = 0u; i < input.outputLength; ++i) {
     y[i] = 0.f;
+    // Note the increment by 4
     for (auto j = 0u; j < input.filterLength; j += 4) {
-      y[i] += x[i + j] * c[j] + x[i + j + 1] * c[j + 1] +
-              x[i + j + 2] * c[j + 2] + x[i + j + 3] * c[j + 3];
+      y[i] += x[i + j] * c[j] + 
+              x[i + j + 1] * c[j + 1] +
+              x[i + j + 2] * c[j + 2] + 
+              x[i + j + 3] * c[j + 3];
     }
   }
   return y;
 }
 ```
 
-Verbalizing the above code, we can say that in each iteration of the inner loop we do the inner product of 4-element vectors $[x[i + j], x[i + j + 1], x[i + j + 2], x[i + j + 3]]$ and $[c[j], c[j+1], c[j+2], c[j+3]]$. With this, we compute a part of the convolution sum from Equation 3.
+Verbalizing the above code, we can say that in each iteration of the inner loop we do the inner product of two 4-element vectors $[x[i + j], x[i + j + 1], x[i + j + 2], x[i + j + 3]]$ and $[c[j], c[j+1], c[j+2], c[j+3]]$. With this, we compute a part of the convolution sum from Equation 3.
 
-Mind you that we assume that the passed in vectors are already zero-padded and are of length which is a multiplicity of 4.
+Mind you that we assume that the passed-in vectors are already zero-padded and are of length which is a multiplicity of 4.
 
 Figure 2 shows what happens in inner loop vectorization.
 
 ![]({{ page.images | append: "LoopVectorizationVIL.svg" }}){: alt="Convolution via inner loop vectorization visualization."}
 _Figure {% increment figureId20220328 %}. Inner loop vectorization._
 
-Vectors in orange frames have their inner product calculated in the inner loop (hence the name). Again, one orange frame corresponds to one iteration.
+Vectors in orange frames have their inner product calculated in the inner loop (hence the name). Again, one orange frame corresponds to one inner loop iteration.
 
-Of course, code from Listing 2 is not more optimal than the code from Listing 1. It is merely rewritten into vector form. But this vector form is now easy to implement with vector instructions.
+Of course, the code from Listing 2 is not more optimal than the code from Listing 1. It is merely rewritten in the vector form. But this vector form is now easy to implement with vector instructions.
 
 How does this implementation look in real SIMD code?
 
 ### VIL AVX Implementation
 
-For convenience, I am using the [AVX instruction set] to show example implementations. Its instructions are the most readable from all SIMD I know so they should be easy to understand.
+For convenience, I am using the [intrinsic functions]({% post_url fx/2022-02-12-simd-in-dsp %}#how-to-access-simd-instructions) of the [AVX instruction set]({% post_url fx/2022-02-12-simd-in-dsp %}#mmx-sse-avx-neon) to show example implementations. Its instructions are the most readable from all SIMD instruction sets I know so they should be easy to understand.
 
-Listing 3 shows how to implement the FIR filter using inner loop vectorization.
+Listing 3 shows how to implement the FIR filter using the inner loop vectorization.
 
-_Listing {% increment listingId20220328 %}_
+_Listing {% increment listingId20220328 %}. Inner loop vectorization with AVX._
 ```cpp
 #ifdef __AVX__
 // The number of floats that fit into an AVX register.
@@ -323,26 +326,28 @@ float* applyFirFilterAVX_innerLoopVectorization(
   // A fixed-size array to move the data from registers into
   std::array<float, AVX_FLOAT_COUNT> outStore;
 
-  // Inner loop vectorization
   for (auto i = 0u; i < input.outputLength; ++i) {
     // Set a SIMD register to all zeros;
     // we will use it as an accumulator
     auto outChunk = _mm256_setzero_ps();
 
+    // Note the increment
     for (auto j = 0u; j < input.filterLength; j += AVX_FLOAT_COUNT) {
       // Load the unaligned input signal data into a SIMD register
       auto xChunk = _mm256_loadu_ps(x + i + j);
-      // Load the unaligned reversed filter coefficients into a SIMD register
+      // Load the unaligned reversed filter coefficients 
+      // into a SIMD register
       auto cChunk = _mm256_loadu_ps(c + j);
 
-      // Multiply both above registers element-wise
+      // Multiply the both registers element-wise
       auto temp = _mm256_mul_ps(xChunk, cChunk);
 
       // Element-wise add to the accumulator
       outChunk = _mm256_add_ps(outChunk, temp);
     }
 
-    // Transfer the contents of the accumulator the array
+    // Transfer the contents of the accumulator 
+    // to the output array
     _mm256_storeu_ps(outStore.data(), outChunk);
 
     // Sum the partial sums in the accumulator and assign to the output
@@ -354,9 +359,9 @@ float* applyFirFilterAVX_innerLoopVectorization(
 #endif
 ```
 
-Again, we assume that the passed in vectors are already zero-padded and are of length which is a multiplicity of 8 (number of floats we can fit into an AVX register).
+Again, we assume that the passed-in vectors are already zero-padded and are of length which is a multiplicity of 8 (the number of floats we can fit into an AVX register).
 
-This has time complexity equal to $O(\frac{N_h}{8} (N_h + N_x -1))$. Of course, in complexity theory that's the same as the above algorithm. But notice that in the inner loop we do 8 times less iterations. That is because we can operate on vectors of 8 floats with single AVX instructions. So excuse my improper math 😉 
+This has time complexity equal to $O(N_h N_x / 8)$. Of course, in complexity theory that's the same as the non-vectorized algorithm. But notice that in the inner loop we do 8 times fewer iterations. That is because we can operate on vectors of 8 floats with single AVX instructions. So excuse my improper math 😉 
 
 ## Outer Loop Vectorization (VOL)
 
