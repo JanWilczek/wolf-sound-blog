@@ -16,11 +16,13 @@
         padding: 0px 10px 0px 10px;
     }
 
-    .short-bio {
-        img {
-            width: 100px;
-            padding-right: -20px;
-        }
+    img {
+        max-width: 100%;
+    }
+
+    #jan-wilczek-image {
+        width: 100px;
+        padding-right: -20px;
     }
 
     .card {
