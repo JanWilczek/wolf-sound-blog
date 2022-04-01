@@ -106,17 +106,17 @@ With that explained, we can look into how to efficiently implement FIR filtering
 
 In short: via SIMD.
 
-The best way to speed up filtering is to process multiple samples at once using single instruction, multiple data instructions. To achieve this, we need to rewrite the linear convolution algorithm so that it our code operates on vectors.
+The best way to speed up filtering is to process multiple samples at once using single instruction, multiple data (SIMD) instructions. To achieve this, we need to rewrite the linear convolution algorithm so that our code operates on vectors.
 
 This process is called *loop vectorization*.
 
-Loop vectorization is often done by the compiler but the degree of this vectorization is insufficient for real-time DSP. Instead, we need to instruct the compiler what to do.
+Loop vectorization is often done by the compiler but the degree of this automatic vectorization is typically insufficient for real-time DSP. Instead, we need to instruct the compiler exactly what to do.
 
 SIMD instructions achieve the best performance when they operate on [aligned data]({% post_url 2020-04-09-what-is-data-alignment %}). Therefore, data alignment is another factor we should take into account.
 
 In summary, an efficient FIR filter implementation uses 2 strategies in tandem:
 
-1. Loop vectorization
+1. Loop vectorization and
 2. Data alignment.
 
 We will now discuss these two strategies in detail.
@@ -127,15 +127,19 @@ We will now discuss these two strategies in detail.
     <hr>
 
     <p>
-    SIMD instructions are not limited to CPUs but are, in general, associated with them. We'll be considering only SIMD from CPUs in this article.
+    SIMD instructions are not limited to CPUs but we'll be considering only SIMD from CPUs in this article.
     </p>
 
     <p>
-    Someone could ask: why don't we use GPUs for FIR filtering?
+    Someone could ask: *why don't we use GPUs for FIR filtering?*
     </p>
 
     <p>
-    Well, for the same reason that we don't use multithreading in audio processing code. Audio processing of a plugin/application must fit way below one block of audio (typically 10 milliseconds). Although multi-threaded processing on CPUs and GPUs can be very efficient, it is not predictable: we cannot determine when which resource will be available for processing. The cost of thread synchronization (implying system calls) would be too high. Additionally, transporting data to GPU and from it would incur even more overhead.
+    Well, for the same reason that we don't use multithreading in real-time audio processing code. 
+    </p>
+    
+    <p>
+    A complete audio processing chain must typically be calculated within one block of audio (typically 10 milliseconds). Although multi-threaded processing on CPUs and GPUs can be very efficient, it is not 100% predictable; we cannot determine when which resource will be available for processing. The cost of thread synchronization (implying system calls) would be too high. Additionally, transporting data to GPU and retrieving it incurs even more unknown overhead.
     </p>
 
     <p>
@@ -151,7 +155,7 @@ The [linear convolution formula]({% post_url 2020-06-20-the-secret-behind-filter
 
 $$ x[n] \ast h[n] = \sum_{k=-\infty}^{\infty} x[k] h[n - k] = y[n], \quad n \in \mathbb{Z}. \quad ({% increment equationId20220328  %})$$
 
-As you might guess, an infinite sum is not very practical. Additionally, reversing the time in the $h$ signal is quite problematic to think about in code. Therefore, we will make some assumptions, which, however, won't change the general nature of our discussion.
+As you might guess, an infinite sum is not very practical for implementation. Additionally, reversing the time in the $h$ signal is quite problematic to think about in code. Therefore, we will make some assumptions, which, however, won't change the general nature of our discussion.
 
 ### Finite-Length Signals
 
@@ -159,7 +163,9 @@ We will assume that our signals are finite. This was of course true of $h$ but n
 
 We will denote $x$'s length by $N_x$ and $h$'s length by $N_h$.
 
-For indices below 0 or above signals' lengths, the signal is assumed to be 0.
+We also assume that $N_x$ > $N_h$.
+
+For indices below 0 or above signals' lengths, the signals are assumed to be 0.
 
 ### Time-Reversing the Filter Coefficients
 
@@ -167,23 +173,25 @@ In practical real-time audio scenarios, like virtual reality, computer games, or
 
 Therefore, we can time-reverse $h$ right away and reason only about the reversed signal.
 
-In other words, we define signal $c$ of length $N_h$
+In other words, we define signal $c$ of length $N_h$ such that
 
-$$c[n] = h[N_h - n - 1], \quad n = 0, \dots, N_h - 1, \quad ({% increment equationId20220328  %}).$$
+$$c[n] = h[N_h - n - 1], \quad n = 0, \dots, N_h - 1. \quad ({% increment equationId20220328  %}).$$
 
-**We assume that $c$ is 0 everywhere else.**
+We assume that $c$ is 0 everywhere else.
 
 ### Practical Convolution Formula
 
 After introducing these two assumptions, we can rewrite the convolution formula from Equation 1 into 
 
-$$ y[n] = (x[n] \ast h[n])[n] \\= \sum_{k=0}^{N_h-1} x[n+k] c[k], \quad n = 0, \dots, N_x + N_h - 1. \quad ({% increment equationId20220328  %})$$
+$$ y[n] = (x[n] \ast h[n])[n] \\= \sum_{k=0}^{N_h-1} x[n+k] c[k], \quad n = 0, \dots, N_x - 1. \quad ({% increment equationId20220328  %})$$
 
 This formulation resembles the [correlation]({% post_url 2021-06-18-convolution-vs-correlation %}#correlation-definition) formula a lot but remember that it's still [convolution]({% post_url 2021-06-18-convolution-vs-correlation %}#convolution-definition) albeit written differently.
 
-Note also that Equation 3 is convolution in [same]({% post_url 2021-07-09-convolution-in-numpy-matlab-and-scipy %}#same) mode, i.e., $y[0]$ corresponds to $y[N_h-1]$ of the full mode. 
+In this new formulation, one convolution output is simply an *inner product* of two vectors $\pmb{x}$ and $\pmb{c}$, each containing $N_h$ values from $x$ and $c$ respectively.
 
-If we prepend $x$ with $N_h - 1$ zeros, we will get convolution in the [full]({% post_url 2021-07-09-convolution-in-numpy-matlab-and-scipy %}#full) mode.
+Note also that Equation 3 is a convolution in the ["same"]({% post_url 2021-07-09-convolution-in-numpy-matlab-and-scipy %}#same) mode, i.e., $y[0]$ corresponds to $y[N_h-1]$ of the full mode. 
+
+If we prepend $x$ with $N_h - 1$ zeros, we will get a convolution in the ["full"]({% post_url 2021-07-09-convolution-in-numpy-matlab-and-scipy %}#full) mode.
 
 As you will see, this will simplify our discussion significantly.
 
@@ -194,7 +202,7 @@ Equation 3 is visualized on Figure 1. It show which elements are multiplied to c
 ![]({{ page.images | append: "LoopVectorizationSingle.svg" }}){: alt="Scalar linear convolution visualization."}
 _Figure {% increment figureId20220328 %}. Convolution as an inner product of the input vector and the reversed filter coefficients vector._
 
-Orange frames mark which elements are multiplied together to compute $y[0]$. The results of multiplications are then summed for the final result.
+The orange frames mark which elements are multiplied together to compute $y[0]$. The results of multiplications are then summed up for the final result.
 
 With the above assumptions and the convolution format, we may write its implementation.
 
@@ -202,20 +210,21 @@ With the above assumptions and the convolution format, we may write its implemen
 
 Before we improve on the speed of our FIR filter with SIMD, we need to start with a baseline: a non-SIMD implementation.
 
-_The full (very ugly) code referenced in this article [can be found in my GitHub repository](https://github.com/JanWilczek/fir-simd.git)._
+_The full code referenced in this article [can be found in my GitHub repository](https://github.com/JanWilczek/fir-simd.git)._
 
 That can be implemented as follows.
 
-_Listing {% increment listingId20220328  %}._
+_Listing {% increment listingId20220328  %}. Plain linear convolution._
 ```cpp
 struct FilterInput {
 // assume that these fields are correctly initialized
-  const float* x;  // input signal
-  size_t inputLength;
+  const float* x;  // input signal with (N_h-1) zeros appended
+  size_t inputLength;   // N_x
   const float* c;  // reversed filter coefficients
-  size_t filterLength;
-  float* y;  // output (filtered) signal
-  size_t outputLength;
+  size_t filterLength;  // N_h
+  float* y;  // output (filtered) signal; 
+             // pointer to preallocated, uninitialized memory
+  size_t outputLength; // should be N_x in our context
 };
 
 
@@ -236,9 +245,9 @@ float* applyFirFilterSingle(FilterInput<float>& input) {
 
 Each multiplication in the inner loop corresponds to one orange frame from Figure 1.
 
-As you can see, this code is not very efficient; we iterate by samples, one-by-one.
+As you can see, this code is not very efficient; we iterate the samples one by one.
 
-Because of the zero-padding, the time complexity of this code is $O(N_h (N_h + N_x - 1))$ (we multiply $N_h$ filter coefficients as many times as there are output samples).
+The time complexity of this code is $O(N_h N_x)$ (we perform $N_h$ multiplications as many times as there are output samples).
 
 Let's see how we can vectorize this code...
 
@@ -251,7 +260,7 @@ There are 3 types of loop vectorization in the context of FIR filtering:
 2. Outer loop vectorization (VOL),
 3. Outer and inner loop vectorization (VOIL).
 
-Their names specify where we load the data to the SIMD registers. The easiest one to understand is the inner loop vectorization.
+Their names specify at which line of Listing 1 we load the data to the SIMD registers. The easiest one to understand is the inner loop vectorization.
 
 ## Inner Loop Vectorization (VIL)
 
