@@ -5,6 +5,7 @@ date: 2022-03-28
 author: Jan Wilczek
 layout: post
 images: /assets/img/posts/dsp/2022-03-28-fir-with-simd/
+permalink: /fir-filter-with-simd/
 # background: /assets/img/posts/dsp/2022-03-28-fir-with-simd/Thumbnail.webp
 categories:
   - Digital Signal Processing
@@ -13,48 +14,53 @@ tags:
   - filtering 
   - effects
   - simd
+  - convolution
   - C++
   - C
 discussion_id: 2022-03-28-fir-with-simd
 ---
 How to make your FIR filters fast in the time domain?
 
+Finite-impulse response (FIR) filtering is the cornerstone of digital signal processing (DSP). It is especially important in applying reverberation to the audio signal, for example, in virtual reality audio or in VST plugins of digital audio workstations. It has also been extensively used on mobile phones (even pre-smartphones!) and embedded devices for sound applications. 
+
+How to perform it fast?
+
 ### Table of Contents
 
-1. [When Should We Use Time-Domain Filtering?](#when-should-we-use-time-domain-filtering)
-2. [How to speed up FIR filter Implementation?](#how-to-speed-up-fir-filter-implementation)
-3. [Preliminary Assumptions](#preliminary-assumptions)
+1. [What Are FIR Filters?](#what-are-fir-filters)
+2. [2 Sides of Optimization](#2-sides-of-optimization)
+3. [When Should We Use Time-Domain Filtering?](#when-should-we-use-time-domain-filtering)
+4. [How to Speed Up FIR Filter Implementation?](#how-to-speed-up-fir-filter-implementation)
+5. [Preliminary Assumptions](#preliminary-assumptions)
    1. [Finite-Length Signals](#finite-length-signals)
    2. [Time-Reversing the Filter Coefficients](#time-reversing-the-filter-coefficients)
    3. [Practical Convolution Formula](#practical-convolution-formula)
    4. [Visualization of Convolution](#visualization-of-convolution)
-4. [Naive Linear Convolution](#naive-linear-convolution)
-5. [Loop Vectorization](#loop-vectorization)
-6. [Inner Loop Vectorization (VIL)](#inner-loop-vectorization-vil)
+6. [Naive Linear Convolution](#naive-linear-convolution)
+7. [Loop Vectorization](#loop-vectorization)
+8. [Inner Loop Vectorization (VIL)](#inner-loop-vectorization-vil)
    1. [VIL AVX Implementation](#vil-avx-implementation)
-7. [Outer Loop Vectorization (VOL)](#outer-loop-vectorization-vol)
+9. [Outer Loop Vectorization (VOL)](#outer-loop-vectorization-vol)
    1. [VOL AVX Implementation](#vol-avx-implementation)
-8. [Outer and Inner Loop vectorization (VOIL)](#outer-and-inner-loop-vectorization-voil)
+10. [Outer and Inner Loop vectorization (VOIL)](#outer-and-inner-loop-vectorization-voil)
    1. [VOIL AVX Implementation](#voil-avx-implementation)
    2. [Why Is This More Optimal?](#why-is-this-more-optimal)
-9. [Data Alignment](#data-alignment)
-10. [Summary](#summary)
-11. [Bibliography](#bibliography)
+11. [Data Alignment](#data-alignment)
+12. [Summary](#summary)
+13. [Bibliography](#bibliography)
 
 {% katexmm %}
 {% capture _ %}{% increment equationId20220328  %}{% endcapture %}
 {% capture _ %}{% increment listingId20220328  %}{% endcapture %}
 {% capture _ %}{% increment figureId20220328  %}{% endcapture %}
 
-If you want to make any software execute as fast as possible, there are two ways in which you can achieve this:
+## What Are FIR Filters?
 
-1. Optimal algorithm.
-2. Efficient implementation.
+FIR filters are filters, which are defined by their finite-length impulse response, $h[n]$. The output $y[n]$ of an FIR filter is a [convolution]({% post_url 2020-06-20-the-secret-behind-filtering %}) of its input signal $x[n]$ with the impulse response. We can write it as
 
-The same principles apply to digital signal processing (DSP) code. To have a fast [finite-impulse response (FIR) filter]({% post_url 2020-06-20-the-secret-behind-filtering %}) in code, you can either
+$$y[n] = x[n] \ast h[n] = \sum \limits_{k=-\infty}^{\infty} x[k] h[n - k].  \quad ({% increment equationId20220212 %})$$
 
-1. use an algorithm with a optimal lower bound on execution time, such as [fast convolution via the Fourier transform domain]({% post_url 2021-05-14-fast-convolution %}), or
-2. take advantage of hardware and software resources to efficiently implement time-domain convolution. This typically means using the [single instruction, multiple data (SIMD) instructions]({% post_url fx/2022-02-12-simd-in-dsp %}) to vectorize your code.
+I have published [a number of articles and videos on convolution]({% post_url 2020-06-20-the-secret-behind-filtering %}), which you can check out for more insight.
 
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6611455743195468"
      crossorigin="anonymous"></script><ins class="adsbygoogle"
@@ -66,23 +72,37 @@ The same principles apply to digital signal processing (DSP) code. To have a fas
      (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
+## 2 Sides of Optimization
+
+If you want to make any software execute as fast as possible, there are two ways in which you can achieve this:
+
+1. Optimal algorithm.
+2. Efficient implementation.
+
+The same principles apply to DSP code. To have a fast [finite-impulse response (FIR) filter]({% post_url 2020-06-20-the-secret-behind-filtering %}) in code, you can either
+
+1. use an algorithm with a optimal lower bound on execution time, such as the [fast convolution via the Fourier transform domain]({% post_url 2021-05-14-fast-convolution %}), or
+2. take advantage of hardware and software resources to efficiently implement time-domain convolution. This typically means using [single instruction, multiple data (SIMD) instructions]({% post_url fx/2022-02-12-simd-in-dsp %}) to vectorize your code.
+
+
+
 ## When Should We Use Time-Domain Filtering?
 
 You may be asking yourself
 
-> Since we have **fast** convolution, why would we ever need a time-domain implementation of it?
+> Since we have a **fast** convolution algorithm, why would we ever need a time-domain implementation of it?
 
 The fast convolution algorithm's lower bound on its execution time is of $O(N \log N)$ type, where $N$ could be the length of the input signal or the filter (let's not specify this exactly because it depends on the case). The lower bound on the linear convolution's execution time is of $O(N^2)$ type [Wefers2015].
 
 First of all, it means that for sufficiently small $N$, the linear convolution algorithm will be faster than the fast convolution algorithm.
 
-Second of all, if we vectorize our code wisely, we may be able to create an even larger advantage for the linear convolution. That is thanks to the fact, that fast convolution operates on complex numbers, whereas linear convolution always uses real numbers.
+Second of all, fast convolution operates on complex numbers, whereas linear convolution always uses real numbers. This effectively means that the fast convolution needs to process twice as much data as the linear convolution. 
 
-If that confuses you, think about sorting algorithms. In general, [Quicksort](https://en.wikipedia.org/wiki/Quicksort) is considered to be the fastest sorting algorithm. But if you look at sorting implementations, such as `std::sort`, you will see that after dividing the sorted container into sufficiently small parts, a quadratic algorithm, such as [insertion sort](https://en.wikipedia.org/wiki/Insertion_sort) is used to sort the elements within. (I've just found that this strategy is called [Introsort](https://en.wikipedia.org/wiki/Introsort) 😃).
+If the fact that the time-domain convolution may be faster than the fast convolution confuses you, think about sorting algorithms. In general, [quicksort](https://en.wikipedia.org/wiki/Quicksort) is considered to be the fastest sorting algorithm. But if you look at sorting implementations, such as `std::sort`, you will see that it only initially uses the quicksort. After dividing the sorted container into sufficiently small parts, a quadratic algorithm, such as [insertion sort](https://en.wikipedia.org/wiki/Insertion_sort), is used to sort the elements within. (I've just found that this strategy is called [introsort](https://en.wikipedia.org/wiki/Introsort) 😃).
 
-With that explain, we can look into how to efficiently implement FIR filtering in the time domain.
+With that explained, we can look into how to efficiently implement FIR filtering in the time domain.
 
-## How to speed up FIR filter Implementation?
+## How to Speed Up FIR Filter Implementation?
 
 In short: via SIMD.
 
@@ -100,6 +120,30 @@ In summary, an efficient FIR filter implementation uses 2 strategies in tandem:
 2. Data alignment.
 
 We will now discuss these two strategies in detail.
+
+<div class="card summary">
+    <div class="card-body">
+    <h3 class="card-title">Why not GPU?</h3>
+    <hr>
+
+    <p>
+    SIMD instructions are not limited to CPUs but are, in general, associated with them. We'll be considering only SIMD from CPUs in this article.
+    </p>
+
+    <p>
+    Someone could ask: why don't we use GPUs for FIR filtering?
+    </p>
+
+    <p>
+    Well, for the same reason that we don't use multithreading in audio processing code. Audio processing of a plugin/application must fit way below one block of audio (typically 10 milliseconds). Although multi-threaded processing on CPUs and GPUs can be very efficient, it is not predictable: we cannot determine when which resource will be available for processing. The cost of thread synchronization (implying system calls) would be too high. Additionally, transporting data to GPU and from it would incur even more overhead.
+    </p>
+
+    <p>
+    That is why, in today's real-time audio processing applications, single-core CPU processing prevails. The audio thread must never stop!
+    </p>
+
+    </div>
+</div>
 
 ## Preliminary Assumptions
 
@@ -532,10 +576,11 @@ And as always, if you have any questions, feel free to post them below.
 
 ## Bibliography
 
-[Shahbarhrami05] Asadollah Shahbahrami, Ben Juurlink, and Stamatis Vassiliadis, *Efficient Vectorization of the FIR Filter* [[PDF](https://www.aes.tu-berlin.de/fileadmin/fg196/publication/old-juurlink/efficient_vectorization_of_the_fir_filter.pdf)]
+[Kutil2009] Rade Kutil, *Short-Vector SIMD Parallelization in Signal Processing*. [[PDF](https://www.cosy.sbg.ac.at/~rkutil/publication/Kutil09b.pdf)]
 
-[Kutil09] Rade Kutil, *Short-Vector SIMD Parallelization in Signal Processing* [[PDF](https://www.cosy.sbg.ac.at/~rkutil/publication/Kutil09b.pdf)]
+[Shahbarhrami2005] Asadollah Shahbahrami, Ben Juurlink, and Stamatis Vassiliadis, *Efficient Vectorization of the FIR Filter*. [[PDF](https://www.aes.tu-berlin.de/fileadmin/fg196/publication/old-juurlink/efficient_vectorization_of_the_fir_filter.pdf)]
 
+[Wefers2015] Frank Wefers *Partitioned convolution algorithms for real-time auralization*, PhD Thesis, Zugl.: Aachen, Techn. Hochsch., 2015.
 
 
 {% endkatexmm %}
