@@ -596,6 +596,27 @@ float* applyFirFilterAVX_outerInnerLoopVectorization(
 
 In this code, zero-padding is even more important because we may easily try to access an out-of-memory element. Hence the `if` statement near the end of the outer loop.
 
+<!-- TODO: Benchmark -->
+
+<!-- ## Benchmark: Who is the Best? -->
+
+<!-- As Bjarne Stroustrup, says -->
+<!--  -->
+<!-- > Don't just reason about efficiency. Measure. -->
+<!--  -->
+<!-- ...or something along these lines 😉 -->
+<!--  -->
+<!-- In Table 1, there are results a benchmarking test on randomly generated long vectors (around ~7k elements). Each of the algorithms was used to compute the convolution of the two generated vectors 10,000 times. The algorithms received already zero-padded data. -->
+
+<!-- _Table 1. Comparison of vectorization methods._ -->
+
+<!-- | Project\Configuration | Debug | Release | -->
+<!-- |-----------------------|-------|---------| -->
+<!-- | Single                |       |         | -->
+<!-- | VIL                   |       |         | -->
+<!-- | VOL                   |       |         | -->
+<!-- | VOIL                  |       |         | -->
+
 ## Summary
 
 In this article, we have discussed what is a FIR filter and how it can be efficiently realized; either by choosing the fast convolution algorithm or by using single instruction, multiple data instructions of modern processors. Of course, you can do both!
