@@ -6,7 +6,7 @@ author: Jan Wilczek
 layout: post
 images: /assets/img/posts/dsp/2022-03-28-fir-with-simd/
 permalink: /fir-filter-with-simd/
-# background: /assets/img/posts/dsp/2022-03-28-fir-with-simd/Thumbnail.webp
+background: /assets/img/posts/dsp/2022-03-28-fir-with-simd/LoopVectorizationVOIL.svg
 categories:
   - Digital Signal Processing
   - Audio FX
