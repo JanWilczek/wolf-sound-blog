@@ -42,12 +42,12 @@ How to perform it fast?
    1. [VIL AVX Implementation](#vil-avx-implementation)
 9. [Outer Loop Vectorization (VOL)](#outer-loop-vectorization-vol)
    1. [VOL AVX Implementation](#vol-avx-implementation)
-10. [Outer and Inner Loop vectorization (VOIL)](#outer-and-inner-loop-vectorization-voil)
-   1. [VOIL AVX Implementation](#voil-avx-implementation)
-   2. [Why Is This More Optimal?](#why-is-this-more-optimal)
-11. [Data Alignment](#data-alignment)
-12. [Summary](#summary)
-13. [Bibliography](#bibliography)
+1. [Outer and Inner Loop vectorization (VOIL)](#outer-and-inner-loop-vectorization-voil)
+   1. [Why Is This More Optimal?](#why-is-this-more-optimal)
+      1. [Data Alignment](#data-alignment)
+   2. [VOIL AVX Implementation](#voil-avx-implementation)
+1. [Summary](#summary)
+1. [Bibliography](#bibliography)
 
 {% katexmm %}
 {% capture _ %}{% increment equationId20220328  %}{% endcapture %}
@@ -228,14 +228,14 @@ struct FilterInput {
 };
 
 
-float* applyFirFilterSingle(FilterInput<float>& input) {
+float* applyFirFilterSingle(FilterInput& input) {
   const auto* x = input.x;
   const auto* c = input.c;
   auto* y = input.y;
 
   for (auto i = 0u; i < input.outputLength; ++i) {
-    y[i] = x[0] * c[0];
-    for (auto j = 1u; j < input.filterLength; ++j) {
+    y[i] = 0.f;
+    for (auto j = 0u; j < input.filterLength; ++j) {
       y[i] += x[i + j] * c[j];
     }
   }
@@ -271,7 +271,7 @@ Let's write that in a verbose manner (Listing 2). We assume that our vectors are
 _Listing {% increment listingId20220328 %}. Conceptual inner loop vectorization_
 ```cpp
 float* applyFirFilterInnerLoopVectorization(
-    FilterInput<float>& input) {
+    FilterInput& input) {
   const auto* x = input.x;
   const auto* c = input.c;
   auto* y = input.y;
@@ -318,7 +318,7 @@ _Listing {% increment listingId20220328 %}. Inner loop vectorization with AVX._
 constexpr auto AVX_FLOAT_COUNT = 8u;
 
 float* applyFirFilterAVX_innerLoopVectorization(
-    FilterInput<float>& input) {
+    FilterInput& input) {
   const auto* x = input.x;
   const auto* c = input.c;
   const auto* y = input.y;
@@ -365,18 +365,19 @@ This has time complexity equal to $O(N_h N_x / 8)$. Of course, in complexity the
 
 ## Outer Loop Vectorization (VOL)
 
-Outer loop vectorization is a little bit crazy. In this approach we try to compute a vector of outputs at once in one outer iteration.
+Outer loop vectorization is a little bit more crazy. In this approach, we try to compute a vector of outputs at once in one outer iteration.
 
-In Listing 4, there is the FIR filter code from Listing 1 rewritten in terms of vectors.
+In Listing 4, there is the FIR filter code from Listing 1 rewritten in terms of 4-element vectors.
 
-_Listing {% increment listingId20220328 %}._
+_Listing {% increment listingId20220328 %}. Conceptual outer loop vectorization._
 ```cpp
-std::vector<float> applyFirFilterOuterLoopVectorization(
-    FilterInput<float>& input) {
+float* applyFirFilterOuterLoopVectorization(
+    FilterInput& input) {
   const auto* x = input.x;
   const auto* c = input.c;
   auto* y = input.y;
 
+  // Note the increment by 4
   for (auto i = 0u; i < input.outputLength; i += 4) {
     y[i] = 0.f;
     y[i + 1] = 0.f;
@@ -389,24 +390,24 @@ std::vector<float> applyFirFilterOuterLoopVectorization(
       y[i + 3] += x[i + j + 3] * c[j];
     }
   }
-  return input.output();
+  return y;
 }
 ```
 
-Again, we assume that the passed in vectors are already zero-padded and are of length which is a multiplicity of 4.
+Again, we assume that the passed-in vectors are already zero-padded and are of length which is a multiplicity of 4.
 
 Figure 3 shows how code from Listing 4 works.
 
 ![]({{ page.images | append: "LoopVectorizationVOL.svg" }}){: alt="Convolution via outer loop vectorization visualization."}
 _Figure {% increment figureId20220328 %}. Outer loop vectorization._
 
-Again, one frame corresponds to one inner loop iteration and again it shows which elements of the two vectors are multiplied. In a way, it can be thought of as multiplying each 4-element vector from $x$ by a scalar (one element from $c$).
+Again, one frame corresponds to one inner loop iteration and again it shows which elements of $x$ and $h$ are multiplied to compute $y[0]$. In a way, it can be thought of as multiplying each 4-element vector from $x$ by a scalar (one element from $c$).
 
-The result of multiplications within frames are summed up to produce 4 outputs in one iteration of the outer loop.
+The resulting 4-element vectors (results of multiplications within the frames) are summed up to produce 4 outputs in one iteration of the outer loop.
 
-So instead of computing 4 elements from the convolution sum (as in VIL), we compute 1 element from 4 convolution sums.
+So instead of computing 4 elements from the convolution sum in the inner loop (as in VIL), we compute 1 element from 4 convolution sums. In VIL we had 4 times fewer inner loop iterations, in VOL we have 4 times fewer outer loop iterations.
 
-Thus, VOL is no more optimal than VIL.
+Thus, VOL is not more optimal than VIL.
 
 This code is now easy to implement with SIMD instructions.
 
@@ -414,15 +415,18 @@ This code is now easy to implement with SIMD instructions.
 
 Listing 5 shows how to implement FIR filtering in AVX instructions using outer loop vectorization.
 
-_Listing {% increment listingId20220328 %}_
+`FilterInput` and `AVX_FLOAT_COUNT` are defined as before.
+
+_Listing {% increment listingId20220328 %}. Outer loop vectorization in AVX._
 ```cpp
 #ifdef __AVX__
 float* applyFirFilterAVX_outerLoopVectorization(
-    FilterInput<float>& input) {
+    FilterInput& input) {
   const auto* x = input.x;
   const auto* c = input.c;
   auto* y = input.y;
 
+  // Note the increment
   for (auto i = 0u; i < input.outputLength; i += AVX_FLOAT_COUNT) {
     // Set 8 computed outputs initially to 0
     auto yChunk = _mm256_setzero_ps();
@@ -431,7 +435,7 @@ float* applyFirFilterAVX_outerLoopVectorization(
       // Load an 8-element vector from x into an AVX register
       auto xChunk = _mm256_loadu_ps(x + i + j);
 
-      // Load c[j] filter coefficient into every element
+      // Load c[j] filter coefficient into every variable
       // of an 8-element AVX register
       auto cChunk = _mm256_set1_ps(c[j]);
 
@@ -451,7 +455,7 @@ float* applyFirFilterAVX_outerLoopVectorization(
 #endif
 ```
 
-This code should be 8 times faster than the one in Listing 1. Unfortunately, because of the additional code, the typical speedup will be smaller.
+As for VIL, this code should be 8 times faster than the one in Listing 1. In practice, because of the additional code, the typical speedup will be smaller.
 
 <!-- TODO: How much smaller? -->
 
@@ -461,35 +465,46 @@ A question arises: can we do even better? Yes, we can!
 
 The real breakthrough comes when we combine both types of vectorization.
 
-In this approach, we compute 4 outputs on each pass of the outer loop (outer loop vectorization) and compute an inner product of 4-element vectors (a part of the convolution sum) in each pass of the inner loop (inner loop vectorization).
+In this approach, we compute a vector of outputs in each pass of the outer loop (outer loop vectorization) using an a number of inner product of vectors (a parts of the convolution sums) in each pass of the inner loop (inner loop vectorization).
 
-In verbose code, VOIL is presented in Listing 6.
+In verbose code operating on 4-element vectors, VOIL is presented in Listing 6.
 
-_Listing {% increment listingId20220328 %}_
+_Listing {% increment listingId20220328 %}. Conceptual outer-inner loop vectorization._
 ```cpp
 float* applyFirFilterOuterInnerLoopVectorization(
-    FilterInput<float>& input) {
+    FilterInput& input) {
   const auto* x = input.x;
   const auto* c = input.c;
   auto* y = input.y;
 
+  // Note the increment
   for (auto i = 0u; i < input.outputLength; i += 4) {
     y[i] = 0.f;
     y[i + 1] = 0.f;
     y[i + 2] = 0.f;
     y[i + 3] = 0.f;
+    
+    // Note the increment
     for (auto j = 0u; j < input.filterLength; j += 4) {
-      y[i] += x[i + j] * c[j] + x[i + j + 1] * c[j + 1] +
-              x[i + j + 2] * c[j + 2] + x[i + j + 3] * c[j + 3];
+      y[i] += x[i + j] * c[j] +
+              x[i + j + 1] * c[j + 1] +
+              x[i + j + 2] * c[j + 2] +
+              x[i + j + 3] * c[j + 3];
 
-      y[i + 1] += x[i + j + 1] * c[j + 1] + x[i + j + 2] * c[j + 2] +
-                  x[i + j + 3] * c[j + 3] + x[i + j + 4] * c[j + 4];
+      y[i + 1] += x[i + j + 1] * c[j + 1] +
+                  x[i + j + 2] * c[j + 2] +
+                  x[i + j + 3] * c[j + 3] +
+                  x[i + j + 4] * c[j + 4];
 
-      y[i + 2] += x[i + j + 2] * c[j + 2] + x[i + j + 3] * c[j + 3] +
-                  x[i + j + 4] * c[j + 4] + x[i + j + 5] * c[j + 5];
+      y[i + 2] += x[i + j + 2] * c[j + 2] +
+                  x[i + j + 3] * c[j + 3] +
+                  x[i + j + 4] * c[j + 4] +
+                  x[i + j + 5] * c[j + 5];
 
-      y[i + 3] += x[i + j + 3] * c[j + 3] + x[i + j + 4] * c[j + 4] +
-                  x[i + j + 5] * c[j + 5] + x[i + j + 6] * c[j + 6];
+      y[i + 3] += x[i + j + 3] * c[j + 3] +
+                  x[i + j + 4] * c[j + 4] +
+                  x[i + j + 5] * c[j + 5] +
+                  x[i + j + 6] * c[j + 6];
     }
   }
   return y;
@@ -501,18 +516,33 @@ This can be visualized as shown in Figure 4.
 ![]({{ page.images | append: "LoopVectorizationVOIL.svg" }}){: alt="Convolution via outer-inner loop vectorization visualization."}
 _Figure {% increment figureId20220328 %}. Outer-inner loop vectorization._
 
-Now one **frame style** shows one inner loop iteration. Each frame marks 1 inner product.
+Now one **frame style** corresponds one inner loop iteration. Each frame marks 1 inner product.
 
-As you can see, in 1 inner loop iteration we compute 4 elements of 4 convolution sums. That should give us a 16-fold speed-up if the above code is implemented in SIMD.
+As you can see, in one inner loop iteration we compute 4 elements of 4 convolution sums, i.e., 16 elements in total.
 
-And a 64-fold speedup if it's implemented in AVX...
+### Why Is This More Optimal?
+
+You may think to yourself: *"Okay, but this is just a manual loop unrolling! Why is it faster?"*.
+
+That is because SIMD instructions using multiple registers at once as in the VOIL case give more space for the processor to execute them faster. This is in contrast to using just one or two registers as in the VIL or VOL case.
+
+When I say "at once", I don't mean multithreading. I mean holding references to various registers. That enables the processor handling things most efficiently.
+
+#### Data Alignment
+
+Another reason why VOIL has such a potential for optimization is that we can use *aligned* load/store SIMD instructions to implement it. How? That will be the topic of the next article!
+
+Let's see how to implement VOIL in AVX instructions.
 
 ### VOIL AVX Implementation
 
+Listing 7 shows the implementation of FIR filtering with VOIL vectorization using the AVX intrinsics.
+
+_Listing {% increment listingId20220328 %}. Outer-inner loop vectorization in AVX._
 ```cpp
 #ifdef __AVX__
 float* applyFirFilterAVX_outerInnerLoopVectorization(
-    FilterInput<float>& input) {
+    FilterInput& input) {
   const auto* x = input.x;
   const auto* c = input.c;
   auto* y = input.y;
@@ -523,12 +553,14 @@ float* applyFirFilterAVX_outerInnerLoopVectorization(
   // 8 separate accumulators for each of the 8 computed outputs
   std::array<__m256, AVX_FLOAT_COUNT> outChunk;
 
+  // Note the increment
   for (auto i = 0u; i < input.outputLength; i += AVX_FLOAT_COUNT) {
     // Initialize the accumulators to 0
     for (auto k = 0u; k < AVX_FLOAT_COUNT; ++k) {
       outChunk[k] = _mm256_setzero_ps();
     }
 
+    // Note the increment
     for (auto j = 0u; j < input.filterLength; j += AVX_FLOAT_COUNT) {
       // Load filter coefficients into an AVX register
       auto cChunk = _mm256_loadu_ps(c + j);
@@ -562,33 +594,25 @@ float* applyFirFilterAVX_outerInnerLoopVectorization(
 #endif
 ```
 
-### Why Is This More Optimal?
-
-You may think to yourself: "Okay, but this is just a manual loop unrolling! Why is it faster?".
-
-That is because SIMD instructions using multiple registers "in parallel" as in the VOIL case give more space for the processor to execute them faster. This is in contrast to using just one or two registers as in the VIL or VOL case.
-
-When I say "in parallel", I don't mean multithreading. I mean the internal workings of the processor who can handle things most efficiently.
-
-## Data Alignment
-
-Another reason why VOIL has such a potential for optimization is that we can use *aligned* SIMD instructions to implement it. How? That will be the topic of the next article!
+In this code, zero-padding is even more important because we may easily try to access an out-of-memory element. Hence the `if` statement near the end of the outer loop.
 
 ## Summary
 
-In this article, we have discussed what is a FIR filter and how it can be efficiently realized: either by choosing the fast convolution algorithm or by using single instruction, multiple data instructions of modern processors. Of course, you can do both!
+In this article, we have discussed what is a FIR filter and how it can be efficiently realized; either by choosing the fast convolution algorithm or by using single instruction, multiple data instructions of modern processors. Of course, you can do both!
 
 We redefined the convolution sum to facilitate the discussion and implementation.
 
 We looked into the implementation of the FIR filter using a technique called *loop vectorization*. We showed plain C implementations of the inner, outer, and outer-inner loop vectorizations, discussed their visualizations, and showed their SIMD equivalents using the AVX instruction set.
 
-Finally, we indicated that we can do even better with aligned data, what will be discussed next.
+Finally, we indicated that we can do even better with aligned data. This will be discussed in the next article.
 
-Please, checkout the useful references below.
+Please, check out the useful references below. The whole code is [available in my GitHub repository](https://github.com/JanWilczek/fir-simd.git).
 
 And as always, if you have any questions, feel free to post them below.
 
 ## Bibliography
+
+[Code to this article on GitHub.](https://github.com/JanWilczek/fir-simd.git)
 
 [Kutil2009] Rade Kutil, *Short-Vector SIMD Parallelization in Signal Processing*. [[PDF](https://www.cosy.sbg.ac.at/~rkutil/publication/Kutil09b.pdf)]
 
