@@ -491,20 +491,20 @@ float* applyFirFilterOuterInnerLoopVectorization(
               x[i + j + 2] * c[j + 2] +
               x[i + j + 3] * c[j + 3];
 
-      y[i + 1] += x[i + j + 1] * c[j + 1] +
-                  x[i + j + 2] * c[j + 2] +
-                  x[i + j + 3] * c[j + 3] +
-                  x[i + j + 4] * c[j + 4];
+      y[i + 1] += x[i + j + 1] * c[j] +
+                  x[i + j + 2] * c[j + 1] +
+                  x[i + j + 3] * c[j + 2] +
+                  x[i + j + 4] * c[j + 3];
 
-      y[i + 2] += x[i + j + 2] * c[j + 2] +
-                  x[i + j + 3] * c[j + 3] +
-                  x[i + j + 4] * c[j + 4] +
-                  x[i + j + 5] * c[j + 5];
+      y[i + 2] += x[i + j + 2] * c[j] +
+                  x[i + j + 3] * c[j + 1] +
+                  x[i + j + 4] * c[j + 2] +
+                  x[i + j + 5] * c[j + 3];
 
-      y[i + 3] += x[i + j + 3] * c[j + 3] +
-                  x[i + j + 4] * c[j + 4] +
-                  x[i + j + 5] * c[j + 5] +
-                  x[i + j + 6] * c[j + 6];
+      y[i + 3] += x[i + j + 3] * c[j] +
+                  x[i + j + 4] * c[j + 1] +
+                  x[i + j + 5] * c[j + 2] +
+                  x[i + j + 6] * c[j + 3];
     }
   }
   return y;
