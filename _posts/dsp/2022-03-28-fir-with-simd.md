@@ -210,6 +210,10 @@ With the above assumptions and the convolution format, we may write its implemen
 
 Before we improve on the speed of our FIR filter with SIMD, we need to start with a baseline: a non-SIMD implementation.
 
+You can also watch this part explained in a video form:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/6sxsrUkaTGU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 _The full code referenced in this article [can be found in my GitHub repository](https://github.com/JanWilczek/fir-simd.git)._
 
 That can be implemented as follows.
