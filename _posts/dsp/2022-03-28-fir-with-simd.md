@@ -6,7 +6,7 @@ author: Jan Wilczek
 layout: post
 images: /assets/img/posts/dsp/2022-03-28-fir-with-simd/
 permalink: /fir-filter-with-simd/
-# background: /assets/img/posts/dsp/2022-03-28-fir-with-simd/Thumbnail.webp
+background: /assets/img/posts/dsp/2022-03-28-fir-with-simd/LoopVectorizationVOIL.svg
 categories:
   - Digital Signal Processing
   - Audio FX
@@ -209,6 +209,10 @@ With the above assumptions and the convolution format, we may write its implemen
 ## Naive Linear Convolution
 
 Before we improve on the speed of our FIR filter with SIMD, we need to start with a baseline: a non-SIMD implementation.
+
+You can also watch this part explained in a video form:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/6sxsrUkaTGU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 _The full code referenced in this article [can be found in my GitHub repository](https://github.com/JanWilczek/fir-simd.git)._
 
@@ -491,20 +495,20 @@ float* applyFirFilterOuterInnerLoopVectorization(
               x[i + j + 2] * c[j + 2] +
               x[i + j + 3] * c[j + 3];
 
-      y[i + 1] += x[i + j + 1] * c[j + 1] +
-                  x[i + j + 2] * c[j + 2] +
-                  x[i + j + 3] * c[j + 3] +
-                  x[i + j + 4] * c[j + 4];
+      y[i + 1] += x[i + j + 1] * c[j] +
+                  x[i + j + 2] * c[j + 1] +
+                  x[i + j + 3] * c[j + 2] +
+                  x[i + j + 4] * c[j + 3];
 
-      y[i + 2] += x[i + j + 2] * c[j + 2] +
-                  x[i + j + 3] * c[j + 3] +
-                  x[i + j + 4] * c[j + 4] +
-                  x[i + j + 5] * c[j + 5];
+      y[i + 2] += x[i + j + 2] * c[j] +
+                  x[i + j + 3] * c[j + 1] +
+                  x[i + j + 4] * c[j + 2] +
+                  x[i + j + 5] * c[j + 3];
 
-      y[i + 3] += x[i + j + 3] * c[j + 3] +
-                  x[i + j + 4] * c[j + 4] +
-                  x[i + j + 5] * c[j + 5] +
-                  x[i + j + 6] * c[j + 6];
+      y[i + 3] += x[i + j + 3] * c[j] +
+                  x[i + j + 4] * c[j + 1] +
+                  x[i + j + 5] * c[j + 2] +
+                  x[i + j + 6] * c[j + 3];
     }
   }
   return y;
