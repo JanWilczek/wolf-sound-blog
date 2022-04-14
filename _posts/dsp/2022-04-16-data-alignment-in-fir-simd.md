@@ -41,11 +41,7 @@ If you want to learn more about data alignment in general, I have a [dedicated a
 
 In this article, we focus on how to achieve optimal data alignment for FIR filtering.
 
-### Which Loop Vectorization Techniques Can Benefit From Data Alignment?
 
-
-
-## Assumptions (Recap)
 
 ## Why Does Alignment Matter in SIMD?
 
@@ -65,7 +61,19 @@ In FIR filter implementations using SIMD, we move vectors of samples from the me
 
 Imagine now that we can perform each of these operations a little bit faster. The potential gain can be significant.
 
-But how to do it?
+### Which Loop Vectorization Techniques Can Benefit From Data Alignment?
+
+In the [loop vectorization techniques]({% post_url dsp/2022-03-28-fir-with-simd %}), optimal data alignment (using the aligned instructions in every case) seems impossible. That is because we always need to load vectors that start at successive samples.
+
+In the inner loop vectorization, if we are lucky to have the vectors used for inner product computation aligned, we know that on the next outer loop iteration, they won't be aligned.
+
+In the outer loop vectorization, if one of the loads of the input signal is aligned, the next bunch won't be. Additionally, filter coefficients are read one by one and copied into every element of the SIMD register so it cannot ever be aligned.
+
+In the outer-inner loop vectorization, one of the input signals could have aligned loads (because we read it in non-overlapping chunks), however, the other signal is being read in overlapping chunks starting with every possible sample.
+
+Out of these, **only the outer-inner loop vectorization can be optimzed to work fully on alined data**.
+
+How? Keep on reading to find out.
 
 ## How to Align Data for FIR Filtering?
 
