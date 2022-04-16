@@ -4,7 +4,7 @@
 <svg
    width="188.13667mm"
    height="42.898319mm"
-   viewBox="0 0 188.13667 42.89832"
+   viewBox="0 0 188.13667 42.898319"
    version="1.1"
    id="svg5"
    xmlns="http://www.w3.org/2000/svg"
@@ -74,7 +74,7 @@
        style="font-size:26.6667px;line-height:1.25;font-family:'Latin Modern Math';-inkscape-font-specification:'Latin Modern Math, Normal';white-space:pre;shape-inside:url(#rect7251)"><tspan
          x="80"
          y="104.6667"
-         id="tspan66078">x[0]  x[1]  x[2]  x[3]  x[4]  x[5]  x[6]  x[7]  x[8]  x[9]  x[10]  ... </tspan></text>
+         id="tspan1035">x[0]  x[1]  x[2]  x[3]  x[4]  x[5]  x[6]  x[7]  x[8]  x[9]  x[10]  ... </tspan></text>
     <path
        id="rect28584"
        style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.264999;stroke-linejoin:round;paint-order:stroke fill markers"
@@ -118,7 +118,7 @@
        style="font-size:26.6667px;line-height:1.25;font-family:'Latin Modern Math';-inkscape-font-specification:'Latin Modern Math, Normal';white-space:pre;shape-inside:url(#rect39712)"><tspan
          x="80"
          y="104.6667"
-         id="tspan66080">c[0]  c[1]   c[2]  c[3]  c[4]  c[5]  c[6]   c[7]  c[8]  c[9]  c[10]  ... </tspan></text>
+         id="tspan1037">c[0]  c[1]   c[2]  c[3]  c[4]  c[5]  c[6]   c[7]  c[8]  c[9]  c[10]  ... </tspan></text>
     <path
        id="path39702"
        style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.264999;stroke-linejoin:round;paint-order:stroke fill markers"
@@ -206,7 +206,7 @@
        style="font-size:26.6667px;line-height:1.25;font-family:'Latin Modern Math';-inkscape-font-specification:'Latin Modern Math, Normal';white-space:pre;shape-inside:url(#rect57304)"><tspan
          x="80"
          y="104.6667"
-         id="tspan66082">x[0]  x[1]  x[2]  x[3]  x[4]  x[5]  x[6]  x[7]  x[8]  x[9]  x[10]  ... </tspan></text>
+         id="tspan1039">x[0]  x[1]  x[2]  x[3]  x[4]  x[5]  x[6]  x[7]  x[8]  x[9]  x[10]  ... </tspan></text>
     <path
        id="path57258"
        style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.264999;stroke-linejoin:round;paint-order:stroke fill markers"
@@ -250,7 +250,7 @@
        style="font-size:26.6667px;line-height:1.25;font-family:'Latin Modern Math';-inkscape-font-specification:'Latin Modern Math, Normal';white-space:pre;shape-inside:url(#rect57306)"><tspan
          x="80"
          y="104.6667"
-         id="tspan66084">c[0]  c[1]   c[2]  c[3]  c[4]  c[5]  c[6]   c[7]  c[8]  c[9]  c[10]  ... </tspan></text>
+         id="tspan1041">c[0]  c[1]   c[2]  c[3]  c[4]  c[5]  c[6]   c[7]  c[8]  c[9]  c[10]  ... </tspan></text>
     <path
        id="path57272"
        style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.264999;stroke-linejoin:round;paint-order:stroke fill markers"
@@ -306,7 +306,7 @@
        style="font-size:26.6667px;line-height:1.25;font-family:'Latin Modern Math';-inkscape-font-specification:'Latin Modern Math, Normal';white-space:pre;shape-inside:url(#rect59876)"><tspan
          x="80"
          y="104.6667"
-         id="tspan66086">x[0]  x[1]  x[2]  x[3]  x[4]  x[5]  x[6]  x[7]  x[8]  x[9]  x[10]  ... </tspan></text>
+         id="tspan1043">x[0]  x[1]  x[2]  x[3]  x[4]  x[5]  x[6]  x[7]  x[8]  x[9]  x[10]  ... </tspan></text>
     <path
        id="path59846"
        style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.264999;stroke-linejoin:round;paint-order:stroke fill markers"
@@ -350,7 +350,7 @@
        style="font-size:26.6667px;line-height:1.25;font-family:'Latin Modern Math';-inkscape-font-specification:'Latin Modern Math, Normal';white-space:pre;shape-inside:url(#rect59878)"><tspan
          x="80"
          y="104.6667"
-         id="tspan66088">c[0]  c[1]   c[2]  c[3]  c[4]  c[5]  c[6]   c[7]  c[8]  c[9]  c[10]  ... </tspan></text>
+         id="tspan1045">c[0]  c[1]   c[2]  c[3]  c[4]  c[5]  c[6]   c[7]  c[8]  c[9]  c[10]  ... </tspan></text>
     <path
        id="path59860"
        style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.264999;stroke-linejoin:round;paint-order:stroke fill markers"
@@ -421,7 +421,7 @@
        id="path64683" />
     <path
        id="path64861"
-       style="fill:#ffffff;stroke:#000000;stroke-width:0.565;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;paint-order:stroke fill markers"
+       style="fill:none;stroke:#000000;stroke-width:0.565;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;paint-order:stroke fill markers"
        d="M 15.874995,182.56251 H 193.14583 v 15.875 H 15.874995 Z" />
     <text
        xml:space="preserve"
@@ -430,34 +430,34 @@
        style="font-size:26.6667px;line-height:1.25;font-family:'Latin Modern Math';-inkscape-font-specification:'Latin Modern Math, Normal';white-space:pre;shape-inside:url(#rect64895)"><tspan
          x="80"
          y="104.6667"
-         id="tspan66090">x[0]  x[1]  x[2]  x[3]  x[4]  x[5]  x[6]  x[7]  x[8]  x[9]  x[10]  ... </tspan></text>
+         id="tspan1047">x[0]  x[1]  x[2]  x[3]  x[4]  x[5]  x[6]  x[7]  x[8]  x[9]  x[10]  ... </tspan></text>
     <path
        id="path64865"
-       style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.264999;stroke-linejoin:round;paint-order:stroke fill markers"
+       style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:0.264999;stroke-linejoin:round;paint-order:stroke fill markers"
        d="m 31.749995,182.56251 h 15.875 v 15.875 h -15.875 z" />
     <rect
-       style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.264999;stroke-linejoin:round;paint-order:stroke fill markers"
+       style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:0.264999;stroke-linejoin:round;paint-order:stroke fill markers"
        id="rect64867"
        width="15.875"
        height="15.875"
        x="63.499996"
        y="182.56248" />
     <rect
-       style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.264999;stroke-linejoin:round;paint-order:stroke fill markers"
+       style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:0.264999;stroke-linejoin:round;paint-order:stroke fill markers"
        id="rect64869"
        width="15.875"
        height="15.875"
        x="95.249992"
        y="182.56248" />
     <rect
-       style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.264999;stroke-linejoin:round;paint-order:stroke fill markers"
+       style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:0.264999;stroke-linejoin:round;paint-order:stroke fill markers"
        id="rect64871"
        width="15.875"
        height="15.875"
        x="126.99998"
        y="182.56248" />
     <rect
-       style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.264999;stroke-linejoin:round;paint-order:stroke fill markers"
+       style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:0.264999;stroke-linejoin:round;paint-order:stroke fill markers"
        id="rect64873"
        width="15.875"
        height="15.875"
@@ -465,7 +465,7 @@
        y="182.56248" />
     <path
        id="path64875"
-       style="fill:#ffffff;stroke:#000000;stroke-width:0.565;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;paint-order:stroke fill markers"
+       style="fill:none;stroke:#000000;stroke-width:0.565;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;paint-order:stroke fill markers"
        d="M 15.874995,209.02084 H 193.14583 v 15.87499 H 15.874995 Z" />
     <text
        xml:space="preserve"
@@ -474,34 +474,34 @@
        style="font-size:26.6667px;line-height:1.25;font-family:'Latin Modern Math';-inkscape-font-specification:'Latin Modern Math, Normal';white-space:pre;shape-inside:url(#rect64897)"><tspan
          x="80"
          y="104.6667"
-         id="tspan66092">c[0]  c[1]   c[2]  c[3]  c[4]  c[5]  c[6]   c[7]  c[8]  c[9]  c[10]  ... </tspan></text>
+         id="tspan1049">c[0]  c[1]   c[2]  c[3]  c[4]  c[5]  c[6]   c[7]  c[8]  c[9]  c[10]  ... </tspan></text>
     <path
        id="path64879"
-       style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.264999;stroke-linejoin:round;paint-order:stroke fill markers"
+       style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:0.264999;stroke-linejoin:round;paint-order:stroke fill markers"
        d="m 31.749995,209.02084 h 15.875 v 15.87499 h -15.875 z" />
     <rect
-       style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.264999;stroke-linejoin:round;paint-order:stroke fill markers"
+       style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:0.264999;stroke-linejoin:round;paint-order:stroke fill markers"
        id="rect64881"
        width="15.875"
        height="15.875"
        x="63.499996"
        y="209.02083" />
     <rect
-       style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.264999;stroke-linejoin:round;paint-order:stroke fill markers"
+       style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:0.264999;stroke-linejoin:round;paint-order:stroke fill markers"
        id="rect64883"
        width="15.875"
        height="15.875"
        x="95.249992"
        y="209.02083" />
     <rect
-       style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.264999;stroke-linejoin:round;paint-order:stroke fill markers"
+       style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:0.264999;stroke-linejoin:round;paint-order:stroke fill markers"
        id="rect64885"
        width="15.875"
        height="15.875"
        x="126.99998"
        y="209.02083" />
     <rect
-       style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.264999;stroke-linejoin:round;paint-order:stroke fill markers"
+       style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:0.264999;stroke-linejoin:round;paint-order:stroke fill markers"
        id="rect64887"
        width="15.875"
        height="15.875"
@@ -517,15 +517,15 @@
        id="path64893" />
     <path
        style="fill:none;stroke:#1b00ef;stroke-width:0.665;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="m 33.602072,184.67917 v 37.04166 h 59.531233 v -37.04166 z"
+       d="m 33.602072,184.67917 -15.456115,37.16194 58.869687,-0.36084 17.20019,-36.56054 z"
        id="path65010" />
     <path
        style="fill:none;stroke:#00ef09;stroke-width:0.665;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="m 49.477073,185.73751 v 37.04166 h 59.531237 v -37.04166 z"
+       d="m 49.477073,185.73751 -32.0549,37.04166 60.072502,-0.12028 32.355605,-36.92138 z"
        id="path65012" />
     <path
        style="fill:none;stroke:#00efdd;stroke-width:0.665;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="m 65.352074,186.79585 v 37.04166 h 59.531246 v -37.04166 z"
+       d="m 65.352074,186.79585 -47.751576,37.04166 h 60.012369 l 47.992143,-37.16194 -16.86991,0.0337 z"
        id="path65014" />
     <path
        style="fill:none;stroke:#ef7600;stroke-width:0.665;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:0.665, 0.665;stroke-dashoffset:0;stroke-opacity:1"
@@ -533,15 +533,15 @@
        id="path65150" />
     <path
        style="fill:none;stroke:#1b00ef;stroke-width:0.665;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:0.665, 0.665;stroke-dashoffset:0;stroke-opacity:1"
-       d="m 95.779204,184.67917 v 37.04166 h 59.531206 v -37.04166 z"
+       d="m 95.779204,184.67917 -15.546692,36.88615 60.403608,-0.32561 17.44075,-36.56054 z"
        id="path65152" />
     <path
        style="fill:none;stroke:#00ef09;stroke-width:0.665;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:0.665, 0.665;stroke-dashoffset:0;stroke-opacity:1"
-       d="m 111.65418,185.73751 v 37.04166 h 59.53124 v -37.04166 z"
+       d="m 111.65418,185.73751 -31.462776,36.56054 60.683196,0.12028 32.83672,-36.68082 z"
        id="path65154" />
     <path
        style="fill:none;stroke:#00efdd;stroke-width:0.665;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:0.665, 0.665;stroke-dashoffset:0;stroke-opacity:1"
-       d="m 127.52918,186.79585 v 37.04166 h 59.53125 v -37.04166 z"
+       d="m 127.52918,186.79585 -47.087224,36.56783 60.791394,-0.007 50.39776,-36.68082 z"
        id="path65156" />
   </g>
 </svg>
