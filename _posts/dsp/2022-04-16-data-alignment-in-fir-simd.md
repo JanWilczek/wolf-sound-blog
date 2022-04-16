@@ -265,8 +265,20 @@ std::vector<float> applyFirFilterAVX_outerInnerLoopVectorizationAligned(
 }
 ```
 
-
 ## Summary
+
+In this article, we learned how to align data for FIR filtering.
+
+To operate on fully aligned data, we need to use the outer-inner loop vectorization and replicate either the input signal or the reversed coefficients signal so that the access to every sample can always be aligned.
+
+Thanks for reading! If you have any questions, just ask them in the comments below! 🙂
 
 ## Bibliography
 
+[Code to this article on GitHub.](https://github.com/JanWilczek/fir-simd.git)
+
+[Kutil2009] Rade Kutil, *Short-Vector SIMD Parallelization in Signal Processing*. [[PDF](https://www.cosy.sbg.ac.at/~rkutil/publication/Kutil09b.pdf)]
+
+[Shahbarhrami2005] Asadollah Shahbahrami, Ben Juurlink, and Stamatis Vassiliadis, *Efficient Vectorization of the FIR Filter*. [[PDF](https://www.aes.tu-berlin.de/fileadmin/fg196/publication/old-juurlink/efficient_vectorization_of_the_fir_filter.pdf)]
+
+[Wefers2015] Frank Wefers *Partitioned convolution algorithms for real-time auralization*, PhD Thesis, Zugl.: Aachen, Techn. Hochsch., 2015.
