@@ -77,6 +77,8 @@ How? Keep on reading to find out.
 
 ## How to Align Data for FIR Filtering?
 
+### Aligning Output
+
 Let's start with what is easy to align: the output. We can allocate our output vector as shown in Listing ???.
 
 _Listing {% increment listingId20220416 %}. ._
@@ -85,10 +87,12 @@ constexpr auto FLOATS_IN_SIMD_REGISTER = 4;
 alignas(FLOATS_IN_SIMD_REGISTER * sizeof(float)) float output[outputLength];
 
 // Example: AVX
-alignas(m256) float output[outputLength];
+alignas(__m256) std::vector<float> outStore(outputLength);
 
 // Since C++ 17
 std::vector<m256> output(outputLength);
+
+
 ```
 
 
