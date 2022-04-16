@@ -19,7 +19,7 @@ tags:
   - C
 discussion_id: 2022-04-16-data-alignment-in-fir-simd
 ---
-How to align data for optimum filtering?
+How to align data for optimal filtering?
 
 {% katexmm %}
 {% capture _ %}{% increment equationId20220416  %}{% endcapture %}
