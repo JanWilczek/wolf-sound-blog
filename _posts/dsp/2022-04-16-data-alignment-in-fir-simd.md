@@ -117,13 +117,13 @@ We might have some overhead coming from multiplications with zeros but the align
 
 Ain't that neat?
 
-## Sample Data-Aligning Code
+## C++ Data-Aligning Code
 
-Here, I would really like to present you the code that allows properly reversing the filter coefficients, allocating the separate arrays for its shifted versions, zero padding, and aligning the data. However, that part is really difficult to write in a general manner. Instead, I decided to list here the possible approaches you can take for taking the above approach to alignment.
+Here, I would really like to present you code that allows properly reversing the filter coefficients, allocating the separate arrays for its shifted versions, zero padding, and aligning the data. However, that part is really difficult to write in a general manner. Instead, I decided to list here the possible approaches to alignment you can take in C++.
 
 ### 1. Use the `alignas` Specifier
 
-With the [`alignas` specifier](https://en.cppreference.com/w/cpp/language/alignas), we can create aligned short vectors of fixed size. For example, an AVX short vector has length 8 and can be allocated as shown in Listing .
+With the [`alignas` specifier](https://en.cppreference.com/w/cpp/language/alignas), we can create aligned short vectors of fixed size. For example, an AVX short vector has length 8 and can be allocated as shown in Listing 1.
 
 _Listing {% increment listingId20220416 %}. A short vector aligned for the AVX instruction set using the `alignas` specifier._
 ```cpp
@@ -133,27 +133,34 @@ struct alignas(AVX_FLOAT_COUNT * alignof(float)) avx_t {
 };
 ```
 
-What this definition says is "align each `avx_t` object on a boundary that is a mutliplicity of eight times the alignment of a regular `float`". For example, on my machine, `alignof(float)` returns 4 (each `float`, which is 32-bit, is aligned on a 4-byte boundary) and thus, the aligned vector will by aligned on a 64-byte boundary.
+What this definition says is "align each `avx_t` object on a boundary that is a mutliplicity of eight times the alignment of a regular `float`". For example, on my machine, `alignof(float)` returns 4 (each `float`, which is 32-bit, is aligned on a 4-byte boundary) and, thus, the array in `avx_t` will by aligned on a 64-byte boundary, which is the needed alignment for the aligned load/store instructions. `AVX_FLOAT_COUNT * alignof(float)` is equal to `alignof(__mm256)`, i.e., the AVX register type.
 
-If we omitted the `alignas` part, `avx_t` would be aligned as a regular `float` so to a 4-byte boundary.
+If we omitted the `alignas` part, `avx_t` would be aligned as a regular `float` so on a 4-byte boundary.
 
-The obvious limitation with this approach is that we can only use arrays of length known at compile time.
+The obvious limitation of this approach is that we can only use arrays of length known at compile time.
 
 ### 2. Use the `align_t` Type in Allocation Function
 
-Since C++ 17, we are able to allocate aligned memory dynamically using language features.
+Since C++ 17, we are able to allocate aligned memory dynamically using language features. For example, we can use `new` with alignment as shown in Listing 2.
 
-_Listing {% increment listingId20220416 %}._
+_Listing {% increment listingId20220416 %}. Aligned `new`._
 ```cpp
-#include <memory>
+#include <memory> // for the aligned new
 
 constexpr auto AVX_FLOAT_COUNT = 8u;
 auto shortVectorsCount = 94u; // as many as you like
-std::unique_ptr<float[]> signal{new(std::align_val_t{AVX_FLOAT_COUNT * alignof(float)}) float[AVX_FLOAT_COUNT * shortVectorsCount]};
+std::unique_ptr<float[]> signal {
+    new(std::align_val_t{AVX_FLOAT_COUNT * alignof(float)}) 
+    float[AVX_FLOAT_COUNT * shortVectorsCount]
+};
 signal[0] = 0.f; // usual array syntax
 ```
 
-If you want to go to an even lower level, you can use [`std::aligned_alloc`.](https://en.cppreference.com/w/cpp/memory/c/aligned_alloc)
+In the above code, the dynamically allocated `signal` array is aligned according to the alignment required by the AVX instruction set.
+
+We can use this approach, to allocate the arrays needed to store the shifted and zero-padded filter coefficients as well as the input signal.
+
+If you want to go to an even lower level, you can use [`std::aligned_alloc`](https://en.cppreference.com/w/cpp/memory/c/aligned_alloc) to allocate raw, aligned memory.
 
 ### 3. Write Your Own Allocator For Standard Containers
 
@@ -170,7 +177,7 @@ As writing your own aligned allocator is difficult, I suggest you use an availab
 
 ## Aligned Outer-Inner Loop Vectorization in AVX
 
-The outer-inner loop vectorization with the AVX instructions was explained in the [previous article]({% post_url dsp/../2022-03-28-fir-with-simd %}).
+The outer-inner loop vectorization with the AVX instructions was explained in the [previous article]({% post_url dsp/2022-03-28-fir-with-simd %}).
 
 With properly aligned data, we must simply change all calls to `_mm256_loadu_ps` and `_mm256_storeu_ps` to `_mm256_load_ps` and `_mm256_store_ps` respectively. We must, of course, pass it pointers to aligned data.
 
