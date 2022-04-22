@@ -34,6 +34,22 @@ Yes, we can!
 
 In this article, you will learn **how to properly align your audio signal data for optimal FIR filtering with SIMD**.
 
+### Table of Contents
+
+1. [What is Data Alignment?](#what-is-data-alignment)
+2. [Why Does Alignment Matter in SIMD?](#why-does-alignment-matter-in-simd)
+3. [Where is Data Alignment Present in FIR Filtering?](#where-is-data-alignment-present-in-fir-filtering)
+   1. [Which Loop Vectorization Techniques Can Benefit From Data Alignment?](#which-loop-vectorization-techniques-can-benefit-from-data-alignment)
+4. [How to Align Data for FIR Filtering?](#how-to-align-data-for-fir-filtering)
+   1. [Aligning Inputs](#aligning-inputs)
+5. [C++ Data-Aligning Code](#c-data-aligning-code)
+   1. [1. Use the `alignas` Specifier](#1-use-the-alignas-specifier)
+   2. [2. Use the `align_t` Type in Allocation Function](#2-use-the-align_t-type-in-allocation-function)
+   3. [3. Write Your Own Allocator For Standard Containers](#3-write-your-own-allocator-for-standard-containers)
+6. [Aligned Outer-Inner Loop Vectorization in AVX](#aligned-outer-inner-loop-vectorization-in-avx)
+7. [Summary](#summary)
+8. [Bibliography](#bibliography)
+
 ## What is Data Alignment?
 
 If we view the random-access memory (RAM) as consisting of boxes, we could say that the first memory address in each box is aligned with respect to the size of the box.
@@ -46,7 +62,15 @@ If you want to learn more about data alignment in general, I have a [dedicated a
 
 In this article, we focus on how to achieve optimal data alignment for FIR filtering.
 
-
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6611455743195468"
+     crossorigin="anonymous"></script><ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+     data-ad-layout="in-article"
+     data-ad-format="fluid"
+     data-ad-client="ca-pub-6611455743195468"
+     data-ad-slot="7289385396"></ins><script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 
 ## Why Does Alignment Matter in SIMD?
 
