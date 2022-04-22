@@ -158,30 +158,32 @@ signal[0] = 0.f; // usual array syntax
 
 In the above code, the dynamically allocated `signal` array is aligned according to the alignment required by the AVX instruction set.
 
-We can use this approach, to allocate the arrays needed to store the shifted and zero-padded filter coefficients as well as the input signal.
+We can use this approach, to allocate arrays needed to store the shifted and zero-padded reversed filter coefficients as well as the input signal as shown in Figure 3.
 
 If you want to go to an even lower level, you can use [`std::aligned_alloc`](https://en.cppreference.com/w/cpp/memory/c/aligned_alloc) to allocate raw, aligned memory.
+
+However... good luck using these with Microsoft's MSVC compiler. I still haven't figured out a way to do it because MSVC supports neither of them 🙂
 
 ### 3. Write Your Own Allocator For Standard Containers
 
 Standard containers can be instantiated with an allocator class as their template parameter, for example
 
-_Listing {% increment listingId20220416 %}._
+_Listing {% increment listingId20220416 %}. Usage of a custom allocator with an `std::vector`._
 ```cpp
 std::vector<T, MyCustomAllocator<T>>  v;
 ```
 
 The member functions of this allocator class are used to allocate and deallocate memory. A specific implementation (for example using `std::aligned_alloc`) can make sure that the allocated memory is always aligned according to some alignment specification. For all the requirements on an allocator class, check the [C++ standard's requirements on an allocator.](https://en.cppreference.com/w/cpp/named_req/Allocator).
 
-As writing your own aligned allocator is difficult, I suggest you use an available one, for example, [the one from the `boost` library](https://www.boost.org/doc/libs/1_63_0/doc/html/align/tutorial.html#align.tutorial.aligned_allocator).
+As writing your own aligned allocator is difficult, I suggest you use an already available one, for example, [the one from the `boost` library](https://www.boost.org/doc/libs/1_63_0/doc/html/align/tutorial.html#align.tutorial.aligned_allocator).
 
 ## Aligned Outer-Inner Loop Vectorization in AVX
 
 The outer-inner loop vectorization with the AVX instructions was explained in the [previous article]({% post_url dsp/2022-03-28-fir-with-simd %}).
 
-With properly aligned data, we must simply change all calls to `_mm256_loadu_ps` and `_mm256_storeu_ps` to `_mm256_load_ps` and `_mm256_store_ps` respectively. We must, of course, pass it pointers to aligned data.
+With properly aligned data, we must simply change all `_mm256_loadu_ps` and `_mm256_storeu_ps` calls to `_mm256_load_ps` and `_mm256_store_ps` respectively. We must, of course, pass to them pointers to aligned data.
 
-Alternatively, you can check out the [code to this article on GitHub](https://github.com/JanWilczek/fir-simd.git), where I already put the aligned AVX filtering function.
+Alternatively, you can check out the [code to this article on GitHub](https://github.com/JanWilczek/fir-simd/blob/master/src/FIRFilter.cpp), where I already put the aligned AVX filtering function.
 
 ## Summary
 
