@@ -203,8 +203,10 @@ constexpr auto AVX_FLOAT_COUNT = 8u;
 struct alignas(AVX_FLOAT_COUNT * alignof(float)) avx_alignment_t {};
 
 static_assert(sizeof(avx_alignment_t) == AVX_FLOAT_COUNT * sizeof(float));
-auto signalLength = 1024u; // whatever you like
-auto shortVectorsInSignal = signalLength / AVX_FLOAT_COUNT;
+auto shortVectorsInSignal = 94u; // as many as you like
+
+// True signal length needed for processing
+auto signalLength = shortVectorsInSignal * AVX_FLOAT_COUNT;
 
 std::unique_ptr<avx_alignment_t[]> signalContainer(
     new avx_alignment_t[shortVectorsInSignal]);
