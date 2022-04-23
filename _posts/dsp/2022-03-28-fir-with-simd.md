@@ -317,7 +317,9 @@ Listing 3 shows how to implement the FIR filter using the inner loop vectorizati
 
 _Listing {% increment listingId20220328 %}. Inner loop vectorization with AVX._
 ```cpp
+// compile with /arch:AVX on MSVC or -mavx on clang or gcc.
 #ifdef __AVX__
+#include <immintrin.h>
 // The number of floats that fit into an AVX register.
 constexpr auto AVX_FLOAT_COUNT = 8u;
 
@@ -544,7 +546,9 @@ Listing 7 shows the implementation of FIR filtering with VOIL vectorization usin
 
 _Listing {% increment listingId20220328 %}. Outer-inner loop vectorization in AVX._
 ```cpp
+// compile with /arch:AVX on MSVC or -mavx on clang or gcc.
 #ifdef __AVX__
+#include <immintrin.h>
 float* applyFirFilterAVX_outerInnerLoopVectorization(
     FilterInput& input) {
   const auto* x = input.x;

@@ -43,12 +43,14 @@ In this article, you will learn **how to properly align your audio signal data f
 4. [How to Align Data for FIR Filtering?](#how-to-align-data-for-fir-filtering)
    1. [Aligning Inputs](#aligning-inputs)
 5. [C++ Data-Aligning Code](#c-data-aligning-code)
-   1. [1. Use the `alignas` Specifier](#1-use-the-alignas-specifier)
-   2. [2. Use the `align_t` Type in Allocation Function](#2-use-the-align_t-type-in-allocation-function)
-   3. [3. Write Your Own Allocator For Standard Containers](#3-write-your-own-allocator-for-standard-containers)
-6. [Aligned Outer-Inner Loop Vectorization in AVX](#aligned-outer-inner-loop-vectorization-in-avx)
-7. [Summary](#summary)
-8. [Bibliography](#bibliography)
+   1. [Use the `alignas` Specifier](#1-use-the-alignas-specifier)
+   2. [Use the `align_val_t` Type in Allocation Function](#2-use-the-align_val_t-type-in-allocation-function)
+      1. [MSVC Workaround](#msvc-workaround)
+   3. [Write Your Own Allocator For Standard Containers](#3-write-your-own-allocator-for-standard-containers)
+6. [Sample Data-Aligning Code](#sample-data-aligning-code)
+7. [Aligned Outer-Inner Loop Vectorization in AVX](#aligned-outer-inner-loop-vectorization-in-avx)
+8. [Summary](#summary)
+9. [Bibliography](#bibliography)
 
 ## What is Data Alignment?
 
@@ -143,7 +145,7 @@ Ain't that neat?
 
 ## C++ Data-Aligning Code
 
-Here, I would really like to present you code that allows properly reversing the filter coefficients, allocating the separate arrays for its shifted versions, zero padding, and aligning the data. However, that part is really difficult to write in a general manner. Instead, I decided to list here the possible approaches to alignment you can take in C++.
+Here, I would really like to present you code that allows properly reversing the filter coefficients, allocating the separate arrays for its shifted versions, zero padding, and aligning the data. But before we do that, I decided to list here the possible approaches to alignment you can take in C++.
 
 ### 1. Use the `alignas` Specifier
 
@@ -163,7 +165,7 @@ If we omitted the `alignas` part, `avx_t` would be aligned as a regular `float` 
 
 The obvious limitation of this approach is that we can only use arrays of length known at compile time.
 
-### 2. Use the `align_t` Type in Allocation Function
+### 2. Use the `align_val_t` Type in Allocation Function
 
 Since C++ 17, we are able to allocate aligned memory dynamically using language features. For example, we can use `new` with alignment as shown in Listing 2.
 
@@ -186,7 +188,32 @@ We can use this approach, to allocate arrays needed to store the shifted and zer
 
 If you want to go to an even lower level, you can use [`std::aligned_alloc`](https://en.cppreference.com/w/cpp/memory/c/aligned_alloc) to allocate raw, aligned memory.
 
-However... good luck using these with Microsoft's MSVC compiler. I still haven't figured out a way to do it because MSVC supports neither of them 🙂
+Unless... you are using Microsoft's MSVC compiler, which supports neither aligned `new` nor `std::aligned_alloc`. If you try to use aligned `new`, MSVC will issue the [`C2956` compiler error](https://docs.microsoft.com/en-us/cpp/error-messages/compiler-errors-2/compiler-error-c2956?view=msvc-170). `std::aligned_alloc` is not supported at all ([see for yourself](https://docs.microsoft.com/en-us/cpp/standard-library/cstdlib?view=msvc-170#memory-allocation-functions)).
+
+#### MSVC Workaround
+
+WolfSound to the rescue!
+
+I found a way to circumvent this while still adhering to the standard.
+
+_Listing {% increment listingId20220416 %}. Workaround for the lack of aligned `new` or `std::aligned_alloc`._
+```cpp
+constexpr auto AVX_FLOAT_COUNT = 8u;
+
+struct alignas(AVX_FLOAT_COUNT * alignof(float)) avx_alignment_t {};
+
+static_assert(sizeof(avx_alignment_t) == AVX_FLOAT_COUNT * sizeof(float));
+auto signalLength = 1024u; // whatever you like
+auto shortVectorsInSignal = signalLength / AVX_FLOAT_COUNT;
+
+std::unique_ptr<avx_alignment_t[]> signalContainer(
+    new avx_alignment_t[shortVectorsInSignal]);
+auto signal = reinterpret_cast<float*>(signalContainer.get());
+
+signal[0] = 0.f; // usual array syntax
+```
+
+Now you can use `signal` as an AVX-aligned array of `float`s and don't need to worry about manually freeing the memory allocated for it. 😎
 
 ### 3. Write Your Own Allocator For Standard Containers
 
@@ -201,13 +228,118 @@ The member functions of this allocator class are used to allocate and deallocate
 
 As writing your own aligned allocator is difficult, I suggest you use an already available one, for example, [the one from the `boost` library](https://www.boost.org/doc/libs/1_63_0/doc/html/align/tutorial.html#align.tutorial.aligned_allocator).
 
+## Sample Data-Aligning Code
+
+In Listing 5, you can find sample code aligning the reversed filter coefficients according to Figure 3 for the AVX instruction set. As you can see, I used strategy number 2.
+
+_Listing {% increment listingId20220416 %}._
+```cpp
+#include <array>
+#include <vector>
+
+// properly initialized, of size equal to a multiplicity of
+// AVX_FLOAT_COUNT
+std::vector<float> reversedFilterCoefficientsStorage; 
+
+// In some header file
+constexpr auto AVX_FLOAT_COUNT = 8u;
+struct alignas(AVX_FLOAT_COUNT * alignof(float)) avx_alignment_t {};
+
+// for automatic memory management
+std::array<std::unique_ptr<avx_alignment_t[]>, AVX_FLOAT_COUNT>
+    alignedReversedFilterCoefficientsStorage;
+
+// for array-of-floats syntax
+float* cAligned[AVX_FLOAT_COUNT];
+
+// In code
+const auto alignedStorageSize =
+    reversedFilterCoefficientsStorage.size() + AVX_FLOAT_COUNT;
+
+for (auto k = 0u; k < AVX_FLOAT_COUNT; ++k) {
+    // Strategy no. 2
+    alignedReversedFilterCoefficientsStorage[k].reset(
+        new avx_alignment_t[alignedStorageSize / AVX_FLOAT_COUNT]);
+    cAligned[k] = reinterpret_cast<float*>(
+        alignedReversedFilterCoefficientsStorage[k].get());
+
+    for (auto i = 0u; i < k; ++i) {
+        cAligned[k][i] = 0.f;
+    }
+    std::copy(reversedFilterCoefficientsStorage.begin(),
+            reversedFilterCoefficientsStorage.end(),
+            cAligned[k] + k);
+    for (auto i = reversedFilterCoefficientsStorage.size() + k;
+        i < alignedStorageSize; ++i) {
+    cAligned[k][i] = 0.f;
+    }
+}
+```
+
 ## Aligned Outer-Inner Loop Vectorization in AVX
 
 The outer-inner loop vectorization with the AVX instructions was explained in the [previous article]({% post_url dsp/2022-03-28-fir-with-simd %}).
 
 With properly aligned data, we must simply change all `_mm256_loadu_ps` and `_mm256_storeu_ps` calls to `_mm256_load_ps` and `_mm256_store_ps` respectively. We must, of course, pass to them pointers to aligned data.
 
-Alternatively, you can check out the [code to this article on GitHub](https://github.com/JanWilczek/fir-simd/blob/master/src/FIRFilter.cpp), where I already put the aligned AVX filtering function.
+The AVX implementation of FIR filtering on aligned data is presented in Listing 6.
+
+Mind you that the input signal here is assumed to be aligned as well. Note the aligned `store`s and `load`s.
+
+_Listing {% increment listingId20220416 %}. Outer-inner loop vectorization FIR filtering using the AVX instruction set with aligned data._
+```cpp
+// compile with /arch:AVX on MSVC or -mavx on clang or gcc.
+#ifdef __AVX__
+#include <immintrin.h>
+
+constexpr auto AVX_FLOAT_COUNT = 8u;
+
+struct FilterInput {
+    float* x;
+    size_t outputLength;
+    float* cAligned[AVX_FLOAT_COUNT];
+    size_t filterLength;
+};
+
+std::vector<float> applyFirFilterAVX_outerInnerLoopVectorizationAligned(
+    FilterInput& input) {
+  const auto* x = input.x;
+  const auto* cAligned = input.cAligned;
+
+  // The same as alignas(AVX_FLOAT_COUNT * alignof(float)) we had before
+  alignas(__m256) std::array<float, AVX_FLOAT_COUNT> outStore;
+
+  std::array<__m256, AVX_FLOAT_COUNT> outChunk;
+
+  for (auto i = 0u; i < input.outputLength; i += AVX_FLOAT_COUNT) {
+    for (auto k = 0u; k < AVX_FLOAT_COUNT; ++k) {
+      outChunk[k] = _mm256_setzero_ps();
+    }
+
+    for (auto j = 0u; j < input.filterLength; j += AVX_FLOAT_COUNT) {
+      auto xChunk = _mm256_load_ps(x + i + j);
+
+      for (auto k = 0u; k < AVX_FLOAT_COUNT; ++k) {
+        auto cChunk = _mm256_load_ps(cAligned[k] + j);
+
+        auto temp = _mm256_mul_ps(xChunk, cChunk);
+
+        outChunk[k] = _mm256_add_ps(outChunk[k], temp);
+      }
+    }
+
+    for (auto k = 0u; k < AVX_FLOAT_COUNT; ++k) {
+      _mm256_store_ps(outStore.data(), outChunk[k]);
+      if (i + k < input.outputLength)
+        input.y[i + k] =
+            std::accumulate(outStore.begin(), outStore.end(), 0.f);
+    }
+  }
+
+  return input.output();
+}
+#endif
+```
 
 ## Summary
 
@@ -221,10 +353,11 @@ Thanks for reading! If you have any questions, just ask them in the comments bel
 
 [Code to this article on GitHub.](https://github.com/JanWilczek/fir-simd.git)
 
+[Useful StackOverflow question concerning the alignment of dynamically allocated data.](https://stackoverflow.com/questions/8456236/how-is-a-vectors-data-aligned)
+
 [Kutil2009] Rade Kutil, *Short-Vector SIMD Parallelization in Signal Processing*. [[PDF](https://www.cosy.sbg.ac.at/~rkutil/publication/Kutil09b.pdf)]
 
 [Shahbarhrami2005] Asadollah Shahbahrami, Ben Juurlink, and Stamatis Vassiliadis, *Efficient Vectorization of the FIR Filter*. [[PDF](https://www.aes.tu-berlin.de/fileadmin/fg196/publication/old-juurlink/efficient_vectorization_of_the_fir_filter.pdf)]
 
-[Wefers2015] Frank Wefers *Partitioned convolution algorithms for real-time auralization*, PhD Thesis, Zugl.: Aachen, Techn. Hochsch., 2015.
 
 {% endkatexmm %}
