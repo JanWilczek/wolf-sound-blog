@@ -105,7 +105,7 @@ In the [outer loop vectorization]({% post_url dsp/2022-03-28-fir-with-simd %}#ou
 
 In the [outer-inner loop vectorization]({% post_url dsp/2022-03-28-fir-with-simd %}#outer-and-inner-loop-vectorization-voil), one of the input signals could have aligned loads (because we read it in non-overlapping chunks), however, the other signal is being read in overlapping chunks starting at every possible sample.
 
-Out of these, **only the outer-inner loop vectorization can be optimzed to work on fully alined data**.
+Nevertheless, each of these can be optimized to work on fully aligned data.
 
 How? Keep reading to find out.
 
@@ -128,7 +128,7 @@ Let's revisit how we access the elements in the [outer-inner loop vectorization]
 ![]({{ page.images }}/LoopVectorizationVOIL.svg){: alt="Outer-inner loop vectorization diagram."}
 _Figure {% increment figureId20220416 %}. Data accessed in one iteration of the outer loop in the outer-inner loop vectorization technique._
 
-The $x$-signal's elements are accesssed starting at every possible sample. The goal is to multiply the short vectors from the input signal with the short vectors of the filter's reversed coefficients.
+The $x$-signal's elements are accessed starting at every possible sample. The goal is to multiply the short vectors from the input signal with the short vectors of the filter's reversed coefficients.
 
 We could copy the short vectors from $x$ so that each access is aligned. Or we could do the same with the filter's coefficients.
 
