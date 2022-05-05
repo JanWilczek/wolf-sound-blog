@@ -34,6 +34,10 @@ Yes, we can!
 
 In this article, you will learn **how to properly align your audio signal data for optimal FIR filtering with SIMD**.
 
+*Watch this article in a video form on my YouTube channel:*
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/teOT-CjQhz8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 ### Table of Contents
 
 1. [What is Data Alignment?](#what-is-data-alignment)

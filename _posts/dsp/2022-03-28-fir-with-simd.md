@@ -258,6 +258,10 @@ Let's see how we can vectorize this code...
 
 ## Loop Vectorization
 
+*Watch this part in a video form on my YouTube channel:*
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/yPIuSx2iYAg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 There are 3 types of loop vectorization in the context of FIR filtering:
 
 1. Inner loop vectorization (VIL),
