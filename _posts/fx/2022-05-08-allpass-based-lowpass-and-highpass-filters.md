@@ -27,3 +27,26 @@ Control the cutoff with just one coefficient!
      (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
+## Need for simple control-to-coefficients mapping
+
+## Allpass filter revisited
+
+* formula for c comes from the bilinear transform
+
+## Phase Cancellation
+
+## Allpass-Based Lowpass Filter
+
+* block diagram
+* implementation in Python
+* transfer function
+
+## Allpass-Based Highpass Filter
+
+* block diagram
+* implementation in Python
+* transfer function
+
+## Bibliography
+
+[DAFX]
