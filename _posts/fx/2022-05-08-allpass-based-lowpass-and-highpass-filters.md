@@ -93,11 +93,42 @@ That is the promise of allpass-based parametric filters.
 
 To understand them, we first need to recap a few facts about the allpass filter.
 
-## Allpass filter revisited
+## Allpass Filter Revisited
 
-* formula for c comes from the bilinear transform
+An *allpass filter* is a filter that does not attenuate or boost any frequencies but introduces a frequency-dependent delay.
 
+That means that a single allpass filter won't introduce any audible change in a signal. Only when we use this filter in some context, can we hear or see its true power.
+
+What is a "frequency-dependent delay"? Well, the higher the frequency, the later it will appear at the filter's output.
+
+<!-- TODO: Amplitude & phase response of an allpass filter figure -->
+
+If this delay was large and we put a signal with a flat spectrum at the input, we could hear a tone rising in frequency at the output; the lowest frequency would appear immediately at the output, whereas the highest would appear last, because it has the largest delay.
+
+In practice, this delay is too small to be audible, we can, however, observe its effect on the waveform in the time domain.
+
+<!-- TODO: An example waveform; a few aligned sines at the input and their misaligment at the output -->
 ## Phase Cancellation
+
+The *break frequency* of an allpass filter is the frequency at which the phase shift is exactly $-\frac{\pi}{2}$.
+
+We can control the break frequency of an allpass filter of any order with a single coefficient that appears in the simple formulas for the final filter coefficients.
+
+<!-- TODO: Insert allpass filter transfer function formula -->
+
+If you don't understand it now, don't worry; all you need to know is that the break frequency is easily controllable.
+
+<!-- TODO: Insert link to the sampling article -->
+
+Now, at the Nyquist frequency (half of the sampling rate), the phase shift is exactly $-\pi$ so the tone corresponding to that frequency is exactly *inverted in phase*.
+
+(Phase inversion is sometimes marked as $\phi$ in DAWs.)
+
+If we add a signal and its phase-inverted version, a *phase cancellation* will occur; we will obtain an all-zero signal, i.e., silence.
+
+<!-- TODO: Example of sines with phase cancellation figure -->
+
+Phase cancellation means perfect attenuation, right? Could we possibly use this property in a lowpass or highpass filter?
 
 ## Allpass-Based Lowpass Filter
 
