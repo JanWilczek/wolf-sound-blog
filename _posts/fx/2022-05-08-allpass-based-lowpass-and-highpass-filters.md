@@ -132,15 +132,61 @@ Phase cancellation means perfect attenuation, right? Could we possibly use this 
 
 ## Allpass-Based Lowpass Filter
 
+What will happen if we add the output of the first-order allpass filter to the original input signal (the so-called *direct path*)? (see Figure ???).
+
 * block diagram
-* implementation in Python
+  
+Since the phase shift at the Nyquist frequency is $=\pi$, we'll obtain phase cancellation at this frequency.
+
+At the direct current (DC) (frequency of 0 Hz), the output signal is not shifted with respect to the input (the signals are said to be *in-phase*). If we add two sines that have the same frequency and are in phase, we effectively obtain a sine at the same frequency which has the amplitude equal to the sum of amplitudes of the original sines.
+
+In the case of the discussed structure, the DC component at the input and at the output are identical. Therefore, the amplitude of the input DC component will double.
+
+Ok, we know that at the output of the structure from Figure ???, the 0 Hz component will be doubled in amplitude and the Nyquist frequency component will vanish (have amplitude equal to 0). What will happen between these frequencies?
+
+Between these frequencies, the amplitude of sines will be gradually attenuated as the input signal and the output of the allpass filter gradually move out of phase with increasing frequency.
+
+The resulting magnitude transfer function can be seen in Figure ???. We obtained a lowpass filter!
+
 * transfer function
+
+### Cutoff Frequency Control
+
+As I promised, the cutoff frequency of this lowpass filter is very easy to control. We just need to set the $a_1$ coefficient of the allpass filter according to Equation ???, which controls the frequency at which the phase shift of the allpass is exactly $-\frac{\pi}{2}$. The $a_1$ coefficient can then be used as a regular filter coefficient.
+
+We, thus, obtained a one-to-one control to coefficient mapping!
 
 ## Allpass-Based Highpass Filter
 
-* block diagram
-* implementation in Python
+What if instead of adding the output of the allpass to the input signal, we subtracted it?
+
+The corresponding structure is shown in Figure ???
+
+<!-- TODO: Highpass filter structure -->
+
+By mutliplying the output of the allpass by $-1$ we invert all the components in phase.
+
+Therefore, the frequency component at the Nyquist frequency, which was inverted in phase by the allpass filter, gets inverted again and is back in phase with the corresponding component of the input signal.
+
+So the Nyquist frequency component at the output of the structure in Figure ??? is doubled in amplitude.
+
+Conversely, the DC component, which was previously in phase, is now inverted in phase. Therefore, the DC component is missing in the output signal of the structure from Figure ???.
+
+In between these two frequencies, we get a slow increase in the magnitude of the transfer function with increasing frequency.
+
+The magnitude transfer function can be seen in Figure ???.
+
 * transfer function
+
+We, thus, obtained a high-pass filter!
+
+Its cutoff frequency can again be controlled with just one coefficient as in the lowpass case (because we merely introduced the multiplication by $-1$).
+
+Great, we have just designed easily controllable lowpass and highpass filters! How can we implement them in code?
+
+## Python Implementation
+
+
 
 {% endkatexmm %}
 
