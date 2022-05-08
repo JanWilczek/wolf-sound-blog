@@ -108,6 +108,7 @@ If this delay was large and we put a signal with a flat spectrum at the input, w
 In practice, this delay is too small to be audible, we can, however, observe its effect on the waveform in the time domain.
 
 <!-- TODO: An example waveform; a few aligned sines at the input and their misaligment at the output -->
+
 ## Phase Cancellation
 
 The *break frequency* of an allpass filter is the frequency at which the phase shift is exactly $-\frac{\pi}{2}$.
@@ -186,7 +187,117 @@ Great, we have just designed easily controllable lowpass and highpass filters! H
 
 ## Python Implementation
 
+Listing 1 shows the implementation of the allpass-based lowpass/highpass and includes extensive comments.
 
+_Listing 1. Allpass-based lowpass/highpass filter.
+```python
+#!/usr/bin/python3
+from scipy import signal
+import numpy as np
+import soundfile as sf
+from pathlib import Path
+
+
+def generate_white_noise(duration_in_seconds, sampling_rate):
+    duration_in_samples = int(duration_in_seconds * sampling_rate)
+    return np.random.default_rng().uniform(-1, 1, duration_in_samples)
+
+
+def a1_coefficient(break_frequency, sampling_rate):
+    tan = np.tan(np.pi * break_frequency / sampling_rate)
+    return (tan - 1) / (tan + 1)
+
+
+def allpass_filter(input_signal, break_frequency, sampling_rate):
+    # Initialize the output array
+    allpass_output = np.zeros_like(input_signal)
+
+    # Initialize the inner 1-sample buffer
+    dn_1 = 0
+
+    for n in range(input_signal.shape[0]):
+        # The allpass coefficient is computed for each sample
+        # to show its adaptability
+        a1 = a1_coefficient(break_frequency[n], sampling_rate)
+
+        # The allpass difference equation
+        allpass_output[n] = a1 * input_signal[n] + dn_1
+
+        # Store a value in the inner buffer for the 
+        # next iteration
+        dn_1 = input_signal[n] - a1 * allpass_output[n]
+    return allpass_output
+
+
+def allpass_based_filter(input_signal, cutoff_frequency, \
+    sampling_rate, highpass=False, amplitude=1.0):
+    # Perform allpass filtering
+    allpass_output = allpass_filter(input_signal, \
+        cutoff_frequency, sampling_rate)
+
+    # If we want a highpass, we need to invert 
+    # the allpass output in phase
+    if highpass:
+        allpass_output *= -1
+
+    filter_output = input_signal + allpass_output
+    filter_output *= 0.5
+    filter_output *= amplitude
+
+    return filter_output
+
+
+def white_noise_filtering_example():
+    sampling_rate = 44100
+    duration_in_seconds = 5
+
+    # Generate 5 seconds of white noise
+    white_noise = generate_white_noise(duration_in_seconds, sampling_rate)
+    input_signal = white_noise
+
+    # Make the cutoff frequency decay with time ("real-time control")
+    cutoff_frequency = np.geomspace(20000, 20, input_signal.shape[0])
+
+    # Actual filtering
+    filter_output = allpass_based_filter(input_signal, \
+        cutoff_frequency, sampling_rate, highpass=False, amplitude=0.1)
+
+    # Store the result in a file
+    output_dir = Path('assets', 'wav', 'posts', 'fx', \
+        '2022-05-08-allpass-based-lowpass-and-highpass-filters')
+    output_dir.mkdir(parents=True, exist_ok=True)
+    filename = 'filtered_white_noise.flac'
+    sf.write(output_dir / filename, filter_output, sampling_rate)
+
+
+def main():
+    white_noise_filtering_example()
+
+
+if __name__ == '__main__':
+    main()
+```
+
+The resulting audio file should sound similar to the following:
+
+<audio controls>
+    <source src="/assets/wav/posts/fx/2022-05-08-allpass-based-lowpass-and-highpass-filters/filtered_white_noise.flac"  type="audio/flac">
+    Your browser does not support the audio tag.
+</audio>
+
+Can you notice how the cutoff frequency lowers over time? We achieved this easily thanks to the one-to-one control-to-coefficient mapping.
+
+## Summary
+
+In this article, we discussed an easy and popular method of obtaining a lowpass or a highpass filter; by combining an allpass filter and a direct path.
+
+The allpass filter delays the input frequency components. The phase delay increases with frequency.
+
+At DC, the phase shift is 0. At the Nyquist frequency the phase shift is $-\pi$.
+
+Adding (subtracting) the allpass output to/from the direct path creates phase cancellation at the Nyquist frequency (DC component). We, thus, obtain a lowpass (highpass) filter.
+
+The real power of this structure can be seen in a real-time implementation... So that's what we'll do next!
 
 {% endkatexmm %}
 
