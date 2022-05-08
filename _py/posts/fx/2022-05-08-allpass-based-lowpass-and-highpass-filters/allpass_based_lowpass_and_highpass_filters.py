@@ -2,6 +2,7 @@
 from scipy import signal
 import numpy as np
 import soundfile as sf
+import matplotlib.pyplot as plt
 
 
 def generate_white_noise(duration_in_seconds, sampling_rate):
@@ -34,7 +35,7 @@ def allpass_based_filter(input_signal, cutoff_frequency, sampling_rate, highpass
 
     return filter_output
 
-def main():
+def white_noise_filtering_example():
     sampling_rate = 44100
     duration_in_seconds = 5
     white_noise = generate_white_noise(duration_in_seconds, sampling_rate)
@@ -47,6 +48,27 @@ def main():
     filename = 'filtered_white_noise.flac'
 
     sf.write(filename, filter_output, sampling_rate)
+
+def plot_transfer_functions():
+    sampling_rate = 44100
+    cutoff_frequency = 500.0
+
+    a1 = a1_coefficient(cutoff_frequency, sampling_rate)
+
+    b = [1 + a1, 1 + a1]
+    a = [1, a1]
+
+    w, h = signal.freqz(b, a, fs=sampling_rate)
+
+    plt.figure()
+    plt.semilogx(np.maximum(1e-5, w), np.abs(h))
+    plt.xlim([10, 10000])
+    plt.savefig('lowpass_transfer_function.png', dpi=100)
+
+
+def main():
+    # white_noise_filtering_example()
+    plot_transfer_functions()
 
 
 if __name__ == '__main__':
