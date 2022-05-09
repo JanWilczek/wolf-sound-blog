@@ -20,8 +20,8 @@ discussion_id: 2022-05-08-allpass-based-lowpass-and-highpass-filters
 Control the cutoff with just one coefficient!
 
 {% katexmm %}
-{% capture _ %}{% increment equationId20211126  %}{% endcapture %}
-{% capture _ %}{% increment figureId20211126  %}{% endcapture %}
+{% capture _ %}{% increment equationId20220508  %}{% endcapture %}
+{% capture _ %}{% increment figureId20220508  %}{% endcapture %}
 
 You have probably seen it: a low-pass filter digital audio workstation (DAW) plugin.
 
@@ -58,7 +58,7 @@ The frequencies below the cutoff frequency aren't affected by it.
 The amplitude response (how each frequency is attenuated at the output of the filter) of a lowpass filter is shown in Figure 1.
 
 ![]({{ page.images_parametric_eq | absolute_url | append: "/LowPass.webp"}}){: width="70%" alt="Low-pass filter amplitude response."}
-_Figure {% increment figureId20211126  %}. Low-pass filter amplitude response._
+_Figure {% increment figureId20220508  %}. Low-pass filter amplitude response._
 
 ## Highpass Filter
 
@@ -67,7 +67,7 @@ Contrary to a lowpass filter, a highpass filter attenuates all frequencies below
 The amplitude response of a highpass filter is shown in Figure 2.
 
 ![]({{ page.images_parametric_eq | absolute_url | append: "/HighPass.webp"}}){: width="70%" alt="High-pass filter amplitude response."}
-_Figure {% increment figureId20211126  %}. High-pass filter amplitude response._
+_Figure {% increment figureId20220508  %}. High-pass filter amplitude response._
 
 ## The Need for a Simple Control-to-Coefficients Mapping
 
@@ -78,7 +78,7 @@ Let's recap a "traditional" method of designing an IIR lowpass filter:
 
 For example, in the [bilinear transform tutorial]({% post_url fx/2022-01-15-bilinear-transform %}), we digitized the Butterworth lowpass of order 2. The resulting transfer function formula was
 
-$$H_2(z) = \frac{W^2 + 2W^2 z^{-1} + W^2z^{-2}}{1 + W \sqrt{2} + W^2 + 2(W^2 - 1)z^{-1} + (W^2 - W\sqrt{2} + 1)z^{-2}}, \quad ({% increment equationId20220115 %})$$
+$$H_2(z) = \frac{W^2 + 2W^2 z^{-1} + W^2z^{-2}}{1 + W \sqrt{2} + W^2 + 2(W^2 - 1)z^{-1} + (W^2 - W\sqrt{2} + 1)z^{-2}}, \quad ({% increment equationId20220508 %})$$
 
 where $W = \tan(\omega_\text{c} T / 2)$ and $\omega_\text{c}$ is the desired cutoff frequency of the digital filter in radians per second.
 
@@ -96,14 +96,18 @@ To understand them, we first need to recap a few facts about the allpass filter.
 
 ## Allpass Filter Revisited
 
-An *allpass filter* is a filter that does not attenuate or boost any frequencies but introduces a frequency-dependent delay.
+An [*allpass filter*]({% post_url fx/2021-10-22-allpass-filter %}) is a filter that does not attenuate or boost any frequencies but introduces a frequency-dependent delay.
 
 That means that a single allpass filter won't introduce any audible change in a signal. Only when we use this filter in some context, can we hear or see its true power.
 
+*If you want to learn more about the allpass filter itself, check out my comprehensive ["All you need to know about allpass filter" article here.]({% post_url fx/2021-10-22-allpass-filter %})*
+
 What is a "frequency-dependent delay"? Well, the higher the frequency, the later it will appear at the filter's output.
 
+The amount of phase delay can be seen in the phase response of the allpass filter. In Figure ???, you can see such responses for various values of the *break frequency* (I explain the break frequency later).
+
 ![]({{ page.images_allpass | absolute_url | append: "/first_order_allpass_phase_response.webp" }}){: width="80%" alt="Phase response of the first-order allpass filter."}
-_Figure {% increment figureId20211022 %}. Phase response of a first-order allpass filter for different break frequencies $f_\text{b}$._
+_Figure {% increment figureId20220508 %}. Phase response of a first-order allpass filter for different break frequencies $f_\text{b}$._
 
 If this delay was large and we put a signal with a flat spectrum at the input, we could hear a tone rising in frequency at the output; the lowest frequency would appear immediately at the output, whereas the highest would appear last, because it has the largest delay.
 
@@ -130,13 +134,13 @@ $$a_1 = \frac{\tan(\pi f_\text{b} / f_s) - 1}{\tan(\pi f_\text{b} / f_s) + 1}.  
 
 If you don't understand it now, don't worry; all you need to know is that the break frequency is easily controllable.
 
-<!-- TODO: Insert link to the sampling article -->
-
-Now, at the Nyquist frequency (half of the sampling rate), the phase shift is exactly $-\pi$ so the tone corresponding to that frequency is exactly *inverted in phase*.
+Now, at the [Nyquist frequency]({ post_url 2019-11-19-how-to-represent-digital-sound-sampling-sampling-rate-quantization %}#the-sampling-theorem) (half of the sampling rate), the phase shift is exactly $-\pi$ so the tone corresponding to that frequency is exactly *inverted in phase*.
 
 (Phase inversion is sometimes marked as $\varnothing$ in DAWs.)
 
 If we add a signal and its phase-inverted version, a *phase cancellation* will occur; we will obtain an all-zero signal, i.e., silence.
+
+An example of this can be seen in Figure ???.
 
 ![]({{ page.images | absolute_url | append: "/phase_cancellation_example.webp"}}){: width="70%" alt="Visualization of the phase cancellation effect."}
 _Figure {% increment figureId20220508  %}. A sum of two sines with the relative phase shift of $\pi$ results in phase cancellation._
@@ -145,7 +149,7 @@ Phase cancellation means perfect attenuation, right? Could we possibly use this 
 
 ## Allpass-Based Lowpass Filter
 
-What will happen if we add the output of the first-order allpass filter to the original input signal (the so-called *direct path*)? (see Figure ???).
+What will happen if we add the output of the first-order allpass filter to the original input signal (the so-called *direct path*)? (see Figure ???) [Zölzer11].
 
 ![]({{ page.images | absolute_url | append: "/lowpass.svg"}}){: width="70%" alt="Allpass-based lowpass filter diagram."}
 _Figure {% increment figureId20220508  %}. Allpass-based lowpass filter structure._
@@ -319,4 +323,4 @@ The real power of this structure can be seen in a real-time implementation... So
 
 ## Bibliography
 
-[DAFX]
+[Zölzer11] [Zölzer Udo, *DAFX: Digital Audio Effects*. 2nd ed., Helmut Schmidt University, Hamburg, Germany, John Wiley & Sons Ltd, 2011.](https://amzn.to/3aZIxT8)
