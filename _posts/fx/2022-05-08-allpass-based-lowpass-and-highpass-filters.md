@@ -6,6 +6,7 @@ author: Jan Wilczek
 layout: post
 images: /assets/img/posts/fx/2022-05-08-allpass-based-lowpass-and-highpass-filters/
 images_parametric_eq: /assets/img/posts/fx/2021-11-26-parametric-eq-design/
+images_allpass: /assets/img/posts/fx/2021-10-22-allpass-filter
 # background: /assets/img/posts/fx/2022-05-08-allpass-based-lowpass-and-highpass-filters/Thumbnail.webp
 categories:
   - Digital Signal Processing
@@ -101,13 +102,19 @@ That means that a single allpass filter won't introduce any audible change in a 
 
 What is a "frequency-dependent delay"? Well, the higher the frequency, the later it will appear at the filter's output.
 
-<!-- TODO: Amplitude & phase response of an allpass filter figure -->
+![]({{ page.images_allpass | absolute_url | append: "/first_order_allpass_phase_response.webp" }}){: width="80%" alt="Phase response of the first-order allpass filter."}
+_Figure {% increment figureId20211022 %}. Phase response of a first-order allpass filter for different break frequencies $f_\text{b}$._
 
 If this delay was large and we put a signal with a flat spectrum at the input, we could hear a tone rising in frequency at the output; the lowest frequency would appear immediately at the output, whereas the highest would appear last, because it has the largest delay.
 
 In practice, this delay is too small to be audible, we can, however, observe its effect on the waveform in the time domain.
 
-<!-- TODO: An example waveform; a few aligned sines at the input and their misaligment at the output -->
+This effect can be seen in Figure ???. There, 3 nicely aligned sines (left) pass through an allpass filter.
+
+![]({{ page.images | absolute_url | append: "/aligned_sines.webp"}}){: width="70%" alt="Visualization of the allpass filter effect."}
+_Figure {% increment figureId20220508  %}. (Left) A superposition of 3 sines. (Right) The same 3 sines after passing through an allpass filter._
+
+At the output, the frequency content is the same but the relative phase of the sines changed. The output sounds exactly as the input.
 
 ## Phase Cancellation
 
@@ -115,7 +122,11 @@ The *break frequency* of an allpass filter is the frequency at which the phase s
 
 We can control the break frequency of an allpass filter of any order with a single coefficient that appears in the simple formulas for the final filter coefficients.
 
-<!-- TODO: Insert allpass filter transfer function formula -->
+$$H_{\text{AP}_1}(z) = \frac{a_1 + z^{-1}}{1 + a_1z^{-1}}, \quad ({% increment equationId20220508 %})$$
+
+where
+
+$$a_1 = \frac{\tan(\pi f_\text{b} / f_s) - 1}{\tan(\pi f_\text{b} / f_s) + 1}.  \quad ({% increment equationId20220508 %})$$
 
 If you don't understand it now, don't worry; all you need to know is that the break frequency is easily controllable.
 
@@ -127,9 +138,10 @@ Now, at the Nyquist frequency (half of the sampling rate), the phase shift is ex
 
 If we add a signal and its phase-inverted version, a *phase cancellation* will occur; we will obtain an all-zero signal, i.e., silence.
 
-<!-- TODO: Example of sines with phase cancellation figure -->
+![]({{ page.images | absolute_url | append: "/phase_cancellation_example.webp"}}){: width="70%" alt="Visualization of the phase cancellation effect."}
+_Figure {% increment figureId20220508  %}. A sum of two sines with the relative phase shift of $\pi$ results in phase cancellation._
 
-Phase cancellation means perfect attenuation, right? Could we possibly use this property in a lowpass or highpass filter?
+Phase cancellation means perfect attenuation, right? Could we possibly use this property in a lowpass or a highpass filter?
 
 ## Allpass-Based Lowpass Filter
 
