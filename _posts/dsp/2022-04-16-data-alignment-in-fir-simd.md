@@ -6,7 +6,7 @@ author: Jan Wilczek
 layout: post
 images: /assets/img/posts/dsp/2022-03-28-fir-with-simd/
 permalink: /data-alignment-in-fir-filter-simd-implementation/
-# background: /assets/img/posts/dsp/2022-04-16-data-alignment-in-fir-simd/Thumbnail.webp
+background: /assets/img/posts/dsp/2022-03-28-fir-with-simd/DataAlignmentThumbnail.webp
 categories:
   - Digital Signal Processing
   - Audio FX

@@ -7,7 +7,7 @@ layout: post
 images: /assets/img/posts/fx/2022-05-08-allpass-based-lowpass-and-highpass-filters/
 images_parametric_eq: /assets/img/posts/fx/2021-11-26-parametric-eq-design/
 images_allpass: /assets/img/posts/fx/2021-10-22-allpass-filter
-# background: /assets/img/posts/fx/2022-05-08-allpass-based-lowpass-and-highpass-filters/Thumbnail.webp
+background: /assets/img/posts/fx/2022-05-08-allpass-based-lowpass-and-highpass-filters/lowpass.svg
 categories:
   - Digital Signal Processing
   - Audio FX
