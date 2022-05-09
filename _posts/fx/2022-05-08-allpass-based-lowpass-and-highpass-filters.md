@@ -123,7 +123,7 @@ If you don't understand it now, don't worry; all you need to know is that the br
 
 Now, at the Nyquist frequency (half of the sampling rate), the phase shift is exactly $-\pi$ so the tone corresponding to that frequency is exactly *inverted in phase*.
 
-(Phase inversion is sometimes marked as $\phi$ in DAWs.)
+(Phase inversion is sometimes marked as $\varnothing$ in DAWs.)
 
 If we add a signal and its phase-inverted version, a *phase cancellation* will occur; we will obtain an all-zero signal, i.e., silence.
 
@@ -135,7 +135,8 @@ Phase cancellation means perfect attenuation, right? Could we possibly use this 
 
 What will happen if we add the output of the first-order allpass filter to the original input signal (the so-called *direct path*)? (see Figure ???).
 
-* block diagram
+![]({{ page.images | absolute_url | append: "/lowpass.svg"}}){: width="70%" alt="Allpass-based lowpass filter diagram."}
+_Figure {% increment figureId20220508  %}. Allpass-based lowpass filter structure._
   
 Since the phase shift at the Nyquist frequency is $=\pi$, we'll obtain phase cancellation at this frequency.
 
@@ -149,7 +150,8 @@ Between these frequencies, the amplitude of sines will be gradually attenuated a
 
 The resulting magnitude transfer function can be seen in Figure ???. We obtained a lowpass filter!
 
-* transfer function
+![]({{ page.images | absolute_url | append: "/lowpass_transfer_function.webp"}}){: width="70%" alt="Magnitude transfer function of the resulting lowpass filter."}
+_Figure {% increment figureId20220508  %}. Magnitude transfer function of the resulting lowpass filter._
 
 ### Cutoff Frequency Control
 
@@ -163,7 +165,8 @@ What if instead of adding the output of the allpass to the input signal, we subt
 
 The corresponding structure is shown in Figure ???
 
-<!-- TODO: Highpass filter structure -->
+![]({{ page.images | absolute_url | append: "/highpass.svg"}}){: width="70%" alt="Allpass-based highpass filter diagram."}
+_Figure {% increment figureId20220508  %}. Allpass-based highpass filter structure._
 
 By mutliplying the output of the allpass by $-1$ we invert all the components in phase.
 
@@ -177,7 +180,8 @@ In between these two frequencies, we get a slow increase in the magnitude of the
 
 The magnitude transfer function can be seen in Figure ???.
 
-* transfer function
+![]({{ page.images | absolute_url | append: "/highpass_transfer_function.webp"}}){: width="70%" alt="Magnitude transfer function of the resulting highpass filter."}
+_Figure {% increment figureId20220508  %}. Magnitude transfer function of the resulting highpass filter._
 
 We, thus, obtained a high-pass filter!
 
