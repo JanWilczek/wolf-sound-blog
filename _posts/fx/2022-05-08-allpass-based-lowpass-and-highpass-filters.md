@@ -23,7 +23,7 @@ Control the cutoff with just one coefficient!
 {% capture _ %}{% increment equationId20220508  %}{% endcapture %}
 {% capture _ %}{% increment figureId20220508  %}{% endcapture %}
 
-You have probably seen it: a low-pass filter digital audio workstation (DAW) plugin.
+You have probably seen it: a lowpass filter digital audio workstation (DAW) plugin.
 
 It could have had a roll-off and a resonance control knob or slider.
 
@@ -53,12 +53,12 @@ For the purpose of this article, we'll define a lowpass filter as a filter that 
 
 The cutoff frequency is typically defined as the frequency at which the attenuation is already 3 dB.
 
-The frequencies below the cutoff frequency aren't affected by it.
+The frequencies below the cutoff frequency aren't affected by the filter.
 
 The amplitude response (how each frequency is attenuated at the output of the filter) of a lowpass filter is shown in Figure 1.
 
-![]({{ page.images_parametric_eq | absolute_url | append: "/LowPass.webp"}}){: width="70%" alt="Low-pass filter amplitude response."}
-_Figure {% increment figureId20220508  %}. Low-pass filter amplitude response._
+![]({{ page.images_parametric_eq | absolute_url | append: "/LowPass.webp"}}){: width="70%" alt="Lowpass filter amplitude response."}
+_Figure {% increment figureId20220508  %}. Lowpass filter amplitude response._
 
 ## Highpass Filter
 
@@ -66,8 +66,8 @@ Contrary to a lowpass filter, a highpass filter attenuates all frequencies below
 
 The amplitude response of a highpass filter is shown in Figure 2.
 
-![]({{ page.images_parametric_eq | absolute_url | append: "/HighPass.webp"}}){: width="70%" alt="High-pass filter amplitude response."}
-_Figure {% increment figureId20220508  %}. High-pass filter amplitude response._
+![]({{ page.images_parametric_eq | absolute_url | append: "/HighPass.webp"}}){: width="70%" alt="Highpass filter amplitude response."}
+_Figure {% increment figureId20220508  %}. Highpass filter amplitude response._
 
 ## The Need for a Simple Control-to-Coefficients Mapping
 
@@ -98,33 +98,35 @@ To understand them, we first need to recap a few facts about the allpass filter.
 
 An [*allpass filter*]({% post_url fx/2021-10-22-allpass-filter %}) is a filter that does not attenuate or boost any frequencies but introduces a frequency-dependent delay.
 
-That means that a single allpass filter won't introduce any audible change in a signal. Only when we use this filter in some context, can we hear or see its true power.
+That means that a single allpass filter won't introduce any audible change in the signal. Only when we use this filter in some context, can we hear its true power.
 
-*If you want to learn more about the allpass filter itself, check out my comprehensive ["All you need to know about allpass filter" article here.]({% post_url fx/2021-10-22-allpass-filter %})*
+*If you want to learn more about the allpass filter itself, check out my comprehensive ["Allpass Filter: All You Need to Know" article here.]({% post_url fx/2021-10-22-allpass-filter %})*
 
 What is a "frequency-dependent delay"? Well, the higher the frequency, the later it will appear at the filter's output.
 
-The amount of phase delay can be seen in the phase response of the allpass filter. In Figure ???, you can see such responses for various values of the *break frequency* (I explain the break frequency later).
+The amount of phase delay can be seen in the phase response of the allpass filter. In Figure 3, you can see such responses for various values of the *break frequency* (I explain the break frequency later).
 
 ![]({{ page.images_allpass | absolute_url | append: "/first_order_allpass_phase_response.webp" }}){: width="80%" alt="Phase response of the first-order allpass filter."}
-_Figure {% increment figureId20220508 %}. Phase response of a first-order allpass filter for different break frequencies $f_\text{b}$._
+_Figure {% increment figureId20220508 %}. Phase response of a first-order allpass filter for different break frequencies $f_\text{b}$. $f_s$ is the sampling rate._
 
 If this delay was large and we put a signal with a flat spectrum at the input, we could hear a tone rising in frequency at the output; the lowest frequency would appear immediately at the output, whereas the highest would appear last, because it has the largest delay.
 
-In practice, this delay is too small to be audible, we can, however, observe its effect on the waveform in the time domain.
+In practice, this delay is too small to be audible. We can, however, observe its effect on the waveform in the time domain.
 
-This effect can be seen in Figure ???. There, 3 nicely aligned sines (left) pass through an allpass filter.
+This effect can be seen in Figure 4. There, 3 nicely aligned sines (left) pass through an allpass filter and appear misaligned at the output (right).
 
 ![]({{ page.images | absolute_url | append: "/aligned_sines.webp"}}){: width="70%" alt="Visualization of the allpass filter effect."}
 _Figure {% increment figureId20220508  %}. (Left) A superposition of 3 sines. (Right) The same 3 sines after passing through an allpass filter._
 
-At the output, the frequency content is the same but the relative phase of the sines changed. The output sounds exactly as the input.
+At the output, the frequency content is the same but the relative phase of the sines changed. At the same time, the output sounds exactly as the input.
 
 ## Phase Cancellation
 
 The *break frequency* of an allpass filter is the frequency at which the phase shift is exactly $-\frac{\pi}{2}$.
 
-We can control the break frequency of an allpass filter of any order with a single coefficient that appears in the simple formulas for the final filter coefficients.
+We can control the break frequency of an allpass filter of any order with a single coefficient that appears in simple formulas for the final filter coefficients.
+
+Here is the formula for the [transfer function of the allpass filter]({% post_url fx/2021-10-22-allpass-filter %}#first-order-iir-allpass):
 
 $$H_{\text{AP}_1}(z) = \frac{a_1 + z^{-1}}{1 + a_1z^{-1}}, \quad ({% increment equationId20220508 %})$$
 
@@ -132,54 +134,56 @@ where
 
 $$a_1 = \frac{\tan(\pi f_\text{b} / f_s) - 1}{\tan(\pi f_\text{b} / f_s) + 1}.  \quad ({% increment equationId20220508 %})$$
 
-If you don't understand it now, don't worry; all you need to know is that the break frequency is easily controllable.
+This formula is the [bilinear transform]({% post_url fx/2022-01-15-bilinear-transform %}) of the analog allpass.
 
-Now, at the [Nyquist frequency]({ post_url 2019-11-19-how-to-represent-digital-sound-sampling-sampling-rate-quantization %}#the-sampling-theorem) (half of the sampling rate), the phase shift is exactly $-\pi$ so the tone corresponding to that frequency is exactly *inverted in phase*.
+If you don't understand it, don't worry; all you need to know is that the break frequency is easily controllable.
+
+Now, at the [Nyquist frequency]({% post_url 2019-11-19-how-to-represent-digital-sound-sampling-sampling-rate-quantization %}#the-sampling-theorem) (half of the sampling rate), the phase shift is exactly $-\pi$ so the tone corresponding to that frequency is exactly *inverted in phase*.
 
 (Phase inversion is sometimes marked as $\varnothing$ in DAWs.)
 
 If we add a signal and its phase-inverted version, a *phase cancellation* will occur; we will obtain an all-zero signal, i.e., silence.
 
-An example of this can be seen in Figure ???.
+An example of this can be seen in Figure 5.
 
 ![]({{ page.images | absolute_url | append: "/phase_cancellation_example.webp"}}){: width="70%" alt="Visualization of the phase cancellation effect."}
 _Figure {% increment figureId20220508  %}. A sum of two sines with the relative phase shift of $\pi$ results in phase cancellation._
 
-Phase cancellation means perfect attenuation, right? Could we possibly use this property in a lowpass or a highpass filter?
+A phase cancellation means perfect attenuation, right? Could we possibly use this property in a lowpass or a highpass filter?
 
 ## Allpass-Based Lowpass Filter
 
-What will happen if we add the output of the first-order allpass filter to the original input signal (the so-called *direct path*)? (see Figure ???) [Zölzer11].
+What will happen if we add the output of the first-order allpass filter to the original input signal (the so-called *direct path*) as in Figure 6? [Zölzer11].
 
 ![]({{ page.images | absolute_url | append: "/lowpass.svg"}}){: width="70%" alt="Allpass-based lowpass filter diagram."}
 _Figure {% increment figureId20220508  %}. Allpass-based lowpass filter structure._
   
-Since the phase shift at the Nyquist frequency is $=\pi$, we'll obtain phase cancellation at this frequency.
+Since the phase shift at the Nyquist frequency is $-\pi$, we'll obtain a phase cancellation at this frequency.
 
 At the direct current (DC) (frequency of 0 Hz), the output signal is not shifted with respect to the input (the signals are said to be *in-phase*). If we add two sines that have the same frequency and are in phase, we effectively obtain a sine at the same frequency which has the amplitude equal to the sum of amplitudes of the original sines.
 
-In the case of the discussed structure, the DC component at the input and at the output are identical. Therefore, the amplitude of the input DC component will double.
+In the case of the discussed structure, the DC component at the input and at the output are identical. Therefore, the amplitude of the input DC component will double. Hence the multiplication by $\frac{1}{2}$ so that we don't exceed the $[-1, 1]$ range and avoid clipping.
 
-Ok, we know that at the output of the structure from Figure ???, the 0 Hz component will be doubled in amplitude and the Nyquist frequency component will vanish (have amplitude equal to 0). What will happen between these frequencies?
+Ok, we know that at the output of the structure from Figure 6, the 0 Hz component will be doubled in amplitude and the Nyquist frequency component will vanish (have amplitude equal to 0). What will happen between these frequencies?
 
 Between these frequencies, the amplitude of sines will be gradually attenuated as the input signal and the output of the allpass filter gradually move out of phase with increasing frequency.
 
-The resulting magnitude transfer function can be seen in Figure ???. We obtained a lowpass filter!
+The resulting magnitude transfer function can be seen in Figure 7. We obtained a lowpass filter!
 
 ![]({{ page.images | absolute_url | append: "/lowpass_transfer_function.webp"}}){: width="70%" alt="Magnitude transfer function of the resulting lowpass filter."}
 _Figure {% increment figureId20220508  %}. Magnitude transfer function of the resulting lowpass filter._
 
 ### Cutoff Frequency Control
 
-As I promised, the cutoff frequency of this lowpass filter is very easy to control. We just need to set the $a_1$ coefficient of the allpass filter according to Equation ???, which controls the frequency at which the phase shift of the allpass is exactly $-\frac{\pi}{2}$. The $a_1$ coefficient can then be used as a regular filter coefficient.
+As I promised, the cutoff frequency of this lowpass filter is very easy to control. We just need to set the $a_1$ coefficient of the allpass filter according to Equation 3, which controls the frequency at which the phase shift of the allpass is exactly $-\frac{\pi}{2}$. The $a_1$ coefficient can then be used as a regular filter coefficient.
 
-We, thus, obtained a one-to-one control to coefficient mapping!
+We, thus, obtained a one-to-one control-to-coefficient mapping!
 
 ## Allpass-Based Highpass Filter
 
 What if instead of adding the output of the allpass to the input signal, we subtracted it?
 
-The corresponding structure is shown in Figure ???
+The corresponding structure is shown in Figure 8.
 
 ![]({{ page.images | absolute_url | append: "/highpass.svg"}}){: width="70%" alt="Allpass-based highpass filter diagram."}
 _Figure {% increment figureId20220508  %}. Allpass-based highpass filter structure._
@@ -188,13 +192,13 @@ By mutliplying the output of the allpass by $-1$ we invert all the components in
 
 Therefore, the frequency component at the Nyquist frequency, which was inverted in phase by the allpass filter, gets inverted again and is back in phase with the corresponding component of the input signal.
 
-So the Nyquist frequency component at the output of the structure in Figure ??? is doubled in amplitude.
+So the Nyquist frequency component before the multiplication by $\frac{1}{2}$ in the structure in Figure 8 is doubled in amplitude.
 
-Conversely, the DC component, which was previously in phase, is now inverted in phase. Therefore, the DC component is missing in the output signal of the structure from Figure ???.
+Conversely, the DC component, which was previously in phase, is now negated. Therefore, the DC component is missing in the output signal of the structure from Figure 8.
 
-In between these two frequencies, we get a slow increase in the magnitude of the transfer function with increasing frequency.
+In between these two frequencies, we get an increase in the magnitude of the transfer function with increasing frequency.
 
-The magnitude transfer function can be seen in Figure ???.
+The magnitude transfer function can be seen in Figure 9.
 
 ![]({{ page.images | absolute_url | append: "/highpass_transfer_function.webp"}}){: width="70%" alt="Magnitude transfer function of the resulting highpass filter."}
 _Figure {% increment figureId20220508  %}. Magnitude transfer function of the resulting highpass filter._
@@ -209,7 +213,7 @@ Great, we have just designed easily controllable lowpass and highpass filters! H
 
 Listing 1 shows the implementation of the allpass-based lowpass/highpass and includes extensive comments.
 
-_Listing 1. Allpass-based lowpass/highpass filter.
+_Listing 1. Allpass-based lowpass/highpass filter._
 ```python
 #!/usr/bin/python3
 from scipy import signal
@@ -241,6 +245,8 @@ def allpass_filter(input_signal, break_frequency, sampling_rate):
         a1 = a1_coefficient(break_frequency[n], sampling_rate)
 
         # The allpass difference equation
+        # Check the article on the allpass filter for an 
+        # in-depth explanation
         allpass_output[n] = a1 * input_signal[n] + dn_1
 
         # Store a value in the inner buffer for the 
@@ -260,8 +266,13 @@ def allpass_based_filter(input_signal, cutoff_frequency, \
     if highpass:
         allpass_output *= -1
 
+    # Sum the allpass output with the direct path
     filter_output = input_signal + allpass_output
+
+    # Scale the amplitude to prevent clipping
     filter_output *= 0.5
+
+    # Apply the given amplitude
     filter_output *= amplitude
 
     return filter_output
@@ -309,13 +320,13 @@ Can you notice how the cutoff frequency lowers over time? We achieved this easil
 
 ## Summary
 
-In this article, we discussed an easy and popular method of obtaining a lowpass or a highpass filter; by combining an allpass filter and a direct path.
+In this article, we discussed an easy and popular method of obtaining a lowpass or a highpass filter; by combining an allpass filter and the direct path.
 
 The allpass filter delays the input frequency components. The phase delay increases with frequency.
 
-At DC, the phase shift is 0. At the Nyquist frequency the phase shift is $-\pi$.
+At DC, the phase shift is 0. At the break frequency the phase shift is $-\frac{\pi}{2}$. At the Nyquist frequency the phase shift is $-\pi$.
 
-Adding (subtracting) the allpass output to/from the direct path creates phase cancellation at the Nyquist frequency (DC component). We, thus, obtain a lowpass (highpass) filter.
+Adding (subtracting) the allpass output to (from) the direct path creates phase cancellation at the Nyquist frequency (DC component). We, thus, obtain a lowpass (highpass) filter.
 
 The real power of this structure can be seen in a real-time implementation... So that's what we'll do next!
 

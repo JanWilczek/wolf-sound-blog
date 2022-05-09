@@ -28,6 +28,8 @@ def allpass_filter(input_signal, break_frequency, sampling_rate):
         a1 = a1_coefficient(break_frequency[n], sampling_rate)
 
         # The allpass difference equation
+        # Check the article on the allpass filter for an 
+        # in-depth explanation
         allpass_output[n] = a1 * input_signal[n] + dn_1
 
         # Store a value in the inner buffer for the 
@@ -47,8 +49,13 @@ def allpass_based_filter(input_signal, cutoff_frequency, \
     if highpass:
         allpass_output *= -1
 
+    # Sum the allpass output with the direct path
     filter_output = input_signal + allpass_output
+
+    # Scale the amplitude to prevent clipping
     filter_output *= 0.5
+
+    # Apply the given amplitude
     filter_output *= amplitude
 
     return filter_output
