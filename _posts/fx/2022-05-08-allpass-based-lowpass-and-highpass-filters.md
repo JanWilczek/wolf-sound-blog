@@ -188,7 +188,7 @@ The corresponding structure is shown in Figure 8.
 ![]({{ page.images | absolute_url | append: "/highpass.svg"}}){: width="70%" alt="Allpass-based highpass filter diagram."}
 _Figure {% increment figureId20220508  %}. Allpass-based highpass filter structure._
 
-By mutliplying the output of the allpass by $-1$ we invert all the components in phase.
+By multiplying the output of the allpass by $-1$ we invert all the components in phase.
 
 Therefore, the frequency component at the Nyquist frequency, which was inverted in phase by the allpass filter, gets inverted again and is back in phase with the corresponding component of the input signal.
 
