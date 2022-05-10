@@ -86,7 +86,7 @@ Note that if we change the cutoff frequency $\omega_\text{c}$, we need to calcul
 
 (A reminder: a filter coefficient is a scalar at each power of the $z$ variable in the numerator and the denominator.)
 
-If we wanted to control the cutoff frequency in real time, for example, during a live performance, or using an amplitude envelope, the computational overhead could be troublesome.
+If we wanted to control the cutoff frequency in real time, for example, during a live performance, or using an envelope, the computational overhead could be troublesome.
 
 Can we have a simple mapping: 1 filter control change requires 1 coefficient change?
 
