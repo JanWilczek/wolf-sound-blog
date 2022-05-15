@@ -61,9 +61,44 @@ After you completed the setup, click on *Save and Open in IDE*.
 
 *If you already know JUCE, you can skip this paragraph.*
 
+Every JUCE plugin has two main components:
 
+* plugin processor, and
+* plugin editor.
+
+The **plugin processor** handles everything related to signal processing within the plugin and does not handle graphical user interface (GUI).
+
+The **plugin editor** is the main GUI class that allows the developer to create sliders, checkboxes, buttons, etc., and connect them with the plugin parameters.
+
+Plugin processor of our plugin will contain the filtering code. Plugin editor of our plugin will contain the graphical controls and the bindings to the filter's parameters.
+
+### Audio Processor Value Tree State
+
+A very important class, that we will use in this tutorial, is the `AudioProcessorValueTreeState`. We can think of it as a container suitable for all our plugin parameter's.
+
+We can create parameters that will be stored in the value tree state. These parameters can then be bound to specific GUI controls.
+
+We will read those parameters in suitable time and apply them to our filter.
+
+<!-- TODO: JUCE framework version -->
+
+## Plugin Architecture
+
+Our plugin will have the following architecture:
+
+* `LowpassHighpassFilter` class will process sound on the channels that are given to it. It doesn't know that it is a part of a plugin.
+* `LowpassHighpassFilterAudioProcessor` will provide all code necessary to build a plugin. It will provide parameters to the filtering class and pass it the audio buffer for processing. It will also hold an `AudioProcessorValueTreeState` class instance with the plugin parameters.
+* `LowpassHighpassFilterAudioProcessorEditor` will hold the GUI controls, position them on the screen, and bind them to the parameters stored in the value tree state.
+
+This architecture is summarized on the below diagram.
+
+<!-- TODO: Class diagram -->
+
+Let's start off with the `LowpassHighpassFilter` class implementation.
 
 ## LowpassHighpassFilter Class
+
+
 
 ## Plugin Processor
 
