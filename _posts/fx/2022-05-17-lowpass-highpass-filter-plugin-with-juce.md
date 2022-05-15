@@ -41,6 +41,28 @@ So let's start building our plugin!
 
 After you [install JUCE](https://juce.com/get-juce/download), launch the *Projucer* app and select *File -> New Project*.
 
+<!-- TODO: Projucer image -->
+
+Choose *Plugin->Basic* type, write your *Project Name*, select the target IDE (mine is *Visual Studio 2019*), and click *Create Project*.
+
+You then will have to choose the folder which will contain your project folder (mine is called *JUCEprojects*, since I put there most of my JUCE projects).
+
+At this point, you could already generate your project but you may want to provide some additional metadata. If so, click on the *Project Settings* icon next to the project name.
+
+<!-- TODO: Projucer image -->
+
+For example, I decided to only generate the VST3 plugin format and use the C++ 20 standard.
+
+After you completed the setup, click on *Save and Open in IDE*.
+
+<!-- TODO: Projucer image -->
+
+## JUCE Plugin Project Structure
+
+*If you already know JUCE, you can skip this paragraph.*
+
+
+
 ## LowpassHighpassFilter Class
 
 ## Plugin Processor
