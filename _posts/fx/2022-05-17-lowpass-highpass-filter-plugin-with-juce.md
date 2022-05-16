@@ -214,14 +214,97 @@ Now, only the binding it to the plugin code remains.
 
 ### Plugin Processor
 
+In the `PluginProcessor`, we only add some member variables (Listing 4).
+
 _Listing {% increment listingId20220517 %}.._
 ```cpp
+// PluginProcessor.h
+#include "LowpassHighpassFilter.h"
 
+class LowpassHighpassFilterAudioProcessor  : public juce::AudioProcessor
+{
+//...
+private:
+    juce::AudioProcessorValueTreeState parameters;
+    std::atomic<float>* cutoffFrequencyParameter = nullptr;
+    std::atomic<float>* highpassParameter = nullptr;
+    LowpassHighpassFilter filter;
+};
 ```
 
 _Listing {% increment listingId20220517 %}.._
 ```cpp
+// PluginProcessor.cpp
+LowpassHighpassFilterAudioProcessor::LowpassHighpassFilterAudioProcessor()
+#ifndef JucePlugin_PreferredChannelConfigurations
+     : AudioProcessor (BusesProperties()
+                     #if ! JucePlugin_IsMidiEffect
+                      #if ! JucePlugin_IsSynth
+                       .withInput  ("Input",  juce::AudioChannelSet::stereo(), true)
+                      #endif
+                       .withOutput ("Output", juce::AudioChannelSet::stereo(), true)
+                     #endif
+                       ),
+#else
+    :
+#endif
+      parameters(*this, nullptr, juce::Identifier("LowpassAndHighpassPlugin"),
+{std::make_unique<juce::AudioParameterFloat>(
+                      "cutoff_frequency", "Cutoff Frequency",
+                      juce::NormalisableRange{ 20.f, 20000.f, 0.1f, 0.2f, false }, 500.f),
+                    std::make_unique<juce::AudioParameterBool>("highpass", "Highpass", false)
+                })
+{
+  cutoffFrequencyParameter =
+      parameters.getRawParameterValue("cutoff_frequency");
+  highpassParameter = parameters.getRawParameterValue("highpass");
+}
+//...
+```
 
+_Listing {% increment listingId20220517 %}.._
+```cpp
+// PluginProcessor.cpp continued
+//...
+void LowpassHighpassFilterAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBlock)
+{
+  filter.setSamplingRate(static_cast<float>(sampleRate));
+}
+//...
+```
+
+_Listing {% increment listingId20220517 %}.._
+```cpp
+// PluginProcessor.cpp continued
+//...
+void LowpassHighpassFilterAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, juce::MidiBuffer& midiMessages)
+{
+    juce::ScopedNoDenormals noDenormals;
+    auto totalNumInputChannels  = getTotalNumInputChannels();
+    auto totalNumOutputChannels = getTotalNumOutputChannels();
+
+    for (auto i = totalNumInputChannels; i < totalNumOutputChannels; ++i)
+        buffer.clear (i, 0, buffer.getNumSamples());
+
+    const auto cutoffFrequency = cutoffFrequencyParameter->load();
+    const auto highpass = *highpassParameter < 0.5f ? false : true;
+    filter.setCutoffFrequency(cutoffFrequency);
+    filter.setHighpass(highpass);
+
+    filter.processBlock(buffer, midiMessages);
+}
+//...
+```
+
+_Listing {% increment listingId20220517 %}.._
+```cpp
+// PluginProcessor.cpp continued
+//...
+juce::AudioProcessorEditor* LowpassHighpassFilterAudioProcessor::createEditor()
+{
+    return new LowpassHighpassFilterAudioProcessorEditor (*this, parameters);
+}
+//...
 ```
 
 ### Plugin Editor
