@@ -94,15 +94,146 @@ This architecture is summarized on the below diagram.
 
 <!-- TODO: Class diagram -->
 
-Let's start off with the `LowpassHighpassFilter` class implementation.
+## Implementation
 
-## LowpassHighpassFilter Class
+We are now ready to implement the plugin.
 
+One more disclaimer before we start: this is not what I consider clean code. I provide this implementation to show you how to implement the effect. You can (and you should) refactor this code into classes and functions as you see fit. I think that for learning purposes, keeping things together makes it more clear. I also don't use namespaces for simplicity.
 
+With this out of the way, let's start off with the `LowpassHighpassFilter` class implementation.
 
-## Plugin Processor
+### LowpassHighpassFilter Class
 
-## Plugin Editor
+The header file with the `LowpassHighpassFilter` class declaration is shown in Listing 1.
 
+_Listing {% increment listingId20220517 %}. `LowpassHighpassFilter` class declaration._
+```cpp
+// LowpassHighpassFilter.h
+#pragma once
+#include <vector>
+#include "JuceHeader.h"
+
+class LowpassHighpassFilter {
+public:
+  // setters
+  void setHighpass(bool highpass);
+  void setCutoffFrequency(float cutoffFrequency);
+  void setSamplingRate(float samplingRate);
+
+  // Does not necessarily need to use JUCE's audio buffer
+  void processBlock(juce::AudioBuffer<float>&, juce::MidiBuffer&);
+
+private:
+  bool highpass;
+  float cutoffFrequency;
+  float samplingRate;
+
+  // allpass filters' buffers: 1 sample per channel
+  std::vector<float> dnBuffer;
+};
+```
+
+As you can see, it consists of 3 setters and a sound-processing member function.
+
+The setters are easy to implement, as shown in Listing 2.
+
+_Listing {% increment listingId20220517 %}.._
+```cpp
+// LowpassHighpassFilter.cpp
+#include "LowpassHighpassFilter.h"
+
+void LowpassHighpassFilter::setHighpass(bool highpass) {
+  this->highpass = highpass;
+}
+
+void LowpassHighpassFilter::setCutoffFrequency(float cutoffFrequency) {
+  this->cutoffFrequency = cutoffFrequency;
+}
+
+void LowpassHighpassFilter::setSamplingRate(float samplingRate) {
+  this->samplingRate = samplingRate;
+}
+//...
+```
+
+The `processBlock()` member function is a little bit more complicated.
+
+In Listing 3, I explain every step we take.
+
+_Listing {% increment listingId20220517 %}.._
+```cpp
+// LowpassHighpassFilter.cpp continued
+//...
+void LowpassHighpassFilter::processBlock(juce::AudioBuffer<float>& buffer,
+                                         juce::MidiBuffer&) {
+  // pi value copied from the web
+  constexpr auto PI = 3.14159265359f;
+
+  // resize the allpass buffers to the number of channels and
+  // zero the new ones
+  dnBuffer.resize(buffer.getNumChannels(), 0.f);
+
+  // if we perform highpass filtering, we need to 
+  // invert the output of the allpass (multiply it
+  // by -1)
+  auto sign = highpass ? -1.f : 1.f;
+
+  // helper variable
+  const auto tan = std::tan(PI * cutoffFrequency / samplingRate);
+  // allpass coefficient; calculated for each sample
+  const auto a1 = (tan - 1.f) / (tan + 1.f);
+
+  // actual processing; each channel separately
+  for (auto channel = 0; channel < buffer.getNumChannels(); ++channel) {
+    // to access the sample in the channel as a C-style array
+    auto channelSamples = buffer.getWritePointer(channel);
+
+    // for each sample in the channel
+    for (auto i = 0; i < buffer.getNumSamples(); ++i) {
+      const auto inputSample = channelSamples[i];
+
+      // allpass filtering
+      const auto allpassFilteredSample = a1 * inputSample + dnBuffer[channel];
+      dnBuffer[channel] = inputSample - a1 * allpassFilteredSample;
+
+      // here the final filtering occurs
+      // we scale by 0.5 to stay in [-1, 1] range
+      const auto filterOutput =
+          0.5f * (inputSample + sign * allpassFilteredSample);
+
+      // assign to the output
+      channelSamples[i] = filterOutput;
+    }
+  }
+}
+```
+
+Ok, this was actually the hardest but also the most interesting bit 🙂
+
+Now, only the binding it to the plugin code remains.
+
+### Plugin Processor
+
+_Listing {% increment listingId20220517 %}.._
+```cpp
+
+```
+
+_Listing {% increment listingId20220517 %}.._
+```cpp
+
+```
+
+### Plugin Editor
+
+_Listing {% increment listingId20220517 %}.._
+```cpp
+
+```
+
+_Listing {% increment listingId20220517 %}.._
+```cpp
+
+```
 
 
