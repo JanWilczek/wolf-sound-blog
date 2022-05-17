@@ -454,3 +454,14 @@ void LowpassHighpassFilterAudioProcessorEditor::resized() {
 
 ```
 
+## Summary
+
+It is done! Now, you may compile, run and test your plugin.
+
+The plugin can be loaded into the AudioPluginHost from JUCE or to a digital audio workstation that handles the format you specified in the beginning. I am using [Reaper](https://www.reaper.fm) for this purpose.
+
+If you have any questions or comments, please, leave them in the comment section below 🙂
+
+If you want to learn, how to build audio plugins, [subscribe to my newsletter.]({% link newsletter.md %})
+
+And if you found this article useful, please, consider buying me a coffee at [buymeacoffee.com/janwilczek](https://buymeacoffee.com/janwilczek) ☕ Thanks!
