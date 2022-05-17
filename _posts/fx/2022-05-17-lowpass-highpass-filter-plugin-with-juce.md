@@ -342,19 +342,33 @@ That's it for the plugin processor. Now, let's finish up with the plugin editor.
 
 ### Plugin Editor
 
+The graphical interface of our plugin will consist of two components:
 
+* a slider controlling the cutoff frequency and
+* a checkbox determining whether we have a highpass (on) or a lowpass (off).
 
-_Listing {% increment listingId20220517 %}.._
+<!-- TODO: GUI screenshot -->
+
+These controls are represented by JUCE `Slider` and `ToggleButton` classes.
+
+To connect these controls with the previously defined parameters, we will use *attachments*: `SliderAttachment` and `ButtonAttachment`.
+
+These attachments are bindings that update the value of the attached parameters as soon as their associated controls change.
+
+Additionally, we will need some text labels (`Label` class).
+
+Listing 9 shows the new plugin editor constructor declaration and the added members.
+
+_Listing {% increment listingId20220517 %}. Plugin editor declaration._
 ```cpp
 // PluginEditor.h
 class LowpassHighpassFilterAudioProcessorEditor  : public juce::AudioProcessorEditor
 {
 public:
+    // altered constructor to receive the value tree state object
     LowpassHighpassFilterAudioProcessorEditor (LowpassHighpassFilterAudioProcessor&, juce::AudioProcessorValueTreeState& vts);
     //...
 private:
-    // This reference is provided as a quick way for your editor to
-    // access the processor object that created it.
     LowpassHighpassFilterAudioProcessor& audioProcessor;
     juce::Slider cutoffFrequencySlider;
     std::unique_ptr<juce::AudioProcessorValueTreeState::SliderAttachment>
@@ -366,11 +380,24 @@ private:
         highpassAttachment;
     juce::Label highpassButtonLabel;
 
+    // given by JUCE by default
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (LowpassHighpassFilterAudioProcessorEditor)
 };
 ```
 
-_Listing {% increment listingId20220517 %}.._
+Listing 10 shows the constructor's implementation.
+
+Each visual component is added to the GUI using the `addAndMakeVisible()` member function.
+
+We then need to set the parameters of the newly added component, e.g., text or style.
+
+Finally, we initialize each attachment with the names of the parameters contained in the value tree state object and the controls to attach to.
+
+Note that I didn't bother to store the names of the parameters separately: they are named in code here and in the plugin processor. For now, it may be ok, but in general, try to put these names into some constant expressions.
+
+At the end of the constructor we set the size of the plugin GUI.
+
+_Listing {% increment listingId20220517 %}. Plugin editor constructor definition._
 ```cpp
 // PluginEditor.cpp
 LowpassHighpassFilterAudioProcessorEditor::LowpassHighpassFilterAudioProcessorEditor (LowpassHighpassFilterAudioProcessor& p, juce::AudioProcessorValueTreeState& vts)
@@ -393,16 +420,20 @@ LowpassHighpassFilterAudioProcessorEditor::LowpassHighpassFilterAudioProcessorEd
     addAndMakeVisible(highpassButtonLabel);
     highpassButtonLabel.setText("Highpass", juce::dontSendNotification);
 
-    // Make sure that before the constructor has finished, you've set the
-    // editor's size to whatever you need it to be.
     setSize(200, 400);
 }
 //...
 ```
 
-Remove the "Hello World" line in `paint()`.
+In the default implementation provided by JUCE, the `paint()` member function draws "Hello, World!" text on screen. You can safely remove this line of code.
 
-_Listing {% increment listingId20220517 %}.._
+Finally, we need to position our GUI elements inside the window. We do that inside the `resized()` member function (Listing 11).
+
+Here, X denotes the distance in pixels from the left border of the window and Y the distance in pixels from the top border of the window.
+
+Feel free to tweak these sizes or better yet; explicitly mark the dependencies between them.
+
+_Listing {% increment listingId20220517 %}. `resized()` member function of the plugin editor._
 ```cpp
 // PluginEditor.cpp
 //...
