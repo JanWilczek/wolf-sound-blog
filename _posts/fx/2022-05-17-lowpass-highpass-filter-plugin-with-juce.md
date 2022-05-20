@@ -28,6 +28,11 @@ _Figure {% increment figureId20220517 %}. You will build such a plugin at the en
 
 The structure, that we are going to implement, is the [allpass-based parametric lowpass/highpass filter from the previous article]({% post_url fx/2022-05-08-allpass-based-lowpass-and-highpass-filters %}). If you want, to understand how this structure works and why is it performing filtering, I invite you to read that article first. This article is purely the implementation of the previously presented algorithm.
 
+Figure 2 shows the audio processing algorithm that we are implementing in JUCE.
+
+![]({{ page.images_reference | absolute_url | append: "/allpass-based-lowpass-highpass-filter-structure.svg" }}){: max-width="80%" alt="Allpass-based lowpass/highpass filter."}
+_Figure {% increment figureId20220517 %}. The DSP structure that we are going to implement._
+
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6611455743195468"
      crossorigin="anonymous"></script><ins class="adsbygoogle"
      style="display:block; text-align:center;"
@@ -171,6 +176,13 @@ void LowpassHighpassFilter::setSamplingRate(float samplingRate) {
 ```
 
 The `processBlock()` member function is a little bit more complicated.
+
+This is the DSP structure that we want to implement inside of `processBlock()`:
+
+![]({{ page.images_reference | absolute_url | append: "/allpass-based-lowpass-highpass-filter-structure.svg" }}){: max-width="80%" alt="Allpass-based lowpass/highpass filter."}
+_Figure {% increment figureId20220517 %}. The DSP structure that we are going to implement._
+
+Listing 3 presents the implementation of the above structure.
 
 In Listing 3, I explain every step we take. We don't use the `MidiBuffer` argument, so we can skip its name.
 
