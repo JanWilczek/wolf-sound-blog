@@ -381,8 +381,8 @@ That's it for the plugin processor. Now, let's finish up with the plugin editor.
 
 The graphical interface of our plugin will consist of two components:
 
-* a slider controlling the cutoff frequency and
-* a checkbox determining whether we have a highpass (on) or a lowpass (off).
+* a slider controlling the cutoff frequency, and
+* a checkbox determining whether we have a highpass (checkbox checked) or a lowpass (checkbox unchecked).
 
 ![]({{ page.images | absolute_url | append: "/PluginGUI.webp" }}){: max-width="60%" alt="Graphical user interface of the implemented VST3 plugin."}
 _Figure {% increment figureId20220517 %}. GUI of the implemented VST3 plugin._
@@ -432,9 +432,9 @@ Each visual component is added to the GUI using the `addAndMakeVisible()` member
 
 We then need to set the parameters of the newly added component, e.g., text or style.
 
-Finally, we initialize each attachment with the names of the parameters contained in the value tree state object and the controls to attach to.
+Finally, we initialize each attachment with the name of the parameter contained in the value tree state object and the GUI control it should be attached to.
 
-Note that I didn't bother to store the names of the parameters separately: they are named in code here and in the plugin processor. For now, it may be ok, but in general, try to put these names into some constant expressions.
+Note that I didn't bother to store the names of the plugin parameters in global constants: they are named explicitly in code here and in the plugin processor. For now, it may be ok, but in general, try to put these names into some constant expressions.
 
 At the end of the constructor we set the size of the plugin GUI.
 
@@ -470,7 +470,7 @@ LowpassHighpassFilterAudioProcessorEditor::
 //...
 ```
 
-In the default implementation provided by JUCE, the `paint()` member function draws "Hello, World!" text on screen. You can safely remove this line of code.
+In the default implementation provided by JUCE, the `paint()` member function draws "Hello, World!" text on the screen. You can safely remove the line of code responsible for it.
 
 Finally, we need to position our GUI elements inside the window. We do that inside the `resized()` member function (Listing 11).
 
@@ -503,9 +503,9 @@ void LowpassHighpassFilterAudioProcessorEditor::resized() {
 
 ## Summary
 
-It is done! Now, you may compile, run and test your plugin.
+It is done! Now, you may compile, run, and test your plugin.
 
-The plugin can be loaded into the AudioPluginHost from JUCE or to a digital audio workstation that handles the format you specified in the beginning. I am using [Reaper](https://www.reaper.fm) for this purpose.
+The plugin can be loaded into the AudioPluginHost from JUCE or to a digital audio workstation that handles the format you specified at the beginning. I am using [Reaper](https://www.reaper.fm) for this purpose.
 
 ![]({{ page.images | absolute_url | append: "/AudioPluginHostSetup.webp" }}){: width="100%" alt="A sample setup of the lowpass/highpass filter plugin in the AudioPluginHost."}
 _Figure {% increment figureId20220517 %}. A sample setup of the lowpass/highpass filter plugin in the AudioPluginHost._
