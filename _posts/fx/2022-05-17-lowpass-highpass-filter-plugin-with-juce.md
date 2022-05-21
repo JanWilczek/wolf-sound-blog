@@ -22,12 +22,12 @@ Let's build a lowpass/highpass filter audio plugin from scratch!
 
 ## Introduction
 
-In this article, I will guide you step-by-step through the process of implementing a lowpass/highpass filter audio plugin with the JUCE framework.
+In this article, I will guide you step-by-step through the process of implementing a lowpass/highpass filter audio plugin with the JUCE  C++ framework.
 
 ![]({{ page.images | absolute_url | append: "/PluginGUI.webp" }}){: max-width="60%" alt="Graphical user interface of the implemented VST3 plugin."}
-_Figure {% increment figureId20220517 %}. You will build such a plugin at the end of this tutorial._
+_Figure {% increment figureId20220517 %}. You will complete building this plugin at the end of this tutorial._
 
-The structure, that we are going to implement, is the [allpass-based parametric lowpass/highpass filter from the previous article]({% post_url fx/2022-05-08-allpass-based-lowpass-and-highpass-filters %}). If you want, to understand how this structure works and why is it performing filtering, I invite you to read that article first. This article is purely the implementation of the previously presented algorithm.
+The structure, that we are going to implement, is the [allpass-based parametric lowpass/highpass filter from the previous article]({% post_url fx/2022-05-08-allpass-based-lowpass-and-highpass-filters %}). If you want, to understand how this structure works and why it is filtering, I invite you to read that article first. This article is purely a plugin implementation of the previously presented algorithm.
 
 Figure 2 shows the audio processing algorithm that we are implementing in JUCE.
 
@@ -46,13 +46,13 @@ _Figure {% increment figureId20220517 %}. The DSP structure that we are going to
 
 ## JUCE Framework
 
-The [JUCE framework](https://github.com/juce-framework/JUCE) is a C++ framework for building audio plugins and applications. It is very handy in audio plugin creation because it provides wrappers around specific APIs like VST3 or AAX. Therefore, we can write the plugin code once and simply build for various digital audio workstations (e.g., Reaper, Ableton, ProTools, etc.).
+The [JUCE framework](https://github.com/juce-framework/JUCE) is a C++ framework for building audio plugins and applications. It is very handy in audio plugin creation because it provides wrappers around specific APIs like VST3 or AAX. Therefore, we can write the plugin code once and build plugins for various digital audio workstations (e.g., Reaper, Ableton, ProTools, etc.).
 
 We will use it for convenience.
 
 This tutorial does not assume that you worked in JUCE before.
 
-And if you haven't, you will learn plenty of useful stuff that you can readily apply in professional audio programming market 🙂
+And if you haven't, you will learn plenty of useful stuff that you can readily apply in the professional audio programming market 🙂
 
 In the tutorial, I am using JUCE v6.0.5.
 
@@ -62,6 +62,8 @@ So let's start building our plugin!
 
 After you [install JUCE](https://juce.com/get-juce/download), launch the *Projucer* app and select *File -> New Project*.
 
+You should see a window similar to the one in Figure 3.
+
 ![]({{ page.images | absolute_url | append: "/Projucer.webp" }}){: width="100%" alt="Projucer window with new project setup."}
 _Figure {% increment figureId20220517 %}. Projucer window._
 
@@ -69,14 +71,14 @@ Choose *Plugin->Basic* type, write your *Project Name*, select the target IDE (m
 
 You then will have to choose the folder which will contain your project folder (mine is called *JUCEprojects*, since I put there most of my JUCE projects).
 
-At this point, you could already generate your project but you may want to provide some additional metadata. If so, click on the *Project Settings* (1) icon next to the project name.
+At this point, you could already generate your project but you may want to provide some additional metadata. If so, click on the *Project Settings* (marked 1 in Figure 4) icon next to the project name.
 
-![]({{ page.images | absolute_url | append: "/ProjucerProjectSettings.webp" }}){: width="100%" alt="Project setting of the implemented plugin."}
-_Figure {% increment figureId20220517 %}. Setting the parameters of the implemented plugin._
+![]({{ page.images | absolute_url | append: "/ProjucerProjectSettings.webp" }}){: width="100%" alt="Settings of the implemented plugin in Projucer."}
+_Figure {% increment figureId20220517 %}. Setting the parameters of the implemented plugin in Projucer._
 
-For example, I decided to only generate the VST3 plugin format (2) and use the C++ 20 standard.
+For example, I decided to generate only the VST3 plugin format (marked 2 in Figure 4) and use the C++ 20 standard.
 
-After you completed the setup, click on *Save and Open in IDE* (3).
+After you completed the setup, click on *Save and Open in IDE* (marked 3 in Figure 4).
 
 ## JUCE Plugin Project Structure
 
@@ -84,14 +86,14 @@ After you completed the setup, click on *Save and Open in IDE* (3).
 
 Every JUCE plugin has two main components:
 
-* plugin processor, and
-* plugin editor.
+* a plugin processor, and
+* a plugin editor.
 
 The **plugin processor** handles everything related to signal processing within the plugin and does not handle graphical user interface (GUI).
 
-The **plugin editor** is the main GUI class that allows the developer to create sliders, checkboxes, buttons, etc., and connect them with the plugin parameters.
+The **plugin editor** is the main GUI class that allows the developer to create sliders, checkboxes, buttons, etc., and connect them to the plugin parameters.
 
-The plugin processor of our plugin will contain the filtering code. The plugin editor of our plugin will contain the graphical controls and the bindings to the filter's parameters.
+The plugin processor of our plugin will contain the filtering code. The plugin editor of our plugin will contain the graphical controls and the bindings to the plugin's parameters.
 
 ### Audio Processor Value Tree State
 
