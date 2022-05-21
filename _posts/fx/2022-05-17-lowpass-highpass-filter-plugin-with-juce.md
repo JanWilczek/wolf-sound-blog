@@ -54,6 +54,8 @@ This tutorial does not assume that you worked in JUCE before.
 
 And if you haven't, you will learn plenty of useful stuff that you can readily apply in professional audio programming market 🙂
 
+In the tutorial, I am using JUCE v6.0.5.
+
 So let's start building our plugin!
 
 ## Plugin Project Setup in Projucer
@@ -89,27 +91,25 @@ The **plugin processor** handles everything related to signal processing within 
 
 The **plugin editor** is the main GUI class that allows the developer to create sliders, checkboxes, buttons, etc., and connect them with the plugin parameters.
 
-Plugin processor of our plugin will contain the filtering code. Plugin editor of our plugin will contain the graphical controls and the bindings to the filter's parameters.
+The plugin processor of our plugin will contain the filtering code. The plugin editor of our plugin will contain the graphical controls and the bindings to the filter's parameters.
 
 ### Audio Processor Value Tree State
 
-A very important class, that we will use in this tutorial, is the `AudioProcessorValueTreeState`. We can think of it as a container suitable for all our plugin parameter's.
+A very important class, that we will use in this tutorial, is the `AudioProcessorValueTreeState`. We can think of it as a container suitable for all our plugin's parameters.
 
 We can create parameters that will be stored in the value tree state. These parameters can then be bound to specific GUI controls.
 
 We will read those parameters in suitable time and apply them to our filter.
-
-<!-- TODO: JUCE framework version v6.0.5 -->
 
 ## Plugin Architecture
 
 Our plugin will have the following architecture:
 
 * `LowpassHighpassFilter` class will process sound on the channels that are given to it. It doesn't know that it is a part of a plugin.
-* `LowpassHighpassFilterAudioProcessor` will provide all code necessary to build a plugin. It will provide parameters to the filtering class and pass it the audio buffer for processing. It will also hold an `AudioProcessorValueTreeState` class instance with the plugin parameters.
+* `LowpassHighpassFilterAudioProcessor` will provide the code necessary to build a plugin. It will provide parameters to the filtering class and pass it the audio buffer for processing. It will also hold an `AudioProcessorValueTreeState` class instance with the plugin parameters.
 * `LowpassHighpassFilterAudioProcessorEditor` will hold the GUI controls, position them on the screen, and bind them to the parameters stored in the value tree state.
 
-This architecture is summarized on the below diagram.
+This architecture is summarized on the diagram below (Figure 5).
 
 ![]({{ page.images | absolute_url | append: "/LowpassHighpassFilterPluginClassDiagram.svg" }}){: max-width="80%" alt="Class diagram of the implemented plugin."}
 _Figure {% increment figureId20220517 %}. Class diagram of the implemented plugin._
@@ -118,7 +118,7 @@ _Figure {% increment figureId20220517 %}. Class diagram of the implemented plugi
 
 We are now ready to implement the plugin.
 
-One more disclaimer before we start: this is not what I consider clean code. I provide this implementation to show you how to implement the effect. You can (and you should) refactor this code into classes and functions as you see fit. I think that for learning purposes, keeping things together makes it more clear. I also don't use namespaces for simplicity.
+One more disclaimer before we start: the presented code is not what I consider clean code. I provide this implementation to show you how to implement the effect. You can (and you should) refactor this code into classes and functions as you see fit. I think that for learning purposes, keeping things together makes it more clear. I also don't use namespaces for simplicity.
 
 With this out of the way, let's start off with the `LowpassHighpassFilter` class implementation.
 
@@ -157,7 +157,7 @@ As you can see, it consists of 3 setters and a sound-processing member function.
 
 The setters are easy to implement, as shown in Listing 2.
 
-_Listing {% increment listingId20220517 %}.._
+_Listing {% increment listingId20220517 %}. Setters of the filter class._
 ```cpp
 // LowpassHighpassFilter.cpp
 #include "LowpassHighpassFilter.h"
@@ -187,7 +187,7 @@ Listing 3 presents the implementation of the above structure.
 
 In Listing 3, I explain every step we take. We don't use the `MidiBuffer` argument, so we can skip its name.
 
-_Listing {% increment listingId20220517 %}.._
+_Listing {% increment listingId20220517 %}. Lowpass or highpass filtering of a block of samples._
 ```cpp
 // LowpassHighpassFilter.cpp continued
 //...
@@ -203,11 +203,12 @@ void LowpassHighpassFilter::processBlock(juce::AudioBuffer<float>& buffer,
   // if we perform highpass filtering, we need to 
   // invert the output of the allpass (multiply it
   // by -1)
-  auto sign = highpass ? -1.f : 1.f;
+  const auto sign = highpass ? -1.f : 1.f;
 
   // helper variable
   const auto tan = std::tan(PI * cutoffFrequency / samplingRate);
-  // allpass coefficient; calculated for each sample
+  // allpass coefficient is constant while processing 
+  // a block of samples
   const auto a1 = (tan - 1.f) / (tan + 1.f);
 
   // actual processing; each channel separately
@@ -225,7 +226,7 @@ void LowpassHighpassFilter::processBlock(juce::AudioBuffer<float>& buffer,
       dnBuffer[channel] = inputSample - a1 * allpassFilteredSample;
 
       // here the final filtering occurs
-      // we scale by 0.5 to stay in [-1, 1] range
+      // we scale by 0.5 to stay in the [-1, 1] range
       const auto filterOutput =
           0.5f * (inputSample + sign * allpassFilteredSample);
 
