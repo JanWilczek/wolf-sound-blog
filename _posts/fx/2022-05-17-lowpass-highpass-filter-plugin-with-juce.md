@@ -18,19 +18,20 @@ discussion_id: 2022-05-17-lowpass-highpass-filter-plugin-with-juce
 Let's build a lowpass/highpass filter audio plugin from scratch!
 
 {% capture _ %}{% increment listingId20220517  %}{% endcapture %}
+{% capture _ %}{% increment figureId20220517  %}{% endcapture %}
 
 ## Introduction
 
 In this article, I will guide you step-by-step through the process of implementing a lowpass/highpass filter audio plugin with the JUCE framework.
 
-![]({{ page.images | absolute_url | append: "/PluginGUI.webp" }}){: max-width="80%" alt="Graphical user interface of the implemented VST3 plugin."}
+![]({{ page.images | absolute_url | append: "/PluginGUI.webp" }}){: max-width="60%" alt="Graphical user interface of the implemented VST3 plugin."}
 _Figure {% increment figureId20220517 %}. You will build such a plugin at the end of this tutorial._
 
 The structure, that we are going to implement, is the [allpass-based parametric lowpass/highpass filter from the previous article]({% post_url fx/2022-05-08-allpass-based-lowpass-and-highpass-filters %}). If you want, to understand how this structure works and why is it performing filtering, I invite you to read that article first. This article is purely the implementation of the previously presented algorithm.
 
 Figure 2 shows the audio processing algorithm that we are implementing in JUCE.
 
-![]({{ page.images_reference | absolute_url | append: "/allpass-based-lowpass-highpass-filter-structure.svg" }}){: max-width="80%" alt="Allpass-based lowpass/highpass filter."}
+![]({{ page.images | absolute_url | append: "/allpass-based-lowpass-highpass-filter-structure.svg" }}){: max-width="80%" alt="Allpass-based lowpass/highpass filter."}
 _Figure {% increment figureId20220517 %}. The DSP structure that we are going to implement._
 
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6611455743195468"
@@ -59,7 +60,7 @@ So let's start building our plugin!
 
 After you [install JUCE](https://juce.com/get-juce/download), launch the *Projucer* app and select *File -> New Project*.
 
-![]({{ page.images | absolute_url | append: "/Projucer.webp" }}){: max-width="80%" alt="Projucer window with new project setup."}
+![]({{ page.images | absolute_url | append: "/Projucer.webp" }}){: width="100%" alt="Projucer window with new project setup."}
 _Figure {% increment figureId20220517 %}. Projucer window._
 
 Choose *Plugin->Basic* type, write your *Project Name*, select the target IDE (mine is *Visual Studio 2019*), and click *Create Project*.
@@ -68,7 +69,7 @@ You then will have to choose the folder which will contain your project folder (
 
 At this point, you could already generate your project but you may want to provide some additional metadata. If so, click on the *Project Settings* (1) icon next to the project name.
 
-![]({{ page.images | absolute_url | append: "/ProjucerProjectSettings.webp" }}){: max-width="80%" alt="Project setting of the implemented plugin."}
+![]({{ page.images | absolute_url | append: "/ProjucerProjectSettings.webp" }}){: width="100%" alt="Project setting of the implemented plugin."}
 _Figure {% increment figureId20220517 %}. Setting the parameters of the implemented plugin._
 
 For example, I decided to only generate the VST3 plugin format (2) and use the C++ 20 standard.
@@ -179,7 +180,7 @@ The `processBlock()` member function is a little bit more complicated.
 
 This is the DSP structure that we want to implement inside of `processBlock()`:
 
-![]({{ page.images_reference | absolute_url | append: "/allpass-based-lowpass-highpass-filter-structure.svg" }}){: max-width="80%" alt="Allpass-based lowpass/highpass filter."}
+![]({{ page.images | absolute_url | append: "/allpass-based-lowpass-highpass-filter-structure.svg" }}){: max-width="80%" alt="Allpass-based lowpass/highpass filter."}
 _Figure {% increment figureId20220517 %}. The DSP structure that we are going to implement._
 
 Listing 3 presents the implementation of the above structure.
@@ -219,7 +220,8 @@ void LowpassHighpassFilter::processBlock(juce::AudioBuffer<float>& buffer,
       const auto inputSample = channelSamples[i];
 
       // allpass filtering
-      const auto allpassFilteredSample = a1 * inputSample + dnBuffer[channel];
+      const auto allpassFilteredSample = a1 * inputSample + 
+                                            dnBuffer[channel];
       dnBuffer[channel] = inputSample - a1 * allpassFilteredSample;
 
       // here the final filtering occurs
@@ -282,13 +284,22 @@ LowpassHighpassFilterAudioProcessor::LowpassHighpassFilterAudioProcessor()
 #else
     :
 #endif
-      parameters(*this, nullptr, juce::Identifier("LowpassAndHighpassPlugin"),
-                 {std::make_unique<juce::AudioParameterFloat>(
-                      "cutoff_frequency", "Cutoff Frequency",
-                      juce::NormalisableRange{20.f, 20000.f, 0.1f, 0.2f, false},
-                      500.f),
-                  std::make_unique<juce::AudioParameterBool>(
-                      "highpass", "Highpass", false)}) {
+      parameters(*this, 
+                nullptr, 
+                juce::Identifier("LowpassAndHighpassPlugin"),
+                {std::make_unique<juce::AudioParameterFloat>(
+                    "cutoff_frequency", 
+                    "Cutoff Frequency",
+                    juce::NormalisableRange{20.f, 
+                                            20000.f, 
+                                            0.1f, 
+                                            0.2f, 
+                                            false},
+                    500.f),
+                 std::make_unique<juce::AudioParameterBool>(
+                    "highpass", 
+                    "Highpass", 
+                    false)}) {
   cutoffFrequencyParameter =
       parameters.getRawParameterValue("cutoff_frequency");
   highpassParameter = parameters.getRawParameterValue("highpass");
@@ -310,8 +321,8 @@ _Listing {% increment listingId20220517 %}.._
 ```cpp
 // PluginProcessor.cpp continued
 //...
-void LowpassHighpassFilterAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBlock)
-{
+void LowpassHighpassFilterAudioProcessor::prepareToPlay(
+    double sampleRate, int samplesPerBlock) {
   filter.setSamplingRate(static_cast<float>(sampleRate));
 }
 //...
@@ -327,8 +338,8 @@ _Listing {% increment listingId20220517 %}.._
 ```cpp
 // PluginProcessor.cpp continued
 //...
-void LowpassHighpassFilterAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, juce::MidiBuffer& midiMessages)
-{
+void LowpassHighpassFilterAudioProcessor::processBlock(
+    juce::AudioBuffer<float>& buffer, juce::MidiBuffer& midiMessages) {
     // JUCE default code
     juce::ScopedNoDenormals noDenormals;
     auto totalNumInputChannels  = getTotalNumInputChannels();
@@ -357,9 +368,9 @@ _Listing {% increment listingId20220517 %}.._
 ```cpp
 // PluginProcessor.cpp continued
 //...
-juce::AudioProcessorEditor* LowpassHighpassFilterAudioProcessor::createEditor()
-{
-    return new LowpassHighpassFilterAudioProcessorEditor (*this, parameters);
+juce::AudioProcessorEditor* 
+LowpassHighpassFilterAudioProcessor::createEditor() {
+    return new LowpassHighpassFilterAudioProcessorEditor(*this, parameters);
 }
 //...
 ```
@@ -373,7 +384,7 @@ The graphical interface of our plugin will consist of two components:
 * a slider controlling the cutoff frequency and
 * a checkbox determining whether we have a highpass (on) or a lowpass (off).
 
-![]({{ page.images | absolute_url | append: "/PluginGUI.webp" }}){: max-width="80%" alt="Graphical user interface of the implemented VST3 plugin."}
+![]({{ page.images | absolute_url | append: "/PluginGUI.webp" }}){: max-width="60%" alt="Graphical user interface of the implemented VST3 plugin."}
 _Figure {% increment figureId20220517 %}. GUI of the implemented VST3 plugin._
 
 These controls are represented by JUCE `Slider` and `ToggleButton` classes.
@@ -389,11 +400,13 @@ Listing 9 shows the new plugin editor constructor declaration and the added memb
 _Listing {% increment listingId20220517 %}. Plugin editor declaration._
 ```cpp
 // PluginEditor.h
-class LowpassHighpassFilterAudioProcessorEditor  : public juce::AudioProcessorEditor
-{
+class LowpassHighpassFilterAudioProcessorEditor 
+    : public juce::AudioProcessorEditor {
 public:
     // altered constructor to receive the value tree state object
-    LowpassHighpassFilterAudioProcessorEditor (LowpassHighpassFilterAudioProcessor&, juce::AudioProcessorValueTreeState& vts);
+    LowpassHighpassFilterAudioProcessorEditor(
+        LowpassHighpassFilterAudioProcessor&, 
+        juce::AudioProcessorValueTreeState& vts);
     //...
 private:
     LowpassHighpassFilterAudioProcessor& audioProcessor;
@@ -408,7 +421,8 @@ private:
     juce::Label highpassButtonLabel;
 
     // given by JUCE by default
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (LowpassHighpassFilterAudioProcessorEditor)
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(
+        LowpassHighpassFilterAudioProcessorEditor)
 };
 ```
 
@@ -427,27 +441,31 @@ At the end of the constructor we set the size of the plugin GUI.
 _Listing {% increment listingId20220517 %}. Plugin editor constructor definition._
 ```cpp
 // PluginEditor.cpp
-LowpassHighpassFilterAudioProcessorEditor::LowpassHighpassFilterAudioProcessorEditor (LowpassHighpassFilterAudioProcessor& p, juce::AudioProcessorValueTreeState& vts)
-    : AudioProcessorEditor (&p), audioProcessor (p)
-{
-    addAndMakeVisible(cutoffFrequencySlider);
-    cutoffFrequencySlider.setSliderStyle(juce::Slider::SliderStyle::LinearVertical);
-    cutoffFrequencyAttachment.reset(
-        new juce::AudioProcessorValueTreeState::SliderAttachment(
-            vts, "cutoff_frequency", cutoffFrequencySlider));
+LowpassHighpassFilterAudioProcessorEditor::
+    LowpassHighpassFilterAudioProcessorEditor(
+        LowpassHighpassFilterAudioProcessor& p,
+        juce::AudioProcessorValueTreeState& vts)
+    : AudioProcessorEditor(&p), audioProcessor(p) {
+  addAndMakeVisible(cutoffFrequencySlider);
+  cutoffFrequencySlider.setSliderStyle(
+      juce::Slider::SliderStyle::LinearVertical);
+  cutoffFrequencyAttachment.reset(
+      new juce::AudioProcessorValueTreeState::SliderAttachment(
+          vts, "cutoff_frequency", cutoffFrequencySlider));
 
-    addAndMakeVisible(cutoffFrequencyLabel);
-    cutoffFrequencyLabel.setText("Cutoff Frequency", juce::dontSendNotification);
+  addAndMakeVisible(cutoffFrequencyLabel);
+  cutoffFrequencyLabel.setText("Cutoff Frequency", 
+                               juce::dontSendNotification);
 
-    addAndMakeVisible(highpassButton);
-    highpassAttachment.reset(
-        new juce::AudioProcessorValueTreeState::ButtonAttachment(
-            vts, "highpass", highpassButton));
+  addAndMakeVisible(highpassButton);
+  highpassAttachment.reset(
+      new juce::AudioProcessorValueTreeState::
+        ButtonAttachment(vts, "highpass", highpassButton));
 
-    addAndMakeVisible(highpassButtonLabel);
-    highpassButtonLabel.setText("Highpass", juce::dontSendNotification);
+  addAndMakeVisible(highpassButtonLabel);
+  highpassButtonLabel.setText("Highpass", juce::dontSendNotification);
 
-    setSize(200, 400);
+  setSize(200, 400);
 }
 //...
 ```
@@ -467,10 +485,12 @@ _Listing {% increment listingId20220517 %}. `resized()` member function of the p
 void LowpassHighpassFilterAudioProcessorEditor::resized() {
   cutoffFrequencySlider.setBounds({15, 35, 100, 300});
   cutoffFrequencyLabel.setBounds({cutoffFrequencySlider.getX() + 30,
-                                  cutoffFrequencySlider.getY() - 30, 200, 50});
+                                  cutoffFrequencySlider.getY() - 30, 
+                                  200, 50});
   highpassButton.setBounds(
       {cutoffFrequencySlider.getX(),
-       cutoffFrequencySlider.getY() + cutoffFrequencySlider.getHeight() + 15,
+       cutoffFrequencySlider.getY() + 
+        cutoffFrequencySlider.getHeight() + 15,
        30, 50});
   highpassButtonLabel.setBounds(
       {cutoffFrequencySlider.getX() + highpassButton.getWidth() + 15,
@@ -487,7 +507,7 @@ It is done! Now, you may compile, run and test your plugin.
 
 The plugin can be loaded into the AudioPluginHost from JUCE or to a digital audio workstation that handles the format you specified in the beginning. I am using [Reaper](https://www.reaper.fm) for this purpose.
 
-![]({{ page.images | absolute_url | append: "/AudioPluginHostSetup.webp" }}){: max-width="80%" alt="A sample setup of the lowpass/highpass filter plugin in the AudioPluginHost."}
+![]({{ page.images | absolute_url | append: "/AudioPluginHostSetup.webp" }}){: width="100%" alt="A sample setup of the lowpass/highpass filter plugin in the AudioPluginHost."}
 _Figure {% increment figureId20220517 %}. A sample setup of the lowpass/highpass filter plugin in the AudioPluginHost._
 
 If you have any questions or comments, please, leave them in the comment section below 🙂
