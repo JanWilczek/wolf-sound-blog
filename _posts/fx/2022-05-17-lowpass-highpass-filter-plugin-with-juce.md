@@ -238,18 +238,18 @@ void LowpassHighpassFilter::processBlock(juce::AudioBuffer<float>& buffer,
 
 Ok, this was actually the hardest but also the most interesting bit 🙂
 
-Now, only the binding it to the plugin code remains.
+Now, only binding it to the plugin code remains.
 
 ### Plugin Processor
 
-In the `PluginProcessor`, we only add some member variables (Listing 4).
+In the `LowpassHighpassFilterAudioProcessor` class, we just add some member variables (Listing 4).
 
-_Listing {% increment listingId20220517 %}.._
+_Listing {% increment listingId20220517 %}. Plugin processor class declaration._
 ```cpp
 // PluginProcessor.h
 #include "LowpassHighpassFilter.h"
 
-class LowpassHighpassFilterAudioProcessor  : public juce::AudioProcessor
+class LowpassHighpassFilterAudioProcessor : public juce::AudioProcessor
 {
 //...
 private:
@@ -267,7 +267,7 @@ Here's where the `AudioProcessorValueTreeState` comes into play. I set it up acc
 
 This is shown in Listing 5.
 
-_Listing {% increment listingId20220517 %}. Plugin processor constructor._
+_Listing {% increment listingId20220517 %}. Plugin processor's constructor._
 ```cpp
 // PluginProcessor.cpp
 LowpassHighpassFilterAudioProcessor::LowpassHighpassFilterAudioProcessor()
@@ -309,15 +309,15 @@ LowpassHighpassFilterAudioProcessor::LowpassHighpassFilterAudioProcessor()
 
 In essence, we define the parameters that we need and then retrieve the references to them.
 
-"Cutoff frequency" is the cutoff frequency of our filter in Hz. It is in range from 20 to 20,000 Hz with a step of 0.1 Hz. The `skewFactor` argument (`0.2` in Listing 5) tells any control bound to that parameter that the values from the lower half of the range should occupy more slider/knob range than just a half. With this, we try to approximate logarithmic scaling, which is closer to human perception of frequency.
+"Cutoff frequency" is the cutoff frequency of our filter in Hz. It is in a range from 20 to 20,000 Hz with a step of 0.1 Hz. The `skewFactor` argument (`0.2` in Listing 5) tells any control bound to that parameter that the values from the lower half of the range should occupy more slider/knob range than just a half. With this, we try to approximate the logarithmic scaling, which is closer to the human perception of frequency.
 
 If "highpass" is set to true, we perform highpass filtering. If not, lowpass filtering.
 
-We retrieve "highpass" as a floating-point variable, so we need to additionally convert it to a `bool` variable in code.
+We retrieve "highpass" as a floating-point variable, so we need to additionally convert it to a `bool` variable in code as shown later in Listing 7.
 
 In Listing 6, the pre-processing code is placed. We simply set the sampling rate of our filter. We need the sampling rate to calculate the allpass coefficient later on.
 
-_Listing {% increment listingId20220517 %}.._
+_Listing {% increment listingId20220517 %}. `prepareToPlay()` of the plugin processor is called at a global parameter change._
 ```cpp
 // PluginProcessor.cpp continued
 //...
@@ -328,13 +328,13 @@ void LowpassHighpassFilterAudioProcessor::prepareToPlay(
 //...
 ```
 
-In the `processBlock()` member function we clear the unused channels, retrieve the plugin parameters, set them, and perform the filtering (Listing 7).
+In the `processBlock()` member function, we clear the unused channels, retrieve the plugin parameters, set them, and perform the filtering (Listing 7).
 
-Note that we set the parameters before any processing takes place. In other words, we set the parameters at the *audio rate*. If we did that every 60 ms, we would than have a separate *control rate*. 60 ms is small enough to be unnoticed by the human listener but large enough to decrease the processing overhead in the audio processing thread.
+Note that we set the parameters before any processing takes place. In other words, we set the parameters at the *audio rate*. If we did that every 60 ms, we would then have a separate *control rate*. 60 ms is short enough to be unnoticed by a human listener but long enough to decrease the processing overhead in the audio processing thread.
 
-If we set the parameters directly in some GUI-related code, we could run into the problem of *race condition*. The audio thread and the GUI threads must always be properly synchronized. That is, however, a topic for another article...
+If we set the parameters directly in some GUI-related code, we could run into the problem of a *race condition*. The audio thread and the GUI threads must always be properly synchronized. That is, however, a topic for another article...
 
-_Listing {% increment listingId20220517 %}.._
+_Listing {% increment listingId20220517 %}. Plugin processor's `processBlock()`._
 ```cpp
 // PluginProcessor.cpp continued
 //...
@@ -351,7 +351,7 @@ void LowpassHighpassFilterAudioProcessor::processBlock(
 
     // retrieve and set the parameter values
     const auto cutoffFrequency = cutoffFrequencyParameter->load();
-    // in C++, atomic<T> to T conversion is equivalent to a load
+    // in C++, std::atomic<T> to T conversion is equivalent to a load
     const auto highpass = *highpassParameter < 0.5f ? false : true;
     filter.setCutoffFrequency(cutoffFrequency);
     filter.setHighpass(highpass);
@@ -364,7 +364,7 @@ void LowpassHighpassFilterAudioProcessor::processBlock(
 
 Finally, we need to alter the `createEditor()` member function, because we need to pass the value tree state to the plugin editor (see below). Plugin editor factory method is shown in Listing 8.
 
-_Listing {% increment listingId20220517 %}.._
+_Listing {% increment listingId20220517 %}. `createEditor()` of the plugin processor._
 ```cpp
 // PluginProcessor.cpp continued
 //...
