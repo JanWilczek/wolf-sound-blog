@@ -1,0 +1,21 @@
+[data-toggle="collapse"]::after {
+    @extend .btn;
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 900;
+    font-family: "Font Awesome 5 Free";
+    font-size: inherit;
+    color: $blue;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    content: "\f054";
+    transform: rotate(90deg);
+    transition: all linear 0.25s;
+    float: left;
+}
+
+[data-toggle="collapse"].collapsed::after {
+    transform: rotate(0deg);
+}
