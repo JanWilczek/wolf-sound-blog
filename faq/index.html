@@ -4,36 +4,26 @@ title: Frequently Asked Questions
 descriptions: The most popular questions asked by the audience of WolfSound with answers.
 ---
 <article>
-<div class="accordion" id="faqAccordion">
+
+{% for questions_category in site.data.faq.categories %}
+<div class="accordion" id="faqAccordion{{ questions_category.id }}">
+    {% for question in questions_category.questions %}
     <div class="card">
-        <div class="card-header" id="headingOne">
+        <div class="card-header" id="heading{{ questions_category.id }}{{ question.id }}">
             <h2 class="mb-0">
-                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                    Question 1
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse{{ questions_category.id }}{{ question.id }}" aria-expanded="false" aria-controls="collapse{{ questions_category.id }}{{ question.id }}">
+                    {{ question.question }}
                 </button>
             </h2>
         </div>
 
-        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#faqAccordion">
+        <div id="collapse{{ questions_category.id }}{{ question.id }}" class="collapse" aria-labelledby="heading{{ questions_category.id }}{{ question.id }}" data-parent="#faqAccordion{{ questions_category.id }}">
             <div class="card-body">
-                Answer 1
+                {{ question.answer }}
             </div>
         </div>
     </div>
-    <div class="card">
-        <div class="card-header" id="headingTwo">
-            <h2 class="mb-0">
-                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                    Question 2
-                </button>
-            </h2>
-        </div>
-
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#faqAccordion">
-            <div class="card-body">
-                Answer 2
-            </div>
-        </div>
-    </div>
+    {% endfor %}
 </div>
+{% endfor %}
 </article>

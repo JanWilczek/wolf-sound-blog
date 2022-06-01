@@ -1,0 +1,26 @@
+{
+    "categories": [
+        {
+            "id": "general",
+            "name": "Questions about Jan Wilczek and WolfSound",
+            "description": "",
+            "questions": [
+                {
+                    "id": 0,
+                    "question": "Who are you?",
+                    "answer": "My name is Jan Wilczek and I'm an audio programmer and an audio researcher."
+                },
+                {
+                    "id": 1,
+                    "question": "Why are you eligible to teach audio programming?",
+                    "answer": "I have graduated with distinction from Acoustic Engineering at AGH Unviersity of Science and Technology with the title of a Bachelor of Engineering. I then went on to obtain (also with distinction) the Master of Science in Advanced Signal Processing & Communications Engineering at Friedrich-Alexander-Universität in Erlangen-Nürnberg. I have also completed two years of Computer Science B. Eng. at the AGH UST. During my Bachelor studies I have worked for 1.5 years as an audio C++ developer at Techmo sp. z o. o. where I was developing Soundtoolkit, a sound spatialization engine for computer games. I also worked for 6 months in the Audio Processing Using Distributed Acoustic Sensors grant at the AGH UST, where I investigated the application of Nonnegative Tensor Factorization to the speech separation problem. At FAU in Germany, I worked for 6 months as a tutor of the Statistical Signal Processing laboratory. For my Master Thesis, I visited the Acoustic Lab of the Aalto University in Espoo, Finland. I worked there under Alec Wright, Vesa Välimäki, and my supervisor and mentor Emanuël Habets on a thesis entitled \"Virtual Analog Modeling of Audio Effects via Neural Ordinary Differential Equations\". We then extended the results of the thesis and published them on the Digital Audio FX 2022 conference in Vienna, Austria. Meanwhile, since December 2021 I have been working at Loudly GmbH based in Berlin, where I am the audio developer of the Music Maker JAM looping app for Windows, Android, and iOS. Since October 2019, I have been running the WolfSound blog and the YouTube channel deepening my knowledge and understanding of audio programming. If that doesn't convince you, then please, read through my articles on this blog and the videos on YouTube; trust me, you will find something interesting there!"
+                },
+                {
+                    "id": 2,
+                    "question": "Do you offer 1-on-1 coaching?",
+                    "answer": "Yes, but I only accept a limited number of coached students. If you want to be taught the concepts presented on this blog personally, then contact me via email. The easiest way to do it is to subscribe to my newsletter and reply to the welcome message."
+                }
+            ]
+        }
+    ]
+}
