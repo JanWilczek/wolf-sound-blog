@@ -7,6 +7,10 @@ descriptions: The most popular questions asked by the audience of WolfSound with
 
 {% for questions_category in site.data.faq.categories %}
 <div class="accordion" id="faqAccordion{{ questions_category.id }}">
+    <h2 id="section{{ questions_category.id }}">{{ questions_category.name }}</h2>
+    <p>
+        {{ questions_category.description }}
+    </p>
     {% for question in questions_category.questions %}
     <div class="card">
         <div class="card-header collapsed" id="heading{{ questions_category.id }}{{ question.id }}" type="button" data-toggle="collapse" data-target="#collapse{{ questions_category.id }}{{ question.id }}" aria-expanded="false" aria-controls="collapse{{ questions_category.id }}{{ question.id }}>
@@ -25,5 +29,6 @@ descriptions: The most popular questions asked by the audience of WolfSound with
     </div>
     {% endfor %}
 </div>
+<hr>
 {% endfor %}
 </article>

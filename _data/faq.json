@@ -2,8 +2,8 @@
     "categories": [
         {
             "id": "general",
-            "name": "Questions about Jan Wilczek and WolfSound",
-            "description": "",
+            "name": "General Questions",
+            "description": "Questions about Jan Wilczek and WolfSound.",
             "questions": [
                 {
                     "id": 0,
@@ -19,6 +19,80 @@
                     "id": 2,
                     "question": "Do you offer 1-on-1 coaching?",
                     "answer": "Yes, but I only accept a limited number of coached students. If you want to be taught the concepts presented on this blog personally, then contact me via email. The easiest way to do it is to subscribe to my newsletter and reply to the welcome message."
+                },
+                {
+                    "id": 3,
+                    "question": "Are you available for consulting?",
+                    "answer": "Yes, I can do consulting work within the area of my expertise. If you want to send me a consulting offer, please, contact me via email. The easiest way to do it is to subscribe to my newsletter and reply to the welcome message."
+                }
+            ]
+        },
+        {
+            "id": "asc",
+            "name": "ASC at FAU Questions",
+            "description": "Questions about Elite Master's Programme Advanced Signal Processing & Communications Engineering at Friedrich-Alexander-Universität in Erlangen-Nürnberg.",
+            "questions": [
+                {
+                    "id": 0,
+                    "question": "",
+                    "answer": ""
+                },
+                {
+                    "id": 1,
+                    "question": "",
+                    "answer": ""
+                },
+                {
+                    "id": 2,
+                    "question": "",
+                    "answer": ""
+                },
+                {
+                    "id": 3,
+                    "question": "",
+                    "answer": ""
+                },
+                {
+                    "id": 4,
+                    "question": "",
+                    "answer": ""
+                },
+                {
+                    "id": 5,
+                    "question": "",
+                    "answer": ""
+                },
+                {
+                    "id": 6,
+                    "question": "",
+                    "answer": ""
+                },
+                {
+                    "id": 7,
+                    "question": "",
+                    "answer": ""
+                }
+            ]
+        },
+        {
+            "id": "audio_programming",
+            "name": "Audio Programming Questions",
+            "description": "Questions about learning audio programming.",
+            "questions": [
+                {
+                    "id": 0,
+                    "question": "I want to learn audio programming. Where do I start?",
+                    "answer": ""
+                },
+                {
+                    "id": 1,
+                    "question": "How to code audio plugins for digital audio workstations?",
+                    "answer": ""
+                },
+                {
+                    "id": 2,
+                    "question": "Do I need a university degree to build audio plugins?",
+                    "answer": "No, you don't. However, I am not the kind of person, who will tell you that studies are a waste of time. On the contrary, I owe much to my university studies and if I had the choice again, I would probably go exactly the same route. What university environment gives you are the necessary basics to get started, knowledgeable people to ask for help, and fascinating people around you that can inspire you to do great things. The bits and pieces of knowledge from the university have helped me on numerous occasions. If you haven't studied audio programming or anything related, then you must seek your knowledge somewhere else. On WolfSound, I try to fill this gap in the internet resources concerning the common ground between Computer Science, Digital Signal Processing, and Music. All the resources that I personally find useful can be found on the <a href=\"/resources/\" target=\"_blank\">resources page</a>."
                 }
             ]
         }
