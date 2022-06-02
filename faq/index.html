@@ -5,6 +5,14 @@ descriptions: The most popular questions asked by the audience of WolfSound with
 ---
 <article>
 
+<h2>Table of Contents</h2>
+
+<ol>
+{% for questions_category in site.data.faq.categories %}
+    <li><a href="#section{{ questions_category.id }}">{{ questions_category.name }}.</a></li>
+{% endfor %}
+</ol>
+
 {% for questions_category in site.data.faq.categories %}
 <div class="accordion" id="faqAccordion{{ questions_category.id }}">
     <h2 id="section{{ questions_category.id }}">{{ questions_category.name }}</h2>
