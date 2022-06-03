@@ -33,6 +33,16 @@
             "description": "Questions about Elite Master's Programme Advanced Signal Processing & Communications Engineering at Friedrich-Alexander-Universität in Erlangen-Nürnberg.",
             "questions": [
                 {
+                    "id": 9,
+                    "question": "What is ASC?",
+                    "answer": "Check out my video on YouTube, where I explain what ASC is."
+                },
+                {
+                    "id": 7,
+                    "question": "Do I have a chance to get accepted to ASC?",
+                    "answer": "Yes."
+                },
+                {
                     "id": 0,
                     "question": "What kind of questions are you asked in the interview? Are they difficult? How to prepare? Do you have any tips?",
                     "answer": "As for the interview, there are some (unofficial) questions on the web and also some suggested literature on the course website; I highly recommend checking these two out. There's no need to read the books, just skim through them to see if there's any basic knowledge you lack (for example, I had to learn what is a matching filter).<br>Be prepared to be asked about <ol><li>Linear algebra (determinants, eigenvalues)</li><li>Modulation types</li><li>Probability and Stochastic Processes (time average, ensemble average)</li><li>Digital Signal Processing</li><li>Your personal motivation to join ASC</li></ol>You probably will be asked a question on each of these points. You don't have to impress anyone with your knowledge. The key points to show are:<ul><li>You have the necessary basics for the program. That includes Signals & Systems, Stochastic Processes, Communications, and Linear Algebra. Even if You are not fluent in all of these it is relatively easy to revise the key concepts and prepare. That's what I did because I lacked some fundamental knowledge in Random Processes and Communications.</li><li>You are dedicated to actually complete the degree, i.e., You have a strong motivation. For me the reason was to become an expert in the audio industry (YouTube channel and the like), for others it's wanting to obtain a PhD.</li></ul>Some DSP material is present on my channel:<ul><li>https://youtu.be/f53m72uLa2I</li><li>https://youtu.be/npeMd5U-5QI</li></ul>(see also the corresponding articles).<br>You are also encouraged to ask the professor about the program, so be prepared to ask some of your own questions."
@@ -40,27 +50,32 @@
                 {
                     "id": 1,
                     "question": "Could you tell me more about the student job/scholarship mentioned in the ASC website? How much do they pay, what are the responsibilities, etc?",
-                    "answer": ""
+                    "answer": "While studying ASC, you are guaranteed to be able to get a mini-job in a group of one of the professors. This job will either involve research work (e.g., running some computation scripts) or teaching work (e.g., preparing slides, Jupyter notebooks, etc.). You will be able to decide what you want to do. Research work pays higher than teaching work. The salary is fixed by the government and non-negotiable. If you're interested in how much you can earn, you can check out the E13 German salary level; that's how much you will earn in the teaching minijob."
+                },
+                {
+                    "id": 8,
+                    "question": "How to get a student job?",
+                    "answer": "As a student of ASC, you are guaranteed to be able to get a student job. Just approach the professor or the researcher you want to work with."
                 },
                 {
                     "id": 2,
                     "question": "Do I need to know any programming languages before starting ASC?",
-                    "answer": ""
+                    "answer": "It is not necessary to know how to code to complete ASC but it is highly advised to know either Matlab or Python beforehand. The course itself does not include learning any programming languages. Matlab and Python are needed to run computations and models for various courses or labs. Don't worry if you don't know these languages; the tutors typically do some sort of introduction to the given language and they are super understanding if you're having any difficulties."
                 },
                 {
                     "id": 3,
-                    "question": "I did the interview. What now?",
-                    "answer": ""
+                    "question": "I did the interview for the ASC. What now?",
+                    "answer": "The ASC committee will consider your candidacy and send you their final decision via email."
                 },
                 {
                     "id": 4,
                     "question": "I had an interview and got accepted but now I was asked to hand in a formal application. What does it mean?",
-                    "answer": ""
+                    "answer": "Being accepted by the ASC committee means that you are fully accepted to the programme; no more interviews or tests are needed. The formal application is simply providing all the required documents to the university's application office. It's just a formality but a necessary one."
                 },
                 {
                     "id": 5,
                     "question": "I got accepted. Do you have any tips for learning or for the exams?",
-                    "answer": ""
+                    "answer": "Yes, check out my video on exam study on YouTube."
                 },
                 {
                     "id": 6,
@@ -77,7 +92,7 @@
                 {
                     "id": 0,
                     "question": "I want to learn audio programming. Where do I start?",
-                    "answer": ""
+                    "answer": "It's best to start by learning <a href=\"/what-is-audio-programming\" target=\"_blank\">what audio programming is</a>. Then you can browse through my <a href=\"/posts\" target=\"_blank\">articles</a> and <a href=\"https://www.youtube.com/c/WolfSoundAudio\" target=\"_blank\">videos</a> on audio programming. If you want to receive weekly audio programming educational materials directly to your inbox, I encourage you to <a href=\"/newsletter\">subscribe to my email list</a>."
                 },
                 {
                     "id": 1,
