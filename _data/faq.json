@@ -34,43 +34,38 @@
             "questions": [
                 {
                     "id": 0,
-                    "question": "",
-                    "answer": ""
+                    "question": "What kind of questions are you asked in the interview? Are they difficult? How to prepare? Do you have any tips?",
+                    "answer": "As for the interview, there are some (unofficial) questions on the web and also some suggested literature on the course website; I highly recommend checking these two out. There's no need to read the books, just skim through them to see if there's any basic knowledge you lack (for example, I had to learn what is a matching filter).<br>Be prepared to be asked about <ol><li>Linear algebra (determinants, eigenvalues)</li><li>Modulation types</li><li>Probability and Stochastic Processes (time average, ensemble average)</li><li>Digital Signal Processing</li><li>Your personal motivation to join ASC</li></ol>You probably will be asked a question on each of these points. You don't have to impress anyone with your knowledge. The key points to show are:<ul><li>You have the necessary basics for the program. That includes Signals & Systems, Stochastic Processes, Communications, and Linear Algebra. Even if You are not fluent in all of these it is relatively easy to revise the key concepts and prepare. That's what I did because I lacked some fundamental knowledge in Random Processes and Communications.</li><li>You are dedicated to actually complete the degree, i.e., You have a strong motivation. For me the reason was to become an expert in the audio industry (YouTube channel and the like), for others it's wanting to obtain a PhD.</li></ul>Some DSP material is present on my channel:<ul><li>https://youtu.be/f53m72uLa2I</li><li>https://youtu.be/npeMd5U-5QI</li></ul>(see also the corresponding articles).<br>You are also encouraged to ask the professor about the program, so be prepared to ask some of your own questions."
                 },
                 {
                     "id": 1,
-                    "question": "",
+                    "question": "Could you tell me more about the student job/scholarship mentioned in the ASC website? How much do they pay, what are the responsibilities, etc?",
                     "answer": ""
                 },
                 {
                     "id": 2,
-                    "question": "",
+                    "question": "Do I need to know any programming languages before starting ASC?",
                     "answer": ""
                 },
                 {
                     "id": 3,
-                    "question": "",
+                    "question": "I did the interview. What now?",
                     "answer": ""
                 },
                 {
                     "id": 4,
-                    "question": "",
+                    "question": "I had an interview and got accepted but now I was asked to hand in a formal application. What does it mean?",
                     "answer": ""
                 },
                 {
                     "id": 5,
-                    "question": "",
+                    "question": "I got accepted. Do you have any tips for learning or for the exams?",
                     "answer": ""
                 },
                 {
                     "id": 6,
-                    "question": "",
-                    "answer": ""
-                },
-                {
-                    "id": 7,
-                    "question": "",
-                    "answer": ""
+                    "question": "Can you get me a place in ASC?",
+                    "answer": "No."
                 }
             ]
         },
