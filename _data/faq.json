@@ -97,7 +97,7 @@
                 {
                     "id": 1,
                     "question": "How to code audio plugins for digital audio workstations?",
-                    "answer": ""
+                    "answer": "There are many ways to it. One of them, is using the C++ programming language and the JUCE framework. I have created sample tutorials showing how to use JUCE:<ul><li><a href=\"/sound-synthesis/wavetable-synth-plugin-in-juce/\" target=\"_blank\">How to build a wavetable synthesizer plugin</a>,</li><li><a href=\"/lowpass-highpass-filter-plugin-with-juce/\" target=\"_blank\">How to build a lowpass/highpass filter plugin</a>.</li></ul>"
                 },
                 {
                     "id": 2,
