@@ -18,12 +18,12 @@
                 {
                     "id": 2,
                     "question": "Do you offer 1-on-1 coaching?",
-                    "answer": "Yes, but I only accept a limited number of coached students. If you want to be taught the concepts presented on this blog personally, then contact me via email. The easiest way to do it is to subscribe to my newsletter and reply to the welcome message."
+                    "answer": "Yes, but I only accept a limited number of coached students. If you want to be taught the concepts presented on this blog personally, then contact me via email. The easiest way to do it is to <a href=\"/newsletter\">subscribe to my email list</a> and reply to the welcome message."
                 },
                 {
                     "id": 3,
                     "question": "Are you available for consulting?",
-                    "answer": "Yes, I can do consulting work within the area of my expertise. If you want to send me a consulting offer, please, contact me via email. The easiest way to do it is to subscribe to my newsletter and reply to the welcome message."
+                    "answer": "Yes, I can do consulting work within the area of my expertise. If you want to send me a consulting offer, please, contact me via email. The easiest way to do it is to <a href=\"/newsletter\">subscribe to my email list</a> and reply to the welcome message."
                 }
             ]
         },
