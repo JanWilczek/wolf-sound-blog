@@ -1,5 +1,9 @@
 <head>
     {% if jekyll.environment == "production" %}
+    <!-- Google Optimize -->
+    {% if page.url == "/" %}
+    <script src="https://www.googleoptimize.com/optimize.js?id=OPT-TQMXDMB"></script>
+    {% endif %}
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async data-c-script="statistics"
         src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"></script>
