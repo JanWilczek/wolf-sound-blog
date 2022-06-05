@@ -37,7 +37,7 @@ descriptions: The most popular questions asked by the audience of WolfSound with
     </p>
     {% for question in questions_category.questions %}
     <div class="card">
-        <div class="card-header collapsed" id="heading{{ questions_category.id }}{{ question.id }}" type="button" data-toggle="collapse" data-target="#collapse{{ questions_category.id }}{{ question.id }}" aria-expanded="false" aria-controls="collapse{{ questions_category.id }}{{ question.id }}>
+        <div class="card-header collapsed" id="heading{{ questions_category.id }}{{ question.id }}" type="button" data-toggle="collapse" data-target="#collapse{{ questions_category.id }}{{ question.id }}" aria-expanded="false" aria-controls="collapse{{ questions_category.id }}{{ question.id }}">
             <h2 class="mb-0">
                 <button class="btn btn-link">
                     {{ question.question }}
