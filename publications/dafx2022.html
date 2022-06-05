@@ -10,10 +10,6 @@ custom_js:
  - /assets/vendor/trackswitch/js/trackswitch.min.js
  - /assets/js/wolfsound/modules/load_trackswitch.js
 ---
-
-<h2>Audio Examples for "Virtual Analog Modeling Of Distortion Circuits Using Neural
-Ordinary Differential Equations" DAFx20in22 Conference paper</h2>
-
 <p>This page contains audio examples for the "Virtual Analog Modeling Of Distortion Circuits Using Neural
 Ordinary Differential Equations" paper submitted to the 25th International Conference on Digital Audio Effects (DAFx20in22) in Vienna, Austria, September 2022.</p>
 
@@ -21,7 +17,11 @@ Ordinary Differential Equations" paper submitted to the 25th International Confe
 
 <p>Please, check out also the <a href="https://github.com/JanWilczek/va-phaser-with-neural-odes">GitHub repository for this publication.</a></p>
 
-<h3>Authors</h3>
+<p>
+    If you have any questions or remarks, please, word them in the <a href="#comments">comments section at the bottom</a>.
+</p>
+
+<h2>Authors</h2>
 
 <ul>
     <li>Jan Wilczek</li>
@@ -30,7 +30,7 @@ Ordinary Differential Equations" paper submitted to the 25th International Confe
     <li>Emanuël Habets</li>
 </ul>
 
-<h3>Abstract</h3>
+<h2>Abstract</h2>
 
 <p>Recent research in deep learning has shown that neural networks
     can learn differential equations governing dynamical systems. In
@@ -44,7 +44,7 @@ Ordinary Differential Equations" paper submitted to the 25th International Confe
     physically interpretable.
 </p>
 
-<h3>Audio Examples</h3>
+<h2>Audio Examples</h2>
 
 <p>
     All audio examples were normalized to -23 LUFS using the <a href="https://github.com/csteinmetz1/pyloudnorm">pyloudnorm</a> library from Christian Steinmetz.
@@ -58,7 +58,7 @@ Ordinary Differential Equations" paper submitted to the 25th International Confe
     Werner, Nils, et al. "<strong>trackswitch.js: A Versatile Web-Based Audio Player for Presenting Scientifc Results.</strong>" 3rd web audio conference, London, UK. 2017.
 </p>
 
-<h4>Table of Contents</h4>
+<h3>Table of Contents</h3>
 <ol>
     {% for device in site.data.publications.dafx2022.devices %}
         <li><a href="#{{ device.name | slugify }}">{{ device.name }}</a></li>
@@ -72,7 +72,7 @@ Ordinary Differential Equations" paper submitted to the 25th International Confe
 </ol>
 
 {% for device in site.data.publications.dafx2022.devices %}
-    <h4 id="{{ device.name | slugify }}">{{ device.name }}</h4>
+    <h3 id="{{ device.name | slugify }}">{{ device.name }}</h3>
 
     {% for example in device.examples %}
         <h5 id="{{ device.name | slugify }}-{{ example.name | slugify }}">{{ example.name }}</h5>
