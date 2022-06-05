@@ -49,8 +49,8 @@
                 },
                 {
                     "id": 1,
-                    "question": "Could you tell me more about the student job/scholarship mentioned in the ASC website? How much do they pay, what are the responsibilities, etc?",
-                    "answer": "While studying ASC, you are guaranteed to be able to get a mini-job in a group of one of the professors. This job will either involve research work (e.g., running some computation scripts) or teaching work (e.g., preparing slides, Jupyter notebooks, etc.). You will be able to decide what you want to do. Research work pays higher than teaching work. The salary is fixed by the government and non-negotiable. If you're interested in how much you can earn, you can check out the E13 German salary level; that's how much you will earn in the teaching minijob."
+                    "question": "Could you tell me more about the student jobs mentioned on the ASC website? How much do they pay, what are the responsibilities, etc.?",
+                    "answer": "While studying ASC, you are guaranteed to be able to get a mini-job in the group of one of the professors. This job will either involve research work (e.g., running some computational scripts) or teaching work (e.g., preparing slides, Jupyter notebooks, etc.). You will be able to decide what you want to do. Research work pays higher than teaching work. The salary is fixed by the government and non-negotiable. If you're interested in how much you can earn, you can check out the E13 German salary level; that's how much you will earn in the teaching assistant mini-job. Be aware of the fact that you cannot work more than 20 hours per week as a student in Germany."
                 },
                 {
                     "id": 8,
@@ -60,7 +60,7 @@
                 {
                     "id": 2,
                     "question": "Do I need to know any programming languages before starting ASC?",
-                    "answer": "It is not necessary to know how to code to complete ASC but it is highly advised to know either Matlab or Python beforehand. The course itself does not include learning any programming languages. Matlab and Python are needed to run computations and models for various courses or labs. Don't worry if you don't know these languages; the tutors typically do some sort of introduction to the given language and they are super understanding if you're having any difficulties."
+                    "answer": "It is not necessary to know how to code to complete ASC but it is highly advised to know either Matlab or Python beforehand. The program's curriculum does not include any programming language courses. Matlab and Python are needed to run computations and model simulations for various courses and labs. Don't worry if you don't know these languages; the tutors typically do some sort of an introduction to the given language prior to the course start and they are super understanding if you're having any difficulties."
                 },
                 {
                     "id": 3,
@@ -70,12 +70,12 @@
                 {
                     "id": 4,
                     "question": "I had an interview and got accepted but now I was asked to hand in a formal application. What does it mean?",
-                    "answer": "Being accepted by the ASC committee means that you are fully accepted to the programme; no more interviews or tests are needed. The formal application is simply providing all the required documents to the university's application office. It's just a formality but a necessary one."
+                    "answer": "Being accepted by the ASC committee means that you are fully accepted to the programme; no more interviews or tests are needed. The formal application is simply providing all the required documents to the university's application office. It's just a necessary formality. Rest assured, no one can reject your application at this point."
                 },
                 {
                     "id": 5,
                     "question": "I got accepted. Do you have any tips for learning or for the exams?",
-                    "answer": "Yes, check out my video on exam study on YouTube."
+                    "answer": "Yes. Check out my following YouTube videos: <ul><li><a href=\"https://youtu.be/onzHTz3KIHU\" target=\"_blank\">What stops you from scoring the top grade at an exam?</a></li><li><a href=\"https://youtu.be/wgCcMjUpD78\" target=\"_blank\">How I learned Deep Learning in 2 months for free.</a></li></ul>"
                 },
                 {
                     "id": 6,
