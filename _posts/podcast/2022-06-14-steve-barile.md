@@ -46,7 +46,7 @@ Jesse, Cantrell, Paul, Nick, Ben, Chuck, Blake, Shashi, Kelly & SOs: Joyce and L
 Below are all the resources that are referenced in the podcast episode.
 
 * People:
-  * Steve Barile (steve@conductivelabs.com)
+  * Steve Barile ([steve@conductivelabs.com](mailto:steve@conductivelabs.com))
   * [Darryl McGee](https://www.linkedin.com/in/darrylmcgee/)
   * Caractacus Potts from movie Chitty-Chitty-Bang-Bang
 
