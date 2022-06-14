@@ -52,6 +52,7 @@ In this podcast episode, you will learn
 * how transition from the Master's to the PhD mindset,
 * challenges of remote research collaboration during pandemic,
 * transition from Scotland to Finland.
+
 ## Referenced Resources
 
 Below are all the resources that are referenced in the podcast episode.
