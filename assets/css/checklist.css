@@ -1,12 +1,6 @@
-/* .landing-page::before {
-    background: url("/assets/img/pages/SynthesizerCode.png") no-repeat top center/cover;
-    content: "";
-    /* opacity: 0.6; */
-} */
-
 .landing-page {
     position: relative; 
-    height: 100vh;
+    height: 100%;
     width: 100%;
     display: flex;
     align-items: center;
@@ -26,4 +20,13 @@
       bottom: 0px;
       left: 0px;
       opacity: 0.6;
+}
+
+.langing-page-header {
+    position: relative;
+    text-align: center;
+}
+
+.miniature {
+    max-width: 60%;
 }
