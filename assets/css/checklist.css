@@ -1,0 +1,29 @@
+/* .landing-page::before {
+    background: url("/assets/img/pages/SynthesizerCode.png") no-repeat top center/cover;
+    content: "";
+    /* opacity: 0.6; */
+} */
+
+.landing-page {
+    position: relative; 
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.landing-page::before {    
+      content: "";
+      background-image: url("/assets/img/pages/SynthesizerCode.png");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      bottom: 0px;
+      left: 0px;
+      opacity: 0.6;
+}
