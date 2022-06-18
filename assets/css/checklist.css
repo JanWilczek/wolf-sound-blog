@@ -9,7 +9,7 @@
 
 .landing-page::before {    
       content: "";
-      background-image: url("/assets/img/pages/SynthesizerCode.png");
+      background-image: url("/assets/img/pages/SynthesizerCode.webp");
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -30,13 +30,24 @@
 .langing-page-header {
     position: relative;
     text-align: center;
+    font-size: 2rem;
 }
 
 .langing-page-subheader {
     position: relative;
     text-align: center;
+    font-size: 1.2rem;
 }
 
 .miniature {
     height: 100%;
+    margin: 0.4rem;
+}
+
+.landing-page-text-column {
+    background-color: white;
+    border: 0.1rem;
+    border-style: solid;
+    border-color: #ef7600;
+    padding: 10px;
 }
