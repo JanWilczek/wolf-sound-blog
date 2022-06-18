@@ -245,4 +245,16 @@
           border: 1px solid rgba(0,0,0,.05);
       }
   }
+
+  .checklist-banner {
+    margin-top: 0.2rem;
+    margin-bottom: 0.2rem;
+    background-color: white;
+    border: 0.1rem;
+    border-style: solid;
+    border-color: $primary;
+    border-radius: 5px;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+  }
   
