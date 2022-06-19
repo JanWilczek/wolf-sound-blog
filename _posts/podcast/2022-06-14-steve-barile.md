@@ -25,10 +25,10 @@ From a 9-5 employee to a maker and a founder.
 
 * [YouTube](https://youtu.be/1K_pFP6kmlY)
 * [Spotify](https://open.spotify.com/episode/2ntZkWvF7Ypu9wfkuS7csX?si=8633581418b542c7)
-<!-- * [Apple Podcasts (iTunes)]() -->
-<!-- * [Stitcher]() -->
-<!-- * [TuneIn Radio]() -->
-<!-- * [Google Podcasts]() -->
+* [Apple Podcasts (iTunes)](https://podcasts.apple.com/us/podcast/how-to-build-your-own-audio-hardware-company-with/id1595913701?i=1000566480560)
+* [Stitcher](https://www.stitcher.com/show/wolftalk-podcast-about-audio-programming-people-careers-learning/episode/how-to-build-your-own-audio-hardware-company-with-steve-barile-wolftalk-005-204085835)
+* [TuneIn Radio](http://tun.in/pkRvm)
+* [Google Podcasts](https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkcy5yZWRjaXJjbGUuY29tL2JmNDBhMWQyLTdlNDEtNGRkYi04YzNhLWVkODIzOTQ3MjNiYQ/episode/YzlmNWEyOWItYTZkMS00MzMxLWFmODItNDZmYzc4NzE2ZDEx?sa=X&ved=0CAUQkfYCahcKEwjIoOuK47n4AhUAAAAAHQAAAAAQAQ)
 
 [All podcast episodes.]({{"/podcast" | relative_url }})
 
