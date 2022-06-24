@@ -2,6 +2,7 @@ import numpy as np
 from pathlib import Path
 import matplotlib.pyplot as plt
 import subprocess
+import soundfile as sf
 
 
 def fade_in_out(signal, fade_length=100):
@@ -27,8 +28,7 @@ def fade_in_out(signal, fade_length=100):
 
     return signal
 
-
-def main():
+def plot_signal_and_spectrum(waveform, waveform_name: str):
     plt.rcParams.update({'font.size': 18})
     stem_params = {'linefmt': 'C0-', 'markerfmt': 'C0o', 'basefmt': 'k'}
     
@@ -39,7 +39,7 @@ def main():
 
     t = np.arange(0, int(fs * time_seconds)) / fs
 
-    signal = np.sin(2 * np.pi * f * t)
+    signal = waveform(2 * np.pi * f * t)
 
     plot_samples_count = 40
     
@@ -56,7 +56,7 @@ def main():
     ax.spines['right'].set_visible(False)
     ax.spines['bottom'].set_visible(False)
     # ax.spines['left'].set_visible(False)
-    output_path = images_path / 'sine_signal.png'
+    output_path = images_path / f'{waveform_name}_signal.png'
     plt.savefig(output_path, dpi=300, bbox_inches='tight', transparent=True)
     
     subprocess.run(['cwebp', '-q', '65', '-resize', '800', '0', output_path, '-o', output_path.with_suffix('.webp')])
@@ -83,10 +83,34 @@ def main():
     ax.spines['right'].set_visible(False)
     ax.spines['bottom'].set_visible(False)
     # ax.spines['left'].set_visible(False)
-    output_path = images_path / 'sine_harmonics.png'
+    output_path = images_path / f'{waveform_name}_harmonics.png'
     plt.savefig(output_path, dpi=300, bbox_inches='tight', transparent=True)
     
     subprocess.run(['cwebp', '-q', '65', '-resize', '800', '0', output_path, '-o', output_path.with_suffix('.webp')])
+
+
+def generate_waveform(waveform, waveform_name):
+    fs = 44100
+    f = 220
+    duration_seconds = 2
+    samples_count = int(duration_seconds * fs)
+    samples = np.arange(0, samples_count)
+    signal = waveform(2 * np.pi * f * samples / fs)
+    signal = fade_in_out(signal)
+    wavs_path = Path('assets/wav/posts/synthesis/2022-06-26-sine-saw-square-triangle-basic-waveforms-in-synthesis')
+    output_path = wavs_path / f'{waveform_name}_example.flac'
+    sf.write(output_path, signal, fs)
+
+
+def square(phase):
+    return np.sign(np.sin(phase))
+
+def main():
+    waveforms = [np.sin, square]
+    waveform_names = ['sine', 'square']
+    for waveform, waveform_name in zip(waveforms, waveform_names):
+        plot_signal_and_spectrum(waveform, waveform_name)
+        generate_waveform(waveform, waveform_name)
 
 
 if __name__ == '__main__':
