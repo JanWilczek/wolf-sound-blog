@@ -125,9 +125,16 @@ def triangle(phase, harmonics_count=13):
     return waveform
 
 
+def pulse(phase, duty_cycle=0.2, harmonics_count=14):
+    waveform = (2 * duty_cycle - 1) * np.ones_like(phase)
+    for k in range(1, harmonics_count + 1):
+        waveform += 4 / (k * np.pi) * np.sin(np.pi * k * duty_cycle) * np.cos(k * phase - np.pi * k * duty_cycle)
+    return waveform
+
+
 def main():
-    waveforms = [np.sin, square, sawtooth_ramp_up, triangle]
-    waveform_names = ['sine', 'square', 'sawtooth', 'triangle']
+    waveforms = [np.sin, square, sawtooth_ramp_up, triangle, pulse]
+    waveform_names = ['sine', 'square', 'sawtooth', 'triangle', 'pulse']
     for waveform, waveform_name in zip(waveforms, waveform_names):
         plot_signal_and_spectrum(waveform, waveform_name)
         generate_waveform(waveform, waveform_name)
