@@ -33,7 +33,8 @@ def plot_signal_and_spectrum(waveform, waveform_name: str):
     stem_params = {'linefmt': 'C0-', 'markerfmt': 'C0o', 'basefmt': 'k'}
     
     fs = 2000
-    f = 120
+    # f = 0.06 * fs
+    f = 0.03 * fs
     time_seconds = 2
     images_path = Path('/home/jawi/Projects/WolfSound/Page/assets/img/posts/synthesis/2022-06-26-sine-saw-square-triangle-basic-waveforms-in-synthesis/')
 
@@ -41,7 +42,7 @@ def plot_signal_and_spectrum(waveform, waveform_name: str):
 
     signal = waveform(2 * np.pi * f * t)
 
-    plot_samples_count = 40
+    plot_samples_count = 80
     
     plt.figure(figsize=(12,6))
     markerline, stemlines, baseline = plt.stem(signal[:plot_samples_count], **stem_params)
@@ -102,12 +103,31 @@ def generate_waveform(waveform, waveform_name):
     sf.write(output_path, signal, fs)
 
 
-def square(phase):
-    return np.sign(np.sin(phase))
+def square(phase, harmonics_count=13):
+    # return np.sign(np.sin(phase))
+    waveform = np.zeros_like(phase)
+    for k in range(1, harmonics_count + 1):
+        waveform += 4 / np.pi * (2 * k - 1) ** -1 * np.sin((2 * k - 1) * phase)
+    return waveform
+
+
+def sawtooth_ramp_up(phase, harmonics_count=26):
+    waveform = np.zeros_like(phase)
+    for k in range(1, harmonics_count + 1):
+        waveform += 2 / np.pi * (-1) ** k * k ** -1 * np.sin(k * phase)
+    return waveform
+
+
+def triangle(phase, harmonics_count=13):
+    waveform = np.zeros_like(phase)
+    for k in range(1, harmonics_count + 1):
+        waveform += 8 / (np.pi ** 2) * (-1) ** k * (2 * k - 1) ** -2 * np.sin((2 * k - 1) * phase)
+    return waveform
+
 
 def main():
-    waveforms = [np.sin, square]
-    waveform_names = ['sine', 'square']
+    waveforms = [np.sin, square, sawtooth_ramp_up, triangle]
+    waveform_names = ['sine', 'square', 'sawtooth', 'triangle']
     for waveform, waveform_name in zip(waveforms, waveform_names):
         plot_signal_and_spectrum(waveform, waveform_name)
         generate_waveform(waveform, waveform_name)
