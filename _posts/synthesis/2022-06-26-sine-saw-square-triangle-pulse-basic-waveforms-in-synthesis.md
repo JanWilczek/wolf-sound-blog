@@ -79,6 +79,8 @@ The triangle formula is as follows [Wikipedia]:
 
 $$s(t) = 4 | ft - \lfloor ft + \frac{1}{2} \rfloor | - 1, \quad ({% increment equationId20220626  %})$$
 
+where $f$ is the triangle's frequency in Hz and $t$ is time in seconds.
+
 A triangle wave at 220 Hz sounds like this:
 
 {% include embed-audio.html src="/assets/wav/posts/synthesis/2022-06-26-sine-saw-square-triangle-basic-waveforms-in-synthesis/triangle_example.flac" %}
@@ -103,11 +105,31 @@ The amplitudes of the harmonics decay as $\frac{1}{n^2}$, where $n$ is the harmo
 
 ## Square
 
-* Sound example
-* Formula
-* Time-domain signal
-* Amplitude spectrum
-* Which harmonics are present and how their amplitude decays
+The square wave is more interesting than the sine or the triangle because of its characteristic, "empty" timbre.
+
+The square wave at 220 Hz sounds like this:
+
+{% include embed-audio.html src="/assets/wav/posts/synthesis/2022-06-26-sine-saw-square-triangle-basic-waveforms-in-synthesis/square_example.flac" %}
+
+For me, the simplest formula for the square waveform is just taking the sign of the sine:
+
+$$s(t) = \text{sgn} (\sin (2 \pi f t)), \quad ({% increment equationId20220626  %})$$
+
+where $f$ is the square's frequency in Hz and $t$ is time in seconds.
+
+Of course, alternative formulas are possible, like ones using the modulo operation.
+
+The square waveform in the time-domain has a rectangular shape (Figure 5).
+
+![]({{ page.images | absolute_url | append: "/square_signal.webp" }}){: alt="The square waveform" }
+_Figure {% increment figureId20220626  %}. Square waveform: time-domain representation of the square wave._
+
+The amplitude spectrum of the square wave consists of only odd harmonics, exactly as was the case for the triangle (Figure 6).
+
+![]({{ page.images | absolute_url | append: "/square_harmonics.webp" }}){: alt="Amplitude spectrum of a square" }
+_Figure {% increment figureId20220626  %}. Amplitude spectrum of a square._
+
+The amplitudes of square's harmonics decay slower than in the case of the triangle: they decay as $\frac{1}{n}$, where $n$ is the harmonic's index ($n=1$ corresponds to the fundamental).
 
 ## Sawtooth (Saw)
 
@@ -125,6 +147,7 @@ The amplitudes of the harmonics decay as $\frac{1}{n^2}$, where $n$ is the harmo
 * Amplitude spectrum
 * Which harmonics are present and how their amplitude decays
  - Mention the danger of DC component
+
 ## Summary
 
 * Link to the checklist
