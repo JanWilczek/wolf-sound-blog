@@ -18,7 +18,17 @@ discussion_id: 2022-06-14-steve-barile
 ---
 From a 9-5 employee to a maker and a founder.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/1K_pFP6kmlY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<script async defer onload="redcircleIframe();" src="https://api.podcache.net/embedded-player/sh/bf40a1d2-7e41-4ddb-8c3a-ed82394723ba/ep/675643ca-dcf5-49cf-98f8-0c5501d6475a"></script><div class="redcirclePlayer-675643ca-dcf5-49cf-98f8-0c5501d6475a"></div><style>.redcircle-link:link {color: #ea404d;text-decoration: none;}.redcircle-link:hover {color: #ea404d;}.redcircle-link:active {color: #ea404d;}.redcircle-link:visited {color: #ea404d;}</style>
+<p style="margin-top:3px;margin-left:11px;font-family: sans-serif;font-size: 10px; color: gray;">Powered by <a class="redcircle-link" href="https://redcircle.com?utm_source=rc_embedded_player&utm_medium=web&utm_campaign=embedded_v1">RedCircle</a></p>
+
+## Listen on
+
+* [YouTube](https://youtu.be/1K_pFP6kmlY)
+* [Spotify](https://open.spotify.com/episode/2ntZkWvF7Ypu9wfkuS7csX?si=8633581418b542c7)
+* [Apple Podcasts (iTunes)](https://podcasts.apple.com/us/podcast/how-to-build-your-own-audio-hardware-company-with/id1595913701?i=1000566480560)
+* [Stitcher](https://www.stitcher.com/show/wolftalk-podcast-about-audio-programming-people-careers-learning/episode/how-to-build-your-own-audio-hardware-company-with-steve-barile-wolftalk-005-204085835)
+* [TuneIn Radio](http://tun.in/pkRvm)
+* [Google Podcasts](https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkcy5yZWRjaXJjbGUuY29tL2JmNDBhMWQyLTdlNDEtNGRkYi04YzNhLWVkODIzOTQ3MjNiYQ/episode/YzlmNWEyOWItYTZkMS00MzMxLWFmODItNDZmYzc4NzE2ZDEx?sa=X&ved=0CAUQkfYCahcKEwjIoOuK47n4AhUAAAAAHQAAAAAQAQ)
 
 [All podcast episodes.]({{"/podcast" | relative_url }})
 

@@ -1,0 +1,80 @@
+---
+permalink: /checklist/
+title: Free Checklist for Audio Plugin Development
+description: Get "The Ultimate Audio Plugin Developer Checklist" for free and start coding audio plugins for digital audio workstations now.
+custom_css:
+- /assets/css/checklist.css
+---
+<!DOCTYPE html>
+
+<html lang="en">
+
+{% include head.html %}
+
+<body>
+
+    <section class="landing-page">
+        <div class="landing-page-content container">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-12 col-md-8 landing-page-text-column">
+                    <h1 class="langing-page-header">The Ultimate Audio Plugin Developer Checklist</h1>
+                    <h2 class="langing-page-subheader">Get the Free Checklist and Discover All Necessary Concepts to
+                        Code Audio Plugins</h2>
+                    <br>
+                    <div class="row justify-content-center">
+                        <div class="col-12 col-md-6">
+
+                            <!-- Begin Mailchimp Signup Form -->
+
+                            <div id="mc_embed_signup" class="newsletter-form">
+                                <form
+                                    action="https://thewolfsound.us20.list-manage.com/subscribe/post?u=5da91b45702ac45410802e155&amp;id=b6e8fb4e61&SIGNUP=AudioDeveloperChecklistLandingPage"
+                                    method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form"
+                                    class="validate" target="_blank" novalidate>
+                                    <div id="mc_embed_signup_scroll">
+                                        <div class="mc-field-group">
+                                            <input type="email" value="" placeholder="Your Email Address" name="EMAIL"
+                                                class="required email" id="mce-EMAIL">
+                                        </div> <br>
+                                        <div id="mce-responses" class="clear">
+                                            <div class="response" id="mce-error-response" style="display:none"></div>
+                                            <div class="response" id="mce-success-response" style="display:none"></div>
+                                        </div>
+                                        <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                                        <div style="position: absolute; left: -5000px;" aria-hidden="true"><input
+                                                type="text" name="b_5da91b45702ac45410802e155_b6e8fb4e61" tabindex="-1"
+                                                value=""></div>
+                                        <div class="clear"><input type="submit" value="Get the Free Checklist"
+                                                name="subscribe" id="mc-embedded-subscribe" class="btn btn-primary">
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <script type='text/javascript' data-c-script='necessary'
+                                src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script>
+                            <script type='text/javascript'
+                                data-c-script='necessary'>(function ($) { window.fnames = new Array(); window.ftypes = new Array(); fnames[1] = 'FNAME'; ftypes[1] = 'text'; fnames[0] = 'EMAIL'; ftypes[0] = 'email'; }(jQuery)); var $mcj = jQuery.noConflict(true);</script>
+                            <!--End mc_embed_signup-->
+
+                        </div>
+                    </div>
+                    <p class="font-italic text-center">
+                        By subscribing, you agree to receive weekly emails with helpful free content. You can unsubscribe at any
+                        time.
+                    </p>
+                </div>
+                <div class="col-12 col-md-4">
+                    <img class="miniature" src="/assets/img/pages/ChecklistMiniature.webp" alt="Preview of the ultimate audio plugin developer checklist"/>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {% include scripts.html %}
+
+    {% if jekyll.environment == "production" %}
+    {% include cookify.html %}
+    {% endif %}
+</body>
+
+</html>

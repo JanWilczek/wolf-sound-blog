@@ -4,7 +4,7 @@
     {% if page.url == "/" %}
     <script src="https://www.googleoptimize.com/optimize.js?id=OPT-TQMXDMB"></script>
     {% endif %}
-    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <!-- Global site tag (gtag.js) - Google Analytics UA -->
     <script async data-c-script="statistics"
         src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"></script>
     <script data-c-script="statistics">
@@ -13,6 +13,15 @@
         gtag('js', new Date());
 
         gtag('config', '{{ site.google_analytics }}');
+    </script>
+    <!-- Global site tag (gtag.js) - Google Analytics GA4 -->
+    <script async data-c-script="statistics" src="https://www.googletagmanager.com/gtag/js?id=G-S5BSDKRNCW"></script>
+    <script data-c-script="statistics">
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-S5BSDKRNCW');
     </script>
     {% endif %}
 
@@ -59,14 +68,10 @@
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"
         integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
         onload="renderMathInElement(document.body);"></script>
-    
-    <script type="text/javascript">
-        (function(i,n,t,e,r,a,c) { i['InteractPromotionObject']=r; i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date(); a=n.createElement(t),
-        c=n.getElementsByTagName(t)[0]; a.async=1; a.src=e; c.parentNode.insertBefore(a,c)
-        })(window, document, 'script', 'https://i.tryinteract.com/promotions/init.js', 'i_promo');
-        i_promo('init', 'b0RXWaPvG');
-    </script>
 
+    <!-- Mailchimp popup -->
+    <script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/5da91b45702ac45410802e155/fdaf0cfc974f6a2b434f92396.js");</script>
+    
     <!-- Additional CSS files -->
     {% if layout.custom_css %}
         {% for stylesheet in layout.custom_css %}
