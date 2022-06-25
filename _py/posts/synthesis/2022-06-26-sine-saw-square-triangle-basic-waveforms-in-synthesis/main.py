@@ -3,6 +3,13 @@ from pathlib import Path
 import matplotlib.pyplot as plt
 import subprocess
 import soundfile as sf
+from functools import partial
+
+
+images_path = Path('/home/jawi/Projects/WolfSound/Page/assets/img/posts/synthesis/2022-06-26-sine-saw-square-triangle-basic-waveforms-in-synthesis/')
+plt.rcParams.update({'font.size': 18})
+stem_params = {'linefmt': 'C0-', 'markerfmt': 'C0o', 'basefmt': 'k'}
+color = '#Ef7600'
 
 
 def fade_in_out(signal, fade_length=100):
@@ -28,30 +35,21 @@ def fade_in_out(signal, fade_length=100):
 
     return signal
 
-def plot_signal_and_spectrum(waveform, waveform_name: str):
-    plt.rcParams.update({'font.size': 18})
-    stem_params = {'linefmt': 'C0-', 'markerfmt': 'C0o', 'basefmt': 'k'}
-    
-    fs = 2000
+def plot_signal(waveform, waveform_name: str):
+    fs = 44100
     # f = 0.06 * fs
-    f = 0.03 * fs
-    time_seconds = 2
-    images_path = Path('/home/jawi/Projects/WolfSound/Page/assets/img/posts/synthesis/2022-06-26-sine-saw-square-triangle-basic-waveforms-in-synthesis/')
+    f = 0.01 * fs
+    samples_count = 400
 
-    t = np.arange(0, int(fs * time_seconds)) / fs
+    t = np.arange(0, samples_count) / fs
 
     signal = waveform(2 * np.pi * f * t)
-
-    plot_samples_count = 80
     
     plt.figure(figsize=(12,6))
-    markerline, stemlines, baseline = plt.stem(signal[:plot_samples_count], **stem_params)
-    color = '#Ef7600'
-    plt.setp(markerline, 'color', color)
-    plt.setp(stemlines, 'color', color)
+    plt.plot(signal, color)
     plt.yticks([-1, 0, 1])
     plt.xticks([])
-    plt.xlim([0, plot_samples_count])
+    plt.xlim([0, samples_count])
     ax = plt.gca()
     ax.spines['top'].set_visible(False)
     ax.spines['right'].set_visible(False)
@@ -62,6 +60,16 @@ def plot_signal_and_spectrum(waveform, waveform_name: str):
     
     subprocess.run(['cwebp', '-q', '65', '-resize', '800', '0', output_path, '-o', output_path.with_suffix('.webp')])
 
+
+def plot_spectrum(waveform, waveform_name: str):
+    fs = 2000
+    # f = 0.06 * fs
+    f = 0.03 * fs
+    time_seconds = 2
+
+    t = np.arange(0, int(fs * time_seconds)) / fs
+
+    signal = waveform(2 * np.pi * f * t)
     signal = fade_in_out(signal)
 
     spectrum = np.abs(np.fft.rfft(signal))
@@ -103,12 +111,19 @@ def generate_waveform(waveform, waveform_name):
     sf.write(output_path, signal, fs)
 
 
+def ideal_square(phase):
+    return np.sign(np.sin(phase))
+
+
 def square(phase, harmonics_count=13):
-    # return np.sign(np.sin(phase))
     waveform = np.zeros_like(phase)
     for k in range(1, harmonics_count + 1):
         waveform += 4 / np.pi * (2 * k - 1) ** -1 * np.sin((2 * k - 1) * phase)
     return waveform
+
+
+def ideal_sawtooth_ramp_up(phase):
+    return ((phase % (2 * np.pi)) / np.pi) - 1
 
 
 def sawtooth_ramp_up(phase, harmonics_count=26):
@@ -116,6 +131,11 @@ def sawtooth_ramp_up(phase, harmonics_count=26):
     for k in range(1, harmonics_count + 1):
         waveform += 2 / np.pi * (-1) ** k * k ** -1 * np.sin(k * phase)
     return waveform
+
+
+def ideal_triangle(phase):
+    # return (2 * (phase % np.pi) / np.pi - 1) * np.sign(np.sin(phase))
+    return 2 * np.abs(2 * (phase/(2 * np.pi) - np.floor(phase / (2 * np.pi) + 0.5))) - 1
 
 
 def triangle(phase, harmonics_count=13):
@@ -134,10 +154,14 @@ def pulse(phase, duty_cycle=0.2, harmonics_count=14):
 
 def main():
     waveforms = [np.sin, square, sawtooth_ramp_up, triangle, pulse]
+    ideal_waveforms = [np.sin, ideal_square, ideal_sawtooth_ramp_up, ideal_triangle, partial(pulse, duty_cycle=0.2, harmonics_count=1000)]
     waveform_names = ['sine', 'square', 'sawtooth', 'triangle', 'pulse']
-    for waveform, waveform_name in zip(waveforms, waveform_names):
-        plot_signal_and_spectrum(waveform, waveform_name)
-        generate_waveform(waveform, waveform_name)
+
+    for waveform, waveform_name in zip(ideal_waveforms, waveform_names):
+        plot_signal(waveform, waveform_name)
+    # for waveform, waveform_name in zip(waveforms, waveform_names):
+        # plot_spectrum(waveform, waveform_name)
+        # generate_waveform(waveform, waveform_name)
 
 
 if __name__ == '__main__':
