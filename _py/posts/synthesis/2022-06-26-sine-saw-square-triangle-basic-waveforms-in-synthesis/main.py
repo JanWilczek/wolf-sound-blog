@@ -4,12 +4,13 @@ import matplotlib.pyplot as plt
 import subprocess
 import soundfile as sf
 from functools import partial
-from matplotlib import animation
+from matplotlib import animation, rc
 
 
 images_path = Path('/home/jawi/Projects/WolfSound/Page/assets/img/posts/synthesis/2022-06-26-sine-saw-square-triangle-basic-waveforms-in-synthesis/')
-plt.rcParams.update({'font.size': 18})
 stem_params = {'linefmt': 'C0-', 'markerfmt': 'C0o', 'basefmt': 'k'}
+rc('font',**{'family':'sans-serif','sans-serif':['Verdana']})
+plt.rcParams.update({'font.size': 20})
 color = '#Ef7600'
 
 
@@ -74,15 +75,18 @@ def plot_spectrum_impl(waveform):
     time_seconds = 1
 
     t = np.arange(0, int(fs * time_seconds)) / fs
+    harmonics_count = int(np.floor((fs / 2) / f))
 
-    signal = waveform(2 * np.pi * f * t)
+    signal = waveform(2 * np.pi * f * t, harmonics_count=harmonics_count)
     signal = fade_in_out(signal)
 
     spectrum = np.abs(np.fft.rfft(signal))
     harmonics_indices = spectrum > 70
     harmonics_indices[0] = False # ignore the DC component
     harmonics = np.arange(0, spectrum.shape[0])[harmonics_indices]
-    harmonics_names = ['f0'] + [f'{n}f0' for n in range(2, harmonics.shape[0] + 1)]
+    f0 = harmonics[0]
+    multiplicities_of_fundamental = np.arange(f0, harmonics[-1] + f0, f0)
+    harmonics_names = [r'$\mathregular{f_0}$'] + [str(n) + r'$\mathregular{f_0}$' for n in range(2, multiplicities_of_fundamental.shape[0] + 1)]
 
     plt.figure(figsize=(12,6))
     markerline, stemlines, baseline = plt.stem(harmonics, spectrum[harmonics_indices], **stem_params)
@@ -91,7 +95,7 @@ def plot_spectrum_impl(waveform):
     plt.setp(stemlines, 'color', color)
     plt.setp(baseline, visible=False)
     plt.yticks([])
-    plt.xticks(harmonics, harmonics_names)
+    plt.xticks(multiplicities_of_fundamental, harmonics_names)
     plt.xlim([0, spectrum.shape[0]])
     plt.hlines(0, 0, spectrum.shape[0], colors='k')
     ax = plt.gca()
@@ -113,11 +117,13 @@ def generate_waveform(waveform, waveform_name):
     fs = 44100
     f = 220
     duration_seconds = 2
+    harmonics_count = int(np.floor((fs / 2) / f))
     samples_count = int(duration_seconds * fs)
     samples = np.arange(0, samples_count)
-    signal = waveform(2 * np.pi * f * samples / fs)
+    signal = waveform(2 * np.pi * f * samples / fs, harmonics_count=harmonics_count)
     signal = fade_in_out(signal)
-    wavs_path = Path('assets/wav/posts/synthesis/2022-06-26-sine-saw-square-triangle-basic-waveforms-in-synthesis')
+    signal *= 0.2
+    wavs_path = Path('/home/jawi/Projects/WolfSound/Page/assets/wav/posts/synthesis/2022-06-26-sine-saw-square-triangle-basic-waveforms-in-synthesis')
     output_path = wavs_path / f'{waveform_name}_example.flac'
     sf.write(output_path, signal, fs)
 
@@ -127,6 +133,7 @@ def ideal_square(phase):
 
 
 def square(phase, harmonics_count=13):
+    harmonics_count = harmonics_count // 2
     waveform = np.zeros_like(phase)
     for k in range(1, harmonics_count + 1):
         waveform += 4 / np.pi * (2 * k - 1) ** -1 * np.sin((2 * k - 1) * phase)
@@ -178,20 +185,16 @@ def generate_pulse_video():
     duty_cycle = 0.1
 
     signal = pulse(2 * np.pi * f * t, duty_cycle=duty_cycle, harmonics_count=1000)
-    signal_for_spectrum = pulse(2 * np.pi * f * t_spectrum, duty_cycle=duty_cycle, harmonics_count=50)
+    harmonics_count = int(np.floor((fs / 2) / f)) - 1
+    signal_for_spectrum = pulse(2 * np.pi * f * t_spectrum, duty_cycle=duty_cycle, harmonics_count=harmonics_count)
     signal_for_spectrum = fade_in_out(signal_for_spectrum)
 
     spectrum = np.abs(np.fft.rfft(signal_for_spectrum))
     harmonics_indices = spectrum > 80
     harmonics_indices[0] = False # ignore the DC component
     harmonics = np.arange(0, spectrum.shape[0])[harmonics_indices]
-    # harmonics_names = ['f0'] + [f'{n}f0' for n in range(2, harmonics.shape[0] + 1)]
     
     fig, ax = plt.subplots(2, 1)
-    # ylim = (-8, 7)
-    # ax = plt.axes(xlim=(-Nc, Nc))
-    # visible_c = np.zeros_like(c)
-    # line, = ax.plot(nc, visible_c)
     ax[0].plot(signal, color)
     ax[0].set_yticks([-1, 0, 1])
     ax[0].set_xticks([])
@@ -199,33 +202,30 @@ def generate_pulse_video():
     ax[0].spines['top'].set_visible(False)
     ax[0].spines['right'].set_visible(False)
     ax[0].spines['bottom'].set_visible(False)
+    ax[0].set_xlabel('Time')
 
     markerline, stemlines, baseline = ax[1].stem(harmonics, spectrum[harmonics_indices], **stem_params)
     plt.setp(markerline, 'color', color)
     plt.setp(stemlines, 'color', color)
     plt.setp(baseline, visible=False)
     ax[1].set_yticks([])
-    # ax[1].set_xticks(harmonics, harmonics_names)
     ax[1].set_xticks([])
     ax[1].set_xlim([0, spectrum.shape[0]])
     ax[1].hlines(0, 0, spectrum.shape[0], colors='k')
     ax[1].spines['top'].set_visible(False)
     ax[1].spines['right'].set_visible(False)
     ax[1].spines['bottom'].set_visible(False)
-    # ax.set_xlabel('n')
-    # ax.set_ylabel(r'$\phi_{xy}$[n]')
+    ax[1].set_xlabel('Frequency')
     plt.savefig(images_path / 'pulse_video0.png')
-    # fig.subplots_adjust(left=0, bottom=0, right=1, top=1, wspace=None, hspace=None)
-    # fig.subplots_adjust(left=None, bottom=None, right=None, top=None, wspace=None, hspace=None)
 
-    frames_count = 80
+    frames_count = 500
 
     def update(i):
         progress = i / frames_count
         duty_cycle = 2 * progress if progress < 0.5 else (1 - 2 * progress) + 1
 
         signal = pulse(2 * np.pi * f * t, duty_cycle=duty_cycle, harmonics_count=1000)
-        signal_for_spectrum = pulse(2 * np.pi * f * t_spectrum, duty_cycle=duty_cycle, harmonics_count=50)
+        signal_for_spectrum = pulse(2 * np.pi * f * t_spectrum, duty_cycle=duty_cycle, harmonics_count=harmonics_count)
         signal_for_spectrum = fade_in_out(signal_for_spectrum)
 
         spectrum = np.abs(np.fft.rfft(signal_for_spectrum))
@@ -233,7 +233,6 @@ def generate_pulse_video():
         harmonics_indices[0] = False # ignore the DC component
         harmonics = np.arange(0, spectrum.shape[0])[harmonics_indices]
         
-        # line.set_data(nc, visible_c)
         ax[0].cla()
         ax[1].cla()
         lines = ax[0].plot(signal, color)
@@ -243,39 +242,39 @@ def generate_pulse_video():
         ax[0].spines['top'].set_visible(False)
         ax[0].spines['right'].set_visible(False)
         ax[0].spines['bottom'].set_visible(False)
+        ax[0].set_xlabel('Time')
 
         markerline, stemlines, baseline = ax[1].stem(harmonics, spectrum[harmonics_indices], **stem_params)
         plt.setp(markerline, 'color', color)
         plt.setp(stemlines, 'color', color)
         plt.setp(baseline, visible=False)
         ax[1].set_yticks([])
-        # ax[1].set_xticks(harmonics, harmonics_names)
         ax[1].set_xticks([])
         ax[1].set_xlim([0, spectrum.shape[0]])
         ax[1].hlines(0, 0, spectrum.shape[0], colors='k')
         ax[1].spines['top'].set_visible(False)
         ax[1].spines['right'].set_visible(False)
         ax[1].spines['bottom'].set_visible(False)
+        ax[1].set_xlabel('Frequency')
 
-        # fig.subplots_adjust(left=0, bottom=0, right=1, top=1, wspace=None, hspace=None)
-        # fig.subplots_adjust(left=None, bottom=None, right=None, top=None, wspace=None, hspace=None)
         return markerline, stemlines, baseline
 
     animation1 = animation.FuncAnimation(fig, update, frames=np.arange(0, frames_count), interval=8000, blit=True, repeat=False)
     FFwriter = animation.FFMpegWriter(fps=8)
-    animation1.save(images_path / 'correlation.mp4', writer=FFwriter)
-    animation1.save(images_path / 'correlation.gif', writer='imagemagick', fps=8)
+    animation1.save(images_path / 'duty_cycle_visualization.mp4', writer=FFwriter)
+    animation1.save(images_path / 'duty_cycle_visualization.gif', writer='imagemagick', fps=8)
+
 
 def main():
-    waveforms = [np.sin, square, sawtooth_ramp_up, triangle, partial(pulse, duty_cycle=0.2, harmonics_count=16)]
+    waveforms = [lambda x, harmonics_count: np.sin(x), square, sawtooth_ramp_up, triangle, partial(pulse, duty_cycle=0.2)]
     ideal_waveforms = [np.sin, ideal_square, ideal_sawtooth_ramp_up, ideal_triangle, partial(pulse, duty_cycle=0.2, harmonics_count=1000)]
     waveform_names = ['sine', 'square', 'sawtooth', 'triangle', 'pulse']
 
     # for waveform, waveform_name in zip(ideal_waveforms, waveform_names):
-    #     plot_signal(waveform, waveform_name)
-    # for waveform, waveform_name in zip(waveforms, waveform_names):
+        # plot_signal(waveform, waveform_name)
+    for waveform, waveform_name in zip(waveforms, waveform_names):
         # plot_spectrum(waveform, waveform_name)
-        # generate_waveform(waveform, waveform_name)
+        generate_waveform(waveform, waveform_name)
 
     generate_pulse_video()
 
