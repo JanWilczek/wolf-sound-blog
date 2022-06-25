@@ -133,6 +133,20 @@ The amplitudes of square's harmonics decay slower than in the case of the triang
 
 ## Sawtooth (Saw)
 
+The sawtooth (or simply "saw") waveform is my favorite waveform, thanks to its rich, "fat" sound that plays incredibly well with a good low-pass filter.
+
+The sawtooth wave atr 220 Hz sounds like this:
+
+{% include embed-audio.html src="/assets/wav/posts/synthesis/2022-06-26-sine-saw-square-triangle-basic-waveforms-in-synthesis/sawtooth_example.flac" %}
+
+Ah, that's so beautiful ❤️
+
+The simplest formula for the sawtooth wave is a modulo approach:
+
+$$s(t) = 2 (ft \% \frac{1}{f}) f - 1, \quad ({% increment equationId202206026 %})$$
+
+where $f$ is the sawtooth's frequency in Hz and $t$ is time in seconds.
+
 * Sound example
 * Formula
 * Time-domain signal

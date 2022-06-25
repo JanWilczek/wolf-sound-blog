@@ -272,11 +272,11 @@ def main():
 
     # for waveform, waveform_name in zip(ideal_waveforms, waveform_names):
         # plot_signal(waveform, waveform_name)
-    for waveform, waveform_name in zip(waveforms, waveform_names):
+    # for waveform, waveform_name in zip(waveforms, waveform_names):
         # plot_spectrum(waveform, waveform_name)
-        generate_waveform(waveform, waveform_name)
+        # generate_waveform(waveform, waveform_name)
 
-    generate_pulse_video()
+    # generate_pulse_video()
 
 
 if __name__ == '__main__':
