@@ -5,7 +5,7 @@ date: 2022-06-26
 author: Jan Wilczek
 layout: post
 images: /assets/img/posts/synthesis/2022-06-26-sine-saw-square-triangle-basic-waveforms-in-synthesis/
-background: /assets/img/posts/synthesis/2022-06-26-sine-saw-square-triangle-basic-waveforms-in-synthesis/Thumbnail.webp
+# background: /assets/img/posts/synthesis/2022-06-26-sine-saw-square-triangle-basic-waveforms-in-synthesis/Thumbnail.webp
 audio_examples: /assets/wav/posts/synthesis/2022-06-26-sine-saw-square-triangle-basic-waveforms-in-synthesis/
 categories:
   - Sound Synthesis
@@ -48,7 +48,7 @@ In this article, you will learn all these properties about the 5 basic waveforms
 
 A sine is the most basic of sound synthesis waveforms.
 
-Its formula is simple:
+Sine formula is simple:
 
 $$s(t) = \sin (2 \pi f t), \quad ({% increment equationId20220626  %})$$
 
@@ -56,7 +56,7 @@ where $f$ is the frequency of the sine in Hz and $t$ is time in seconds.
 
 A sine at 220 Hz sounds like this:
 
-{% include embed-audio src="{{ audio_examples }}/sine_example.flac" %}
+{% include embed-audio.html src="/assets/wav/posts/synthesis/2022-06-26-sine-saw-square-triangle-basic-waveforms-in-synthesis/sine_example.flac" %}
 
 The time-domain representation (waveform) of the sine looks like this:
 
@@ -65,7 +65,7 @@ _Figure {% increment figureId20220626  %}. Sine waveform: time-domain representa
 
 The amplitude spectrum of a sine is very boring because it consists of just one partial: the fundamental frequency.
 
-![]({{ page.images | absolute_url | append: "/sine_spectrum.webp" }}){: alt="Amplitude spectrum of a sine" }
+![]({{ page.images | absolute_url | append: "/sine_harmonics.webp" }}){: alt="Amplitude spectrum of a sine" }
 _Figure {% increment figureId20220626  %}. Amplitude spectrum of a sine._
 
 As you can see, it has only one harmonic. That makes sense because spectrum calculation assumes that the analyzed signal is a superposition (a sum) of sines. And one sine consists of just... one sine 🙃
@@ -73,11 +73,33 @@ As you can see, it has only one harmonic. That makes sense because spectrum calc
 
 ## Triangle
 
-* Sound example
-* Formula
-* Time-domain signal
-* Amplitude spectrum
-* Which harmonics are present and how their amplitude decays
+A triangle is just a little bit more complicated than the sine.
+
+The triangle formula is as follows [Wikipedia]:
+
+$$s(t) = 4 | ft - \lfloor ft + \frac{1}{2} \rfloor | - 1, \quad ({% increment equationId20220626  %})$$
+
+A triangle wave at 220 Hz sounds like this:
+
+{% include embed-audio.html src="/assets/wav/posts/synthesis/2022-06-26-sine-saw-square-triangle-basic-waveforms-in-synthesis/triangle_example.flac" %}
+
+As you can hear, it's a bit brighter than sine.
+
+The triangle waveform in the time-domain looks as follows.
+
+![]({{ page.images | absolute_url | append: "/triangle_signal.webp" }}){: alt="The triangle waveform" }
+_Figure {% increment figureId20220626  %}. Triangle waveform: time-domain representation of the triangle wave._
+
+The plot in Figure 3 indeed looks like a triangle.
+
+This makes the formula from Equation 2 more intuitive: a triangle waveform is in essence, the difference between a linear function and a shifted step function. This difference grows and shrinks piecewise linearly and so we obtain a triangle.
+
+The amplitude spectrum of the triangle waveform contains only odd harmonics (Figure 4).
+
+![]({{ page.images | absolute_url | append: "/triangle_harmonics.webp" }}){: alt="Amplitude spectrum of a triangle" }
+_Figure {% increment figureId20220626  %}. Amplitude spectrum of a triangle._
+
+The amplitudes of the harmonics decay as $\frac{1}{n^2}$, where $n$ is the harmonic's index (the fundamental has $n=1$, the first overtone has $n=2$, and so on).
 
 ## Square
 
