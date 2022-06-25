@@ -6,6 +6,7 @@ author: Jan Wilczek
 layout: post
 images: /assets/img/posts/synthesis/2022-06-26-sine-saw-square-triangle-basic-waveforms-in-synthesis/
 background: /assets/img/posts/synthesis/2022-06-26-sine-saw-square-triangle-basic-waveforms-in-synthesis/Thumbnail.webp
+audio_examples: /assets/wav/posts/synthesis/2022-06-26-sine-saw-square-triangle-basic-waveforms-in-synthesis/
 categories:
   - Sound Synthesis
 tags:
@@ -18,6 +19,7 @@ Read this to use their full potential and avoid any caveats!
 
 {% katexmm %}
 {% capture _ %}{% increment equationId20220626  %}{% endcapture %}
+{% capture _ %}{% increment figureId20220626  %}{% endcapture %}
 
 A **waveform** is a graphical representation of a wave.
 
@@ -52,22 +54,65 @@ $$s(t) = \sin (2 \pi f t), \quad ({% increment equationId20220626  %})$$
 
 where $f$ is the frequency of the sine in Hz and $t$ is time in seconds.
 
+A sine at 220 Hz sounds like this:
+
+{% include embed-audio src="{{ audio_examples }}/sine_example.flac" %}
+
+The time-domain representation (waveform) of the sine looks like this:
+
+![]({{ page.images | absolute_url | append: "/sine_signal.webp" }}){: alt="The sine waveform" }
+_Figure {% increment figureId20220626  %}. Sine waveform: time-domain representation of the sine wave._
+
+The amplitude spectrum of a sine is very boring because it consists of just one partial: the fundamental frequency.
+
+![]({{ page.images | absolute_url | append: "/sine_spectrum.webp" }}){: alt="Amplitude spectrum of a sine" }
+_Figure {% increment figureId20220626  %}. Amplitude spectrum of a sine._
+
+As you can see, it has only one harmonic. That makes sense because spectrum calculation assumes that the analyzed signal is a superposition (a sum) of sines. And one sine consists of just... one sine 🙃
+
+
+## Triangle
+
 * Sound example
 * Formula
 * Time-domain signal
 * Amplitude spectrum
 * Which harmonics are present and how their amplitude decays
 
-## Triangle
-
 ## Square
+
+* Sound example
+* Formula
+* Time-domain signal
+* Amplitude spectrum
+* Which harmonics are present and how their amplitude decays
 
 ## Sawtooth (Saw)
 
+* Sound example
+* Formula
+* Time-domain signal
+* Amplitude spectrum
+* Which harmonics are present and how their amplitude decays
+
 ## Pulse
  
+ * Sound example
+* Formula
+* Time-domain signal
+* Amplitude spectrum
+* Which harmonics are present and how their amplitude decays
  - Mention the danger of DC component
 ## Summary
 
+* Link to the checklist
+
+## Bibliography
+
+[Pluta]
+
+[Valimaki]
+
+[Wikipedia]
 
 {% endkatexmm %}
