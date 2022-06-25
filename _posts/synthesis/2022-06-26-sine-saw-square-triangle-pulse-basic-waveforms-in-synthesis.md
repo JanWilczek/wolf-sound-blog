@@ -31,7 +31,8 @@ discussion_id: 2022-06-26-sine-saw-square-triangle-basic-waveforms-in-synthesis
 ## Sawtooth (Saw)
 
 ## Pulse
-
+ 
+ - Mention the danger of DC component
 ## Summary
 
 
