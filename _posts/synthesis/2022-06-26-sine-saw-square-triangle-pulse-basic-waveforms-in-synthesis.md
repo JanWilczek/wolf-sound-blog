@@ -4,7 +4,7 @@ description: "TODO"
 date: 2022-06-26
 author: Jan Wilczek
 layout: post
-images: /assets/img/posts/synthesis/2022-06-26-sine-saw-square-triangle-basic-waveforms-in-synthesis/
+images: /assets/img/posts/synthesis/2022-06-26-sine-saw-square-triangle-basic-waveforms-in-synthesis
 # background: /assets/img/posts/synthesis/2022-06-26-sine-saw-square-triangle-basic-waveforms-in-synthesis/Thumbnail.webp
 audio_examples: /assets/wav/posts/synthesis/2022-06-26-sine-saw-square-triangle-basic-waveforms-in-synthesis/
 categories:
@@ -14,6 +14,9 @@ tags:
   - maths
   - waveform
 discussion_id: 2022-06-26-sine-saw-square-triangle-basic-waveforms-in-synthesis
+custom_js:
+ - /assets/vendor/lazyload/lazyload.min.js
+ - /assets/js/wolfsound/modules/load_lazyload.js
 ---
 Read this to use their full potential and avoid any caveats!
 
@@ -193,7 +196,9 @@ _Figure {% increment figureId20220626  %}. Amplitude spectrum of a pulse wave._
 
 However, the amplitude spectrum changes dynamically with the duty cycle. I have visualized it on Figure 11.
 
-
+<div markdown="0">
+<img class="lazyload" src="duty_cycle_visualization_placeholder.webp" data-src="{{ page.images | absolute_url | append: "/duty_cycle_visualization.gif" }}">
+</div>
 
  * Sound example
 * Formula
