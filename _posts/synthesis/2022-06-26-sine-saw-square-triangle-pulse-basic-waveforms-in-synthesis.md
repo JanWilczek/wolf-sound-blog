@@ -143,24 +143,65 @@ Ah, that's so beautiful ❤️
 
 The simplest formula for the sawtooth wave is a modulo approach:
 
-$$s(t) = 2 (ft \% \frac{1}{f}) f - 1, \quad ({% increment equationId202206026 %})$$
+$$s(t) = 2 \left( ft \% \frac{1}{f} \right) f - 1, \quad ({% increment equationId202206026 %})$$
 
-where $f$ is the sawtooth's frequency in Hz and $t$ is time in seconds.
+where $f$ is the sawtooth's frequency in Hz, $t$ is time in seconds, and $\%$ is the modulo operator applied to real values.
 
-* Sound example
-* Formula
-* Time-domain signal
-* Amplitude spectrum
-* Which harmonics are present and how their amplitude decays
+The formula reads, "increase linearly ($ft$), jump back to 0 every period ($\% \frac{1}{f}$), scale to the $[0, 1]$ range (multiplication by $ft$), and then expand the range from $[0, 1]$ to $[-1, 1]$ (multiplication by $2$ and subtraction of $1$)."
+
+The sawtooth waveform in the time domain is shown in Figure 7.
+
+![]({{ page.images | absolute_url | append: "/sawtooth_signal.webp" }}){: alt="The sawtooth waveform" }
+_Figure {% increment figureId20220626  %}. Sawtooth waveform: time-domain representation of the sawtooth wave._
+
+This is the so-called **ramp-up** sawtooth because its slope is rising within each period. Should it be falling, it would be called **ramp-down** sawtooth. Since it's just a matter of phase inversion, ramp-up and ramp-down variants have the same properties.
+
+The name "saw" comes from the teeth-like shape of the waveform.
+
+The amplitude spectrum of the sawtooth can be seen in Figure 8.
+
+![]({{ page.images | absolute_url | append: "/sawtooth_harmonics.webp" }}){: alt="Amplitude spectrum of a sawtooth" }
+_Figure {% increment figureId20220626  %}. Amplitude spectrum of a sawtooth._
+
+The spectrum of the sawtooth waveform contains odd and even harmonics. The amplitudes of sawtooth's harmonics decay as $\frac{1}{n}$, where is the harmonic's index ($n=1$ is the fundamental frequency).
 
 ## Pulse
  
+The **pulse waveform** (also called a **pulse train**) is a generalization of the square waveform.
+
+An example pulse waveform in the time domain is shown in Figure 9.
+
+![]({{ page.images | absolute_url | append: "/pulse_signal.webp" }}){: alt="The pulse waveform" }
+_Figure {% increment figureId20220626  %}. Pulse waveform: time-domain representation of the pulse wave._
+
+This waveform's **duty cycle** is 20%. It means that for 20% of its period, the value is 1. For the remaining 80% the value is -1.
+
+Duty cycle specifies for what fraction of the period the value of the waveform is 1.
+
+For $D=0.5$, we obtain the square waveform.
+
+The pulse wave could be generated using conditional statements. Instead I used a Fourier series-based formula [Pluta]:
+
+$$s(t) = (2D - 1) + \sum_{k=1}^{\infty} \frac{4}{k\pi} \sin (\pi k D) \cos (2 \pi k f_0 t - \pi k D), $$
+
+where $D$ is the duty cycle, $k$ is the harmonic's index, $f_0$ is the fundamental frequency in Hz, and $t$ is time in seconds.
+
+The amplitude spectrum of the pulse wave for $D=0.2$ case is shown in Figure 10.
+
+![]({{ page.images | absolute_url | append: "/pulse_harmonics.webp" }}){: alt="Amplitude spectrum of a pulse wave" }
+_Figure {% increment figureId20220626  %}. Amplitude spectrum of a pulse wave._
+
+However, the amplitude spectrum changes dynamically with the duty cycle. I have visualized it on Figure 11.
+
+
+
  * Sound example
 * Formula
 * Time-domain signal
 * Amplitude spectrum
 * Which harmonics are present and how their amplitude decays
  - Mention the danger of DC component
+ - Where are the dips?
 
 ## Summary
 
