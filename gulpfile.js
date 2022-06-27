@@ -45,6 +45,13 @@ gulp.task('vendor', function(cb) {
   ])
   .pipe(gulp.dest('./assets/vendor/trackswitch'))
 
+  // Lazyload
+  gulp.src([
+    './node_modules/lazyload/lazyload.min.js',
+    './node_modules/lazyload/lazyload.js'
+  ])
+  .pipe(gulp.dest('./assets/vendor/lazyload'))
+
   cb();
 
 });

@@ -1,0 +1,3 @@
+$(function() {
+    $("img.lazyload").lazyload();
+});
