@@ -26,18 +26,18 @@ Read this to use their full potential and avoid any caveats!
 
 A **waveform** is a graphical representation of a wave.
 
-Sound synthesis is based on 5 waveforms: sine, triangle, sawtooth (saw), pulse, square (which is a particular case of pulse).
+Sound synthesis is based on 5 waveforms: the sine, the triangle, the sawtooth (saw), the pulse, and the square (which is a particular case of the pulse).
 
-To use them effectively is sound synthesis composition or audio programming, you need to know their basic properties:
+To use them effectively in sound synthesis compositions or audio programming, you need to know their basic properties:
 
-* mathematical formula to generate them,
+* mathematical formula to generate it,
 * time-domain visualization,
-* amplitude spectrum: which harmonics are present and how their amplitude decays, and
-* how they sound!
+* amplitude spectrum: which harmonics are present and how their amplitudes decay, and
+* how it sounds!
 
 In this article, you will learn all these properties about the 5 basic waveforms.
 
-*Note: this article shows the waveforms in their continuous (analog) form, which means that issues such as aliasing or efficient generation are not considered.*
+*Note: this article shows the waveforms in their continuous (analog) form, which means that issues such as aliasing or efficient generation are not considered. Keep in mind that all of these waveforms (apart from the sine) have an infinite amplitude spectrum.*
 
 ## Why Learn About Basic Waveforms?
 
@@ -47,10 +47,10 @@ Learning about basic waveforms in sound synthesis will help you
 * achieve the desired timbre even during live performances,
 * understand the behavior of oscillators (often marked as VCO, voltage-controlled oscillator) and modulators (often marked as LFO, low-frequency oscillator),
 * employ these waveforms in mathematical derivations of analysis, synthesis, and audio effects,
-* write efficient code to generate these waveforms for sound synthesis and audio effects,
-* detect any inconsistencies in these signals,
+* write efficient code to generate these waveforms for sound synthesis and audio effects algorithms,
+* detect any inconsistencies in these signals in a system,
 * avoid potential issues with aliasing, and
-* discover where aliasing may come from (unbounded spectrum).
+* discover where aliasing may come from (e.g., from an unbounded spectrum).
 
 ## The Waveforms
 
@@ -65,9 +65,9 @@ Learning about basic waveforms in sound synthesis will help you
 
 ## Sine
 
-A sine is the most basic of sound synthesis waveforms.
+The **sine** is the most basic of sound synthesis waveforms.
 
-Sine formula is simple:
+The sine formula is simple
 
 $$s(t) = \sin (2 \pi f t), \quad ({% increment equationId20220626  %})$$
 
@@ -92,11 +92,11 @@ As you can see, it has only one harmonic. That makes sense because spectrum calc
 
 ## Triangle
 
-A triangle is just a little bit more complicated than the sine.
+A **triangle** is just a little bit more complicated than the sine.
 
-The triangle formula is as follows [Wikipedia]:
+The triangle formula is [Wikipedia]
 
-$$s(t) = 4 | ft - \lfloor ft + \frac{1}{2} \rfloor | - 1, \quad ({% increment equationId20220626  %})$$
+$$s(t) = 4 \left| ft - \left\lfloor ft + \frac{1}{2} \right\rfloor \right| - 1, \quad ({% increment equationId20220626  %})$$
 
 where $f$ is the triangle's frequency in Hz and $t$ is time in seconds.
 
@@ -104,7 +104,7 @@ A triangle wave at 220 Hz sounds like this:
 
 {% include embed-audio.html src="/assets/wav/posts/synthesis/2022-06-26-sine-saw-square-triangle-basic-waveforms-in-synthesis/triangle_example.flac" %}
 
-As you can hear, it's a bit brighter than sine.
+As you can hear, it's a bit brighter than the sine.
 
 The triangle waveform in the time-domain looks as follows.
 
@@ -113,7 +113,7 @@ _Figure {% increment figureId20220626  %}. Triangle waveform: time-domain repres
 
 The plot in Figure 3 indeed looks like a triangle.
 
-This makes the formula from Equation 2 more intuitive: a triangle waveform is in essence, the difference between a linear function and a shifted step function. This difference grows and shrinks piecewise linearly and so we obtain a triangle.
+This makes the formula from Equation 2 more intuitive: a triangle waveform is, in essence, the difference between a linear function and a shifted step function. This difference increases and decreases piecewise linearly and so we obtain a triangle.
 
 The amplitude spectrum of the triangle waveform contains only odd harmonics (Figure 4).
 
@@ -124,7 +124,7 @@ The amplitudes of the harmonics decay as $\frac{1}{n^2}$, where $n$ is the harmo
 
 ## Square
 
-The square wave is more interesting than the sine or the triangle because of its characteristic, "empty" timbre.
+The **square wave** is more interesting than the sine or the triangle because of its characteristic, "empty" timbre.
 
 The square wave at 220 Hz sounds like this:
 
@@ -152,7 +152,7 @@ The amplitudes of square's harmonics decay slower than in the case of the triang
 
 ## Sawtooth (Saw)
 
-The sawtooth (or simply "saw") waveform is my favorite waveform, thanks to its rich, "fat" sound that plays incredibly well with a good low-pass filter.
+The **sawtooth** (or simply **"saw"**) waveform is my favorite waveform, thanks to its rich, "fat" sound that plays incredibly well with a good low-pass filter.
 
 The sawtooth wave atr 220 Hz sounds like this:
 
@@ -166,7 +166,7 @@ $$s(t) = 2 \left( ft \% \frac{1}{f} \right) f - 1, \quad ({% increment equationI
 
 where $f$ is the sawtooth's frequency in Hz, $t$ is time in seconds, and $\%$ is the modulo operator applied to real values.
 
-The formula reads, "increase linearly ($ft$), jump back to 0 every period ($\% \frac{1}{f}$), scale to the $[0, 1]$ range (multiplication by $ft$), and then expand the range from $[0, 1]$ to $[-1, 1]$ (multiplication by $2$ and subtraction of $1$)."
+The formula reads, "increase the value linearly ($ft$), jump back to 0 every period ($\% \frac{1}{f}$), scale to the $[0, 1]$ range (multiplication by $f$), and then expand the range from $[0, 1]$ to $[-1, 1]$ (multiplication by $2$ and subtraction of $1$)."
 
 The sawtooth waveform in the time domain is shown in Figure 7.
 
@@ -182,7 +182,7 @@ The amplitude spectrum of the sawtooth can be seen in Figure 8.
 ![]({{ page.images | absolute_url | append: "/sawtooth_harmonics.webp" }}){: alt="Amplitude spectrum of a sawtooth" }
 _Figure {% increment figureId20220626  %}. Amplitude spectrum of a sawtooth._
 
-The spectrum of the sawtooth waveform contains odd and even harmonics. The amplitudes of sawtooth's harmonics decay as $\frac{1}{n}$, where is the harmonic's index ($n=1$ is the fundamental frequency).
+The spectrum of the sawtooth waveform contains odd and even harmonics. The amplitudes of sawtooth's harmonics decay as $\frac{1}{n}$, where $n$ is the harmonic's index ($n=1$ corresponds to the fundamental frequency).
 
 ## Pulse
  
@@ -191,15 +191,19 @@ The **pulse waveform** (also called a **pulse train**) is a generalization of th
 An example pulse waveform in the time domain is shown in Figure 9.
 
 ![]({{ page.images | absolute_url | append: "/pulse_signal.webp" }}){: alt="The pulse waveform" }
-_Figure {% increment figureId20220626  %}. Pulse waveform: time-domain representation of the pulse wave._
+_Figure {% increment figureId20220626  %}. Pulse waveform: time-domain representation of the pulse wave with 20% duty cycle._
 
-This waveform's **duty cycle** is 20%. It means that for 20% of its period, the value is 1. For the remaining 80% the value is -1.
+This waveform's **duty cycle** is 20%. It means that for 20% of its period, the value is 1. For the remaining 80%, the value is -1.
 
-Duty cycle specifies for what fraction of the period the value of the waveform is 1.
+Duty cycle specifies for which fraction of the period the value of the waveform is 1.
 
 For $D=0.5$, we obtain the square waveform.
 
-The pulse wave could be generated using conditional statements. Instead I used a Fourier series-based formula [Pluta2019]:
+The pulse waveform with 20% duty cycle at 220 Hz sounds like this:
+
+{% include embed-audio.html src="/assets/wav/posts/synthesis/2022-06-26-sine-saw-square-triangle-basic-waveforms-in-synthesis/pulse_example.flac" %}
+
+The pulse wave could be generated in various ways. I used a Fourier series-based formula [Pluta2019]
 
 $$s(t) = (2D - 1) + \sum_{k=1}^{\infty} \frac{4}{k\pi} \sin (\pi k D) \cos (2 \pi k f_0 t - \pi k D), $$
 
@@ -208,7 +212,7 @@ where $D$ is the duty cycle, $k$ is the harmonic's index, $f_0$ is the fundament
 The amplitude spectrum of the pulse wave for $D=0.2$ case is shown in Figure 10.
 
 ![]({{ page.images | absolute_url | append: "/pulse_harmonics.webp" }}){: alt="Amplitude spectrum of a pulse wave" }
-_Figure {% increment figureId20220626  %}. Amplitude spectrum of a pulse wave._
+_Figure {% increment figureId20220626  %}. Amplitude spectrum of a pulse wave with 20% duty cycle._
 
 However, the amplitude spectrum changes dynamically with the duty cycle. I have visualized it on Figure 11.
 
@@ -220,13 +224,13 @@ _Figure {% increment figureId20220626  %}. Time-domain waveform and the amplitud
 
 As you can see in the figure, for duty cycle equal to 50% we get the square wave and its odd-harmonics-only amplitude spectrum.
 
-The first dip in the amplitude spectrum is determined by the duty cycle: the dip occurs at $D^{-1}$-th harmonic.
+The first dip from the left in the amplitude spectrum is determined by the duty cycle: the dip occurs at the $D^{-1}$-th harmonic.
 
-For example, for the square wave, $D=0.5$ so the first dip occurs at $\left(\frac{1}{2})\right)^{-1} = 2$-nd harmonic.
+For example, for the square wave, $D=0.5$ so the first dip occurs at the $\left(\frac{1}{2}\right)^{-1} = 2$-nd harmonic.
 
-In the figure, you can also see a small glitch around the DC (0 Hz) frequency. That is because for very high or very low values of the duty cycle, the DC component is pretty significant (the mean of the waveform's values is significantly nonzero). I have deliberately hidden the DC component from the plots but some of it is still present because of the [spectral leakage](https://en.wikipedia.org/wiki/Spectral_leakage).
+In the figure, you can also see a small glitch around the DC (0 Hz) frequency. That is because for very high or very low values of the duty cycle, the DC component is pretty significant (the mean of the waveform's values is significantly nonzero). I have deliberately hidden the DC component from the plots for clarity but some of it is still present because of the [spectral leakage](https://en.wikipedia.org/wiki/Spectral_leakage).
 
-The DC component must be kept in mind in musical applications because it adds no musical information (we cannot hear it) but it can damage the hardware that is processing it.
+The DC component must be kept in mind in musical applications because it adds no musical information (we cannot hear it) but it can damage the hardware that it runs through.
 
 ## Summary
 
