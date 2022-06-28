@@ -39,6 +39,22 @@ In this article, you will learn all these properties about the 5 basic waveforms
 
 *Note: this article shows the waveforms in their continuous (analog) form, which means that issues such as aliasing or efficient generation are not considered.*
 
+## Why Learn About Basic Waveforms?
+
+Learning about basic waveforms in sound synthesis will help you
+
+* exploit the capabilities of modern synthesizers,
+* achieve the desired timbre even during live performances,
+* understand the behavior of oscillators (often marked as VCO, voltage-controlled oscillator) and modulators (often marked as LFO, low-frequency oscillator),
+* employ these waveforms in mathematical derivations of analysis, synthesis, and audio effects,
+* write efficient code to generate these waveforms for sound synthesis and audio effects,
+* detect any inconsistencies in these signals,
+* avoid potential issues with aliasing, and
+* discover where aliasing may come from (unbounded spectrum).
+
+## The Waveforms
+
+
 ### Jump to the Waveform of Choice
 
 1. [Sine](#sine)
@@ -183,7 +199,7 @@ Duty cycle specifies for what fraction of the period the value of the waveform i
 
 For $D=0.5$, we obtain the square waveform.
 
-The pulse wave could be generated using conditional statements. Instead I used a Fourier series-based formula [Pluta]:
+The pulse wave could be generated using conditional statements. Instead I used a Fourier series-based formula [Pluta2019]:
 
 $$s(t) = (2D - 1) + \sum_{k=1}^{\infty} \frac{4}{k\pi} \sin (\pi k D) \cos (2 \pi k f_0 t - \pi k D), $$
 
@@ -197,27 +213,33 @@ _Figure {% increment figureId20220626  %}. Amplitude spectrum of a pulse wave._
 However, the amplitude spectrum changes dynamically with the duty cycle. I have visualized it on Figure 11.
 
 <div markdown="0">
-<img class="lazyload" src="duty_cycle_visualization_placeholder.webp" data-src="{{ page.images | absolute_url | append: "/duty_cycle_visualization.gif" }}">
+<img class="lazyload" src="{{ page.images | absolute_url | append: "/duty_cycle_visualization_placeholder.webp" }}" data-src="{{ page.images | absolute_url | append: "/duty_cycle_visualization.gif" }}" alt="Visualization of the duty cycle influence on the pulse wave">
 </div>
 
- * Sound example
-* Formula
-* Time-domain signal
-* Amplitude spectrum
-* Which harmonics are present and how their amplitude decays
- - Mention the danger of DC component
- - Where are the dips?
+_Figure {% increment figureId20220626  %}. Time-domain waveform and the amplitude spectrum of a pulse wave for different values of the duty cycle._
+
+As you can see in the figure, for duty cycle equal to 50% we get the square wave and its odd-harmonics-only amplitude spectrum.
+
+The first dip in the amplitude spectrum is determined by the duty cycle: the dip occurs at $D^{-1}$-th harmonic.
+
+For example, for the square wave, $D=0.5$ so the first dip occurs at $\left(\frac{1}{2})\right)^{-1} = 2$-nd harmonic.
+
+In the figure, you can also see a small glitch around the DC (0 Hz) frequency. That is because for very high or very low values of the duty cycle, the DC component is pretty significant (the mean of the waveform's values is significantly nonzero). I have deliberately hidden the DC component from the plots but some of it is still present because of the [spectral leakage](https://en.wikipedia.org/wiki/Spectral_leakage).
+
+The DC component must be kept in mind in musical applications because it adds no musical information (we cannot hear it) but it can damage the hardware that is processing it.
 
 ## Summary
 
-* Link to the checklist
+In this article, you learned everything about the basic waveforms (sine, triangle, square, saw, pulse) that you need for sound synthesis. Being familiar with these waveforms will help you in exploiting synthesizers' capabilities and coding your own.
+
+These waveforms are one piece of the puzzle when it comes to developing your own software sound synthesizers. If you want to know what other information is necessary to develop audio plugins, [download my free Ultimate Audio Plugin Developer Checklist]({% link single-pages/checklist.html %}).
 
 ## Bibliography
 
-[Pluta]
+[Pluta2019] Marek Pluta, _Sound Synthesis for Music Reproduction and Performance_, monograph, AGH University of Science and Technology Press, Kraków 2019.
 
-[Valimaki]
+[VälimäkiHuovilainen2006] Vesa Välimäki and Antti Huovilainen, _Oscillator and Filter Algorithms for Virtual Analog Synthesis_, Computer Music Journal, 30:2, pp. 19–31, Summer 2006. [PDF](https://www.researchgate.net/publication/220386519_Oscillator_and_Filter_Algorithms_for_Virtual_Analog_Synthesis)
 
-[Wikipedia]
+[Wikipedia] [Triangle wave on Wikipedia](https://en.wikipedia.org/wiki/Triangle_wave). Access: 28.06.2022.
 
 {% endkatexmm %}
