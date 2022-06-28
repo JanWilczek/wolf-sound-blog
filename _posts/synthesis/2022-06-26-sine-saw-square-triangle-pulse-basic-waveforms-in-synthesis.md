@@ -1,6 +1,6 @@
 ---
 title: "Sine, Saw, Square, Triangle, Pulse: Basic Waveforms in Synthesis and Their Properties"
-description: "TODO"
+description: "Learn the properties of 5 basic waveforms in sound synthesis to use their full potential in your synthesizer performance or design."
 date: 2022-06-26
 author: Jan Wilczek
 layout: post
