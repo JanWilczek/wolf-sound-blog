@@ -56,8 +56,8 @@ def main():
     plot_envelope(adsr_envelope, 'ADSR')
 
     hold = Segment('Hold', 0.15, 1, 1)
-    adhsr_envelope = [attack, hold, decay_adsr, sustain, release]
-    plot_envelope(adhsr_envelope, 'ADHSR')
+    ahdsr_envelope = [attack, hold, decay_adsr, sustain, release]
+    plot_envelope(ahdsr_envelope, 'AHDSR')
 
     decay1 = Segment('Decay1', 0.2, 1, 0.7)
     decay2 = Segment('Decay2', 0.4, 0.7, 0.5)
