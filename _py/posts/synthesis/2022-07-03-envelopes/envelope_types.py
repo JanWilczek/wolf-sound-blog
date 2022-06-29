@@ -21,7 +21,7 @@ class Segment:
 def plot_envelope(envelope, name):
     x = 0
     
-    plt.figure()
+    plt.figure(figsize=(9,4))
     for segment in envelope:
         next_x = x + segment.length
         plt.plot([x, next_x], [segment.left_value, segment.right_value], color, linewidth=3)
@@ -45,8 +45,26 @@ def main():
     
     attack = Segment('Attack', 0.2, 0, 1)
     decay = Segment('Decay', 0.2, 1, 0)
+    decay_adsr = Segment('Decay', 0.2, 1, 0.6)
+    sustain = Segment('Sustain', 0.4, 0.6, 0.6)
+    release = Segment('Release', 0.3, 0.6, 0)
+    
     ad_envelope = [attack, decay]
     plot_envelope(ad_envelope, 'AD')
+
+    adsr_envelope = [attack, decay_adsr, sustain, release]
+    plot_envelope(adsr_envelope, 'ADSR')
+
+    hold = Segment('Hold', 0.15, 1, 1)
+    adhsr_envelope = [attack, hold, decay_adsr, sustain, release]
+    plot_envelope(adhsr_envelope, 'ADHSR')
+
+    decay1 = Segment('Decay1', 0.2, 1, 0.7)
+    decay2 = Segment('Decay2', 0.4, 0.7, 0.5)
+    release_adbdr = Segment('Release', 0.2, 0.5, 0)
+    adbdr_envelope = [attack, decay1, decay2, release_adbdr]
+    plot_envelope(adbdr_envelope, 'ADBDR')
+    
 
 if __name__=='__main__':
     main()
