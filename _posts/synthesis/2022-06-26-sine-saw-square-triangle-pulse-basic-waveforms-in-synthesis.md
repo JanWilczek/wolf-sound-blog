@@ -173,7 +173,7 @@ The sawtooth waveform in the time domain is shown in Figure 7.
 ![]({{ page.images | absolute_url | append: "/sawtooth_signal.webp" }}){: alt="The sawtooth waveform" }
 _Figure {% increment figureId20220626  %}. Sawtooth waveform: time-domain representation of the sawtooth wave._
 
-This is the so-called **ramp-up** sawtooth because its slope is rising within each period. Should it be falling, it would be called **ramp-down** sawtooth. Since it's just a matter of phase inversion, ramp-up and ramp-down variants have the same properties.
+This is the so-called **ramp-up** sawtooth because its slope is rising within each period. Should it be falling, it would be called **ramp-down** sawtooth. Since it's just a matter of phase inversion, ramp-up and ramp-down variants have the same properties. The slope matters the most when we use the sawtooth waveform to modulate some other parameter, i.e., when we use the sawtooth in a low-frequency oscillator (LFO). Then we can create a periodically rising sensation (ramp-up) or periodically falling (ramp-down).
 
 The name "saw" comes from the teeth-like shape of the waveform.
 
