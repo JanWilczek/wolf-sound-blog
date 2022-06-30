@@ -18,6 +18,14 @@ class Segment:
         self.right_value = right_value
 
 
+class Envelope:
+    def __init__(self, name, segments, key_on=None, key_off=None):
+        self.name = name
+        self.segments = segments
+        self.key_on = key_one
+        self.key_off = key_off
+
+
 def plot_envelope(envelope, name):
     x = 0
     
@@ -51,6 +59,25 @@ def main():
     
     ad_envelope = [attack, decay]
     plot_envelope(ad_envelope, 'AD')
+
+    ar_sustain = Segment('Sustain', 0.4, 1, 1)
+    ar_release = Segment('Release', 0.2, 1, 0)
+    ar_envelope = [attack, ar_sustain, ar_release]
+    plot_envelope(ar_envelope, 'AR')
+
+    adr_decay = Segment('Decay', 0.15, 1, 0.4)
+    adr_release = Segment('Release', 0.3, 0.4, 0)
+    adr_envelope = [attack, adr_decay, adr_release]
+    plot_envelope(adr_envelope, 'ADR')
+
+    ads_sustain = Segment('Sustain', 0.4, 0.4, 0.4)
+    ads_release = Segment('', 0.02, 0.4, 0)
+    ads_envelope = [attack, adr_decay, ads_sustain, ads_release]
+    plot_envelope(ads_envelope, 'ADS')
+
+    adsd_release = Segment('', 0.1, 0.4, 0)
+    adsd_envelope = [attack, adr_decay, ads_sustain, adsd_release]
+    plot_envelope(adsd_envelope, 'ADSD')
 
     adsr_envelope = [attack, decay_adsr, sustain, release]
     plot_envelope(adsr_envelope, 'ADSR')

@@ -54,5 +54,6 @@ discussion_id: 2022-07-03-envelopes
   * ADBDR
     * Plot
     * Sound example
+  * Arbitrary
 * Linear vs exponential change
 * How to code envelopes
