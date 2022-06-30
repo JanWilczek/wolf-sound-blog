@@ -44,23 +44,53 @@ discussion_id: 2022-07-03-envelopes
   * Decay
   * Sustain
   * Release
-* Types of an envelope
-  * AD
+* Types of an envelope with sound examples
+
+### AD
 
 ![]({{ page.images | absolute_url | append: "AD.webp" }}){: alt="" }
 _Figure {% increment figureId20220703  %}. ._
 
-  * AR
-  * ADR
-  * ADS
-  * ADSR
-    * Plot
-    * Sound example
-  * AHDSR
-  * ADBDR
-    * Plot
-    * Sound example
-  * Arbitrary
+### AR
+
+![]({{ page.images | absolute_url | append: "AR.webp" }}){: alt="" }
+_Figure {% increment figureId20220703  %}. ._
+
+
+### ADR
+
+![]({{ page.images | absolute_url | append: "ADR.webp" }}){: alt="" }
+_Figure {% increment figureId20220703  %}. ._
+
+### ADS
+
+![]({{ page.images | absolute_url | append: "ADS.webp" }}){: alt="" }
+_Figure {% increment figureId20220703  %}. ._
+
+![]({{ page.images | absolute_url | append: "ADSD.webp" }}){: alt="" }
+_Figure {% increment figureId20220703  %}. ._
+
+### ADSR
+
+![]({{ page.images | absolute_url | append: "ADSR.webp" }}){: alt="" }
+_Figure {% increment figureId20220703  %}. ._
+
+* Sound example
+
+### AHDSR
+
+![]({{ page.images | absolute_url | append: "AHDSR.webp" }}){: alt="" }
+_Figure {% increment figureId20220703  %}. ._
+
+### ADBDR
+
+![]({{ page.images | absolute_url | append: "ADBDR.webp" }}){: alt="" }
+_Figure {% increment figureId20220703  %}. ._
+
+* Sound example
+
+### Arbitrary
+
 * Linear vs exponential change
 * How to code envelopes
 
