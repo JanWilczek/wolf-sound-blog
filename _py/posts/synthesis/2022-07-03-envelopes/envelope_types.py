@@ -2,6 +2,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from pathlib import Path
 from matplotlib import rc
+import subprocess
 
 
 images_path = Path('/home/jawi/Projects/WolfSound/Page/assets/img/posts/synthesis/2022-07-03-envelopes/')
@@ -34,6 +35,7 @@ def plot_envelope(envelope):
     arrow_y =  ylim[1] - 0.1
     arrow_kwargs = { "width": 0.03, "color": grey, "zorder": 2, "length_includes_head": True}
     arrow_text_y = arrow_y + 0.05
+    output_path = images_path / f'{envelope.name}.png'
 
     plt.figure(figsize=(9,4))
     for segment in envelope.segments:
@@ -57,7 +59,8 @@ def plot_envelope(envelope):
     if envelope.key_off is not None:
         plt.arrow(envelope.key_off, arrow_y - arrow_height, 0, arrow_height, **arrow_kwargs)
         plt.text(envelope.key_off, arrow_text_y, 'key off', horizontalalignment='center', color=grey)
-    plt.savefig(images_path / f'{envelope.name}.png', dpi=300, bbox_inches='tight')
+    plt.savefig(output_path, dpi=300, bbox_inches='tight')
+    subprocess.run(['cwebp', '-q', '65', '-resize', '800', '0', output_path, '-o', output_path.with_suffix('.webp')])
 
 
 def main():

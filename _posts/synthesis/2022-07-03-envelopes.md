@@ -4,7 +4,7 @@ description: "TODO"
 date: 2022-07-03
 author: Jan Wilczek
 layout: post
-images: /assets/img/posts/synthesis/2022-07-03-envelopes
+images: /assets/img/posts/synthesis/2022-07-03-envelopes/
 # background: /assets/img/posts/synthesis/2022-07-03-envelopes/Thumbnail.webp
 audio_examples: /assets/wav/posts/synthesis/2022-07-03-envelopes/
 categories:
@@ -16,6 +16,8 @@ tags:
   - sampling (sound generation)
 discussion_id: 2022-07-03-envelopes
 ---
+
+{% capture _ %}{% increment figureId20220703  %}{% endcapture %}
 
 * Why envelopes?
   * make the sound more lively
@@ -44,6 +46,10 @@ discussion_id: 2022-07-03-envelopes
   * Release
 * Types of an envelope
   * AD
+
+![]({{ page.images | absolute_url | append: "AD.webp" }}){: alt="" }
+_Figure {% increment figureId20220703  %}. ._
+
   * AR
   * ADR
   * ADS
