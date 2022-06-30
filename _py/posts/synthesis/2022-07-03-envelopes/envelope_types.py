@@ -19,7 +19,7 @@ class Segment:
 
 
 class Envelope:
-    def __init__(self, name, segments, key_on=None, key_off=None):
+    def __init__(self, name, segments, key_on=0, key_off=None):
         self.name = name
         self.segments = segments
         self.key_on = key_on
@@ -29,9 +29,11 @@ class Envelope:
 def plot_envelope(envelope):
     x = 0
     ylim = [0, 1.5]
-    arrow_height = 0.06
+    arrow_height = 0.2
     vlines_height = 1.3
-    arrow_y =  ylim[1] - 0.14
+    arrow_y =  ylim[1] - 0.1
+    arrow_kwargs = { "width": 0.03, "color": grey, "zorder": 2, "length_includes_head": True}
+    arrow_text_y = arrow_y + 0.05
 
     plt.figure(figsize=(9,4))
     for segment in envelope.segments:
@@ -39,7 +41,7 @@ def plot_envelope(envelope):
         plt.plot([x, next_x], [segment.left_value, segment.right_value], color, linewidth=3)
         plt.vlines(x, ylim[0], vlines_height, colors=grey, linestyles='dashed')
         plt.vlines(next_x, ylim[0], vlines_height, colors=grey, linestyles='dashed')
-        plt.text(x + segment.length / 2, 1.1, segment.name, horizontalalignment='center')
+        plt.text(x + segment.length / 2, 1.05, segment.name, horizontalalignment='center')
         x = next_x
     plt.ylim(ylim)
     plt.ylabel('amplitude')
@@ -50,8 +52,11 @@ def plot_envelope(envelope):
     ax.spines['top'].set_visible(False)
     ax.spines['right'].set_visible(False)
     if envelope.key_on is not None:
-        plt.arrow(envelope.key_on, arrow_y, 0, - arrow_height, width=0.04, color=grey, zorder=2)
-        plt.text(envelope.key_on, arrow_y + 0.05, 'key on', horizontalalignment='center', color=grey)
+        plt.arrow(envelope.key_on, arrow_y, 0, - arrow_height, **arrow_kwargs)
+        plt.text(envelope.key_on, arrow_text_y, 'key on', horizontalalignment='center', color=grey)
+    if envelope.key_off is not None:
+        plt.arrow(envelope.key_off, arrow_y - arrow_height, 0, arrow_height, **arrow_kwargs)
+        plt.text(envelope.key_off, arrow_text_y, 'key off', horizontalalignment='center', color=grey)
     plt.savefig(images_path / f'{envelope.name}.png', dpi=300, bbox_inches='tight')
 
 
@@ -69,34 +74,34 @@ def main():
 
     ar_sustain = Segment('Sustain', 0.4, 1, 1)
     ar_release = Segment('Release', 0.2, 1, 0)
-    ar_envelope = Envelope('AR', [attack, ar_sustain, ar_release])
+    ar_envelope = Envelope('AR', [attack, ar_sustain, ar_release], key_off=0.6)
     plot_envelope(ar_envelope)
 
     adr_decay = Segment('Decay', 0.15, 1, 0.4)
     adr_release = Segment('Release', 0.3, 0.4, 0)
-    adr_envelope = Envelope('ADR', [attack, adr_decay, adr_release])
+    adr_envelope = Envelope('ADR', [attack, adr_decay, adr_release], key_off=0.35)
     plot_envelope(adr_envelope)
 
     ads_sustain = Segment('Sustain', 0.4, 0.4, 0.4)
     ads_release = Segment('', 0.02, 0.4, 0)
-    ads_envelope = Envelope('ADS', [attack, adr_decay, ads_sustain, ads_release])
+    ads_envelope = Envelope('ADS', [attack, adr_decay, ads_sustain, ads_release], key_off=0.75)
     plot_envelope(ads_envelope)
 
     adsd_release = Segment('', 0.1, 0.4, 0)
-    adsd_envelope = Envelope('ADSD', [attack, adr_decay, ads_sustain, adsd_release])
+    adsd_envelope = Envelope('ADSD', [attack, adr_decay, ads_sustain, adsd_release], key_off=0.75)
     plot_envelope(adsd_envelope)
 
-    adsr_envelope = Envelope('ADSR', [attack, decay_adsr, sustain, release])
+    adsr_envelope = Envelope('ADSR', [attack, decay_adsr, sustain, release], key_off=0.8)
     plot_envelope(adsr_envelope)
 
     hold = Segment('Hold', 0.15, 1, 1)
-    ahdsr_envelope = Envelope('AHDSR', [attack, hold, decay_adsr, sustain, release])
+    ahdsr_envelope = Envelope('AHDSR', [attack, hold, decay_adsr, sustain, release], key_off=0.95)
     plot_envelope(ahdsr_envelope)
 
     decay1 = Segment('Decay1', 0.2, 1, 0.65)
     decay2 = Segment('Decay2', 0.4, 0.65, 0.5)
     release_adbdr = Segment('Release', 0.2, 0.5, 0)
-    adbdr_envelope = Envelope('ADBDR', [attack, decay1, decay2, release_adbdr], key_on=0, key_off=0.8)
+    adbdr_envelope = Envelope('ADBDR', [attack, decay1, decay2, release_adbdr], key_off=0.8)
     plot_envelope(adbdr_envelope)
     
 

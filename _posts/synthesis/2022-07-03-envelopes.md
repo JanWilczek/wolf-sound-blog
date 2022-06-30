@@ -57,3 +57,6 @@ discussion_id: 2022-07-03-envelopes
   * Arbitrary
 * Linear vs exponential change
 * How to code envelopes
+
+[Pluta2019]
+[Russ]
