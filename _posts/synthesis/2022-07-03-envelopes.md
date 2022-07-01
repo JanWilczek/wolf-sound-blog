@@ -1,5 +1,5 @@
 ---
-title: "Envelopes in Sound Synthesis"
+title: "Envelopes in Sound Synthesis: The Ultimate Guide"
 description: "TODO"
 date: 2022-07-03
 author: Jan Wilczek
@@ -16,9 +16,87 @@ tags:
   - sampling (sound generation)
 discussion_id: 2022-07-03-envelopes
 ---
+Everything you need for coding your own synthesizer.
 
 {% capture _ %}{% increment figureId20220703  %}{% endcapture %}
 
+If you have ever used a synthesizer, you definitely stumbled upon an **envelope**.
+
+Sometimes it is referred to as **contour** or simply **ADSR** (the most popular type of envelope).
+
+These synthesizer elements help the musicians and sound designers to effortlessly make the sound more lively, more interesting. They achieve it via automatic control of:
+
+* sound's amplitude (volume),
+* cutoff frequency of a low-pass filter,
+* oscillator frequency.
+
+In this article, you will learn what is an envelope, all the types of envelopes, and what to consider when implementing them.
+
+## What Is An Envelope?
+
+From the digital signal processing (DSP) perspective, **an envelope is a curve that outlines the extremes of a signal** [Pluta2019].
+
+As such, it relates to the _analysis_ of the signal: we have a waveform, we connect its peaks and obtain an envelope.
+
+<!-- TODO: Plot envelope of a sine -->
+
+From the sound synthesis perspective, **an envelope is a curve that controls a certain parameter of the generated signal.**
+
+As such, it relates to the _synthesis_ of the signal: we want to generate a certain waveform and, thus, we apply an envelope to it; an envelope is a control data source [Pluta2019]
+
+According to the [Merriam-Webster dictionary](https://www.merriam-webster.com/dictionary/envelop), _to envelop_ means "to enclose or enfold completely with or as if with a covering." So an envelope is a curve that is _enclosing_ the signal.
+
+In this article, we consider the sound synthesis perspective of the envelope: we use it to control some parameter of the generated sound.
+
+## What Can an Envelope Control?
+
+In principle, an envelope can control just about anything.
+
+In sound synthesis, it is typically used to control the amplitude, cutoff frequency of a low-pass filter, or the frequency of the generated signal itself.
+
+### Amplitude Envelope
+
+An **amplitude envelope** is the most commonly found envelope application. Why?
+
+Because they are everywhere!
+
+A fade-in and a fade-out of a song (also after pausing or playing your YouTube video) are forms of an envelope. But the origins of the amplitude envelope are far more ancient.
+
+Originally, amplitude envelopes appeared with the invention of the first musical instruments. Every one of them has a characteristic amplitude envelope.
+
+Plucking a string has a sharp attack and an automatic release.
+
+Hitting a key on the piano starts with an increasing volume, which then decays to a certain level, which is slowly fading until the key is released and then the sound fades out.
+
+On a more fine-grained level, each of the partials in the amplitude spectrum of an instrument sound can have its own amplitude envelope.
+
+Synthesizers tried to mimic the behavior of natural instruments and so they introduced amplitude envelopes, somewhat simplified with respect to the naturally occurring ones.
+
+<!-- TODO: Sound example -->
+
+But this single change sufficed to make the synthesizers sound more natural. But to make it even more natural, another envelope was needed...
+
+### Cutoff Envelope
+
+The **cutoff envelope** controls the cutoff of a low-pass filter.
+
+When we hit a piano key, its timbre is bright at first (high energy in the high-frequency partials in the amplitude spectrum) and then softens (low energy in the high-frequency partials).
+
+Synthesizers imitate this by an envelope of the cutoff of a low-pass filter.
+
+When we hit a synthesizer key, the cutoff frequency rises, the sound becomes brighter and brighter. After some time (or after releasing the key), the sound becomes darker as the cutoff lowers and high-frequency components are more attenuated.
+
+<!-- TODO: Sound example -->
+
+I specifically mention cutoff envelope not cutoff frequency envelope. That is because we typically want the cutoff frequency to increase with the pitch of the key that we hit. Otherwise, high notes could not be audible.
+
+The cutoff envelope controls what percentage of the cutoff frequency should be set. Typically, the value of 1 (100%) means that the cutoff frequency corresponds to the value set by the user.
+
+Sometimes the synthesizers allow the user to control the **contour amount**, i.e., the range of cutoff change. For example, we may want to have the cutoff change only between 80% and 100% because starting the envelope always from 0% tends to sound too repetitive.
+
+### Frequency Envelope
+
+* EGs
 * Why envelopes?
   * make the sound more lively
   * make the sound more instrument-like; envelopes imitate real instruments' envelopes
@@ -27,16 +105,6 @@ discussion_id: 2022-07-03-envelopes
     * envelopes of partials in additive synthesis
     * envelope of the amplitude and the cutoff frequency in subtractive synthesis
     * extreme case: frequency envelope of an oscillator
-* What is an envelope?
-  * English: to envelope something
-  * DSP perspective
-    * An envelope is a curve that outlines the extremes of a signal [Pluta2019]. (analysis)
-  * sound synthesis perspective
-    * A control data source: a curve that controls something (synthesis)
-* What is controlled?
-  * amplitude
-  * cutoff
-* EGs
 * Envelope segments (ramps)
   * Delay
   * Attack
@@ -44,7 +112,12 @@ discussion_id: 2022-07-03-envelopes
   * Decay
   * Sustain
   * Release
-* Types of an envelope with sound examples
+
+## The Catalog of Envelopes
+
+Below, I listed all types of envelopes that exist based on [Pluta2019, Russ].
+
+Their visualizations were created by me but I was heavily inspired by those great books so they should take all the credit.
 
 ### AD
 
