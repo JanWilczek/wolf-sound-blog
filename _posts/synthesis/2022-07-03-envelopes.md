@@ -106,6 +106,13 @@ As this is very specialized and does not concern traditional sound synthesizers 
 
 In analog sound synthesis, **an envelope generator (EG) is a source of the control signal (the envelope).**
 
+Therefore, on module connection diagrams, you can often see EG blocks connected to VCA blocks (voltage-controlled amplifiers), or VCF blocks (voltage-controlled filters), or (in rare cases) to VCO blocks (voltage-controlled oscillators).
+
+<!-- TODO: Sample diagram -->
+
+The connection between any module and an EG means that this EG is controlling a parameter of that module. For VCAs, that's amplitude, for VCFs, it's cutoff, and for VCOs, it's frequency.
+
+Nowadays, EG blocks are also used to depict the interconnections of digital modules but their meaning is the same: they are sources of a control signal, an envelope.
 
 ## Applications of Envelopes
 
