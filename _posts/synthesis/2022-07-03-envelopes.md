@@ -96,8 +96,19 @@ Sometimes the synthesizers allow the user to control the **contour amount**, i.e
 
 ### Frequency Envelope
 
-* EGs
-* Why envelopes?
+In some sound design scenarios, I can imagine envelopes controlling the frequency of an oscillator.
+
+In these cases, the sound's pitch would change over time according to the envelope.
+
+As this is very specialized and does not concern traditional sound synthesizers (with a MIDI-based control), I won't discuss it here in detail.
+
+## What Are Envelope Generators (EGs)?
+
+In analog sound synthesis, **an envelope generator (EG) is a source of the control signal (the envelope).**
+
+
+## Applications of Envelopes
+
   * make the sound more lively
   * make the sound more instrument-like; envelopes imitate real instruments' envelopes
   * fade-in and fade-out are also envelopes
@@ -105,6 +116,10 @@ Sometimes the synthesizers allow the user to control the **contour amount**, i.e
     * envelopes of partials in additive synthesis
     * envelope of the amplitude and the cutoff frequency in subtractive synthesis
     * extreme case: frequency envelope of an oscillator
+
+
+## Types of Envelope Segments
+
 * Envelope segments (ramps)
   * Delay
   * Attack
@@ -112,6 +127,9 @@ Sometimes the synthesizers allow the user to control the **contour amount**, i.e
   * Decay
   * Sustain
   * Release
+
+## Linear or Exponential?
+
 
 ## The Catalog of Envelopes
 
@@ -164,8 +182,7 @@ _Figure {% increment figureId20220703  %}. ._
 
 ### Arbitrary
 
-* Linear vs exponential change
-* How to code envelopes
+## How to code envelopes
 
 [Pluta2019]
 [Russ]
