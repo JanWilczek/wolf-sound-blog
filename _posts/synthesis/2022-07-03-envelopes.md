@@ -173,6 +173,10 @@ For me, the exponential envelope.
 
 In the linear envelope case, I can hear the sound instantaneously and then it becomes kind of louder whereas in the exponential case, I can hear a steady increase in volume.
 
+This applies to amplitude envelopes, what about cutoff or frequency envelopes?
+
+As our perception of frequency is logarithmic as well, these envelopes should also use exponential segments to make the impression of a linear change.
+
 After learning the building blocks of envelopes, now it is time to see what types of envelope are out there.
 
 ## The Catalog of Envelopes
@@ -247,7 +251,16 @@ An example of a commercial synthesizer that allows for an arbitrary envelope is 
 ![]({{ page.images | absolute_url | append: "massive_ui.webp" }}){: alt="The user interface of Massive synthesizer from Native Instruments" }
 _Figure {% increment figureId20220703  %}. The user interface of Massive synthesizer from Native Instruments ([source](https://www.native-instruments.com/en/products/komplete/synths/massive/))._
 
-## How to code envelopes
+## Summary
+
+In this article, you learned what is an envelope, what it can control, what are the possible envelope segments, and what is the difference between a linear and an exponential change in an envelope. Finally, you learned every possible type of envelope that exists. With this knowledge you are ready to use and code your own envelopes.
+
+Envelopes is just one subject that you must learn if you want to develop audio plugins. To see which other subjects you should learn, [download my free audio plugin developer checklist]({% link single-pages/checklist.html %}).
+
+## Bibliography
+
+These two books are great resources on envelopes:
 
 [Pluta2019]
+
 [Russ]
