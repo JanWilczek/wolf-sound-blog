@@ -28,7 +28,9 @@ def main():
 
     fig, ax = plt.subplots(1, 2, sharey=True, figsize=(8,4))
     ax[0].plot(linear_envelope, color, linewidth=3)
+    ax[0].set_title('Linear')
     ax[1].plot(exponential_envelope, color, linewidth=3)
+    ax[1].set_title('Exponential')
     for a in ax:
         a.set_xticks([0, linear_envelope.shape[0] - 1], ['start', 'end'])
         a.spines['top'].set_visible(False)

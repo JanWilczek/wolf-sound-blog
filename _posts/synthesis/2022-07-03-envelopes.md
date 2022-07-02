@@ -150,8 +150,30 @@ The following is a comprehensive (to my best knowledge) list of envelope segment
 
 A very important consideration when implementing any envelope is how its value should change.
 
-For example, should the amplitude increase linearly or exponentially (linearly on the logarithmic scale)?
+To be exact, should the amplitude increase linearly or exponentially (linearly on the logarithmic scale)? Below is a comparison of these two approaches:
 
+![]({{ page.images | absolute_url | append: "linear_vs_exponential.webp" }}){: alt="" }
+_Figure {% increment figureId20220703  %}. ._
+
+The caveat here is that we perceive the exponential change as a linear one. To hear this, listen to these two examples.
+
+Each one plays a sine at 220 Hz.
+
+This one has the linear attack envelope (left in Figure ???).
+
+{% include embed-audio.html src="assets/wav/posts/synthesis/2022-07-03-envelopes/linear.flac" %}
+
+This one has the exponential attack envelope (right in Figure ???).
+
+{% include embed-audio.html src="assets/wav/posts/synthesis/2022-07-03-envelopes/exponential.flac" %}
+
+Which change sounds more "linearly" to you?
+
+For me, the exponential envelope.
+
+In the linear envelope case, I can hear the sound instantaneously and then it becomes kind of louder whereas in the exponential case, I can hear a steady increase in volume.
+
+After learning the building blocks of envelopes, now it is time to see what types of envelope are out there.
 
 ## The Catalog of Envelopes
 
