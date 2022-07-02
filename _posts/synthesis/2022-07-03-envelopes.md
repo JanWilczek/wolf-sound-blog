@@ -181,7 +181,7 @@ After learning the building blocks of envelopes, now it is time to see what type
 
 ## The Catalog of Envelopes
 
-Below, I listed all types of envelopes that exist based on [Pluta2019, Russ].
+Below, I listed all types of envelopes that exist based on [Pluta2019, Russ09].
 
 Their visualizations were created by me but I was heavily inspired by those great books so they should take all the credit.
 
@@ -261,6 +261,6 @@ Envelopes is just one subject that you must learn if you want to develop audio p
 
 These two books are great resources on envelopes:
 
-[Pluta2019]
+[Pluta2019] Marek Pluta, *Sound Synthesis for Music Reproduction and Performance*, monograph, AGH University of Science and Technology Press 2019.
 
-[Russ]
+[Russ09] [Martin Russ, *Sound Synthesis and Sampling*, 3rd Edition, Focal Press, 2009.](https://amzn.to/3ODr0T9)
