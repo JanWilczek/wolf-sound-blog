@@ -116,26 +116,41 @@ Nowadays, EG blocks are also used to depict the interconnections of digital modu
 
 ## Applications of Envelopes
 
-  * make the sound more lively
-  * make the sound more instrument-like; envelopes imitate real instruments' envelopes
-  * fade-in and fade-out are also envelopes
-  * applications:
-    * envelopes of partials in additive synthesis
-    * envelope of the amplitude and the cutoff frequency in subtractive synthesis
-    * extreme case: frequency envelope of an oscillator
+Amplitude and cutoff envelopes are used for various purposes. For example, to
 
+* make the sound more lively,
+* make the sound more natural by imitating real instruments' envelopes,
+* make the sound less natural with obscure envelopes,
+* avoid clicks and other artifacts (e.g., with fade-in and fade-out).
+  
+Some more specialized applications of envelopes in sound synthesis include
+
+* amplitude envelopes of partials in additive synthesis,
+* envelope of the amplitude and the cutoff frequency in subtractive synthesis,
+* frequency envelope of an oscillator for sound design purposes.
 
 ## Types of Envelope Segments
 
-* Envelope segments (ramps)
-  * Delay
-  * Attack
-  * Hold
-  * Decay
-  * Sustain
-  * Release
+Envelopes consist of segments (ramps). For example, the most popular Attack-Decay-Sustain-Release (ADSR) envelope consists of 4 segments: Attack, Decay, Sustain, and Release.
+
+<!-- TODO: ADSR image -->
+
+The segments are crude approximations to the natural envelopes but they represent a good trade-off between the quality of the result and the complexity of control.
+
+The following is a comprehensive (to my best knowledge) list of envelope segment types:
+
+* Delay: the amount of time between the _note-on_ event and the start of the attack segment. Delaying the appearance of sound after a key-press is especially important in ambient music, where the musician can use this time to adjust the timbre parameters. We can control the length of this delay.
+* Attack: the initial portion of every envelope after a _note-on_ event. In this segment the value is rising from 0 (minimum envelope value) to 1 (maximum envelope value). When we "control the attack" we change the duration of this segment.
+* Hold: a segment where the envelope value is 1; by controlling its length, we adjust how long will the controlled parameter be at its peak value.
+* Decay: the segment where the envelope falls from the peak value to the initial sustain value. The value change is faster (more dynamic) than in the sustain (or "decay 2") phase. We can control its length.
+* Sustain: the segment where the envelope maintains a constant level until a _note-off_ event. We set the value of this level but its length is controlled by the performer.
+* Release: the final segment of any envelope, where the value falls from its current value to 0.
 
 ## Linear or Exponential?
+
+A very important consideration when implementing any envelope is how its value should change.
+
+For example, should the amplitude increase linearly or exponentially (linearly on the logarithmic scale)?
 
 
 ## The Catalog of Envelopes
