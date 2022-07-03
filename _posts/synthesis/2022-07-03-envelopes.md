@@ -96,9 +96,11 @@ On a more fine-grained level, each of the partials in the amplitude spectrum of 
 
 Synthesizers tried to mimic the behavior of natural instruments and so they introduced amplitude envelopes, somewhat simplified with respect to the naturally occurring ones.
 
-<!-- TODO: Sound example -->
+Here's an example of a 220 Hz sine tone with the ADSR envelope from Figure 1 applied as an amplitude envelope.
 
-But this single change sufficed to make the synthesizers sound more natural. But to make it even more natural, another envelope was needed...
+{% include embed-audio.html src="/assets/wav/posts/synthesis/2022-07-03-envelopes/sine_adsr.flac" %}
+
+This single change, the introduction of amplitude envelopes, sufficed to make the synthesizers sound more natural. But to make them sound even more natural, another envelope was needed...
 
 ### Cutoff Envelope
 
@@ -110,7 +112,11 @@ Synthesizers imitate this by an envelope of the cutoff of a low-pass filter.
 
 When we hit a synthesizer key, the cutoff frequency rises, the sound becomes brighter and brighter. After some time (or after releasing the key), the sound becomes darker as the cutoff lowers and high-frequency components are more attenuated.
 
-<!-- TODO: Sound example -->
+Here's an example of the ADSR envelope controlling the cutoff of a lowpass filter processing a sawtooth:
+
+{% include embed-audio.html src="/assets/wav/posts/synthesis/2022-07-03-envelopes/cutoff_adsr.flac" %}
+
+As you can hear, the cutoff envelope influences the amplitude envelope because by decreasing the energy of partials, it decreases the overall signal energy.
 
 I specifically mention cutoff envelope not cutoff frequency envelope. That is because we typically want the cutoff frequency to increase with the pitch of the key that we hit. Otherwise, high notes could not be audible.
 
@@ -130,9 +136,7 @@ As this is very specialized and does not concern traditional sound synthesizers 
 
 In analog sound synthesis, **an envelope generator (EG) is a source of the control signal (the envelope).**
 
-Therefore, on module connection diagrams, you can often see EG blocks connected to VCA blocks (voltage-controlled amplifiers), or VCF blocks (voltage-controlled filters), or (in rare cases) to VCO blocks (voltage-controlled oscillators).
-
-<!-- TODO: Sample diagram -->
+Therefore, on module connection diagrams, you can often see EG blocks connected to VCA blocks (voltage-controlled amplifiers), VCF blocks (voltage-controlled filters), or (in rare cases) to VCO blocks (voltage-controlled oscillators).
 
 The connection between any module and an EG means that this EG is controlling a parameter of that module. For VCAs, that's amplitude, for VCFs, it's cutoff, and for VCOs, it's frequency.
 
@@ -157,7 +161,8 @@ Some more specialized applications of envelopes in sound synthesis include
 
 Envelopes consist of segments (ramps). For example, the most popular Attack-Decay-Sustain-Release (ADSR) envelope consists of 4 segments: Attack, Decay, Sustain, and Release.
 
-<!-- TODO: ADSR image -->
+![]({{ page.images | absolute_url | append: "ADSR.webp" }}){: alt="Attack-Decay-Sustain-Release (ADSR) envelope" }
+_Figure {% increment figureId20220703  %}. Attack-Decay-Sustain-Release (ADSR) envelope._
 
 The segments are crude approximations to the natural envelopes but they represent a good trade-off between the quality of the result and the complexity of control.
 
