@@ -206,7 +206,7 @@ This applies to amplitude envelopes, what about cutoff or frequency envelopes?
 
 As our perception of frequency is logarithmic as well, these envelopes should also use exponential segments to make the impression of a linear change.
 
-**Warning:** Although most depictions of envelope show linear segments not exponential segment, in fact, an exponential change is meant. So it is in every depiction of an envelope in this article.
+**Warning:** Although most depictions of envelopes show linear segments not exponential segments, in fact, an exponential change is meant. I follow this simplification in every depiction of an envelope in this article apart from Figure 1.
 
 After learning the building blocks of envelopes, now it is time to see what types of envelope are out there.
 
@@ -218,14 +218,14 @@ Their visualizations were created by me but I was heavily inspired by those grea
 
 ### AD
 
-The Attack-Decay (AD) envelope consists of just two segments. It is a kind of "one shot" envelope that you cannot sustain. When you release a key during the attack, the envelope should transition to the decay slope with the current amplitude value.
+The Attack-Decay (AD) envelope consists of just two segments. It is a kind of "one shot" envelope that you cannot sustain. When you release a key during the attack, the envelope transitions to the decay slope with the current amplitude value.
 
 ![]({{ page.images | absolute_url | append: "AD.webp" }}){: alt="Attack-Decay (AD) envelope" }
 _Figure {% increment figureId20220703  %}. Attack-Decay (AD) envelope._
 
 ### AR
 
-The Attack-Release (AR) envelope has 3 segments: Attack, Sustain and Release. Sustain's value is fixed to the maximum (1).
+The Attack-Release (AR) envelope has 3 segments: attack, sustain and release. Sustain's value is fixed to the maximum.
 
 ![]({{ page.images | absolute_url | append: "AR.webp" }}){: alt="Attack-Release (AR) envelope" }
 _Figure {% increment figureId20220703  %}. Attack-Release (AR) envelope._
@@ -233,14 +233,14 @@ _Figure {% increment figureId20220703  %}. Attack-Release (AR) envelope._
 
 ### ADR
 
-The Attack-Decay-Release (ADR) envelope has 3 segments. When the key is release, the envelope transitions to the release segment with the value it currently hold. It may happen that the envelope reaches 0 already in the Decay segment. In such case, the release segment is omitted.
+The Attack-Decay-Release (ADR) envelope has 3 segments. When the key is released, the envelope transitions to the release segment with the value it currently holds. It may happen that the envelope reaches 0 already in the decay segment. In such case, the release segment is omitted.
 
 ![]({{ page.images | absolute_url | append: "ADR.webp" }}){: alt="Attack-Decay-Release envelope" }
 _Figure {% increment figureId20220703  %}. Attack-Decay-Release envelope._
 
 ### ADS
 
-The Attack-Decay-Sustain (ADS) envelope has 4 segments, where that last is either a short, non-parameterized release segment (Figure ???) or a repeated Decay segment (Figure ???).
+The Attack-Decay-Sustain (ADS) envelope has 4 segments, where that last is either a short, non-parameterized release segment (Figure 7) or a repeated decay segment (Figure 8).
 
 ![]({{ page.images | absolute_url | append: "ADS.webp" }}){: alt="Attack-Decay-Sustain (ADS) envelope with a short release segment" }
 _Figure {% increment figureId20220703  %}. Attack-Decay-Sustain (ADS) envelope with a short release segment._
@@ -255,32 +255,28 @@ The Attack-Decay-Sustain-Release (ADSR) envelope is in my experience the most po
 ![]({{ page.images | absolute_url | append: "ADSR.webp" }}){: alt="Attack-Decay-Sustain-Release (ADSR) envelope" }
 _Figure {% increment figureId20220703  %}. Attack-Decay-Sustain-Release (ADSR) envelope._
 
-* Sound example
-
 ### AHDSR
 
-The Attack-Hold-Decay-Sustain-Release (AHDSR) envelope has an additional hold segment between the attack and the decay.
+The Attack-Hold-Decay-Sustain-Release (AHDSR) envelope in comparison to ADSR has an additional hold segment between the attack and the decay, whose duration is an adjustable parameter.
 
 ![]({{ page.images | absolute_url | append: "AHDSR.webp" }}){: alt="Attack-Hold-Decay-Sustain-Release (AHDSR) envelope" }
 _Figure {% increment figureId20220703  %}. Attack-Hold-Decay-Sustain-Release (AHDSR) envelope._
 
 ### ADBDR
 
-The Attack-Decay1-Break-Decay2-Release (ADBDR) envelope is my personal favorite because it approximates the envelope of the piano; while the key is being held, the sound slowly decays. This is opposite of the sustain segment in ADSR, which to my taste sounds a little bit artificial. The "break" element allows to set the value at which decay 2 transitions to decay 2.
+The Attack-Decay1-Break-Decay2-Release (ADBDR) envelope is my personal favorite because it approximates the amplitude envelope of the piano; while the key is being held, the sound slowly decays. This is opposite of the sustain segment in ADSR, which to my taste sounds a little bit artificial. The "break" element allows to set the value at which decay 1 transitions to decay 2.
 
-![]({{ page.images | absolute_url | append: "ADBDR.webp" }}){: alt="" }
-_Figure {% increment figureId20220703  %}. ._
-
-* Sound example
+![]({{ page.images | absolute_url | append: "ADBDR.webp" }}){: alt="Attack-Decay1-Break-Decay2-Release (ADBDR) envelope" }
+_Figure {% increment figureId20220703  %}. Attack-Decay1-Break-Decay2-Release (ADBDR) envelope._
 
 ### Arbitrary
 
-Current synthesizers are capable of having an arbitrary envelope: one consisting of many segments where the envelope value is rising, falling, or being constant. Although these give you the complete control over the sound, they are hard to change during performance and tend to sound repetitive. Therefore, I would restrict their usage to ambient/sound design applications.
+Current synthesizers are capable of having an arbitrary envelope: one consisting of many segments where the envelope value is rising, falling, or constant. Although these give you the complete control over the sound, they are hard to change during performance and tend to sound repetitive. Therefore, I would restrict their usage to ambient/sound design applications.
 
-An example of a commercial synthesizer that allows for an arbitrary envelope is Massive from Native Instruments (Figure ???).
+An example of a commercial synthesizer that allows an arbitrary envelope is Massive from Native Instruments (Figure 12).
 
 ![]({{ page.images | absolute_url | append: "massive_ui.webp" }}){: alt="The user interface of Massive synthesizer from Native Instruments" }
-_Figure {% increment figureId20220703  %}. The user interface of Massive synthesizer from Native Instruments ([source](https://www.native-instruments.com/en/products/komplete/synths/massive/))._
+_Figure {% increment figureId20220703  %}. The user interface of the Massive synthesizer from Native Instruments ([source](https://www.native-instruments.com/en/products/komplete/synths/massive/))._
 
 ## Summary
 
@@ -295,3 +291,5 @@ These two books are great resources on envelopes:
 [Pluta2019] Marek Pluta, *Sound Synthesis for Music Reproduction and Performance*, monograph, AGH University of Science and Technology Press 2019.
 
 [Russ09] [Martin Russ, *Sound Synthesis and Sampling*, 3rd Edition, Focal Press, 2009.](https://amzn.to/3ODr0T9)
+
+{% include affiliate-disclaimer.html %}
