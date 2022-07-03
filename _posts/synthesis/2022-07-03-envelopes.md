@@ -5,7 +5,7 @@ date: 2022-07-03
 author: Jan Wilczek
 layout: post
 images: /assets/img/posts/synthesis/2022-07-03-envelopes/
-# background: /assets/img/posts/synthesis/2022-07-03-envelopes/Thumbnail.webp
+background: /assets/img/posts/synthesis/2022-07-03-envelopes/sine_adsr.webp
 audio_examples: /assets/wav/posts/synthesis/2022-07-03-envelopes/
 categories:
   - Sound Synthesis
@@ -16,13 +16,13 @@ tags:
   - sampling (sound generation)
 discussion_id: 2022-07-03-envelopes
 ---
-Everything you need for coding your own synthesizer.
+Everything needed on envelopes for coding your own synthesizer.
 
 {% capture _ %}{% increment figureId20220703  %}{% endcapture %}
 
 If you have ever used a synthesizer, you definitely stumbled upon an **envelope**.
 
-Sometimes it is referred to as **contour** or simply **ADSR** (the most popular type of envelope).
+Sometimes it is referred to as **contour** or simply **ADSR** (the most popular type of the envelope).
 
 These synthesizer elements help the musicians and sound designers to effortlessly make the sound more lively, more interesting. They achieve it via automatic control of:
 
@@ -32,13 +32,37 @@ These synthesizer elements help the musicians and sound designers to effortlessl
 
 In this article, you will learn what is an envelope, all the types of envelopes, and what to consider when implementing them.
 
+### Table of Contents
+
+1. [What Is An Envelope?](#what-is-an-envelope)
+2. [What Can an Envelope Control?](#what-can-an-envelope-control)
+   1. [Amplitude Envelope](#amplitude-envelope)
+   2. [Cutoff Envelope](#cutoff-envelope)
+   3. [Frequency Envelope](#frequency-envelope)
+3. [What Are Envelope Generators (EGs)?](#what-are-envelope-generators-egs)
+4. [Applications of Envelopes](#applications-of-envelopes)
+5. [Types of Envelope Segments](#types-of-envelope-segments)
+6. [Linear or Exponential?](#linear-or-exponential)
+7. [The Catalog of Envelopes](#the-catalog-of-envelopes)
+   1. [AD](#ad)
+   2. [AR](#ar)
+   3. [ADR](#adr)
+   4. [ADS](#ads)
+   5. [ADSR](#adsr)
+   6. [AHDSR](#ahdsr)
+   7. [ADBDR](#adbdr)
+   8. [Arbitrary](#arbitrary)
+8. [Summary](#summary)
+9. [Bibliography](#bibliography)
+
 ## What Is An Envelope?
 
 From the digital signal processing (DSP) perspective, **an envelope is a curve that outlines the extremes of a signal** [Pluta2019].
 
 As such, it relates to the _analysis_ of the signal: we have a waveform, we connect its peaks and obtain an envelope.
 
-<!-- TODO: Plot envelope of a sine -->
+![]({{ page.images | absolute_url | append: "sine_adsr.webp" }}){: alt="" }
+_Figure {% increment figureId20220703  %}. ._
 
 From the sound synthesis perspective, **an envelope is a curve that controls a certain parameter of the generated signal.**
 
@@ -139,12 +163,12 @@ The segments are crude approximations to the natural envelopes but they represen
 
 The following is a comprehensive (to my best knowledge) list of envelope segment types:
 
-* Delay: the amount of time between the _note-on_ event and the start of the attack segment. Delaying the appearance of sound after a key-press is especially important in ambient music, where the musician can use this time to adjust the timbre parameters. We can control the length of this delay.
-* Attack: the initial portion of every envelope after a _note-on_ event. In this segment the value is rising from 0 (minimum envelope value) to 1 (maximum envelope value). When we "control the attack" we change the duration of this segment.
-* Hold: a segment where the envelope value is 1; by controlling its length, we adjust how long will the controlled parameter be at its peak value.
-* Decay: the segment where the envelope falls from the peak value to the initial sustain value. The value change is faster (more dynamic) than in the sustain (or "decay 2") phase. We can control its length.
-* Sustain: the segment where the envelope maintains a constant level until a _note-off_ event. We set the value of this level but its length is controlled by the performer.
-* Release: the final segment of any envelope, where the value falls from its current value to 0.
+* **Delay:** the amount of time between the _note-on_ event and the start of the attack segment. Delaying the appearance of sound after a key-press is especially important in ambient music, where the musician can use this time to adjust the timbre parameters. We can control the length of this delay.
+* **Attack:** the initial portion of every envelope after a _note-on_ event. In this segment the value is rising from 0 (minimum envelope value) to 1 (maximum envelope value). When we "control the attack" we change the duration of this segment.
+* **Hold:** a segment where the envelope value is 1; by controlling its length, we adjust how long will the controlled parameter be at its peak value.
+* **Decay:** the segment where the envelope falls from the peak value to the initial sustain value. The value change is faster (more dynamic) than in the sustain (or "decay 2") phase. We can control its length.
+* **Sustain:** the segment where the envelope maintains a constant level until a _note-off_ event. We set the value of this level but its length is controlled by the performer.
+* **Release:** the final segment of any envelope, where the value falls from its current value to 0.
 
 ## Linear or Exponential?
 
@@ -161,11 +185,11 @@ Each one plays a sine at 220 Hz.
 
 This one has the linear attack envelope (left in Figure ???).
 
-{% include embed-audio.html src="assets/wav/posts/synthesis/2022-07-03-envelopes/linear.flac" %}
+{% include embed-audio.html src="/assets/wav/posts/synthesis/2022-07-03-envelopes/linear.flac" %}
 
 This one has the exponential attack envelope (right in Figure ???).
 
-{% include embed-audio.html src="assets/wav/posts/synthesis/2022-07-03-envelopes/exponential.flac" %}
+{% include embed-audio.html src="/assets/wav/posts/synthesis/2022-07-03-envelopes/exponential.flac" %}
 
 Which change sounds more "linearly" to you?
 
@@ -176,6 +200,8 @@ In the linear envelope case, I can hear the sound instantaneously and then it be
 This applies to amplitude envelopes, what about cutoff or frequency envelopes?
 
 As our perception of frequency is logarithmic as well, these envelopes should also use exponential segments to make the impression of a linear change.
+
+**Warning:** Although most depictions of envelope show linear segments not exponential segment, in fact, an exponential change is meant. So it is in every depiction of an envelope in this article.
 
 After learning the building blocks of envelopes, now it is time to see what types of envelope are out there.
 

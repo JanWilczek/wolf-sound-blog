@@ -29,6 +29,7 @@ def main():
     fig, ax = plt.subplots(1, 2, sharey=True, figsize=(8,4))
     ax[0].plot(linear_envelope, color, linewidth=3)
     ax[0].set_title('Linear')
+    ax[0].set_ylabel('value')
     ax[1].plot(exponential_envelope, color, linewidth=3)
     ax[1].set_title('Exponential')
     for a in ax:
@@ -36,6 +37,7 @@ def main():
         a.spines['top'].set_visible(False)
         a.spines['right'].set_visible(False)
         a.set_yticks([0, 0.5, 1])
+        a.set_xlabel('time')
     output_path = images_path / 'linear_vs_exponential.png'
     plt.savefig(output_path, dpi=300, bbox_inches='tight')
     subprocess.run(['cwebp', '-q', '65', '-resize', '800', '0', output_path, '-o', output_path.with_suffix('.webp')])

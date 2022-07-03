@@ -46,7 +46,7 @@ def plot_envelope(envelope):
         plt.text(x + segment.length / 2, 1.05, segment.name, horizontalalignment='center')
         x = next_x
     plt.ylim(ylim)
-    plt.ylabel('amplitude')
+    plt.ylabel('value')
     plt.xlabel('time')
     plt.xticks([])
     plt.yticks([])

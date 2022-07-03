@@ -58,7 +58,10 @@ def main():
     a = plt.gca()
     a.spines['top'].set_visible(False)
     a.spines['right'].set_visible(False)
-    a.set_yticks([0, 0.5, 1])
+    a.set_yticks([-1, -0.5, 0, 0.5, 1])
+    plt.xticks([])
+    plt.ylabel('amplitude')
+    plt.xlabel('time')
     output_path = images_path / 'sine_adsr.png'
     plt.savefig(output_path, dpi=300, bbox_inches='tight')
     subprocess.run(['cwebp', '-q', '65', '-resize', '800', '0', output_path, '-o', output_path.with_suffix('.webp')])
