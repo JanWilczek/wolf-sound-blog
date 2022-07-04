@@ -11,9 +11,9 @@ categories:
   - Sound Synthesis
 tags:
   - sound wave
-  - maths
   - waveform
   - sampling (sound generation)
+  - envelope
 discussion_id: 2022-07-03-envelopes
 ---
 Everything on envelopes for coding your own synthesizer.
