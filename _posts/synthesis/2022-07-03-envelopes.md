@@ -222,12 +222,18 @@ Below, I listed all types of envelopes that exist based on [Pluta2019, Russ09].
 
 Their visualizations were created by me but I was heavily inspired by those great books so they should take all the credit.
 
+Sound examples were created by generating 5 seconds of a sine at 220 Hz and applying the specified envelope as the amplitude envelope.
+
 ### AD
 
 The Attack-Decay (AD) envelope consists of just two segments. It is a kind of "one shot" envelope that you cannot sustain. When you release a key during the attack, the envelope transitions to the decay slope with the current amplitude value.
 
 ![]({{ page.images | absolute_url | append: "AD.webp" }}){: alt="Attack-Decay (AD) envelope" }
 _Figure {% increment figureId20220703  %}. Attack-Decay (AD) envelope._
+
+Sound example:
+
+{% include embed-audio.html src="/assets/wav/posts/synthesis/2022-07-03-envelopes/ad_example.flac" %}
 
 ### AR
 
@@ -236,6 +242,9 @@ The Attack-Release (AR) envelope has 3 segments: attack, sustain and release. Su
 ![]({{ page.images | absolute_url | append: "AR.webp" }}){: alt="Attack-Release (AR) envelope" }
 _Figure {% increment figureId20220703  %}. Attack-Release (AR) envelope._
 
+Sound example:
+
+{% include embed-audio.html src="/assets/wav/posts/synthesis/2022-07-03-envelopes/ar_example.flac" %}
 
 ### ADR
 
@@ -244,6 +253,10 @@ The Attack-Decay-Release (ADR) envelope has 3 segments. When the key is released
 ![]({{ page.images | absolute_url | append: "ADR.webp" }}){: alt="Attack-Decay-Release envelope" }
 _Figure {% increment figureId20220703  %}. Attack-Decay-Release envelope._
 
+Sound example:
+
+{% include embed-audio.html src="/assets/wav/posts/synthesis/2022-07-03-envelopes/adr_example.flac" %}
+
 ### ADS
 
 The Attack-Decay-Sustain (ADS) envelope has 4 segments, where that last is either a short, non-parameterized release segment (Figure 7) or a repeated decay segment (Figure 8).
@@ -251,8 +264,17 @@ The Attack-Decay-Sustain (ADS) envelope has 4 segments, where that last is eithe
 ![]({{ page.images | absolute_url | append: "ADS.webp" }}){: alt="Attack-Decay-Sustain (ADS) envelope with a short release segment" }
 _Figure {% increment figureId20220703  %}. Attack-Decay-Sustain (ADS) envelope with a short release segment._
 
+Sound example:
+
+{% include embed-audio.html src="/assets/wav/posts/synthesis/2022-07-03-envelopes/ads_example.flac" %}
+
 ![]({{ page.images | absolute_url | append: "ADSD.webp" }}){: alt="Attack-Decay-Sustain (ADS) envelope with a repeated decay segment" }
 _Figure {% increment figureId20220703  %}. Attack-Decay-Sustain (ADS) envelope with a repeated decay segment._
+
+
+Sound example:
+
+{% include embed-audio.html src="/assets/wav/posts/synthesis/2022-07-03-envelopes/adsd_example.flac" %}
 
 ### ADSR
 
@@ -261,6 +283,10 @@ The Attack-Decay-Sustain-Release (ADSR) envelope is in my experience the most po
 ![]({{ page.images | absolute_url | append: "ADSR.webp" }}){: alt="Attack-Decay-Sustain-Release (ADSR) envelope" }
 _Figure {% increment figureId20220703  %}. Attack-Decay-Sustain-Release (ADSR) envelope._
 
+Sound example:
+
+{% include embed-audio.html src="/assets/wav/posts/synthesis/2022-07-03-envelopes/adsr_example.flac" %}
+
 ### AHDSR
 
 The Attack-Hold-Decay-Sustain-Release (AHDSR) envelope in comparison to ADSR has an additional hold segment between the attack and the decay, whose duration is an adjustable parameter.
@@ -268,12 +294,20 @@ The Attack-Hold-Decay-Sustain-Release (AHDSR) envelope in comparison to ADSR has
 ![]({{ page.images | absolute_url | append: "AHDSR.webp" }}){: alt="Attack-Hold-Decay-Sustain-Release (AHDSR) envelope" }
 _Figure {% increment figureId20220703  %}. Attack-Hold-Decay-Sustain-Release (AHDSR) envelope._
 
+Sound example:
+
+{% include embed-audio.html src="/assets/wav/posts/synthesis/2022-07-03-envelopes/ahdsr_example.flac" %}
+
 ### ADBDR
 
 The Attack-Decay1-Break-Decay2-Release (ADBDR) envelope is my personal favorite because it approximates the amplitude envelope of the piano; while the key is being held, the sound slowly decays. This is opposite of the sustain segment in ADSR, which to my taste sounds a little bit artificial. The "break" element allows to set the value at which decay 1 transitions to decay 2.
 
 ![]({{ page.images | absolute_url | append: "ADBDR.webp" }}){: alt="Attack-Decay1-Break-Decay2-Release (ADBDR) envelope" }
 _Figure {% increment figureId20220703  %}. Attack-Decay1-Break-Decay2-Release (ADBDR) envelope._
+
+Sound example:
+
+{% include embed-audio.html src="/assets/wav/posts/synthesis/2022-07-03-envelopes/adbdr_example.flac" %}
 
 ### Arbitrary
 

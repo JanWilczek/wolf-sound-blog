@@ -2,10 +2,12 @@ import matplotlib.pyplot as plt
 import numpy as np
 from pathlib import Path
 from matplotlib import rc
+import soundfile as sf
 import subprocess
 
 
 images_path = Path('/home/jawi/Projects/WolfSound/Page/assets/img/posts/synthesis/2022-07-03-envelopes/')
+wav_path = Path('/home/jawi/Projects/WolfSound/Page/assets/wav/posts/synthesis/2022-07-03-envelopes/')
 rc('font',**{'family':'sans-serif','sans-serif':['Verdana']})
 plt.rcParams.update({'font.size': 20})
 color = '#Ef7600'
@@ -63,6 +65,35 @@ def plot_envelope(envelope):
     subprocess.run(['cwebp', '-q', '65', '-resize', '800', '0', output_path, '-o', output_path.with_suffix('.webp')])
 
 
+def envelope_sound_example(envelope):
+    fs = 22050
+    f = 220
+    length_seconds = 5
+    length_samples = length_seconds * fs
+    t = np.arange(0, length_samples) / fs
+    sine = np.sin(2 * np.pi * f * t)
+
+    total_length = np.sum([s.length for s in envelope.segments])
+    e = np.ones_like(sine)
+
+    n = 0
+    for i, segment in enumerate(envelope.segments):
+        segment_length_samples = int(segment.length * length_samples / total_length) if i < len(envelope.segments) - 1 else e.shape[0] - n
+        next_n = n + segment_length_samples
+        if segment.left_value == segment.right_value:
+            e[n:next_n] *= segment.left_value
+        else:
+            e[n:next_n] *= np.exp(np.linspace(np.log(np.maximum(segment.left_value, 0.0001)), np.log(np.maximum(segment.right_value, 0.0001)), segment_length_samples, endpoint=True))
+        n = next_n
+
+    sine_enveloped = sine * e
+
+    amplitude = 0.5
+    signal_to_store = amplitude * sine_enveloped
+
+    sf.write(wav_path / f'{envelope.name.lower()}_example.flac', signal_to_store, fs)
+
+
 def main():
     images_path.mkdir(exist_ok=True, parents=True)
     
@@ -73,39 +104,36 @@ def main():
     release = Segment('Release', 0.3, 0.6, 0)
     
     ad_envelope = Envelope('AD', [attack, decay])
-    plot_envelope(ad_envelope)
 
     ar_sustain = Segment('Sustain', 0.4, 1, 1)
     ar_release = Segment('Release', 0.2, 1, 0)
     ar_envelope = Envelope('AR', [attack, ar_sustain, ar_release], key_off=0.6)
-    plot_envelope(ar_envelope)
 
     adr_decay = Segment('Decay', 0.15, 1, 0.4)
     adr_release = Segment('Release', 0.3, 0.4, 0)
     adr_envelope = Envelope('ADR', [attack, adr_decay, adr_release], key_off=0.35)
-    plot_envelope(adr_envelope)
 
     ads_sustain = Segment('Sustain', 0.4, 0.4, 0.4)
     ads_release = Segment('', 0.02, 0.4, 0)
     ads_envelope = Envelope('ADS', [attack, adr_decay, ads_sustain, ads_release], key_off=0.75)
-    plot_envelope(ads_envelope)
 
     adsd_release = Segment('', 0.1, 0.4, 0)
     adsd_envelope = Envelope('ADSD', [attack, adr_decay, ads_sustain, adsd_release], key_off=0.75)
-    plot_envelope(adsd_envelope)
 
     adsr_envelope = Envelope('ADSR', [attack, decay_adsr, sustain, release], key_off=0.8)
-    plot_envelope(adsr_envelope)
 
     hold = Segment('Hold', 0.15, 1, 1)
     ahdsr_envelope = Envelope('AHDSR', [attack, hold, decay_adsr, sustain, release], key_off=0.95)
-    plot_envelope(ahdsr_envelope)
 
     decay1 = Segment('Decay1', 0.2, 1, 0.65)
     decay2 = Segment('Decay2', 0.4, 0.65, 0.5)
     release_adbdr = Segment('Release', 0.2, 0.5, 0)
     adbdr_envelope = Envelope('ADBDR', [attack, decay1, decay2, release_adbdr], key_off=0.8)
-    plot_envelope(adbdr_envelope)
+
+    for envelope in [ad_envelope, ar_envelope, adr_envelope, ads_envelope, adsd_envelope, adsr_envelope, ahdsr_envelope, adbdr_envelope]:
+        plot_envelope(envelope)
+        envelope_sound_example(envelope)
+        
     
 
 if __name__=='__main__':
