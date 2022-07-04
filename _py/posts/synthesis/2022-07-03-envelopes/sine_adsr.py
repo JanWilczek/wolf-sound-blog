@@ -55,6 +55,7 @@ def main():
     plt.figure(figsize=(8,4))
     plt.plot(sine_enveloped_plot, grey, linewidth=1)
     plt.plot(envelope, color, linewidth=3)
+    plt.plot(-envelope, color, linewidth=3)
     a = plt.gca()
     a.spines['top'].set_visible(False)
     a.spines['right'].set_visible(False)
