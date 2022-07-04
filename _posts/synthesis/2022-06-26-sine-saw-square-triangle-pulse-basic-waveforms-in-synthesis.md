@@ -5,7 +5,7 @@ date: 2022-06-26
 author: Jan Wilczek
 layout: post
 images: /assets/img/posts/synthesis/2022-06-26-sine-saw-square-triangle-basic-waveforms-in-synthesis
-# background: /assets/img/posts/synthesis/2022-06-26-sine-saw-square-triangle-basic-waveforms-in-synthesis/Thumbnail.webp
+background: /assets/img/posts/synthesis/2022-06-26-sine-saw-square-triangle-basic-waveforms-in-synthesis/sawtooth_signal.webp
 audio_examples: /assets/wav/posts/synthesis/2022-06-26-sine-saw-square-triangle-basic-waveforms-in-synthesis/
 categories:
   - Sound Synthesis
