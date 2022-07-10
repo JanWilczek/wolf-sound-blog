@@ -55,7 +55,6 @@ def main():
     plt.figure(figsize=(8,4))
     plt.plot(sine_enveloped_plot, grey, linewidth=1)
     plt.plot(envelope, color, linewidth=3)
-    plt.plot(-envelope, color, linewidth=3)
     a = plt.gca()
     a.spines['top'].set_visible(False)
     a.spines['right'].set_visible(False)
@@ -63,9 +62,14 @@ def main():
     plt.xticks([])
     plt.ylabel('amplitude')
     plt.xlabel('time')
+    output_path = images_path / 'sine_adsr_top.png'
+    plt.savefig(output_path, dpi=300, bbox_inches='tight')
+    subprocess.run(['cwebp', '-q', '65', '-resize', '800', '0', output_path, '-o', output_path.with_suffix('.webp')])
+    plt.plot(-envelope, color, linewidth=3)
     output_path = images_path / 'sine_adsr.png'
     plt.savefig(output_path, dpi=300, bbox_inches='tight')
     subprocess.run(['cwebp', '-q', '65', '-resize', '800', '0', output_path, '-o', output_path.with_suffix('.webp')])
+
     
     amplitude = 0.5
     signal_to_store = amplitude * sine_enveloped

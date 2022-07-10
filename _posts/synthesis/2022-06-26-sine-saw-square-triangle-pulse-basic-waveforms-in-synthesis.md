@@ -205,7 +205,7 @@ The pulse waveform with 20% duty cycle at 220 Hz sounds like this:
 
 The pulse wave could be generated in various ways. I used a Fourier series-based formula [Pluta2019]
 
-$$s(t) = (2D - 1) + \sum_{k=1}^{\infty} \frac{4}{k\pi} \sin (\pi k D) \cos (2 \pi k f_0 t - \pi k D), $$
+$$s(t) = (2D - 1) + \sum_{k=1}^{\infty} \frac{4}{k\pi} \sin (\pi k D) \cos (2 \pi k f_0 t - \pi k D), {% increment figureId20220626  %}$$
 
 where $D$ is the duty cycle, $k$ is the harmonic's index, $f_0$ is the fundamental frequency in Hz, and $t$ is time in seconds.
 

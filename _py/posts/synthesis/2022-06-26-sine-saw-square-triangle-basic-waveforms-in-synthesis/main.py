@@ -53,6 +53,8 @@ def plot_signal_impl(waveform):
     plt.yticks([-1, 0, 1])
     plt.xticks([])
     plt.xlim([0, samples_count])
+    plt.xlabel('time')
+    plt.ylabel('amplitude')
     ax = plt.gca()
     ax.spines['top'].set_visible(False)
     ax.spines['right'].set_visible(False)
@@ -98,6 +100,8 @@ def plot_spectrum_impl(waveform):
     plt.xticks(multiplicities_of_fundamental, harmonics_names)
     plt.xlim([0, spectrum.shape[0]])
     plt.hlines(0, 0, spectrum.shape[0], colors='k')
+    plt.xlabel('frequency')
+    plt.ylabel('magnitude')
     ax = plt.gca()
     ax.spines['top'].set_visible(False)
     ax.spines['right'].set_visible(False)
@@ -202,7 +206,8 @@ def generate_pulse_video():
     ax[0].spines['top'].set_visible(False)
     ax[0].spines['right'].set_visible(False)
     ax[0].spines['bottom'].set_visible(False)
-    ax[0].set_xlabel('Time')
+    ax[0].set_xlabel('time')
+    ax[0].set_ylabel('amplitude')
 
     markerline, stemlines, baseline = ax[1].stem(harmonics, spectrum[harmonics_indices], **stem_params)
     plt.setp(markerline, 'color', color)
@@ -215,8 +220,11 @@ def generate_pulse_video():
     ax[1].spines['top'].set_visible(False)
     ax[1].spines['right'].set_visible(False)
     ax[1].spines['bottom'].set_visible(False)
-    ax[1].set_xlabel('Frequency')
-    plt.savefig(images_path / 'pulse_video0.png')
+    ax[1].set_xlabel('frequency')
+    ax[1].set_ylabel('magnitude')
+    thumbnail_path = images_path / 'duty_cycle_visualization_placeholder.png'
+    plt.savefig(thumbnail_path, bbox_inches='tight', dpi=200)
+    subprocess.run(['cwebp', '-q', '65', '-resize', '800', '0', thumbnail_path, '-o', thumbnail_path.with_suffix('.webp')])
 
     frames_count = 500
 
@@ -242,7 +250,8 @@ def generate_pulse_video():
         ax[0].spines['top'].set_visible(False)
         ax[0].spines['right'].set_visible(False)
         ax[0].spines['bottom'].set_visible(False)
-        ax[0].set_xlabel('Time')
+        ax[0].set_xlabel('time')
+        ax[0].set_ylabel('amplitude')
 
         markerline, stemlines, baseline = ax[1].stem(harmonics, spectrum[harmonics_indices], **stem_params)
         plt.setp(markerline, 'color', color)
@@ -255,7 +264,8 @@ def generate_pulse_video():
         ax[1].spines['top'].set_visible(False)
         ax[1].spines['right'].set_visible(False)
         ax[1].spines['bottom'].set_visible(False)
-        ax[1].set_xlabel('Frequency')
+        ax[1].set_xlabel('frequency')
+        ax[1].set_ylabel('magnitude')
 
         return markerline, stemlines, baseline
 
@@ -270,13 +280,13 @@ def main():
     ideal_waveforms = [np.sin, ideal_square, ideal_sawtooth_ramp_up, ideal_triangle, partial(pulse, duty_cycle=0.2, harmonics_count=1000)]
     waveform_names = ['sine', 'square', 'sawtooth', 'triangle', 'pulse']
 
-    # for waveform, waveform_name in zip(ideal_waveforms, waveform_names):
-        # plot_signal(waveform, waveform_name)
-    # for waveform, waveform_name in zip(waveforms, waveform_names):
-        # plot_spectrum(waveform, waveform_name)
+    for waveform, waveform_name in zip(ideal_waveforms, waveform_names):
+        plot_signal(waveform, waveform_name)
+    for waveform, waveform_name in zip(waveforms, waveform_names):
+        plot_spectrum(waveform, waveform_name)
         # generate_waveform(waveform, waveform_name)
 
-    # generate_pulse_video()
+    generate_pulse_video()
 
 
 if __name__ == '__main__':
