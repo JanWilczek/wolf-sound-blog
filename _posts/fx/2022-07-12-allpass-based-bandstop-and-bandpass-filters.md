@@ -224,25 +224,37 @@ The code generates 5 seconds of white noise and then filters it with time-varyin
 
 The code is heavily commented so you should have no problems in understanding.
 
+_Listing 1. Allpass-based bandstop and bandpass filtering implementation & filter sweep application._
 ```python
 {% include_relative _allpass_based_bandpass_bandstop.py %}
 ```
 
 ## Applications
 
-Apart from just filtering, bandpass and bandstop filters can be used in a variety of audio effects applications.
+Apart from just filtering, bandpass and bandstop filters can be used in a variety of audio effect applications.
 
 ### Filter Sweep
 
-Filter sweep is a very strong effect that can add a powerful character to the sound.
+Filter sweep is a very strong effect that can add a powerful character to the sound. That's exactly the effect that you heard in the [bandstop-filtering example](#real-time-control).
 
-### Hear band (in filters)
+### "Listen" to a Frequency Band (In Audio Plugins)
+
+Audio plugins that use information from a frequency range to control their behavior often have a "listen" functionality that allows you to listen to the frequency band you specified and adjust it.
+
+For example, [Tonmann Deesser plugin](https://www.tonmann.com/2015/07/18/free-tonmann-deesser-vst-plugin/) has the "listen" button to be able to hear the frequency range that is being compressed. With the "listen" functionality we can find the most audible range with the "s" consonant to compress and avoid compressing the desired signal.
+
+![]({{ page.images | absolute_url | append: "/TonmannDeesserUI.webp"}}){: alt="Graphical user interface of the Tonmann Deesser plugin."}
+_Figure {% increment figureId20220712  %}. Tonmann Deesser plugin has the "listen" functionality._
+
+Alternatively, "listen" can be used to focus on just one part of the spectrum while making edits.
 
 ### Phaser
 
 If we modulate the center frequency of the bandstop filter over time, for example, using a low-frequency oscillator (LFO), we can easily obtain the phaser effect.
 
-The actual application of the phaser effect will be a topic of an another article, but you can already experiment with the attached implementation code!
+Better yet, if we have a series of bandstop filters, the effect will be truly awesome! Think [Van Halen's Eruption](https://www.youtube.com/watch?v=M4Czx8EWXb0) level of awesome!
+
+The actual application of the phaser effect will be a topic of an another article but you can already experiment with the attached implementation code!
 
 ## Summary
 
