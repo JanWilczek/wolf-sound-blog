@@ -144,13 +144,16 @@ At the break frequency, the phase delay is $-\pi$. Adding two tones at the break
 
 Here is a block diagram of the bandstop filter.
 
-// TODO: Bandstop filter diagram
+![]({{ page.images | absolute_url | append: "/bandstop.svg"}}){: alt="DSP diagram of the allpass-based bandstop filter"}
+_Figure {% increment figureId20220712  %}. DSP diagram of the allpass-based bandstop filter._
+
+$\text{AP}_2(z)$ denotes the second-order allpass filter.
 
 The output of the second-order allpass filter is added to the direct path. We multiply the result by $\frac{1}{2}$ to stay in the [-1, 1] range (input is in [-1, 1] range, allpass's output is in [-1, 1] range so their sum is in the [-2, 2] range; we want to scale that back down to [-1, 1], otherwise we'll possibly clip the signal).
 
 ### Magnitude Response
 
-Here is a magnitude transfer function of the bandstop filter from Figure ??? with the center frequency at 250 Hz and $Q$ equal to 0.3.
+Here is a magnitude transfer function of the bandstop filter from Figure 4 with the center frequency at 250 Hz and $Q$ equal to 0.3.
 
 ![]({{ page.images | absolute_url | append: "/bandstop_amplitude_response.webp"}}){: width="70%" alt="Magnitude transfer function of the bandstop filter."}
 _Figure {% increment figureId20220712  %}. Magnitude transfer function of the bandstop filter._
@@ -184,15 +187,18 @@ The allpass-based bandpass filter differs from the bandstop filter only in the s
 
 ### DSP Diagram
 
-In Figure ???, there's a block diagram of the presented bandpass filter.
+In Figure 7, there's a block diagram of the presented bandpass filter.
 
-// TODO DSP diagram
+![]({{ page.images | absolute_url | append: "/bandpass.svg"}}){: alt="DSP diagram of the allpass-based bandpass filter"}
+_Figure {% increment figureId20220712  %}. DSP diagram of the allpass-based bandpass filter._
+
+$\text{AP}_2(z)$ denotes the second-order allpass filter.
 
 The multiplication by $\frac{1}{2}$ is just to preserve the [-1, 1] amplitude range of the signal.
 
 ### Magnitude Response
 
-In Figure ???, there's the magnitude response of the bandpass filter with center frequency set to 250 Hz and $Q$ set to 0.3.
+In Figure 8, there's the magnitude response of the bandpass filter with center frequency set to 250 Hz and $Q$ set to 0.3.
 
 ![]({{ page.images | absolute_url | append: "/bandpass_amplitude_response.webp"}}){: width="70%" alt="Magnitude transfer function of the bandpass filter."}
 _Figure {% increment figureId20220712  %}. Magnitude transfer function of the bandpass filter._
@@ -209,7 +215,7 @@ Here's an audio sample with a bandpass-filtered white noise, where the center fr
 
 {% include embed-audio.html src="/assets/wav/posts/fx/2022-07-12-allpass-based-bandstop-and-bandpass-filters/bandpass_filtered_noise.flac" %}
 
-You can observe the effect of the bandpass filter on the spectrogram of the above audio file (Figure ???).
+You can observe the effect of the bandpass filter on the spectrogram of the above audio file (Figure 9).
 
 ![]({{ page.images | absolute_url | append: "/bandpass_example.webp"}}){: alt="Spectrogram of the bandpass filtering example."}
 _Figure {% increment figureId20220712  %}. Spectrogram of the bandpass filtering example._
