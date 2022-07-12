@@ -182,24 +182,24 @@ The uneven slopes of the response result from the logarithmic scaling of the fre
 
 Exactly as the bandstop filter, the bandpass filter can be easily controlled in real time.
 
-Here's an audio sample with a bandpass filtered white noise, where the center frequency varies from 100 Hz to 16000 Hz and Q is equal to 0.3.
+Here's an audio sample with a bandpass-filtered white noise, where the center frequency varies from 100 Hz to 16000 Hz and Q is equal to 0.3.
 
-// TODO: Audio file
+{% include embed-audio.html src="/assets/wav/posts/fx/2022-07-12-allpass-based-bandstop-and-bandpass-filters/bandpass_filtered_noise.flac" %}
 
 You can observe the effect of the bandpass filter on the spectrogram of the above audio file (Figure ???).
 
-// TODO: Spectrogram
+![]({{ page.images | absolute_url | append: "/bandpass_example.webp"}}){: alt="Spectrogram of the bandpass filtering example."}
+_Figure {% increment figureId20220712  %}. Spectrogram of the bandpass filtering example._
 
-Once again, the y-axis is a log-frequency axis, the x-axis is the time axis, and color intensity corresponds to the sound level in decibels full-scale (dBFS).
+Once again, the y-axis is a log-frequency axis, the x-axis is a time axis, and color intensity corresponds to the sound level in decibels full-scale (dBFS).
 
 ### Implementation
 
-Here is a sample Python implementation of both filters: the bandpass and the bandstop. 
+Here is a sample Python implementation of both filters: the bandpass and the bandstop.
 
-The code generates 5 seconds of white noise and then filters them with time-varying bandstop and bandpass filters respectively. The center frequency in both cases changes exponentially from 100 Hz to 16000 Hz (this code was used to generate the previous examples in this article).
+The code generates 5 seconds of white noise and then filters it with time-varying bandstop and bandpass filters respectively. The center frequency in both cases changes exponentially from 100 Hz to 16000 Hz (this code was used to generate the previous examples in this article).
 
 The code is heavily commented so you should have no problems in understanding.
-
 
 // TODO: Include code
 
@@ -209,7 +209,7 @@ Apart from just filtering, bandpass and bandstop filters can be used in a variet
 
 ### Filter Sweep
 
-Filter sweep is a very strong effect that can add a powerful character to the sound. 
+Filter sweep is a very strong effect that can add a powerful character to the sound.
 
 ### Hear band (in filters)
 
