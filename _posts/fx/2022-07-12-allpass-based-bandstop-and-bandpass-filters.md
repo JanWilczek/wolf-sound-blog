@@ -1,5 +1,5 @@
 ---
-title: "Bandstop and Bandpass Filters: Real-Time Controllable Allpass-Based Design & Implementation"
+title: "Bandstop and Bandpass Filters: Allpass-Based Design & Implementation"
 description: "Learn how to design and implement easily controllable and efficient bandstop and bandpass filters."
 date: 2022-07-12
 author: Jan Wilczek
@@ -7,7 +7,7 @@ layout: post
 images: /assets/img/posts/fx/2022-07-12-allpass-based-bandstop-and-bandpass-filters/
 images_parametric_eq: /assets/img/posts/fx/2021-11-26-parametric-eq-design/
 images_allpass: /assets/img/posts/fx/2021-10-22-allpass-filter
-background: /assets/img/posts/fx/2022-07-12-allpass-based-bandstop-and-bandpass-filters/lowpass.svg
+# background: /assets/img/posts/fx/2022-07-12-allpass-based-bandstop-and-bandpass-filters/lowpass.svg
 categories:
   - Digital Signal Processing
   - Audio FX
@@ -23,7 +23,8 @@ With real-time center frequency and bandwidth control!
 {% capture _ %}{% increment equationId20220712  %}{% endcapture %}
 {% capture _ %}{% increment figureId20220712  %}{% endcapture %}
 
-In one of the previous article, we discussed how to implement a simple lowpass and a highpass filter using the first-order allpass filter. That filter had a real-time cutoff frequency control.
+
+In [one of the previous articles]({% post_url fx/2022-05-08-allpass-based-lowpass-and-highpass-filters %}), we discussed how to implement a simple lowpass and a highpass filter using the first-order allpass filter. That filter had a real-time cutoff frequency control.
 
 Now, we can take it to the next level and design a bandpass and a bandstop filter with a second-order allpass filter. This design will allow us to control the center frequency and the bandwidth (or alternatively, the Q factor) in real time!
 
@@ -37,39 +38,41 @@ Now, we can take it to the next level and design a bandpass and a bandstop filte
      (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
-We'll discuss this design and its properties, listen to a few examples, and look at a sample Python implementation at the end.
+We'll discuss this design and its properties, listen to a few examples, and look at a [sample Python implementation](#implementation-1) at the end.
 
-## What Is a Bandstop Filter?
+## What Is a Bandstop (Notch) Filter?
 
-A **bandstop filter** is a filter that attenuates frequencies in a certain frequency range.
+A **bandstop filter** (also called a **notch filter**) is a filter that attenuates frequencies in a certain frequency range.
 
 This frequency range is determined by a **center frequency** and a **bandwidth**.
 
-// TODO: Bandstop amplitude response figure
+![]({{ page.images_parametric_eq | absolute_url | append: "/Notch.webp"}}){: width="70%" alt="Bandstop filter amplitude response."}
+_Figure {% increment figureId20220712  %}. Bandstop filter amplitude response._
 
-The center frequency point to the frequency with the largest attenuation, the "dip" in the magnitude response of the filter.
+The center frequency points to the frequency with the largest attenuation, the "dip" in the magnitude response of the filter.
 
 The bandwidth determines how wide will the "dip" or "valley" be around the center frequency.
 
-In order for the bandstop filter to sound equally wide in bandwidth at all center frequencies, we often use the **Q** or **quality factor** parameter. It is defined as
+In order for the bandstop filter to sound equally wide in bandwidth at all center frequencies, we often use the **Q** or **quality factor** or **Q-factor** parameter. It is defined as
 
-Q = BW * f_c,
+$$Q = BW f_c, \quad ({% increment equationId20220712  %})$$
 
-where BW is the bandwidth in Hz and f_c is the center frequency in Hz.
+where $BW$ is the bandwidth in Hz and $f_c$ is the center frequency in Hz.
 
-"Constant-Q" filter allows for a narrower band in the low frequencies (where human hearing is more sensitive to frequency) and for a wider band in the high frequencies (where human hearing is less sensitive to frequency).
+A "constant-Q" filter allows for a narrower band in the low frequencies (where human hearing is more sensitive to frequency) and for a wider band in the high frequencies (where human hearing is less sensitive to frequency).
 
-Note that we cannot control the amount of attenuation in the band-stop filter. That is possible only in a _peaking (band) filter_, which is not the topic of this article.
+Note that we cannot control the amount of attenuation in the bandstop filter. That is possible only in a _peaking (band) filter_, which is not the topic of this article.
 
 ## What Is a Bandpass Filter?
 
-A bandpass filter is a filter that attenuates all frequencies beside a specified range.
+A bandpass filter is a filter that attenuates all frequencies apart from a specified range.
 
 This range is defined in terms of the **center frequency** and the **bandwidth**, both expressed in Hz.
 
-// TODO: Bandpass amplitude response figure
+![]({{ page.images_parametric_eq | absolute_url | append: "/Bandpass.webp"}}){: width="70%" alt="Bandpass filter amplitude response."}
+_Figure {% increment figureId20220712  %}. Bandpass filter amplitude response._
 
-As in the case of the bandstop filter, we can specify the bandwidth using the **Q** or **quality factor** parameter. Constant-Q filters retain the same "perceptual width" of the passed-through frequency range. The relation between the center frequency, the bandwidth and Q is given by Equation 1.
+As in the case of the bandstop filter, we can specify the bandwidth using the **Q** (**quality factor**, **Q-factor**) parameter. Constant-Q filters retain the same "perceptual width" of the passed-through frequency range. The relation between the center frequency, the bandwidth, and Q is given by Equation 1.
 
 ## Recap: The Second-Order Allpass Filter
 
@@ -217,3 +220,5 @@ The actual application of the phaser effect will be a topic of an another articl
 In this article, we learned how to implement efficient, real-time-controllable bandpass and bandstop filters using the second-order allpass filter.
 
 Bandpass and bandstop filters are one of the basic effects in the audio programmer's arsenal. If you want to know which elements make up the audio plugin developer toolbox, check out my free [audio plugin developer checklist.]
+
+{% endkatexmm %}
