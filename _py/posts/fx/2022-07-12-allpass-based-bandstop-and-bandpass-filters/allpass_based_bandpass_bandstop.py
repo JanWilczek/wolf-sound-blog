@@ -65,35 +65,22 @@ def plot_amplitude_response(w, h, name):
     output_path = img_output_dir / f'{name}.png'
     plt.savefig(output_path, bbox_inches='tight', dpi=300)
     subprocess.run(['cwebp', '-q', '65', '-resize', '800', '0', output_path, '-o', output_path.with_suffix('.webp')])
-    
 
-def main():
-    wav_output_dir.mkdir(exist_ok=True, parents=True)
-    img_output_dir.mkdir(exist_ok=True, parents=True)
-    
-    fs = 44100
-    length_seconds = 6
-    length_samples = fs * length_seconds
-    
-    noise = np.random.default_rng().uniform(-1, 1, (length_samples,))
-    
-    Q = 0.3
-    
-    center_frequency = np.geomspace(100, 16000, length_samples)
-    
-    filtered_noise = np.zeros_like(noise)
+
+def bandstop_bandpass_filter(input_signal, Q, center_frequency, fs, bandpass=False):
+    allpass_filtered = np.zeros_like(input_signal)
     
     x1 = 0
     x2 = 0
     y1 = 0
     y2 = 0
     
-    for i in range(length_samples):
+    for i in range(input_signal.shape[0]):
         BW = Q * center_frequency[i]
         
         b, a = second_order_allpass_filter(center_frequency[i], BW, fs)
         
-        x = noise[i]
+        x = input_signal[i]
         
         y = b[0] * x + b[1] * x1 +  b[2] * x2 - a[1] * y1 - a[2] * y2
         
@@ -102,10 +89,28 @@ def main():
         x2 = x1
         x1 = x
         
-        filtered_noise[i] = y
-        
-    bandstop_filtered_noise = 0.5 * (noise + filtered_noise)
-    bandpass_filtered_noise = 0.5 * (noise - filtered_noise)
+        allpass_filtered[i] = y
+    
+    sign = -1 if bandpass else 1
+    
+    output = 0.5 * (input_signal + sign * allpass_filtered)
+
+    return output
+
+
+def main():
+    wav_output_dir.mkdir(exist_ok=True, parents=True)
+    img_output_dir.mkdir(exist_ok=True, parents=True)
+    
+    fs = 44100
+    length_seconds = 6
+    length_samples = fs * length_seconds
+    Q = 0.3
+    center_frequency = np.geomspace(100, 16000, length_samples)
+    noise = np.random.default_rng().uniform(-1, 1, (length_samples,))
+    
+    bandstop_filtered_noise = bandstop_bandpass_filter(noise, Q, center_frequency, fs)
+    bandpass_filtered_noise = bandstop_bandpass_filter(noise, Q, center_frequency, fs, bandpass=True)
     
     amplitude = 0.5
     bandstop_filtered_noise *= amplitude
@@ -129,7 +134,7 @@ def main():
     plot_amplitude_response(w, h_bandpass, 'bandpass_amplitude_response')
     
     sf.write(wav_output_dir / 'bandstop_filtered_noise.flac', bandstop_filtered_noise, fs)
-    sf.write(wav_output_dir / 'bandstop_filtered_noise.flac', bandpass_filtered_noise, fs)
+    sf.write(wav_output_dir / 'bandpass_filtered_noise.flac', bandpass_filtered_noise, fs)
     
 
 def apply_fade(signal):
