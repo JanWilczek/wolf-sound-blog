@@ -32,6 +32,16 @@ These synthesizer elements help the musicians and sound designers to effortlessl
 
 In this article, you will learn what is an envelope, all the types of envelopes, and what to consider when implementing them.
 
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6611455743195468"
+     crossorigin="anonymous"></script><ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+     data-ad-layout="in-article"
+     data-ad-format="fluid"
+     data-ad-client="ca-pub-6611455743195468"
+     data-ad-slot="7289385396"></ins><script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
 ### Table of Contents
 
 1. [What Is An Envelope?](#what-is-an-envelope)

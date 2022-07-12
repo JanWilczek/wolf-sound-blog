@@ -5,6 +5,7 @@ date: 2022-07-12
 author: Jan Wilczek
 layout: post
 images: /assets/img/posts/fx/2022-07-12-allpass-based-bandstop-and-bandpass-filters/
+images_parametric_eq: /assets/img/posts/fx/2021-11-26-parametric-eq-design/
 images_allpass: /assets/img/posts/fx/2021-10-22-allpass-filter
 background: /assets/img/posts/fx/2022-07-12-allpass-based-bandstop-and-bandpass-filters/lowpass.svg
 categories:
@@ -18,9 +19,23 @@ discussion_id: 2022-07-12-allpass-based-bandstop-and-bandpass-filters
 ---
 With real-time center frequency and bandwidth control!
 
+{% katexmm %}
+{% capture _ %}{% increment equationId20220712  %}{% endcapture %}
+{% capture _ %}{% increment figureId20220712  %}{% endcapture %}
+
 In one of the previous article, we discussed how to implement a simple lowpass and a highpass filter using the first-order allpass filter. That filter had a real-time cutoff frequency control.
 
 Now, we can take it to the next level and design a bandpass and a bandstop filter with a second-order allpass filter. This design will allow us to control the center frequency and the bandwidth (or alternatively, the Q factor) in real time!
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6611455743195468"
+     crossorigin="anonymous"></script><ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+     data-ad-layout="in-article"
+     data-ad-format="fluid"
+     data-ad-client="ca-pub-6611455743195468"
+     data-ad-slot="7289385396"></ins><script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 
 We'll discuss this design and its properties, listen to a few examples, and look at a sample Python implementation at the end.
 

@@ -39,6 +39,16 @@ In this article, you will learn all these properties about the 5 basic waveforms
 
 *Note: this article shows the waveforms in their continuous (analog) form, which means that issues such as aliasing or efficient generation are not considered. Keep in mind that all of these waveforms (apart from the sine) have an infinite amplitude spectrum.*
 
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6611455743195468"
+     crossorigin="anonymous"></script><ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+     data-ad-layout="in-article"
+     data-ad-format="fluid"
+     data-ad-client="ca-pub-6611455743195468"
+     data-ad-slot="7289385396"></ins><script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
 ## Why Learn About Basic Waveforms?
 
 Learning about basic waveforms in sound synthesis will help you
