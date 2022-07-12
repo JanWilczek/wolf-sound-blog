@@ -76,7 +76,7 @@ As in the case of the bandstop filter, we can specify the bandwidth using the **
 
 ## Recap: The Second-Order Allpass Filter
 
-The main building block of the bandpass and the bandstop filters is the second-order allpass filter.
+The main building block of bandpass and bandstop filters is the [second-order allpass filter]({% post_url fx/2021-10-22-allpass-filter %}#second-order-iir-allpass).
 
 An allpass filter is a filter that does not attenuate any frequencies but it introduces a frequency-dependent phase shift.
 
@@ -86,27 +86,28 @@ Let's recap a few facts about this filter.
 
 The transfer function of the second-order allpass filter is
 
-H(z) = 
+$$H_{\text{AP}_2}(z) = \frac{-c + d(1-c) z^{-1} + z^{-2}}{1 + d(1-c) z^{-1} - c z^{-2}},  \quad ({% increment equationId20220712 %})$$
 
 where
 
-c = 
+$$c = \frac{\tan(\pi BW / f_s) - 1}{\tan(\pi BW / f_s) + 1},  \quad ({% increment equationId20220712 %})$$
 
-d = 
+$$d = - \cos(2\pi f_\text{b} / f_s),  \quad ({% increment equationId20220712 %})$$
 
-fb is the break frequency of the filter in Hz, BW is the bandiwidth of the transition band in Hz and fs is the sampling rate in Hz. The **break frequency** specifies the frequency at which the phase shift is -\pi.
+$BW$ is the bandwidth in Hz, $f_\text{b}$ is the break frequency in Hz, and $f_s$ is the sampling rate in Hz. The **break frequency** specifies the frequency at which the phase shift is -\pi. The **bandwidth** specifies the width of the transition band in which the phase shift goes from 0 to $-2\pi$.
 
 ### Phase Response
 
 The phase response of the second-order allpass filter is visible in Figure 3.
 
-// TODO: Second-order allpass filter phase response
+![]({{ page.images_allpass | absolute_url | append: "/second_order_allpass_phase_response.webp" }}){: width="80%" alt="Phase response of the second-order allpass filter with constant bandwidth."}
+_Figure {% increment figureId20220712 %}. Phase response of a second-order allpass filter for different break frequencies frequencies $f_\text{b}$ and bandwidth $BW / f_s = 0.022$._
 
-As you can see, the phase shift is 0 at 0 Hz and gradually changes to -2\pi. The steepness of the phase response is determined by the bandwidth parameter expressed in Hz.
+As you can see, the phase shift is 0 at 0 Hz and gradually changes to -2\pi. The steepness of the phase response is determined by the bandwidth $BW$ parameter expressed in Hz.
 
-You can already guess that the bandwidth parameter of the second-order allpass filter translates to the bandwidth parameter of the bandpass and bandstop filters. Accordingly, the break frequency corresponds to the center frequency. How?
+You can already guess that the bandwidth parameter of the second-order allpass filter translates to the bandwidth parameter of bandpass and bandstop filters. Accordingly, the break frequency corresponds to the center frequency. How?
 
-Thanks to the [phase cancellation effect], if we add two tones at the same frequency but with relative phase shift of \pi, they will cancel each other. A shift by \pi is equivalent to a multiplication of the tone by -1.
+Thanks to the [phase cancellation effect]({% post_url fx/2022-05-08-allpass-based-lowpass-and-highpass-filters %}#phase-cancellation), if we add two tones at the same frequency but with relative phase shift of $\pi$, they will cancel each other. A shift by $\pi$ is equivalent to a multiplication of the tone by -1.
 
 With this knowledge we can now employ the second-order allpass filter for bandpass or bandstop filtering.
 
@@ -114,61 +115,64 @@ With this knowledge we can now employ the second-order allpass filter for bandpa
 
 If we add the output of the second-order allpass filter to its input signal, at the break frequency we will obtain a phase cancellation. Why?
 
-At the break frequency, the phase delay is -\pi. Adding two tones at the break frequency with the relative phase shift of \pi, we effectively eliminate them from the resulting signal. As the phase shift deviates from \pi, the cancellation is less and less effective.
+At the break frequency, the phase delay is $-\pi$. Adding two tones at the break frequency with the relative phase shift of $\pi$, we effectively eliminate them from the resulting signal. As the phase shift deviates from $\pi$ further away from the break frequency, the cancellation is less and less effective.
 
 ### DSP Diagram
 
-Here is the block diagram of the bandstop filter.
+Here is a block diagram of the bandstop filter.
 
 // TODO: Bandstop filter diagram
 
-The output of the second-order allpass filter is added to the direct path.
+The output of the second-order allpass filter is added to the direct path. We multiply the result by $\frac{1}{2}$ to stay in the [-1, 1] range (input is in [-1, 1] range, allpass's output is in [-1, 1] range so their sum is in the [-2, 2] range; we want to scale that back down to [-1, 1], otherwise we'll possibly clip the signal).
 
 ### Magnitude Response
 
-Here is a magnitude transfer function of the bandstop filter from Figure ??? with the center frequency at 250 Hz and Q equal to 0.3.
+Here is a magnitude transfer function of the bandstop filter from Figure ??? with the center frequency at 250 Hz and $Q$ equal to 0.3.
 
-// TODO: Magnitude transfer function of the bandstop filter
+![]({{ page.images | absolute_url | append: "/bandstop_amplitude_response.webp"}}){: width="70%" alt="Magnitude transfer function of the bandstop filter."}
+_Figure {% increment figureId20220712  %}. Magnitude transfer function of the bandstop filter._
 
-At the center frequency, we get the biggest attenuation which decreases the further away we get from it. We can see how selective in frequency this filter is.
+At the center frequency, we get the biggest attenuation which decreases the further away we get from the center frequency. We can see how selective in frequency this filter is.
 
 ### Real-Time Control
 
 As this filter requires quite easy computations to control the center frequency and the bandwidth, we can alter its parameters in real time.
 
-As an example, here's a white noise signal filtered with the bandstop filter, whose center frequency varies from 50 to 16000 Hz over time.
+As an example, here's a white noise signal filtered with the bandstop filter, whose center frequency varies from 100 to 16000 Hz over time.
 
-// TODO: Audio file
+{% include embed-audio.html src="/assets/wav/posts/fx/2022-07-12-allpass-based-bandstop-and-bandpass-filters/bandstop_filtered_noise.flac" %}
 
 To visualize what's happening here, take a look at the spectrogram of the audio file.
 
-// TODO: Spectrogram
+![]({{ page.images | absolute_url | append: "/bandstop_example.webp"}}){: alt="Spectrogram of the bandstop filtering example."}
+_Figure {% increment figureId20220712  %}. Spectrogram of the bandstop filtering example._
 
-On the x-axis we have time, on the y-axis the log-scaled frequency, and the color indicates the amplitude level of the frequency at a specific time point in decibels full-scale (dBFS).
+On the x-axis we have the time, on the y-axis we have the log-scaled frequency, and color indicates the amplitude level of the frequency at a specific time point in decibels full-scale (dBFS).
 
-As you can see, the dip travels exponentially from low to high frequencies. Thus, we can hear the so-called "filter sweep".
+As you can see, the dip travels exponentially (mind the log scale!) from low to high frequencies. Thus, we can hear the so-called "filter sweep".
 
 ### Implementation
 
-You will find a sample implementation of the bandstop filter in Python at [the end of this article].
+You will find a sample implementation of the bandstop filter in Python at [the end of this article](#implementation-1).
 
 ## Allpass-Based Bandpass Filter
 
-The allpass-based bandpass filter differs from the bandstop filter only in the sign of the allpass filter output. In case of the bandpass, we invert the output of the allpass in phase so that the phase cancellation occurs at the 0 Hz frequency and the [Nyquist frequency]. Because the tone at the break frequency gets reversed twice, it is in phase with the input signal.
+The allpass-based bandpass filter differs from the bandstop filter only in the sign of the allpass filter output. In case of the bandpass, we invert the output of the allpass in phase so that the phase cancellation occurs at the 0 Hz frequency and the [Nyquist frequency]({% post_url 2019-11-19-how-to-represent-digital-sound-sampling-sampling-rate-quantization %}#the-sampling-theorem). Because the tone at the break frequency gets reversed twice, it is in phase with the input signal. Therefore, the summation results in doubling of the amplitude of the tone corresponding to the break frequency of the allpass.
 
 ### DSP Diagram
 
-In Figure ???, there's the block diagram of the presented bandpass filter.
+In Figure ???, there's a block diagram of the presented bandpass filter.
 
 // TODO DSP diagram
 
-The multiplication by 1/2 is just to preserve the [-1, 1] amplitude range of the signal.
+The multiplication by $\frac{1}{2}$ is just to preserve the [-1, 1] amplitude range of the signal.
 
 ### Magnitude Response
 
-In Figure ???, there's the magnitude response of the bandpass filter. 
+In Figure ???, there's the magnitude response of the bandpass filter with center frequency set to 250 Hz and $Q$ set to 0.3.
 
-// TODO: Magnitude response
+![]({{ page.images | absolute_url | append: "/bandpass_amplitude_response.webp"}}){: width="70%" alt="Magnitude transfer function of the bandpass filter."}
+_Figure {% increment figureId20220712  %}. Magnitude transfer function of the bandpass filter._
 
 As you can see, it actually passes through only the frequencies in the specified band.
 
@@ -178,7 +182,7 @@ The uneven slopes of the response result from the logarithmic scaling of the fre
 
 Exactly as the bandstop filter, the bandpass filter can be easily controlled in real time.
 
-Here's an audio sample with a bandpass filtered white noise, where the center frequency varies from 50 Hz to 16000 Hz and Q is equal to 0.3.
+Here's an audio sample with a bandpass filtered white noise, where the center frequency varies from 100 Hz to 16000 Hz and Q is equal to 0.3.
 
 // TODO: Audio file
 
@@ -192,7 +196,7 @@ Once again, the y-axis is a log-frequency axis, the x-axis is the time axis, and
 
 Here is a sample Python implementation of both filters: the bandpass and the bandstop. 
 
-The code generates 5 seconds of white noise and then filters them with time-varying bandstop and bandpass filters respectively. The center frequency in both cases changes exponentially from 50 Hz to 16000 Hz (this code was used to generate the previous examples in this article).
+The code generates 5 seconds of white noise and then filters them with time-varying bandstop and bandpass filters respectively. The center frequency in both cases changes exponentially from 100 Hz to 16000 Hz (this code was used to generate the previous examples in this article).
 
 The code is heavily commented so you should have no problems in understanding.
 
