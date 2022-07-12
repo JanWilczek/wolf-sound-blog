@@ -37,10 +37,10 @@ def plot_spectrogram(signal, fs, name):
     subprocess.run(['cwebp', '-q', '65', '-resize', '800', '0', output_path, '-o', output_path.with_suffix('.webp')])
     
 
-def second_order_allpass_filter(center_frequency, BW, fs):
+def second_order_allpass_filter(break_frequency, BW, fs):
     tan = np.tan(np.pi * BW / fs)
     c = (tan - 1) / (tan + 1)
-    d = - np.cos(2 * np.pi * center_frequency / fs)
+    d = - np.cos(2 * np.pi * break_frequency / fs)
     
     b = [-c, d * (1 - c), 1]
     a = [1, d * (1 - c), -c]

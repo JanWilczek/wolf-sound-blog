@@ -40,6 +40,29 @@ Now, we can take it to the next level and design a bandpass and a bandstop filte
 
 We'll discuss this design and its properties, listen to a few examples, and look at a [sample Python implementation](#implementation-1) at the end.
 
+### Table of Contents
+
+1. [What Is a Bandstop (Notch) Filter?](#what-is-a-bandstop-notch-filter)
+2. [What Is a Bandpass Filter?](#what-is-a-bandpass-filter)
+3. [Recap: The Second-Order Allpass Filter](#recap-the-second-order-allpass-filter)
+   1. [Transfer Function](#transfer-function)
+   2. [Phase Response](#phase-response)
+4. [Allpass-Based Bandstop Filter](#allpass-based-bandstop-filter)
+   1. [DSP Diagram](#dsp-diagram)
+   2. [Magnitude Response](#magnitude-response)
+   3. [Real-Time Control](#real-time-control)
+   4. [Implementation](#implementation)
+5. [Allpass-Based Bandpass Filter](#allpass-based-bandpass-filter)
+   1. [DSP Diagram](#dsp-diagram-1)
+   2. [Magnitude Response](#magnitude-response-1)
+   3. [Real-Time Control](#real-time-control-1)
+   4. [Implementation](#implementation-1)
+6. [Applications](#applications)
+   1. [Filter Sweep](#filter-sweep)
+   2. [Hear band (in filters)](#hear-band-in-filters)
+   3. [Phaser](#phaser)
+7. [Summary](#summary)
+
 ## What Is a Bandstop (Notch) Filter?
 
 A **bandstop filter** (also called a **notch filter**) is a filter that attenuates frequencies in a certain frequency range.
@@ -201,7 +224,9 @@ The code generates 5 seconds of white noise and then filters it with time-varyin
 
 The code is heavily commented so you should have no problems in understanding.
 
-// TODO: Include code
+```python
+{% include_relative _allpass_based_bandpass_bandstop.py %}
+```
 
 ## Applications
 
@@ -223,6 +248,6 @@ The actual application of the phaser effect will be a topic of an another articl
 
 In this article, we learned how to implement efficient, real-time-controllable bandpass and bandstop filters using the second-order allpass filter.
 
-Bandpass and bandstop filters are one of the basic effects in the audio programmer's arsenal. If you want to know which elements make up the audio plugin developer toolbox, check out my free [audio plugin developer checklist.]
+Bandpass and bandstop filters are one of the basic effects in the audio programmer's arsenal. If you want to know which elements make up the audio plugin developer toolbox, check out my free [audio plugin developer checklist.]({% link single-pages/checklist.html %})
 
 {% endkatexmm %}
