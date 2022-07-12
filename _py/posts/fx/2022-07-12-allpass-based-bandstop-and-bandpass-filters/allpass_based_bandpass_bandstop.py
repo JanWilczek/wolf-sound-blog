@@ -1,0 +1,133 @@
+import numpy as np
+import scipy.signal as sig
+import sounddevice as sd
+import soundfile as sf
+import matplotlib.pyplot as plt
+import librosa
+import librosa.display
+
+
+def plot_spectrogram(signal, fs, name):
+    stft = librosa.stft(signal)
+    spectrogram = np.abs(stft)
+    spectrogram_db = librosa.amplitude_to_db(spectrogram, ref=np.max)
+    
+    plt.figure(figsize=(10,4))
+    img = librosa.display.specshow(spectrogram_db, y_axis='log', x_axis='time', sr=fs, cmap='inferno')
+    plt.xlabel('Time [s]')
+    plt.ylabel('Frequency [Hz]')
+    plt.yticks([63, 125, 250, 500, 1000, 2000, 4000, 8000, 16000], ['63', '125', '250', '500', '1k', '2k', '4k', '8k', '16k'])
+    plt.colorbar(img, format="%+2.f dB")
+    plt.savefig(f'{name}.png', bbox_inches='tight', dpi=300)
+    
+
+def second_order_allpass_filter(center_frequency, BW, fs):
+    tan = np.tan(np.pi * BW / fs)
+    c = (tan - 1) / (tan + 1)
+    d = - np.cos(2 * np.pi * center_frequency / fs)
+    
+    b = [-c, d * (1 - c), 1]
+    a = [1, d * (1 - c), -c]
+    
+    return b, a
+
+
+def plot_amplitude_response(w, h, name):
+    h_abs = np.abs(h)
+    h_normalized = h_abs / np.amax(h_abs)
+    h_db = 20 * np.log10(np.maximum(h_normalized, 1e-6))
+    plt.figure(figsize=(6,3))
+    plt.semilogx(w, h_db, linewidth=3)
+    plt.xticks([63, 125, 250, 500, 1000, 2000, 4000, 8000, 16000], ['63', '125', '250', '500', '1k', '2k', '4k', '8k', '16k'])
+    plt.xlabel('Frequency [Hz]')
+    plt.ylabel('Magnitude [dB]')
+    ax = plt.gca()
+    ax.spines['top'].set_visible(False)
+    ax.spines['right'].set_visible(False)
+    plt.xlim([50, 20000])
+    plt.ylim([-25, 1])
+    plt.savefig(f'{name}.png', bbox_inches='tight', dpi=300)
+    
+
+def main():
+    fs = 44100
+    length_seconds = 6
+    length_samples = fs * length_seconds
+    
+    noise = np.random.default_rng().uniform(-1, 1, (length_samples,))
+    
+    Q = 0.3
+    
+    center_frequency = np.geomspace(100, 16000, length_samples)
+    
+    filtered_noise = np.zeros_like(noise)
+    
+    x1 = 0
+    x2 = 0
+    y1 = 0
+    y2 = 0
+    
+    for i in range(length_samples):
+        BW = Q * center_frequency[i]
+        
+        b, a = second_order_allpass_filter(center_frequency[i], BW, fs)
+        
+        x = noise[i]
+        
+        y = b[0] * x + b[1] * x1 +  b[2] * x2 - a[1] * y1 - a[2] * y2
+        
+        y2 = y1
+        y1 = y
+        x2 = x1
+        x1 = x
+        
+        filtered_noise[i] = y
+        
+    bandstop_filtered_noise = 0.5 * (noise + filtered_noise)
+    bandpass_filtered_noise = 0.5 * (noise - filtered_noise)
+    
+    amplitude = 0.5
+    bandstop_filtered_noise *= amplitude
+    bandpass_filtered_noise *= amplitude
+    
+    bandstop_filtered_noise = apply_fade(bandstop_filtered_noise)
+    bandpass_filtered_noise = apply_fade(bandpass_filtered_noise)
+    
+    plot_spectrogram(bandstop_filtered_noise, fs, 'bandstop_example')
+    plot_spectrogram(bandpass_filtered_noise, fs, 'bandpass_example')
+    
+    plot_center_frequency = 250
+    plot_BW = Q * plot_center_frequency
+    b, a = second_order_allpass_filter(plot_center_frequency, plot_BW, fs)
+    w, h = sig.freqz(b, a, fs=fs, worN=2048)
+    
+    h_bandstop = 0.5 * (1 + h)
+    h_bandpass = 0.5 * (1 - h)
+    
+    plot_amplitude_response(w, h_bandstop, 'bandstop_amplitude_response')
+    plot_amplitude_response(w, h_bandpass, 'bandpass_amplitude_response')
+    
+    sf.write('bandstop_filtered_noise.flac', bandstop_filtered_noise, fs)
+    sf.write('bandstop_filtered_noise.flac', bandpass_filtered_noise, fs)
+    
+    
+    
+
+def apply_fade(signal):
+    window = sig.hann(8192)
+    fade_length = window.shape[0] // 2
+    signal[:fade_length] *= window[:fade_length]
+    signal[-fade_length:] *= window[fade_length:]
+    return signal
+        
+        
+        
+    
+    
+    
+
+if __name__=='__main__':
+    main()
+
+
+# Applications: Phaser
