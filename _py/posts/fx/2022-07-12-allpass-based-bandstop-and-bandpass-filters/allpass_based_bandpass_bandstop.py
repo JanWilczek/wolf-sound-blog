@@ -76,7 +76,7 @@ def bandstop_bandpass_filter(input_signal, Q, center_frequency, fs, bandpass=Fal
     y2 = 0
     
     for i in range(input_signal.shape[0]):
-        BW = Q * center_frequency[i]
+        BW = center_frequency[i] / Q
         
         b, a = second_order_allpass_filter(center_frequency[i], BW, fs)
         
@@ -105,7 +105,7 @@ def main():
     fs = 44100
     length_seconds = 6
     length_samples = fs * length_seconds
-    Q = 0.3
+    Q = 3
     center_frequency = np.geomspace(100, 16000, length_samples)
     noise = np.random.default_rng().uniform(-1, 1, (length_samples,))
     
@@ -123,7 +123,7 @@ def main():
     plot_spectrogram(bandpass_filtered_noise, fs, 'bandpass_example')
     
     plot_center_frequency = 250
-    plot_BW = Q * plot_center_frequency
+    plot_BW = plot_center_frequency / Q
     b, a = second_order_allpass_filter(plot_center_frequency, plot_BW, fs)
     w, h = sig.freqz(b, a, fs=fs, worN=2048)
     

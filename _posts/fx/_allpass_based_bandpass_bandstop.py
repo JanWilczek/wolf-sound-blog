@@ -89,7 +89,7 @@ def bandstop_bandpass_filter(input_signal, Q, center_frequency, fs, bandpass=Fal
     # Process the input signal with the allpass
     for i in range(input_signal.shape[0]):
         # Calculate the bandwidth from Q and center frequency
-        BW = Q * center_frequency[i]
+        BW = center_frequency[i] / Q
         
         # Get the allpass coefficients
         b, a = second_order_allpass_filter(center_frequency[i], BW, fs)
@@ -127,7 +127,7 @@ def main():
     fs = 44100
     length_seconds = 6
     length_samples = fs * length_seconds
-    Q = 0.3
+    Q = 3
 
     # We have a separate center frequency for each sample
     center_frequency = np.geomspace(100, 16000, length_samples)

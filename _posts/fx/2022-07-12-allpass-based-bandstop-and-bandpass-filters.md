@@ -77,7 +77,7 @@ The bandwidth determines how wide will the "dip" or "valley" be around the cente
 
 In order for the bandstop filter to sound equally wide in bandwidth at all center frequencies, we often use the **Q** or **quality factor** or **Q-factor** parameter. It is defined as
 
-$$Q = BW f_c, \quad ({% increment equationId20220712  %})$$
+$$Q = \frac{f_c}{BW}, \quad ({% increment equationId20220712  %})$$
 
 where $BW$ is the bandwidth in Hz and $f_c$ is the center frequency in Hz.
 
@@ -116,7 +116,7 @@ $$c = \frac{\tan(\pi BW / f_s) - 1}{\tan(\pi BW / f_s) + 1},  \quad ({% incremen
 
 $$d = - \cos(2\pi f_\text{b} / f_s),  \quad ({% increment equationId20220712 %})$$
 
-$BW$ is the bandwidth in Hz, $f_\text{b}$ is the break frequency in Hz, and $f_s$ is the sampling rate in Hz. The **break frequency** specifies the frequency at which the phase shift is -\pi. The **bandwidth** specifies the width of the transition band in which the phase shift goes from 0 to $-2\pi$.
+$BW$ is the bandwidth in Hz, $f_\text{b}$ is the break frequency in Hz, and $f_s$ is the sampling rate in Hz. The **break frequency** specifies the frequency at which the phase shift is $-\pi$. The **bandwidth** specifies the width of the transition band in which the phase shift goes from 0 to $-2\pi$.
 
 ### Phase Response
 
@@ -152,7 +152,7 @@ The output of the second-order allpass filter is added to the direct path. We mu
 
 ### Magnitude Response
 
-Here is a magnitude transfer function of the bandstop filter from Figure 4 with the center frequency at 250 Hz and $Q$ equal to 0.3.
+Here is a magnitude transfer function of the bandstop filter from Figure 4 with the center frequency at 250 Hz and $Q$ equal to 3.
 
 ![]({{ page.images | absolute_url | append: "/bandstop_amplitude_response.webp"}}){: width="70%" alt="Magnitude transfer function of the bandstop filter."}
 _Figure {% increment figureId20220712  %}. Magnitude transfer function of the bandstop filter._
@@ -163,7 +163,7 @@ At the center frequency, we get the biggest attenuation which decreases the furt
 
 As this filter requires quite easy computations to control the center frequency and the bandwidth, we can alter its parameters in real time.
 
-As an example, here's a white noise signal filtered with the bandstop filter, whose center frequency varies from 100 to 16000 Hz over time.
+As an example, here's a white noise signal filtered with the bandstop filter, whose center frequency varies from 100 to 16000 Hz over time and Q is equal to 3.
 
 {% include embed-audio.html src="/assets/wav/posts/fx/2022-07-12-allpass-based-bandstop-and-bandpass-filters/bandstop_filtered_noise.flac" %}
 
@@ -197,20 +197,18 @@ The multiplication by $\frac{1}{2}$ is just to preserve the [-1, 1] amplitude ra
 
 ### Magnitude Response
 
-In Figure 8, there's the magnitude response of the bandpass filter with center frequency set to 250 Hz and $Q$ set to 0.3.
+In Figure 8, there's the magnitude response of the bandpass filter with center frequency set to 250 Hz and $Q$ set to 3.
 
 ![]({{ page.images | absolute_url | append: "/bandpass_amplitude_response.webp"}}){: width="70%" alt="Magnitude transfer function of the bandpass filter."}
 _Figure {% increment figureId20220712  %}. Magnitude transfer function of the bandpass filter._
 
 As you can see, it actually passes through only the frequencies in the specified band.
 
-The uneven slopes of the response result from the logarithmic scaling of the frequency axis; these slopes are identical on the linear scale.
-
 ### Real-Time Control
 
 Exactly as the bandstop filter, the bandpass filter can be easily controlled in real time.
 
-Here's an audio sample with a bandpass-filtered white noise, where the center frequency varies from 100 Hz to 16000 Hz and Q is equal to 0.3.
+Here's an audio sample with a bandpass-filtered white noise, where the center frequency varies from 100 Hz to 16000 Hz and Q is equal to 3.
 
 {% include embed-audio.html src="/assets/wav/posts/fx/2022-07-12-allpass-based-bandstop-and-bandpass-filters/bandpass_filtered_noise.flac" %}
 
