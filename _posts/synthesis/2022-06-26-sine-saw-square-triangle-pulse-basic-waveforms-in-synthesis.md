@@ -20,6 +20,8 @@ custom_js:
 ---
 Read this to use their full potential and avoid any caveats!
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/7E8Ou6DYsJQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 {% katexmm %}
 {% capture _ %}{% increment equationId20220626  %}{% endcapture %}
 {% capture _ %}{% increment figureId20220626  %}{% endcapture %}
