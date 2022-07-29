@@ -16,7 +16,6 @@ def apply_fade(signal):
     # Return the modified signal
     return signal
 
-    """"""
 
 def second_order_allpass_filter(break_frequency, BW, fs):
     """
