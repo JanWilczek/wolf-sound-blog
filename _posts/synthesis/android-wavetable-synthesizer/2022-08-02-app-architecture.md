@@ -35,7 +35,7 @@ We've built one in [Python]{% post_url synthesis/2021-08-27-wavetable-synthesis-
 
 ## Project Goal
 
-The goal of the app is build a wavetable synthesizer on Android with the following controls.
+The goal of the app is build a wavetable synthesizer on Android with basic controls. You can see them in the user interface (UI) of the app.
 
 <!-- TODO: App UI -->
 
@@ -93,13 +93,33 @@ In practice, this means using interfaces when we're unsure how will implement ce
 
 So here I will show you the architecture of the app after I've finished it. The initial idea was similar but still different from the end product.
 
-### Modern Android Architecture
+### Architecture Diagram
 
 [Android architecture guidelines](https://developer.android.com/topic/architecture) encourage the developers to build their apps in layers.
 
 <!-- TODO: Layers figure from the guidelines -->
 
+In general, I prefer the [ports and adapters](https://en.wikipedia.org/wiki/Hexagonal_architecture_(software)) approach. As a result, our app is a mix of the two.
 
+<!-- TODO: Wavetable synthesizer app architecture -->
+
+We can observe that our app consists of 7 parts:
+
+1. UI layer, which defines how our app will look.
+2. ViewModel layer which holds the UI state (e.g., sliders' values) and communicates the changes to the `WavetableSynthesizer`.
+3. A very small and very "dirty" (i.e., concrete, non-abstract) `MainActivity` to connect to Android ecosystem, initialize the app, and connect everything.
+4. Kotlin-side wavetable synthesizer representation, which can be a gateway to the native C++ synthesizer or a dummy class for testing purposes.
+5. Java Native Interface (JNI) code that allows interfacing Kotlin and C++.
+6. C++-side wavetable synthesizer that contains actual business logic regarding the synthesizer. `WavetableSynthesizer` C++ class delegates its functionalities to a handful of smaller classes that aren't shown in the diagram.
+7. Sound playback layer that is conveniently abstracted behind an interface so that it can be easily replaced in the future. In our app, we will implement the `AudioPlayer` interface using the Oboe library from Google.
+
+## Part 1 Summary
+
+In this introductory part of the tutorial, we discussed the goals of the project and the architecture of our app. Following this tutorial in full or in parts will allow you to learn a handful of modern technologies in an easy and enjoyable way. You can code it yourself or you can download the source code from GitHub. Have fun!
+
+If you want to check out my guidelines on what knowledge is needed to write sound-processing software, [download my free audio plugin developer checklist]({% link single-pages/checklist.html %}).
+
+Up next: implementing the UI in Jetpack Compose!
 
 
 
