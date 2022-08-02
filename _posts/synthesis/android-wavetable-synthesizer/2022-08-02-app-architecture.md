@@ -19,6 +19,8 @@ discussion_id: 2022-08-02-app-architecture
 ---
 Built using Jetpack Compose, Oboe library, C++, Kotlin, and modern architecture guidelines.
 
+<!-- TODO: Here there will be a table of contents -->
+
 ## Introduction
 
 Recently, thanks to my employer [Loudly](https://www.loudly.com/), I went to droidcon Berlin 2022 and learned a lot about modern Android development. That is, "modern" as of 2022 😉
@@ -48,6 +50,7 @@ The secondary goal is to use cutting-edge Android audio tools and practices like
 
 Thanks to this tutorial, you will learn
 
+* How [wavetable synthesis]({% post_url synthesis/2021-08-13-wavetable-synthesis-theory %}) works can be implemented in an app,
 * Kotlin basics in a fun and easy way, including [Kotlin Coroutines](https://kotlinlang.org/docs/coroutines-overview.html),
 * Android development basics,
 * Jetpack Compose framework basics,
@@ -60,6 +63,7 @@ Thanks to this tutorial, you will learn
 This tutorial is for:
 
 * Complete Android beginners who want to learn app development basics in an enjoyable way,
+* People who want to learn [wavetable synthesis]({% post_url synthesis/2021-08-13-wavetable-synthesis-theory %}) and its implementation,
 * Android developers who want to learn the audio side of Android apps,
 * Kotlin developers who want to understand coroutines,
 * Android developers who want to see modern Android architecture in action,
@@ -71,3 +75,31 @@ This tutorial is for:
 The complete source code is available on [GitHub](https://github.com/JanWilczek/android-wavetable-synthesizer).
 
 ## App Architecture
+
+<!-- TODO: Insert link to the next article in project setup -->
+Before we start with the project setup, I want to discuss the architecture of our app.
+
+How can one come up with architecture at the very beginning?
+
+The answer is: one doesn't.
+
+<!-- TODO: Boromir meme "One does not simply come up with software architecture at a project's start -->
+
+The architecture is something that should be kind of a sketch in our minds or on paper that only guides us in the right direction.
+
+To keep architecture flexible, I always try to follow advice from "Software Architecture" by Robert C. Martin and abstract out the details.
+
+In practice, this means using interfaces when we're unsure how will implement certain functionalities.
+
+So here I will show you the architecture of the app after I've finished it. The initial idea was similar but still different from the end product.
+
+### Modern Android Architecture
+
+[Android architecture guidelines](https://developer.android.com/topic/architecture) encourage the developers to build their apps in layers.
+
+<!-- TODO: Layers figure from the guidelines -->
+
+
+
+
+
