@@ -113,6 +113,19 @@ We can observe that our app consists of 7 parts:
 6. C++-side wavetable synthesizer that contains actual business logic regarding the synthesizer. `WavetableSynthesizer` C++ class delegates its functionalities to a handful of smaller classes that aren't shown in the diagram.
 7. Sound playback layer that is conveniently abstracted behind an interface so that it can be easily replaced in the future. In our app, we will implement the `AudioPlayer` interface using the Oboe library from Google.
 
+## Tech Stack
+
+Finally, I want to list all the tools and libraries that I'm using with their respective versions.
+
+* Android Studio Chipmunk 2021.2.1 Patch 1
+* CMake 3.18.1
+* Jetpack Compose 1.1.1
+* Kotlin 1.8.0
+* C++ 20
+* Oboe 1.6.1
+
+The remaining dependencies can be found in the [_build.gradle_ file](https://github.com/JanWilczek/android-wavetable-synthesizer/blob/main/app/build.gradle).
+
 ## Part 1 Summary
 
 In this introductory part of the tutorial, we discussed the goals of the project and the architecture of our app. Following this tutorial in full or in parts will allow you to learn a handful of modern technologies in an easy and enjoyable way. You can code it yourself or you can download the source code from GitHub. Have fun!
