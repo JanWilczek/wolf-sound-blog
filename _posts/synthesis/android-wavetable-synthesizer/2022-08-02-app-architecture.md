@@ -5,7 +5,7 @@ date: 2022-08-02
 author: Jan Wilczek
 layout: post
 permalink: /android-synthesizer-1-app-architecture/
-# images: /assets/img/posts/synthesis/2022-07-03-envelopes/
+images: /assets/img/posts/synthesis/android-wavetable-synthesizer
 # background: /assets/img/posts/synthesis/2022-07-03-envelopes/sine_adsr.webp
 # audio_examples: /assets/wav/posts/synthesis/2022-07-03-envelopes/
 categories:
@@ -16,8 +16,13 @@ tags:
   - kotlin
   - C++
 discussion_id: 2022-08-02-app-architecture
+custom_js:
+ - /assets/vendor/lazyload/lazyload.min.js
+ - /assets/js/wolfsound/modules/load_lazyload.js
 ---
 Built using Jetpack Compose, Oboe library, C++, Kotlin, and modern architecture guidelines.
+
+{% capture _ %}{% increment figureId20220802  %}{% endcapture %}
 
 <!-- TODO: Here there will be a table of contents -->
 
@@ -27,11 +32,17 @@ Recently, thanks to my employer [Loudly](https://www.loudly.com/), I went to dro
 
 <!-- TODO: Me at Droidcon with Manuel Vivo -->
 
+<div markdown="0">
+<img class="lazyload" data-src="{{ page.images | absolute_url | append: "/JanWilczekAndManuelVivo.webp" }}" alt="Jan Wilczek and Manuel Vivo at droidcon Berlin 2022" width="60%">
+</div>
+
+_Figure {% increment figureId20220802 %}. At droidcon Berlin 2022, I was lucky to meet [Manuel Vivo](https://manuelvivo.dev/) of Google and listen to his talk on modern Android architecture. And I was happy to get some German pretzels too!_
+
 Recent developments on this platform, especially, the brand-new Compose UI framework, inspired me to write a synthesizer app for Android.
 
 What kind of synthesizer? [Wavetable synthesizer]({% post_url synthesis/2021-08-13-wavetable-synthesis-theory %}), of course!
 
-We've built one in [Python]{% post_url synthesis/2021-08-27-wavetable-synthesis-python.md %}, another one in [Rust]({% post_url synthesis/2021-10-15-wavetable-synthesis-rust.md %}), and another one in [C++ as an audio plugin]({% post_url synthesis/2021-09-24-wavetable-synthesis-juce %}). So why not Android?
+We've built one in [Python]{% post_url synthesis/2021-08-27-wavetable-synthesis-python %}, another one in [Rust]({% post_url synthesis/2021-10-15-wavetable-synthesis-rust %}), and another one in [C++ as an audio plugin]({% post_url synthesis/2021-09-24-wavetable-synthesis-juce %}). So why not Android?
 
 ## Project Goal
 
