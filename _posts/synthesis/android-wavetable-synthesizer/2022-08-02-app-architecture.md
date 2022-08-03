@@ -6,8 +6,7 @@ author: Jan Wilczek
 layout: post
 permalink: /android-synthesizer-1-app-architecture/
 images: /assets/img/posts/synthesis/android-wavetable-synthesizer
-# background: /assets/img/posts/synthesis/2022-07-03-envelopes/sine_adsr.webp
-# audio_examples: /assets/wav/posts/synthesis/2022-07-03-envelopes/
+background: /assets/img/posts/synthesis/android-wavetable-synthesizer/Thumbnail.webp
 categories:
   - Sound Synthesis
 tags:
