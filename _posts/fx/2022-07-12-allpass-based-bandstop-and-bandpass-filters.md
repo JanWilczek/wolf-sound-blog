@@ -125,7 +125,7 @@ The phase response of the second-order allpass filter is visible in Figure 3.
 ![]({{ page.images_allpass | absolute_url | append: "/second_order_allpass_phase_response.webp" }}){: width="80%" alt="Phase response of the second-order allpass filter with constant bandwidth."}
 _Figure {% increment figureId20220712 %}. Phase response of a second-order allpass filter for different break frequencies frequencies $f_\text{b}$ and bandwidth $BW / f_s = 0.022$._
 
-As you can see, the phase shift is 0 at 0 Hz and gradually changes to -2\pi. The steepness of the phase response is determined by the bandwidth $BW$ parameter expressed in Hz.
+As you can see, the phase shift is 0 at 0 Hz and gradually changes to $-2\pi$. The steepness of the phase response is determined by the bandwidth $BW$ parameter expressed in Hz.
 
 You can already guess that the bandwidth parameter of the second-order allpass filter translates to the bandwidth parameter of bandpass and bandstop filters. Accordingly, the break frequency corresponds to the center frequency. How?
 
