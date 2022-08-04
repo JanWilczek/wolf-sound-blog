@@ -12,6 +12,12 @@
   <defs
      id="defs2">
     <rect
+       x="458.89764"
+       y="265.15433"
+       width="50"
+       height="40"
+       id="rect9677" />
+    <rect
        x="350"
        y="210"
        width="140.00002"
@@ -143,6 +149,12 @@
        width="400"
        height="40"
        id="rect3711" />
+    <rect
+       x="458.89764"
+       y="265.15433"
+       width="50"
+       height="40"
+       id="rect12046" />
   </defs>
   <g
      id="layer1"
@@ -234,7 +246,7 @@
        y="0"><tspan
          x="128.27734"
          y="51.895928"
-         id="tspan1169">UI Layer (Compose)</tspan></text>
+         id="tspan12488">UI Layer (Compose)</tspan></text>
     <text
        xml:space="preserve"
        transform="scale(0.26458333)"
@@ -247,19 +259,23 @@
        style="font-size:24px;line-height:1.25;font-family:Verdana;-inkscape-font-specification:Verdana;text-align:center;white-space:pre;shape-inside:url(#rect28507)"><tspan
          x="117.89453"
          y="171.89593"
-         id="tspan1171">ViewModel + UI State</tspan></text>
+         id="tspan12490">ViewModel + UI State</tspan></text>
     <text
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,0,-2.6458334)"
        id="text33647"
        style="font-size:24px;line-height:1.25;font-family:Verdana;-inkscape-font-specification:Verdana;text-align:center;white-space:pre;shape-inside:url(#rect33649)"><tspan
-         x="197.60938"
+         x="196.81836"
          y="281.89593"
-         id="tspan1173">Wavetable
-</tspan><tspan
-         x="189.75781"
+         id="tspan12494"><tspan
+           style="font-style:italic;-inkscape-font-specification:'Verdana Italic'"
+           id="tspan12492">Wavetable
+</tspan></tspan><tspan
+         x="189.52344"
          y="311.89593"
-         id="tspan1175">Synthesizer</tspan></text>
+         id="tspan12498"><tspan
+           style="font-style:italic;-inkscape-font-specification:'Verdana Italic'"
+           id="tspan12496">Synthesizer</tspan></tspan></text>
     <text
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,0,-1.0583333)"
@@ -267,15 +283,15 @@
        style="font-size:16px;line-height:1.25;font-family:Verdana;-inkscape-font-specification:Verdana;text-align:center;white-space:pre;shape-inside:url(#rect54375)"><tspan
          x="328.48047"
          y="404.59729"
-         id="tspan1177">Logging
+         id="tspan12500">Logging
 </tspan><tspan
          x="318.40625"
          y="424.59729"
-         id="tspan1179">Wavetable
+         id="tspan12502">Wavetable
 </tspan><tspan
          x="313.17188"
          y="444.59729"
-         id="tspan1181">Synthesizer</tspan></text>
+         id="tspan12504">Synthesizer</tspan></text>
     <text
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,0,1.0583333)"
@@ -283,15 +299,15 @@
        style="font-size:16px;line-height:1.25;font-family:Verdana;-inkscape-font-specification:Verdana;text-align:center;white-space:pre;shape-inside:url(#rect61301)"><tspan
          x="124.43359"
          y="394.59729"
-         id="tspan1183">Native
+         id="tspan12506">Native
 </tspan><tspan
          x="108.40625"
          y="414.59729"
-         id="tspan1185">Wavetable
+         id="tspan12508">Wavetable
 </tspan><tspan
          x="103.17188"
          y="434.59729"
-         id="tspan1187">Synthesizer</tspan></text>
+         id="tspan12510">Synthesizer</tspan></text>
     <text
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,0,1.0583333)"
@@ -299,7 +315,7 @@
        style="font-size:24px;line-height:1.25;font-family:Verdana;-inkscape-font-specification:Verdana;text-align:center;white-space:pre;shape-inside:url(#rect69899)"><tspan
          x="87.501953"
          y="531.89593"
-         id="tspan1189">Java Native Interface (JNI)</tspan></text>
+         id="tspan12512">Java Native Interface (JNI)</tspan></text>
     <text
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,0,2.6458334)"
@@ -307,23 +323,27 @@
        style="font-size:18.6667px;line-height:1.25;font-family:Verdana;-inkscape-font-specification:Verdana;text-align:center;white-space:pre;shape-inside:url(#rect74058)"><tspan
          x="311.47387"
          y="617.0302"
-         id="tspan1191">Wavetable
+         id="tspan12514">Wavetable
 </tspan><tspan
          x="305.36709"
          y="640.36357"
-         id="tspan1193">Synthesizer</tspan></text>
+         id="tspan12516">Synthesizer</tspan></text>
     <text
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,0,-1.0583333)"
        id="text79016"
        style="font-size:24px;line-height:1.25;font-family:Verdana;-inkscape-font-specification:Verdana;text-align:center;white-space:pre;shape-inside:url(#rect79018)"><tspan
-         x="326.20898"
+         x="326.16211"
          y="751.89593"
-         id="tspan1195">Audio
-</tspan><tspan
-         x="323.0918"
+         id="tspan12520"><tspan
+           style="font-style:italic;-inkscape-font-specification:'Verdana Italic'"
+           id="tspan12518">Audio
+</tspan></tspan><tspan
+         x="322.9043"
          y="781.89593"
-         id="tspan1197">Player</tspan></text>
+         id="tspan12524"><tspan
+           style="font-style:italic;-inkscape-font-specification:'Verdana Italic'"
+           id="tspan12522">Player</tspan></tspan></text>
     <text
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,-2.1166667,1.5875)"
@@ -331,11 +351,11 @@
        style="font-size:21.3333px;line-height:1.25;font-family:Verdana;-inkscape-font-specification:Verdana;text-align:center;white-space:pre;shape-inside:url(#rect83116)"><tspan
          x="342.13025"
          y="849.46302"
-         id="tspan1199">Oboe
+         id="tspan12526">Oboe
 </tspan><tspan
          x="307.15635"
          y="876.12964"
-         id="tspan1201">AudioPlayer</tspan></text>
+         id="tspan12528">AudioPlayer</tspan></text>
     <text
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,-3.2436795,3.0618557)"
@@ -343,7 +363,7 @@
        style="font-size:24px;line-height:1.25;font-family:Verdana;-inkscape-font-specification:Verdana;text-align:center;white-space:pre;shape-inside:url(#rect91056)"><tspan
          x="546.50781"
          y="161.89593"
-         id="tspan1203">MainActivity</tspan></text>
+         id="tspan12530">MainActivity</tspan></text>
     <path
        style="fill:none;stroke:#000000;stroke-width:0.465;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow1Lend)"
        d="M 31.75,21.166666 V 35.71875"
@@ -407,7 +427,7 @@
        style="font-size:37.3333px;line-height:1.25;font-family:Verdana;-inkscape-font-specification:Verdana;text-align:center;white-space:pre;shape-inside:url(#rect106069)"><tspan
          x="169.62892"
          y="774.0603"
-         id="tspan1205">...</tspan></text>
+         id="tspan12532">...</tspan></text>
     <path
        style="fill:none;stroke:#000000;stroke-width:0.565;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:6.78, 6.78;stroke-dashoffset:0;stroke-opacity:1"
        d="M 2.6458333,124.35417 H 190.5"
@@ -419,7 +439,7 @@
        style="font-size:37.3333px;line-height:1.25;font-family:Verdana;-inkscape-font-specification:Verdana;text-align:center;white-space:pre;shape-inside:url(#rect114468)"><tspan
          x="574.46228"
          y="434.0603"
-         id="tspan1207">Kotlin</tspan></text>
+         id="tspan12534">Kotlin</tspan></text>
     <text
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,-0.34020619,3.9123711)"
@@ -427,7 +447,7 @@
        style="font-size:37.3333px;line-height:1.25;font-family:Verdana;-inkscape-font-specification:Verdana;text-align:center;white-space:pre;shape-inside:url(#rect120282)"><tspan
          x="586.4141"
          y="519.0603"
-         id="tspan1209">C++</tspan></text>
+         id="tspan12536">C++</tspan></text>
     <text
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,-0.85051546,0.34020619)"
@@ -435,7 +455,7 @@
        style="font-size:24px;line-height:1.25;font-family:Verdana;-inkscape-font-specification:Verdana;text-align:center;white-space:pre;shape-inside:url(#rect129965)"><tspan
          x="145.13281"
          y="111.89593"
-         id="tspan1211">events</tspan></text>
+         id="tspan12538">events</tspan></text>
     <text
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,-7.8247423,-1.3608247)"
@@ -443,11 +463,45 @@
        style="font-size:18.6667px;line-height:1.25;font-family:Verdana;-inkscape-font-specification:Verdana;text-align:center;white-space:pre;shape-inside:url(#rect132669)"><tspan
          x="383.11321"
          y="107.0302"
-         id="tspan1213">observe
+         id="tspan12540">observe
 </tspan><tspan
          x="396.61649"
          y="130.36357"
-         id="tspan1215">state</tspan></text>
+         id="tspan12542">state</tspan></text>
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke-width:0.396553;stroke-linejoin:round;stroke-dasharray:3.17242, 3.17242;stroke-dashoffset:0.317242;paint-order:stroke fill markers"
+       id="rect11747"
+       width="13.229177"
+       height="5.2916665"
+       x="99.218742"
+       y="186.53125" />
+    <text
+       xml:space="preserve"
+       transform="matrix(0.26458333,0,0,0.26458333,-22.072312,116.55306)"
+       id="text9675"
+       style="font-size:24px;line-height:1.25;font-family:Verdana;-inkscape-font-specification:Verdana;text-align:center;white-space:pre;shape-inside:url(#rect9677);fill:#000000;fill-opacity:1"><tspan
+         x="459.20703"
+         y="287.05022"
+         id="tspan12544">&lt;I&gt;</tspan></text>
+    <g
+       id="g12044"
+       transform="translate(-27.78127,-6.6145782)">
+      <rect
+         style="fill:#ffffff;fill-opacity:1;stroke-width:0.465;stroke-linejoin:round;stroke-dasharray:3.71999, 3.71999;stroke-dashoffset:0.371999;paint-order:stroke fill markers"
+         id="rect12038"
+         width="14.552089"
+         height="6.6145782"
+         x="113.77084"
+         y="67.46875" />
+      <text
+         xml:space="preserve"
+         transform="matrix(0.26458333,0,0,0.26458333,-6.9248469,-2.8071231)"
+         id="text12042"
+         style="font-size:24px;line-height:1.25;font-family:Verdana;-inkscape-font-specification:Verdana;text-align:center;white-space:pre;shape-inside:url(#rect12046);fill:#000000;fill-opacity:1"><tspan
+           x="459.20703"
+           y="287.05022"
+           id="tspan12546">&lt;I&gt;</tspan></text>
+    </g>
     <text
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,-28.55577,-1.6615273)"
@@ -455,10 +509,10 @@
        style="font-size:18.6667px;line-height:0.95;font-family:Verdana;-inkscape-font-specification:Verdana;text-align:center;white-space:pre;shape-inside:url(#rect141196);fill:#000000;fill-opacity:1;stroke:none;stroke-opacity:1"><tspan
          x="387.62038"
          y="224.23019"
-         id="tspan1217">update
+         id="tspan12548">update
 </tspan><tspan
          x="396.61649"
          y="241.96356"
-         id="tspan1219">state</tspan></text>
+         id="tspan12550">state</tspan></text>
   </g>
 </svg>
