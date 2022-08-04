@@ -19,6 +19,8 @@ discussion_id: 2022-07-12-allpass-based-bandstop-and-bandpass-filters
 ---
 With real-time center frequency and bandwidth control!
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/wodumxEF9u0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 In [one of the previous articles]({% post_url fx/2022-05-08-allpass-based-lowpass-and-highpass-filters %}), we discussed how to implement a simple lowpass and a highpass filter using the first-order allpass filter. That filter had a real-time cutoff frequency control.
 
 {% katexmm %}
