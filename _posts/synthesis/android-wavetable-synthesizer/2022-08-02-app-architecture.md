@@ -171,4 +171,4 @@ In this introductory part of the tutorial, we discussed the goals of the project
 
 If you want to check out my guidelines on what knowledge is needed to write sound-processing software, [download my free audio plugin developer checklist]({% link single-pages/checklist.html %}).
 
-Up next: implementing the UI in Jetpack Compose!
+Up next: [implementing the UI in Jetpack Compose]({% post_url synthesis/android-wavetable-synthesizer/2022-08-10-ui %})!
