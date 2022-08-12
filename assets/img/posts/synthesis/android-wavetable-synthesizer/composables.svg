@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="25.977501mm"
+   height="44.498333mm"
+   viewBox="0 0 25.977501 44.498333"
+   version="1.1"
+   id="svg5"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs2" />
+  <g
+     id="layer1"
+     transform="translate(-13.469583,-14.7925)">
+    <rect
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.165;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke fill markers"
+       id="rect853"
+       width="23.8125"
+       height="42.333332"
+       x="14.552083"
+       y="15.875"
+       ry="1"
+       rx="1.2" />
+    <rect
+       style="fill:#ffffff;stroke-width:0.465;stroke-linejoin:round;stroke-dasharray:3.71999, 3.71999;stroke-dashoffset:0.371999;paint-order:stroke fill markers"
+       id="rect929"
+       width="0.63788658"
+       height="0.12757732"
+       x="26.139389"
+       y="32.192009" />
+    <rect
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.165;stroke-linejoin:miter;stroke-miterlimit:0;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke fill markers"
+       id="rect1023"
+       width="19.094072"
+       height="37.337627"
+       x="16.911297"
+       y="19.873583" />
+    <rect
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.165;stroke-linejoin:miter;stroke-miterlimit:0;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke fill markers"
+       id="rect1047"
+       width="15.479382"
+       height="11.737114"
+       x="18.718643"
+       y="26.252447" />
+    <rect
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.165;stroke-linejoin:miter;stroke-miterlimit:0;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke fill markers"
+       id="rect1049"
+       width="14.969071"
+       height="16.074743"
+       x="18.973797"
+       y="39.563019" />
+    <text
+       xml:space="preserve"
+       style="font-size:2.82222px;line-height:1.25;font-family:Verdana;-inkscape-font-specification:Verdana;text-align:center;text-anchor:middle;stroke-width:0.264583"
+       x="26.447998"
+       y="23.488272"
+       id="text10159"><tspan
+         id="tspan10157"
+         style="font-size:2.82222px;stroke-width:0.264583"
+         x="26.447998"
+         y="23.488272">Composable</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:2.11667px;line-height:1.25;font-family:Verdana;-inkscape-font-specification:Verdana;text-align:center;text-anchor:middle;stroke-width:0.264583"
+       x="26.450583"
+       y="29.059147"
+       id="text11877"><tspan
+         id="tspan11875"
+         style="font-size:2.11667px;stroke-width:0.264583"
+         x="26.450583"
+         y="29.059147">Composable</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:2.11667px;line-height:1.25;font-family:Verdana;-inkscape-font-specification:Verdana;text-align:center;text-anchor:middle;stroke-width:0.264583"
+       x="26.450583"
+       y="42.32719"
+       id="text11881"><tspan
+         id="tspan11879"
+         style="font-size:2.11667px;stroke-width:0.264583"
+         x="26.450583"
+         y="42.32719">Composable</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:2.82222px;line-height:1.25;font-family:Verdana;-inkscape-font-specification:Verdana;text-align:center;text-anchor:middle;stroke-width:0.264583"
+       x="26.447998"
+       y="18.682859"
+       id="text15171"><tspan
+         id="tspan15169"
+         style="font-size:2.82222px;stroke-width:0.264583"
+         x="26.447998"
+         y="18.682859">Composable</tspan></text>
+  </g>
+</svg>
