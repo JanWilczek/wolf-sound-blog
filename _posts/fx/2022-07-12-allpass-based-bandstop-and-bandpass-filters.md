@@ -223,6 +223,8 @@ Once again, the y-axis is a log-frequency axis, the x-axis is a time axis, and c
 
 ### Implementation
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/boHWH_8ODv8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 Here is a sample Python implementation of both filters: the bandpass and the bandstop.
 
 The code generates 5 seconds of white noise and then filters it with time-varying bandstop and bandpass filters respectively. The center frequency in both cases changes exponentially from 100 Hz to 16000 Hz (this code was used to generate the previous examples in this article).
