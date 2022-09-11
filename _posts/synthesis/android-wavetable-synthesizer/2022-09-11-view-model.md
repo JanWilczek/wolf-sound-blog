@@ -29,28 +29,27 @@ Modern Android architecture in its glory!
 2. [UI with Jetpack Compose]({% post_url synthesis/android-wavetable-synthesizer/2022-08-10-ui %})
 3. [ViewModel (this one)]({% post_url synthesis/android-wavetable-synthesizer/2022-09-11-view-model %})
 
-- [ ]  Links between the parts
-- [x]  Explanation what is a ViewModel
-- [x]  Introduction of the `WavetableSynthesizer` interface & `LoggingWavetableSynthesizer`
-- [x]  Connection of the ViewModel to the UI code
-- [x]  Coroutines in the ViewModel scope?
-- [x]  Remind the role of the ViewModel (image)
-
 ## Introduction
 
 Welcome to the 3rd part of the Android wavetable synthesizer app tutorial!
 
 In this tutorial series, we want to design and implement a synthesizer app on Android using all the modern technologies and best practices.
 
-In the [first part of this tutorial], we discussed the architecture of our app.
+<div markdown="0">
+<img class="lazyload" data-src="{{ page.images | absolute_url | append: "/SynthesizerUI.webp" }}" alt="Graphical user interface of the synthesizer app">
+</div>
 
-In the [previous part of this tutorial], we discussed how to create its user interface (UI) using Jetpack Compose.
+_Figure {% increment figureId20220911 %}. Graphical user interface of the synthesizer app we are going to build._
+
+In the [first part of this tutorial]({% post_url synthesis/android-wavetable-synthesizer/2022-08-02-app-architecture %}), we discussed the architecture of our app.
+
+In the [previous part of this tutorial]({% post_url synthesis/android-wavetable-synthesizer/2022-08-10-ui %}), we discussed how to create its user interface (UI) using Jetpack Compose.
 
 In this part, we will implement the bridge between the UI and the core logic of our app.
 
 The best way, to my knowledge, how to do it is to use the so-called **ViewModel**.
 
-As a reminder, the full source code is available on [my GitHub page].
+As a reminder, the full source code is available on [my GitHub page](https://github.com/JanWilczek/android-wavetable-synthesizer).
 
 ### Table of Contents
 
@@ -113,17 +112,17 @@ To recap, here is the architecture of our app with parts that will be created in
 <img class="lazyload" data-src="{{ page.images | absolute_url | append: "/SynthesizerArchitecture.svg" }}" alt="Component diagram of the app">
 </div>
 
-_Figure {% increment listingId20220911 %}. Synthesizer app architecture._
+_Figure {% increment figureId20220911 %}. Synthesizer app architecture._
 
 As you can see, `WavetableSynthesizerViewModel` depends on the `WavetableSynthesizer` interface. That allows us to decouple the Model and the ViewModel because the ViewModel will use the interface rather than a concrete implementation.
 
-That also allows us to write the `WavetableSynthesizerViewModel` class before we implement our Model! As you can see in Figure 1, we will create a `LoggingWavetableSynthesizer` that simply logs that its methods were called.
+That also allows us to write the `WavetableSynthesizerViewModel` class before we implement our Model! As you can see in Figure 2, we will create a `LoggingWavetableSynthesizer` that simply logs that its methods were called.
 
 ## Wavetable Synthesizer Model Implementation
 
 We’ll start by defining the interface of our synthesizer:
 
-_Listing 1. WavetableSynthesizer interface._
+_Listing {% increment listingId20220911 %}. WavetableSynthesizer interface._
 
 ```kotlin
 interface WavetableSynthesizer {
@@ -143,7 +142,7 @@ What do particular methods do?
 3. `isPlaying()` will return `true` if the synthesizer is playing and `false` otherwise.
 4. `setFrequency()` will set the frequency of the synthesizer that is being played back.
 5. `setVolume()` will set the volume of the sound that is being played back.
-6. `setWavetable()` will set the played-back wavetable. If you don’t know what a wavetable is or why do we need it, I have described it thoroughly in my [wavetable synthesis algorithm article]. I have also already shown how to implement a wavetable synthesizer [in Python], [in C++], and [in Rust] so feel free to check out those articles.
+6. `setWavetable()` will set the played-back wavetable. If you don’t know what a wavetable is or why do we need it, I have described it thoroughly in my [wavetable synthesis algorithm article]({% post_url synthesis/2021-08-13-wavetable-synthesis-theory %}). I have also already shown how to implement a wavetable synthesizer [in Python]({% post_url synthesis/2021-08-27-wavetable-synthesis-python %}), [in C++]({% post_url synthesis/2021-09-24-wavetable-synthesis-juce %}), and [in Rust]({% post_url synthesis/2021-10-15-wavetable-synthesis-rust %}) so feel free to check out those articles.
 
 You may be wondering why are the methods marked with `suspend`. Well… I will explain it later on 😉
 
@@ -151,7 +150,7 @@ You may be wondering why are the methods marked with `suspend`. Well… I will e
 
 As you could notice in Listing 1, we used a `Wavetable` class but we didn’t define it. Let’s do it now.
 
-_Listing 2. WavetableSynthesizer.kt file._
+_Listing {% increment listingId20220911 %}. WavetableSynthesizer.kt file._
 
 ```kotlin
 package com.thewolfsound.wavetablesynthesizer
@@ -189,7 +188,7 @@ SAW{
 
 For this code to work, we need to define the following string resources in the _res/values/strings.xml_ file.
 
-_Listing 3. strings.xml file._
+_Listing {% increment listingId20220911 %}. strings.xml file._
 
 ```xml
 <string name="sine">Sine</string>
@@ -206,7 +205,7 @@ And that’s it when it comes to our Model’s interface! Now, let’s provide s
 
 To check that the correct methods of our synthesizer’s interface are called, we will implement a `LoggingWavetableSynthesizer` that implements the `WavetableSynthesizer` interface and logs the function of the called method along with the passed-in parameters.
 
-_Listing 4. LoggingWavetableSynthesizer.kt._
+_Listing {% increment listingId20220911 %}. LoggingWavetableSynthesizer.kt._
 
 ```kotlin
 package com.thewolfsound.wavetablesynthesizer
@@ -259,7 +258,7 @@ With this code in place, we can finally implement our ViewModel!
 
 Our ViewModel class inherits from the `ViewModel` class from the `androidx.lifecycle` package.
 
-_Listing ???. WavetableSynthesizerViewModel.kt part 1._
+_Listing {% increment listingId20220911 %}. WavetableSynthesizerViewModel.kt._
 
 ```kotlin
 package com.thewolfsound.wavetablesynthesizer
@@ -281,7 +280,7 @@ That will allow us to obtain a reference to the correct ViewModel from our `Main
 
 To interact with the Model we need a reference to it. Therefore, we need a `WavetableSynthesizer` field in our ViewModel.
 
-_Listing ???. WavetableSynthesizerViewModel.kt part 2._
+_Listing {% increment listingId20220911 %}. WavetableSynthesizerViewModel.kt._
 
 ```kotlin
 var wavetableSynthesizer: WavetableSynthesizer? = null
@@ -305,7 +304,7 @@ Next up there is code related to frequency handling.
 
 First, we declare the UI state variable holding the frequency state.
 
-_Listing ???. WavetableSynthesizerViewModel.kt part 3._
+_Listing {% increment listingId20220911 %}. WavetableSynthesizerViewModel.kt._
 
 ```kotlin
 private val _frequency = MutableLiveData(300f)
@@ -315,7 +314,7 @@ val frequency: LiveData<Float>
   }
 ```
 
-If you don’t know what state hoisting is, you can read about it in the [previous tutorial].
+If you don’t know what state hoisting is, you can read about it in the [previous tutorial part]({% post_url synthesis/android-wavetable-synthesizer/2022-08-10-ui %}).
 
 The private `_frequency` field is of type `MutableLiveData` , which represents an **observable, mutable state**.
 
@@ -337,11 +336,11 @@ As you remember, the user controls the frequency of the synthesizer via a slider
 <img class="lazyload" data-src="{{ page.images | absolute_url | append: "/FrequencySlider.webp" }}" alt="Frequency control slider of the synthesizer app.">
 </div>
 
-_Figure {% increment listingId20220911 %}. Frequency control slider._
+_Figure {% increment figureId20220911 %}. Frequency control slider._
 
-This slider value is in the [0, 1] range for simplicity. In the ViewModel, we take the slider value and convert it to frequency what can be seen in Listing ???.
+This slider value is in the [0, 1] range for simplicity. In the ViewModel, we take the slider value and convert it to frequency what can be seen in Listing 8.
 
-_Listing {% increment listingId20220911 %}._
+_Listing {% increment listingId20220911 %}. WavetableSynthesizerViewModel.kt._
 
 ```kotlin
 /**
@@ -368,14 +367,14 @@ Let’s tackle these issues one by one.
 
 **Human perception of frequency is logarithmic.**
 
-That’s why we need to map the slider position from the [0, 1] range to the same range but with a different "distribution" of values. I have discussed the logarithmic approach to musical parameters in the [envelope article] so please refer to it for more information.
+That’s why we need to map the slider position from the [0, 1] range to the same range but with a different "distribution" of values. I have discussed the logarithmic approach to musical parameters in the [envelope article]({% post_url synthesis/2022-07-03-envelopes %}) so please refer to it for more information.
 
 To convert the slider position to a frequency value, we
 
 1. convert the value from the linear to the exponential distribution, and
 2. convert the relative position in the [0, 1] range to a value within in a specified frequency range.
 
-_Listing {% increment listingId20220911 %}._
+_Listing {% increment listingId20220911 %}. WavetableSynthesizerViewModel.kt._
 
 ```kotlin
 // The range of generated frequencies
@@ -389,7 +388,7 @@ private fun frequencyInHzFromSliderPosition(sliderPosition: Float): Float {
 
 The inverse operation (frequency value to slider position) is analogous:
 
-_Listing {% increment listingId20220911 %}._
+_Listing {% increment listingId20220911 %}. WavetableSynthesizerViewModel.kt._
 
 ```kotlin
 fun sliderPositionFromFrequencyInHz(frequencyInHz: Float): Float {
@@ -400,7 +399,7 @@ fun sliderPositionFromFrequencyInHz(frequencyInHz: Float): Float {
 
 The referenced functions are contained in a small helper class that I wrote as a `companion object`. All functions in a companion object are equivalent to Java’s static methods.
 
-_Listing {% increment listingId20220911 %}._
+_Listing {% increment listingId20220911 %}. WavetableSynthesizerViewModel.kt._
 
 ```kotlin
 companion object LinearToExponentialConverter {
@@ -416,10 +415,12 @@ companion object LinearToExponentialConverter {
     return exp(ln(MINIMUM_VALUE) - ln(MINIMUM_VALUE) * value)
   }
 
-  fun valueFromRangePosition(range: ClosedFloatingPointRange<Float>, rangePosition: Float) =
+  fun valueFromRangePosition(range: ClosedFloatingPointRange<Float>,
+    rangePosition: Float) =
     range.start + (range.endInclusive - range.start) * rangePosition
 
-  fun rangePositionFromValue(range: ClosedFloatingPointRange<Float>, value: Float): Float {
+  fun rangePositionFromValue(range: ClosedFloatingPointRange<Float>,
+    value: Float): Float {
     assert(value in range)
 
     return (value - range.start) / (range.endInclusive - range.start)
@@ -445,7 +446,7 @@ The assignment  `_frequency.value = frequencyInHz` sets the value of the `Mutabl
 
 The lines
 
-_Listing {% increment listingId20220911 %}._
+_Listing {% increment listingId20220911 %}. WavetableSynthesizerViewModel.kt._
 
 ```kotlin
   viewModelScope.launch{
@@ -469,7 +470,7 @@ We use Kotlin Coroutines mostly when we want to execute some piece of code that 
 
 Coroutines make it easy to specify which code should be executed after the time-costly operation concludes. If not for the coroutines, we would need to use some sort of a callback to achieve the same effect.
 
-### **Why Do We Have to Use a Coroutine Here?**
+### Why Do We Have to Use a Coroutine Here?
 
 Only because we marked `setFrequency()` method of the `WavetableSynthesizer` interface as a suspended function by using the `suspend` keyword. Suspended function must always be executed in a coroutine scope.
 
@@ -487,7 +488,7 @@ Marking them as suspended does not mean that they will be executed on a differen
 
 Having explained the UI state in the ViewModel and Kotlin coroutines, the code for controlling the volume in decibels should be clear.
 
-_Listing {% increment listingId20220911 %}._
+_Listing {% increment listingId20220911 %}. WavetableSynthesizerViewModel.kt._
 
 ```kotlin
 private val _volume = MutableLiveData(-24f)
@@ -509,7 +510,7 @@ fun setVolume(volumeInDb: Float) {
 
 Setting the wavetable is even simpler than the volume.
 
-_Listing {% increment listingId20220911 %}._
+_Listing {% increment listingId20220911 %}. WavetableSynthesizerViewModel.kt._
 
 ```kotlin
 private var wavetable = Wavetable.***SINE***
@@ -530,7 +531,7 @@ Ideally, the label of the button should change as well.
 
 The following code states this idea.
 
-_Listing {% increment listingId20220911 %}._
+_Listing {% increment listingId20220911 %}. WavetableSynthesizerViewModel.kt._
 
 ```kotlin
 private val _playButtonLabel = MutableLiveData(R.string.play)
@@ -565,7 +566,7 @@ private fun updatePlayButtonLabel() {
 
 For the above code to work we must update our _strings.xml_ file with the following entry:
 
-_Listing {% increment listingId20220911 %}._
+_Listing {% increment listingId20220911 %}. Update to the strings.xml file._
 
 ```xml
 <string name="stop">Stop</string>
@@ -577,7 +578,7 @@ At certain points in the execution, we may wish to update all the synthesizer pa
 
 For this, we have the `applyParameters()` method, which is shown next.
 
-_Listing {% increment listingId20220911 %}._
+_Listing {% increment listingId20220911 %}. WavetableSynthesizerViewModel.kt._
 
 ```kotlin
 fun applyParameters() {
@@ -609,22 +610,25 @@ How to achieve it?
 
 By passing the `WavetableSynthesizerViewModel` down the composables’ hierarchy as an additional argument.
 
-Below you will find just the state-hoisting composables and how they changed in comparison to the [previous tutorial part].
+Below you will find just the state-hoisting composables and how they changed in comparison to the [previous tutorial part]({% post_url synthesis/android-wavetable-synthesizer/2022-08-10-ui %}).
 
 Note that you have to modify the signatures of the composable functions to account for the ViewModel argument.
 
-_Listing {% increment listingId20220911 %}._
+_Listing {% increment listingId20220911 %}. MainActivity.kt._
 
 ```kotlin
 @Composable
-private fun VolumeControl(modifier: Modifier, synthesizerViewModel: WavetableSynthesizerViewModel) {
-  // volume value is now an observable state; that means that the composable will be
+private fun VolumeControl(modifier: Modifier,
+    synthesizerViewModel: WavetableSynthesizerViewModel) {
+  // volume value is now an observable state; that means 
+  // that the composable will be
   // recomposed (redrawn) when the observed state changes.
   val volume = synthesizerViewModel.volume.observeAsState()
 
   VolumeControlContent(
     modifier = modifier,
-    // volume value should never be null; if it is, there's a serious implementation issue
+    // volume value should never be null; if it is, 
+    // there's a serious implementation issue
     volume = volume.value!!,
     // use the value range from the ViewModel
     volumeRange = synthesizerViewModel.volumeRange,
@@ -634,12 +638,14 @@ private fun VolumeControl(modifier: Modifier, synthesizerViewModel: WavetableSyn
 }
 ```
 
-_Listing {% increment listingId20220911 %}._
+_Listing {% increment listingId20220911 %}. MainActivity.kt._
 
 ```kotlin
 @Composable
-private fun PlayControl(modifier: Modifier, synthesizerViewModel: WavetableSynthesizerViewModel) {
-  // The label of the play button is now an observable state, an instance of State<Int?>.
+private fun PlayControl(modifier: Modifier,
+    synthesizerViewModel: WavetableSynthesizerViewModel) {
+  // The label of the play button is now an observable state,
+  // an instance of State<Int?>.
   // State<Int?> is used because the label is the id value of the resource string.
   // Thanks to the fact that the composable observes the label,
   // the composable will be recomposed (redrawn) when the observed state changes.
@@ -650,12 +656,13 @@ private fun PlayControl(modifier: Modifier, synthesizerViewModel: WavetableSynth
     onClick = {
         synthesizerViewModel.playClicked()
     },
-    // playButtonLabel will never be null; if it is, then we have a serious implementation issue
+    // playButtonLabel will never be null;
+    // if it is, then we have a serious implementation issue
     buttonLabel = stringResource(playButtonLabel.value!!))
 }
 ```
 
-_Listing {% increment listingId20220911 %}._
+_Listing {% increment listingId20220911 %}. MainActivity.kt._
 
 ```kotlin
 @Composable
@@ -682,7 +689,7 @@ private fun WavetableSelectionButtons(
 }
 ```
 
-_Listing {% increment listingId20220911 %}._
+_Listing {% increment listingId20220911 %}. MainActivity.kt._
 
 ```kotlin
 @Composable
@@ -692,13 +699,16 @@ private fun PitchControl(
 ) {
   // if the frequency changes, recompose this composable
   val frequency = synthesizerViewModel.frequency.observeAsState()
-  // the slider position state is hoisted by this composable; no need to embed it into
+  // the slider position state is hoisted by this composable;
+  // no need to embed it into
   // the ViewModel, which, ideally, shouldn't be aware of the UI.
-  // When the slider position changes, this composable will be recomposed as we explained in
+  // When the slider position changes, this composable will be
+  // recomposed as we explained in
   // the UI tutorial.
   val sliderPosition = rememberSaveable{
       mutableStateOf(
-        // we use the ViewModel's convenience function to get the initial slider position
+        // we use the ViewModel's convenience function
+        // to get the initial slider position
         synthesizerViewModel.sliderPositionFromFrequencyInHz(frequency.value!!)
       )
     }
@@ -712,12 +722,15 @@ private fun PitchControl(
         sliderPosition.value = it
         synthesizerViewModel.setFrequencySliderPosition(it)
       },
-    // this range is now [0, 1] because the ViewModel is responsible for calculating the frequency
+    // this range is now [0, 1] because the ViewModel is
+    // responsible for calculating the frequency
     // out of the slider position
     valueRange = 0F..1F,
-    // this label could be moved into the ViewModel but it doesn't have to be because this
+    // this label could be moved into the ViewModel but
+    // it doesn't have to be because this
     // composable will anyway be recomposed on a frequency change
-    frequencyValueLabel = stringResource(R.string.frequency_value, frequency.value!!)
+    frequencyValueLabel = stringResource(R.string.frequency_value,
+        frequency.value!!)
   )
 }
 ```
@@ -728,9 +741,16 @@ The final thing to do is to instantiate a `WavetableSynthesizer` and a `ViewMode
 
 It is ok to name concrete classes here (rather than interfaces) because `MainActivity` is regarded as a "dirty" class, where the whole initialization takes place.
 
-_Listing {% increment listingId20220911 %}._
+_Listing {% increment listingId20220911 %}. MainActivity.kt._
 
 ```kotlin
+//...
+// These are the new imports in to MainActivity.kt
+import androidx.activity.viewModels
+import androidx.compose.runtime.livedata.observeAsState
+import androidx.lifecycle.viewmodel.compose.viewModel
+//...
+
 class MainActivity : ComponentActivity() {
 
   private val synthesizer = LoggingWavetableSynthesizer()
@@ -744,7 +764,7 @@ We instantiate the synthesizer as a `LoggingWavetableSynthesizer` because we hav
 
 We should also update the parameters in the `onResume()` method of `MainActivity`.
 
-_Listing {% increment listingId20220911 %}._
+_Listing {% increment listingId20220911 %}. MainActivity.kt._
 
 ```kotlin
 override fun onResume() {
@@ -757,7 +777,7 @@ This ensures that we have a correct state when we resume the app.
 
 Finally, the wiring in `onCreate()` method looks as follows.
 
-_Listing {% increment listingId20220911 %}._
+_Listing {% increment listingId20220911 %}. MainActivity.kt._
 
 ```kotlin
 override fun onCreate(savedInstanceState: Bundle?) {
@@ -767,7 +787,8 @@ override fun onCreate(savedInstanceState: Bundle?) {
   synthesizerViewModel.wavetableSynthesizer = synthesizer
   setContent{
     WavetableSynthesizerTheme{
-        Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colors.background){
+        Surface(modifier = Modifier.fillMaxSize(),
+            color = MaterialTheme.colors.background) {
             // pass the ViewModel down the composables' hierarchy
             WavetableSynthesizerApp(Modifier, synthesizerViewModel)
         }
@@ -784,7 +805,7 @@ When you now build and run the synthesizer in the emulator, you should be able t
 
 A sample Logcat output may look as follows.
 
-_Listing {% increment listingId20220911 %}._
+_Listing {% increment listingId20220911 %}. Sample Logcat output._
 
 ```text
 2022-09-09 20:00:18.845 6484-6484/com.thewolfsound.wavetablesynthesizer D/LoggingWavetableSynthesizer: play() called.
@@ -814,7 +835,7 @@ In this part of the Android wavetable synthesizer app tutorial we have
 - updated the UI to rely mostly on the state in the ViewModel,
 - tested our app with logs in the Logcat.
 
-And all this according to the [modern Android architecture guidelines].
+And all this according to the [modern Android architecture guidelines](https://developer.android.com/topic/architecture).
 
 Whew! We’re awesome 😎
 
