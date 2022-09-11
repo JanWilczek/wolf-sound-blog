@@ -36,8 +36,6 @@ Modern Android architecture in its glory!
 - [x]  Coroutines in the ViewModel scope?
 - [x]  Remind the role of the ViewModel (image)
 
-TODO: Table of contents, ad
-
 ## Introduction
 
 Welcome to the 3rd part of the Android wavetable synthesizer app tutorial!
@@ -111,7 +109,11 @@ Even if you don’t fully understand what the ViewModel is, after going through 
 
 To recap, here is the architecture of our app with parts that will be created in this part of the tutorial.
 
-![SynthesizerArchitecture.png](Android%20Synthesizer%20App%20Tutorial%20Part%203%20ViewModel%20ff9c208240d4485bb05a7279533625bd/SynthesizerArchitecture.png)
+<div markdown="0">
+<img class="lazyload" data-src="{{ page.images | absolute_url | append: "/SynthesizerArchitecture.svg" }}" alt="Component diagram of the app">
+</div>
+
+_Figure {% increment listingId20220911 %}. Synthesizer app architecture._
 
 As you can see, `WavetableSynthesizerViewModel` depends on the `WavetableSynthesizer` interface. That allows us to decouple the Model and the ViewModel because the ViewModel will use the interface rather than a concrete implementation.
 
@@ -185,7 +187,7 @@ SAW{
 // below follows the WavetableSynthesizer interface.
 ```
 
-For this code to work, we need to define the following string resources in the *res/values/strings.xml* file.
+For this code to work, we need to define the following string resources in the _res/values/strings.xml_ file.
 
 _Listing 3. strings.xml file._
 
@@ -245,15 +247,17 @@ class LoggingWavetableSynthesizer : WavetableSynthesizer {
 
 As you can see, each method logs what is happening using the `Log.d` method from the `android.util`package. That ensures that these messages will appear in the Logcat of Android Studio when the application runs and the message level is set to "Debug".
 
-![Log messages in the Logcat of Android Studio.](Android%20Synthesizer%20App%20Tutorial%20Part%203%20ViewModel%20ff9c208240d4485bb05a7279533625bd/Untitled.png)
+<div markdown="0">
+<img class="lazyload" data-src="{{ page.images | absolute_url | append: "/SampleLogcatOutput.webp" }}" alt="Sample output of the synthesizer app in the Logcat of Android Studio.">
+</div>
 
-Log messages in the Logcat of Android Studio.
+_Figure {% increment figureId20220911 %}. Log messages in the Logcat of Android Studio._
 
 With this code in place, we can finally implement our ViewModel!
 
 ## WavetableSynthesizerViewModel Class
 
-Our ViewModel class inherits from the `ViewModel` class from the `androidx.lidecycle` package.
+Our ViewModel class inherits from the `ViewModel` class from the `androidx.lifecycle` package.
 
 _Listing ???. WavetableSynthesizerViewModel.kt part 1._
 
@@ -329,7 +333,11 @@ Ain’t that elegant?
 
 As you remember, the user controls the frequency of the synthesizer via a slider.
 
-![Untitled](Android%20Synthesizer%20App%20Tutorial%20Part%203%20ViewModel%20ff9c208240d4485bb05a7279533625bd/Untitled%201.png)
+<div markdown="0">
+<img class="lazyload" data-src="{{ page.images | absolute_url | append: "/FrequencySlider.webp" }}" alt="Frequency control slider of the synthesizer app.">
+</div>
+
+_Figure {% increment listingId20220911 %}. Frequency control slider._
 
 This slider value is in the [0, 1] range for simplicity. In the ViewModel, we take the slider value and convert it to frequency what can be seen in Listing ???.
 
@@ -555,7 +563,7 @@ private fun updatePlayButtonLabel() {
   }
 ```
 
-For the above code to work we must update our *strings.xml* file with the following entry:
+For the above code to work we must update our _strings.xml_ file with the following entry:
 
 _Listing {% increment listingId20220911 %}._
 
