@@ -30,6 +30,7 @@ Built using Jetpack Compose, Oboe library, C++, Kotlin, and modern architecture 
 1. [App Architecture (this one)]({% post_url synthesis/android-wavetable-synthesizer/2022-08-02-app-architecture %})
 2. [UI with Jetpack Compose]({% post_url synthesis/android-wavetable-synthesizer/2022-08-10-ui %})
 3. [ViewModel]({% post_url synthesis/android-wavetable-synthesizer/2022-09-11-view-model %})
+4. [Calling C++ Code From Kotlin with JNI]({% post_url synthesis/android-wavetable-synthesizer/2022-10-09-jni %})
 
 ## Introduction
 
