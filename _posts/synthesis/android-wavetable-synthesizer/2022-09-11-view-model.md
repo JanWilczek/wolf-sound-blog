@@ -840,4 +840,4 @@ And all this according to the [modern Android architecture guidelines](https://d
 
 Whew! We’re awesome 😎
 
-Next up: making a bridge between the Kotlin code and the C++ code using Java Native Interface (JNI)!
+Next up: [making a bridge between the Kotlin code and the C++ code using Java Native Interface (JNI)!]({% post_url synthesis/android-wavetable-synthesizer/2022-10-09-jni %})

@@ -105,8 +105,7 @@ The complete source code is available on [GitHub](https://github.com/JanWilczek/
 
 ## App Architecture
 
-<!-- TODO: Insert link to the next article in project setup -->
-Before we start with the project setup, I want to discuss the architecture of our app.
+Before we start with the [project setup]({% post_url synthesis/android-wavetable-synthesizer/2022-08-10-ui %}#how-to-set-up-your-project-for-compose), I want to discuss the architecture of our app.
 
 How can one come up with an architecture at the very beginning?
 
