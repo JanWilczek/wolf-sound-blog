@@ -75,7 +75,7 @@ Below are all the people, places, and technologies mentioned in the podcast epis
     2. [Facebook](https://www.facebook.com/moritz.schaller)
     3. [Website](http://www.moritz-schaller.de/)
     4. [LinkedIn](https://www.linkedin.com/in/moritz-schaller/)
-2. Felipe Salas Sandoval, Senior Music Producer at Loudly GmbH
+<!-- 2. Felipe Salas Sandoval, Senior Music Producer at Loudly GmbH -->
 
 ### Places
 
