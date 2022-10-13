@@ -24,9 +24,10 @@ How a professional musician learned Python and transitioned into the music tech 
 <!-- ## Listen on -->
 
 <!-- - YouTube -->
-<!-- - Spotify -->
-<!-- - Apple Podcasts (iTunes) -->
-<!-- - Stitcher -->
+- [Spotify](https://open.spotify.com/episode/0tcEhQUibiw88JRmwogy4o?si=006413e31e5a4479)
+- [Apple Podcasts (iTunes)](https://podcasts.apple.com/us/podcast/how-can-a-musician-become-an-audio-programmer/id1595913701?i=1000582501934)
+- [Stitcher](https://www.stitcher.com/show/wolftalk-podcast-about-audio-programming-people-careers-learning/episode/how-can-a-musician-become-an-audio-programmer-with-moritz-schaller-wolftalk-006-207566751)
+- [Amazon Music](https://music.amazon.com/podcasts/b42682b5-61ba-4a6f-8b11-aed42b07ef9f/episodes/c125e5c7-e5ed-49cc-92d0-10bfa462e2e6/how-can-a-musician-become-an-audio-programmer-with-moritz-schaller-wolftalk-006)
 <!-- - TuneIn Radio -->
 <!-- - Google Podcasts -->
 
@@ -42,7 +43,7 @@ I am sure that if you are considering a change in your career paths, Moritz’s 
 
 And if you’re looking for a simple checklist on what is needed to start writing code to process sound, download my free [audio plugin developer checklist]({% link single-pages/checklist.html %})!
 
-*Note: if you like the podcast so far, please, go to Apple Podcasts and leave me a review there. It will benefit both sides: more reviews means broader reach on Apple Podcasts and feedback can help me to improve the show and provide better quality content to you. Thank you for doing this.*
+*Note: if you like the podcast so far, please, go to Apple Podcasts and leave me a review there. It will benefit both sides: more reviews mean a broader reach on Apple Podcasts and feedback can help me to improve the show and provide better quality content to you. Thank you for doing this.*
 
 <script defer src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6611455743195468"
      crossorigin="anonymous"></script><ins class="adsbygoogle"
