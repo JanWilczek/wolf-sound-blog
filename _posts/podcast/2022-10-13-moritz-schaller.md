@@ -5,7 +5,7 @@ date: 2022-10-13
 author: Jan Wilczek
 layout: post
 permalink: /talk006/
-# background: /assets/img/posts/podcast/talk005/Thumbnail.webp
+background: /assets/img/posts/podcast/talk006/Thumbnail.webp
 categories:
   - Podcast
   - Programming in general
