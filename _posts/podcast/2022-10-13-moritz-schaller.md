@@ -23,12 +23,12 @@ How a professional musician learned Python and transitioned into the music tech 
 
 <!-- ## Listen on -->
 
-<!-- - YouTube -->
+- [YouTube](https://youtu.be/ErJ2GKSWbjU)
 - [Spotify](https://open.spotify.com/episode/0tcEhQUibiw88JRmwogy4o?si=006413e31e5a4479)
 - [Apple Podcasts (iTunes)](https://podcasts.apple.com/us/podcast/how-can-a-musician-become-an-audio-programmer/id1595913701?i=1000582501934)
 - [Stitcher](https://www.stitcher.com/show/wolftalk-podcast-about-audio-programming-people-careers-learning/episode/how-can-a-musician-become-an-audio-programmer-with-moritz-schaller-wolftalk-006-207566751)
 - [Amazon Music](https://music.amazon.com/podcasts/b42682b5-61ba-4a6f-8b11-aed42b07ef9f/episodes/c125e5c7-e5ed-49cc-92d0-10bfa462e2e6/how-can-a-musician-become-an-audio-programmer-with-moritz-schaller-wolftalk-006)
-<!-- - TuneIn Radio -->
+- [TuneIn Radio](https://www.youtube.com/redirect?event=video_description&redir_token=QUFFLUhqbTVDdnNJUGxXNDBXdG5HRFlZMWxGM2NaVEpMUXxBQ3Jtc0trMlo2UHZzS0pzaHdlLUQ5dF93c01fZmk4OENsZWtuT01QbjJXUmdtZWlTeXVVbG9SbXg3TXAtQ3BIYklYT1ZxZjRZNEFNV3VLZ2xIRkpXWlhXZTh2N2xJcDRMamo3ejdaTzdoZWFUa3JyckQtaG5fMA&q=https%3A%2F%2Ftunein.com%2Fpodcasts%2FEducation-Podcasts%2FWolfTalk-Podcast-About-Audio-Programming-%28People-p1562232%2F%3FtopicId%3D200155860&v=ErJ2GKSWbjU)
 <!-- - Google Podcasts -->
 
 [All podcast episodes.]({{"/podcast" | relative_url }})
@@ -76,7 +76,9 @@ Below are all the people, places, and technologies mentioned in the podcast epis
     2. [Facebook](https://www.facebook.com/moritz.schaller)
     3. [Website](http://www.moritz-schaller.de/)
     4. [LinkedIn](https://www.linkedin.com/in/moritz-schaller/)
-<!-- 2. Felipe Salas Sandoval, Senior Music Producer at Loudly GmbH -->
+2. Felipe Salas Sandoval, Senior Music Producer at Loudly GmbH
+    1. [@salas.sandoval.music on Instagram](https://www.instagram.com/salas.sandoval.music/)
+    2. [Composer profile on Spotify](https://open.spotify.com/artist/6xAv1I8c3v4cIAhH7ozBMw?si=HTm1v9YRSOuR-FgZDOHexQ&utm_source=copy-link)
 
 ### Places
 
