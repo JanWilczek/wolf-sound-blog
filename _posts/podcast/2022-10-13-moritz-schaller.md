@@ -28,7 +28,7 @@ How a professional musician learned Python and transitioned into the music tech 
 - [Apple Podcasts (iTunes)](https://podcasts.apple.com/us/podcast/how-can-a-musician-become-an-audio-programmer/id1595913701?i=1000582501934)
 - [Stitcher](https://www.stitcher.com/show/wolftalk-podcast-about-audio-programming-people-careers-learning/episode/how-can-a-musician-become-an-audio-programmer-with-moritz-schaller-wolftalk-006-207566751)
 - [Amazon Music](https://music.amazon.com/podcasts/b42682b5-61ba-4a6f-8b11-aed42b07ef9f/episodes/c125e5c7-e5ed-49cc-92d0-10bfa462e2e6/how-can-a-musician-become-an-audio-programmer-with-moritz-schaller-wolftalk-006)
-- [TuneIn Radio](https://www.youtube.com/redirect?event=video_description&redir_token=QUFFLUhqbTVDdnNJUGxXNDBXdG5HRFlZMWxGM2NaVEpMUXxBQ3Jtc0trMlo2UHZzS0pzaHdlLUQ5dF93c01fZmk4OENsZWtuT01QbjJXUmdtZWlTeXVVbG9SbXg3TXAtQ3BIYklYT1ZxZjRZNEFNV3VLZ2xIRkpXWlhXZTh2N2xJcDRMamo3ejdaTzdoZWFUa3JyckQtaG5fMA&q=https%3A%2F%2Ftunein.com%2Fpodcasts%2FEducation-Podcasts%2FWolfTalk-Podcast-About-Audio-Programming-%28People-p1562232%2F%3FtopicId%3D200155860&v=ErJ2GKSWbjU)
+- [TuneIn Radio](https://tunein.com/podcasts/Education-Podcasts/WolfTalk-Podcast-About-Audio-Programming-(People-p1562232/?topicId=200155860)
 <!-- - Google Podcasts -->
 
 [All podcast episodes.]({{"/podcast" | relative_url }})
