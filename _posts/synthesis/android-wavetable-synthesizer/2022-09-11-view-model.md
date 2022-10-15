@@ -156,31 +156,38 @@ _Listing {% increment listingId20220911 %}. WavetableSynthesizer.kt file._
 ```kotlin
 package com.thewolfsound.wavetablesynthesizer
 
+import androidx.annotation.StringRes
+
 enum class Wavetable {
 SINE{
+    @StringRes
     override fun toResourceString(): Int {
       return R.string.sine
     }
   },
 
 TRIANGLE{
+    @StringRes
     override fun toResourceString(): Int {
       return R.string.triangle
     }
   },
 
 SQUARE{
+    @StringRes
     override fun toResourceString(): Int {
       return R.string.square
     }
   },
 
 SAW{
+    @StringRes
     override fun toResourceString(): Int {
       return R.string.sawtooth
     }
   };
 
+  @StringRes
   abstract fun toResourceString(): Int
 }
 
@@ -198,7 +205,9 @@ _Listing {% increment listingId20220911 %}. strings.xml file._
 <string name="sawtooth">Sawtooth</string>
 ```
 
-One nice feature of Kotlin is that `enum`s can have abstract methods that we override in the concrete enum cases. In our code, `toResourceString()` is exactly such a function.
+One nice feature of Kotlin is that `enum`s can have abstract methods that we override in the concrete enum cases. In our code, `toResourceString()` is exactly such a method.
+
+It is annotated with the `@StringRes` annotation, to indicate that the method should return a string resource id.
 
 And that’s it when it comes to our Model’s interface! Now, let’s provide some dummy implementation.
 
@@ -638,6 +647,18 @@ private fun VolumeControl(modifier: Modifier,
   )
 }
 ```
+
+*Note:* To be able to use `observeAsState()` of `LiveData`, you need to import an additional dependency. To do this, add the following line to your app module's *build.gradle* file ("dependencies" section):
+
+_Listing {% increment listingId20220911 %}. MainActivity.kt._
+```gradle
+dependencies {
+  //...
+  implementation "androidx.compose.runtime:runtime-livedata:$compose_version"
+}
+```
+
+As a reminder, `compose_version` is equal to `'1.1.1'` in this project.
 
 _Listing {% increment listingId20220911 %}. MainActivity.kt._
 
