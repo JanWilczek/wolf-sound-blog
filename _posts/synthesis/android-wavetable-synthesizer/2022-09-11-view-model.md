@@ -20,6 +20,8 @@ custom_js:
 ---
 Modern Android architecture in its glory!
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/F_BV-u3R948" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 {% capture _ %}{% increment figureId20220911 %}{% endcapture %}
 {% capture _ %}{% increment listingId20220911 %}{% endcapture %}
 
@@ -89,7 +91,17 @@ MVVM is a convenient way to represent the interaction of the UI and the core (bu
 2. A **Model** is a part of our code that represents what our application does. It typically exposes some interface regarding its functionality.
 3. A **ViewModel** connects the two: it translates user actions in the interface (the View) into function calls of the Model.
 
+Figure 2 illustrates these dependencies.
+
+<div markdown="0">
+<img class="lazyload" data-src="{{ page.images | absolute_url | append: "/MVVM.svg" }}" alt="MVVM pattern diagram">
+</div>
+
+_Figure {% increment figureId20220911 %}. Model-View-ViewModel (MVVM) pattern._
+
 An important point is that the Model mustn’t know that the ViewModel exists. On the same note, the ViewModel mustn’t know that the View exists. After all, the logic of our applications (what it does) should not depend on the design of the interface.
+
+This is called a **Unidirectional Data Flow** and is further discussed in [Google's official Android architecture guidelines](https://developer.android.com/topic/architecture/ui-layer#udf).
 
 MVVM is an alternative to another design pattern called **Model-View-Controller (MVC).**
 
@@ -117,7 +129,7 @@ _Figure {% increment figureId20220911 %}. Synthesizer app architecture._
 
 As you can see, `WavetableSynthesizerViewModel` depends on the `WavetableSynthesizer` interface. That allows us to decouple the Model and the ViewModel because the ViewModel will use the interface rather than a concrete implementation.
 
-That also allows us to write the `WavetableSynthesizerViewModel` class before we implement our Model! As you can see in Figure 2, we will create a `LoggingWavetableSynthesizer` that simply logs that its methods were called.
+That also allows us to write the `WavetableSynthesizerViewModel` class before we implement our Model! As you can see in Figure 3, we will create a `LoggingWavetableSynthesizer` that simply logs that its methods were called.
 
 ## Wavetable Synthesizer Model Implementation
 
