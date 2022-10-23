@@ -20,7 +20,7 @@ custom_js:
 ---
 Modern Android architecture in its glory!
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/F_BV-u3R948" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Vxk9e82GY6c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 {% capture _ %}{% increment figureId20220911 %}{% endcapture %}
 {% capture _ %}{% increment listingId20220911 %}{% endcapture %}
@@ -31,6 +31,7 @@ Modern Android architecture in its glory!
 2. [UI with Jetpack Compose]({% post_url synthesis/android-wavetable-synthesizer/2022-08-10-ui %})
 3. [ViewModel (this one)]({% post_url synthesis/android-wavetable-synthesizer/2022-09-11-view-model %})
 4. [Calling C++ Code From Kotlin with JNI]({% post_url synthesis/android-wavetable-synthesizer/2022-10-09-jni %})
+5. [Playing Back Audio on Android with C++]({% post_url synthesis/android-wavetable-synthesizer/2022-10-23-oboe %})
 
 ## Introduction
 
