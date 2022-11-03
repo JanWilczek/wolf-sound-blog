@@ -32,6 +32,7 @@ Modern Android architecture in its glory!
 3. [ViewModel (this one)]({% post_url synthesis/android-wavetable-synthesizer/2022-09-11-view-model %})
 4. [Calling C++ Code From Kotlin with JNI]({% post_url synthesis/android-wavetable-synthesizer/2022-10-09-jni %})
 5. [Playing Back Audio on Android with C++]({% post_url synthesis/android-wavetable-synthesizer/2022-10-23-oboe %})
+6. [Wavetable Synthesis Algorithm in C++]({% post_url synthesis/android-wavetable-synthesizer/2022-11-03-cpp-synth %})
 
 ## Introduction
 
