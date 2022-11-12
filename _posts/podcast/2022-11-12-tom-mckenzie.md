@@ -26,11 +26,6 @@ A researcher in Spatial Audio and Architectural Acoustics.
 
 - [Spotify](https://open.spotify.com/episode/0PQSRY0v2QLnedTtRGQG8q?si=5a2a5d8389f74bee)
 - [YouTube](https://youtu.be/_GZMIXKI1wo)
-<!-- - [Apple Podcasts (iTunes)](https://podcasts.apple.com/us/podcast/how-can-a-musician-become-an-audio-programmer/id1595913701?i=1000582501934)
-- [Stitcher](https://www.stitcher.com/show/wolftalk-podcast-about-audio-programming-people-careers-learning/episode/how-can-a-musician-become-an-audio-programmer-with-moritz-schaller-wolftalk-006-207566751)
-- [Amazon Music](https://music.amazon.com/podcasts/b42682b5-61ba-4a6f-8b11-aed42b07ef9f/episodes/c125e5c7-e5ed-49cc-92d0-10bfa462e2e6/how-can-a-musician-become-an-audio-programmer-with-moritz-schaller-wolftalk-006)
-- [TuneIn Radio](http://tun.in/pkRvm)
-- [Google Podcasts](https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkcy5yZWRjaXJjbGUuY29tL2JmNDBhMWQyLTdlNDEtNGRkYi04YzNhLWVkODIzOTQ3MjNiYQ/episode/MjcwODE3MTMtZTFjMS00NTJhLTgxM2EtY2U0NzRmMDQzNTVh?sa=X&ved=0CAUQkfYCahcKEwjosYPN1eH6AhUAAAAAHQAAAAAQAQ) -->
 
 [All podcast episodes.]({{"/podcast" | relative_url }})
 
