@@ -21,7 +21,7 @@ How a professional musician learned Python and transitioned into the music tech 
 <script async defer onload="redcircleIframe();" src="https://api.podcache.net/embedded-player/sh/bf40a1d2-7e41-4ddb-8c3a-ed82394723ba/ep/a0f22dfe-7229-4cc5-a9e7-b535b1d7817f"></script><div class="redcirclePlayer-a0f22dfe-7229-4cc5-a9e7-b535b1d7817f"></div><style>.redcircle-link:link {color: #ea404d;text-decoration: none;}.redcircle-link:hover {color: #ea404d;}.redcircle-link:active {color: #ea404d;}.redcircle-link:visited {color: #ea404d;}</style>
 <p style="margin-top:3px;margin-left:11px;font-family: sans-serif;font-size: 10px; color: gray;">Powered by <a class="redcircle-link" href="https://redcircle.com?utm_source=rc_embedded_player&utm_medium=web&utm_campaign=embedded_v1">RedCircle</a></p>
 
-<!-- ## Listen on -->
+## Listen on
 
 - [YouTube](https://youtu.be/ErJ2GKSWbjU)
 - [Spotify](https://open.spotify.com/episode/0tcEhQUibiw88JRmwogy4o?si=006413e31e5a4479)

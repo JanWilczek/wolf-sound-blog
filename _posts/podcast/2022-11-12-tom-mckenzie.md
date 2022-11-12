@@ -22,11 +22,11 @@ A researcher in Spatial Audio and Architectural Acoustics.
 <script async defer onload="redcircleIframe();" src="https://api.podcache.net/embedded-player/sh/bf40a1d2-7e41-4ddb-8c3a-ed82394723ba/ep/9f26af35-b24e-42b6-9bcc-121dd2e6605d"></script><div class="redcirclePlayer-9f26af35-b24e-42b6-9bcc-121dd2e6605d"></div><style>.redcircle-link:link {color: #ea404d;text-decoration: none;}.-link:hover {color: ea404d;}.redcircle-link:active {color: #ea404d;}.redcircle-link:visited {color: #ea404d;}</style>
 <p style="margin-top:3px;margin-left:11px;font-family: sans-serif;font-size: 10px; color: gray;">Powered by <a class="redcircle-link" href="https://redcircle.com?utm_source=rc_embedded_player&utm_medium=web&utm_campaign=embedded_v1">RedCircle</a></p>
 
-<!-- ## Listen on -->
+## Listen on
 
-<!-- - [YouTube](https://youtu.be/ErJ2GKSWbjU)
-- [Spotify](https://open.spotify.com/episode/0tcEhQUibiw88JRmwogy4o?si=006413e31e5a4479)
-- [Apple Podcasts (iTunes)](https://podcasts.apple.com/us/podcast/how-can-a-musician-become-an-audio-programmer/id1595913701?i=1000582501934)
+- [Spotify](https://open.spotify.com/episode/0PQSRY0v2QLnedTtRGQG8q?si=5a2a5d8389f74bee)
+- [YouTube](https://youtu.be/_GZMIXKI1wo)
+<!-- - [Apple Podcasts (iTunes)](https://podcasts.apple.com/us/podcast/how-can-a-musician-become-an-audio-programmer/id1595913701?i=1000582501934)
 - [Stitcher](https://www.stitcher.com/show/wolftalk-podcast-about-audio-programming-people-careers-learning/episode/how-can-a-musician-become-an-audio-programmer-with-moritz-schaller-wolftalk-006-207566751)
 - [Amazon Music](https://music.amazon.com/podcasts/b42682b5-61ba-4a6f-8b11-aed42b07ef9f/episodes/c125e5c7-e5ed-49cc-92d0-10bfa462e2e6/how-can-a-musician-become-an-audio-programmer-with-moritz-schaller-wolftalk-006)
 - [TuneIn Radio](http://tun.in/pkRvm)
