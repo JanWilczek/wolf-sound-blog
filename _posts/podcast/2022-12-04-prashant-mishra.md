@@ -43,6 +43,8 @@ He is now building audio products with companies such as Soundly, and hosts game
      (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
+*Note:* If you like the podcast so far, please, [go to Apple Podcasts and leave me a review there](https://podcasts.apple.com/us/podcast/wolftalk-podcast-about-audio-programming-people-careers/id1595913701). It will benefit both sides: more reviews mean a broader reach on Apple Podcasts and feedback can help me to improve the show and provide better quality content to you. Thank you for doing this 🙏
+
 ## Episode Contents
 
 In this podcast episode, you will learn:
