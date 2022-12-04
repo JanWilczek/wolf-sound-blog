@@ -5,7 +5,7 @@ date: 2022-12-04
 author: Jan Wilczek
 layout: post
 permalink: /talk008/
-background: /assets/img/posts/podcast/talk007/Thumbnail.webp
+background: /assets/img/posts/podcast/talk008/Thumbnail.webp
 categories:
   - Podcast
   - Sound in general
