@@ -26,6 +26,11 @@ A researcher in Spatial Audio and Architectural Acoustics.
 
 - [Spotify](https://open.spotify.com/episode/0PQSRY0v2QLnedTtRGQG8q?si=5a2a5d8389f74bee)
 - [YouTube](https://youtu.be/_GZMIXKI1wo)
+- [Apple Podcasts](https://podcasts.apple.com/us/podcast/spatial-audio-basics-with-dr-tom-mckenzie-wolftalk-007/id1595913701?i=1000585938448)
+- [Google Podcasts](https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkcy5yZWRjaXJjbGUuY29tL2JmNDBhMWQyLTdlNDEtNGRkYi04YzNhLWVkODIzOTQ3MjNiYQ/episode/YmRjOGI5MjgtZWM0OC00NDRlLTlkNzUtYzA3NGM2NTY5NDYy?sa=X&ved=0CAUQkfYCahcKEwjorcvw0d_7AhUAAAAAHQAAAAAQAQ)
+- [Stitcher](https://www.stitcher.com/show/wolftalk-podcast-about-audio-programming-people-careers-learning/episode/spatial-audio-basics-with-dr-tom-mckenzie-wolftalk-007-208449944)
+- [TuneIn Radio](https://tunein.com/podcasts/Education-Podcasts/WolfTalk-Podcast-About-Audio-Programming-(People-p1562232/?topicId=218547576 )
+- [Amazon Music](https://music.amazon.com/podcasts/b42682b5-61ba-4a6f-8b11-aed42b07ef9f/episodes/7463cdd7-a0f0-4078-8741-d1fa8255ea28/spatial-audio-basics-with-dr-tom-mckenzie-wolftalk-007)
 
 [All podcast episodes.]({{"/podcast" | relative_url }})
 
