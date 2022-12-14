@@ -29,6 +29,8 @@ My personal summary of ADC 22 in London!
 
 From November 13 to November 16 2022, I took part in the Audio Developers Conference 2022 in London. My talk proposal was accepted in a voting round, which granted me the conference ticket and the company I'm working at, [Loudly](https://www.loudly.com), sponsored the in-person trip and the workshop ticket.
 
+<!-- TODO: Add ADC 22 logo -->
+
 From what I understood, there were 1052 attendees of which around 700 were present online and around 300 attended in person. There were 93 talk submissions, out of which around half was voted in.
 
 The event was an incredible experience. All talks will be published on YouTube at the beginning of 2023 but to give you a short summary or a heads-up on what to look out for, I have prepared a list of my personal favorites from the conference.
