@@ -29,7 +29,10 @@ My personal summary of ADC 22 in London!
 
 From November 13 to November 16 2022, I took part in the Audio Developers Conference 2022 in London. My talk proposal was accepted in a voting round, which granted me the conference ticket and the company I'm working at, [Loudly](https://www.loudly.com), sponsored the in-person trip and the workshop ticket.
 
-<!-- TODO: Add ADC 22 logo -->
+<div markdown="0">
+<img class="lazyload" data-src="{{ page.images | absolute_url | append: "ADC22-Logo..webp" }}" alt="ADC22 Conference logo.">
+</div>
+_Figure {% increment figureId202211214  %}. Audio Developers Conference 2022 logo._
 
 From what I understood, there were 1052 attendees of which around 700 were present online and around 300 attended in person. There were 93 talk submissions, out of which around half was voted in.
 
@@ -60,6 +63,10 @@ These are the highlights of ADC 2022 as seen by an audio C++ developer:
 ## Eliminating Undefined Behavior From C++ Code
 
 <!-- TODO: Russell Pic -->
+<div markdown="0">
+<img class="lazyload" data-src="{{ page.images | absolute_url | append: "RussellMcClellan..webp" }}" alt="Russell McClellan.">
+</div>
+_Figure {% increment figureId202211214  %}. Russell McClellan._
 
 This talk was given by Russell McClellan from Soundwide and is my personal favorite of all the talks. Mostly thanks to its illustrative and insightful examples.
 
@@ -104,7 +111,7 @@ All of these requirements can be fulfilled by using the [Xoroshiro128+ pseudoran
 
 An interesting talk was given by Esa Jääskelä, who advocated for testing your digital signal processing code. I am a big believer in unit and integration testing, thus, I was very happy to listen to his ideas and evangelism on this topic.
 
-Example: to test a high-pass filter, you can use the FFT and programatically check if the energy in the low band decreased at the output of the filter. You may go as detailed or as coarse as you wish with this but it's already a step toward test-driven development in audio software.
+Example: to test a high-pass filter, you can use the FFT and programmatically check if the energy in the low band decreased at the output of the filter. You may go as detailed or as coarse as you wish with this but it's already a step toward test-driven development in audio software.
 
 He also showed the usefulness of the [Pamplejuce template](https://github.com/sudara/pamplejuce), which I have been using actively since his talk.
 
@@ -116,7 +123,7 @@ This major announcement from Cycling '74 could be a real game-changer in the lon
 
 [RNBO](https://rnbo.cycling74.com/) is a technology within Max that allows you to generate C++ plugin code, WebAssembly modules, or Raspberry Pi programs from Max patches.
 
-Since Max is so ubiquitous, I am curious to see if the release of RNBO results in a fertility of plugins being released that use it.
+Since Max is so ubiquitous, I am curious to see if the release of RNBO results in an abundance of plugins being released that use it.
 
 I took part in the workshop on RNBO and the generated code compiled under Windows as well 🙂 It was also great to meet one of the people behind the project, Sam Tarakajian.
 
@@ -142,7 +149,7 @@ A great new feature of MIDI 2.0 is the "MIDI device discovery," which lets you q
 
 It will still take time to implement this standard in full on all OSs but it's coming.
 
-For me personally,it was great to hear that the MIDI 2.0 standard is extensible, i.e., (hopefully) future-proof.
+For me personally, it was great to hear that the MIDI 2.0 standard is extensible, i.e., (hopefully) future-proof.
 
 ## Accessibility
 
@@ -184,7 +191,7 @@ It's main features are:
 4. A possibility to include a web interface.
 5. Transpiling the code to a JUCE C++ framework project.
 
-These points make the language very exciting but the question remains on how this technology will develop. Call me sceptic but I simply hate libraries or frameworks turning deprecated 😉
+These points make the language very exciting but the question remains on how this technology will develop. Call me skeptical but I simply hate libraries or frameworks turning deprecated 😉
 
 What's your opinion on this? Have you tried out the language already?
 
