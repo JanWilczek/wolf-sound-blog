@@ -31,8 +31,8 @@ With concrete advice on how to start freelancing in the field of audio programmi
 * 🎧 [Apple Podcasts (iTunes)](https://podcasts.apple.com/us/podcast/from-audio-research-to-own-audio-software-company-with/id1595913701?i=1000590720973)
 * 🎧 [Stitcher](https://www.stitcher.com/show/wolftalk-podcast-about-audio-programming-people-careers-learning/episode/from-audio-research-to-own-audio-software-company-with-stefano-dangelo-orastron-ex-arturia-wolftalk-009-210036057)
 * 🎧 [Amazon Music](https://music.amazon.com/podcasts/b42682b5-61ba-4a6f-8b11-aed42b07ef9f/episodes/28062c4f-c0df-444d-8b5b-343af2a9853c/from-audio-research-to-own-audio-software-company-with-stefano-dangelo-orastron-exarturia-wolftalk-009)
-* 🎧 TuneIn Radio (TBA)
-* 🎧 Google Podcasts (TBA)
+* 🎧 [TuneIn Radio](<https://tunein.com/podcasts/Education-Podcasts/WolfTalk-Podcast-About-Audio-Programming-(People-p1562232/?topicId=229130591>)
+* 🎧 [Google Podcasts](https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkcy5yZWRjaXJjbGUuY29tL2JmNDBhMWQyLTdlNDEtNGRkYi04YzNhLWVkODIzOTQ3MjNiYQ/episode/OTRhZjhlYmYtMDA0Yi00YWIxLTk2YjEtOTc1N2JhOTk1Mzcz?sa=X&ved=0CAUQkfYCahcKEwiA4IKNxab8AhUAAAAAHQAAAAAQAQ)
 
 [All podcast episodes.]({{"/podcast" | relative_url }})
 

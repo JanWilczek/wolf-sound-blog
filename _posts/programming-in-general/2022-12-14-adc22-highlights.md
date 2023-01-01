@@ -25,6 +25,8 @@ custom_js:
 ---
 My personal summary of ADC 22 in London!
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Aeq5Egj6TW0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 {% capture _ %}{% increment figureId202211214  %}{% endcapture %}
 
 From November 13 to November 16 2022, I took part in the Audio Developers Conference 2022 in London. My talk proposal was accepted in a voting round, which granted me the conference ticket and the company I'm working at, [Loudly](https://www.loudly.com), sponsored the in-person trip and the workshop ticket.
