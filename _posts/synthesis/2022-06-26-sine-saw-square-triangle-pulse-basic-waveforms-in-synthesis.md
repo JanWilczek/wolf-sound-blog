@@ -174,11 +174,11 @@ Ah, that's so beautiful ❤️
 
 The simplest formula for the sawtooth wave is a modulo approach:
 
-$$s(t) = 2 \left( ft \% \frac{1}{f} \right) f - 1, \quad ({% increment equationId202206026 %})$$
+$$s(t) = 2 \left( t \% \frac{1}{f} \right) f - 1, \quad ({% increment equationId202206026 %})$$
 
 where $f$ is the sawtooth's frequency in Hz, $t$ is time in seconds, and $\%$ is the modulo operator applied to real values.
 
-The formula reads, "increase the value linearly ($ft$), jump back to 0 every period ($\% \frac{1}{f}$), scale to the $[0, 1]$ range (multiplication by $f$), and then expand the range from $[0, 1]$ to $[-1, 1]$ (multiplication by $2$ and subtraction of $1$)."
+The formula reads, "increase the value linearly ($t$), jump back to 0 every period ($\% \frac{1}{f}$), scale to the $[0, 1]$ range (multiplication by $f$), and then expand the range from $[0, 1]$ to $[-1, 1]$ (multiplication by $2$ and subtraction of $1$)."
 
 The sawtooth waveform in the time domain is shown in Figure 7.
 
