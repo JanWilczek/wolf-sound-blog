@@ -20,6 +20,23 @@ discussion_id: 2023-03-13-andrew-fyfe
 ---
 Effortlessly deploy your trained model to a DAW!
 
+<script async defer onload="redcircleIframe();" src="https://api.podcache.net/embedded-player/sh/bf40a1d2-7e41-4ddb-8c3a-ed82394723ba/ep/311f2973-7147-4c64-8af3-06ab03d6e167"></script> <div class="redcirclePlayer-311f2973-7147-4c64-8af3-06ab03d6e167"></div> <style> .redcircle-link:link { color: #ea404d; text-decoration: none; } .redcircle-link:hover { color: #ea404d; } .redcircle-link:active { color: #ea404d; } .redcircle-link:visited { color: #ea404d; } </style>
+<p style="margin-top:3px;margin-left:11px;font-family: sans-serif;font-size: 10px; color: gray;">Powered by <a class="redcircle-link" href="https://redcircle.com?utm_source=rc_embedded_player&utm_medium=web&utm_campaign=embedded_v1">RedCircle</a></p>
+
+## Listen on
+
+* 🎧 [Spotify](#)
+* 🎥 [YouTube](#)
+* 🎧 [Apple Podcasts (iTunes)](#)
+* 🎧 [Stitcher](#)
+* 🎧 [TuneIn Radio](<#>)
+* 🎧 [Amazon Music](#)
+* 🎧 [Google Podcasts](https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkcy5yZWRjaXJjbGUuY29tL2JmNDBhMWQyLTdlNDEtNGRkYi04YzNhLWVkODIzOTQ3MjNiYQ/episode/OTM3ODc2NzgtZGRiNS00MDBmLTg4M2MtZTdlOTU4N2FjMzE4?sa=X&ved=0CAUQkfYCahcKEwioo4bWwtj9AhUAAAAAHQAAAAAQAQ)
+
+[All podcast episodes.]({{"/podcast" | relative_url }})
+
+[Sign up for WolfSound's newsletter!]({% link newsletter.md %})
+
 ## Introduction
 
 In this episode, I was honored to interview Andrew Fyfe; a musician, a software engineer, and a researcher in the field of deep learning applied to audio.
@@ -31,6 +48,16 @@ At the same time, Andrew is wrapping up his PhD while working full time from Jap
 Don’t forget to submit your plugins for the [**Neural Audio Plugin Competition**](https://www.theaudioprogrammer.com/neural-audio) until March the 17th of 2023!
 
 *Note:* If you like the podcast so far, please, [go to Apple Podcasts and leave me a review there](https://podcasts.apple.com/us/podcast/wolftalk-podcast-about-audio-programming-people-careers/id1595913701). It will benefit both sides: more reviews mean a broader reach on Apple Podcasts and feedback can help me to improve the show and provide better quality content to you. Thank you for doing this 🙏
+
+<script defer src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6611455743195468"
+     crossorigin="anonymous"></script><ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+     data-ad-layout="in-article"
+     data-ad-format="fluid"
+     data-ad-client="ca-pub-6611455743195468"
+     data-ad-slot="7289385396"></ins><script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 
 ## Episode Contents
 
