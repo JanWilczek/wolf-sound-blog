@@ -56,11 +56,17 @@ Let’s look at an example.
 
 Here, we have a signal $x[n]$.
 
-![two_sines_signal.png](Article%2034787530836545b7926d763403eda854/two_sines_signal.png)
+<div markdown="0">
+<img class="lazyload" data-src="{{ page.images | absolute_url | append: "/two_sines_signal.webp" }}" alt="" width="80%">
+</div>
+_Figure {% increment figureId20230312 %}._
 
 What happens to it if we delay it by 4 samples?
 
-![delayed_two_sines_signal.png](Article%2034787530836545b7926d763403eda854/delayed_two_sines_signal.png)
+<div markdown="0">
+<img class="lazyload" data-src="{{ page.images | absolute_url | append: "/delayed_two_sines_signal.webp" }}" alt="" width="80%">
+</div>
+_Figure {% increment figureId20230312 %}._
 
 As you can see, at the output of the delay, the signal is simply delayed by 4 samples.
 
@@ -77,9 +83,15 @@ _Figure {% increment figureId20230312 %}._
 
 This signal consists of 2 sines: one of them has its period equal to 16 samples and the other one has its period equal to 8 samples.
 
-![sine1_signal.png](Article%2034787530836545b7926d763403eda854/sine1_signal.png)
+<div markdown="0">
+<img class="lazyload" data-src="{{ page.images | absolute_url | append: "/sine1_signal.webp" }}" alt="" width="80%">
+</div>
+_Figure {% increment figureId20230312 %}._
 
-![sine2_signal.png](Article%2034787530836545b7926d763403eda854/sine2_signal.png)
+<div markdown="0">
+<img class="lazyload" data-src="{{ page.images | absolute_url | append: "/sine2_signal.webp" }}" alt="" width="80%">
+</div>
+_Figure {% increment figureId20230312 %}._
 
 If you don’t know what the period of a signal is, it’s the smallest positive number of samples after which the signal starts repeating itself. For example, the period of the “2-sine” signal is 16 samples.
 
@@ -105,7 +117,10 @@ where $\arg$ returns the principal argument of the given complex number in radia
 
 Here is an example phase response plot. It is the phase response of the second-order Butterworth IIR lowpass filter with the cutoff frequency set to $\frac{1}{4}$ of the Nyquist frequency.
 
-![butterworth_lp2_phase_response.png](Article%2034787530836545b7926d763403eda854/butterworth_lp2_phase_response.png)
+<div markdown="0">
+<img class="lazyload" data-src="{{ page.images | absolute_url | append: "/butterworth_lp2_phase_response.webp" }}" alt="" width="80%">
+</div>
+_Figure {% increment figureId20230312 %}._
 
 As you can see, this phase response is clearly nonlinear; in fact, all IIR filters have nonlinear phase.
 
@@ -125,13 +140,22 @@ To use our “2-sine” signal again, let’s say that we delay the sine with th
 
 Here you can see the output of the described frequency-dependent delaying system.
 
-![phase_delayed_two_sines_signal.png](Article%2034787530836545b7926d763403eda854/phase_delayed_two_sines_signal.png)
+<div markdown="0">
+<img class="lazyload" data-src="{{ page.images | absolute_url | append: "/phase_delayed_two_sines_signal.webp" }}" alt="" width="80%">
+</div>
+_Figure {% increment figureId20230312 %}._
 
 Looking at the sines separately, at the output of this system the delayed sines look as follows.
 
-![delayed_sine1_signal.png](Article%2034787530836545b7926d763403eda854/delayed_sine1_signal.png)
+<div markdown="0">
+<img class="lazyload" data-src="{{ page.images | absolute_url | append: "/delayed_sine1_signal.webp" }}" alt="" width="80%">
+</div>
+_Figure {% increment figureId20230312 %}._
 
-![delayed_sine2_signal.png](Article%2034787530836545b7926d763403eda854/delayed_sine2_signal.png)
+<div markdown="0">
+<img class="lazyload" data-src="{{ page.images | absolute_url | append: "/delayed_sine2_signal.webp" }}" alt="" width="80%">
+</div>
+_Figure {% increment figureId20230312 %}._
 
 What is interesting, now both sines have the same phase delay, $\pi$. However, you can see that the output looks different visually from the input although these are still those two sines; if you’re unsure, check the first nonzero samples of the delayed signal. The relative position of the sines changed and, thus, the waveform changed.
 
@@ -161,13 +185,19 @@ Let’s look at an example of a constant-group delay filter.
 
 Here is the phase response of our delay by 4 samples.
 
-![delay_by_4_phase_response.png](Article%2034787530836545b7926d763403eda854/delay_by_4_phase_response.png)
+<div markdown="0">
+<img class="lazyload" data-src="{{ page.images | absolute_url | append: "/delay_by_4_phase_response.webp" }}" alt="" width="80%">
+</div>
+_Figure {% increment figureId20230312 %}._
 
 You can see that the phase is wrapped: when it reaches $-\pi$ it jumps up to $\pi$.
 
 If we unwrap the phase, the phase response looks as follows.
 
-![delay_by_4_unwrapped_phase_response.png](Article%2034787530836545b7926d763403eda854/delay_by_4_unwrapped_phase_response.png)
+<div markdown="0">
+<img class="lazyload" data-src="{{ page.images | absolute_url | append: "/delay_by_4_unwrapped_phase_response.webp" }}" alt="" width="80%">
+</div>
+_Figure {% increment figureId20230312 %}._
 
 By the way, these plots were obtained using [scipy.signal.freqz](https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.freqz.html), [numpy.angle](https://numpy.org/doc/stable/reference/generated/numpy.angle.html), [numpy.unwrap](https://numpy.org/doc/stable/reference/generated/numpy.unwrap.html), and the [matplotlib](https://matplotlib.org/stable/index.html) library 🙂
 
@@ -179,7 +209,10 @@ The derivative of the phase response with respect to the frequency is simply the
 
 Here is the plot of the gourp delay of the second-order Butterworth IIR lowpass filter with the cutoff frequency set to $\frac{1}{4}$ of the Nyquist frequency whose phase response you’ve seen in Figure ???.
 
-![butterworth_lp2_group_delay.png](Article%2034787530836545b7926d763403eda854/butterworth_lp2_group_delay.png)
+<div markdown="0">
+<img class="lazyload" data-src="{{ page.images | absolute_url | append: "/butterworth_lp2_group_delay.webp" }}" alt="" width="80%">
+</div>
+_Figure {% increment figureId20230312 %}._
 
 This group delay was calculated with the [scipy.signal.group_delay](https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.group_delay.html) function.
 
