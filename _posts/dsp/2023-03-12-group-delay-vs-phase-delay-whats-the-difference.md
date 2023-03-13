@@ -70,7 +70,10 @@ Remember that by the sample delay of a system, we refer to the delay of the whol
 
 Let’s consider once again the output of the system delayed by 4 samples.
 
-![delayed_two_sines_signal.png](Article%2034787530836545b7926d763403eda854/delayed_two_sines_signal%201.png)
+<div markdown="0">
+<img class="lazyload" data-src="{{ page.images | absolute_url | append: "/delayed_two_sines_no_shadow.webp" }}" alt="" width="80%">
+</div>
+_Figure {% increment figureId20230312 %}._
 
 This signal consists of 2 sines: one of them has its period equal to 16 samples and the other one has its period equal to 8 samples.
 
@@ -95,8 +98,7 @@ See? A delay in samples means different phase delays for different sines. To cal
 If we have the transfer function of a digital system or its frequency response $H(e^{j\omega})$, we can easily calculate its phase response as
 
 $$
-\begin{equation}\arg H\left(e^{j\omega}\right),\quad
-\end{equation}
+\arg H\left(e^{j\omega}\right),\quad ({% increment equationId20230312  %})
 $$
 
 where $\arg$ returns the principal argument of the given complex number in radians. The principal argument is always in the $(-\pi, \pi]$ range. Therefore, this phase is also called the **wrapped phase** because it is wrapped to the $(-\pi, \pi]$ range.
@@ -144,9 +146,7 @@ In the previous example, where the whole input was delayed by 4 samples, you saw
 Group delay can be easily calculated from the phase delay of the system
 
 $$
-\begin{equation}
-\text{grd}\left[ H(e^{j\omega})\right] = - \frac{d}{d\omega}\{\arg H\left(e^{j\omega}\right)\},
-\end{equation}
+\text{grd}\left[ H(e^{j\omega})\right] = - \frac{d}{d\omega}\{\arg H\left(e^{j\omega}\right)\},\quad ({% increment equationId20230312  %})
 $$
 
 where
