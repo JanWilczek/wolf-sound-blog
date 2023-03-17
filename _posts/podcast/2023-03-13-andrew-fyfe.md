@@ -72,6 +72,7 @@ In this podcast episode, you will learn:
 ## References
 
 1. Andrew Fyfe ([andrew@qosmo.jp](mailto:andrew@qosmo.jp))
+    1. [LinkedIn profile](https://www.linkedin.com/in/andrewfyfe93/)
 2. Technologies
     1. [Pure Data](https://puredata.info/)
     2. Python
