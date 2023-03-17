@@ -5,7 +5,7 @@ date: 2023-03-13
 author: Jan Wilczek
 layout: post
 permalink: /talk011/
-# background: /assets/img/posts/podcast/talk010/Thumbnail.webp
+background: /assets/img/posts/podcast/talk011/Thumbnail.webp
 categories:
   - Podcast
 tags:
@@ -26,9 +26,12 @@ Effortlessly deploy your trained model to a DAW!
 ## Listen on
 
 * 🎧 [Spotify](https://open.spotify.com/episode/1Vie1dWj55TaTLApRV2Se2?si=2c1a1ab984c145a8)
+* 🎥 [YouTube](https://youtu.be/pbahnCUWlD8)
 * 🎧 [Apple Podcasts (iTunes)](https://podcasts.apple.com/us/podcast/how-to-run-your-neural-networks-in-an-audio-plugin/id1595913701?i=1000603900116)
 * 🎧 [Amazon Music](https://music.amazon.com/podcasts/b42682b5-61ba-4a6f-8b11-aed42b07ef9f/episodes/2eba12aa-3051-4b11-8a43-464fedbd600c/how-to-run-your-neural-networks-in-an-audio-plugin-with-andrew-fyfe-wolftalk-011)
 * 🎧 [Google Podcasts](https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkcy5yZWRjaXJjbGUuY29tL2JmNDBhMWQyLTdlNDEtNGRkYi04YzNhLWVkODIzOTQ3MjNiYQ/episode/OTM3ODc2NzgtZGRiNS00MDBmLTg4M2MtZTdlOTU4N2FjMzE4?sa=X&ved=0CAUQkfYCahcKEwioo4bWwtj9AhUAAAAAHQAAAAAQAQ)
+* 🎧 [Stitcher](https://www.stitcher.com/show/wolftalk-podcast-about-audio-programming-people-careers-learning/episode/how-to-run-your-neural-networks-in-an-audio-plugin-with-andrew-fyfe-wolftalk-011-300502703)
+* 🎧 [TuneIn Radio](<https://tunein.com/podcasts/Education-Podcasts/WolfTalk-Podcast-About-Audio-Programming-(People-p1562232/?topicId=263778201>)
 
 [All podcast episodes.]({{"/podcast" | relative_url }})
 
