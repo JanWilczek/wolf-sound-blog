@@ -19,6 +19,9 @@ discussion_id: 2023-05-03-meinard-mueller
 ---
 Learn music processing and audio research from one of the greats!
 
+<script async defer onload="redcircleIframe();" src="https://api.podcache.net/embedded-player/sh/bf40a1d2-7e41-4ddb-8c3a-ed82394723ba/ep/a07e459a-b392-432d-ba40-9b4072d89741"></script> <div class="redcirclePlayer-a07e459a-b392-432d-ba40-9b4072d89741"></div> <style> .redcircle-link:link { color: #ea404d; text-decoration: none; } .redcircle-link:hover { color: #ea404d; } .redcircle-link:active { color: #ea404d; } .redcircle-link:visited { color: #ea404d; } </style>
+<p style="margin-top:3px;margin-left:11px;font-family: sans-serif;font-size: 10px; color: gray;">Powered by <a class="redcircle-link" href="https://redcircle.com?utm_source=rc_embedded_player&utm_medium=web&utm_campaign=embedded_v1">RedCircle</a></p>
+
 ## Listen on
 
 <!-- * 🎧 [Spotify](#) -->
