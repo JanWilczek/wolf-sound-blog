@@ -21,13 +21,13 @@ Learn music processing and audio research from one of the greats!
 
 ## Listen on
 
-* 🎧 [Spotify](#)
-* 🎥 [YouTube](#)
-* 🎧 [Apple Podcasts (iTunes)](#)
-* 🎧 [Amazon Music](#)
-* 🎧 [Google Podcasts](#)
-* 🎧 [Stitcher](#)
-* 🎧 [TuneIn Radio](<#>)
+<!-- * 🎧 [Spotify](#) -->
+<!-- * 🎥 [YouTube](#) -->
+<!-- * 🎧 [Apple Podcasts (iTunes)](#) -->
+<!-- * 🎧 [Amazon Music](#) -->
+<!-- * 🎧 [Google Podcasts](#) -->
+<!-- * 🎧 [Stitcher](#) -->
+<!-- * 🎧 [TuneIn Radio](<#>) -->
 
 [All podcast episodes.]({{"/podcast" | relative_url }})
 
@@ -62,6 +62,8 @@ In this podcast episode, you will learn:
 - what is music information retrieval and how did the AI/deep learning revolution influence it.
 
 ## References
+
+Below you'll find all people, places, and references mentioned in the podcast episode.
 
 ### People
 

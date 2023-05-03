@@ -71,6 +71,8 @@ In this podcast episode, you will learn:
 
 ## References
 
+Below you'll find all people, places, and references mentioned in the podcast episode.
+
 1. Andrew Fyfe ([andrew@qosmo.jp](mailto:andrew@qosmo.jp))
     1. [LinkedIn profile](https://www.linkedin.com/in/andrewfyfe93/)
 2. Technologies
