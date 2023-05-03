@@ -19,6 +19,20 @@ discussion_id: 2023-05-03-meinard-mueller
 ---
 Learn music processing and audio research from one of the greats!
 
+## Listen on
+
+* 🎧 [Spotify](#)
+* 🎥 [YouTube](#)
+* 🎧 [Apple Podcasts (iTunes)](#)
+* 🎧 [Amazon Music](#)
+* 🎧 [Google Podcasts](#)
+* 🎧 [Stitcher](#)
+* 🎧 [TuneIn Radio](<#>)
+
+[All podcast episodes.]({{"/podcast" | relative_url }})
+
+[Sign up for WolfSound's newsletter!]({% link newsletter.md %})
+
 ## Introduction
 
 In this podcast episode, we are extremely lucky to be able listen to and learn from Professor Meinard Müller from the International Audio Laboratories Erlangen (which is a joint institution of the University of Erlangen-Nürnberg and Fraunhofer IIS).
@@ -56,15 +70,15 @@ In this podcast episode, you will learn:
     2. [Preparation course Python notebooks](https://www.audiolabs-erlangen.de/PCP)
     3. [“Fundamentals of Music Processing” book](http://www.music-processing.de/)
     4. [“Fundamentals of Music Processing” (FMP) Jupyter notebooks](https://www.audiolabs-erlangen.de/FMP)
-    5. libfmp Python package https://github.com/meinardmueller/libfmp
+    5. [libfmp Python package](https://github.com/meinardmueller/libfmp)
 2. Masakazu Jimbo
-    1. [https://www.researchgate.net/profile/Masakazu-Jimbo](https://www.researchgate.net/profile/Masakazu-Jimbo)
-    2. [https://dblp.org/pid/23/1403.html](https://dblp.org/pid/23/1403.html)
+    1. [Profile on ResearchGate](https://www.researchgate.net/profile/Masakazu-Jimbo)
+    2. [Profile in dblp computer science bibliography](https://dblp.org/pid/23/1403.html)
 3. Michael Clausen
-    1. [https://de.wikipedia.org/wiki/Michael_Clausen](https://de.wikipedia.org/wiki/Michael_Clausen)
-    2. [https://net.cs.uni-bonn.de/wg/audio-signal-processing/staff/michael-clausen/](https://net.cs.uni-bonn.de/wg/audio-signal-processing/staff/michael-clausen/)
+    1. [Wikipedia entry](https://de.wikipedia.org/wiki/Michael_Clausen)
+    2. [Profile at the University of Bonn website](https://net.cs.uni-bonn.de/wg/audio-signal-processing/staff/michael-clausen/)
 4. Hans-Peter Seidel
-    1. [https://people.mpi-inf.mpg.de/~hpseidel/english.html](https://people.mpi-inf.mpg.de/~hpseidel/english.html)
+    1. [Profile at the Max Planck Institute website](https://people.mpi-inf.mpg.de/~hpseidel/english.html)
 
 ### Places
 
