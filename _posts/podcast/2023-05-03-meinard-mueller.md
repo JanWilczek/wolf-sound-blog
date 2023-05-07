@@ -25,7 +25,7 @@ Learn music processing and audio research from one of the greats!
 ## Listen on
 
 * 🎧 [Spotify](https://open.spotify.com/episode/0H0FtvoJdrnl2JPkqiIhhD?si=357fe1699fe547eb)
-<!-- * 🎥 [YouTube](#) -->
+* 🎥 [YouTube](https://youtu.be/irmDFIn8z74)
 * 🎧 [Apple Podcasts (iTunes)](https://podcasts.apple.com/us/podcast/meinard-m%C3%BCller-professor-in-music-information-retrieval/id1595913701?i=1000611585740)
 * 🎧 [Amazon Music](https://music.amazon.com/podcasts/b42682b5-61ba-4a6f-8b11-aed42b07ef9f/episodes/cabbba16-4860-4c64-8433-ceb4ecc1f9b1/meinard-müller-professor-in-music-information-retrieval-wolftalk-012)
 * 🎧 [Google Podcasts](https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkcy5yZWRjaXJjbGUuY29tL2JmNDBhMWQyLTdlNDEtNGRkYi04YzNhLWVkODIzOTQ3MjNiYQ/episode/YmVhYjNmNzktMDc1OC00ZjkxLTlmNzQtMDYwNGIwNzNkZTM4?sa=X&ved=0CAUQkfYCahcKEwjA0Zu6neP-AhUAAAAAHQAAAAAQAQ)
