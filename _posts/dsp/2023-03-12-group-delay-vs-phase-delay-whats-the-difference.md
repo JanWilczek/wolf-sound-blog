@@ -100,7 +100,7 @@ _Figure {% increment figureId20230312 %}. Sine with period of 8 samples._
 
 If you don’t know what the period of a signal is, it’s the smallest positive number of samples after which the signal starts repeating itself. For example, the “2-sine” signal repeats every 16 samples.
 
-Both sines inside the signals were delayed by the same number of samples. But how did their phase advance?
+Both sines inside the signal were delayed by the same number of samples. But how did their phase advance?
 
 The **phase** of a sine is a value in the $[0, 2\pi)$ range. The period of a sine is equal to $2\pi$. So its phase tells us at which point in the period we are.
 
@@ -157,12 +157,12 @@ Looking at the sines separately, at the output of this system the delayed sines 
 <div markdown="0">
 <img class="lazyload" data-src="{{ page.images | absolute_url | append: "/delayed_sine1_signal.webp" }}" alt="Waveform of the sine with period of 16 samples delayed by 8 samples" width="80%">
 </div>
-_Figure {% increment figureId20230312 %}. Sine with period of 16 samples delayed by 8 samples (phase delayed by $$\pi$$)._
+_Figure {% increment figureId20230312 %}. Sine with period of 16 samples delayed by 8 samples (phase delayed by $\pi$)._
 
 <div markdown="0">
 <img class="lazyload" data-src="{{ page.images | absolute_url | append: "/delayed_sine2_signal.webp" }}" alt="Waveform of the sine with period of 8 samples delayed by 4 samples" width="80%">
 </div>
-_Figure {% increment figureId20230312 %}. Sine with period of 8 samples delayed by 4 samples (phase delayed by $$\pi$$)._
+_Figure {% increment figureId20230312 %}. Sine with period of 8 samples delayed by 4 samples (phase delayed by $\pi$)._
 
 What is interesting, now both sines have the same phase delay, $\pi$. However, you can see that the output in Figure 7 looks different visually from the input although these are still those two sines; if you’re unsure that they are different, check the first nonzero samples of the delayed signal. The relative position of the sines changed and, thus, the waveform changed.
 
@@ -239,7 +239,7 @@ If a system has linear phase, it has constant group delay $t_0$, which can be ea
 
 Well, if a system has a constant group delay, then it means that it does not alter the input waveform visually; its behavior can be represented as a frequency-dependent amplitude scaling and a frequency-independent delay.
 
-Why is it important? Well, as you could for the 2 sines example, the change in the outlook of the signal can be drastic. Also such drastic changes make the outcome less predictable when we start mixing multiple signals together. If the group delay is not constant we may run into phase cancellation issues.
+Why is it important? Well, as you could see for the 2 sines example, the change in the outlook of the signal can be drastic. Also such drastic changes make the outcome less predictable when we start mixing multiple signals together. If the group delay is not constant we may run into phase cancellation issues.
 
 That’s why we typically (but not always) prefer linear phase (=constant group delay) systems.
 
