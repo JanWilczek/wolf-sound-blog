@@ -15,9 +15,39 @@ module.exports = function(eleventyConfig) {
     // Copy the assets folder to the _site folder
     eleventyConfig.addPassthroughCopy("assets");
 
+    eleventyConfig.addCollection("posts", function(collectionApi) {
+        return collectionApi.getFilteredByGlob("_posts/**/*.md");
+    });
+
+    // Categories collections
     eleventyConfig.addCollection("ccpp", function(collectionApi) {
         return collectionApi.getFilteredByGlob("_posts/c-c++/*.md");
     });
+    eleventyConfig.addCollection("audio_fx", function(collectionApi) {
+        return collectionApi.getFilteredByGlob("_posts/fx/*.md");
+    });
+    eleventyConfig.addCollection("dsp", function(collectionApi) {
+        return collectionApi.getFilteredByGlob("_posts/dsp/*.md");
+    });
+    eleventyConfig.addCollection("programming_in_general", function(collectionApi) {
+        return collectionApi.getFilteredByGlob("_posts/programming-in-general/*.md");
+    });
+    eleventyConfig.addCollection("synthesis", function(collectionApi) {
+        return collectionApi.getFilteredByGlob("_posts/synthesis/*.md");
+    });
+    eleventyConfig.addCollection("podcast", function(collectionApi) {
+        return collectionApi.getFilteredByGlob("_posts/podcast/*.md");
+    });
+    eleventyConfig.addCollection("python", function(collectionApi) {
+        return collectionApi.getFilteredByGlob("_posts/**/*.md").filter(item => {
+            return "python" in item.data.categories;
+        });
+    })
+    eleventyConfig.addCollection("sound_in_general", function(collectionApi) {
+        return collectionApi.getFilteredByGlob("_posts/**/*.md").filter(item => {
+            return "Sound in general" in item.data.categories;
+        });
+    })
 
     return {
         dir: {
