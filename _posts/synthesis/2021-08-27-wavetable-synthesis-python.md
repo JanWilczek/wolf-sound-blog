@@ -35,7 +35,7 @@ Should you have any questions, please, write a comment below!
 [View the code on GitHub](https://github.com/JanWilczek/wolf-sound-blog/tree/master/_posts/synthesis/_wavetable_synthesis_python.py)
 
 ```python
-{% include_relative _wavetable_synthesis_python.py %}
+{% include './_wavetable_synthesis_python.py' %}
 ```
 
 Up next: Wavetable synth implementation in the [JUCE C++ framework]({% post_url collections.posts, 'synthesis/2021-09-24-wavetable-synthesis-juce' %}) and [Rust]({% post_url collections.posts, 'synthesis/2021-10-15-wavetable-synthesis-rust' %})!

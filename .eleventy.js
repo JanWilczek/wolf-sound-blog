@@ -2,7 +2,9 @@ const markdownIt = require("markdown-it");
 const markdownItAnchor = require("markdown-it-anchor");
 const markdownItFootnote = require("markdown-it-footnote");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
-const katex = require("katex"); 
+const katex = require("katex");
+const site = require("./_data/site.json");
+const { wordCount } = require("eleventy-plugin-wordcount");
 
 module.exports = function(eleventyConfig) {
     // Add header anchor and footnotes 0plugin to Markdown renderer
@@ -12,6 +14,9 @@ module.exports = function(eleventyConfig) {
 
     // Enable syntax highlighting
     eleventyConfig.addPlugin(syntaxHighlight);
+
+    // For counting words
+    eleventyConfig.addPlugin(wordCount);
 
     // Copy the assets folder to the _site folder
     eleventyConfig.addPassthroughCopy("assets");
@@ -92,8 +97,21 @@ module.exports = function(eleventyConfig) {
         return eleventyConfig.getFilter("url")(url);
     });
 
+    // Fix for Jekyll's for the relative_url filter.
+    eleventyConfig.addFilter("relative_url", function(url) {
+        return site.baseurl + url;
+    });
+
     eleventyConfig.addShortcode("link", filename => {
         return eleventyConfig.getFilter("url")(filename);
+    });
+
+    eleventyConfig.addFilter("normalize_whitespace", string => {
+        if (typeof string !== "string") {
+            throw "normalize_whitespace: argument must be a string!";
+        }
+
+        return string.replace(/\s\s+/g, ' ');
     });
 
     return {

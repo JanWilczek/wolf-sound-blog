@@ -28,6 +28,7 @@
   "dependencies": {
     "bootstrap": "4.3.1",
     "cookify": "^3.0.1",
+    "eleventy-plugin-wordcount": "^1.0.5",
     "font-awesome": "4.7.0",
     "jquery": "^3.5.1",
     "katex": "^0.16.7",
