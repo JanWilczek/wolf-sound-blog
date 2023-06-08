@@ -82,7 +82,7 @@ Formally, if we denote the transfer function of an allpass filter by $H_\text{AP
 
 But wait, since the magnitude does not change, what do we need allpass filters for? We need them, because they introduce a **frequency-dependent phase delay**. In other words, we are able to manipulate the phase of the frequency components without altering their magnitude.
 
-*Note: A **transfer function** of a digital filter is a [Fourier transform]({% post_url 2021-03-18-convolution-in-popular-transforms %}#fourier-transform) or a [$z$-transform]({% post_url 2021-03-18-convolution-in-popular-transforms %}#z-transform) of its impulse response. We denote them by $H(j\omega)$ and $H(z)$ respectively.*
+*Note: A **transfer function** of a digital filter is a [Fourier transform]({% post_url collections.posts, 2021-03-18-convolution-in-popular-transforms %}#fourier-transform) or a [$z$-transform]({% post_url collections.posts, 2021-03-18-convolution-in-popular-transforms %}#z-transform) of its impulse response. We denote them by $H(j\omega)$ and $H(z)$ respectively.*
 
 
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6611455743195468"
@@ -101,7 +101,7 @@ There are many types of systems that have the *allpass property*. They can be ro
 
 ### FIR Allpass System
 
-The simplest allpass filter is the [delay]({% post_url 2021-04-01-identity-element-of-the-convolution %}#delay) [4]
+The simplest allpass filter is the [delay]({% post_url collections.posts, 2021-04-01-identity-element-of-the-convolution %}#delay) [4]
 
 $$H_\text{AP}(z) = \pm z^{-K}, \quad ({% increment equationId20211022 %})$$
 
@@ -110,7 +110,7 @@ where $K$ is an integer not smaller than 0, $K \geq 0$. Note that a unit delay $
 ![]({{ page.images | absolute_url | append: "/fir_allpass.webp" }}){: width="80%" alt="Block diagram of the FIR allpass filter."}
 _Figure {% increment figureId20211022 %}. Block diagram of an FIR allpass filter._
 
-[A broader description of the properties of the delay can be found in my article]({% post_url 2021-04-01-identity-element-of-the-convolution %}#delay).
+[A broader description of the properties of the delay can be found in my article]({% post_url collections.posts, 2021-04-01-identity-element-of-the-convolution %}#delay).
 
 ### First-Order IIR Allpass
 

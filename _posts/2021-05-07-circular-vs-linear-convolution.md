@@ -20,17 +20,17 @@ What is the circular convolution and how does it differ from the linear convolut
 
 
 ### The Convolution Series
-1. [Definition of convolution and intuition behind it]({% post_url 2020-06-20-the-secret-behind-filtering %})
-1. [Mathematical properties of convolution]({% post_url 2020-07-05-mathematical-properties-of-convolution %})
-1. [Convolution property of Fourier, Laplace, and z-transforms]({% post_url 2021-03-18-convolution-in-popular-transforms %})
-1. [Identity element of the convolution]({% post_url 2021-04-01-identity-element-of-the-convolution %})
-1. [Star notation of the convolution]({% post_url 2021-04-03-star-notation-of-the-convolution-a-notational-trap %})
+1. [Definition of convolution and intuition behind it]({% post_url collections.posts, 2020-06-20-the-secret-behind-filtering %})
+1. [Mathematical properties of convolution]({% post_url collections.posts, 2020-07-05-mathematical-properties-of-convolution %})
+1. [Convolution property of Fourier, Laplace, and z-transforms]({% post_url collections.posts, 2021-03-18-convolution-in-popular-transforms %})
+1. [Identity element of the convolution]({% post_url collections.posts, 2021-04-01-identity-element-of-the-convolution %})
+1. [Star notation of the convolution]({% post_url collections.posts, 2021-04-03-star-notation-of-the-convolution-a-notational-trap %})
 1. **Circular vs. linear convolution**
-1. [Fast convolution]({% post_url 2021-05-14-fast-convolution %})
-1. [Convolution vs. correlation]({% post_url 2021-06-18-convolution-vs-correlation %})
-1. [Convolution in MATLAB, NumPy, and SciPy]({% post_url 2021-07-09-convolution-in-numpy-matlab-and-scipy %})
-1. [Deconvolution: Inverse convolution]({% post_url 2021-07-23-deconvolution %})
-1. [Convolution in probability: Sum of independent random variables]({% post_url 2021-07-30-convolution-in-probability %})
+1. [Fast convolution]({% post_url collections.posts, 2021-05-14-fast-convolution %})
+1. [Convolution vs. correlation]({% post_url collections.posts, 2021-06-18-convolution-vs-correlation %})
+1. [Convolution in MATLAB, NumPy, and SciPy]({% post_url collections.posts, 2021-07-09-convolution-in-numpy-matlab-and-scipy %})
+1. [Deconvolution: Inverse convolution]({% post_url collections.posts, 2021-07-23-deconvolution %})
+1. [Convolution in probability: Sum of independent random variables]({% post_url collections.posts, 2021-07-30-convolution-in-probability %})
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -71,7 +71,7 @@ $$ X[k] = \mathcal{DFT}\{x[n]\} = \sum \limits_{n=0}^{N-1} x[n] e^{-j(2\pi/N)kn}
 
 ### Convolution Theorem of the Fourier Transform
 
-In [one of the previous articles]({% post_url 2021-03-18-convolution-in-popular-transforms %}) we argued that for the continuous-time Fourier transform it holds that
+In [one of the previous articles]({% post_url collections.posts, 2021-03-18-convolution-in-popular-transforms %}) we argued that for the continuous-time Fourier transform it holds that
 
 $$x(t) \ast h(t) \stackrel{\mathcal{F}}{\longleftrightarrow} X(j\omega)H(j\omega), \quad ({% increment equationId20210507 %})$$
 
@@ -127,7 +127,7 @@ Let's assume we have a signal $x[n]$
 ![]({{ page.images | absolute_url | append: "/x_short.png" }}){: width="600" }
 _Figure 1. $x[n]$._
 
-and a [discrete-time impulse delayed by 1 sample]({% post_url 2021-04-01-identity-element-of-the-convolution %}) $h[n]$
+and a [discrete-time impulse delayed by 1 sample]({% post_url collections.posts, 2021-04-01-identity-element-of-the-convolution %}) $h[n]$
 
 ![]({{ page.images | absolute_url | append: "/unit_delay.png" }}){: width="600" }
 _Figure 2. $h[n]$._
@@ -210,7 +210,7 @@ All of the above observations are confirmed when one treats the DFT as a sampled
 
 Having established that the DFT is periodic, we can now explain the circular convolution phenomenon. I like to think of it as **aliasing in the time domain**.
 
-*Note: We have discussed the notion of aliasing in the frequency domain in [one of the previous articles]({% post_url 2019-11-28-what-is-aliasing-what-causes-it-how-to-avoid-it %}).*
+*Note: We have discussed the notion of aliasing in the frequency domain in [one of the previous articles]({% post_url collections.posts, 2019-11-28-what-is-aliasing-what-causes-it-how-to-avoid-it %}).*
 
 #### Output Length of Discrete Convolution
 
@@ -236,7 +236,7 @@ We can achieve it via inverse discrete Fourier transform (iDFT)
 
 $$y[n] = \mathcal{IDFT}\{Y[k]\} = \sum \limits_{k=0}^{N-1} Y[k] e^{j(2\pi/N)kn}. \quad ({% increment equationId20210507 %})$$
 
-If $x$ and $h$ were continuous-time and we were using the Fourier transform instead of the discrete Fourier transform, the [convolution theorem]({% post_url 2021-03-18-convolution-in-popular-transforms %}) would tell us that $y$ is the convolution of $x$ and $h$. We explicitly showed that the convolution of $x$ and $h$ should be a discrete signal of length 5 (see Figure 3). How long is $y$?
+If $x$ and $h$ were continuous-time and we were using the Fourier transform instead of the discrete Fourier transform, the [convolution theorem]({% post_url collections.posts, 2021-03-18-convolution-in-popular-transforms %}) would tell us that $y$ is the convolution of $x$ and $h$. We explicitly showed that the convolution of $x$ and $h$ should be a discrete signal of length 5 (see Figure 3). How long is $y$?
 
 Inverse DFT inherently assumes that the time domain signal is of the same length as the frequency-domain coefficient vector. Thus, $y[n]$ is of length 4. So by multiplying frequency-domain vectors $\pmb{X}$ and $\pmb{H}$ and going back to the discrete-time domain we squashed a 5-element-long vector into a 4-element-long vector. Thus, we introduced aliasing in the time domain; hence the wrap-around of the last sample in Figure 4, and more broadly, circular convolution effect.
 

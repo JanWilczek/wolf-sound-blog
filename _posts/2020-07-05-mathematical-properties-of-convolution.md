@@ -23,17 +23,17 @@ Inspecting the mathematical properties of convolution leads to interesting concl
 In the [previous article]({{"/convolution-the-secret-behind-filtering/" | absoulte_url }}) we discussed the definition of the convolution operation. Now, it is time to look more closely at its mathematical properties in the context of digital signal processing.
 
 ### The Convolution Series
-1. [Definition of convolution and intuition behind it]({% post_url 2020-06-20-the-secret-behind-filtering %})
+1. [Definition of convolution and intuition behind it]({% post_url collections.posts, 2020-06-20-the-secret-behind-filtering %})
 1. **Mathematical properties of convolution**
-1. [Convolution property of Fourier, Laplace, and z-transforms]({% post_url 2021-03-18-convolution-in-popular-transforms %})
-1. [Identity element of the convolution]({% post_url 2021-04-01-identity-element-of-the-convolution %})
-1. [Star notation of the convolution]({% post_url 2021-04-03-star-notation-of-the-convolution-a-notational-trap %})
-1. [Circular vs. linear convolution]({% post_url 2021-05-07-circular-vs-linear-convolution %})
-1. [Fast convolution]({% post_url 2021-05-14-fast-convolution %})
-1. [Convolution vs. correlation]({% post_url 2021-06-18-convolution-vs-correlation %})
-1. [Convolution in MATLAB, NumPy, and SciPy]({% post_url 2021-07-09-convolution-in-numpy-matlab-and-scipy %})
-1. [Deconvolution: Inverse convolution]({% post_url 2021-07-23-deconvolution %})
-1. [Convolution in probability: Sum of independent random variables]({% post_url 2021-07-30-convolution-in-probability %})
+1. [Convolution property of Fourier, Laplace, and z-transforms]({% post_url collections.posts, 2021-03-18-convolution-in-popular-transforms %})
+1. [Identity element of the convolution]({% post_url collections.posts, 2021-04-01-identity-element-of-the-convolution %})
+1. [Star notation of the convolution]({% post_url collections.posts, 2021-04-03-star-notation-of-the-convolution-a-notational-trap %})
+1. [Circular vs. linear convolution]({% post_url collections.posts, 2021-05-07-circular-vs-linear-convolution %})
+1. [Fast convolution]({% post_url collections.posts, 2021-05-14-fast-convolution %})
+1. [Convolution vs. correlation]({% post_url collections.posts, 2021-06-18-convolution-vs-correlation %})
+1. [Convolution in MATLAB, NumPy, and SciPy]({% post_url collections.posts, 2021-07-09-convolution-in-numpy-matlab-and-scipy %})
+1. [Deconvolution: Inverse convolution]({% post_url collections.posts, 2021-07-23-deconvolution %})
+1. [Convolution in probability: Sum of independent random variables]({% post_url collections.posts, 2021-07-30-convolution-in-probability %})
 
 ### Recap 
 Let us recap the definition of the discrete convolution. With discrete signals $x[n], h[n]$ being square-summable, their convolution is defined as
@@ -70,7 +70,7 @@ Commutativity of an operation means that its operands can be exchanged without a
 
 $$ x \ast h = h \ast x. \quad (3)$$
 
-This property has a very interesting interpretation in the context of signal processing. It turns out, we can interpret a system's impact on a signal as the signal's impact on the system's impulse response. In particular, the filtering operation can be viewed as if the input signal was filtering the filter's impulse response (Figure 1). As we have already seen in the [previous article]({% post_url 2020-06-20-the-secret-behind-filtering %}), it is completely true: the output of a filter is a sum of its repeatedly scaled and delayed (=filtered) impulse response.
+This property has a very interesting interpretation in the context of signal processing. It turns out, we can interpret a system's impact on a signal as the signal's impact on the system's impulse response. In particular, the filtering operation can be viewed as if the input signal was filtering the filter's impulse response (Figure 1). As we have already seen in the [previous article]({% post_url collections.posts, 2020-06-20-the-secret-behind-filtering %}), it is completely true: the output of a filter is a sum of its repeatedly scaled and delayed (=filtered) impulse response.
 
 ![]({{ page.images | absolute_url | append: "/commutativity_input_filter.png" }}){: width="350" }
 _Figure 1. Commutativity of convolution enables an exchange of filter with its input._

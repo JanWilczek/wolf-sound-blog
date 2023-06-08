@@ -78,7 +78,7 @@ Let's recap a "traditional" method of designing an IIR lowpass filter:
 1. Design the analog prototype.
 2. Digitize it with the bilinear transform.
 
-For example, in the [bilinear transform tutorial]({% post_url fx/2022-01-15-bilinear-transform %}), we digitized the Butterworth lowpass of order 2. The resulting transfer function formula was
+For example, in the [bilinear transform tutorial]({% post_url collections.posts, fx/2022-01-15-bilinear-transform %}), we digitized the Butterworth lowpass of order 2. The resulting transfer function formula was
 
 $$H_2(z) = \frac{W^2 + 2W^2 z^{-1} + W^2z^{-2}}{1 + W \sqrt{2} + W^2 + 2(W^2 - 1)z^{-1} + (W^2 - W\sqrt{2} + 1)z^{-2}}, \quad ({% increment equationId20220508 %})$$
 
@@ -98,11 +98,11 @@ To understand them, we first need to recap a few facts about the allpass filter.
 
 ## Allpass Filter Revisited
 
-An [*allpass filter*]({% post_url fx/2021-10-22-allpass-filter %}) is a filter that does not attenuate or boost any frequencies but introduces a frequency-dependent delay.
+An [*allpass filter*]({% post_url collections.posts, fx/2021-10-22-allpass-filter %}) is a filter that does not attenuate or boost any frequencies but introduces a frequency-dependent delay.
 
 That means that a single allpass filter won't introduce any audible change in the signal. Only when we use this filter in some context, can we hear its true power.
 
-*If you want to learn more about the allpass filter itself, check out my comprehensive ["Allpass Filter: All You Need to Know" article here.]({% post_url fx/2021-10-22-allpass-filter %})*
+*If you want to learn more about the allpass filter itself, check out my comprehensive ["Allpass Filter: All You Need to Know" article here.]({% post_url collections.posts, fx/2021-10-22-allpass-filter %})*
 
 What is a "frequency-dependent delay"? Well, the higher the frequency, the later it will appear at the filter's output.
 
@@ -128,7 +128,7 @@ The *break frequency* of an allpass filter is the frequency at which the phase s
 
 We can control the break frequency of an allpass filter of any order with a single coefficient that appears in simple formulas for the final filter coefficients.
 
-Here is the formula for the [transfer function of the allpass filter]({% post_url fx/2021-10-22-allpass-filter %}#first-order-iir-allpass):
+Here is the formula for the [transfer function of the allpass filter]({% post_url collections.posts, fx/2021-10-22-allpass-filter %}#first-order-iir-allpass):
 
 $$H_{\text{AP}_1}(z) = \frac{a_1 + z^{-1}}{1 + a_1z^{-1}}, \quad ({% increment equationId20220508 %})$$
 
@@ -136,11 +136,11 @@ where
 
 $$a_1 = \frac{\tan(\pi f_\text{b} / f_s) - 1}{\tan(\pi f_\text{b} / f_s) + 1}.  \quad ({% increment equationId20220508 %})$$
 
-This formula is the [bilinear transform]({% post_url fx/2022-01-15-bilinear-transform %}) of the analog allpass.
+This formula is the [bilinear transform]({% post_url collections.posts, fx/2022-01-15-bilinear-transform %}) of the analog allpass.
 
 If you don't understand it, don't worry; all you need to know is that the break frequency is easily controllable.
 
-Now, at the [Nyquist frequency]({% post_url 2019-11-19-how-to-represent-digital-sound-sampling-sampling-rate-quantization %}#the-sampling-theorem) (half of the sampling rate), the phase shift is exactly $-\pi$ so the tone corresponding to that frequency is exactly *inverted in phase*.
+Now, at the [Nyquist frequency]({% post_url collections.posts, 2019-11-19-how-to-represent-digital-sound-sampling-sampling-rate-quantization %}#the-sampling-theorem) (half of the sampling rate), the phase shift is exactly $-\pi$ so the tone corresponding to that frequency is exactly *inverted in phase*.
 
 (Phase inversion is sometimes marked as $\varnothing$ in DAWs.)
 

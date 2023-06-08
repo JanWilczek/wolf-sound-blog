@@ -47,7 +47,7 @@ Although I really appreciate the features of Rust, I still think that the amount
 
 I personally find its clear compiler messages most useful. Although I am a newbie to Rust, with the help of the compiler, [*The Rust Programming Language* book](https://doc.rust-lang.org/book/), and googling, I was able to write a wavetable synthesizer. In this article, I will walk you through that process, showing you **the minimum amount of features and knowledge needed to do audio programming in Rust**. 
 
-*Note: If you don't know how wavetable synthesis algorithm works, [check out my article on the theory behind it]({% post_url synthesis/2021-08-13-wavetable-synthesis-theory %}). I also have articles on [wavetable synthesis implementation in Python]({% post_url synthesis/2021-08-27-wavetable-synthesis-python %}) and [wavetable synth plugin in the JUCE C++ framework]({% post_url synthesis/2021-09-24-wavetable-synthesis-juce %}).*
+*Note: If you don't know how wavetable synthesis algorithm works, [check out my article on the theory behind it]({% post_url collections.posts, synthesis/2021-08-13-wavetable-synthesis-theory %}). I also have articles on [wavetable synthesis implementation in Python]({% post_url collections.posts, synthesis/2021-08-27-wavetable-synthesis-python %}) and [wavetable synth plugin in the JUCE C++ framework]({% post_url collections.posts, synthesis/2021-09-24-wavetable-synthesis-juce %}).*
 
 *At [WolfSound]({% link index.html %}), you are fully covered!*
 
@@ -120,7 +120,7 @@ If you now execute `cargo run`, the dependency will be immediately installed.
 
 ## Wave Table Generation
 
-To use the [wavetable synthesis algorithm]({% post_url synthesis/2021-08-13-wavetable-synthesis-theory %}), one needs to generate a wave table first.
+To use the [wavetable synthesis algorithm]({% post_url collections.posts, synthesis/2021-08-13-wavetable-synthesis-theory %}), one needs to generate a wave table first.
 
 Just as a quick reminder: a wave table is an array in memory, which contains 1 period of the waveform we want to play out through our oscillator.
 
@@ -167,7 +167,7 @@ for n in 0..wave_table_size {
 
 In the loop, we append values to the end of the vector with the `push()` function. Interesting is the sine calculation. To perform successful multiplication and division, we need to bring all expressions to a common type (here: `f32`). Rust readily provides the $\pi$ constant.
 
-As I explained in the [Python tutorial]({% post_url synthesis/2021-08-27-wavetable-synthesis-python %}), in the loop, we calculate the value of the sine waveform for arguments linearly increasing from $0$ to $2\pi$. To calculate the sine value for argument `x`, we write `x.sin()` instead of `sin(x)`.
+As I explained in the [Python tutorial]({% post_url collections.posts, synthesis/2021-08-27-wavetable-synthesis-python %}), in the loop, we calculate the value of the sine waveform for arguments linearly increasing from $0$ to $2\pi$. To calculate the sine value for argument `x`, we write `x.sin()` instead of `sin(x)`.
 
 We have generated our wave table. Now, it is time to initialize an oscillator with it.
 
@@ -225,7 +225,7 @@ impl WavetableOscillator {
 }
 ```   
 
-This is the exact formula from the [wavetable synthesis algorithm article]({% post_url synthesis/2021-08-13-wavetable-synthesis-theory %}) with the addition of Rust-style casting.
+This is the exact formula from the [wavetable synthesis algorithm article]({% post_url collections.posts, synthesis/2021-08-13-wavetable-synthesis-theory %}) with the addition of Rust-style casting.
 
 Note that we pass in `&mut self` parameter as the first one. The `self` keyword denotes the receiver of the method, in this case, the struct instance we invoke our method on. Using `self` frees us from the duty of specifying the type of the argument. I find it similar to Python's `self`.
 

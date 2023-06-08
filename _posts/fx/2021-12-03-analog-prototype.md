@@ -22,7 +22,7 @@ Design prototypes for stable, efficient, parametric IIR filters.
 {% capture _ %}{% increment equationId20211203  %}{% endcapture %}
 {% capture _ %}{% increment figureId20211203  %}{% endcapture %}
 
-In the [last article]({% post_url fx/2021-11-26-parametric-eq-design %}), I outlined the process of creating a parametric filter. The steps are
+In the [last article]({% post_url collections.posts, fx/2021-11-26-parametric-eq-design %}), I outlined the process of creating a parametric filter. The steps are
 
 1. Decide on the filter type.
 2. Design an analog prototype.
@@ -41,7 +41,7 @@ _Figure {% increment figureId20211203 %}. In this article, we discuss analog pro
 
 ## Recap
 
-As you remember from the [previous article]({% post_url fx/2021-11-26-parametric-eq-design %}), parametric filters must have [VälimäkiReiss16]
+As you remember from the [previous article]({% post_url collections.posts, fx/2021-11-26-parametric-eq-design %}), parametric filters must have [VälimäkiReiss16]
 
 * interpretable, real-time-adjustable controls and
 * low processing delay.

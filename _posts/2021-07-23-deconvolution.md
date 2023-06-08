@@ -17,17 +17,17 @@ Can we invert the effect of convolution?
 <iframe width="560" height="315" src="https://www.youtube.com/embed/pGDfrj_uzdU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ### The Convolution Series
-1. [Definition of convolution and intuition behind it]({% post_url 2020-06-20-the-secret-behind-filtering %})
-1. [Mathematical properties of convolution]({% post_url 2020-07-05-mathematical-properties-of-convolution %})
-1. [Convolution property of Fourier, Laplace, and z-transforms]({% post_url 2021-03-18-convolution-in-popular-transforms %})
-1. [Identity element of the convolution]({% post_url 2021-04-01-identity-element-of-the-convolution %})
-1. [Star notation of the convolution]({% post_url 2021-04-03-star-notation-of-the-convolution-a-notational-trap %})
-1. [Circular vs. linear convolution]({% post_url 2021-05-07-circular-vs-linear-convolution %})
-1. [Fast convolution]({% post_url 2021-05-14-fast-convolution %})
-1. [Convolution vs. correlation]({% post_url 2021-06-18-convolution-vs-correlation %})
-1. [Convolution in MATLAB, NumPy, and SciPy]({% post_url 2021-07-09-convolution-in-numpy-matlab-and-scipy %})
+1. [Definition of convolution and intuition behind it]({% post_url collections.posts, 2020-06-20-the-secret-behind-filtering %})
+1. [Mathematical properties of convolution]({% post_url collections.posts, 2020-07-05-mathematical-properties-of-convolution %})
+1. [Convolution property of Fourier, Laplace, and z-transforms]({% post_url collections.posts, 2021-03-18-convolution-in-popular-transforms %})
+1. [Identity element of the convolution]({% post_url collections.posts, 2021-04-01-identity-element-of-the-convolution %})
+1. [Star notation of the convolution]({% post_url collections.posts, 2021-04-03-star-notation-of-the-convolution-a-notational-trap %})
+1. [Circular vs. linear convolution]({% post_url collections.posts, 2021-05-07-circular-vs-linear-convolution %})
+1. [Fast convolution]({% post_url collections.posts, 2021-05-14-fast-convolution %})
+1. [Convolution vs. correlation]({% post_url collections.posts, 2021-06-18-convolution-vs-correlation %})
+1. [Convolution in MATLAB, NumPy, and SciPy]({% post_url collections.posts, 2021-07-09-convolution-in-numpy-matlab-and-scipy %})
 1. **Deconvolution: Inverse convolution**
-1. [Convolution in probability: Sum of independent random variables]({% post_url 2021-07-30-convolution-in-probability %})
+1. [Convolution in probability: Sum of independent random variables]({% post_url collections.posts, 2021-07-30-convolution-in-probability %})
 
 
 
@@ -85,7 +85,7 @@ Here's a navigable table of contents:
 
 ### Deconvolution Using Frequency-Domain Division
 
-As we know from the [convolution property of the $z$-transform]({% post_url 2021-03-18-convolution-in-popular-transforms %}), a convolution of time-domain signals is equivalent to multiplication of their $z$-transforms. Thus, why not try to deconvolve the signals in the $z$-domain?
+As we know from the [convolution property of the $z$-transform]({% post_url collections.posts, 2021-03-18-convolution-in-popular-transforms %}), a convolution of time-domain signals is equivalent to multiplication of their $z$-transforms. Thus, why not try to deconvolve the signals in the $z$-domain?
 
 In the following we will assume that capital letters denote the $z$-transforms of the time-domain signals. We have
 
@@ -198,7 +198,7 @@ where $X(z)$ is the $z$-transform of $x[n]$. Thus, $\hat{x}[n]$ can be expressed
 $$\hat{x}[n] = \frac{1}{2 \pi} \int \limits_{-\pi}^{\pi} \log(X(e^{j\omega}))e^{j\omega n} d\omega 
 \\=\frac{1}{2 \pi} \int \limits_{-\pi}^{\pi} (\log |X(e^{j\omega})| + j \angle X(e^{j\omega})) e^{j\omega n} d\omega. \quad ({% increment equationId20210723 %})$$
 
-As we know from the [convolution property of the $z$-transform]({% post_url 2021-03-18-convolution-in-popular-transforms %}), a convolution of time-domain signals is equivalent to multiplication of their $z$-transforms. If we apply a logarithm function to the multiplication of these transforms, we obtain a summation of the logarithms of the individual transforms. Mathematically speaking, if
+As we know from the [convolution property of the $z$-transform]({% post_url collections.posts, 2021-03-18-convolution-in-popular-transforms %}), a convolution of time-domain signals is equivalent to multiplication of their $z$-transforms. If we apply a logarithm function to the multiplication of these transforms, we obtain a summation of the logarithms of the individual transforms. Mathematically speaking, if
 
 $$y[n] = x[n] \ast h[n], \quad ({% increment equationId20210723 %})$$
 

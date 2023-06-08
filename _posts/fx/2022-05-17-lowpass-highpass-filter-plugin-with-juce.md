@@ -29,7 +29,7 @@ In this article, I will guide you step-by-step through the process of implementi
 ![]({{ page.images | absolute_url | append: "/PluginGUI.webp" }}){: max-width="60%" alt="Graphical user interface of the implemented VST3 plugin."}
 _Figure {% increment figureId20220517 %}. You will complete building this plugin at the end of this tutorial._
 
-The structure, that we are going to implement, is the [allpass-based parametric lowpass/highpass filter from the previous article]({% post_url fx/2022-05-08-allpass-based-lowpass-and-highpass-filters %}). If you want, to understand how this structure works and why it is filtering, I invite you to read that article first. This article is purely a plugin implementation of the previously presented algorithm.
+The structure, that we are going to implement, is the [allpass-based parametric lowpass/highpass filter from the previous article]({% post_url collections.posts, fx/2022-05-08-allpass-based-lowpass-and-highpass-filters %}). If you want, to understand how this structure works and why it is filtering, I invite you to read that article first. This article is purely a plugin implementation of the previously presented algorithm.
 
 Figure 2 shows the audio processing algorithm that we are implementing in JUCE.
 

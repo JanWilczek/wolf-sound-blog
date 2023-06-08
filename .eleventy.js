@@ -59,6 +59,34 @@ module.exports = function(eleventyConfig) {
         });
     });
 
+    // Define a post_url Liquid tag for cross referencing
+    // https://rusingh.com/articles/2020/04/24/implement-jekyll-post-url-tag-11ty-shortcode/
+    eleventyConfig.addShortcode("post_url", (collection, relativePostPath) => {
+        try {
+        if (collection.length < 1) {
+            throw "Collection appears to be empty";
+        }
+        if (!Array.isArray(collection)) {
+            throw "Collection is an invalid type - it must be an array!";
+        }
+        if (typeof relativePostPath !== "string") {
+            throw "Slug is an invalid type - it must be a string!";
+        }
+    
+        const found = collection.find(p => p.filePathStem.includes(relativePostPath));
+        if (found === 0 || found === undefined) {
+            throw `${relativePostPath} not found in specified collection.`;
+        } else {
+            return found.url;
+        }
+        } catch (e) {
+        console.error(
+            `An error occured while searching for the url to ${relativePostPath}. Details:`,
+            e
+        );
+        }
+    });
+
     return {
         dir: {
             layouts: "_layouts"

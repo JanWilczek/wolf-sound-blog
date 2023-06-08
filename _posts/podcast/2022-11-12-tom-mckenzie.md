@@ -42,9 +42,9 @@ At the time of the interview (November 2021), Tom was a postdoctoral researcher 
 
 He was the last member of the lab interviewed by me. Previous interviews included:
 
-- [Leonardo Fierro]({% post_url podcast/2021-11-19-leonardo-fierro %}),
-- [Jon Fagerström]({% post_url podcast/2021-12-17-jon-fagerstrom %}), and
-- [Alec Wright]({% post_url podcast/2022-01-29-alec-wright %}).
+- [Leonardo Fierro]({% post_url collections.posts, podcast/2021-11-19-leonardo-fierro %}),
+- [Jon Fagerström]({% post_url collections.posts, podcast/2021-12-17-jon-fagerstrom %}), and
+- [Alec Wright]({% post_url collections.posts, podcast/2022-01-29-alec-wright %}).
 
 Please, if you are enjoying the podcast, leave it a review on [Apple Podcasts.](https://podcasts.apple.com/us/podcast/wolftalk-podcast-about-audio-programming-people-careers/id1595913701)
 
