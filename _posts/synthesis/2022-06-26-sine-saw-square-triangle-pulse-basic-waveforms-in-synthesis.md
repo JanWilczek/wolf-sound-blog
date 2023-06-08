@@ -87,7 +87,7 @@ where $f$ is the frequency of the sine in Hz and $t$ is time in seconds.
 
 A sine at 220 Hz sounds like this:
 
-{% include embed-audio.html src="/assets/wav/posts/synthesis/2022-06-26-sine-saw-square-triangle-basic-waveforms-in-synthesis/sine_example.flac" %}
+{% include 'embed-audio.html' src="/assets/wav/posts/synthesis/2022-06-26-sine-saw-square-triangle-basic-waveforms-in-synthesis/sine_example.flac" %}
 
 The time-domain representation (waveform) of the sine looks like this:
 
@@ -114,7 +114,7 @@ where $f$ is the triangle's frequency in Hz and $t$ is time in seconds.
 
 A triangle wave at 220 Hz sounds like this:
 
-{% include embed-audio.html src="/assets/wav/posts/synthesis/2022-06-26-sine-saw-square-triangle-basic-waveforms-in-synthesis/triangle_example.flac" %}
+{% include 'embed-audio.html' src="/assets/wav/posts/synthesis/2022-06-26-sine-saw-square-triangle-basic-waveforms-in-synthesis/triangle_example.flac" %}
 
 As you can hear, it's a bit brighter than the sine.
 
@@ -140,7 +140,7 @@ The **square wave** is more interesting than the sine or the triangle because of
 
 The square wave at 220 Hz sounds like this:
 
-{% include embed-audio.html src="/assets/wav/posts/synthesis/2022-06-26-sine-saw-square-triangle-basic-waveforms-in-synthesis/square_example.flac" %}
+{% include 'embed-audio.html' src="/assets/wav/posts/synthesis/2022-06-26-sine-saw-square-triangle-basic-waveforms-in-synthesis/square_example.flac" %}
 
 For me, the simplest formula for the square waveform is just taking the sign of the sine:
 
@@ -168,7 +168,7 @@ The **sawtooth** (or simply **"saw"**) waveform is my favorite waveform, thanks 
 
 The sawtooth wave at 220 Hz sounds like this:
 
-{% include embed-audio.html src="/assets/wav/posts/synthesis/2022-06-26-sine-saw-square-triangle-basic-waveforms-in-synthesis/sawtooth_example.flac" %}
+{% include 'embed-audio.html' src="/assets/wav/posts/synthesis/2022-06-26-sine-saw-square-triangle-basic-waveforms-in-synthesis/sawtooth_example.flac" %}
 
 Ah, that's so beautiful ❤️
 
@@ -213,7 +213,7 @@ For $D=0.5$, we obtain the square waveform.
 
 The pulse waveform with 20% duty cycle at 220 Hz sounds like this:
 
-{% include embed-audio.html src="/assets/wav/posts/synthesis/2022-06-26-sine-saw-square-triangle-basic-waveforms-in-synthesis/pulse_example.flac" %}
+{% include 'embed-audio.html' src="/assets/wav/posts/synthesis/2022-06-26-sine-saw-square-triangle-basic-waveforms-in-synthesis/pulse_example.flac" %}
 
 The pulse wave could be generated in various ways. I used a Fourier series-based formula [Pluta2019]
 

@@ -178,7 +178,7 @@ Let's use a precomputed wave table with 64 samples of one sine period from Figur
 
 We thus have $L = 64$, $f=440$ Hz, $f_s=44100$ Hz, $k_\text{inc} = 0.6395\dots$. The resulting sound is:
 
-{% include embed-audio.html src="/assets/wav/posts/synthesis/2021-08-13-wavetable-synthesis-theory/sine.wav" %}
+{% include 'embed-audio.html' src="/assets/wav/posts/synthesis/2021-08-13-wavetable-synthesis-theory/sine.wav" %}
 
 The magnitude spectrum of this tone is shown below.
 
@@ -196,7 +196,7 @@ _Figure 6. A wave table with 64 samples of the sawtooth waveform._
 
 Let's listen to the output:
 
-{% include embed-audio.html src="/assets/wav/posts/synthesis/2021-08-13-wavetable-synthesis-theory/sawtooth.wav" %}
+{% include 'embed-audio.html' src="/assets/wav/posts/synthesis/2021-08-13-wavetable-synthesis-theory/sawtooth.wav" %}
 
 That sounds ok, but we hear some ringing. How does it look in the spectrum?
 
@@ -207,7 +207,7 @@ We can notice that there are some inharmonic frequency components that do not co
 
 Aliasing increases if we go 1 octave higher:
 
-{% include embed-audio.html src="/assets/wav/posts/synthesis/2021-08-13-wavetable-synthesis-theory/sawtooth880.wav" %}
+{% include 'embed-audio.html' src="/assets/wav/posts/synthesis/2021-08-13-wavetable-synthesis-theory/sawtooth880.wav" %}
 
 Ouch, that doesn't sound nice. The frequency spectrum reveals aliased partials that appear as inharmonicities:
 
@@ -229,7 +229,7 @@ _Figure 9. An abstract wave table constructed with 5 Gaussians._
 
 Here is a sound generated using this wave table at 110 Hz.
 
-{% include embed-audio.html src="/assets/wav/posts/synthesis/2021-08-13-wavetable-synthesis-theory/gaussians.wav" %}
+{% include 'embed-audio.html' src="/assets/wav/posts/synthesis/2021-08-13-wavetable-synthesis-theory/gaussians.wav" %}
 
 Sounds like a horn, doesn't it?
 
@@ -269,7 +269,7 @@ _Figure 13. A wave table from a concatenation of sine, square, and sawtooth wave
 
 Here is a sound generated using this wave table at 330 Hz.
 
-{% include embed-audio.html src="/assets/wav/posts/synthesis/2021-08-13-wavetable-synthesis-theory/multi_cycle.wav" %}
+{% include 'embed-audio.html' src="/assets/wav/posts/synthesis/2021-08-13-wavetable-synthesis-theory/multi_cycle.wav" %}
 
 One can hear the characteristics of all 3 waveforms.
 
