@@ -1,0 +1,11 @@
+{
+    "title": "WolfSound",
+    "email": "jan.wilczek@thewolfsound.com",
+    "author": "Jan Wilczek",
+    "description": "Welcome to WolfSound - a \"rough\" blog about audio programming!",
+    "baseurl": "",
+    "url": "https://thewolfsound.com",
+    "pagination": {
+        "per_page": 6
+    }
+}
