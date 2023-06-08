@@ -19,7 +19,7 @@ How does the convolution relate to the most popular transforms in signal process
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/f3pjtqYUlW0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-{% katexmm %}
+
 
 The *convolution property* appears in at least in three very important transforms: the Fourier transform, the Laplace transform, and the $z$-tranform. These are the most often used transforms in continuous and discrete signal processing, so understanding the significance of convolution in them is of great importance to every engineer. In this article the definitions of the aforementioned transforms are presented, followed by their respective convolution property versions with their proofs.
 
@@ -183,4 +183,4 @@ In this article the convolution property of the Fourier, Laplace, and $z$-transf
 
 [2] Alan V. Oppenheim, Ronald W. Schafer *Discrete-Time Signal Processing*, 3rd Edition, Pearson 2010.
 
-{% endkatexmm %}
+

@@ -21,7 +21,7 @@ discussion_id: 2022-04-16-data-alignment-in-fir-simd
 ---
 How to align data for optimal filtering?
 
-{% katexmm %}
+
 {% capture _ %}{% increment equationId20220416  %}{% endcapture %}
 {% capture _ %}{% increment listingId20220416 %}{% endcapture %}
 {% capture _ %}{% increment figureId20220416  %}{% endcapture %}
@@ -366,4 +366,4 @@ Thanks for reading! If you have any questions, just ask them in the comments bel
 [Shahbarhrami2005] Asadollah Shahbahrami, Ben Juurlink, and Stamatis Vassiliadis, *Efficient Vectorization of the FIR Filter*. [[PDF](https://www.aes.tu-berlin.de/fileadmin/fg196/publication/old-juurlink/efficient_vectorization_of_the_fir_filter.pdf)]
 
 
-{% endkatexmm %}
+

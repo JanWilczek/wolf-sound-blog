@@ -22,7 +22,7 @@ You probably have seen some form of a parametric equalizer in your digital audio
 
 In this article, I will outline 4 steps necessary to create such software. By the end of this article, you will know exactly what to do when you want to implement a parametric filter, even if it’s just for a university or hobby project.
 
-{% katexmm %}
+
 {% capture _ %}{% increment equationId20211126  %}{% endcapture %}
 {% capture _ %}{% increment figureId20211126  %}{% endcapture %}
 
@@ -286,4 +286,4 @@ accessed November 26, 2021.
 
 {% include affiliate-disclaimer.html %}
 
-{% endkatexmm %}
+

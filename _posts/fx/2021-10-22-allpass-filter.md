@@ -70,7 +70,7 @@ In this article, we will discuss the digital allpass filter in detail, present i
 6. [Summary](#summary)
 7. [Bibliography](#bibliography)
 
-{% katexmm %}
+
 {% capture _ %}{% increment equationId20211022  %}{% endcapture %}
 {% capture _ %}{% increment figureId20211022  %}{% endcapture %}
 
@@ -351,4 +351,4 @@ If you have any questions, don't hesitate to ask them below!
 
 {% include affiliate-disclaimer.html %}
 
-{% endkatexmm %}
+

@@ -29,7 +29,7 @@ Can we invert the effect of convolution?
 1. **Deconvolution: Inverse convolution**
 1. [Convolution in probability: Sum of independent random variables]({% post_url 2021-07-30-convolution-in-probability %})
 
-{% katexmm %}
+
 
 {% capture _ %}{% increment equationId20210723  %}{% endcapture %}
 
@@ -254,4 +254,4 @@ In this article, we discussed 4 deconvolution techniques out of which 1 works in
 
 [5] [Matlab's `deconv` documentation](https://mathworks.com/help/matlab/ref/deconv.html)
 
-{% endkatexmm %}
+

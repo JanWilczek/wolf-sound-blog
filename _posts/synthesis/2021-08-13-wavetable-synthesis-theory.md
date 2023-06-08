@@ -20,7 +20,7 @@ How to generate sound in code using the wavetable synthesis technique?
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/ssIJ8kFG7qs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-{% katexmm %}
+
 
 {% capture _ %}{% increment equationId20210813 %}{% endcapture %}
 
@@ -324,5 +324,5 @@ These are the references I used for this article. If you are interested in the t
 
 {% include affiliate-disclaimer.html %}
 
-{% endkatexmm %}
+
 

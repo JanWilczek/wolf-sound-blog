@@ -37,7 +37,7 @@ tags:
   - Python
 discussion_id: 2019-12-16-creating-the-slow-motion-audio-effect-variable-speed-replay-algorithm
 ---
-{% katexmm %}
+
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/HuYc0azu00s" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -267,4 +267,3 @@ Feel free to copy and test out the above code. If you are not sure how to use it
 [1] Zölzer, U. DAFX: Digital Audio Effects. 2nd ed. Helmut Schmidt University – University  
 of the Federal Armed Forces, Hamburg, Germany: John Wiley & Sons Ltd, 2011.
 
-{% endkatexmm %}

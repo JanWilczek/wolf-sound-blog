@@ -17,7 +17,7 @@ How not to fall victim to the star notation of the convolution?
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/cMagZegrIns" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-{% katexmm %}
+
 
 ## The Convolution Series
 1. [Definition of convolution and intuition behind it]({% post_url 2020-06-20-the-secret-behind-filtering %})
@@ -113,5 +113,5 @@ In this article, we discussed notational issues concerning the discrete convolut
 
 [1] A. V. Oppenheim, R. W. Schafer *Discrete-Time Signal Processing*, 3rd Edition, Pearson 2010.
 
-{% endkatexmm %}
+
 

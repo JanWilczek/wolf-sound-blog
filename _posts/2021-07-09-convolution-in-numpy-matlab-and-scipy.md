@@ -32,7 +32,7 @@ How to compute convolution using numerical software libraries?
 1. [Deconvolution: Inverse convolution]({% post_url 2021-07-23-deconvolution %})
 1. [Convolution in probability: Sum of independent random variables]({% post_url 2021-07-30-convolution-in-probability %})
 
-{% katexmm %}
+
 
 Most often we won't be implementing convolution every time we need to use it. Therefore, it is important to know functions from numerical software libraries we can use.
 
@@ -143,4 +143,4 @@ Check out the references below for more details.
 [6] I. Goodfellow, Y. Bengio, A. Courville *Deep learning*, MIT Press, 2016, [https://www.deeplearningbook.org/](https://www.deeplearningbook.org/).
 
 
-{% endkatexmm %}
+

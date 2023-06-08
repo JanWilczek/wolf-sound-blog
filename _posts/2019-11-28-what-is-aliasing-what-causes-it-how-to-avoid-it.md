@@ -39,7 +39,7 @@ discussion_id: 2019-11-28-what-is-aliasing-what-causes-it-how-to-avoid-it
 ---
 <iframe width="560" height="315" src="https://www.youtube.com/embed/npeMd5U-5QI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-{% katexmm %}
+
 
 Aliasing is a very important phenomenon which highly influences the digital signal processing area. It is tightly coupled with the notion of sampling and sampling rate. Let&#8217;s discuss it in detail!
 
@@ -230,4 +230,3 @@ Feel free to download and run it yourself! You should have numpy, matplotlib and
 Reference:  
 [1] Oppenheim, A. V. and Willsky, A. S. Signals & Systems. 2nd ed. Upper Sadle River, New Jersey: Prentice Hall, 1997. 
 
-{% endkatexmm %}

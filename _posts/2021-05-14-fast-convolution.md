@@ -17,7 +17,7 @@ How to compute convolution fast for real-time applications?
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/fYggIQTaVx4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-{% katexmm %}
+
 
 ### The Convolution Series
 1. [Definition of convolution and intuition behind it]({% post_url 2020-06-20-the-secret-behind-filtering %})
@@ -298,4 +298,4 @@ With an understanding of these concepts you can rush off to code an unforgettabl
 
 [1] Frank Wefers *Partitioned convolution algorithms for real-time auralization*, PhD Thesis, Zugl.: Aachen, Techn. Hochsch., 2015.
 
-{% endkatexmm %}
+

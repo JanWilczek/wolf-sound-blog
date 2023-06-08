@@ -18,7 +18,7 @@ Inspecting the mathematical properties of convolution leads to interesting concl
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/kkZMk1E5suU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-{% katexmm %}
+
 
 In the [previous article]({{"/convolution-the-secret-behind-filtering/" | absoulte_url }}) we discussed the definition of the convolution operation. Now, it is time to look more closely at its mathematical properties in the context of digital signal processing.
 
@@ -151,4 +151,4 @@ In this article we reviewed the most important mathematical properties of the co
 
 [4] [Commutativity proof for the continuous case on Mathematics StackExchange](https://math.stackexchange.com/questions/4445/proving-commutativity-of-convolution-f-ast-gx-g-ast-fx).
 
-{% endkatexmm %}
+

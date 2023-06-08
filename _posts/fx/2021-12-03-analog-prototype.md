@@ -18,7 +18,7 @@ Design prototypes for stable, efficient, parametric IIR filters.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/rrMRkPpRQAs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-{% katexmm %}
+
 {% capture _ %}{% increment equationId20211203  %}{% endcapture %}
 {% capture _ %}{% increment figureId20211203  %}{% endcapture %}
 
@@ -354,4 +354,4 @@ accessed November 26, 2021.
 
 {% include affiliate-disclaimer.html %}
 
-{% endkatexmm %}
+

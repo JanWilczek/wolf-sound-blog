@@ -19,7 +19,7 @@ Let's write a wavetable synthesizer in JUCE C++ framework!
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Ah4P-zOfdYc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-{% katexmm %}
+
 
 In previous articles, I explained [how wavetable synthesis algorithm works]({% post_url synthesis/2021-08-13-wavetable-synthesis-theory %}) and showed [an implementation of it in Python]({% post_url synthesis/2021-08-27-wavetable-synthesis-python %}). Now is the time to write a real-time wavetable synth in C++!
 
@@ -573,4 +573,4 @@ Here is a list of useful references for the topic:
 
 {% include affiliate-disclaimer.html %}
 
-{% endkatexmm %}
+

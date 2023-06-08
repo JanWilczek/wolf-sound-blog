@@ -17,7 +17,7 @@ What is the circular convolution and how does it differ from the linear convolut
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/zquMVVCnmuk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-{% katexmm %}
+
 
 ### The Convolution Series
 1. [Definition of convolution and intuition behind it]({% post_url 2020-06-20-the-secret-behind-filtering %})
@@ -369,4 +369,4 @@ Circular convolution can be implemented efficiently via multiplication in the DF
 
 [3] Frank Wefers *Partitioned convolution algorithms for real-time auralization*, PhD Thesis, Zugl.: Aachen, Techn. Hochsch., 2015.
 
-{% endkatexmm %}
+

@@ -49,7 +49,7 @@ How to perform it fast?
 1. [Summary](#summary)
 1. [Bibliography](#bibliography)
 
-{% katexmm %}
+
 {% capture _ %}{% increment equationId20220328  %}{% endcapture %}
 {% capture _ %}{% increment listingId20220328  %}{% endcapture %}
 {% capture _ %}{% increment figureId20220328  %}{% endcapture %}
@@ -654,4 +654,4 @@ And as always, if you have any questions, feel free to post them below.
 [Wefers2015] Frank Wefers *Partitioned convolution algorithms for real-time auralization*, PhD Thesis, Zugl.: Aachen, Techn. Hochsch., 2015.
 
 
-{% endkatexmm %}
+

@@ -2,6 +2,7 @@ const markdownIt = require("markdown-it");
 const markdownItAnchor = require("markdown-it-anchor");
 const markdownItFootnote = require("markdown-it-footnote");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
+const katex = require("katex"); 
 
 module.exports = function(eleventyConfig) {
     // Add header anchor and footnotes 0plugin to Markdown renderer
@@ -48,6 +49,15 @@ module.exports = function(eleventyConfig) {
             return "Sound in general" in item.data.categories;
         });
     })
+
+    // Add katex support from https://benborgers.com/posts/eleventy-katex  
+    eleventyConfig.addFilter("latex", (content) => {
+        return content.replace(/\$\$(.+?)\$\$/g, (_, equation) => {
+            const cleanEquation = equation.replace(/&lt;/g, "<").replace(/&gt;/g, ">");
+
+            return katex.renderToString(cleanEquation, { throwOnError: false });
+        });
+    });
 
     return {
         dir: {

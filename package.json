@@ -30,6 +30,7 @@
     "cookify": "^3.0.1",
     "font-awesome": "4.7.0",
     "jquery": "^3.5.1",
+    "katex": "^0.16.7",
     "lazyload": "^2.0.0-rc.2",
     "startbootstrap-clean-blog": "5.0.8",
     "trackswitch": "^0.1.0"

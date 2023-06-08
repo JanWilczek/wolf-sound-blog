@@ -43,7 +43,7 @@ I don’t know about you but I have always been confused about the group delay, 
      (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
-{% katexmm %}
+
 {% capture _ %}{% increment equationId20230312  %}{% endcapture %}
 {% capture _ %}{% increment figureId20230312  %}{% endcapture %}
 
@@ -259,4 +259,4 @@ If you want to know which other bits and pieces of knowledge are necessary for w
 
 [OppenheimSchafer10] [Alan V Oppenheim, Ronald W. Schafer, *Discrete-Time Signal Processing*, 3rd Edition, Pearson 2010.](https://amzn.to/3vygXGl)
 
-{% endkatexmm %}
+

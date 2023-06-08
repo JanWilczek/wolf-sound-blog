@@ -16,7 +16,7 @@ discussion_id: 2020-06-20-the-secret-behind-filtering
 ---
 Why does filtering work? What enables us to enhance the bass in our audio players?
 
-{% katexmm %}
+
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/WmSGdaz1gFQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -178,4 +178,3 @@ Up next: [mathematical properties of convolution]({{"/mathematical-properties-of
 
 [3] Alan V. Oppenheim, Alan S. Willsky, with S. Hamid *Signals and Systems*, 2nd Edition, Pearson 1997.
 
-{% endkatexmm %}

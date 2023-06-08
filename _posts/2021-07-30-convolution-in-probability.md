@@ -30,7 +30,7 @@ Thanks to convolution, we can obtain the probability distribution of a sum of in
 1. [Deconvolution: Inverse convolution]({% post_url 2021-07-23-deconvolution %})
 1. **Convolution in probability: Sum of independent random variables**
 
-{% katexmm %}
+
 
 {% capture _ %}{% increment equationId20210730  %}{% endcapture %}
 
@@ -112,4 +112,4 @@ In this article, we have proven that the probability distribution of a sum of in
 
 [1] Walter Kellermann, *Statistical Signal Processing Lecture Notes*, Winter Semester 2019/2020, University of Erlangen-Nürnberg.
 
-{% endkatexmm %}
+

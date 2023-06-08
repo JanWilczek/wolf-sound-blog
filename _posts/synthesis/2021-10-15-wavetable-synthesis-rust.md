@@ -95,7 +95,7 @@ fn main() {
 }
 ```
 
-{% katexmm %}
+
 
 With these formalities out of the way, let's start with arranging a basic audio output with Rust.
 
@@ -363,4 +363,4 @@ Check out the [full source code on GitHub](https://github.com/JanWilczek/wolf-so
 
 If you have any questions related to Rust or this implementation, please, leave a comment below!
 
-{% endkatexmm %}
+

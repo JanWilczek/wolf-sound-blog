@@ -40,7 +40,7 @@ To process the audio signal, we need to somehow represent it on our machine. Sev
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/f53m72uLa2I" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-{% katexmm %}
+
 
 
 Mind you, that in this article expressions _function_ and _signal_ are used interchangeably. Both function and signal can be continuous or discrete.
@@ -187,4 +187,3 @@ You can copy the above code and run it yourself!
 Reference:  
 [1] Oppenheim, A. V. and Willsky, A. S. Signals & Systems. 2nd ed. Upper Sadle River, New Jersey: Prentice Hall, 1997.
 
-{% endkatexmm %}

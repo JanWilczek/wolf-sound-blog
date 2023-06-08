@@ -18,7 +18,7 @@ Learn how to derive and use the bilinear transform to convert analog systems int
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/5RLMpdbt6B0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-{% katexmm %}
+
 {% capture _ %}{% increment equationId20220115 %}{% endcapture %}
 {% capture _ %}{% increment figureId20220115 %}{% endcapture %}
 
@@ -270,7 +270,7 @@ Finally, we discretized the second-order analog Butterworth low-pass with the bi
 
 Thanks for reading! If you have any questions, don't hesitate to ask them in the comments below 🙂
 
-{% endkatexmm %}
+
 
 ## Bibiliography
 

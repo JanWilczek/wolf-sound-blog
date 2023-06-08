@@ -18,7 +18,7 @@ How to convolve and do nothing at the same time?
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/XIWXmV92ju4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-{% katexmm %}
+
 
 ### The Convolution Series
 1. [Definition of convolution and intuition behind it]({% post_url 2020-06-20-the-secret-behind-filtering %})
@@ -197,5 +197,5 @@ Models* Ph.D. dissertation, Friedrich-Alexander-Universität Erlangen-Nürnberg
 (FAU), 2020.
 
 
-{% endkatexmm %}
+
 

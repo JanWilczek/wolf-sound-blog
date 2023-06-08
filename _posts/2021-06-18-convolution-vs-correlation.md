@@ -30,7 +30,7 @@ Can we calculate correlation using convolution?
 1. [Deconvolution: Inverse convolution]({% post_url 2021-07-23-deconvolution %})
 1. [Convolution in probability: Sum of independent random variables]({% post_url 2021-07-30-convolution-in-probability %})
 
-{% katexmm %}
+
 
 {% capture _ %}{% increment equationId20210618  %}{% endcapture %}
 
@@ -186,4 +186,4 @@ This fact also points to how closely convolution and correlation are related. Th
 
 [3] I. Goodfellow, Y. Bengio, A. Courville *Deep learning*, MIT Press, 2016, [https://www.deeplearningbook.org/](https://www.deeplearningbook.org/).
 
-{% endkatexmm %}
+

@@ -37,7 +37,7 @@ Speed up DSP operations with vector instructions.
 12. [Summary](#summary)
 13. [Bibliography, Reference, and Further Reading](#bibliography-reference-and-further-reading)
 
-{% katexmm %}
+
 
 ## Introduction
 
@@ -402,7 +402,7 @@ If you have any questions, feel free to ask them in the comments below!
 
 In the next article, I will show you how to implement FIR filtering using SIMD instructions, so stay tuned! 🙂
 
-{% endkatexmm %}
+
 
 ## Bibliography, Reference, and Further Reading
 

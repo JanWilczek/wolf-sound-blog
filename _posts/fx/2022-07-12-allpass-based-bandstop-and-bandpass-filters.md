@@ -23,7 +23,7 @@ With real-time center frequency and bandwidth control!
 
 In [one of the previous articles]({% post_url fx/2022-05-08-allpass-based-lowpass-and-highpass-filters %}), we discussed how to implement a simple lowpass and a highpass filter using the first-order allpass filter. That filter had a real-time cutoff frequency control.
 
-{% katexmm %}
+
 {% capture _ %}{% increment equationId20220712  %}{% endcapture %}
 {% capture _ %}{% increment figureId20220712  %}{% endcapture %}
 
@@ -269,4 +269,4 @@ In this article, we learned how to implement efficient, real-time-controllable b
 
 Bandpass and bandstop filters are one of the basic effects in the audio programmer's arsenal. If you want to know which elements make up the audio plugin developer toolbox, check out my free [audio plugin developer checklist.]({% link single-pages/checklist.html %})
 
-{% endkatexmm %}
+
