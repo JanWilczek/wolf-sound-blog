@@ -49,7 +49,7 @@ I don’t know about you but I have always been confused about the group delay, 
 
 ## What is a sample delay?
 
-The first one to start off is the [sample delay]({% post_url collections.posts, 2021-04-01-identity-element-of-the-convolution %}#delay).
+The first one to start off is the [sample delay]({% post_url collections.posts, '2021-04-01-identity-element-of-the-convolution' %}#delay).
 
 A system that delays the input by a constant number of samples introduces a delay to the signal.
 
@@ -75,7 +75,7 @@ As you can see at the output of the delay, the signal is simply delayed by 4 sam
 
 Remember that by the sample delay of a system, we refer to the delay of the whole signal by some number of samples between the output and the input. Pure delay elements, do not introduce any other change beyond the delay.
 
-I have discussed the delay in samples in more detail in the following [article & video]({% post_url collections.posts, 2021-04-01-identity-element-of-the-convolution %}).
+I have discussed the delay in samples in more detail in the following [article & video]({% post_url collections.posts, '2021-04-01-identity-element-of-the-convolution' %}).
 
 ## What is a phase delay?
 

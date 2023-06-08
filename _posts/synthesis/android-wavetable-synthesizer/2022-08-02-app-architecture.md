@@ -27,12 +27,12 @@ Built using Jetpack Compose, Oboe library, C++, Kotlin, and modern architecture 
 
 ### Android Wavetable Synthesizer Tutorial Series
 
-1. [App Architecture (this one)]({% post_url collections.posts, synthesis/android-wavetable-synthesizer/2022-08-02-app-architecture %})
-2. [UI with Jetpack Compose]({% post_url collections.posts, synthesis/android-wavetable-synthesizer/2022-08-10-ui %})
-3. [ViewModel]({% post_url collections.posts, synthesis/android-wavetable-synthesizer/2022-09-11-view-model %})
-4. [Calling C++ Code From Kotlin with JNI]({% post_url collections.posts, synthesis/android-wavetable-synthesizer/2022-10-09-jni %})
-5. [Playing Back Audio on Android with C++]({% post_url collections.posts, synthesis/android-wavetable-synthesizer/2022-10-23-oboe %})
-6. [Wavetable Synthesis Algorithm in C++]({% post_url collections.posts, synthesis/android-wavetable-synthesizer/2022-11-03-cpp-synth %})
+1. [App Architecture (this one)]({% post_url collections.posts, 'synthesis/android-wavetable-synthesizer/2022-08-02-app-architecture' %})
+2. [UI with Jetpack Compose]({% post_url collections.posts, 'synthesis/android-wavetable-synthesizer/2022-08-10-ui' %})
+3. [ViewModel]({% post_url collections.posts, 'synthesis/android-wavetable-synthesizer/2022-09-11-view-model' %})
+4. [Calling C++ Code From Kotlin with JNI]({% post_url collections.posts, 'synthesis/android-wavetable-synthesizer/2022-10-09-jni' %})
+5. [Playing Back Audio on Android with C++]({% post_url collections.posts, 'synthesis/android-wavetable-synthesizer/2022-10-23-oboe' %})
+6. [Wavetable Synthesis Algorithm in C++]({% post_url collections.posts, 'synthesis/android-wavetable-synthesizer/2022-11-03-cpp-synth' %})
 
 ## Introduction
 
@@ -46,9 +46,9 @@ _Figure {% increment figureId20220802 %}. At droidcon Berlin 2022, I was lucky t
 
 Recent developments on this platform, especially, the brand-new Compose UI framework, inspired me to write a synthesizer app for Android.
 
-What kind of synthesizer? A [wavetable synthesizer]({% post_url collections.posts, synthesis/2021-08-13-wavetable-synthesis-theory %}), of course!
+What kind of synthesizer? A [wavetable synthesizer]({% post_url collections.posts, 'synthesis/2021-08-13-wavetable-synthesis-theory' %}), of course!
 
-We've built one in [Python]({% post_url collections.posts, synthesis/2021-08-27-wavetable-synthesis-python %}), another one in [Rust]({% post_url collections.posts, synthesis/2021-10-15-wavetable-synthesis-rust %}), and another one in [C++ as an audio plugin]({% post_url collections.posts, synthesis/2021-09-24-wavetable-synthesis-juce %}). So why not Android?
+We've built one in [Python]({% post_url collections.posts, 'synthesis/2021-08-27-wavetable-synthesis-python' %}), another one in [Rust]({% post_url collections.posts, 'synthesis/2021-10-15-wavetable-synthesis-rust' %}), and another one in [C++ as an audio plugin]({% post_url collections.posts, 'synthesis/2021-09-24-wavetable-synthesis-juce' %}). So why not Android?
 
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6611455743195468"
      crossorigin="anonymous"></script><ins class="adsbygoogle"
@@ -81,7 +81,7 @@ The secondary goal is to use cutting-edge Android tools and practices like
 
 Thanks to this tutorial, you will learn
 
-* How [wavetable synthesis]({% post_url collections.posts, synthesis/2021-08-13-wavetable-synthesis-theory %}) can be implemented in an app,
+* How [wavetable synthesis]({% post_url collections.posts, 'synthesis/2021-08-13-wavetable-synthesis-theory' %}) can be implemented in an app,
 * Kotlin basics in a fun and easy way, including [Kotlin Coroutines](https://kotlinlang.org/docs/coroutines-overview.html),
 * Android development basics,
 * Jetpack Compose framework basics,
@@ -94,7 +94,7 @@ Thanks to this tutorial, you will learn
 This tutorial is for:
 
 * Complete Android beginners who want to learn app development basics in an enjoyable way,
-* People who want to learn [wavetable synthesis]({% post_url collections.posts, synthesis/2021-08-13-wavetable-synthesis-theory %}) and how to implement it,
+* People who want to learn [wavetable synthesis]({% post_url collections.posts, 'synthesis/2021-08-13-wavetable-synthesis-theory' %}) and how to implement it,
 * Android developers who want to learn the audio side of Android apps,
 * Kotlin developers who want to understand coroutines,
 * Android developers who want to see a modern Android architecture in action,
@@ -107,7 +107,7 @@ The complete source code is available on [GitHub](https://github.com/JanWilczek/
 
 ## App Architecture
 
-Before we start with the [project setup]({% post_url collections.posts, synthesis/android-wavetable-synthesizer/2022-08-10-ui %}#how-to-set-up-your-project-for-compose), I want to discuss the architecture of our app.
+Before we start with the [project setup]({% post_url collections.posts, 'synthesis/android-wavetable-synthesizer/2022-08-10-ui' %}#how-to-set-up-your-project-for-compose), I want to discuss the architecture of our app.
 
 How can one come up with an architecture at the very beginning?
 
@@ -176,4 +176,4 @@ In this introductory part of the tutorial, we discussed the goals of the project
 
 If you want to check out my guidelines on what knowledge is needed to write sound-processing software, [download my free audio plugin developer checklist]({% link single-pages/checklist.html %}).
 
-Up next: [implementing the UI in Jetpack Compose]({% post_url collections.posts, synthesis/android-wavetable-synthesizer/2022-08-10-ui %})!
+Up next: [implementing the UI in Jetpack Compose]({% post_url collections.posts, 'synthesis/android-wavetable-synthesizer/2022-08-10-ui' %})!

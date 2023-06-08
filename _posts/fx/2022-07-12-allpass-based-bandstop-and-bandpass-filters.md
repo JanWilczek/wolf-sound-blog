@@ -21,7 +21,7 @@ With real-time center frequency and bandwidth control!
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/wodumxEF9u0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-In [one of the previous articles]({% post_url collections.posts, fx/2022-05-08-allpass-based-lowpass-and-highpass-filters %}), we discussed how to implement a simple lowpass and a highpass filter using the first-order allpass filter. That filter had a real-time cutoff frequency control.
+In [one of the previous articles]({% post_url collections.posts, 'fx/2022-05-08-allpass-based-lowpass-and-highpass-filters' %}), we discussed how to implement a simple lowpass and a highpass filter using the first-order allpass filter. That filter had a real-time cutoff frequency control.
 
 
 {% capture _ %}{% increment equationId20220712  %}{% endcapture %}
@@ -100,7 +100,7 @@ As in the case of the bandstop filter, we can specify the bandwidth using the **
 
 ## Recap: The Second-Order Allpass Filter
 
-The main building block of bandpass and bandstop filters is the [second-order allpass filter]({% post_url collections.posts, fx/2021-10-22-allpass-filter %}#second-order-iir-allpass).
+The main building block of bandpass and bandstop filters is the [second-order allpass filter]({% post_url collections.posts, 'fx/2021-10-22-allpass-filter' %}#second-order-iir-allpass).
 
 An allpass filter is a filter that does not attenuate any frequencies but it introduces a frequency-dependent phase shift.
 
@@ -131,7 +131,7 @@ As you can see, the phase shift is 0 at 0 Hz and gradually changes to $-2\pi$. T
 
 You can already guess that the bandwidth parameter of the second-order allpass filter translates to the bandwidth parameter of bandpass and bandstop filters. Accordingly, the break frequency corresponds to the center frequency. How?
 
-Thanks to the [phase cancellation effect]({% post_url collections.posts, fx/2022-05-08-allpass-based-lowpass-and-highpass-filters %}#phase-cancellation), if we add two tones at the same frequency but with relative phase shift of $\pi$, they will cancel each other. A shift by $\pi$ is equivalent to a multiplication of the tone by -1.
+Thanks to the [phase cancellation effect]({% post_url collections.posts, 'fx/2022-05-08-allpass-based-lowpass-and-highpass-filters' %}#phase-cancellation), if we add two tones at the same frequency but with relative phase shift of $\pi$, they will cancel each other. A shift by $\pi$ is equivalent to a multiplication of the tone by -1.
 
 With this knowledge we can now employ the second-order allpass filter for bandpass or bandstop filtering.
 
@@ -184,7 +184,7 @@ You will find a sample implementation of the bandstop filter in Python at [the e
 
 ## Allpass-Based Bandpass Filter
 
-The allpass-based bandpass filter differs from the bandstop filter only in the sign of the allpass filter output. In case of the bandpass, we invert the output of the allpass in phase so that the phase cancellation occurs at the 0 Hz frequency and the [Nyquist frequency]({% post_url collections.posts, 2019-11-19-how-to-represent-digital-sound-sampling-sampling-rate-quantization %}#the-sampling-theorem). Because the tone at the break frequency gets reversed twice, it is in phase with the input signal. Therefore, the summation results in doubling of the amplitude of the tone corresponding to the break frequency of the allpass.
+The allpass-based bandpass filter differs from the bandstop filter only in the sign of the allpass filter output. In case of the bandpass, we invert the output of the allpass in phase so that the phase cancellation occurs at the 0 Hz frequency and the [Nyquist frequency]({% post_url collections.posts, '2019-11-19-how-to-represent-digital-sound-sampling-sampling-rate-quantization' %}#the-sampling-theorem). Because the tone at the break frequency gets reversed twice, it is in phase with the input signal. Therefore, the summation results in doubling of the amplitude of the tone corresponding to the break frequency of the allpass.
 
 ### DSP Diagram
 

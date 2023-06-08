@@ -18,16 +18,16 @@ Thanks to convolution, we can obtain the probability distribution of a sum of in
 <iframe width="560" height="315" src="https://www.youtube.com/embed/9ytYz9upnG4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ### The Convolution Series
-1. [Definition of convolution and intuition behind it]({% post_url collections.posts, 2020-06-20-the-secret-behind-filtering %})
-1. [Mathematical properties of convolution]({% post_url collections.posts, 2020-07-05-mathematical-properties-of-convolution %})
-1. [Convolution property of Fourier, Laplace, and z-transforms]({% post_url collections.posts, 2021-03-18-convolution-in-popular-transforms %})
-1. [Identity element of the convolution]({% post_url collections.posts, 2021-04-01-identity-element-of-the-convolution %})
-1. [Star notation of the convolution]({% post_url collections.posts, 2021-04-03-star-notation-of-the-convolution-a-notational-trap %})
-1. [Circular vs. linear convolution]({% post_url collections.posts, 2021-05-07-circular-vs-linear-convolution %})
-1. [Fast convolution]({% post_url collections.posts, 2021-05-14-fast-convolution %})
-1. [Convolution vs. correlation]({% post_url collections.posts, 2021-06-18-convolution-vs-correlation %})
-1. [Convolution in MATLAB, NumPy, and SciPy]({% post_url collections.posts, 2021-07-09-convolution-in-numpy-matlab-and-scipy %})
-1. [Deconvolution: Inverse convolution]({% post_url collections.posts, 2021-07-23-deconvolution %})
+1. [Definition of convolution and intuition behind it]({% post_url collections.posts, '2020-06-20-the-secret-behind-filtering' %})
+1. [Mathematical properties of convolution]({% post_url collections.posts, '2020-07-05-mathematical-properties-of-convolution' %})
+1. [Convolution property of Fourier, Laplace, and z-transforms]({% post_url collections.posts, '2021-03-18-convolution-in-popular-transforms' %})
+1. [Identity element of the convolution]({% post_url collections.posts, '2021-04-01-identity-element-of-the-convolution' %})
+1. [Star notation of the convolution]({% post_url collections.posts, '2021-04-03-star-notation-of-the-convolution-a-notational-trap' %})
+1. [Circular vs. linear convolution]({% post_url collections.posts, '2021-05-07-circular-vs-linear-convolution' %})
+1. [Fast convolution]({% post_url collections.posts, '2021-05-14-fast-convolution' %})
+1. [Convolution vs. correlation]({% post_url collections.posts, '2021-06-18-convolution-vs-correlation' %})
+1. [Convolution in MATLAB, NumPy, and SciPy]({% post_url collections.posts, '2021-07-09-convolution-in-numpy-matlab-and-scipy' %})
+1. [Deconvolution: Inverse convolution]({% post_url collections.posts, '2021-07-23-deconvolution' %})
 1. **Convolution in probability: Sum of independent random variables**
 
 
@@ -36,7 +36,7 @@ Thanks to convolution, we can obtain the probability distribution of a sum of in
 
 So far, we have looked into various aspects of convolution. One of its important applications is in probability: thanks to the convolution, we can obtain the *probability density function* (pdf) of a sum of two independent random variables (RVs). It turns out that the pdf of that sum is a convolution of pdfs of the two random variables.
 
-In this article, we will show the proof of this theorem. This proof takes advantage of the [convolution property of the Fourier transform]({% post_url collections.posts, 2021-03-18-convolution-in-popular-transforms %}).
+In this article, we will show the proof of this theorem. This proof takes advantage of the [convolution property of the Fourier transform]({% post_url collections.posts, '2021-03-18-convolution-in-popular-transforms' %}).
 
 ## Convolution Theorem in Probability
 
@@ -91,7 +91,7 @@ and
 
 $$\Phi_{X+Y}(-j \omega) = \Phi_{X}(-j \omega) \Phi_{Y}(-j \omega) , \quad ({% increment equationId20210730  %})$$
 
-The [convolution property of the Fourier transform]({% post_url collections.posts, 2021-03-18-convolution-in-popular-transforms %}) tells us that the multiplication in the Fourier domain is equivalent to convolution in the other domain (here: the domain of the random variable). Therefore,
+The [convolution property of the Fourier transform]({% post_url collections.posts, '2021-03-18-convolution-in-popular-transforms' %}) tells us that the multiplication in the Fourier domain is equivalent to convolution in the other domain (here: the domain of the random variable). Therefore,
 
 $$\Phi_{X+Y}(-j \omega) = \Phi_{X}(-j \omega) \Phi_{Y}(-j \omega) \stackrel{\mathcal{F}}{\longleftrightarrow} f_X(x) \ast f_Y(x) 
 \\= f_{X+Y}(x), \quad ({% increment equationId20210730  %})$$

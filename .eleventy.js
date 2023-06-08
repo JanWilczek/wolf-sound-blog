@@ -70,10 +70,10 @@ module.exports = function(eleventyConfig) {
             throw "Collection is an invalid type - it must be an array!";
         }
         if (typeof relativePostPath !== "string") {
-            throw "Slug is an invalid type - it must be a string!";
+            throw "Relative post path is an invalid type - it must be a string!";
         }
     
-        const found = collection.find(p => p.filePathStem.includes(relativePostPath));
+        const found = collection.find(p => p.inputPath.includes(relativePostPath));
         if (found === 0 || found === undefined) {
             throw `${relativePostPath} not found in specified collection.`;
         } else {
@@ -82,6 +82,31 @@ module.exports = function(eleventyConfig) {
         } catch (e) {
         console.error(
             `An error occured while searching for the url to ${relativePostPath}. Details:`,
+            e
+        );
+        }
+    });
+
+    // Alias for the absolute_url filter.
+    eleventyConfig.addFilter("absolute_url", function(url) {
+        return eleventyConfig.getFilter("url")(url);
+    });
+
+    eleventyConfig.addShortcode("link", filename => {
+        try {
+        if (typeof filename !== "string") {
+            throw "Filename is an invalid type - it must be a string!";
+        }
+    
+        const found = eleventyConfig.getAll().find(p => p.inputPath.includes(filename));
+        if (found === 0 || found === undefined) {
+            throw `${filename} not found in specified collection.`;
+        } else {
+            return found.url;
+        }
+        } catch (e) {
+        console.error(
+            `An error occured while searching for the url to ${filename}. Details:`,
             e
         );
         }

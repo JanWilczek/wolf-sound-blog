@@ -20,17 +20,17 @@ How to compute convolution using numerical software libraries?
 <iframe width="560" height="315" src="https://www.youtube.com/embed/9yVowuBuASQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ### The Convolution Series
-1. [Definition of convolution and intuition behind it]({% post_url collections.posts, 2020-06-20-the-secret-behind-filtering %})
-1. [Mathematical properties of convolution]({% post_url collections.posts, 2020-07-05-mathematical-properties-of-convolution %})
-1. [Convolution property of Fourier, Laplace, and z-transforms]({% post_url collections.posts, 2021-03-18-convolution-in-popular-transforms %})
-1. [Identity element of the convolution]({% post_url collections.posts, 2021-04-01-identity-element-of-the-convolution %})
-1. [Star notation of the convolution]({% post_url collections.posts, 2021-04-03-star-notation-of-the-convolution-a-notational-trap %})
-1. [Circular vs. linear convolution]({% post_url collections.posts, 2021-05-07-circular-vs-linear-convolution %})
-1. [Fast convolution]({% post_url collections.posts, 2021-05-14-fast-convolution %})
-1. [Convolution vs. correlation]({% post_url collections.posts, 2021-06-18-convolution-vs-correlation %})
+1. [Definition of convolution and intuition behind it]({% post_url collections.posts, '2020-06-20-the-secret-behind-filtering' %})
+1. [Mathematical properties of convolution]({% post_url collections.posts, '2020-07-05-mathematical-properties-of-convolution' %})
+1. [Convolution property of Fourier, Laplace, and z-transforms]({% post_url collections.posts, '2021-03-18-convolution-in-popular-transforms' %})
+1. [Identity element of the convolution]({% post_url collections.posts, '2021-04-01-identity-element-of-the-convolution' %})
+1. [Star notation of the convolution]({% post_url collections.posts, '2021-04-03-star-notation-of-the-convolution-a-notational-trap' %})
+1. [Circular vs. linear convolution]({% post_url collections.posts, '2021-05-07-circular-vs-linear-convolution' %})
+1. [Fast convolution]({% post_url collections.posts, '2021-05-14-fast-convolution' %})
+1. [Convolution vs. correlation]({% post_url collections.posts, '2021-06-18-convolution-vs-correlation' %})
 1. **Convolution in MATLAB, NumPy, and SciPy**
-1. [Deconvolution: Inverse convolution]({% post_url collections.posts, 2021-07-23-deconvolution %})
-1. [Convolution in probability: Sum of independent random variables]({% post_url collections.posts, 2021-07-30-convolution-in-probability %})
+1. [Deconvolution: Inverse convolution]({% post_url collections.posts, '2021-07-23-deconvolution' %})
+1. [Convolution in probability: Sum of independent random variables]({% post_url collections.posts, '2021-07-30-convolution-in-probability' %})
 
 
 
@@ -101,9 +101,9 @@ output = scipy.signal.convolve(x, y, mode='full', method='auto')
 
 `x` and `y` are N-D-arrays, `mode` is a string containing the convolution mode name, and `method` can be `direct` (evaluation according to the convolution definition), `fft` (equivalent to the usage of `scipy.signal.fftconvolve`, i.e., the fast convolution algorithm), or `auto` (let the software decide).
 
-[FFT convolution (fast convolution)]({% post_url collections.posts, 2021-05-14-fast-convolution %}) is recommended for long signals of similar size.
+[FFT convolution (fast convolution)]({% post_url collections.posts, '2021-05-14-fast-convolution' %}) is recommended for long signals of similar size.
 
-SciPy has another convolution function, namely, `oaconvolve`. It lets the user pick the axes to compute convolution over. It uses the [overlap-add scheme]({% post_url collections.posts, 2021-05-14-fast-convolution %}) and, thus, is recommended for long signals of significanlty different sizes.
+SciPy has another convolution function, namely, `oaconvolve`. It lets the user pick the axes to compute convolution over. It uses the [overlap-add scheme]({% post_url collections.posts, '2021-05-14-fast-convolution' %}) and, thus, is recommended for long signals of significanlty different sizes.
 
 `oaconvolve` and `fftconvolve` have the same signature: they take two multidimensional input signals, `mode` argument, and axes argument to compute the convolution over (an integer, an array, or `None` to use all axes).
 

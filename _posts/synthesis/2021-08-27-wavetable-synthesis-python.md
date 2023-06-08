@@ -18,7 +18,7 @@ Let's write a wavetable synthesizer in Python!
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/zBFeT8fkjfI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-This article is a follow-up to the [article on wavetable synthesis theory]({% post_url collections.posts, synthesis/2021-08-13-wavetable-synthesis-theory %}). Here we will implement the algorithms explained there. Please refer back to that article if you find some background information missing.
+This article is a follow-up to the [article on wavetable synthesis theory]({% post_url collections.posts, 'synthesis/2021-08-13-wavetable-synthesis-theory' %}). Here we will implement the algorithms explained there. Please refer back to that article if you find some background information missing.
 
 Below is the listing containing a wavetable synthesizer implemented in Python.
 
@@ -38,4 +38,4 @@ Should you have any questions, please, write a comment below!
 {% include_relative _wavetable_synthesis_python.py %}
 ```
 
-Up next: Wavetable synth implementation in the [JUCE C++ framework]({% post_url collections.posts, synthesis/2021-09-24-wavetable-synthesis-juce %}) and [Rust]({% post_url collections.posts, synthesis/2021-10-15-wavetable-synthesis-rust %})!
+Up next: Wavetable synth implementation in the [JUCE C++ framework]({% post_url collections.posts, 'synthesis/2021-09-24-wavetable-synthesis-juce' %}) and [Rust]({% post_url collections.posts, 'synthesis/2021-10-15-wavetable-synthesis-rust' %})!

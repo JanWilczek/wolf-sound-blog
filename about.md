@@ -9,7 +9,7 @@ description: What is WolfSound all about?
 
 Welcome to the WolfSound! Thank You for being here.
 
-My name is Jan Wilczek and I have created WolfSound to be able to share my passion of audio programming. If you want to know my story, I described it thoroughly in [the first episode of the WolfTalk podcast]({% post_url collections.posts, podcast/2021-10-29-how-i-got-started-with-audio-programming %}).
+My name is Jan Wilczek and I have created WolfSound to be able to share my passion of audio programming. If you want to know my story, I described it thoroughly in [the first episode of the WolfTalk podcast]({% post_url collections.posts, 'podcast/2021-10-29-how-i-got-started-with-audio-programming' %}).
 
 On WolfSound you can expect three types of activity (the &#8216;pillars&#8217; of the brand):
 

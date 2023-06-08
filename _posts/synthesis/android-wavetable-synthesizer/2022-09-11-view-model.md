@@ -27,12 +27,12 @@ Modern Android architecture in its glory!
 
 ### Android Wavetable Synthesizer Tutorial Series
 
-1. [App Architecture]({% post_url collections.posts, synthesis/android-wavetable-synthesizer/2022-08-02-app-architecture %})
-2. [UI with Jetpack Compose]({% post_url collections.posts, synthesis/android-wavetable-synthesizer/2022-08-10-ui %})
-3. [ViewModel (this one)]({% post_url collections.posts, synthesis/android-wavetable-synthesizer/2022-09-11-view-model %})
-4. [Calling C++ Code From Kotlin with JNI]({% post_url collections.posts, synthesis/android-wavetable-synthesizer/2022-10-09-jni %})
-5. [Playing Back Audio on Android with C++]({% post_url collections.posts, synthesis/android-wavetable-synthesizer/2022-10-23-oboe %})
-6. [Wavetable Synthesis Algorithm in C++]({% post_url collections.posts, synthesis/android-wavetable-synthesizer/2022-11-03-cpp-synth %})
+1. [App Architecture]({% post_url collections.posts, 'synthesis/android-wavetable-synthesizer/2022-08-02-app-architecture' %})
+2. [UI with Jetpack Compose]({% post_url collections.posts, 'synthesis/android-wavetable-synthesizer/2022-08-10-ui' %})
+3. [ViewModel (this one)]({% post_url collections.posts, 'synthesis/android-wavetable-synthesizer/2022-09-11-view-model' %})
+4. [Calling C++ Code From Kotlin with JNI]({% post_url collections.posts, 'synthesis/android-wavetable-synthesizer/2022-10-09-jni' %})
+5. [Playing Back Audio on Android with C++]({% post_url collections.posts, 'synthesis/android-wavetable-synthesizer/2022-10-23-oboe' %})
+6. [Wavetable Synthesis Algorithm in C++]({% post_url collections.posts, 'synthesis/android-wavetable-synthesizer/2022-11-03-cpp-synth' %})
 
 ## Introduction
 
@@ -46,9 +46,9 @@ In this tutorial series, we want to design and implement a synthesizer app on An
 
 _Figure {% increment figureId20220911 %}. Graphical user interface of the synthesizer app we are going to build._
 
-In the [first part of this tutorial]({% post_url collections.posts, synthesis/android-wavetable-synthesizer/2022-08-02-app-architecture %}), we discussed the architecture of our app.
+In the [first part of this tutorial]({% post_url collections.posts, 'synthesis/android-wavetable-synthesizer/2022-08-02-app-architecture' %}), we discussed the architecture of our app.
 
-In the [previous part of this tutorial]({% post_url collections.posts, synthesis/android-wavetable-synthesizer/2022-08-10-ui %}), we discussed how to create its user interface (UI) using Jetpack Compose.
+In the [previous part of this tutorial]({% post_url collections.posts, 'synthesis/android-wavetable-synthesizer/2022-08-10-ui' %}), we discussed how to create its user interface (UI) using Jetpack Compose.
 
 In this part, we will implement the bridge between the UI and the core logic of our app.
 
@@ -157,7 +157,7 @@ What do particular methods do?
 3. `isPlaying()` will return `true` if the synthesizer is playing and `false` otherwise.
 4. `setFrequency()` will set the frequency of the synthesizer that is being played back.
 5. `setVolume()` will set the volume of the sound that is being played back.
-6. `setWavetable()` will set the played-back wavetable. If you don’t know what a wavetable is or why do we need it, I have described it thoroughly in my [wavetable synthesis algorithm article]({% post_url collections.posts, synthesis/2021-08-13-wavetable-synthesis-theory %}). I have also already shown how to implement a wavetable synthesizer [in Python]({% post_url collections.posts, synthesis/2021-08-27-wavetable-synthesis-python %}), [in C++]({% post_url collections.posts, synthesis/2021-09-24-wavetable-synthesis-juce %}), and [in Rust]({% post_url collections.posts, synthesis/2021-10-15-wavetable-synthesis-rust %}) so feel free to check out those articles.
+6. `setWavetable()` will set the played-back wavetable. If you don’t know what a wavetable is or why do we need it, I have described it thoroughly in my [wavetable synthesis algorithm article]({% post_url collections.posts, 'synthesis/2021-08-13-wavetable-synthesis-theory' %}). I have also already shown how to implement a wavetable synthesizer [in Python]({% post_url collections.posts, 'synthesis/2021-08-27-wavetable-synthesis-python' %}), [in C++]({% post_url collections.posts, 'synthesis/2021-09-24-wavetable-synthesis-juce' %}), and [in Rust]({% post_url collections.posts, 'synthesis/2021-10-15-wavetable-synthesis-rust' %}) so feel free to check out those articles.
 
 You may be wondering why are the methods marked with `suspend`. Well… I will explain it later on 😉
 
@@ -338,7 +338,7 @@ val frequency: LiveData<Float>
   }
 ```
 
-If you don’t know what state hoisting is, you can read about it in the [previous tutorial part]({% post_url collections.posts, synthesis/android-wavetable-synthesizer/2022-08-10-ui %}).
+If you don’t know what state hoisting is, you can read about it in the [previous tutorial part]({% post_url collections.posts, 'synthesis/android-wavetable-synthesizer/2022-08-10-ui' %}).
 
 The private `_frequency` field is of type `MutableLiveData` , which represents an **observable, mutable state**.
 
@@ -391,7 +391,7 @@ Let’s tackle these issues one by one.
 
 **Human perception of frequency is logarithmic.**
 
-That’s why we need to map the slider position from the [0, 1] range to the same range but with a different "distribution" of values. I have discussed the logarithmic approach to musical parameters in the [envelope article]({% post_url collections.posts, synthesis/2022-07-03-envelopes %}) so please refer to it for more information.
+That’s why we need to map the slider position from the [0, 1] range to the same range but with a different "distribution" of values. I have discussed the logarithmic approach to musical parameters in the [envelope article]({% post_url collections.posts, 'synthesis/2022-07-03-envelopes' %}) so please refer to it for more information.
 
 To convert the slider position to a frequency value, we
 
@@ -634,7 +634,7 @@ How to achieve it?
 
 By passing the `WavetableSynthesizerViewModel` down the composables’ hierarchy as an additional argument.
 
-Below you will find just the state-hoisting composables and how they changed in comparison to the [previous tutorial part]({% post_url collections.posts, synthesis/android-wavetable-synthesizer/2022-08-10-ui %}).
+Below you will find just the state-hoisting composables and how they changed in comparison to the [previous tutorial part]({% post_url collections.posts, 'synthesis/android-wavetable-synthesizer/2022-08-10-ui' %}).
 
 Note that you have to modify the signatures of the composable functions to account for the ViewModel argument.
 
@@ -875,4 +875,4 @@ And all this according to the [modern Android architecture guidelines](https://d
 
 Whew! We’re awesome 😎
 
-Next up: [making a bridge between the Kotlin code and the C++ code using Java Native Interface (JNI)!]({% post_url collections.posts, synthesis/android-wavetable-synthesizer/2022-10-09-jni %})
+Next up: [making a bridge between the Kotlin code and the C++ code using Java Native Interface (JNI)!]({% post_url collections.posts, 'synthesis/android-wavetable-synthesizer/2022-10-09-jni' %})

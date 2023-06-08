@@ -31,7 +31,7 @@ In this article, you will learn:
 * what are pros and cons of wavetable synthesis, and
 * how is wavetable synthesis related to other synthesis methods.
 
-In the follow-up articles, [an implementation of this technique in the Python programming language]({% post_url collections.posts, synthesis/2021-08-27-wavetable-synthesis-python %}), [the JUCE framework]({% post_url collections.posts, synthesis/2021-09-24-wavetable-synthesis-juce %}), and [the Rust programming language]({% post_url collections.posts, synthesis/2021-10-15-wavetable-synthesis-rust %}) are presented.
+In the follow-up articles, [an implementation of this technique in the Python programming language]({% post_url collections.posts, 'synthesis/2021-08-27-wavetable-synthesis-python' %}), [the JUCE framework]({% post_url collections.posts, 'synthesis/2021-09-24-wavetable-synthesis-juce' %}), and [the Rust programming language]({% post_url collections.posts, 'synthesis/2021-10-15-wavetable-synthesis-rust' %}) are presented.
 
 ## A Need for a Fast and Efficient Synthesis Method
 
@@ -56,7 +56,7 @@ $$s(t) = A \sin (2 \pi f t + \phi), \quad ({% increment equationId20210813 %})$$
 
 where $f$ is the frequency in Hz, $A$ is the amplitude in range $[0, 1]$, $t$ is time in seconds, and $\phi$ is the initial phase, which we will ignore for now (i.e., assume that $\phi=0$).
 
-As we discussed in the [digital audio basics article]({% post_url collections.posts, 2019-11-12-what-is-sound-the-notion-of-an-audio-signal %}), digital audio operates using samples rather than physical time. The $n$-th sample occurs at time $t$ when
+As we discussed in the [digital audio basics article]({% post_url collections.posts, '2019-11-12-what-is-sound-the-notion-of-an-audio-signal' %}), digital audio operates using samples rather than physical time. The $n$-th sample occurs at time $t$ when
 
 $$n = f_s t, \quad ({% increment equationId20210813 %})$$
 
@@ -149,7 +149,7 @@ _Figure 3. A diagram of the wavetable synthesis algorithm using index increment.
 
 $k_\text{inc}[n]$ is the increment of the index into the wave table. It is denoted as a digital signal because in practice it can be changed on a sample-by-sample basis. It is directly dependent on the frequency of the played sound. If no sound is played $k_\text{inc}[n]$ is 0 and the `index` should be reset to 0. Alternatively, one could specify that if no sound is played this diagram is inactive (no signals are supplied to or taken from it).
 
-For each new output sample, index increment is added to the `index` variable stored in a single-sample buffer (denoted by $z^{-1}$ as explained in the [article on delays]({% post_url collections.posts, 2021-04-01-identity-element-of-the-convolution %})). This index is then "brought back" into the range of wavetable indices $[0, L)$ using the `fmod` operation. We still keep the fractional part of the index.
+For each new output sample, index increment is added to the `index` variable stored in a single-sample buffer (denoted by $z^{-1}$ as explained in the [article on delays]({% post_url collections.posts, '2021-04-01-identity-element-of-the-convolution' %})). This index is then "brought back" into the range of wavetable indices $[0, L)$ using the `fmod` operation. We still keep the fractional part of the index.
 
 Then, we perform the lookup into the wavetable. The lookup can be done using an interpolation strategy of choice.
 
@@ -203,7 +203,7 @@ That sounds ok, but we hear some ringing. How does it look in the spectrum?
 ![]({{ page.images | absolute_url | append: "/sawtooth_spectrum.png" }}){: alt="Magnitude frequency spectrum of a sawtooth generated with wavetable synthesis" }
 _Figure 7. Magnitude frequency spectrum of a sawtooth generated with wavetable synthesis._
 
-We can notice that there are some inharmonic frequency components that do not correspond to the typical decay of the sawtooth spectrum. These are aliased partials which occur because the spectrum of the sawtooth crossed the Nyquist frequency. To learn more about why this happens, you can [check out my article on aliasing]({% post_url collections.posts, 2019-11-28-what-is-aliasing-what-causes-it-how-to-avoid-it %}).
+We can notice that there are some inharmonic frequency components that do not correspond to the typical decay of the sawtooth spectrum. These are aliased partials which occur because the spectrum of the sawtooth crossed the Nyquist frequency. To learn more about why this happens, you can [check out my article on aliasing]({% post_url collections.posts, '2019-11-28-what-is-aliasing-what-causes-it-how-to-avoid-it' %}).
 
 Aliasing increases if we go 1 octave higher:
 

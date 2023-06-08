@@ -22,10 +22,10 @@ Learn how to derive and use the bilinear transform to convert analog systems int
 {% capture _ %}{% increment equationId20220115 %}{% endcapture %}
 {% capture _ %}{% increment figureId20220115 %}{% endcapture %}
 
-To design and implement a parametric filter, [4 steps are needed]({% post_url collections.posts, fx/2021-11-26-parametric-eq-design %}):
+To design and implement a parametric filter, [4 steps are needed]({% post_url collections.posts, 'fx/2021-11-26-parametric-eq-design' %}):
 
-1.	[Decide on the filter type you want to implement.]({% post_url collections.posts, fx/2021-11-26-parametric-eq-design %}#step-1-decide-on-the-filter-type)
-2.	[Design an analog prototype.]({% post_url collections.posts, fx/2021-12-03-analog-prototype %})
+1.	[Decide on the filter type you want to implement.]({% post_url collections.posts, 'fx/2021-11-26-parametric-eq-design' %}#step-1-decide-on-the-filter-type)
+2.	[Design an analog prototype.]({% post_url collections.posts, 'fx/2021-12-03-analog-prototype' %})
 3.	**Digitize the analog prototype using the bilinear transform.**
 4.	Implement the digital filter in code.
 
@@ -226,7 +226,7 @@ $$s = \frac{\omega_\text{a0}}{\tan(\omega_\text{d0}T/2)} \frac{1 - z^{-1}}{1 + z
 
 ### Cutoff Frequency from Prewarping
 
-As you might recall from [the analog prototype design tutorial]({% post_url collections.posts, fx/2021-12-03-analog-prototype %}), we design our analog filters to have the cutoff frequency equal to 1. Since thanks to prewarping, we can independently change $\omega_\text{a0}$ and $\omega_\text{d0}$, we can simply set $\omega_\text{a0} = 1$ and $\omega_\text{d0} = \omega_\text{dc}$ (cutoff frequency of the digital filter). Thus, Equation 21 (bilinear transform + prewarping) becomes
+As you might recall from [the analog prototype design tutorial]({% post_url collections.posts, 'fx/2021-12-03-analog-prototype' %}), we design our analog filters to have the cutoff frequency equal to 1. Since thanks to prewarping, we can independently change $\omega_\text{a0}$ and $\omega_\text{d0}$, we can simply set $\omega_\text{a0} = 1$ and $\omega_\text{d0} = \omega_\text{dc}$ (cutoff frequency of the digital filter). Thus, Equation 21 (bilinear transform + prewarping) becomes
 
 $$s = \frac{1}{\tan(\omega_\text{d0} T/2)} \frac{1 - z^{-1}}{1 + z^{-1}}. \quad ({% increment equationId20220115 %})$$
 
@@ -236,7 +236,7 @@ So prewarping actally lets us set the cutoff frequency of the filter we design ð
 
 Finally, let's put to practice all that we've learned.
 
-Let us digitize the analog prototype Butterworth low-pass of order 2 that we designed in [the previous article]({% post_url collections.posts, fx/2021-12-03-analog-prototype %}).
+Let us digitize the analog prototype Butterworth low-pass of order 2 that we designed in [the previous article]({% post_url collections.posts, 'fx/2021-12-03-analog-prototype' %}).
 
 It's transfer function in the $s$-domain was
 

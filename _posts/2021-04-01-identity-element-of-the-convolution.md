@@ -21,17 +21,17 @@ How to convolve and do nothing at the same time?
 
 
 ### The Convolution Series
-1. [Definition of convolution and intuition behind it]({% post_url collections.posts, 2020-06-20-the-secret-behind-filtering %})
-1. [Mathematical properties of convolution]({% post_url collections.posts, 2020-07-05-mathematical-properties-of-convolution %})
-1. [Convolution property of Fourier, Laplace, and z-transforms]({% post_url collections.posts, 2021-03-18-convolution-in-popular-transforms %})
+1. [Definition of convolution and intuition behind it]({% post_url collections.posts, '2020-06-20-the-secret-behind-filtering' %})
+1. [Mathematical properties of convolution]({% post_url collections.posts, '2020-07-05-mathematical-properties-of-convolution' %})
+1. [Convolution property of Fourier, Laplace, and z-transforms]({% post_url collections.posts, '2021-03-18-convolution-in-popular-transforms' %})
 1. **Identity element of the convolution**
-1. [Star notation of the convolution]({% post_url collections.posts, 2021-04-03-star-notation-of-the-convolution-a-notational-trap %})
-1. [Circular vs. linear convolution]({% post_url collections.posts, 2021-05-07-circular-vs-linear-convolution %})
-1. [Fast convolution]({% post_url collections.posts, 2021-05-14-fast-convolution %})
-1. [Convolution vs. correlation]({% post_url collections.posts, 2021-06-18-convolution-vs-correlation %})
-1. [Convolution in MATLAB, NumPy, and SciPy]({% post_url collections.posts, 2021-07-09-convolution-in-numpy-matlab-and-scipy %})
-1. [Deconvolution: Inverse convolution]({% post_url collections.posts, 2021-07-23-deconvolution %})
-1. [Convolution in probability: Sum of independent random variables]({% post_url collections.posts, 2021-07-30-convolution-in-probability %})
+1. [Star notation of the convolution]({% post_url collections.posts, '2021-04-03-star-notation-of-the-convolution-a-notational-trap' %})
+1. [Circular vs. linear convolution]({% post_url collections.posts, '2021-05-07-circular-vs-linear-convolution' %})
+1. [Fast convolution]({% post_url collections.posts, '2021-05-14-fast-convolution' %})
+1. [Convolution vs. correlation]({% post_url collections.posts, '2021-06-18-convolution-vs-correlation' %})
+1. [Convolution in MATLAB, NumPy, and SciPy]({% post_url collections.posts, '2021-07-09-convolution-in-numpy-matlab-and-scipy' %})
+1. [Deconvolution: Inverse convolution]({% post_url collections.posts, '2021-07-23-deconvolution' %})
+1. [Convolution in probability: Sum of independent random variables]({% post_url collections.posts, '2021-07-30-convolution-in-probability' %})
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -57,9 +57,9 @@ What is the identity element of convolution?
 
 ## Why do we need a neutral element?
 
-We often want to represent a "do nothing" operation in our processing, regardless of the domain. Examples of such operations are "add 0" for addition and "multiply by 1" for multiplication, as mentioned in the introduction. Another example is the NOP ("no operation") instruction of processors used, for instance, for [memory alignment]({% post_url collections.posts, 2020-04-09-what-is-data-alignment %}).
+We often want to represent a "do nothing" operation in our processing, regardless of the domain. Examples of such operations are "add 0" for addition and "multiply by 1" for multiplication, as mentioned in the introduction. Another example is the NOP ("no operation") instruction of processors used, for instance, for [memory alignment]({% post_url collections.posts, '2020-04-09-what-is-data-alignment' %}).
 
-Imagine that you would like to identify the impulse response of a certain system. As we know from [one of the previous articles]({% post_url collections.posts, 2020-06-20-the-secret-behind-filtering %}), the output of an LTI system is the convolution of its impulse response with the input. What if the system does nothing? We need a way to represent its impulse response (Figure 1).
+Imagine that you would like to identify the impulse response of a certain system. As we know from [one of the previous articles]({% post_url collections.posts, '2020-06-20-the-secret-behind-filtering' %}), the output of an LTI system is the convolution of its impulse response with the input. What if the system does nothing? We need a way to represent its impulse response (Figure 1).
 
 ![]({{ page.images | absolute_url | append: "/identity_block.png" }}){: width="350" }
 _Figure 1. How to represent a system that does not alter our signal at all?_
@@ -78,7 +78,7 @@ $$\delta[n] = \begin{cases} 1 &\text{ if } n=0,\\ 0 &\text{ if } n \neq 0. \end{
 
 And so we have found our neutral element! The signal defined in Equation 3 is called a **unit sample sequence**, a **discrete-time impulse**, or just an **impulse** [2]. I have also often stumbled upon the name **discrete (Dirac) delta (impulse)**.
 
-The definition in Equation 3 makes sense also from a different perspective. In [the first article in the convolution series]({% post_url collections.posts, 2020-06-20-the-secret-behind-filtering %}), we said that convolution in the context of filtering means delaying and scaling the impulse response by the samples of the input signal. If the impulse response consists of a single sample with value 1, convolving a signal with it should yield only delayed successive weights, i. e., just the input signal.
+The definition in Equation 3 makes sense also from a different perspective. In [the first article in the convolution series]({% post_url collections.posts, '2020-06-20-the-secret-behind-filtering' %}), we said that convolution in the context of filtering means delaying and scaling the impulse response by the samples of the input signal. If the impulse response consists of a single sample with value 1, convolving a signal with it should yield only delayed successive weights, i. e., just the input signal.
 
 ## Identity element of the continuous convolution
 
@@ -139,7 +139,7 @@ Notice that Equation 9 could be viewed as an application of the sifting property
 
 ### Arranging delays in a series
 
-From the associativity property of the convolution, which we derived in [one of the previous articles]({% post_url collections.posts, 2020-07-05-mathematical-properties-of-convolution %}), it can be inferred that arranging delays in a series results in a delay of length equal to the sum of the individual delay lengths. That is because
+From the associativity property of the convolution, which we derived in [one of the previous articles]({% post_url collections.posts, '2020-07-05-mathematical-properties-of-convolution' %}), it can be inferred that arranging delays in a series results in a delay of length equal to the sum of the individual delay lengths. That is because
 
 $$\delta[n-n_0] \ast \delta[n-n_1] = \sum_{k=-\infty}^{\infty} \delta[k - n_0]\delta[n-n_1 - k] \\= \delta[n-n_0-n_1]. \quad ({% increment page.equationId  %})$$
 
@@ -150,7 +150,7 @@ That means we can stack the delays one after another to increase the delay lengt
 ![]({{ page.images | absolute_url | append: "/delay-series.png" }})
 _Figure 3. Appending a delay element to the system results in adding its delay length to the original delay of the system._
 
-Unsurprisingly, the $z^{-n}$ notation in Figure 3 results directly from the convolution property of the $z$-transform, which we discussed in [the previous article]({% post_url collections.posts, 2021-03-18-convolution-in-popular-transforms %})
+Unsurprisingly, the $z^{-n}$ notation in Figure 3 results directly from the convolution property of the $z$-transform, which we discussed in [the previous article]({% post_url collections.posts, '2021-03-18-convolution-in-popular-transforms' %})
 
 $$ \mathcal{Z}\{\delta[n-n_0] \ast \delta[n-n_1]\} = \mathcal{Z}\{\delta[n-n_0] \} \mathcal{Z}\{\delta[n-n_1]\} \\= z^{-n_0} z^{-n_1} = z^{-(n_0+n_1)}. \quad ({% increment page.equationId %})$$
 
