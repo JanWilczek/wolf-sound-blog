@@ -34,7 +34,7 @@ Learn music processing and audio research from one of the greats!
 
 [All podcast episodes.]({{"/podcast" | relative_url }})
 
-[Sign up for WolfSound's newsletter!]({% link newsletter.md %})
+[Sign up for WolfSound's newsletter!]({% link 'newsletter.md' %})
 
 ## Introduction
 

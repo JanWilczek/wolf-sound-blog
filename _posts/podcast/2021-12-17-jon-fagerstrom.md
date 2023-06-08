@@ -32,7 +32,7 @@ Listen on:
 
 [All podcast episodes.]({{"/podcast" | relative_url }})
 
-[Sign up for WolfSound's newsletter!]({% link newsletter.md %})
+[Sign up for WolfSound's newsletter!]({% link 'newsletter.md' %})
 
 In this podcast episode, I was lucky to interview another member of the Aalto Acoustics Lab of the Aalto University in Espoo, Finland. Jon Fagerström is conducting his PhD research in the domain of audio signal processing, specifically, sampling synthesis and artificial reverberation. We are discussing what challenges beginning researchers face, how to find your niche in audio research, and what interesting ways there are to end up as an audio researcher.
 

@@ -31,7 +31,7 @@ Listen on:
 
 [All podcast episodes.]({{"/podcast" | relative_url }})
 
-[Sign up for WolfSound's newsletter!]({% link newsletter.md %})
+[Sign up for WolfSound's newsletter!]({% link 'newsletter.md' %})
 
 In this podcast episode, I was lucky to interview another member of the Aalto Acoustics Lab of the Aalto University in Espoo, Finland. He is involved in research applying deep learning to audio, for example, in the context of Virtual Analog modeling of guitar amplifiers. He was also the advisor of my Master Thesis.
 

@@ -34,7 +34,7 @@ A researcher in Spatial Audio and Architectural Acoustics.
 
 [All podcast episodes.]({{"/podcast" | relative_url }})
 
-[Sign up for WolfSound's newsletter!]({% link newsletter.md %})
+[Sign up for WolfSound's newsletter!]({% link 'newsletter.md' %})
 
 In this episode, I was fortunate to interview Dr Tom McKenzie, a researcher in the field of spatial audio and acoustics and a musician, who is currently working at the University of Edinburgh as a lecturer in Acoustics and Architectural Acoustics.
 
@@ -48,7 +48,7 @@ He was the last member of the lab interviewed by me. Previous interviews include
 
 Please, if you are enjoying the podcast, leave it a review on [Apple Podcasts.](https://podcasts.apple.com/us/podcast/wolftalk-podcast-about-audio-programming-people-careers/id1595913701)
 
-And if you’re looking for a simple checklist on what is needed to start writing code to process sound, download my free [audio plugin developer checklist]({% link single-pages/checklist.html %})!
+And if you’re looking for a simple checklist on what is needed to start writing code to process sound, download my free [audio plugin developer checklist]({% link 'single-pages/checklist.html' %})!
 
 Many thanks to Aalto Acoustics Lab for letting us record this interview in their office.
 

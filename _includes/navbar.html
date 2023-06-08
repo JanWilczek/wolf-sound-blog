@@ -2,7 +2,7 @@
 <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
   <div class="container">
     <!-- <a class="navbar-brand" href="{{"/" | relative_url }}">{{ site.title | escape }}</a> -->
-    <a class="navbar-brand" href="{% link index.html %}">
+    <a class="navbar-brand" href="{% link 'index.html' %}">
       <img src="{{ site.logo_title_path | relative_url }}" alt="WolfSound logo" height="35px" width="105px">
     </a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -12,16 +12,16 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <a class="nav-link" href="{{ site.baseurl }}{% link index.html %}">Home</a>
+          <a class="nav-link" href="{{ site.baseurl }}{% link 'index.html' %}">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{% link about.md %}">About</a>
+          <a class="nav-link" href="{% link 'about.md' %}">About</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{% link resources/index.html %}">Resources</a>
+            <a class="nav-link" href="{% link 'resources/index.html' %}">Resources</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{% link faq/index.html %}">FAQ</a>
+            <a class="nav-link" href="{% link 'faq/index.html' %}">FAQ</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="{{"/posts" | relative_url }}">Articles</a>
@@ -30,7 +30,7 @@
           <a class="nav-link" href="{{ site.youtube_channel }}">Videos</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{% link newsletter.md %}">Newsletter</a>
+          <a class="nav-link" href="{% link 'newsletter.md' %}">Newsletter</a>
         </li>
       </ul>
     </div>

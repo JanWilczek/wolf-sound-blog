@@ -35,7 +35,7 @@ Effortlessly deploy your trained model to a DAW!
 
 [All podcast episodes.]({{"/podcast" | relative_url }})
 
-[Sign up for WolfSound's newsletter!]({% link newsletter.md %})
+[Sign up for WolfSound's newsletter!]({% link 'newsletter.md' %})
 
 ## Introduction
 

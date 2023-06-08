@@ -49,7 +49,7 @@ I personally find its clear compiler messages most useful. Although I am a newbi
 
 *Note: If you don't know how wavetable synthesis algorithm works, [check out my article on the theory behind it]({% post_url collections.posts, 'synthesis/2021-08-13-wavetable-synthesis-theory' %}). I also have articles on [wavetable synthesis implementation in Python]({% post_url collections.posts, 'synthesis/2021-08-27-wavetable-synthesis-python' %}) and [wavetable synth plugin in the JUCE C++ framework]({% post_url collections.posts, 'synthesis/2021-09-24-wavetable-synthesis-juce' %}).*
 
-*At [WolfSound]({% link index.html %}), you are fully covered!*
+*At [WolfSound]({% link 'index.html' %}), you are fully covered!*
 
 ## Project Setup
 

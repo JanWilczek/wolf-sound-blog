@@ -334,7 +334,7 @@ _Figure {% increment figureId20220703  %}. The user interface of the Massive syn
 
 In this article, you learned what is an envelope, what it can control, what are the possible envelope segments, and what is the difference between a linear and an exponential change in an envelope. Finally, you learned every possible type of envelope that exists. With this knowledge you are ready to use and code your own envelopes.
 
-Envelopes is just one subject that you must learn if you want to develop audio plugins. To see which other subjects you should learn, [download my free audio plugin developer checklist]({% link single-pages/checklist.html %}).
+Envelopes is just one subject that you must learn if you want to develop audio plugins. To see which other subjects you should learn, [download my free audio plugin developer checklist]({% link 'single-pages/checklist.html' %}).
 
 ## Bibliography
 
@@ -344,4 +344,4 @@ These two books are great resources on envelopes:
 
 [Russ09] [Martin Russ, *Sound Synthesis and Sampling*, 3rd Edition, Focal Press, 2009.](https://amzn.to/3ODr0T9)
 
-{% include affiliate-disclaimer.html %}
+{% include 'affiliate-disclaimer.html' %}

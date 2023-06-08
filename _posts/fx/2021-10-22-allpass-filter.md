@@ -333,7 +333,7 @@ In this article, we have discussed an allpass filter. Now, you understand
 * how they are applied in various effects,
 * how to use an allpass filter in a DAW.
 
-Thank you for reading! If you enjoyed the article and want to learn even more, [sign up for my newsletter]({% link newsletter.md %})! You will become an expert in digital audio effects without the need to read thick books on DSP.
+Thank you for reading! If you enjoyed the article and want to learn even more, [sign up for my newsletter]({% link 'newsletter.md' %})! You will become an expert in digital audio effects without the need to read thick books on DSP.
 
 If you have any questions, don't hesitate to ask them below!
 
@@ -349,6 +349,6 @@ If you have any questions, don't hesitate to ask them below!
 
 [5] [R. Kiiski, F. Esqueda, and V. Välimäki, *Time-Variant Gray-Box Modeling of a Phaser Pedal*, in Proceedings of the 19th International Conference on Digital Audio Effects (DAFx-16), Brno, Czech Republic, September 5–9, pp. 121–128, 2016.](https://www.dafx.de/paper-archive/2016/dafxpapers/05-DAFx-16_paper_42-PN.pdf)
 
-{% include affiliate-disclaimer.html %}
+{% include 'affiliate-disclaimer.html' %}
 
 

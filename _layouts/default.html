@@ -2,20 +2,20 @@
 
 <html lang="en">
 
-{% include head.html %}
+{% include 'head.html' %}
 
 <body>
 
-    {% include navbar.html %}
+    {% include 'navbar.html' %}
 
     {{ content }}
 
-    {% include footer.html %}
+    {% include 'footer.html' %}
 
-    {% include scripts.html %}
+    {% include 'scripts.html' %}
     
     {% if jekyll.environment == "production" %}
-        {% include cookify.html %}
+        {% include 'cookify.html' %}
     {% endif %}
 </body>
 

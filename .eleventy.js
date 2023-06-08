@@ -88,28 +88,12 @@ module.exports = function(eleventyConfig) {
     });
 
     // Alias for the absolute_url filter.
-    eleventyConfig.addFilter("absolute_url", function(url) {
+    eleventyConfig.addFilter("absolute_url", function(allContent, url) {
         return eleventyConfig.getFilter("url")(url);
     });
 
     eleventyConfig.addShortcode("link", filename => {
-        try {
-        if (typeof filename !== "string") {
-            throw "Filename is an invalid type - it must be a string!";
-        }
-    
-        const found = eleventyConfig.getAll().find(p => p.inputPath.includes(filename));
-        if (found === 0 || found === undefined) {
-            throw `${filename} not found in specified collection.`;
-        } else {
-            return found.url;
-        }
-        } catch (e) {
-        console.error(
-            `An error occured while searching for the url to ${filename}. Details:`,
-            e
-        );
-        }
+        return eleventyConfig.getFilter("url")(filename);
     });
 
     return {

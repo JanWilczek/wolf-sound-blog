@@ -20,7 +20,7 @@ layout: default
               <p>I have prepared for you a checklist containing everything you need to know to develop audio plugins for digital audio workstations. If you would like to code synthesizers, reverbs, distortion, phasers, and so on, then this is the resource for you.</p>
             <p>Click the button below to get "The Ultimate Audio Plugin Developer Checklist".</p>
             </span>
-            <a class="btn btn-lg btn-primary" href="{% link single-pages/checklist.html %}">Get The Free Checklist</a>
+            <a class="btn btn-lg btn-primary" href="{% link 'single-pages/checklist.html' %}">Get The Free Checklist</a>
           </div>
         </div>
         <div class="col-lg-4 mx-auto"></div>
@@ -35,12 +35,12 @@ layout: default
 
         {{ content }}
 
-        {% include categories.html %}
+        {% include 'categories.html' %}
         
         <!-- Home Post List -->
         <div class="d-block" id="All-preview" name="preview-block">
         {% for post in site.posts limit : 6 %}
-            {% include post-preview.html %}
+            {% include 'post-preview.html' %}
         {% endfor %}
         </div>
 
@@ -52,7 +52,7 @@ layout: default
       </div>
 
       <div class="col-sm-12 col-xl-4">
-        {% include sidebar.html %}
+        {% include 'sidebar.html' %}
       </div>
 
     </div>

@@ -10,7 +10,7 @@ custom_css:
 
 <html lang="en">
 
-{% include head.html %}
+{% include 'head.html' %}
 
 <body>
 
@@ -71,10 +71,10 @@ custom_css:
         </div>
     </section>
 
-    {% include scripts.html %}
+    {% include 'scripts.html' %}
 
     {% if jekyll.environment == "production" %}
-    {% include cookify.html %}
+    {% include 'cookify.html' %}
     {% endif %}
 </body>
 

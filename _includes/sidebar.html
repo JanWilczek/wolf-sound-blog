@@ -12,7 +12,7 @@
                         <p class="card-text">My name is Jan Wilczek. I am an audio programmer, a researcher in the field of music technology, and a musician. Through articles and videos from WolfSound, you will easily understand the main concepts of sound processing using software.</p>
                     </div>
                     <div class="row justify-content-center">
-                        <a href="{% link about.md %}" class="btn btn-primary sidebar-btn" title="Read more about WolfSound">Read More About WolfSound</a>
+                        <a href="{% link 'about.md' %}" class="btn btn-primary sidebar-btn" title="Read more about WolfSound">Read More About WolfSound</a>
                     </div>
                 </div>
             </div>
@@ -20,15 +20,15 @@
 
         <div class="checklist-banner">
             <h5 class="text-center">Free Audio Plugin Developer Checklist</h5>
-            <img src="{% link assets/img/pages/ChecklistMiniatureSmall.webp %}" alt="Preview of the ultimate audio plugin developer checklist"/>
+            <img src="{% link 'assets/img/pages/ChecklistMiniatureSmall.webp' %}" alt="Preview of the ultimate audio plugin developer checklist"/>
             <div class="row justify-content-center m-1">
-            <a href="{% link single-pages/checklist.html %}" class="btn btn-primary sidebar-btn" title="Get the Ultimate Audio Plugin Developer Checklist">
+            <a href="{% link 'single-pages/checklist.html' %}" class="btn btn-primary sidebar-btn" title="Get the Ultimate Audio Plugin Developer Checklist">
                 Get the Checklist Now
             </a>
             </div>
         </div>
 
-        {% include share-buttons.html %}
+        {% include 'share-buttons.html' %}
         
         <h5>Follow me on:</h5>
         <ul>

@@ -571,6 +571,6 @@ Here is a list of useful references for the topic:
 
 [MIDI] [MIDI Standard Specification, retrieved 24.09.2021](https://www.midi.org/specifications).
 
-{% include affiliate-disclaimer.html %}
+{% include 'affiliate-disclaimer.html' %}
 
 
