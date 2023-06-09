@@ -517,6 +517,6 @@ _Figure {% increment figureId20220517 %}. A sample setup of the lowpass/highpass
 
 If you have any questions or comments, please, leave them in the comment section below 🙂
 
-If you want to learn, how to build audio plugins, [subscribe to my newsletter.]({% link 'newsletter.md' %})
+If you want to learn, how to build audio plugins, [subscribe to my newsletter.]({% link collections.all, 'newsletter.md' %})
 
 And if you found this article useful, please, consider buying me a coffee at [buymeacoffee.com/janwilczek](https://buymeacoffee.com/janwilczek) ☕ Thanks!

@@ -73,7 +73,7 @@ Now, when we know, what is important for a musically useful plug-in filter we ca
 3.	Digitize the analog prototype using the bilinear transform.
 4.	Implement the digital filter in code.
 
-*There’s one additional step that I encourage you to do now that will allow you to excel at audio programming in general: [subscribing to the WolfSound email list]({% link 'newsletter.md' %}). If you haven’t done that already, please, do it now. Thank you: each and every subscriber makes me want to do more articles and videos so that you can enjoy the beauty of audio programming.*
+*There’s one additional step that I encourage you to do now that will allow you to excel at audio programming in general: [subscribing to the WolfSound email list]({% link collections.all, 'newsletter.md' %}). If you haven’t done that already, please, do it now. Thank you: each and every subscriber makes me want to do more articles and videos so that you can enjoy the beauty of audio programming.*
 
 Let’s now elaborate on every of the 4 steps.
 
@@ -265,7 +265,7 @@ In summary, in this article I showed you 4 steps to create a filter plugin: from
 
 Over the next couple of articles and videos, I will discuss in detail every step so that you can understand fully the process behind parametric EQ design and implementation. Then I will show you sample implementations of the parametric filters in the JUCE C++ framework in the form of do-it-yourself plugin tutorials. So there is a lot ahead of us!
 
-If you want to be notified about weekly WolfSound content in a condensed form, [subscribe to my email list.]({% link 'newsletter.md' %}). Thank you!
+If you want to be notified about weekly WolfSound content in a condensed form, [subscribe to my email list.]({% link collections.all, 'newsletter.md' %}). Thank you!
 
 ## Bibliography
 

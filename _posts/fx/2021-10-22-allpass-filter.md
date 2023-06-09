@@ -333,7 +333,7 @@ In this article, we have discussed an allpass filter. Now, you understand
 * how they are applied in various effects,
 * how to use an allpass filter in a DAW.
 
-Thank you for reading! If you enjoyed the article and want to learn even more, [sign up for my newsletter]({% link 'newsletter.md' %})! You will become an expert in digital audio effects without the need to read thick books on DSP.
+Thank you for reading! If you enjoyed the article and want to learn even more, [sign up for my newsletter]({% link collections.all, 'newsletter.md' %})! You will become an expert in digital audio effects without the need to read thick books on DSP.
 
 If you have any questions, don't hesitate to ask them below!
 

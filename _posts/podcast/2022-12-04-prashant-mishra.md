@@ -32,7 +32,7 @@ An Audio Director and an Audio Product Developer.
 
 [All podcast episodes.]({{"/podcast" | relative_url }})
 
-[Sign up for WolfSound's newsletter!]({% link 'newsletter.md' %})
+[Sign up for WolfSound's newsletter!]({% link collections.all, 'newsletter.md' %})
 
 In this episode, I was fortunate to interview Prashant Mishra, an Audio Director who is now building audio products and creating awareness about audio tech and game audio.
 

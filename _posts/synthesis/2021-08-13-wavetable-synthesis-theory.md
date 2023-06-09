@@ -306,7 +306,7 @@ Software synthesizers typically use more sophisticated algorithms than the one p
 
 ## Bibliography
 
-These are the references I used for this article. If you are interested in the topic of sound synthesis, each of them is a valuable source of information. Alternatively, [subscribe to WolfSound's newsletter]({% link 'newsletter.md' %}) to stay up to date with the newly published articles on sound synthesis!
+These are the references I used for this article. If you are interested in the topic of sound synthesis, each of them is a valuable source of information. Alternatively, [subscribe to WolfSound's newsletter]({% link collections.all, 'newsletter.md' %}) to stay up to date with the newly published articles on sound synthesis!
 
 [1] [Taylor series expansion of the sine function on MIT Open CourseWare](https://ocw.mit.edu/courses/mathematics/18-01sc-single-variable-calculus-fall-2010/unit-5-exploring-the-infinite/part-b-taylor-series/session-99-taylors-series-continued/MIT18_01SCF10_Ses99c.pdf)
 

@@ -299,7 +299,7 @@ Thanks to all of you who walked up to me to say "hi" or "thank you for your tuto
 
 Speaking of which…
 
-If you haven't yet retrieved my free Audio Plugin Developer Checklist, you can do so [here]({% link 'single-pages/checklist.html' %}). It will show you which bits and pieces of knowledge are needed to… attend Audio Developers Conference one day 😉
+If you haven't yet retrieved my free Audio Plugin Developer Checklist, you can do so [here]({% link collections.all, 'single-pages/checklist.html' %}). It will show you which bits and pieces of knowledge are needed to… attend Audio Developers Conference one day 😉
 
 Thanks a lot to the organizers, the sponsors, and the attendees of the Audio Developers Conference 2022; I hope to see everyone next year...
 

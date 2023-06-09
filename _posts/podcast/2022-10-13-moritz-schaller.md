@@ -33,7 +33,7 @@ How a professional musician learned Python and transitioned into the music tech 
 
 [All podcast episodes.]({{"/podcast" | relative_url }})
 
-[Sign up for WolfSound's newsletter!]({% link 'newsletter.md' %})
+[Sign up for WolfSound's newsletter!]({% link collections.all, 'newsletter.md' %})
 
 In this podcast episode, I had the privilege to interview Moritz Schaller: a professional musician who turned programmer and successfully transitioned into a software engineering position.
 
@@ -41,7 +41,7 @@ Moritz is a colleague of mine from Loudly GmbH. Not only is he a skilled and sma
 
 I am sure that if you are considering a change in your career paths, Moritz’s story and tips will provide you with inspiration and guidance on how to do this.
 
-And if you’re looking for a simple checklist on what is needed to start writing code to process sound, download my free [audio plugin developer checklist]({% link 'single-pages/checklist.html' %})!
+And if you’re looking for a simple checklist on what is needed to start writing code to process sound, download my free [audio plugin developer checklist]({% link collections.all, 'single-pages/checklist.html' %})!
 
 *Note: if you like the podcast so far, please, go to Apple Podcasts and leave me a review there. It will benefit both sides: more reviews mean a broader reach on Apple Podcasts and feedback can help me to improve the show and provide better quality content to you. Thank you for doing this.*
 

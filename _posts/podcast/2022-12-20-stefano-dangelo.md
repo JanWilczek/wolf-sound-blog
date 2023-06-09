@@ -36,7 +36,7 @@ With concrete advice on how to start freelancing in the field of audio programmi
 
 [All podcast episodes.]({{"/podcast" | relative_url }})
 
-[Sign up for WolfSound's newsletter!]({% link 'newsletter.md' %})
+[Sign up for WolfSound's newsletter!]({% link collections.all, 'newsletter.md' %})
 
 In this episode, I was incredibly excited to interview Stefano D’Angelo: a freelancer in the field of audio programming.
 

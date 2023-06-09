@@ -248,7 +248,7 @@ The DC component must be kept in mind in musical applications because it adds no
 
 In this article, you learned everything about the basic waveforms (sine, triangle, square, saw, pulse) that you need for sound synthesis. Being familiar with these waveforms will help you in exploiting synthesizers' capabilities and coding your own.
 
-These waveforms are one piece of the puzzle when it comes to developing your own software sound synthesizers. If you want to know what other information is necessary to develop audio plugins, [download my free Ultimate Audio Plugin Developer Checklist]({% link 'single-pages/checklist.html' %}).
+These waveforms are one piece of the puzzle when it comes to developing your own software sound synthesizers. If you want to know what other information is necessary to develop audio plugins, [download my free Ultimate Audio Plugin Developer Checklist]({% link collections.all, 'single-pages/checklist.html' %}).
 
 ## Bibliography
 

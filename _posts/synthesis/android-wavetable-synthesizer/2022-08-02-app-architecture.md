@@ -174,6 +174,6 @@ The remaining dependencies can be found in the [_build.gradle_ file](https://git
 
 In this introductory part of the tutorial, we discussed the goals of the project and the architecture of our wavetable synthesizer Android app. Following this tutorial in full or in parts will allow you to learn a handful of modern technologies in an easy and enjoyable way. You can code it yourself or you can download the source code from [GitHub](https://github.com/JanWilczek/android-wavetable-synthesizer). Have fun!
 
-If you want to check out my guidelines on what knowledge is needed to write sound-processing software, [download my free audio plugin developer checklist]({% link 'single-pages/checklist.html' %}).
+If you want to check out my guidelines on what knowledge is needed to write sound-processing software, [download my free audio plugin developer checklist]({% link collections.all, 'single-pages/checklist.html' %}).
 
 Up next: [implementing the UI in Jetpack Compose]({% post_url collections.posts, 'synthesis/android-wavetable-synthesizer/2022-08-10-ui' %})!

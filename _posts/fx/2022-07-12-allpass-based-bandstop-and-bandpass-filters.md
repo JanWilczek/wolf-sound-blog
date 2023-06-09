@@ -267,6 +267,6 @@ The actual application of the phaser effect will be a topic of an another articl
 
 In this article, we learned how to implement efficient, real-time-controllable bandpass and bandstop filters using the second-order allpass filter.
 
-Bandpass and bandstop filters are one of the basic effects in the audio programmer's arsenal. If you want to know which elements make up the audio plugin developer toolbox, check out my free [audio plugin developer checklist.]({% link 'single-pages/checklist.html' %})
+Bandpass and bandstop filters are one of the basic effects in the audio programmer's arsenal. If you want to know which elements make up the audio plugin developer toolbox, check out my free [audio plugin developer checklist.]({% link collections.all, 'single-pages/checklist.html' %})
 
 

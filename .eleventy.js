@@ -107,8 +107,30 @@ module.exports = function(eleventyConfig) {
         return site.baseurl + url;
     });
 
-    eleventyConfig.addShortcode("link", filename => {
-        return eleventyConfig.getFilter("url")(filename);
+    eleventyConfig.addShortcode("link", (collection, relativeFilePath) => {
+        try {
+        if (collection.length < 1) {
+            throw "Collection appears to be empty";
+        }
+        if (!Array.isArray(collection)) {
+            throw "Collection is an invalid type - it must be an array!";
+        }
+        if (typeof relativeFilePath !== "string") {
+            throw "Relative file path is an invalid type - it must be a string!";
+        }
+    
+        const found = collection.find(p => p.inputPath.includes(relativeFilePath));
+        if (found === 0 || found === undefined) {
+            throw `${relativeFilePath} not found in specified collection.`;
+        } else {
+            return found.url;
+        }
+        } catch (e) {
+        console.error(
+            `An error occured while searching for the url to ${relativeFilePath}. Details:`,
+            e
+        );
+        }
     });
 
     eleventyConfig.addFilter("normalize_whitespace", string => {

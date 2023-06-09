@@ -29,7 +29,7 @@ Listen on:
 
 [All podcast episodes.]({{"/podcast" | relative_url }})
 
-[Sign up for WolfSound's newsletter!]({% link 'newsletter.md' %})
+[Sign up for WolfSound's newsletter!]({% link collections.all, 'newsletter.md' %})
 
 *"How do I get started with audio programming?"*
 
