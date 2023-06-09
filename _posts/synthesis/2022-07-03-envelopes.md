@@ -75,7 +75,7 @@ As such, it relates to the _analysis_ of the signal: we have a waveform, we conn
 
 You can see an example of a signal with its envelope in orange in Figure 1. Note that the envelope is two-sided in this case.
 
-![]({{ page.images | absolute_url | append: "sine_adsr.webp" }}){: alt="A signal with its envelope marked" }
+![]({{ images | absolute_url | append: "sine_adsr.webp" }}){: alt="A signal with its envelope marked" }
 _Figure {% increment figureId20220703  %}. A signal with its envelope marked._
 
 From the sound synthesis perspective, **an envelope is a curve that controls a certain parameter of the generated signal.**
@@ -179,7 +179,7 @@ Some more specialized applications of envelopes in sound synthesis include
 
 Envelopes consist of segments (ramps). For example, the most popular Attack-Decay-Sustain-Release (ADSR) envelope consists of 4 segments: attack, decay, sustain, and release.
 
-![]({{ page.images | absolute_url | append: "ADSR.webp" }}){: alt="ADSR envelope and its 4 segments" }
+![]({{ images | absolute_url | append: "ADSR.webp" }}){: alt="ADSR envelope and its 4 segments" }
 _Figure {% increment figureId20220703  %}. ADSR envelope consists of 4 segments._
 
 The segments are crude piece-wise approximations to the natural envelopes but they represent a good trade-off between the quality of the result and the complexity of control.
@@ -199,7 +199,7 @@ A very important consideration when implementing any envelope is how its value s
 
 To be exact, should the amplitude increase linearly or exponentially (linearly on the logarithmic scale)? Below is a comparison of these two approaches:
 
-![]({{ page.images | absolute_url | append: "linear_vs_exponential.webp" }}){: alt="Comparison of value change curves of envelopes" }
+![]({{ images | absolute_url | append: "linear_vs_exponential.webp" }}){: alt="Comparison of value change curves of envelopes" }
 _Figure {% increment figureId20220703  %}. A linear change in value (left) vs an exponential change (right)._
 
 The caveat here is that we perceive the exponential change as a linear one. To hear this, listen to these two examples.
@@ -240,7 +240,7 @@ Sound examples were created by generating 5 seconds of a sine at 220 Hz and appl
 
 The Attack-Decay (AD) envelope consists of just two segments. It is a kind of "one shot" envelope that you cannot sustain. When you release a key during the attack, the envelope transitions to the decay slope with the current amplitude value.
 
-![]({{ page.images | absolute_url | append: "AD.webp" }}){: alt="Attack-Decay (AD) envelope" }
+![]({{ images | absolute_url | append: "AD.webp" }}){: alt="Attack-Decay (AD) envelope" }
 _Figure {% increment figureId20220703  %}. Attack-Decay (AD) envelope._
 
 Sound example:
@@ -251,7 +251,7 @@ Sound example:
 
 The Attack-Release (AR) envelope has 3 segments: attack, sustain and release. Sustain's value is fixed to the maximum.
 
-![]({{ page.images | absolute_url | append: "AR.webp" }}){: alt="Attack-Release (AR) envelope" }
+![]({{ images | absolute_url | append: "AR.webp" }}){: alt="Attack-Release (AR) envelope" }
 _Figure {% increment figureId20220703  %}. Attack-Release (AR) envelope._
 
 Sound example:
@@ -262,7 +262,7 @@ Sound example:
 
 The Attack-Decay-Release (ADR) envelope has 3 segments. When the key is released, the envelope transitions to the release segment with the value it currently holds. It may happen that the envelope reaches 0 already in the decay segment. In such case, the release segment is omitted.
 
-![]({{ page.images | absolute_url | append: "ADR.webp" }}){: alt="Attack-Decay-Release envelope" }
+![]({{ images | absolute_url | append: "ADR.webp" }}){: alt="Attack-Decay-Release envelope" }
 _Figure {% increment figureId20220703  %}. Attack-Decay-Release envelope._
 
 Sound example:
@@ -273,14 +273,14 @@ Sound example:
 
 The Attack-Decay-Sustain (ADS) envelope has 4 segments, where that last is either a short, non-parameterized release segment (Figure 7) or a repeated decay segment (Figure 8).
 
-![]({{ page.images | absolute_url | append: "ADS.webp" }}){: alt="Attack-Decay-Sustain (ADS) envelope with a short release segment" }
+![]({{ images | absolute_url | append: "ADS.webp" }}){: alt="Attack-Decay-Sustain (ADS) envelope with a short release segment" }
 _Figure {% increment figureId20220703  %}. Attack-Decay-Sustain (ADS) envelope with a short release segment._
 
 Sound example:
 
 {% include 'embed-audio.html' src="/assets/wav/posts/synthesis/2022-07-03-envelopes/ads_example.flac" %}
 
-![]({{ page.images | absolute_url | append: "ADSD.webp" }}){: alt="Attack-Decay-Sustain (ADS) envelope with a repeated decay segment" }
+![]({{ images | absolute_url | append: "ADSD.webp" }}){: alt="Attack-Decay-Sustain (ADS) envelope with a repeated decay segment" }
 _Figure {% increment figureId20220703  %}. Attack-Decay-Sustain (ADS) envelope with a repeated decay segment._
 
 
@@ -292,7 +292,7 @@ Sound example:
 
 The Attack-Decay-Sustain-Release (ADSR) envelope is in my experience the most popular envelope type. It is an approximation of the impression of most musical instruments. It is also easy to control. Its practical usefulness resulted in its popularity among synthesizer players.
 
-![]({{ page.images | absolute_url | append: "ADSR.webp" }}){: alt="Attack-Decay-Sustain-Release (ADSR) envelope" }
+![]({{ images | absolute_url | append: "ADSR.webp" }}){: alt="Attack-Decay-Sustain-Release (ADSR) envelope" }
 _Figure {% increment figureId20220703  %}. Attack-Decay-Sustain-Release (ADSR) envelope._
 
 Sound example:
@@ -303,7 +303,7 @@ Sound example:
 
 The Attack-Hold-Decay-Sustain-Release (AHDSR) envelope in comparison to ADSR has an additional hold segment between the attack and the decay, whose duration is an adjustable parameter.
 
-![]({{ page.images | absolute_url | append: "AHDSR.webp" }}){: alt="Attack-Hold-Decay-Sustain-Release (AHDSR) envelope" }
+![]({{ images | absolute_url | append: "AHDSR.webp" }}){: alt="Attack-Hold-Decay-Sustain-Release (AHDSR) envelope" }
 _Figure {% increment figureId20220703  %}. Attack-Hold-Decay-Sustain-Release (AHDSR) envelope._
 
 Sound example:
@@ -314,7 +314,7 @@ Sound example:
 
 The Attack-Decay1-Break-Decay2-Release (ADBDR) envelope is my personal favorite because it approximates the amplitude envelope of the piano; while the key is being held, the sound slowly decays. This is opposite of the sustain segment in ADSR, which to my taste sounds a little bit artificial. The "break" element allows to set the value at which decay 1 transitions to decay 2.
 
-![]({{ page.images | absolute_url | append: "ADBDR.webp" }}){: alt="Attack-Decay1-Break-Decay2-Release (ADBDR) envelope" }
+![]({{ images | absolute_url | append: "ADBDR.webp" }}){: alt="Attack-Decay1-Break-Decay2-Release (ADBDR) envelope" }
 _Figure {% increment figureId20220703  %}. Attack-Decay1-Break-Decay2-Release (ADBDR) envelope._
 
 Sound example:
@@ -327,7 +327,7 @@ Current synthesizers are capable of having an arbitrary envelope: one consisting
 
 An example of a commercial synthesizer that allows an arbitrary envelope is Massive from Native Instruments (Figure 12).
 
-![]({{ page.images | absolute_url | append: "massive_ui.webp" }}){: alt="The user interface of Massive synthesizer from Native Instruments" }
+![]({{ images | absolute_url | append: "massive_ui.webp" }}){: alt="The user interface of Massive synthesizer from Native Instruments" }
 _Figure {% increment figureId20220703  %}. The user interface of the Massive synthesizer from Native Instruments ([source](https://www.native-instruments.com/en/products/komplete/synths/massive/))._
 
 ## Summary

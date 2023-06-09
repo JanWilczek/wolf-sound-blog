@@ -84,7 +84,7 @@ In [FIR filters implementation with SIMD]({% post_url collections.posts, 'dsp/20
 
 These transitions are shown in Figure 1.
 
-![]({{ page.images }}/load_store_instructions.webp){: width="60%" alt="Explanation diagram of the load/store instructions" }
+![]({{ images }}/load_store_instructions.webp){: width="60%" alt="Explanation diagram of the load/store instructions" }
 _Figure {% increment figureId20220416 %}. Load/store instructions transport the data between the memory and the SIMD registers._
 
 These load/store instructions take pointers to C-style arrays. The data under these pointers can be aligned or not. If it is aligned, we can call the aligned version of the load/store instructions, which are typically faster than their unaligned counterparts. If the data under the pointer is not aligned or we don't know if it is aligned, we have to to use the unaligned instrinsic functions.
@@ -129,7 +129,7 @@ Note that it can only be done with a signal that is known before the processing.
 
 Let's revisit how we access the elements in the [outer-inner loop vectorization]({% post_url collections.posts, 'dsp/2022-03-28-fir-with-simd' %}#outer-and-inner-loop-vectorization-voil) (Figure 2).
 
-![]({{ page.images }}/LoopVectorizationVOIL.svg){: alt="Outer-inner loop vectorization diagram."}
+![]({{ images }}/LoopVectorizationVOIL.svg){: alt="Outer-inner loop vectorization diagram."}
 _Figure {% increment figureId20220416 %}. Data accessed in one iteration of the outer loop in the outer-inner loop vectorization technique._
 
 The $x$-signal's elements are accessed starting at every possible sample. The goal is to multiply the short vectors from the input signal with the short vectors of the filter's reversed coefficients.
@@ -138,7 +138,7 @@ We could copy the short vectors from $x$ so that each access is aligned. Or we c
 
 Take a look at how we can replicate the filter's reversed coefficients to obtain aligned access every time (Figure 3).
 
-![]({{ page.images }}/LoopVectorizationDataAlignment.svg){: alt="Aligned data access in outer-inner loop vectorization."}
+![]({{ images }}/LoopVectorizationDataAlignment.svg){: alt="Aligned data access in outer-inner loop vectorization."}
 _Figure {% increment figureId20220416 %}. Copying filter coefficients allows aligned access._
 
 As you can see, we perform the same multiplications as before although not in the same order (for example, $x[4]$ is multiplied with $c[3]$ in the second inner loop iteration, not in the first one).

@@ -41,7 +41,7 @@ Welcome to the 3rd part of the Android wavetable synthesizer app tutorial!
 In this tutorial series, we want to design and implement a synthesizer app on Android using all the modern technologies and best practices.
 
 <div markdown="0">
-<img class="lazyload" data-src="{{ page.images | absolute_url | append: "/SynthesizerUI.webp" }}" alt="Graphical user interface of the synthesizer app">
+<img class="lazyload" data-src="{{ images | absolute_url | append: "/SynthesizerUI.webp" }}" alt="Graphical user interface of the synthesizer app">
 </div>
 
 _Figure {% increment figureId20220911 %}. Graphical user interface of the synthesizer app we are going to build._
@@ -96,7 +96,7 @@ MVVM is a convenient way to represent the interaction of the UI and the core (bu
 Figure 2 illustrates these dependencies.
 
 <div markdown="0">
-<img class="lazyload" data-src="{{ page.images | absolute_url | append: "/MVVM.svg" }}" alt="MVVM pattern diagram">
+<img class="lazyload" data-src="{{ images | absolute_url | append: "/MVVM.svg" }}" alt="MVVM pattern diagram">
 </div>
 
 _Figure {% increment figureId20220911 %}. Model-View-ViewModel (MVVM) pattern._
@@ -124,7 +124,7 @@ Even if you don’t fully understand what the ViewModel is, after going through 
 To recap, here is the architecture of our app with parts that will be created in this part of the tutorial.
 
 <div markdown="0">
-<img class="lazyload" data-src="{{ page.images | absolute_url | append: "/SynthesizerArchitecture.svg" }}" alt="Component diagram of the app">
+<img class="lazyload" data-src="{{ images | absolute_url | append: "/SynthesizerArchitecture.svg" }}" alt="Component diagram of the app">
 </div>
 
 _Figure {% increment figureId20220911 %}. Synthesizer app architecture._
@@ -271,7 +271,7 @@ class LoggingWavetableSynthesizer : WavetableSynthesizer {
 As you can see, each method logs what is happening using the `Log.d` method from the `android.util`package. That ensures that these messages will appear in the Logcat of Android Studio when the application runs and the message level is set to "Debug".
 
 <div markdown="0">
-<img class="lazyload" data-src="{{ page.images | absolute_url | append: "/SampleLogcatOutput.webp" }}" alt="Sample output of the synthesizer app in the Logcat of Android Studio.">
+<img class="lazyload" data-src="{{ images | absolute_url | append: "/SampleLogcatOutput.webp" }}" alt="Sample output of the synthesizer app in the Logcat of Android Studio.">
 </div>
 
 _Figure {% increment figureId20220911 %}. Log messages in the Logcat of Android Studio._
@@ -357,7 +357,7 @@ Ain’t that elegant?
 As you remember, the user controls the frequency of the synthesizer via a slider.
 
 <div markdown="0">
-<img class="lazyload" data-src="{{ page.images | absolute_url | append: "/FrequencySlider.webp" }}" alt="Frequency control slider of the synthesizer app.">
+<img class="lazyload" data-src="{{ images | absolute_url | append: "/FrequencySlider.webp" }}" alt="Frequency control slider of the synthesizer app.">
 </div>
 
 _Figure {% increment figureId20220911 %}. Frequency control slider._

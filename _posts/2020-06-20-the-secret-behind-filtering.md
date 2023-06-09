@@ -81,7 +81,7 @@ In order to get an intuition behind the convolution, we should look at it from d
 
 Let's consider a generic filter with input $x[n]$, output $y[n]$, and impulse response $h[n]$ (Figure 1).
 
-![]({{ page.images | absolute_url | append: "/filter.png" }})
+![]({{ images | absolute_url | append: "/filter.png" }})
 _Figure 1. A generic filter._
 
 A filter is a [linear time-invariant (LTI) system](https://en.wikipedia.org/wiki/Linear_time-invariant_system). From signal processing we know that any LTI system is completely specified by its impulse response $h[n]$. The output $y[n]$ of an LTI system is by definition equal to the convolution of the input $x[n]$ with the system's impulse response $h[n]$. That is why the output of an LTI system is called a convolution sum or a superposition sum in case of discrete systems and a convolution integral or a superposition integral in case of continuous systems.
@@ -109,52 +109,52 @@ This may all get a little bit confusing at this moment, so let's look at an exam
 
 Let's consider the following signal $x[n]$ of length 4, i. e., consisting of $x[0], x[1], x[2]$, and $x[3]$
 
-![]({{ page.images | absolute_url | append: "/x.png"}})
+![]({{ images | absolute_url | append: "/x.png"}})
 _Figure 2. Input signal $x[n]$._
 
 and filter's impulse response $h[n]$ of length 3
 
-![]({{ page.images | absolute_url | append: "/h.png"}})
+![]({{ images | absolute_url | append: "/h.png"}})
 _Figure 3. Filter's impulse response $h[n]$._
 
 The result of their convolution is the following signal $y[n]$ (filter's output)
 
-![]({{ page.images | absolute_url | append: "/y.png"}})
+![]({{ images | absolute_url | append: "/y.png"}})
 _Figure 4. Filter's output $y[n]$ after feeding $x[n]$ at the input._
 
 Not very meaningful, is it? The only thing that we can observe is that output's length is the sum of input's and filter's lengths minus one.
 
 Let's try some color coding. We can depict each of $x[n]$'s samples in a different color:
 
-![]({{ page.images | absolute_url | append: "/x_single.png"}})
+![]({{ images | absolute_url | append: "/x_single.png"}})
 _Figure 5. Color-coded $x[n]$._
 
 We can now examine the impact of particular samples on the filter's output. What would happen if only  blue $x[0]$ entered the filter?
 
-![]({{ page.images | absolute_url | append: "/h_single_0.png"}})
+![]({{ images | absolute_url | append: "/h_single_0.png"}})
 _Figure 6. Filter's response to $x[0]$._
 
 We can see that the entire impulse response of the filter got scaled by $x[0]$ which in this case is equal to $0.1$.
 
 Now, let's imagine, that only second sample, namely orange $x[1]$, entered the filter. What could we observe at the output?
 
-![]({{ page.images | absolute_url | append: "/h_single_1.png"}})
+![]({{ images | absolute_url | append: "/h_single_1.png"}})
 _Figure 7. Filter's response to $x[1]$._
 
 Notice that at $n=0$ the filter's output is $0$, because at that time $x[1]$ has not yet entered the filter. But from $n=1$ onwards we get again the filter's impulse response scaled by the newly entering sample.
 
 The same thing happens for green $x[2]$ and red $x[3]$
-![]({{ page.images | absolute_url | append: "/h_single_2.png"}})
+![]({{ images | absolute_url | append: "/h_single_2.png"}})
 _Figure 8. Filter's response to $x[2]$._
-![]({{ page.images | absolute_url | append: "/h_single_3.png"}})
+![]({{ images | absolute_url | append: "/h_single_3.png"}})
 _Figure 9. Filter's response to $x[3]$._
 
 Viewing all these "partial" responses on a plot shows the impact of each individual input sample over time
-![]({{ page.images | absolute_url | append: "/h_superposed.png"}})
+![]({{ images | absolute_url | append: "/h_superposed.png"}})
 _Figure 10. Overlayed filter's responses to individual samples of $x[n]$._
 
 Summing them all up (as if summing over $k$ in the convolution formula) we obtain:
-![]({{ page.images | absolute_url | append: "/h_summed.png"}})
+![]({{ images | absolute_url | append: "/h_summed.png"}})
 _Figure 11. Summation of signals in Figures 6-9._
 what corresponds to the $y[n]$ signal above.
 

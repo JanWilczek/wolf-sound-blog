@@ -107,7 +107,7 @@ $$H_\text{AP}(z) = \pm z^{-K}, \quad ({% increment equationId20211022 %})$$
 
 where $K$ is an integer not smaller than 0, $K \geq 0$. Note that a unit delay $H_\text{AP}(z) = z^{-1}$ is also an allpass filter. Phase can be unaltered or inverted (multiplication by 1 or -1 respectively), because we are operating in the real domain.
 
-![]({{ page.images | absolute_url | append: "/fir_allpass.webp" }}){: width="80%" alt="Block diagram of the FIR allpass filter."}
+![]({{ images | absolute_url | append: "/fir_allpass.webp" }}){: width="80%" alt="Block diagram of the FIR allpass filter."}
 _Figure {% increment figureId20211022 %}. Block diagram of an FIR allpass filter._
 
 [A broader description of the properties of the delay can be found in my article]({% post_url collections.posts, '2021-04-01-identity-element-of-the-convolution' %}#delay).
@@ -128,7 +128,7 @@ where $x[n]$ is the input signal, $y[n]$ is the output signal, and $d[n-1]$ can 
 
 The difference equation 3 is equivalent to the following DSP diagram.
 
-![]({{ page.images | absolute_url | append: "/first_order_allpass_filter.webp" }}){: alt="Block diagram of the first-order allpass filter."}
+![]({{ images | absolute_url | append: "/first_order_allpass_filter.webp" }}){: alt="Block diagram of the first-order allpass filter."}
 _Figure {% increment figureId20211022 %}. Block diagram of the first-order allpass filter._
 
 How to see the equivalence? First, observe that we have here a combination of two comb filters: a feedback and a feedforward comb filter [4].
@@ -165,7 +165,7 @@ where $\overline{z}$ denotes the complex conjugate of $z$. We used the facts tha
 
 What is the role of the $a_1$ (*allpass*) coefficient? It controls the *break frequency* of the allpass filter. What is the break frequency? It is the frequency at which the phase shift of the first-order allpass filter is exactly $-\frac{\pi}{2}$ rad. To understand the break frequency we need to look at the phase frequency response of the allpass filter.
 
-![]({{ page.images | absolute_url | append: "/first_order_allpass_phase_response.webp" }}){: width="80%" alt="Phase response of the first-order allpass filter."}
+![]({{ images | absolute_url | append: "/first_order_allpass_phase_response.webp" }}){: width="80%" alt="Phase response of the first-order allpass filter."}
 _Figure {% increment figureId20211022 %}. Phase response of a first-order allpass filter for different break frequencies $f_\text{b}$._
 
 We here refer to the digital frequency, i.e., the ratio of the frequency $f$ in Hz to the sampling rate $f_s$ in Hz.
@@ -218,14 +218,14 @@ Note how $BW$ is coupled with $c$ but not with $d$ and $f_\text{b}$ is coupled w
 
 The phase response of the second-order allpass filter with different break frequencies $f_\text{b}$ looks as follows:
 
-![]({{ page.images | absolute_url | append: "/second_order_allpass_phase_response.webp" }}){: width="80%" alt="Phase response of the second-order allpass filter with constant bandwidth."}
+![]({{ images | absolute_url | append: "/second_order_allpass_phase_response.webp" }}){: width="80%" alt="Phase response of the second-order allpass filter with constant bandwidth."}
 _Figure {% increment figureId20211022 %}. Phase response of a second-order allpass filter for different break frequencies frequencies $f_\text{b}$ and bandwidth $BW / f_s = 0.022$._
 
 As you can see above, the break frequency determines the point of the phase shift by $-\pi$. All slopes, however, have the same curvature.
 
 If instead, we keep the break frequency constant and change the bandwidth parameter, we obtain the following phase responses:
 
-![]({{ page.images | absolute_url | append: "/second_order_allpass_phase_response_break.webp" }}){: width="80%" alt="Phase response of the second-order allpass filter with constant break frequency."}
+![]({{ images | absolute_url | append: "/second_order_allpass_phase_response_break.webp" }}){: width="80%" alt="Phase response of the second-order allpass filter with constant break frequency."}
 _Figure {% increment figureId20211022 %}. Phase response of a second-order allpass filter for different bandwidths $BW$ and break frequency $f_\text{b} / f_s = 1/8$._
 
 The curvature of the slope gets milder with the increasing $BW$ parameter but the $-\pi$ shift point remains at the same frequency.
@@ -241,7 +241,7 @@ $$y[n] = -c v[n] + d (1-c) v[n-1] + v[n-2].  \quad ({% increment equationId20211
 
 If that seems complicated, a diagram should make it clear 🙂
 
-![]({{ page.images | absolute_url | append: "/second_order_allpass_filter.webp" }}){: alt="Block diagram of the second-order allpass filter."}
+![]({{ images | absolute_url | append: "/second_order_allpass_filter.webp" }}){: alt="Block diagram of the second-order allpass filter."}
 _Figure {% increment figureId20211022 %}. Block diagram of the second-order allpass filter._
 
 #### Properties of the Second-Order Allpass Filter
@@ -304,12 +304,12 @@ Different microphones may introduce different frequency-dependent delays. Mixing
 
 In [Reaper's ReaEQ VST plugin](https://www.reaper.fm/reaplugs/), there is an allpass filter available.
 
-![]({{ page.images | absolute_url | append: "/ReaEQAllpass.webp" }}){: width="80%" alt="ReaEQ plugin window with the allpass filter selected."}
+![]({{ images | absolute_url | append: "/ReaEQAllpass.webp" }}){: width="80%" alt="ReaEQ plugin window with the allpass filter selected."}
 _Figure {% increment figureId20211022 %}. Allpass filter in the Reaper's ReaEQ VST plugin._
 
 How to observe the frequency-dependent phase cancellation with a parallel allpass? Here's a quick tutorial:
 
-![]({{ page.images | absolute_url | append: "/ReaEQAllpassAppliedMaster.webp" }}){: alt="Application of a parallel allpass filter with ReaEQ to create a notch."}
+![]({{ images | absolute_url | append: "/ReaEQAllpassAppliedMaster.webp" }}){: alt="Application of a parallel allpass filter with ReaEQ to create a notch."}
 _Figure {% increment figureId20211022 %}. Application of a parallel allpass filter with ReaEQ to create a notch._
 
 Steps to reproduce:

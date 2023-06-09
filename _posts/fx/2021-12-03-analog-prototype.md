@@ -31,12 +31,12 @@ In the [last article]({% post_url collections.posts, 'fx/2021-11-26-parametric-e
 
 Here's how the process looks:
 
-![]({{ page.images | absolute_url | append: "/PipelineUnmarked.webp"}}){: alt="Parametric filter design workflow." }
+![]({{ images | absolute_url | append: "/PipelineUnmarked.webp"}}){: alt="Parametric filter design workflow." }
 _Figure {% increment figureId20211203 %}. Parametric filter design workflow._
 
 In this article, we'll discuss the second step of the process: **designing the analog prototype**.
 
-![]({{ page.images | absolute_url | append: "/PipelineMarked.webp"}}){: alt="Parametric filter design workflow with marked second step." }
+![]({{ images | absolute_url | append: "/PipelineMarked.webp"}}){: alt="Parametric filter design workflow with marked second step." }
 _Figure {% increment figureId20211203 %}. In this article, we discuss analog prototype design._
 
 ## Recap
@@ -111,7 +111,7 @@ We know that we want to design an analog prototype low-pass using the Butterwort
 
 The goal of the approximation is the *ideal low-pass filter*.
 
-![]({{ page.images | absolute_url | append: "/IdealLowPass.webp"}}){: alt="Amplitude response of the ideal low-pass filter."}
+![]({{ images | absolute_url | append: "/IdealLowPass.webp"}}){: alt="Amplitude response of the ideal low-pass filter."}
 _Figure {% increment figureId20211203  %}. Amplitude response of the ideal low-pass filter with cutoff frequency equal to 1._
 
 Frequency $\omega_\text{a}$ is the analog cutoff frequency in radians per second. We assume that $\omega_\text{a} = 1$, i.e., the filter's transfer function is *normalized*.
@@ -303,7 +303,7 @@ $$H_4(s) = \frac{1}{(s^2 + 1.848 s + 1)(s^2 + 0.765 s + 1)}. \quad ({% increment
 
 To see, how much the Butterworth low-pass filter deviates from the ideal response from Figure 3, let's plot the amplitude responses of both filters against the ideal response.
 
-![]({{ page.images | absolute_url | append: "/ButterworthComparison.webp"}}){: alt="Comparison of Butterworth filters amplitude responses of orders 2, 4, and 11, and the ideal low-pass amplitude response." }
+![]({{ images | absolute_url | append: "/ButterworthComparison.webp"}}){: alt="Comparison of Butterworth filters amplitude responses of orders 2, 4, and 11, and the ideal low-pass amplitude response." }
 _Figure {% increment figureId20211203 %}. Butterworth low-pass amplitude response of 2nd, 4th, and 11th order plotted against the ideal response._
 
 The 11th order is shown for additional comparison.
@@ -316,7 +316,7 @@ Figure 4 also shows that the Butterworth approximation is indeed maximally flat 
 
 Figure 5 shows the same amplitude responses but this time the magnitude is expressed in decibels ($20 \log_{10}(\cdot)$). The -3 dB at cutoff frequency is clearly visible.
 
-![]({{ page.images | absolute_url | append: "/ButterworthComparisonDecibels.webp"}}){: alt="Comparison of Butterworth filters amplitude responses on the decibel scale for orders 2, 4, and 11, and the ideal low-pass amplitude response." }
+![]({{ images | absolute_url | append: "/ButterworthComparisonDecibels.webp"}}){: alt="Comparison of Butterworth filters amplitude responses on the decibel scale for orders 2, 4, and 11, and the ideal low-pass amplitude response." }
 _Figure {% increment figureId20211203 %}. Butterworth low-pass amplitude response in decibels for 2nd, 4th, and 11th orders plotted against the ideal response._
 
 

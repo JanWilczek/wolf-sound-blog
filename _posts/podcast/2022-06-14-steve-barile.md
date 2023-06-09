@@ -62,7 +62,7 @@ Below are all the resources that are referenced in the podcast episode.
 
 * Places:
   * [Conductive Labs](https://conductivelabs.com/)
-  * [Intel](https://www.intel.com/content/www/us/en/homepage.html)
+  * [Intel](https://www.intel.com/content/www/us/en/homehtml)
   * [Notes and Volts](https://www.notesandvolts.com/) blog and YouTube channel
   * [Kickstarter](https://www.kickstarter.com/)
   * [PCB Way](https://www.pcbway.com/)

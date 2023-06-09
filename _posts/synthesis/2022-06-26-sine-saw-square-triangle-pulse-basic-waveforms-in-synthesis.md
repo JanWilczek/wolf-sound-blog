@@ -91,12 +91,12 @@ A sine at 220 Hz sounds like this:
 
 The time-domain representation (waveform) of the sine looks like this:
 
-![]({{ page.images | absolute_url | append: "/sine_signal.webp" }}){: alt="The sine waveform" }
+![]({{ images | absolute_url | append: "/sine_signal.webp" }}){: alt="The sine waveform" }
 _Figure {% increment figureId20220626  %}. Sine waveform: time-domain representation of the sine wave._
 
 The amplitude spectrum of a sine is very boring because it consists of just one partial: the fundamental frequency.
 
-![]({{ page.images | absolute_url | append: "/sine_harmonics.webp" }}){: alt="Amplitude spectrum of a sine" }
+![]({{ images | absolute_url | append: "/sine_harmonics.webp" }}){: alt="Amplitude spectrum of a sine" }
 _Figure {% increment figureId20220626  %}. Amplitude spectrum of a sine._
 
 As you can see, it has only one harmonic. That makes sense because spectrum calculation assumes that the analyzed signal is a superposition (a sum) of sines. And one sine consists of just... one sine 🙃
@@ -120,7 +120,7 @@ As you can hear, it's a bit brighter than the sine.
 
 The triangle waveform in the time-domain looks as follows.
 
-![]({{ page.images | absolute_url | append: "/triangle_signal.webp" }}){: alt="The triangle waveform" }
+![]({{ images | absolute_url | append: "/triangle_signal.webp" }}){: alt="The triangle waveform" }
 _Figure {% increment figureId20220626  %}. Triangle waveform: time-domain representation of the triangle wave._
 
 The plot in Figure 3 indeed looks like a triangle.
@@ -129,7 +129,7 @@ This makes the formula from Equation 2 more intuitive: a triangle waveform is, i
 
 The amplitude spectrum of the triangle waveform contains only odd harmonics (Figure 4).
 
-![]({{ page.images | absolute_url | append: "/triangle_harmonics.webp" }}){: alt="Amplitude spectrum of a triangle" }
+![]({{ images | absolute_url | append: "/triangle_harmonics.webp" }}){: alt="Amplitude spectrum of a triangle" }
 _Figure {% increment figureId20220626  %}. Amplitude spectrum of a triangle._
 
 The amplitudes of the harmonics decay as $\frac{1}{n^2}$, where $n$ is the harmonic's index (the fundamental has $n=1$, the first overtone has $n=2$, and so on).
@@ -152,12 +152,12 @@ Of course, alternative formulas are possible, like ones using the modulo operati
 
 The square waveform in the time-domain has a rectangular shape (Figure 5).
 
-![]({{ page.images | absolute_url | append: "/square_signal.webp" }}){: alt="The square waveform" }
+![]({{ images | absolute_url | append: "/square_signal.webp" }}){: alt="The square waveform" }
 _Figure {% increment figureId20220626  %}. Square waveform: time-domain representation of the square wave._
 
 The amplitude spectrum of the square wave consists of only odd harmonics, exactly as was the case for the triangle (Figure 6).
 
-![]({{ page.images | absolute_url | append: "/square_harmonics.webp" }}){: alt="Amplitude spectrum of a square" }
+![]({{ images | absolute_url | append: "/square_harmonics.webp" }}){: alt="Amplitude spectrum of a square" }
 _Figure {% increment figureId20220626  %}. Amplitude spectrum of a square._
 
 The amplitudes of square's harmonics decay slower than in the case of the triangle: they decay as $\frac{1}{n}$, where $n$ is the harmonic's index ($n=1$ corresponds to the fundamental).
@@ -182,7 +182,7 @@ The formula reads, "increase the value linearly ($t$), jump back to 0 every peri
 
 The sawtooth waveform in the time domain is shown in Figure 7.
 
-![]({{ page.images | absolute_url | append: "/sawtooth_signal.webp" }}){: alt="The sawtooth waveform" }
+![]({{ images | absolute_url | append: "/sawtooth_signal.webp" }}){: alt="The sawtooth waveform" }
 _Figure {% increment figureId20220626  %}. Sawtooth waveform: time-domain representation of the sawtooth wave._
 
 This is the so-called **ramp-up** sawtooth because its slope is rising within each period. Should it be falling, it would be called **ramp-down** sawtooth. Since it's just a matter of phase inversion, ramp-up and ramp-down variants have the same properties. The slope matters the most when we use the sawtooth waveform to modulate some other parameter, i.e., when we use the sawtooth in a low-frequency oscillator (LFO). Then we can create a periodically rising sensation (ramp-up) or periodically falling (ramp-down).
@@ -191,7 +191,7 @@ The name "saw" comes from the teeth-like shape of the waveform.
 
 The amplitude spectrum of the sawtooth can be seen in Figure 8.
 
-![]({{ page.images | absolute_url | append: "/sawtooth_harmonics.webp" }}){: alt="Amplitude spectrum of a sawtooth" }
+![]({{ images | absolute_url | append: "/sawtooth_harmonics.webp" }}){: alt="Amplitude spectrum of a sawtooth" }
 _Figure {% increment figureId20220626  %}. Amplitude spectrum of a sawtooth._
 
 The spectrum of the sawtooth waveform contains odd and even harmonics. The amplitudes of sawtooth's harmonics decay as $\frac{1}{n}$, where $n$ is the harmonic's index ($n=1$ corresponds to the fundamental frequency).
@@ -202,7 +202,7 @@ The **pulse waveform** (also called a **pulse train**) is a generalization of th
 
 An example pulse waveform in the time domain is shown in Figure 9.
 
-![]({{ page.images | absolute_url | append: "/pulse_signal.webp" }}){: alt="The pulse waveform" }
+![]({{ images | absolute_url | append: "/pulse_signal.webp" }}){: alt="The pulse waveform" }
 _Figure {% increment figureId20220626  %}. Pulse waveform: time-domain representation of the pulse wave with 20% duty cycle._
 
 This waveform's **duty cycle** is 20%. It means that for 20% of its period, the value is 1. For the remaining 80%, the value is -1.
@@ -223,13 +223,13 @@ where $D$ is the duty cycle, $k$ is the harmonic's index, $f_0$ is the fundament
 
 The amplitude spectrum of the pulse wave for $D=0.2$ case is shown in Figure 10.
 
-![]({{ page.images | absolute_url | append: "/pulse_harmonics.webp" }}){: alt="Amplitude spectrum of a pulse wave" }
+![]({{ images | absolute_url | append: "/pulse_harmonics.webp" }}){: alt="Amplitude spectrum of a pulse wave" }
 _Figure {% increment figureId20220626  %}. Amplitude spectrum of a pulse wave with 20% duty cycle._
 
 However, the amplitude spectrum changes dynamically with the duty cycle. I have visualized it on Figure 11.
 
 <div markdown="0">
-<img class="lazyload" src="{{ page.images | absolute_url | append: "/duty_cycle_visualization_placeholder.webp" }}" data-src="{{ page.images | absolute_url | append: "/duty_cycle_visualization.gif" }}" alt="Visualization of the duty cycle influence on the pulse wave">
+<img class="lazyload" src="{{ images | absolute_url | append: "/duty_cycle_visualization_placeholder.webp" }}" data-src="{{ images | absolute_url | append: "/duty_cycle_visualization.gif" }}" alt="Visualization of the duty cycle influence on the pulse wave">
 </div>
 
 _Figure {% increment figureId20220626  %}. Time-domain waveform and the amplitude spectrum of a pulse wave for different values of the duty cycle._

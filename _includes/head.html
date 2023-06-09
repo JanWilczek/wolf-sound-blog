@@ -1,7 +1,7 @@
 <head>
     {% if jekyll.environment == "production" %}
     <!-- Google Optimize -->
-    {% if page.url == "/" %}
+    {% if url == "/" %}
     <script src="https://www.googleoptimize.com/optimize.js?id=OPT-TQMXDMB"></script>
     {% endif %}
     <!-- Global site tag (gtag.js) - Google Analytics UA -->
@@ -29,12 +29,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <title>
-        {% if page.title %}{{ page.title | escape }} - {{ site.title | escape }}
+        {% if title %}{{ title | escape }} - {{ site.title | escape }}
         {% else %}{{ site.title | escape }}{% endif %}
     </title>
 
     <meta name="description"
-        content="{{ page.description | default: page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
+        content="{{ description | default: excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
     <link
@@ -47,7 +47,7 @@
 
     <link rel="stylesheet" href="{{"/assets/main.css" | relative_url }}">
     <link rel="shortcut icon" type="image/png" href="{{"/favicon.png" | absolute_url}}">
-    <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
+    <link rel="canonical" href="{{ url | replace:'index.html','' | absolute_url }}">
 
     <!-- Relative pagination (for Bing and accessibility) -->
     {% if paginator.previous_page_path %}
@@ -78,8 +78,8 @@
             <link rel="stylesheet" href="{{ stylesheet }}">
         {% endfor %}
     {% endif %}
-    {% if page.custom_css %}
-        {% for stylesheet in page.custom_css %}
+    {% if custom_css %}
+        {% for stylesheet in custom_css %}
             <link rel="stylesheet" href="{{ stylesheet }}">
         {% endfor %}
     {% endif %}

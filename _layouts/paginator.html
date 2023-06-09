@@ -41,7 +41,7 @@ layout: page
 
   {% if paginator.page_trail %}
   {% for trail in paginator.page_trail %}
-    <a class="btn {% if page.url == trail.path %} btn-primary {% else %} btn-outline-primary {% endif %}" href="{{ trail.path | absolute_url | remove: "index.html" }}" title="{{trail.title}}">
+    <a class="btn {% if url == trail.path %} btn-primary {% else %} btn-outline-primary {% endif %}" href="{{ trail.path | absolute_url | remove: "index.html" }}" title="{{trail.title}}">
         {{ trail.num }}
     </a>
   {% endfor %}

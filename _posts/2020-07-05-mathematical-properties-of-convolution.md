@@ -72,12 +72,12 @@ $$ x \ast h = h \ast x. \quad (3)$$
 
 This property has a very interesting interpretation in the context of signal processing. It turns out, we can interpret a system's impact on a signal as the signal's impact on the system's impulse response. In particular, the filtering operation can be viewed as if the input signal was filtering the filter's impulse response (Figure 1). As we have already seen in the [previous article]({% post_url collections.posts, '2020-06-20-the-secret-behind-filtering' %}), it is completely true: the output of a filter is a sum of its repeatedly scaled and delayed (=filtered) impulse response.
 
-![]({{ page.images | absolute_url | append: "/commutativity_input_filter.png" }}){: width="350" }
+![]({{ images | absolute_url | append: "/commutativity_input_filter.png" }}){: width="350" }
 _Figure 1. Commutativity of convolution enables an exchange of filter with its input._
 
 Another, even more profound interpretation of the commutativity of convolution is shown in Figure 2.
 
-![]({{ page.images | absolute_url | append: "/commutativity_filters.png" }})
+![]({{ images | absolute_url | append: "/commutativity_filters.png" }})
 _Figure 2. Commutativity of convolution makes the ordering of filters in a series irrelevant._
 
 The commutativity property means that we can exchange the order in which we apply filters (here represented by impulse responses $h_1[n]$ and $h_2[n]$). It doesn't matter whether we filter input with $h_1$ and then with $h_2$ or the other way around; the result will be the same.
@@ -96,7 +96,7 @@ $$x \ast (h_1 \ast h_2) = (x \ast h_1) \ast h_2. \quad (4)$$
 
 A practical interpretation of this would be that a series of filters applied one after another constitutes an equivalent system to a system whose impulse response is a convolution of the filters' impulse responses. So the impulse response of filters arranged in a series is a convolution of their impulse responses (Figure 3).
 
-![]({{ page.images | absolute_url | append: "/associativity.png" }})
+![]({{ images | absolute_url | append: "/associativity.png" }})
 _Figure 3. Associativity of the convolution enables us to exchange successive filters with a single filter whose impulse response is a convolution of the initial filters' impulse responses._
 
 #### Proof for the discrete case
@@ -123,7 +123,7 @@ Associativity with scalar multiplication simply means that it doesn't matter if 
 
 These equivalencies are depicted in Figure 4.
 
-![]({{ page.images | absolute_url | append: "/linearity.png" }})
+![]({{ images | absolute_url | append: "/linearity.png" }})
 _Figure 4. Distributivity means that a signal filtered in parallel processing paths is effectively filtered by a superposition of these paths. Associativity with scalar multiplication enables us to scale either the input or the output of a system with an equal effect. These two properties determine the linearity of the convolution._
 
 #### Proof for the discrete case

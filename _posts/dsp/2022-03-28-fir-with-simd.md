@@ -199,7 +199,7 @@ As you will see, this will simplify our discussion significantly.
 
 Equation 3 is visualized on Figure 1. It show which elements are multiplied to calculate $y[0]$.
 
-![]({{ page.images | append: "LoopVectorizationSingle.svg" }}){: alt="Scalar linear convolution visualization."}
+![]({{ images | append: "LoopVectorizationSingle.svg" }}){: alt="Scalar linear convolution visualization."}
 _Figure {% increment figureId20220328 %}. Convolution as an inner product of the input vector and the reversed filter coefficients vector._
 
 The orange frames mark which elements are multiplied together to compute $y[0]$. The results of multiplications are then summed up for the final result.
@@ -304,7 +304,7 @@ Mind you that we assume that the passed-in vectors are already zero-padded and a
 
 Figure 2 shows what happens in inner loop vectorization.
 
-![]({{ page.images | append: "LoopVectorizationVIL.svg" }}){: alt="Convolution via inner loop vectorization visualization."}
+![]({{ images | append: "LoopVectorizationVIL.svg" }}){: alt="Convolution via inner loop vectorization visualization."}
 _Figure {% increment figureId20220328 %}. Inner loop vectorization._
 
 Vectors in orange frames have their inner product calculated in the inner loop (hence the name). Again, one orange frame corresponds to one inner loop iteration.
@@ -408,7 +408,7 @@ Again, we assume that the passed-in vectors are already zero-padded and are of l
 
 Figure 3 shows how code from Listing 4 works.
 
-![]({{ page.images | append: "LoopVectorizationVOL.svg" }}){: alt="Convolution via outer loop vectorization visualization."}
+![]({{ images | append: "LoopVectorizationVOL.svg" }}){: alt="Convolution via outer loop vectorization visualization."}
 _Figure {% increment figureId20220328 %}. Outer loop vectorization._
 
 Again, one frame corresponds to one inner loop iteration and again it shows which elements of $x$ and $h$ are multiplied to compute $y[0]$. In a way, it can be thought of as multiplying each 4-element vector from $x$ by a scalar (one element from $c$).
@@ -523,7 +523,7 @@ float* applyFirFilterOuterInnerLoopVectorization(
 
 This can be visualized as shown in Figure 4.
 
-![]({{ page.images | append: "LoopVectorizationVOIL.svg" }}){: alt="Convolution via outer-inner loop vectorization visualization."}
+![]({{ images | append: "LoopVectorizationVOIL.svg" }}){: alt="Convolution via outer-inner loop vectorization visualization."}
 _Figure {% increment figureId20220328 %}. Outer-inner loop vectorization._
 
 Now one **frame style** corresponds one inner loop iteration. Each frame marks 1 inner product.

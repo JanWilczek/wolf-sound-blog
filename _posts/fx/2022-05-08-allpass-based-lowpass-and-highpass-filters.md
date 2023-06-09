@@ -59,7 +59,7 @@ The frequencies below the cutoff frequency aren't affected by the filter.
 
 The amplitude response (how each frequency is attenuated at the output of the filter) of a lowpass filter is shown in Figure 1.
 
-![]({{ page.images_parametric_eq | absolute_url | append: "/LowPass.webp"}}){: width="70%" alt="Lowpass filter amplitude response."}
+![]({{ images_parametric_eq | absolute_url | append: "/LowPass.webp"}}){: width="70%" alt="Lowpass filter amplitude response."}
 _Figure {% increment figureId20220508  %}. Lowpass filter amplitude response._
 
 ## Highpass Filter
@@ -68,7 +68,7 @@ Contrary to a lowpass filter, a highpass filter attenuates all frequencies below
 
 The amplitude response of a highpass filter is shown in Figure 2.
 
-![]({{ page.images_parametric_eq | absolute_url | append: "/HighPass.webp"}}){: width="70%" alt="Highpass filter amplitude response."}
+![]({{ images_parametric_eq | absolute_url | append: "/HighPass.webp"}}){: width="70%" alt="Highpass filter amplitude response."}
 _Figure {% increment figureId20220508  %}. Highpass filter amplitude response._
 
 ## The Need for a Simple Control-to-Coefficients Mapping
@@ -108,7 +108,7 @@ What is a "frequency-dependent delay"? Well, the higher the frequency, the later
 
 The amount of phase delay can be seen in the phase response of the allpass filter. In Figure 3, you can see such responses for various values of the *break frequency* (I explain the break frequency later).
 
-![]({{ page.images_allpass | absolute_url | append: "/first_order_allpass_phase_response.webp" }}){: width="80%" alt="Phase response of the first-order allpass filter."}
+![]({{ images_allpass | absolute_url | append: "/first_order_allpass_phase_response.webp" }}){: width="80%" alt="Phase response of the first-order allpass filter."}
 _Figure {% increment figureId20220508 %}. Phase response of a first-order allpass filter for different break frequencies $f_\text{b}$. $f_s$ is the sampling rate._
 
 If this delay was large and we put a signal with a flat spectrum at the input, we could hear a tone rising in frequency at the output; the lowest frequency would appear immediately at the output, whereas the highest would appear last, because it has the largest delay.
@@ -117,7 +117,7 @@ In practice, this delay is too small to be audible. We can, however, observe its
 
 This effect can be seen in Figure 4. There, 3 nicely aligned sines (left) pass through an allpass filter and appear misaligned at the output (right).
 
-![]({{ page.images | absolute_url | append: "/aligned_sines.webp"}}){: width="70%" alt="Visualization of the allpass filter effect."}
+![]({{ images | absolute_url | append: "/aligned_sines.webp"}}){: width="70%" alt="Visualization of the allpass filter effect."}
 _Figure {% increment figureId20220508  %}. (Left) A superposition of 3 sines. (Right) The same 3 sines after passing through an allpass filter._
 
 At the output, the frequency content is the same but the relative phase of the sines changed. At the same time, the output sounds exactly as the input.
@@ -148,7 +148,7 @@ If we add a signal and its phase-inverted version, a *phase cancellation* will o
 
 An example of this can be seen in Figure 5.
 
-![]({{ page.images | absolute_url | append: "/phase_cancellation_example.webp"}}){: width="70%" alt="Visualization of the phase cancellation effect."}
+![]({{ images | absolute_url | append: "/phase_cancellation_example.webp"}}){: width="70%" alt="Visualization of the phase cancellation effect."}
 _Figure {% increment figureId20220508  %}. A sum of two sines with the relative phase shift of $\pi$ results in phase cancellation._
 
 A phase cancellation means perfect attenuation, right? Could we possibly use this property in a lowpass or a highpass filter?
@@ -157,7 +157,7 @@ A phase cancellation means perfect attenuation, right? Could we possibly use thi
 
 What will happen if we add the output of the first-order allpass filter to the original input signal (the so-called *direct path*) as in Figure 6? [Zölzer11].
 
-![]({{ page.images | absolute_url | append: "/lowpass.svg"}}){: width="70%" alt="Allpass-based lowpass filter diagram."}
+![]({{ images | absolute_url | append: "/lowpass.svg"}}){: width="70%" alt="Allpass-based lowpass filter diagram."}
 _Figure {% increment figureId20220508  %}. Allpass-based lowpass filter structure._
   
 Since the phase shift at the Nyquist frequency is $-\pi$, we'll obtain a phase cancellation at this frequency.
@@ -172,7 +172,7 @@ Between these frequencies, the amplitude of sines will be gradually attenuated a
 
 The resulting magnitude transfer function can be seen in Figure 7. We obtained a lowpass filter!
 
-![]({{ page.images | absolute_url | append: "/lowpass_transfer_function.webp"}}){: width="70%" alt="Magnitude transfer function of the resulting lowpass filter."}
+![]({{ images | absolute_url | append: "/lowpass_transfer_function.webp"}}){: width="70%" alt="Magnitude transfer function of the resulting lowpass filter."}
 _Figure {% increment figureId20220508  %}. Magnitude transfer function of the resulting lowpass filter._
 
 ### Cutoff Frequency Control
@@ -187,7 +187,7 @@ What if instead of adding the output of the allpass to the input signal, we subt
 
 The corresponding structure is shown in Figure 8.
 
-![]({{ page.images | absolute_url | append: "/highpass.svg"}}){: width="70%" alt="Allpass-based highpass filter diagram."}
+![]({{ images | absolute_url | append: "/highpass.svg"}}){: width="70%" alt="Allpass-based highpass filter diagram."}
 _Figure {% increment figureId20220508  %}. Allpass-based highpass filter structure._
 
 By multiplying the output of the allpass by $-1$ we invert all the components in phase.
@@ -202,7 +202,7 @@ In between these two frequencies, we get an increase in the magnitude of the tra
 
 The magnitude transfer function can be seen in Figure 9.
 
-![]({{ page.images | absolute_url | append: "/highpass_transfer_function.webp"}}){: width="70%" alt="Magnitude transfer function of the resulting highpass filter."}
+![]({{ images | absolute_url | append: "/highpass_transfer_function.webp"}}){: width="70%" alt="Magnitude transfer function of the resulting highpass filter."}
 _Figure {% increment figureId20220508  %}. Magnitude transfer function of the resulting highpass filter._
 
 We, thus, obtained a high-pass filter!

@@ -70,7 +70,7 @@ A **bandstop filter** (also called a **notch filter**) is a filter that attenuat
 
 This frequency range is determined by a **center frequency** and a **bandwidth**.
 
-![]({{ page.images_parametric_eq | absolute_url | append: "/Notch.webp"}}){: width="70%" alt="Bandstop filter amplitude response."}
+![]({{ images_parametric_eq | absolute_url | append: "/Notch.webp"}}){: width="70%" alt="Bandstop filter amplitude response."}
 _Figure {% increment figureId20220712  %}. Bandstop filter amplitude response._
 
 The center frequency points to the frequency with the largest attenuation, the "dip" in the magnitude response of the filter.
@@ -93,7 +93,7 @@ A bandpass filter is a filter that attenuates all frequencies apart from a speci
 
 This range is defined in terms of the **center frequency** and the **bandwidth**, both expressed in Hz.
 
-![]({{ page.images_parametric_eq | absolute_url | append: "/Bandpass.webp"}}){: width="70%" alt="Bandpass filter amplitude response."}
+![]({{ images_parametric_eq | absolute_url | append: "/Bandpass.webp"}}){: width="70%" alt="Bandpass filter amplitude response."}
 _Figure {% increment figureId20220712  %}. Bandpass filter amplitude response._
 
 As in the case of the bandstop filter, we can specify the bandwidth using the **Q** (**quality factor**, **Q-factor**) parameter. Constant-Q filters retain the same "perceptual width" of the passed-through frequency range. The relation between the center frequency, the bandwidth, and Q is given by Equation 1.
@@ -124,7 +124,7 @@ $BW$ is the bandwidth in Hz, $f_\text{b}$ is the break frequency in Hz, and $f_s
 
 The phase response of the second-order allpass filter is visible in Figure 3.
 
-![]({{ page.images_allpass | absolute_url | append: "/second_order_allpass_phase_response.webp" }}){: width="80%" alt="Phase response of the second-order allpass filter with constant bandwidth."}
+![]({{ images_allpass | absolute_url | append: "/second_order_allpass_phase_response.webp" }}){: width="80%" alt="Phase response of the second-order allpass filter with constant bandwidth."}
 _Figure {% increment figureId20220712 %}. Phase response of a second-order allpass filter for different break frequencies frequencies $f_\text{b}$ and bandwidth $BW / f_s = 0.022$._
 
 As you can see, the phase shift is 0 at 0 Hz and gradually changes to $-2\pi$. The steepness of the phase response is determined by the bandwidth $BW$ parameter expressed in Hz.
@@ -145,7 +145,7 @@ At the break frequency, the phase delay is $-\pi$. Adding two tones at the break
 
 Here is a block diagram of the bandstop filter.
 
-![]({{ page.images | absolute_url | append: "/bandstop.svg"}}){: alt="DSP diagram of the allpass-based bandstop filter"}
+![]({{ images | absolute_url | append: "/bandstop.svg"}}){: alt="DSP diagram of the allpass-based bandstop filter"}
 _Figure {% increment figureId20220712  %}. DSP diagram of the allpass-based bandstop filter._
 
 $\text{AP}_2(z)$ denotes the second-order allpass filter.
@@ -156,7 +156,7 @@ The output of the second-order allpass filter is added to the direct path. We mu
 
 Here is a magnitude transfer function of the bandstop filter from Figure 4 with the center frequency at 250 Hz and $Q$ equal to 3.
 
-![]({{ page.images | absolute_url | append: "/bandstop_amplitude_response.webp"}}){: width="70%" alt="Magnitude transfer function of the bandstop filter."}
+![]({{ images | absolute_url | append: "/bandstop_amplitude_response.webp"}}){: width="70%" alt="Magnitude transfer function of the bandstop filter."}
 _Figure {% increment figureId20220712  %}. Magnitude transfer function of the bandstop filter._
 
 At the center frequency, we get the biggest attenuation which decreases the further away we get from the center frequency. We can see how selective in frequency this filter is.
@@ -171,7 +171,7 @@ As an example, here's a white noise signal filtered with the bandstop filter, wh
 
 To visualize what's happening here, take a look at the spectrogram of the audio file.
 
-![]({{ page.images | absolute_url | append: "/bandstop_example.webp"}}){: alt="Spectrogram of the bandstop filtering example."}
+![]({{ images | absolute_url | append: "/bandstop_example.webp"}}){: alt="Spectrogram of the bandstop filtering example."}
 _Figure {% increment figureId20220712  %}. Spectrogram of the bandstop filtering example._
 
 On the x-axis we have the time, on the y-axis we have the log-scaled frequency, and color indicates the amplitude level of the frequency at a specific time point in decibels full-scale (dBFS).
@@ -190,7 +190,7 @@ The allpass-based bandpass filter differs from the bandstop filter only in the s
 
 In Figure 7, there's a block diagram of the presented bandpass filter.
 
-![]({{ page.images | absolute_url | append: "/bandpass.svg"}}){: alt="DSP diagram of the allpass-based bandpass filter"}
+![]({{ images | absolute_url | append: "/bandpass.svg"}}){: alt="DSP diagram of the allpass-based bandpass filter"}
 _Figure {% increment figureId20220712  %}. DSP diagram of the allpass-based bandpass filter._
 
 $\text{AP}_2(z)$ denotes the second-order allpass filter.
@@ -201,7 +201,7 @@ The multiplication by $\frac{1}{2}$ is just to preserve the [-1, 1] amplitude ra
 
 In Figure 8, there's the magnitude response of the bandpass filter with center frequency set to 250 Hz and $Q$ set to 3.
 
-![]({{ page.images | absolute_url | append: "/bandpass_amplitude_response.webp"}}){: width="70%" alt="Magnitude transfer function of the bandpass filter."}
+![]({{ images | absolute_url | append: "/bandpass_amplitude_response.webp"}}){: width="70%" alt="Magnitude transfer function of the bandpass filter."}
 _Figure {% increment figureId20220712  %}. Magnitude transfer function of the bandpass filter._
 
 As you can see, it actually passes through only the frequencies in the specified band.
@@ -216,7 +216,7 @@ Here's an audio sample with a bandpass-filtered white noise, where the center fr
 
 You can observe the effect of the bandpass filter on the spectrogram of the above audio file (Figure 9).
 
-![]({{ page.images | absolute_url | append: "/bandpass_example.webp"}}){: alt="Spectrogram of the bandpass filtering example."}
+![]({{ images | absolute_url | append: "/bandpass_example.webp"}}){: alt="Spectrogram of the bandpass filtering example."}
 _Figure {% increment figureId20220712  %}. Spectrogram of the bandpass filtering example._
 
 Once again, the y-axis is a log-frequency axis, the x-axis is a time axis, and color intensity corresponds to the sound level in decibels full-scale (dBFS).
@@ -250,7 +250,7 @@ Audio plugins that use information from a frequency range to control their behav
 
 For example, [Tonmann Deesser plugin](https://www.tonmann.com/2015/07/18/free-tonmann-deesser-vst-plugin/) has the "listen" button to be able to hear the frequency range that is being compressed. With the "listen" functionality we can find the most audible range with the "s" consonant to compress and avoid compressing the desired signal.
 
-![]({{ page.images | absolute_url | append: "/TonmannDeesserUI.webp"}}){: alt="Graphical user interface of the Tonmann Deesser plugin."}
+![]({{ images | absolute_url | append: "/TonmannDeesserUI.webp"}}){: alt="Graphical user interface of the Tonmann Deesser plugin."}
 _Figure {% increment figureId20220712  %}. Tonmann Deesser plugin has the "listen" functionality._
 
 Alternatively, "listen" can be used to focus on just one part of the spectrum while making edits.

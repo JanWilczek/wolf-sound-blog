@@ -4,7 +4,7 @@
 
 <script data-c-script="necessary" src="{{"/assets/scripts.js" | relative_url }}"></script>
 
-{% if page.url contains 'contact' %}
+{% if url contains 'contact' %}
   <!-- Form Validation -->
   <script data-c-script="necessary" src="{{"/assets/vendor/startbootstrap-clean-blog/js/jqBootstrapValidation.js" | relative_url }}"></script>
   <!-- Send Form -->
@@ -85,8 +85,8 @@
 
 
 <!-- Additional JavaScript files -->
-{% if page.custom_js %}
-    {% for js_file in page.custom_js %}
+{% if custom_js %}
+    {% for js_file in custom_js %}
         <script data-c-script="necessary" type="text/javascript" src="{{ js_file }}"></script>
     {% endfor %}
 {% endif %}

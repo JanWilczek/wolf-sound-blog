@@ -39,7 +39,7 @@ Built using Jetpack Compose, Oboe library, C++, Kotlin, and modern architecture 
 Recently, thanks to my employer [Loudly](https://www.loudly.com/), I went to droidcon Berlin 2022 and learned a lot about modern Android development. That is, "modern" as of 2022 😉
 
 <div markdown="0">
-<img class="lazyload" data-src="{{ page.images | absolute_url | append: "/JanWilczekAndManuelVivo.webp" }}" alt="Jan Wilczek and Manuel Vivo at droidcon Berlin 2022" width="60%">
+<img class="lazyload" data-src="{{ images | absolute_url | append: "/JanWilczekAndManuelVivo.webp" }}" alt="Jan Wilczek and Manuel Vivo at droidcon Berlin 2022" width="60%">
 </div>
 
 _Figure {% increment figureId20220802 %}. At droidcon Berlin 2022, I was lucky to meet [Manuel Vivo](https://manuelvivo.dev/) of Google and listen to his talk on the modern Android app architecture. And I was happy to get some German pretzels too!_
@@ -65,7 +65,7 @@ We've built one in [Python]({% post_url collections.posts, 'synthesis/2021-08-27
 The goal of the app is to build a wavetable synthesizer on Android with basic controls. You can see them in the user interface (UI) of the app.
 
 <div markdown="0">
-<img class="lazyload" data-src="{{ page.images | absolute_url | append: "/SynthesizerUI.webp" }}" alt="Graphical user interface of the synthesizer app">
+<img class="lazyload" data-src="{{ images | absolute_url | append: "/SynthesizerUI.webp" }}" alt="Graphical user interface of the synthesizer app">
 </div>
 
 _Figure {% increment figureId20220802 %}. Graphical user interface of the synthesizer app we are going to build._
@@ -114,7 +114,7 @@ How can one come up with an architecture at the very beginning?
 The answer is: one doesn't.
 
 <div markdown="0">
-<img class="lazyload" data-src="{{ page.images | absolute_url | append: "/BoromirArchitectureMeme.webp" }}" alt="One does not simply fix architecture at project start">
+<img class="lazyload" data-src="{{ images | absolute_url | append: "/BoromirArchitectureMeme.webp" }}" alt="One does not simply fix architecture at project start">
 </div>
 
 _Figure {% increment figureId20220802 %}. Boromir knows what he's saying 😉._
@@ -132,7 +132,7 @@ So here I will show you the architecture of the completed app. The initial idea 
 [Android architecture guidelines](https://developer.android.com/topic/architecture) encourage developers to build their apps in layers.
 
 <div markdown="0">
-<img class="lazyload" data-src="{{ page.images | absolute_url | append: "/ModernAndroidArchitectureOverview.webp" }}" alt="Diagram of a generic architecture of an Android app as recommended by Google">
+<img class="lazyload" data-src="{{ images | absolute_url | append: "/ModernAndroidArchitectureOverview.webp" }}" alt="Diagram of a generic architecture of an Android app as recommended by Google">
 </div>
 
 _Figure {% increment figureId20220802 %}. Officially recommended app architecture by Google ([source](https://developer.android.com/topic/architecture))._
@@ -140,7 +140,7 @@ _Figure {% increment figureId20220802 %}. Officially recommended app architectur
 In general, I prefer the [ports and adapters](https://en.wikipedia.org/wiki/Hexagonal_architecture_(software)) approach. As a result, our app is a mix of the two.
 
 <div markdown="0">
-<img class="lazyload" data-src="{{ page.images | absolute_url | append: "/SynthesizerArchitecture.svg" }}" alt="Component diagram of the app">
+<img class="lazyload" data-src="{{ images | absolute_url | append: "/SynthesizerArchitecture.svg" }}" alt="Component diagram of the app">
 </div>
 
 _Figure {% increment figureId20220802 %}. Architecture of our wavetable synthesizer Android app. &lt;I&gt; marks an interface._

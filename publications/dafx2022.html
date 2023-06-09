@@ -94,7 +94,7 @@ custom_js:
                 </p>
                 {% for file in example.files %}
                     <ts-track title="{{file.name}}">
-                        <ts-source src="{{ page.assets  | append: device.modeled_device | append: '/' | append: sampling_rate | append: '/' | append: file.filename }}" type="audio/flac">
+                        <ts-source src="{{ assets  | append: device.modeled_device | append: '/' | append: sampling_rate | append: '/' | append: file.filename }}" type="audio/flac">
                         </ts-source>
                     </ts-track>
                 {% endfor %}

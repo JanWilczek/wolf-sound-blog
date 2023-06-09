@@ -32,7 +32,7 @@ To design and implement a parametric filter, [4 steps are needed]({% post_url co
 
 In this article, we'll explain the second step of that process: how to go from an analog prototype to a digital form of the parametric filter. This is shown on the diagram below.
 
-![]({{ page.images | absolute_url | append: "/PipelineMarked.webp"}}){: alt="Parametric filter design workflow with marked third step." }
+![]({{ images | absolute_url | append: "/PipelineMarked.webp"}}){: alt="Parametric filter design workflow with marked third step." }
 _Figure {% increment figureId20220115 %}. In this article, we discuss the bilinear transform._
 
 ## System Digitization Methods
@@ -98,7 +98,7 @@ $$Y(s) = \frac{1}{s}X(s), \quad ({% increment equationId20220115 %})$$
 
 where $s \in \mathbb{C}$. Therefore, the integrator can be shown on the diagram as in Figure 3.
 
-![]({{ page.images | absolute_url | append: "/IntegratorDiagram.webp"}}){: alt="A diagram of the analog integrator system." width="50%" }
+![]({{ images | absolute_url | append: "/IntegratorDiagram.webp"}}){: alt="A diagram of the analog integrator system." width="50%" }
 _Figure {% increment figureId20220115 %}. A diagram of the analog integrator system._
 
 We want to obtain a discrete system described by a discrete transfer function $G(z)$ that behaves like $\frac{1}{s}$. To this end, we observe the output of the continuous system at discrete time points $t = kT$, where $k \in \mathbb{Z}$ and $T$ is the sampling interval (inverse of the sampling rate).
@@ -140,7 +140,7 @@ First of all, it is called *bilinear* because **the numerator and the denominato
 
 Second of all, **the bilinear transform maps the left half-plane of the $s$-plane into the interior of of the unit circle in the $z$-plane**. This is shown on Figure 4.
 
-![]({{ page.images | absolute_url | append: "/BilinearTransformVisualization.webp"}}){: alt="A visualization of the bilinear transform." width="100%" }
+![]({{ images | absolute_url | append: "/BilinearTransformVisualization.webp"}}){: alt="A visualization of the bilinear transform." width="100%" }
 _Figure {% increment figureId20220115 %}. Bilinear transform maps the left half-plane of the $s$-plane into the unit circle of the $z$-plane. The infinitely long analog frequency axis $j\omega$ becomes the finite-length circle. Axis bending in the middle is shown only for the visualization purposes: it is not what is meant by the mathematics._
 
 As a consequence, the poles from the left half-plane of the $s$-plane are mapped to the poles within the unit circle of the $z$-plane. That means that **stable analog filters are transformed into stable digital filters**, what is a very desirable property in the context of musically useful parametric filters.
@@ -175,7 +175,7 @@ $$\omega_\text{d} = \frac{2}{T} \text{arctan}(\omega_\text{a} T / 2). \quad ({% 
 
 The visualization of Equation 14 on Figure 5 shows what is frequency warping.
 
-![]({{ page.images | absolute_url | append: "/FrequencyWarping.webp"}}){: alt="Plot showing how analog frequencies are mapped to digital frequencies by the bilinear transform." width="70%" }
+![]({{ images | absolute_url | append: "/FrequencyWarping.webp"}}){: alt="Plot showing how analog frequencies are mapped to digital frequencies by the bilinear transform." width="70%" }
 _Figure {% increment figureId20220115 %}. Plot showing how analog frequencies are mapped to digital frequencies by the bilinear transform._
 
 

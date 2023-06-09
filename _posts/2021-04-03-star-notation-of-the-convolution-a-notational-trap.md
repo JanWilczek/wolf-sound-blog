@@ -34,7 +34,7 @@ How not to fall victim to the star notation of the convolution?
 
 # Introduction
 
-{% capture _ %}{% increment page.equationId2  %}{% endcapture %}
+{% capture _ %}{% increment equationId2  %}{% endcapture %}
 
 Taking advantage of the introduction of delays in [the previous article]({% post_url collections.posts, '2021-04-01-identity-element-of-the-convolution' %}), I wanted to warn you against a common pitfall when talking about the convolution [1]. 
 
@@ -42,25 +42,25 @@ The star notation $x[n] \ast h[n]$ is very convenient. It must, however, be used
 
 The following notation should be clear to you by now
 
-$$y[n] = x[n] \ast h[n], n \in \mathbb{Z}. \quad ({% increment page.equationId2  %})$$
+$$y[n] = x[n] \ast h[n], n \in \mathbb{Z}. \quad ({% increment equationId2  %})$$
 
 What if we wanted to obtain a delayed version of $y[n]$, i. e., $y[n-n_0]$? A natural move would be to substitute $n \leftarrow n-n_0$
 
-$$y[n-n_0] \stackrel{?}{=} x[n-n_0] \ast h[n-n_0], \quad ({% increment page.equationId2  %})$$
+$$y[n-n_0] \stackrel{?}{=} x[n-n_0] \ast h[n-n_0], \quad ({% increment equationId2  %})$$
 
 but...
 
-![]({{ page.images | absolute_url | append: "/trap.jpg" }})
+![]({{ images | absolute_url | append: "/trap.jpg" }})
 
 Let's evaluate the right hand side of "Equation" 2
 
-$$x[n-n_0] \ast h[n-n_0] = \sum_{k=-\infty}^{\infty} x[k-n_0] h[n-n_0 - k] = \\ \sum_{k=-\infty}^{\infty} x[k] h[n-2n_0 - k] = y[n-2n_0]. \quad ({% increment page.equationId2  %})$$
+$$x[n-n_0] \ast h[n-n_0] = \sum_{k=-\infty}^{\infty} x[k-n_0] h[n-n_0 - k] = \\ \sum_{k=-\infty}^{\infty} x[k] h[n-2n_0 - k] = y[n-2n_0]. \quad ({% increment equationId2  %})$$
 
 By blindly substituting $n \leftarrow n-n_0$, we overshot the desired delay by a factor of two.
 
 The correct way to write this is [1, Eq. 2.52]
 
-$$y[n-n_0] = x[n] \ast h[n-n_0] = \sum_{k=-\infty}^{\infty} x[k] h[n-n_0 - k]. \quad ({% increment page.equationId2  %})$$
+$$y[n-n_0] = x[n] \ast h[n-n_0] = \sum_{k=-\infty}^{\infty} x[k] h[n-n_0 - k]. \quad ({% increment equationId2  %})$$
 
 This is just one of many problems that arise when using the star notation.
 
@@ -73,25 +73,25 @@ How this works is best explained through an example.
 
 Let's say the operands of the convolution we need to perform are both delayed by different amounts, i. e., we want to calculate
 
-$$x[n-n_x] \ast h[n-n_h] = \dots \quad n,n_x,n_h \in \mathbb{Z}. \quad ({% increment page.equationId2  %})$$
+$$x[n-n_x] \ast h[n-n_h] = \dots \quad n,n_x,n_h \in \mathbb{Z}. \quad ({% increment equationId2  %})$$
 
 Let's define two "helper functions" $x_1[n], h_1[n]$
 
-$$x_1[n] = x[n-n_x], \quad ({% increment page.equationId2  %})$$
+$$x_1[n] = x[n-n_x], \quad ({% increment equationId2  %})$$
 
-$$h_1[n] = h[n-n_h]. \quad ({% increment page.equationId2  %})$$
+$$h_1[n] = h[n-n_h]. \quad ({% increment equationId2  %})$$
 
 Now we can insert these functions into Equation 5
 
-$$x[n-n_x] \ast h[n-n_h] = x_1[n] \ast h_1[n], \quad ({% increment page.equationId2  %})$$
+$$x[n-n_x] \ast h[n-n_h] = x_1[n] \ast h_1[n], \quad ({% increment equationId2  %})$$
 
 use the definition of the convolution
 
-$$ x_1[n] \ast h_1[n] = \sum_{k=-\infty}^{\infty} x_1[k] h_1[n-k], \quad ({% increment page.equationId2  %}) $$
+$$ x_1[n] \ast h_1[n] = \sum_{k=-\infty}^{\infty} x_1[k] h_1[n-k], \quad ({% increment equationId2  %}) $$
 
 and finally substitute the original functions $x[n]$ and $h[n]$ according to Equations 6 and 7 respectively
 
-$$\sum_{k=-\infty}^{\infty} x_1[k] h_1[n-k] = \sum_{k=-\infty}^{\infty} x[k-n_x] h[n - k - n_h]. \quad ({% increment page.equationId2  %})$$
+$$\sum_{k=-\infty}^{\infty} x_1[k] h_1[n-k] = \sum_{k=-\infty}^{\infty} x[k-n_x] h[n - k - n_h]. \quad ({% increment equationId2  %})$$
 
 This approach always works for me. At the same time, any shortcuts in an attempt not to use it inevitably led me to an error in calculations.
 
@@ -100,7 +100,7 @@ This approach always works for me. At the same time, any shortcuts in an attempt
 This final example should make clear why "helper functions" ensure us that we correctly evaluate the star notation. In this example, one of the operands is time-reversed.
 
 $$x[n] \ast h[-n] \stackrel{h_2[n]=h[-n]}{=} x[n] \ast h_2[n] = \sum_{k=-\infty}^{\infty} x[k] h_2[n-k]\\
-\stackrel{h_2[n-k]=h[-(n-k)]}{=} \sum_{k=-\infty}^{\infty} x[k] h[k-n]. \quad ({% increment page.equationId2  %})$$
+\stackrel{h_2[n-k]=h[-(n-k)]}{=} \sum_{k=-\infty}^{\infty} x[k] h[k-n]. \quad ({% increment equationId2  %})$$
 
 Is it possible to guess the correct answer right away? Yes, definitely. But it is not easy, especially if the arguments get even more complicated and the convolution is a part of a much larger body of derivations.
 
