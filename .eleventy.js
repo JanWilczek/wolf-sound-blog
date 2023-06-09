@@ -7,10 +7,15 @@ const site = require("./_data/site.json");
 const { wordCount } = require("eleventy-plugin-wordcount");
 
 module.exports = function(eleventyConfig) {
-    // Add header anchor and footnotes 0plugin to Markdown renderer
+    // Add header anchor and footnotes plugin to Markdown renderer
     const markdownLib = markdownIt({html: true, typographer: true});
     markdownLib.use(markdownItFootnote).use(markdownItAnchor);
     eleventyConfig.setLibrary("md", markdownLib);
+
+    // Watch CSS files for changes
+    eleventyConfig.setBrowserSyncConfig({
+        files: './_site/assets/**/*.css'
+    });
 
     // Enable syntax highlighting
     eleventyConfig.addPlugin(syntaxHighlight);

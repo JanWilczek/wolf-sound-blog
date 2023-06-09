@@ -1,15 +1,11 @@
----
-# Only the main Sass file needs front matter (the dashes are enough)
----
-
-@import "styles";
-@import "img";
-@import "other";
-@import "sidebar";
-@import "category-box";
-@import "pagination";
-@import "resources";
-@import "faq";
+@import "../_sass/styles";
+@import "../_sass/img";
+@import "../_sass/other";
+@import "../_sass/sidebar";
+@import "../_sass/category-box";
+@import "../_sass/pagination";
+@import "../_sass/resources";
+@import "../_sass/faq";
 @import "css/autumn.css";
 @import "css/code.css";
 @import "css/modal.css";

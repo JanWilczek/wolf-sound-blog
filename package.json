@@ -49,6 +49,12 @@
   },
   "main": "gulpfile.js",
   "scripts": {
+    "watch:sass": "sass --watch assets:_site/assets",
+    "build:sass": "sass assets:_site/assets",
+    "watch:eleventy": "eleventy --serve",
+    "build:eleventy": "eleventy",
+    "start": "npm-run-all build:sass --parallel watch:*",
+    "build": "npm-run-all build:*",
     "test": "echo \"Error: no test specified\" && exit 1"
   }
 }
