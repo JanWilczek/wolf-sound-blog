@@ -32,31 +32,28 @@ module.exports = function(eleventyConfig) {
 
     // Categories collections
     eleventyConfig.addCollection("ccpp", function(collectionApi) {
-        return collectionApi.getFilteredByGlob("_posts/c-c++/*.md");
+        return getPostsForCategory(collectionApi, "c/c++");
     });
     eleventyConfig.addCollection("audio_fx", function(collectionApi) {
-        return collectionApi.getFilteredByGlob("_posts/fx/*.md");
+        return getPostsForCategory(collectionApi, "audio fx");
     });
     eleventyConfig.addCollection("dsp", function(collectionApi) {
-        return collectionApi.getFilteredByGlob("_posts/dsp/*.md");
+        return getPostsForCategory(collectionApi, "digital signal processing");
     });
     eleventyConfig.addCollection("programming_in_general", function(collectionApi) {
-        return collectionApi.getFilteredByGlob("_posts/programming-in-general/*.md");
+        return getPostsForCategory(collectionApi, "programming in general");
     });
     eleventyConfig.addCollection("synthesis", function(collectionApi) {
-        return collectionApi.getFilteredByGlob("_posts/synthesis/*.md");
+        return getPostsForCategory(collectionApi, "sound synthesis");
     });
     eleventyConfig.addCollection("podcast", function(collectionApi) {
-        return collectionApi.getFilteredByGlob("_posts/podcast/*.md");
+        return getPostsForCategory(collectionApi, "podcast");
     });
     eleventyConfig.addCollection("python", function(collectionApi) {
         return getPostsForCategory(collectionApi, "python");
     });
-    
     eleventyConfig.addCollection("sound_in_general", function(collectionApi) {
-        return collectionApi.getFilteredByGlob("_posts/**/*.md").filter(item => {
-            return "Sound in general" in item.data.categories;
-        });
+        return getPostsForCategory(collectionApi, "sound in general");
     })
 
     // Add katex support from https://benborgers.com/posts/eleventy-katex  
