@@ -1,27 +1,30 @@
 ---
 layout: page
+pagination:
+  size: 6
+  reverse: true
 ---
 
 {% include 'categories.html' %}
 
-{% for post in paginator.posts %}
+{% for post in pagination.items %}
 
 <article class="post-preview">
   <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}">
     <h2 class="post-title">{{ post.data.title }}</h2>
-    {% if post.subtitle %}
-    <h3 class="post-subtitle">{{ post.subtitle }}</h3>
+    {% if post.data.subtitle %}
+    <h3 class="post-subtitle">{{ post.data.subtitle }}</h3>
     {% else %}
     <h3 class="post-subtitle">{{ post.templateContent | strip_html | truncate_to_first_newline | truncatewords: 15 }}</h3>
     {% endif %}
   </a>
   <p class="post-meta">Posted by
-    {% if post.author %}
-    {{ post.author }}
+    {% if post.data.author %}
+    {{ post.data.author }}
     {% else %}
     {{ site.author }}
     {% endif %}
-    on {{ post.date | date: '%B %d, %Y' }} &middot; {% include 'read_time.html' content=post.content %}
+    on {{ post.date | date: '%B %d, %Y' }} &middot; {% render 'read_time.html', content: post.templateContent %}
   </p>
 </article>
 
@@ -30,25 +33,25 @@ layout: page
 {% endfor %}
 
 <!-- Pager -->
-{% if paginator.total_pages > 1 %}
+{% if pagination.pages.length > 1 %}
 
 <div class="justify-content-between pagination-numbers">
 
-  {% if paginator.previous_page %}
-  <a class="btn btn-primary" href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&larr;
+  {% if pagination.href.previous %}
+  <a class="btn btn-primary" href="{{ pagination.href.previous }}">&larr;
     Newer<span class="d-none d-md-inline"> Posts</span></a>
   {% endif %}
 
-  {% if paginator.page_trail %}
-  {% for trail in paginator.page_trail %}
+  {% if pagination.page_trail %}
+  {% for trail in pagination.page_trail %}
     <a class="btn {% if url == trail.path %} btn-primary {% else %} btn-outline-primary {% endif %}" href="{{ trail.path | absolute_url | remove: "index.html" }}" title="{{trail.title}}">
         {{ trail.num }}
     </a>
   {% endfor %}
-{% endif %}
+  {% endif %}
 
-  {% if paginator.next_page %}
-  <a class="btn btn-primary" href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Older<span class="d-none d-md-inline"> Posts</span> &rarr;</a>
+  {% if pagination.href.next %}
+  <a class="btn btn-primary" href="{{ pagination.href.next }}">Older<span class="d-none d-md-inline"> Posts</span> &rarr;</a>
   {% endif %}
 
 </div>
