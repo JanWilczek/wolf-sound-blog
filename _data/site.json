@@ -12,9 +12,6 @@
   "facebook_page": "https://www.facebook.com/JanWilczekWolfSound",
   "logo_title_path": "/assets/img/home/LogoNameOnly.webp",
   "google_analytics": "UA-149437803-2",
-  "pagination": {
-    "per_page": 6
-  },
   "permalink": "/:title/",
   "highlighter": "rouge",
   "autopages": {
@@ -64,9 +61,6 @@
     {
       "scope": {
         "path": ""
-      },
-      "values": {
-        "background": "/assets/img/home/Logo.webp"
       }
     }
   ]
