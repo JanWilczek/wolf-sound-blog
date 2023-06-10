@@ -5,6 +5,7 @@ const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const katex = require("katex");
 const site = require("./_data/site.json");
 const { wordCount } = require("eleventy-plugin-wordcount");
+const pluginRss = require("@11ty/eleventy-plugin-rss");
 
 module.exports = function(eleventyConfig) {
     // Add header anchor and footnotes plugin to Markdown renderer
@@ -140,6 +141,8 @@ module.exports = function(eleventyConfig) {
     eleventyConfig.addLiquidFilter("truncate_to_first_newline", string => {
         return string.split('\n')[0];
     });
+
+    eleventyConfig.addPlugin(pluginRss);
 
     return {
         dir: {
