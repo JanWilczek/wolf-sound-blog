@@ -50,12 +50,9 @@ module.exports = function(eleventyConfig) {
         return collectionApi.getFilteredByGlob("_posts/podcast/*.md");
     });
     eleventyConfig.addCollection("python", function(collectionApi) {
-        return collectionApi.getFilteredByGlob("_posts/**/*.md").filter(item => {
-            return item.data.categories.map(categoryName => {
-                return categoryName.toLowerCase();
-            }).includes("python");
-        });
-    })
+        return getPostsForCategory(collectionApi, "python");
+    });
+    
     eleventyConfig.addCollection("sound_in_general", function(collectionApi) {
         return collectionApi.getFilteredByGlob("_posts/**/*.md").filter(item => {
             return "Sound in general" in item.data.categories;
@@ -153,3 +150,11 @@ module.exports = function(eleventyConfig) {
         }
     }
 };
+
+function getPostsForCategory(collectionApi, category) {
+    return collectionApi.getFilteredByGlob("_posts/**/*.md").filter(item => {
+        return item.data.categories.map(categoryName => {
+            return categoryName.toLowerCase();
+        }).includes(category);
+    });
+}
