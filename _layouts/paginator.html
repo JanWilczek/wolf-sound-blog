@@ -42,13 +42,13 @@ pagination:
     Newer<span class="d-none d-md-inline"> Posts</span></a>
   {% endif %}
 
-  {% if pagination.page_trail %}
-  {% for trail in pagination.page_trail %}
-    <a class="btn {% if url == trail.path %} btn-primary {% else %} btn-outline-primary {% endif %}" href="{{ trail.path | absolute_url | remove: "index.html" }}" title="{{trail.title}}">
-        {{ trail.num }}
+  {% assign currentPageOrdinal = pagination.pageNumber | plus: 1 %}
+  {% for pageOrdinal in (1..pagination.pages.length) %}
+    {% assign pageNumber = pageOrdinal | minus: 1 %}
+    <a class="btn {% if currentPageOrdinal == pageOrdinal %} btn-primary {% else %} btn-outline-primary {% endif %}" href="{{ pagination.hrefs[pageNumber]}}" title="{{pagination.pages[pageNumber].data.title}}">
+        {{ pageOrdinal }}
     </a>
   {% endfor %}
-  {% endif %}
 
   {% if pagination.href.next %}
   <a class="btn btn-primary" href="{{ pagination.href.next }}">Older<span class="d-none d-md-inline"> Posts</span> &rarr;</a>
