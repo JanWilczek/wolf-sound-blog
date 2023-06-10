@@ -4,7 +4,7 @@
       {% if post.data.subtitle %}
       <h3 class="post-subtitle">{{ post.data.subtitle }}</h3>
       {% else %}
-      <h3 class="post-subtitle">{{ post.templateContent | strip_html | truncatewords: 15 }}</h3>
+      <h3 class="post-subtitle">{{ post.templateContent | strip_html | truncate_to_first_newline | truncatewords: 15 }}</h3>
       {% endif %}
     </a>
     <p class="post-meta">Posted by

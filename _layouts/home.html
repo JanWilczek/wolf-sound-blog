@@ -39,7 +39,7 @@ layout: default
         
         <!-- Home Post List -->
         <div class="d-block" id="All-preview" name="preview-block">
-        {% assign postslist = collections.posts %}
+        {% assign postslist = collections.posts | reverse %}
         {% for post in postslist limit: 6 %}
             {% include 'post-preview.html' %}
         {% endfor %}

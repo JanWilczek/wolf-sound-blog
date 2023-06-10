@@ -141,6 +141,10 @@ module.exports = function(eleventyConfig) {
         return string.replace(/\s\s+/g, ' ');
     });
 
+    eleventyConfig.addLiquidFilter("truncate_to_first_newline", string => {
+        return string.split('\n')[0];
+    });
+
     return {
         dir: {
             layouts: "_layouts"
