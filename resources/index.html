@@ -41,12 +41,12 @@ description: "Resources recommended by WolfSound for learning audio programming"
     <h2>Jump to Category</h2>
 
     <ol>
-        {% for category in site.data.resources.all_resources %}
+        {% for category in resources.all_resources %}
         <li><a href="#{{ category.category | slugify }}">{{ category.category }}</a></li>
         {% endfor %}
     </ol>
 
-    {% for category in site.data.resources.all_resources %}
+    {% for category in resources.all_resources %}
     <hr/>
     <h2 id="{{ category.category | slugify }}">{{ category.category }}</h2>
     <hr/>
