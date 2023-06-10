@@ -51,7 +51,9 @@ module.exports = function(eleventyConfig) {
     });
     eleventyConfig.addCollection("python", function(collectionApi) {
         return collectionApi.getFilteredByGlob("_posts/**/*.md").filter(item => {
-            return "python" in item.data.categories;
+            return item.data.categories.map(categoryName => {
+                return categoryName.toLowerCase();
+            }).includes("python");
         });
     })
     eleventyConfig.addCollection("sound_in_general", function(collectionApi) {
