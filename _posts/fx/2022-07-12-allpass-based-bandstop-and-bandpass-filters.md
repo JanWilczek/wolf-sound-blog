@@ -14,7 +14,7 @@ categories:
 tags:
   - filtering 
   - effects
-  - Python
+  - python
 discussion_id: 2022-07-12-allpass-based-bandstop-and-bandpass-filters
 ---
 With real-time center frequency and bandwidth control!

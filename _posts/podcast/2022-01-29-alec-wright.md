@@ -11,7 +11,7 @@ categories:
   - Audio FX
 tags:
   - deep learning
-  - Virtual Analog
+  - virtual analog
   - amplifiers
   - research
 discussion_id: 2022-01-29-alec-wright

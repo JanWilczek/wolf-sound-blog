@@ -11,8 +11,8 @@ categories:
   - Digital Signal Processing
 tags:
   - simd
-  - C++
-  - C
+  - cpp
+  - c
 discussion_id: 2022-02-12-simd-in-dsp
 ---
 Speed up DSP operations with vector instructions.

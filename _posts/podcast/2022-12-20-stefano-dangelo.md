@@ -10,8 +10,8 @@ categories:
   - Podcast
 tags:
   - career
-  - C
-  - C++
+  - c
+  - cpp
   - learning
   - maths
   - matlab

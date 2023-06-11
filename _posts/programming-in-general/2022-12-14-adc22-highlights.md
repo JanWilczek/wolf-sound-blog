@@ -12,8 +12,8 @@ categories:
 tags:
   - effects
   - testing
-  - C++
-  - JUCE
+  - cpp
+  - juce
   - career
   - learning
   - deep learning

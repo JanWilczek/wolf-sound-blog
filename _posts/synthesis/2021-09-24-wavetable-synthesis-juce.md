@@ -11,8 +11,8 @@ categories:
  - Sound Synthesis
 tags:
  - wavetable
- - JUCE
- - C++
+ - juce
+ - cpp
 discussion_id: 2021-09-24-wavetable-synthesis-juce
 ---
 Let's write a wavetable synthesizer in JUCE C++ framework!

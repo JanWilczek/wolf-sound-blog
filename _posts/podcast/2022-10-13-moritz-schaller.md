@@ -10,7 +10,7 @@ categories:
   - Podcast
   - Programming in general
 tags:
-  - Python
+  - python
   - career
   - learning
   - software architecture

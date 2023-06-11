@@ -50,7 +50,7 @@ module.exports = function(eleventyConfig) {
     eleventyConfig.addCollection("podcast", function(collectionApi) {
         return getPostsForCategory(collectionApi, "podcast");
     });
-    eleventyConfig.addCollection("python", function(collectionApi) {
+    eleventyConfig.addCollection("python_category", function(collectionApi) {
         return getPostsForCategory(collectionApi, "python");
     });
     eleventyConfig.addCollection("sound_in_general", function(collectionApi) {

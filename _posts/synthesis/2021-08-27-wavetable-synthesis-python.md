@@ -11,7 +11,7 @@ categories:
  - Sound Synthesis
 tags:
  - wavetable
- - Python
+ - python
 discussion_id: 2021-08-27-wavetable-synthesis-python
 ---
 Let's write a wavetable synthesizer in Python!

@@ -14,7 +14,7 @@ categories:
 tags:
   - filtering 
   - effects
-  - Python
+  - python
 discussion_id: 2022-05-08-allpass-based-lowpass-and-highpass-filters
 ---
 Control the cutoff with just one coefficient!

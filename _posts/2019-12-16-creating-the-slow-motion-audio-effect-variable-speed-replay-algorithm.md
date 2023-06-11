@@ -34,7 +34,7 @@ categories:
   - Digital Signal Processing
 tags:
   - effects
-  - Python
+  - python
 discussion_id: 2019-12-16-creating-the-slow-motion-audio-effect-variable-speed-replay-algorithm
 ---
 

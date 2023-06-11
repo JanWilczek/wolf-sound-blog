@@ -11,8 +11,8 @@ categories:
 tags:
   - filtering 
   - effects
-  - JUCE
-  - C++
+  - juce
+  - cpp
 discussion_id: 2022-05-17-lowpass-highpass-filter-plugin-with-juce
 ---
 Let's build a lowpass/highpass filter audio plugin from scratch!

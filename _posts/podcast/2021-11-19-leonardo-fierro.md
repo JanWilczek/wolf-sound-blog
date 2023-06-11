@@ -12,7 +12,7 @@ categories:
 tags:
   - career
   - learning
-  - MATLAB
+  - matlab
   - research
 discussion_id: 2021-11-19-leonardo-fierro
 ---

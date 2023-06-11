@@ -13,7 +13,7 @@ tags:
   - android
   - wavetable
   - kotlin
-  - C++
+  - cpp
 discussion_id: 2022-08-02-app-architecture
 custom_js:
  - /assets/vendor/lazyload/lazyload.min.js

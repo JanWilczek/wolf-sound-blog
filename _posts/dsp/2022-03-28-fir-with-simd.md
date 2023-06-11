@@ -15,8 +15,8 @@ tags:
   - effects
   - simd
   - convolution
-  - C++
-  - C
+  - cpp
+  - c
 discussion_id: 2022-03-28-fir-with-simd
 ---
 How to make your FIR filters fast in the time domain?

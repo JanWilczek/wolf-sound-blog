@@ -11,7 +11,7 @@ categories:
   - Sound in general
   - Sound Synthesis
 tags:
-  - JUCE
+  - juce
   - career
   - hardware
 discussion_id: 2022-06-14-steve-barile
