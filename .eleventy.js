@@ -144,6 +144,15 @@ module.exports = function(eleventyConfig) {
 
     eleventyConfig.addPlugin(pluginRss);
 
+    // Return all the tags used in a collection
+	eleventyConfig.addFilter("getAllTags", collection => {
+		let tagSet = new Set();
+		for(let item of collection) {
+			(item.data.tags || []).forEach(tag => tagSet.add(tag));
+		}
+		return Array.from(tagSet);
+	});
+
     return {
         dir: {
             layouts: "_layouts"

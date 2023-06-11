@@ -169,8 +169,9 @@
 
         <h5>Tag cloud</h5>
         <div class="tagcloud">
-            {% for tag in site.tags %}
-            <a href="/tag/{{ tag[0] | slugify }}" class="tag-cloud-link">{{ tag[0] }}</a>
+            {% assign tags = collections.all | getAllTags %}
+            {% for tag in tags %}
+            <a href="/tag/{{ tag | slugify }}" class="tag-cloud-link">{{ tag }}</a>
             {% endfor %}
         </div>
         
