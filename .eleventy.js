@@ -58,15 +58,6 @@ module.exports = function(eleventyConfig) {
         return getPostsForCategory(collectionApi, "sound in general");
     })
 
-    // Add katex support from https://benborgers.com/posts/eleventy-katex  
-    eleventyConfig.addFilter("latex", (content) => {
-        return content.replace(/\$\$(.+?)\$\$/g, (_, equation) => {
-            const cleanEquation = equation.replace(/&lt;/g, "<").replace(/&gt;/g, ">");
-
-            return katex.renderToString(cleanEquation, { throwOnError: false });
-        });
-    });
-
     // Define a post_url Liquid tag for cross referencing
     // https://rusingh.com/articles/2020/04/24/implement-jekyll-post-url-tag-11ty-shortcode/
     eleventyConfig.addShortcode("post_url", (collection, relativePostPath) => {
