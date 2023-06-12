@@ -29,7 +29,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <title>
-        {% if title %}{{ title | escape }} - {{ site.title | escape }}
+        {% if title %}{{ title | escape }} | {{ site.title | escape }}
+        {% elsif eleventyComputed.title %}{{ eleventyComputed.title | escape }} | {{ site.title | escape }}
         {% else %}{{ site.title | escape }}{% endif %}
     </title>
 
@@ -46,7 +47,7 @@
     <link rel="stylesheet" href="{{"/assets/vendor/fontawesome-free/css/all.min.css" | relative_url }}">
 
     <link rel="stylesheet" href="{{"/assets/main.css" | relative_url }}">
-    <link rel="shortcut icon" type="image/png" href="{{"/favicon.png" | absolute_url}}">
+    <link rel="shortcut icon" type="image/png" href="/favicon.png">
     <link rel="canonical" href="{{ url | replace:'index.html','' | absolute_url }}">
 
     <!-- Relative pagination (for Bing and accessibility) -->

@@ -13,7 +13,11 @@ layout: default
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
           <div class="page-heading">
+            {% if title %}
             <h1>{{ title }}</h1>
+            {% else %}
+            <h1>{{ eleventyComputed.title }}</h1>
+            {% endif %}
             {% if description %}
             <span class="subheading">{{ description }}</span>
             {% endif %}

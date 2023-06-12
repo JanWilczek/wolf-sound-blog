@@ -17,10 +17,10 @@ pagination:
     - python_category
     - sound_in_general
 permalink: /tag/{{ tag | slugify }}/
+eleventyComputed:
+    title: Posts tagged with "{{ tag }}"
 ---
 {% include 'categories.html' %}
-
-<h2>Posts tagged with "{{ tag }}"</h2>
 
 {% for post in collections[tag] reversed %}
 
