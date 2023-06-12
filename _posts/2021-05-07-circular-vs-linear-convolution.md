@@ -312,7 +312,7 @@ Let's assume that we have two signals, of length $M$ and $N$, $M \geq N$. We wan
 
 A straightforward implementation of the circular convolution, as presented in Equation 6, is rather brute-force
 
-{% highlight python %}
+```python
 import numpy as np
 
 def periodic_convolution_naive(x, h):
@@ -328,13 +328,13 @@ def periodic_convolution_naive(x, h):
             output += x[m] * h[(n - m) % N]
     
     return output
-{% endhighlight %}
+```
 
 This implementation has time complexity $O(N^2)$.
 
 However, the convolution property of the DFT, as presented in Equation 5, suggests a much more efficient implementation
 
-{% highlight python %}
+```python
 import numpy as np
 
 def periodic_convolution_fast(x, h):
@@ -345,7 +345,7 @@ def periodic_convolution_fast(x, h):
     H = np.fft.fft(h)
 
     return np.real(np.fft.ifft(np.multiply(X, H)))
-{% endhighlight %}
+```
 
 The complexity of the "fast" implementation is determined by the complexity of the forward and inverse DFT as implemented in the `numpy.fft` module, which is $O(N \log N)$.
 

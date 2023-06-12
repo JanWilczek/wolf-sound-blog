@@ -121,7 +121,7 @@ Having discussed the basics of sampling and quantization, we are ready to put th
 
 This example code samples a 1 Hz sine with the sample rate of 8 Hz and displays the results:
 
-```python
+```py
 #!/usr/bin/env python3
 """Example of sine sampling"""
 import numpy as np

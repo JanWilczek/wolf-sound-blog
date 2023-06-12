@@ -69,7 +69,7 @@ $$ y[n] = x[n] \ast h[n] = \sum_{k=\max\{0,n-N_h+1\}}^{\min\{n, N_x-1\}} x[k] h[
 
 This translates to the following code
 
-{% highlight python %}
+```python
 def naive_convolution(x, h):    
     """Compute the discrete convolution of two sequences"""
     
@@ -94,7 +94,7 @@ def naive_convolution(x, h):
         y[i] = x[i:i+N].dot(h)
         
     return y
-{% endhighlight %}
+```
 _Listing 1. Naive linear convolution._
 
 ## FFT-based implementation
@@ -108,13 +108,13 @@ In order to make circular convolution correspond to linear convolution we need t
 
 We can obtain it using function `pad_zeros_to()`.
 
-{% highlight python %}
+```python
 def pad_zeros_to(x, new_length):
     """Append new_length - x.shape[0] zeros to x's end via copy."""
     output = np.zeros((new_length,))
     output[:x.shape[0]] = x
     return output
-{% endhighlight %}
+```
 _Listing 2._
 
 If our signals are sufficiently long we can compute their discrete Fourier transforms (DFTs) using the Fast Fourier Transform (FFT) algorithm. Thanks to the FFT, the transformation from the time domain to the frequency domain can be computed in $O(N \log N)$ time.
@@ -127,15 +127,15 @@ $$ q_{\text{next}} = \log2(n - 1) + 1. \quad ({% increment equationId20210514 %}
 
 The above equation allows us to implement another helper function
 
-{% highlight python %}
+```python
 def next_power_of_2(n):
     return 1 << (int(np.log2(n - 1)) + 1)
-{% endhighlight %}
+```
 _Listing 3._
 
 Wrapping it all together
 
-{% highlight python %}
+```python
 def fft_convolution(x, h, K=None):
     Nx = x.shape[0]
     Nh = h.shape[0]
@@ -158,7 +158,7 @@ def fft_convolution(x, h, K=None):
 
     # Trim the signal to the expected length
     return y[:Ny]
-{% endhighlight %}
+```
 _Listing 4. FFT-based fast convolution._
 
 Remember that the above algorithm is fast *algorithmically*. I am not claiming this code is maximally optimized 😉. It is provided for understanding and as a possible baseline implementation.
@@ -184,7 +184,7 @@ Some important remarks concerning this methodology:
 
 #### Implementation
 
-{% highlight python %}
+```python
 def overlap_add_convolution(x, h, B, K=None):
     """Overlap-Add convolution of x and h with block length B"""
 
@@ -213,7 +213,7 @@ def overlap_add_convolution(x, h, B, K=None):
         y[n*B:n*B+len(u)] += u
 
     return y[:M+N-1]
-{% endhighlight %}
+```
 _Listing 5. Overlap-Add convolution._
 
 ### Overlap-Save Scheme
@@ -231,7 +231,7 @@ _Figure 3. Overlap-Save convolution scheme. Source: [1]._
 
 #### Implementation
 
-{% highlight python %}
+```python
 def overlap_save_convolution(x, h, B, K=None):
     """Overlap-Save convolution of x and h with block length B"""
 
@@ -270,7 +270,7 @@ def overlap_save_convolution(x, h, B, K=None):
         y[n*B:n*B+B] = u[-B:]
 
     return y[:M+N-1]
-{% endhighlight %}
+```
 _Listing 6. Overlap-Save convolution._
 
 ## What If the Filter Is Long Too?
