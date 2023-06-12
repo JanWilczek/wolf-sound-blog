@@ -4,7 +4,7 @@ date: 2021-05-07
 author: Jan Wilczek
 layout: post
 permalink: /circular-vs-linear-convolution-whats-the-difference/
-images: assets/img/posts/2021-05-07-circular-vs-linear-convolution
+images: /assets/img/posts/2021-05-07-circular-vs-linear-convolution
 background: /assets/img/posts/2021-05-07-circular-vs-linear-convolution/thumbnail.png
 categories:
  - Digital Signal Processing
@@ -124,22 +124,22 @@ Let's look at a comparison between a linear and a circular convolution.
 
 Let's assume we have a signal $x[n]$
 
-![]({{ images | absolute_url | append: "/x_short.png" }}){: width="600" }
+![]({{ images | append: "/x_short.png" }}){: width="600" }
 _Figure 1. $x[n]$._
 
 and a [discrete-time impulse delayed by 1 sample]({% post_url collections.posts, '2021-04-01-identity-element-of-the-convolution' %}) $h[n]$
 
-![]({{ images | absolute_url | append: "/unit_delay.png" }}){: width="600" }
+![]({{ images | append: "/unit_delay.png" }}){: width="600" }
 _Figure 2. $h[n]$._
 
 The linear convolution between the two delays $x[n]$ by one sample, as expected
 
-![]({{ images | absolute_url | append: "/linear_convolution_shift.png" }}){: width="600" }
+![]({{ images | append: "/linear_convolution_shift.png" }}){: width="600" }
 _Figure 3. Linear convolution between $x[n]$ and $h[n]$._
 
 However, the circular convolution performs a **circular shift** of the signal $x[n]$
 
-![]({{ images | absolute_url | append: "/circular_shift.png" }}){: width="600" }
+![]({{ images | append: "/circular_shift.png" }}){: width="600" }
 _Figure 4. Circular convolution between $x[n]$ and $h[n]$._
 
 Circular shift means that whichever samples "fall off" one end reappear at the other end of the signal vector. In other words, the excessive samples "wrap around" the signal buffer.
@@ -174,32 +174,32 @@ Unfortunately, the fact that $x[n]$ and $X[k]$ are 0 for $n,k \notin \{0, \dots,
 
 Let's say we have a signal $x[n]$ given as a vector with four samples
 
-![]({{ images | absolute_url | append: "/x_vector.png" }}){: width="600" }
+![]({{ images | append: "/x_vector_time.png" }}){: width="600" }
 _Figure 5. $x[n]$._
 
 You may think it is defined as follows
 
-![]({{ images | absolute_url | append: "/x_zeros.png" }}){: width="600" }
+![]({{ images | append: "/x_zeros_frequency.png" }}){: width="600" }
 _Figure 6. $x[n]$ as we wish it to be._
 
 but the DFS (and the DFT accordingly) treat it as
 
-![]({{ images | absolute_url | append: "/x_repeated.png" }}){: width="600" }
+![]({{ images | append: "/x_repeated_time.png" }}){: width="600" }
 _Figure 7. $x[n]$ as seen by discrete Fourier series and the discrete Fourier transform._
 
 Analogously, in the discrete frequency domain, we can obtain the magnitude Fourier coefficients $|X[k]|$ from Equation 1. This yields
 
-![]({{ images | absolute_url | append: "/X_vector.png" }}){: width="600" }
+![]({{ images | append: "/X_vector_frequency.png" }}){: width="600" }
 _Figure 8. Magnitude discrete-frequency coefficients of $x[n]$._
 
 Again, one may assume that it is defined as follows
 
-![]({{ images | absolute_url | append: "/X_zeros.png" }}){: width="600" }
+![]({{ images | append: "/X_zeros_frequency.png" }}){: width="600" }
 _Figure 9. Magnitude DFT of $x[n]$ naively visualized with zeros surrounding the 4 nonzero coefficients._
 
 but the inherent periodicity of the DFT results in
 
-![]({{ images | absolute_url | append: "/X_repeated.png" }}){: width="600" }
+![]({{ images | append: "/X_repeated_frequency.png" }}){: width="600" }
 _Figure 10. True magnitude DFT of $x[n]$._
 
 ### Sampling of the Fourier transform
@@ -260,10 +260,10 @@ The question is: which subset?
 
 Figures 11 and 12 present the linear and circular convolution example, respectively, with marked matching samples. They match in terms of indices and amplitude.
 
-![]({{ images | absolute_url | append: "/linear_convolution_shift_marked.png" }}){: width="600" }
+![]({{ images | append: "/linear_convolution_shift_marked.png" }}){: width="600" }
 _Figure 11. Linear convolution result. Samples marked in red would also be correctly calculated by the circular convolution._
 
-![]({{ images | absolute_url | append: "/circular_shift_marked.png" }}){: width="600" }
+![]({{ images | append: "/circular_shift_marked.png" }}){: width="600" }
 _Figure 12. Circular convolution result. Samples marked in red correspond to the linear convolution result in terms of index and amplitude._
 
 To understand fully which samples in the circular convolution correspond to the correct samples of the linear convolution we need to look at a concept broader than circular convolution: periodic convolution.
@@ -274,19 +274,19 @@ Circular convolution is an example of *periodic convolution*&#8211;a convolution
 
 Let's compare the linear convolution and the periodic convolution. Given signals $x$ and (zero-padded) $h$, their periodic versions look as follows (black color indicates samples stored in the vector, grey color indicates implicit sample values)
 
-![]({{ images | absolute_url | append: "/x_tilde_repeated.png" }}){: width="600" }
+![]({{ images | append: "/x_tilde_repeated.png" }}){: width="600" }
 _Figure 13. Signal $\tilde{x}$: periodic version of $x$._
-![]({{ images | absolute_url | append: "/h_repeated.png" }}){: width="600" }
+![]({{ images | append: "/h_repeated.png" }}){: width="600" }
 _Figure 14. Signal $\tilde{h}$: periodic version of $h$._
 
 Let's compare the linear convolution of the original $x$ and $h$
 
-![]({{ images | absolute_url | append: "/linear_convolution_full.png" }}){: width="600" }
+![]({{ images | append: "/linear_convolution_full.png" }}){: width="600" }
 _Figure 15. Linear convolution of $x$ and $h$. Its length is 5._
 
 with the periodic convolution of their periodic counterparts
 
-![]({{ images | absolute_url | append: "/periodic_convolution.png" }}){: width="600" }
+![]({{ images | append: "/periodic_convolution.png" }}){: width="600" }
 _Figure 16. Periodic convolution of $\tilde{x}$ and $\tilde{h}$. Its length is 4 and it's periodic._
 
 We can observe that the circular convolution is a superposition of the linear convolution shifted by 4 samples, i.e., 1 sample less than the linear convolution's length. That is why the last sample is "eaten up"; it wraps around and is added to the initial 0 sample.
