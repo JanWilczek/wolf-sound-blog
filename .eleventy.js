@@ -26,6 +26,7 @@ module.exports = function(eleventyConfig) {
 
     // Copy the assets folder to the _site folder
     eleventyConfig.addPassthroughCopy("assets");
+    eleventyConfig.addPassthroughCopy("wp-content");
     eleventyConfig.addPassthroughCopy("favicon.png");
 
     eleventyConfig.addCollection("posts", function(collectionApi) {
