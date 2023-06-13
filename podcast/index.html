@@ -4,5 +4,5 @@ title: WolfTalk Podcast
 description: "All podcast episodes from the newest to the oldest."
 pagination:
   data: collections.podcast
-
+permalink: "/podcast/{% if pagination.pageNumber > 0 %}page{{ pagination.pageNumber | plus: 1 }}/{% endif %}"
 ---

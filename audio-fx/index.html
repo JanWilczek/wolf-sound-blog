@@ -4,5 +4,5 @@ title: Audio FX Articles
 description: Here, you will find articles related to digital audio effects such as filters, phasers, or distortion.
 pagination:
   data: collections.audio_fx
-
+permalink: "/audio-fx/{% if pagination.pageNumber > 0 %}page{{ pagination.pageNumber | plus: 1 }}/{% endif %}"
 ---

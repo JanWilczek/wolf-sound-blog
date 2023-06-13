@@ -4,5 +4,5 @@ title: DSP Articles
 description: "Here, you will find articles related to digital signal processing in the context of audio: theory and algorithms that make up the basis of audio programming. <br>All mathematical parts are clearly and intuitively explained."
 pagination:
   data: collections.dsp
-
+permalink: "/dsp/{% if pagination.pageNumber > 0 %}page{{ pagination.pageNumber | plus: 1 }}/{% endif %}"
 ---
