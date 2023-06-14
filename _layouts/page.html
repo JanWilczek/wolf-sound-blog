@@ -13,11 +13,14 @@ layout: default
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
           <div class="page-heading">
+            <h1>
             {% if title %}
-            <h1>{{ title }}</h1>
+            {{ title }}
             {% else %}
-            <h1>{{ eleventyComputed.title }}</h1>
+            {{ eleventyComputed.title }}
             {% endif %}
+            {% if pagination.pageNumber > 0 %} - Page {{ pagination.pageNumber | plus: 1 }}{% endif %}
+            </h1>
             {% if description %}
             <span class="subheading">{{ description }}</span>
             {% endif %}
