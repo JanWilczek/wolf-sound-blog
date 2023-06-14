@@ -68,7 +68,7 @@ So address alignment with respect to some power of 2 relates to this address mod
 
 ## Handling alignment
 
-How to ensure that your data is aligned? Well, in most programming languages (including C and C++) the compiler does that for you. That, however, may mean, that your structures take more space than is required, because of additional padding inserted to make your ****`struct`&#8216;s data members aligned. That results in (potentially unnecessary) increased usage of memory.
+How to ensure that your data is aligned? Well, in most programming languages (including C and C++) the compiler does that for you. That, however, may mean, that your structures take more space than is required, because of additional padding inserted to make your `struct`&#8216;s data members aligned. That results in (potentially unnecessary) increased usage of memory.
 
 Of course, one could argue, that in modern computers such microoptimization is unnecessary. Well, let&#8217;s look at an example, shall we?
 
