@@ -37,13 +37,11 @@ tags:
   - python
 discussion_id: 2019-12-16-creating-the-slow-motion-audio-effect-variable-speed-replay-algorithm
 ---
-
+Do you remember the slowdown of time in &#8220;Inception&#8221;? Or the &#8220;bullet time&#8221; in &#8220;The Matrix&#8221;? How to create such a slow motion effect in the audio domain? That is the topic of today&#8217;s article!
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/HuYc0azu00s" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/DAbXW6Nbvu0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-Do you remember the slowdown of time in &#8220;Inception&#8221;? Or the &#8220;bullet time&#8221; in &#8220;The Matrix&#8221;? How to create such a slow motion effect in the audio domain? That is the topic of today&#8217;s article!
 
 In this article we will prove the usefulness of the sampling theory in music and audio effects. If you don&#8217;t know what sampling is all about check out [this](https://thewolfsound.com/how-to-represent-digital-sound-sampling-sampling-rate-quantization/) article. If you need a revision on aliasing check out [this](https://thewolfsound.com/what-is-aliasing-what-causes-it-how-to-avoid-it/) article.
 
@@ -80,7 +78,8 @@ We can view that change in the signal as though the **replay sample rate has cha
 We may express it in mathematical terms as the length of the output signal&#8217;s period in seconds:
 
 <!-- KaTeX does not support labels yet \label{eq:vsr_time} -->
-$$T_{replay} = \frac{T_{in}}{v}, \text{ \{eq:vsr\_time\}}$$
+
+$$T_{replay} = \frac{T_{in}}{v}, \text{\textbraceleft{}eq:vsr\textunderscore{}time\textbraceright{}}$$
 
 where $T_{replay}$ is the time period of the output signal, $T_{in}$ is the time period of the original signal and $v$ is the relative speed of the "tape" (i.e., how many times quicker we output the sound) compared to the original or default. For instance, playing the sound two times faster ($v = 2$) produces a two times shorter waveform at the output (of time period length equal to $\frac{T_{in}}{2}$ seconds).
 
