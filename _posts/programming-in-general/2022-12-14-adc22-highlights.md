@@ -84,15 +84,7 @@ Russell presented a number of options how to combat UB. Out of these, here are m
 
 The CppCon 2022 version of this talk was given by Roth Michaels and can be found on YouTube [here](https://youtu.be/vEtGtphI3lc).
 
-<script defer src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6611455743195468"
-     crossorigin="anonymous"></script><ins class="adsbygoogle"
-     style="display:block; text-align:center;"
-     data-ad-layout="in-article"
-     data-ad-format="fluid"
-     data-ad-client="ca-pub-6611455743195468"
-     data-ad-slot="7289385396"></ins><script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+{% render 'google-ad.liquid' %}
 
 ## Efficient Pseudorandom Number Generation
 
@@ -257,15 +249,7 @@ I am looking forward to a Windows version of this software that allows researche
 
 It was also great to talk to [Andrew Fyfe](https://www.linkedin.com/in/andrewfyfe93/) and [Christopher Mitcheltree](https://www.linkedin.com/in/christhetree/) who actively develop the software!
 
-<script defer src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6611455743195468"
-     crossorigin="anonymous"></script><ins class="adsbygoogle"
-     style="display:block; text-align:center;"
-     data-ad-layout="in-article"
-     data-ad-format="fluid"
-     data-ad-client="ca-pub-6611455743195468"
-     data-ad-slot="7289385396"></ins><script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+{% render 'google-ad.liquid' %}
 
 ## Jumpstart Guide to Deep Learning in Audio for Absolute Beginners
 

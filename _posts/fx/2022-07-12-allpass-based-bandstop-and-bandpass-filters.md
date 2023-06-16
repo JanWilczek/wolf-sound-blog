@@ -29,15 +29,7 @@ In [one of the previous articles]({% post_url collections.posts, 'fx/2022-05-08-
 
 Now, we can take it to the next level and design a bandpass and a bandstop filter with a second-order allpass filter. This design will allow us to control the center frequency and the bandwidth (or alternatively, the Q factor) in real time!
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6611455743195468"
-     crossorigin="anonymous"></script><ins class="adsbygoogle"
-     style="display:block; text-align:center;"
-     data-ad-layout="in-article"
-     data-ad-format="fluid"
-     data-ad-client="ca-pub-6611455743195468"
-     data-ad-slot="7289385396"></ins><script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+{% render 'google-ad.liquid' %}
 
 We'll discuss this design and its properties, listen to a few examples, and look at a [sample Python implementation](#implementation-1) at the end.
 

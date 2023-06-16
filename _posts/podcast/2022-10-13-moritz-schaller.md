@@ -45,15 +45,7 @@ And if you’re looking for a simple checklist on what is needed to start writin
 
 *Note: if you like the podcast so far, please, go to Apple Podcasts and leave me a review there. It will benefit both sides: more reviews mean a broader reach on Apple Podcasts and feedback can help me to improve the show and provide better quality content to you. Thank you for doing this.*
 
-<script defer src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6611455743195468"
-     crossorigin="anonymous"></script><ins class="adsbygoogle"
-     style="display:block; text-align:center;"
-     data-ad-layout="in-article"
-     data-ad-format="fluid"
-     data-ad-client="ca-pub-6611455743195468"
-     data-ad-slot="7289385396"></ins><script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+{% render 'google-ad.liquid' %}
 
 ## Episode Contents
 

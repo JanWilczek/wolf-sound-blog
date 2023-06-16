@@ -62,15 +62,7 @@ $$y[n] = x[n] \ast h[n] = \sum \limits_{k=-\infty}^{\infty} x[k] h[n - k].  \qua
 
 I have published [a number of articles and videos on convolution]({% post_url collections.posts, '2020-06-20-the-secret-behind-filtering' %}), which you can check out for more insight.
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6611455743195468"
-     crossorigin="anonymous"></script><ins class="adsbygoogle"
-     style="display:block; text-align:center;"
-     data-ad-layout="in-article"
-     data-ad-format="fluid"
-     data-ad-client="ca-pub-6611455743195468"
-     data-ad-slot="7289385396"></ins><script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+{% render 'google-ad.liquid' %}
 
 ## 2 Sides of Optimization
 

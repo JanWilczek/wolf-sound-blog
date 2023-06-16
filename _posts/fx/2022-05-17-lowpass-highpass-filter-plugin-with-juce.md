@@ -36,15 +36,7 @@ Figure 2 shows the audio processing algorithm that we are implementing in JUCE.
 ![]({{ images | append: "/allpass-based-lowpass-highpass-filter-structure.svg" }}){: max-width="80%" alt="Allpass-based lowpass/highpass filter."}
 _Figure {% increment figureId20220517 %}. The DSP structure that we are going to implement._
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6611455743195468"
-     crossorigin="anonymous"></script><ins class="adsbygoogle"
-     style="display:block; text-align:center;"
-     data-ad-layout="in-article"
-     data-ad-format="fluid"
-     data-ad-client="ca-pub-6611455743195468"
-     data-ad-slot="7289385396"></ins><script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+{% render 'google-ad.liquid' %}
 
 ## JUCE Framework
 

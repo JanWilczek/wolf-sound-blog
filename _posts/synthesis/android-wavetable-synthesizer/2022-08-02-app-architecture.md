@@ -50,15 +50,7 @@ What kind of synthesizer? A [wavetable synthesizer]({% post_url collections.post
 
 We've built one in [Python]({% post_url collections.posts, 'synthesis/2021-08-27-wavetable-synthesis-python' %}), another one in [Rust]({% post_url collections.posts, 'synthesis/2021-10-15-wavetable-synthesis-rust' %}), and another one in [C++ as an audio plugin]({% post_url collections.posts, 'synthesis/2021-09-24-wavetable-synthesis-juce' %}). So why not Android?
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6611455743195468"
-     crossorigin="anonymous"></script><ins class="adsbygoogle"
-     style="display:block; text-align:center;"
-     data-ad-layout="in-article"
-     data-ad-format="fluid"
-     data-ad-client="ca-pub-6611455743195468"
-     data-ad-slot="7289385396"></ins><script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+{% render 'google-ad.liquid' %}
 
 ## Project Goal
 
