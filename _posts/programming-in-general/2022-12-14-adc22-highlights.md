@@ -32,7 +32,7 @@ My personal summary of ADC 22 in London!
 From November 13 to November 16 2022, I took part in the Audio Developers Conference 2022 in London. My talk proposal was accepted in a voting round, which granted me the conference ticket and the company I'm working at, [Loudly](https://www.loudly.com), sponsored the in-person trip and the workshop ticket.
 
 <div markdown="0">
-<img class="lazyload" data-src="{{ images | absolute_url | append: "ADC22-Logo..webp" }}" alt="ADC22 Conference logo.">
+<img class="lazyload" data-src="{{ images | append: "ADC22-Logo..webp" }}" alt="ADC22 Conference logo.">
 </div>
 _Figure {% increment figureId202211214  %}. Audio Developers Conference 2022 logo._
 
@@ -65,7 +65,7 @@ These are the highlights of ADC 2022 as seen by an audio C++ developer:
 ## Eliminating Undefined Behavior From C++ Code
 
 <div markdown="0">
-<img class="lazyload article-img" data-src="{{ images | absolute_url | append: "RussellMcClellan..webp" }}" alt="Russell McClellan.">
+<img class="lazyload article-img" data-src="{{ images | append: "RussellMcClellan..webp" }}" alt="Russell McClellan.">
 </div>
 _Figure {% increment figureId202211214  %}. Russell McClellan._
 
@@ -97,7 +97,7 @@ The CppCon 2022 version of this talk was given by Roth Michaels and can be found
 ## Efficient Pseudorandom Number Generation
 
 <div markdown="0">
-<img class="lazyload article-img" data-src="{{ images | absolute_url | append: "RothMichaels..webp" }}" alt="Roth Michaels.">
+<img class="lazyload article-img" data-src="{{ images | append: "RothMichaels..webp" }}" alt="Roth Michaels.">
 </div>
 _Figure {% increment figureId202211214  %}. Roth Michaels._
 
@@ -112,7 +112,7 @@ All of these requirements can be fulfilled by using the [Xoroshiro128+ pseudoran
 ## Audio Code Unit Testing
 
 <div markdown="0">
-<img class="lazyload article-img" data-src="{{ images | absolute_url | append: "EsaJaaskela.webp" }}" alt="Esa Jääskelä.">
+<img class="lazyload article-img" data-src="{{ images | append: "EsaJaaskela.webp" }}" alt="Esa Jääskelä.">
 </div>
 _Figure {% increment figureId202211214  %}. Esa Jääskelä._
 
@@ -125,7 +125,7 @@ He also showed the usefulness of the [Pamplejuce template](https://github.com/su
 ## RNBO in Max from Cycling '74
 
 <div markdown="0">
-<img class="lazyload" data-src="{{ images | absolute_url | append: "rnbo-intro.webp" }}" alt="RNBO.">
+<img class="lazyload" data-src="{{ images | append: "rnbo-intro.webp" }}" alt="RNBO.">
 </div>
 _Figure {% increment figureId202211214  %}. RNBO._
 
@@ -138,7 +138,7 @@ Since Max is so ubiquitous, I am curious to see if the release of RNBO results i
 I took part in the workshop on RNBO and the generated code compiled under Windows as well 🙂 It was also great to meet one of the people behind the project, Sam Tarakajian.
 
 <div markdown="0">
-<img class="lazyload article-img" data-src="{{ images | absolute_url | append: "SamTarakajian.webp" }}" alt="Sam Tarakajian.">
+<img class="lazyload article-img" data-src="{{ images | append: "SamTarakajian.webp" }}" alt="Sam Tarakajian.">
 </div>
 _Figure {% increment figureId202211214  %}. Sam Tarakajian._
 
@@ -147,7 +147,7 @@ The only caveat of RNBO is that you need a dedicated license for it. But for peo
 ## How to Optimize a Real-Time Audio Library
 
 <div markdown="0">
-<img class="lazyload article-img" data-src="{{ images | absolute_url | append: "DavidRowland.webp" }}" alt="David Rowland.">
+<img class="lazyload article-img" data-src="{{ images | append: "DavidRowland.webp" }}" alt="David Rowland.">
 </div>
 _Figure {% increment figureId202211214  %}. David Rowland._
 
@@ -160,7 +160,7 @@ However, it wasn't a talk discussing low-level optimizations, like loop unrollin
 ## Details on MIDI 2.0 from the MIDI Association, Microsoft, Google, and Apple
 
 <div markdown="0">
-<img class="lazyload" data-src="{{ images | absolute_url | append: "MIDI2.0Logo.webp" }}" alt="MIDI 2.0 Logo.">
+<img class="lazyload" data-src="{{ images | append: "MIDI2.0Logo.webp" }}" alt="MIDI 2.0 Logo.">
 </div>
 _Figure {% increment figureId202211214  %}. MIDI 2.0 Logo._
 
@@ -175,7 +175,7 @@ For me personally, it was great to hear that the MIDI 2.0 standard is extensible
 ## Accessibility
 
 <div markdown="0">
-<img class="lazyload" data-src="{{ images | absolute_url | append: "SoundWithoutSightLogoBlack.webp" }}" alt="Sound Without Sight Logo." width="60%">
+<img class="lazyload" data-src="{{ images | append: "SoundWithoutSightLogoBlack.webp" }}" alt="Sound Without Sight Logo." width="60%">
 </div>
 _Figure {% increment figureId202211214  %}. Sound Without Sight Logo._
 
@@ -192,7 +192,7 @@ I found it fascinating to see how crackers can inspect your binary code and be a
 ## Stefano D'Angelo's talk
 
 <div markdown="0">
-<img class="lazyload article-img" data-src="{{ images | absolute_url | append: "BrickworksLogo.svg" }}" alt="Brickworks Logo.">
+<img class="lazyload article-img" data-src="{{ images | append: "BrickworksLogo.svg" }}" alt="Brickworks Logo.">
 </div>
 _Figure {% increment figureId202211214  %}. Brickworks Logo._
 
@@ -203,7 +203,7 @@ Interestingly, to help push things in the right direction, he proposed a code li
 ## Cmajor Language Announcement
 
 <div markdown="0">
-<img class="lazyload" data-src="{{ images | absolute_url | append: "CmajorLogo.webp" }}" alt="Cmajor Logo.">
+<img class="lazyload" data-src="{{ images | append: "CmajorLogo.webp" }}" alt="Cmajor Logo.">
 </div>
 _Figure {% increment figureId202211214  %}. Cmajor Logo._
 
@@ -237,7 +237,7 @@ Since it's an Asia-based company, it's hard to find something about them in the 
 ## Elk Audio Operating System
 
 <div markdown="0">
-<img class="lazyload" data-src="{{ images | absolute_url | append: "ElkLogo.svg" }}" alt="Elk Logo.">
+<img class="lazyload" data-src="{{ images | append: "ElkLogo.svg" }}" alt="Elk Logo.">
 </div>
 _Figure {% increment figureId202211214  %}. Elk Logo._
 
@@ -272,7 +272,7 @@ It was also great to talk to [Andrew Fyfe](https://www.linkedin.com/in/andrewfyf
 a.k.a. my talk…
 
 <div markdown="0">
-<img class="lazyload" data-src="{{ images | absolute_url | append: "JumpstartGuideToDeepLearningInAudioTitleSlide.webp" }}" alt="Title slide of my presentation.">
+<img class="lazyload" data-src="{{ images | append: "JumpstartGuideToDeepLearningInAudioTitleSlide.webp" }}" alt="Title slide of my presentation.">
 </div>
 _Figure {% increment figureId202211214  %}. Title slide of my presentation._
 
@@ -291,7 +291,7 @@ The conference was nice and all but there's one thing that will stay in my memor
 It's YOU.
 
 <div markdown="0">
-<img class="lazyload" data-src="{{ images | absolute_url | append: "ADC22-Thank-You.webp" }}" alt="ADC22 thank you banner.">
+<img class="lazyload" data-src="{{ images | append: "ADC22-Thank-You.webp" }}" alt="ADC22 thank you banner.">
 </div>
 _Figure {% increment figureId202211214  %}._
 

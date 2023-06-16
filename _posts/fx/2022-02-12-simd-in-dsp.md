@@ -4,7 +4,7 @@ description: "Leverage intrinsic vector functions of your processor for efficien
 date: 2022-02-12
 author: Jan Wilczek
 layout: post
-images: assets/img/posts/fx/2022-02-12-simd-in-dsp/
+images: /assets/img/posts/fx/2022-02-12-simd-in-dsp/
 background: /assets/img/posts/fx/2022-02-12-simd-in-dsp/Thumbnail.webp
 categories:
   - Audio FX

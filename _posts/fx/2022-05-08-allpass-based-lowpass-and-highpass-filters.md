@@ -117,7 +117,7 @@ In practice, this delay is too small to be audible. We can, however, observe its
 
 This effect can be seen in Figure 4. There, 3 nicely aligned sines (left) pass through an allpass filter and appear misaligned at the output (right).
 
-![]({{ images | absolute_url | append: "/aligned_sines.webp"}}){: width="70%" alt="Visualization of the allpass filter effect."}
+![]({{ images | append: "/aligned_sines.webp"}}){: width="70%" alt="Visualization of the allpass filter effect."}
 _Figure {% increment figureId20220508  %}. (Left) A superposition of 3 sines. (Right) The same 3 sines after passing through an allpass filter._
 
 At the output, the frequency content is the same but the relative phase of the sines changed. At the same time, the output sounds exactly as the input.
@@ -148,7 +148,7 @@ If we add a signal and its phase-inverted version, a *phase cancellation* will o
 
 An example of this can be seen in Figure 5.
 
-![]({{ images | absolute_url | append: "/phase_cancellation_example.webp"}}){: width="70%" alt="Visualization of the phase cancellation effect."}
+![]({{ images | append: "/phase_cancellation_example.webp"}}){: width="70%" alt="Visualization of the phase cancellation effect."}
 _Figure {% increment figureId20220508  %}. A sum of two sines with the relative phase shift of $\pi$ results in phase cancellation._
 
 A phase cancellation means perfect attenuation, right? Could we possibly use this property in a lowpass or a highpass filter?
@@ -157,7 +157,7 @@ A phase cancellation means perfect attenuation, right? Could we possibly use thi
 
 What will happen if we add the output of the first-order allpass filter to the original input signal (the so-called *direct path*) as in Figure 6? [Zölzer11].
 
-![]({{ images | absolute_url | append: "/lowpass.svg"}}){: width="70%" alt="Allpass-based lowpass filter diagram."}
+![]({{ images | append: "/lowpass.svg"}}){: width="70%" alt="Allpass-based lowpass filter diagram."}
 _Figure {% increment figureId20220508  %}. Allpass-based lowpass filter structure._
   
 Since the phase shift at the Nyquist frequency is $-\pi$, we'll obtain a phase cancellation at this frequency.
@@ -172,7 +172,7 @@ Between these frequencies, the amplitude of sines will be gradually attenuated a
 
 The resulting magnitude transfer function can be seen in Figure 7. We obtained a lowpass filter!
 
-![]({{ images | absolute_url | append: "/lowpass_transfer_function.webp"}}){: width="70%" alt="Magnitude transfer function of the resulting lowpass filter."}
+![]({{ images | append: "/lowpass_transfer_function.webp"}}){: width="70%" alt="Magnitude transfer function of the resulting lowpass filter."}
 _Figure {% increment figureId20220508  %}. Magnitude transfer function of the resulting lowpass filter._
 
 ### Cutoff Frequency Control
@@ -187,7 +187,7 @@ What if instead of adding the output of the allpass to the input signal, we subt
 
 The corresponding structure is shown in Figure 8.
 
-![]({{ images | absolute_url | append: "/highpass.svg"}}){: width="70%" alt="Allpass-based highpass filter diagram."}
+![]({{ images | append: "/highpass.svg"}}){: width="70%" alt="Allpass-based highpass filter diagram."}
 _Figure {% increment figureId20220508  %}. Allpass-based highpass filter structure._
 
 By multiplying the output of the allpass by $-1$ we invert all the components in phase.
@@ -202,7 +202,7 @@ In between these two frequencies, we get an increase in the magnitude of the tra
 
 The magnitude transfer function can be seen in Figure 9.
 
-![]({{ images | absolute_url | append: "/highpass_transfer_function.webp"}}){: width="70%" alt="Magnitude transfer function of the resulting highpass filter."}
+![]({{ images | append: "/highpass_transfer_function.webp"}}){: width="70%" alt="Magnitude transfer function of the resulting highpass filter."}
 _Figure {% increment figureId20220508  %}. Magnitude transfer function of the resulting highpass filter._
 
 We, thus, obtained a high-pass filter!

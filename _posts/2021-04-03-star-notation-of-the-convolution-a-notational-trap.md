@@ -5,7 +5,7 @@ author: Jan Wilczek
 layout: post
 permalink: /star-notation-of-the-convolution-a-notational-trap/
 background: /assets/img/posts/2021-04-03-star-notation-of-the-convolution-a-notational-trap/Thumbnail.png
-images: assets/img/posts/2021-04-03-star-notation-of-the-convolution-a-notational-trap
+images: /assets/img/posts/2021-04-03-star-notation-of-the-convolution-a-notational-trap
 categories:
  - Digital Signal Processing
 tags:
@@ -50,7 +50,7 @@ $$y[n-n_0] \stackrel{?}{=} x[n-n_0] \ast h[n-n_0], \quad ({% increment equationI
 
 but...
 
-![]({{ images | absolute_url | append: "/trap.jpg" }})
+![]({{ images | append: "/trap.jpg" }})
 
 Let's evaluate the right hand side of "Equation" 2
 

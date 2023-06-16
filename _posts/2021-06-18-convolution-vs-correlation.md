@@ -4,7 +4,7 @@ date: 2021-06-18
 author: Jan Wilczek
 layout: post
 permalink: /convolution-vs-correlation-in-signal-processing-and-deep-learning/
-images: assets/img/posts/2021-06-18-convolution-vs-correlation
+images: /assets/img/posts/2021-06-18-convolution-vs-correlation
 background: /assets/img/posts/2021-06-18-convolution-vs-correlation/Thumbnail.png
 categories:
  - Digital Signal Processing
@@ -81,22 +81,22 @@ In the subsequent discussion, we assume that the integrals in Equations 1 and 3,
 
 Let's assume we have two signals of length 40, $x[n]$
 
-![]({{ images | absolute_url | append: "/x.png" }}){: width="700" }
+![]({{ images | append: "/x.png" }}){: width="700" }
 _Figure 1. $x[n]$._
 
 and $y[n]$
 
-![]({{ images | absolute_url | append: "/y.png" }}){: width="700" }
+![]({{ images | append: "/y.png" }}){: width="700" }
 _Figure 2. $y[n]$._
 
 The convolution between $x$ and $y$ is shown in Figure 3
 
-![]({{ images | absolute_url | append: "/xy_convolution.png" }}){: width="700" }
+![]({{ images | append: "/xy_convolution.png" }}){: width="700" }
 _Figure 3. Convolution of $x$ and $y$._
 
 and their correlation in Figure 4.
 
-![]({{ images | absolute_url | append: "/xy_correlation.png" }}){: width="700" }
+![]({{ images | append: "/xy_correlation.png" }}){: width="700" }
 _Figure 4. Correlation of $x$ and $y$._
 
 As you can observe, they are kind of similar.
@@ -109,7 +109,7 @@ This concept is best visibile for autocorrelation, which is a measure of *self-s
 
 In Figure 5, we can see the autocorrelation of signal $x$ from Figure 1.
 
-![]({{ images | absolute_url | append: "/xx_autocorrelation.png" }}){: width="700" }
+![]({{ images | append: "/xx_autocorrelation.png" }}){: width="700" }
 _Figure 5. Autocorrelation of $x$._
 
 Obviously, autocorrelation achieves its peak value for lag $n=0$ because signal is most similar to an unshifted version of itself.

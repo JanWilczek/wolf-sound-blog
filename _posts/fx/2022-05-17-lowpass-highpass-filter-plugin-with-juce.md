@@ -26,14 +26,14 @@ Let's build a lowpass/highpass filter audio plugin from scratch!
 
 In this article, I will guide you step-by-step through the process of implementing a lowpass/highpass filter audio plugin with the JUCE  C++ framework.
 
-![]({{ images | absolute_url | append: "/PluginGUI.webp" }}){: max-width="60%" alt="Graphical user interface of the implemented VST3 plugin."}
+![]({{ images | append: "/PluginGUI.webp" }}){: max-width="60%" alt="Graphical user interface of the implemented VST3 plugin."}
 _Figure {% increment figureId20220517 %}. You will complete building this plugin at the end of this tutorial._
 
 The structure, that we are going to implement, is the [allpass-based parametric lowpass/highpass filter from the previous article]({% post_url collections.posts, 'fx/2022-05-08-allpass-based-lowpass-and-highpass-filters' %}). If you want, to understand how this structure works and why it is filtering, I invite you to read that article first. This article is purely a plugin implementation of the previously presented algorithm.
 
 Figure 2 shows the audio processing algorithm that we are implementing in JUCE.
 
-![]({{ images | absolute_url | append: "/allpass-based-lowpass-highpass-filter-structure.svg" }}){: max-width="80%" alt="Allpass-based lowpass/highpass filter."}
+![]({{ images | append: "/allpass-based-lowpass-highpass-filter-structure.svg" }}){: max-width="80%" alt="Allpass-based lowpass/highpass filter."}
 _Figure {% increment figureId20220517 %}. The DSP structure that we are going to implement._
 
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6611455743195468"
@@ -66,7 +66,7 @@ After you [install JUCE](https://juce.com/get-juce/download), launch the *Projuc
 
 You should see a window similar to the one in Figure 3.
 
-![]({{ images | absolute_url | append: "/Projucer.webp" }}){: width="100%" alt="Projucer window with new project setup."}
+![]({{ images | append: "/Projucer.webp" }}){: width="100%" alt="Projucer window with new project setup."}
 _Figure {% increment figureId20220517 %}. Projucer window._
 
 Choose *Plugin->Basic* type, write your *Project Name*, select the target IDE (mine is *Visual Studio 2019*), and click *Create Project*.
@@ -75,7 +75,7 @@ You then will have to choose the folder which will contain your project folder (
 
 At this point, you could already generate your project but you may want to provide some additional metadata. If so, click on the *Project Settings* (marked 1 in Figure 4) icon next to the project name.
 
-![]({{ images | absolute_url | append: "/ProjucerProjectSettings.webp" }}){: width="100%" alt="Settings of the implemented plugin in Projucer."}
+![]({{ images | append: "/ProjucerProjectSettings.webp" }}){: width="100%" alt="Settings of the implemented plugin in Projucer."}
 _Figure {% increment figureId20220517 %}. Setting the parameters of the implemented plugin in Projucer._
 
 For example, I decided to generate only the VST3 plugin format (marked 2 in Figure 4) and use the C++ 20 standard.
@@ -115,7 +115,7 @@ Our plugin will have the following architecture:
 
 This architecture is summarized on the diagram below (Figure 5).
 
-![]({{ images | absolute_url | append: "/LowpassHighpassFilterPluginClassDiagram.svg" }}){: max-width="80%" alt="Class diagram of the implemented plugin."}
+![]({{ images | append: "/LowpassHighpassFilterPluginClassDiagram.svg" }}){: max-width="80%" alt="Class diagram of the implemented plugin."}
 _Figure {% increment figureId20220517 %}. Class diagram of the implemented plugin._
 
 ## Implementation
@@ -184,7 +184,7 @@ The `processBlock()` member function is a little bit more complicated.
 
 This is the DSP structure that we want to implement inside of `processBlock()`:
 
-![]({{ images | absolute_url | append: "/allpass-based-lowpass-highpass-filter-structure.svg" }}){: max-width="80%" alt="Allpass-based lowpass/highpass filter."}
+![]({{ images | append: "/allpass-based-lowpass-highpass-filter-structure.svg" }}){: max-width="80%" alt="Allpass-based lowpass/highpass filter."}
 _Figure {% increment figureId20220517 %}. The DSP structure that we are going to implement._
 
 Listing 3 presents the implementation of the above structure.
@@ -389,7 +389,7 @@ The graphical interface of our plugin will consist of two components:
 * a slider controlling the cutoff frequency, and
 * a checkbox determining whether we have a highpass (checkbox checked) or a lowpass (checkbox unchecked).
 
-![]({{ images | absolute_url | append: "/PluginGUI.webp" }}){: max-width="60%" alt="Graphical user interface of the implemented VST3 plugin."}
+![]({{ images | append: "/PluginGUI.webp" }}){: max-width="60%" alt="Graphical user interface of the implemented VST3 plugin."}
 _Figure {% increment figureId20220517 %}. GUI of the implemented VST3 plugin._
 
 These controls are represented by JUCE `Slider` and `ToggleButton` classes.
@@ -512,7 +512,7 @@ It is done! Now, you may compile, run, and test your plugin.
 
 The plugin can be loaded into the AudioPluginHost from JUCE or to a digital audio workstation that handles the format you specified at the beginning. I am using [Reaper](https://www.reaper.fm) for this purpose.
 
-![]({{ images | absolute_url | append: "/AudioPluginHostSetup.webp" }}){: width="100%" alt="A sample setup of the lowpass/highpass filter plugin in the AudioPluginHost."}
+![]({{ images | append: "/AudioPluginHostSetup.webp" }}){: width="100%" alt="A sample setup of the lowpass/highpass filter plugin in the AudioPluginHost."}
 _Figure {% increment figureId20220517 %}. A sample setup of the lowpass/highpass filter plugin in the AudioPluginHost._
 
 If you have any questions or comments, please, leave them in the comment section below 🙂

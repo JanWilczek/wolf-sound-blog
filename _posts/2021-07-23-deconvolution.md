@@ -4,7 +4,7 @@ date: 2021-07-23
 author: Jan Wilczek
 layout: post
 permalink: /deconvolution-inverse-convolution/
-images: assets/img/posts/2021-07-23-deconvolution
+images: /assets/img/posts/2021-07-23-deconvolution
 background: /assets/img/posts/2021-07-23-deconvolution/Thumbnail.png
 categories:
  - Digital Signal Processing

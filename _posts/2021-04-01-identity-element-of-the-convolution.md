@@ -5,7 +5,7 @@ author: Jan Wilczek
 layout: post
 permalink: /identity-element-of-the-convolution/
 background: /assets/img/posts/2021-04-01-identity-element-of-the-convolution/Thumbnail.png
-images: assets/img/posts/2021-04-01-identity-element-of-the-convolution
+images: /assets/img/posts/2021-04-01-identity-element-of-the-convolution
 categories:
  - Digital Signal Processing
 tags:
@@ -61,7 +61,7 @@ We often want to represent a "do nothing" operation in our processing, regardles
 
 Imagine that you would like to identify the impulse response of a certain system. As we know from [one of the previous articles]({% post_url collections.posts, '2020-06-20-the-secret-behind-filtering' %}), the output of an LTI system is the convolution of its impulse response with the input. What if the system does nothing? We need a way to represent its impulse response (Figure 1).
 
-![]({{ images | absolute_url | append: "/identity_block.png" }}){: width="350" }
+![]({{ images | append: "/identity_block.png" }}){: width="350" }
 _Figure 1. How to represent a system that does not alter our signal at all?_
 
 ## Identity element of the discrete convolution
@@ -128,7 +128,7 @@ The concept of the delay and its application in digital signal processing and au
 
 In DSP diagrams, the delay by $n_0$ samples is marked with a $z^{-n_0}$ box (Figure 2). 
 
-![]({{ images | absolute_url | append: "/delay.png" }}){: width="350" }
+![]({{ images | append: "/delay.png" }}){: width="350" }
 _Figure 2. Representation of a delay by $n_0$ samples as a functional block in a DSP diagram._
 
 That is because the $z$-transform of $\delta[n-n_0]$ is equal to $z^{-n_0}$
@@ -147,7 +147,7 @@ $$\delta[n-n_0] \ast \delta[n-n_1] = \sum_{k=-\infty}^{\infty} \delta[k - n_0]\d
 
 That means we can stack the delays one after another to increase the delay length (Figure 3).
 
-![]({{ images | absolute_url | append: "/delay-series.png" }})
+![]({{ images | append: "/delay-series.png" }})
 _Figure 3. Appending a delay element to the system results in adding its delay length to the original delay of the system._
 
 Unsurprisingly, the $z^{-n}$ notation in Figure 3 results directly from the convolution property of the $z$-transform, which we discussed in [the previous article]({% post_url collections.posts, '2021-03-18-convolution-in-popular-transforms' %})

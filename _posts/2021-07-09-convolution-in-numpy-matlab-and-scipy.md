@@ -4,7 +4,7 @@ date: 2021-07-09
 author: Jan Wilczek
 layout: post
 permalink: /convolution-in-matlab-numpy-and-scipy/
-images: assets/img/posts/2021-07-09-convolution-in-matlab-numpy-and-scipy
+images: /assets/img/posts/2021-07-09-convolution-in-matlab-numpy-and-scipy
 background: /assets/img/posts/2021-07-09-convolution-in-matlab-numpy-and-scipy/Thumbnail.png
 categories:
  - Digital Signal Processing
@@ -44,19 +44,19 @@ Before we dive into the specific functions, it is important to understand 3 diff
 
 We will observe their effect using the following signals: $x[n]$
 
-![]({{ images | absolute_url | append: "/x.png" }}){: width="700" }
+![]({{ images | append: "/x.png" }}){: width="700" }
 _Figure 1. $x[n]$._
 
 and $y[n]$
 
-![]({{ images | absolute_url | append: "/y.png" }}){: width="700" }
+![]({{ images | append: "/y.png" }}){: width="700" }
 _Figure 2. $y[n]$._
 
 ### Full
 
 'Full' is the mathematical implementation of convolution. Having signals of length $M$ and $N$, the 'full' mode returns a signal of length $M + N - 1$. At points where signals do not overlap, they are padded with zeros.
 
-![]({{ images | absolute_url | append: "/xy_full.png" }}){: width="700" }
+![]({{ images | append: "/xy_full.png" }}){: width="700" }
 _Figure 3. 'Full' mode of the convolution._
 
 This is the default option for Matlab, NumPy, and SciPy.
@@ -65,7 +65,7 @@ This is the default option for Matlab, NumPy, and SciPy.
 
 'Valid' mode does not use zero padding at all. The output is calculated only at positions where signals overlap completely. The result is a very short vector of length $\max(M, N) - \min(M, N) + 1$.
 
-![]({{ images | absolute_url | append: "/xy_valid.png" }}){: width="700" }
+![]({{ images | append: "/xy_valid.png" }}){: width="700" }
 _Figure 4. 'Valid' mode of the convolution._
 
 Note that using this mode of convolution shrinks the output signal with each application [6].
@@ -74,7 +74,7 @@ Note that using this mode of convolution shrinks the output signal with each app
 
 'Same' acts as an intermediate level between 'full' and 'valid'; it crops the middle part out of the 'full' mode. Its length is equal to the length of the longer signal (NumPy, SciPy) or the first signal given (Matlab). This approach comes in handy when we want to keep the size of the convolution output constant.
 
-![]({{ images | absolute_url | append: "/xy_same.png" }}){: width="700" }
+![]({{ images | append: "/xy_same.png" }}){: width="700" }
 _Figure 5. 'Same' mode of the convolution._
 
 ## Convolution Functions

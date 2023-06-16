@@ -4,7 +4,7 @@ date: 2021-05-14
 author: Jan Wilczek
 layout: post
 permalink: /fast-convolution-fft-based-overlap-add-overlap-save-partitioned/
-images: assets/img/posts/2021-05-14-fast-convolution
+images: /assets/img/posts/2021-05-14-fast-convolution
 background: /assets/img/posts/2021-05-14-fast-convolution/Thumbnail.png
 categories:
  - Digital Signal Processing
@@ -101,7 +101,7 @@ _Listing 1. Naive linear convolution._
 
 As we know from the [article on circular convolution]({% post_url collections.posts, '2021-05-07-circular-vs-linear-convolution' %}), multiplication in the discrete-frequency domain is equivalent to circular convolution in the discrete-time domain. Element-wise multiplication of 2 vectors has time complexity $O(N)$. This is superior to $O(N^2)$ in case of the naive approach. The bottleneck of frequency-based convolution is the transformation to that domain, but it can be achieved in $O(N \log N)$ time, which is still better than $O(N^2)$. And so arises the FFT-based fast convolution (Figure 1).
 
-![]({{ images | absolute_url | append: "/fft-based-fc.png" }}){: width="700" }
+![]({{ images | append: "/fft-based-fc.png" }}){: width="700" }
 _Figure 1. FFT-based fast convolution. Source: [1]._
 
 In order to make circular convolution correspond to linear convolution we need to pad the input signals with sufficiently many zeros so that the frequency-domain representation has enough capacity to represent the result of the linear convolution. This means, that each signal should be extended to have length $K = Nx + Nh - 1$. 
@@ -173,7 +173,7 @@ In this section, we will assume that the input signal is an infinite stream (e.g
 
 The first idea to process the input in blocks is to convolve each incoming block with the full filter using FFT-based convolution, store the results of appropriately many past convolutions, and output sums of their subsequent parts in blocks of the same length as the input signal we process. This scheme can be seen in Figure 2.
 
-![]({{ images | absolute_url | append: "/overlap-add.png" }}){: width="700" }
+![]({{ images | append: "/overlap-add.png" }}){: width="700" }
 _Figure 2. Overlap-Add convolution scheme. Source: [1]._
 
 Some important remarks concerning this methodology:
@@ -226,7 +226,7 @@ Inherently, the result of this operation is a circular convolution (because the 
 
 The entire scheme can be seen in Figure 3.
 
-![]({{ images | absolute_url | append: "/overlap-save.png" }}){: width="700" }
+![]({{ images | append: "/overlap-save.png" }}){: width="700" }
 _Figure 3. Overlap-Save convolution scheme. Source: [1]._
 
 #### Implementation
@@ -281,7 +281,7 @@ Describing partitioned convolution algorithms is beyond the scope of this articl
 
 Non-uniformly partitioned convolution is the current state of the art in artificial reverberation using FIR filters for real-time auralization in games and Virtual Reality.
 
-![]({{ images | absolute_url | append: "/nonuniformly-partitioned-convolution.png" }}){: width="700" }
+![]({{ images | append: "/nonuniformly-partitioned-convolution.png" }}){: width="700" }
 _Figure 4. Non-uniformly partitioned convolution scheme. Note the presence of frequency-domain delay lines. Source: [1]._
 
 ## Summary

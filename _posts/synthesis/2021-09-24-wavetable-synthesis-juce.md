@@ -5,7 +5,7 @@ date: 2021-09-24
 author: Jan Wilczek
 layout: post
 permalink: /sound-synthesis/wavetable-synth-plugin-in-juce/
-images: assets/img/posts/synthesis/2021-09-24-wavetable-synthesis-juce
+images: /assets/img/posts/synthesis/2021-09-24-wavetable-synthesis-juce
 background: /assets/img/posts/synthesis/2021-09-24-wavetable-synthesis-juce/Thumbnail.png
 categories:
  - Sound Synthesis
@@ -37,7 +37,7 @@ JUCE is free for personal use, which makes it perfect for our goal of developing
 
 To understand this article, you only need to know 1 thing about JUCE.
 
-![]({{ images | absolute_url | append: "/InceptionJUCEMeme.jpg" }}){: alt="There is 1 thing you need to know about JUCE meme." width="600px" }
+![]({{ images | append: "/InceptionJUCEMeme.jpg" }}){: alt="There is 1 thing you need to know about JUCE meme." width="600px" }
 
 Plugins built with JUCE consist of two parts:
 
