@@ -1,6 +1,7 @@
 const markdownIt = require("markdown-it");
 const markdownItAnchor = require("markdown-it-anchor");
 const markdownItFootnote = require("markdown-it-footnote");
+const markdownItAttrs = require('markdown-it-attrs');
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const katex = require("katex");
 const site = require("./_data/site.json");
@@ -11,7 +12,10 @@ const { minify } = require("terser");
 module.exports = function (eleventyConfig) {
   // Add header anchor and footnotes plugin to Markdown renderer
   const markdownLib = markdownIt({ html: true, typographer: true });
-  markdownLib.use(markdownItFootnote).use(markdownItAnchor);
+  markdownLib.use(markdownItFootnote).use(markdownItAnchor).use(markdownItAttrs, {
+        leftDelimiter: '{:',
+        rightDelimiter: '}',
+        allowedAttributes: []});
   eleventyConfig.setLibrary("md", markdownLib);
 
   // Watch CSS files for changes
