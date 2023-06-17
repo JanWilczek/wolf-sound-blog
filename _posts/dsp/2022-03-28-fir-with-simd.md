@@ -175,7 +175,7 @@ We assume that $c$ is 0 everywhere else.
 
 After introducing these two assumptions, we can rewrite the convolution formula from Equation 1 into 
 
-$$ y[n] = (x[n] \ast h[n])[n] \\= \sum_{k=0}^{N_h-1} x[n+k] c[k], \quad n = 0, \dots, N_x - 1. \quad ({% increment equationId20220328  %})$$
+$$ y[n] = (x[n] \ast h[n])[n] \newline = \sum_{k=0}^{N_h-1} x[n+k] c[k], \quad n = 0, \dots, N_x - 1. \quad ({% increment equationId20220328  %})$$
 
 This formulation resembles the [correlation]({% post_url collections.posts, '2021-06-18-convolution-vs-correlation' %}#correlation-definition) formula a lot but remember that it's still [convolution]({% post_url collections.posts, '2021-06-18-convolution-vs-correlation' %}#convolution-definition) albeit written differently.
 

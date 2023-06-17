@@ -158,7 +158,7 @@ Equation 9 is identical to Equation 1, i.e, the definition of the DFT, with the 
 
 The same holds for the DFT coefficients $X[k]$
 
-$$X[k] = \begin{cases} \tilde{X}[k] \quad \text{if } k\in \{0, \dots, N-1\},\\ 0 \quad \text{otherwise}. \end{cases} \quad ({% increment equationId20210507 %})$$
+$$X[k] = \begin{cases} \tilde{X}[k] \quad \text{if } k\in \{0, \dots, N-1\},\newline  0 \quad \text{otherwise}. \end{cases} \quad ({% increment equationId20210507 %})$$
 
 Unfortunately, the fact that $x[n]$ and $X[k]$ are 0 for $n,k \notin \{0, \dots, N-1\}$ is only **implicit**. It means we can state it but we cannot enforce it. Since the DFT uses directly the formulas of the DFS, the DFT will behave as if the signal $x[n]$ was periodic with period $N$. The only solution to that, would be padding the signal vector $x[n]$ with infinitely many zeros. Without such a padding, the DFT $X[k]$ is also periodic with period $N$.
 

@@ -74,7 +74,7 @@ From the above it is clear that $\delta[n-k]$ should be equal to 1 if $k = n$ an
 
 If $\delta[n-k] = 1$ for $k = n$, then $\delta[0]=1$. Thus,
 
-$$\delta[n] = \begin{cases} 1 &\text{ if } n=0,\\ 0 &\text{ if } n \neq 0. \end{cases}\quad ({% increment equationId  %})$$
+$$\delta[n] = \begin{cases} 1 &\text{ if } n=0,\newline  0 &\text{ if } n \neq 0. \end{cases}\quad ({% increment equationId  %})$$
 
 And so we have found our neutral element! The signal defined in Equation 3 is called a **unit sample sequence**, a **discrete-time impulse**, or just an **impulse** [2]. I have also often stumbled upon the name **discrete (Dirac) delta (impulse)**.
 
@@ -94,7 +94,7 @@ $$\delta(t) = \lim_{\epsilon \rightarrow 0} f(t,\epsilon), \quad ({% increment e
 
 where
 
-$$ f(t,\epsilon) = \begin{cases} \frac{1}{\epsilon} &\text{ if } |t|<\frac{\epsilon}{2},\\ 0 &\text{ if } |t|\geq\frac{\epsilon}{2}. \end{cases}\quad ({% increment equationId  %})$$
+$$ f(t,\epsilon) = \begin{cases} \frac{1}{\epsilon} &\text{ if } |t|<\frac{\epsilon}{2},\newline  0 &\text{ if } |t|\geq\frac{\epsilon}{2}. \end{cases}\quad ({% increment equationId  %})$$
 
 How to tackle this definition? I try to think about it as a function being 0 everywhere apart from $t=0$. At $t=0$, $\delta(t)$ tends to $+\infty$ like an infinitesimally narrow impulse of infinite height. But it is just an intuition; a correct mathematical definition is beyond the scope of this article.
 
@@ -141,7 +141,7 @@ Notice that Equation 9 could be viewed as an application of the sifting property
 
 From the associativity property of the convolution, which we derived in [one of the previous articles]({% post_url collections.posts, '2020-07-05-mathematical-properties-of-convolution' %}), it can be inferred that arranging delays in a series results in a delay of length equal to the sum of the individual delay lengths. That is because
 
-$$\delta[n-n_0] \ast \delta[n-n_1] = \sum_{k=-\infty}^{\infty} \delta[k - n_0]\delta[n-n_1 - k] \\= \delta[n-n_0-n_1]. \quad ({% increment equationId  %})$$
+$$\delta[n-n_0] \ast \delta[n-n_1] = \sum_{k=-\infty}^{\infty} \delta[k - n_0]\delta[n-n_1 - k] \newline = \delta[n-n_0-n_1]. \quad ({% increment equationId  %})$$
 
 ($\delta[k - n_0]\delta[n-n_1 - k]=1$ only if $k-n_0=0$ what results in $k=n_0$).
 
@@ -152,7 +152,7 @@ _Figure 3. Appending a delay element to the system results in adding its delay l
 
 Unsurprisingly, the $z^{-n}$ notation in Figure 3 results directly from the convolution property of the $z$-transform, which we discussed in [the previous article]({% post_url collections.posts, '2021-03-18-convolution-in-popular-transforms' %})
 
-$$ \mathcal{Z}\{\delta[n-n_0] \ast \delta[n-n_1]\} = \mathcal{Z}\{\delta[n-n_0] \} \mathcal{Z}\{\delta[n-n_1]\} \\= z^{-n_0} z^{-n_1} = z^{-(n_0+n_1)}. \quad ({% increment equationId %})$$
+$$ \mathcal{Z}\{\delta[n-n_0] \ast \delta[n-n_1]\} = \mathcal{Z}\{\delta[n-n_0] \} \mathcal{Z}\{\delta[n-n_1]\} \newline = z^{-n_0} z^{-n_1} = z^{-(n_0+n_1)}. \quad ({% increment equationId %})$$
 
 ## What is a signal, really?
 
@@ -172,7 +172,7 @@ As the value of $n$ changes, the corresponsing shift $k$ of the delta argument m
 
 Let's now assume that $x[n]$ starts at 0, i. e., $x[n]=  0 \forall n <0$. Writing down the sum in Equation 12 explicitly yields [2]
 
-$$x[n] = x[0]\delta[n] + x[1]\delta[n-1] + x[2]\delta[n-2] + \dots \\+ x[n-1]\delta[n-(n-1)] x[n]\delta[n - n] + \dots \quad ({% increment equationId  %})$$
+$$x[n] = x[0]\delta[n] + x[1]\delta[n-1] + x[2]\delta[n-2] + \dots \newline + x[n-1]\delta[n-(n-1)] x[n]\delta[n - n] + \dots \quad ({% increment equationId  %})$$
 
 Can you see the beauty of it? **$x[n]$ already contains all possible samples of the sequence $x$; we just need to delay it properly to receive the desired sample.** In other words, any discrete-time signal is a convolutional sum, a weighted sum of delayed impulses. Fixing index $n$ to some concrete value sets the delay length accordingly so as to return the signal value for that particular $n$.
 

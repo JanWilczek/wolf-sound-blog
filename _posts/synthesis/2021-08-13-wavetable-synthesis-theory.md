@@ -130,7 +130,7 @@ $\theta_\text{inc}(f)$ depends explicitly on $f$ (tone frequency) and implicitly
 
 Having the information on phase increment, we can calculate the *index increment*, i.e., how the index to the wave table changes with each sample.
 
-$$k_\text{inc} = (k+1) - k = \frac{(\phi_x + \theta_\text{inc})L}{2\pi} - \frac{\phi_x L}{2\pi} \\= \frac{\theta_\text{inc} L}{2\pi} = \frac{fL}{f_s}. \quad ({% increment equationId20210813 %})$$
+$$k_\text{inc} = (k+1) - k = \frac{(\phi_x + \theta_\text{inc})L}{2\pi} - \frac{\phi_x L}{2\pi} \newline = \frac{\theta_\text{inc} L}{2\pi} = \frac{fL}{f_s}. \quad ({% increment equationId20210813 %})$$
 
 When a key is pressed, we set an `index` variable to 0. For each sample, we increase the `index` variable by $k_\text{inc}$ and do a lookup. As long as the key is pressed, $k_\text{inc}$ is nonzero and we perform the wave table lookup.
 

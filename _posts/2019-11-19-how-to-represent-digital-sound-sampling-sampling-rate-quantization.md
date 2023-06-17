@@ -79,7 +79,7 @@ $$p(t) =   \sum_{n=-\infty}^{+\infty}\delta (t - n T)$$
 
 is called an a _sampling function_ or an _impulse-train_ (a series of discrete Dirac impulses spaced at time intervals $T$). In the equations above, $t$ is the continuous time, whereas $n$ is the index of the sample taken. Discrete Dirac&#8217;s delta $\delta (x)$ is equal to $1$ if $x$ is equal to $0$ and $0$ everywhere else:
 
-$$\delta (x) = \begin{cases}1 & \quad\text{if } x = 0  \\  0 & \quad\text{if } x \ne 0 \end{cases}$$
+$$\delta (x) = \begin{cases}1 & \quad\text{if } x = 0  \newline   0 & \quad\text{if } x \ne 0 \end{cases}$$
 
 so the right hand side expression in {eq:sampling} is equal to $0$ unless $t = nT$. $T$ is called the sampling period and is equal to the reciprocal of the _sampling frequency_:
 

@@ -54,7 +54,7 @@ but...
 
 Let's evaluate the right hand side of "Equation" 2
 
-$$x[n-n_0] \ast h[n-n_0] = \sum_{k=-\infty}^{\infty} x[k-n_0] h[n-n_0 - k] = \\ \sum_{k=-\infty}^{\infty} x[k] h[n-2n_0 - k] = y[n-2n_0]. \quad ({% increment equationId2  %})$$
+$$x[n-n_0] \ast h[n-n_0] = \sum_{k=-\infty}^{\infty} x[k-n_0] h[n-n_0 - k] = \newline  \sum_{k=-\infty}^{\infty} x[k] h[n-2n_0 - k] = y[n-2n_0]. \quad ({% increment equationId2  %})$$
 
 By blindly substituting $n \leftarrow n-n_0$, we overshot the desired delay by a factor of two.
 

@@ -169,7 +169,7 @@ $$\mathcal{H}_\text{a}(j\omega) = 1 + E(\omega). \quad ({% increment equationId2
 
 We can insert Equation 6 into Equation 5 and obtain
 
-$$d_0 + d_2 \omega^2 + \dots + d_{2M} \omega^{2M} = c_0 + c_2 \omega^2 + \dots + c_{2N} \omega^{2N} \\+ E(\omega) [c_0 + c_2 \omega^2 + \dots + c_{2N} \omega^{2N}]. \quad ({% increment equationId20211203 %})$$
+$$d_0 + d_2 \omega^2 + \dots + d_{2M} \omega^{2M} = c_0 + c_2 \omega^2 + \dots + c_{2N} \omega^{2N} \newline + E(\omega) [c_0 + c_2 \omega^2 + \dots + c_{2N} \omega^{2N}]. \quad ({% increment equationId20211203 %})$$
 
 #### Error Minimization
 
@@ -239,9 +239,9 @@ $$(-1)^N s^{2N} = -1, \quad ({% increment equationId20211203 %})$$
 
 $$s^{2N} = (-1)^{N+1}, \quad ({% increment equationId20211203 %})$$
 
-$$s^{2N} = \begin{cases} -1, \quad \text{if } N \text{ is even},\\ 1, \quad \text{if } N \text{ is odd}.\end{cases} \quad ({% increment equationId20211203 %})$$
+$$s^{2N} = \begin{cases} -1, \quad \text{if } N \text{ is even},\newline  1, \quad \text{if } N \text{ is odd}.\end{cases} \quad ({% increment equationId20211203 %})$$
 
-$$s_k = \begin{cases} e^{i(\pi + 2k\pi)/2N}, \quad \text{if } N \text{ is even},\\ e^{i2k\pi/2N}, \quad \text{if } N \text{ is odd.}\end{cases}, \\ \quad k=-(N-1), -(N-2), \dots, 0, 1, 2, \dots , N-1, N. \quad ({% increment equationId20211203 %})$$
+$$s_k = \begin{cases} e^{i(\pi + 2k\pi)/2N}, \quad \text{if } N \text{ is even},\newline  e^{i2k\pi/2N}, \quad \text{if } N \text{ is odd.}\end{cases}, \\ \quad k=-(N-1), -(N-2), \dots, 0, 1, 2, \dots , N-1, N. \quad ({% increment equationId20211203 %})$$
 
 *Note: This indexing of $k$ is chosen so as to simplify further derivations. Another but equivalent indexing is $k=0,1,2,\dots,2N-1$.*
 
@@ -255,7 +255,7 @@ We can obtain it by finding the poles of $H_\text{a}(-s)$ (which lie on the righ
 
 Poles of $H_\text{a}(-s)$ are $s_k$ from Equation 23 with arguments in the $(-\pi/2,\pi/2)$ range, i.e., for $k=0,\pm 1,\pm 2,\dots,\pm (N-1)/2$ if $N$ is odd, and for $k=0, \pm 1, \pm 2, \dots, \pm (N/2 -1),-N/2$ if $N$ is even. After negating the real part of these $s_k$, we obtain the pole locations of $H_\text{a}(s)$
 
-$$s_k^{H_\text{a}(s)} = \begin{cases} -e^{-i(\pi + 2k\pi)/2N},k=0, \pm 1, \dots, \pm (N/2 -1),-N/2 \quad \text{if } N \text{ is even},\\ -e^{-i2k\pi/2N}, k=0,\pm 1,\pm 2,\dots,\pm (N-1)/2 \quad \text{if } N \text{ is odd.}\end{cases} \quad ({% increment equationId20211203 %})$$
+$$s_k^{H_\text{a}(s)} = \begin{cases} -e^{-i(\pi + 2k\pi)/2N},k=0, \pm 1, \dots, \pm (N/2 -1),-N/2 \quad \text{if } N \text{ is even},\newline  -e^{-i2k\pi/2N}, k=0,\pm 1,\pm 2,\dots,\pm (N-1)/2 \quad \text{if } N \text{ is odd.}\end{cases} \quad ({% increment equationId20211203 %})$$
 
 *Note: Negating the real part of a complex number is equivalent to negating its complex conjugate.*
 
@@ -271,7 +271,7 @@ The polynomial in the denominator of Equation 17 has real coefficients. Therefor
 
 Since the complex conjugate lies on the same half-plane, we can combine the roots with their conjugates to create a neat-looking real polynomial in the denominator. The single real pole ($-1$) must be factored out of the product, because it doesn't have a conjugate pair.
 
-$$H_\text{a}(s) = \frac{1}{s+1} \prod \limits_k \frac{1}{(s + e^{-i 2 k \pi / 2N})(s + e^{i 2 k \pi / 2N})} \\= \frac{1}{s+1} \prod \limits_k \frac{1}{s^2 + 2 \cos (k \pi / N) s + 1}, \quad ({% increment equationId20211203 %})$$
+$$H_\text{a}(s) = \frac{1}{s+1} \prod \limits_k \frac{1}{(s + e^{-i 2 k \pi / 2N})(s + e^{i 2 k \pi / 2N})} \newline = \frac{1}{s+1} \prod \limits_k \frac{1}{s^2 + 2 \cos (k \pi / N) s + 1}, \quad ({% increment equationId20211203 %})$$
 
 with $k=1, 2,\dots, (N-1)/2$ (note the lack of nonpositive integers).
 

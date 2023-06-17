@@ -55,7 +55,7 @@ In software, the signals are always of finite length. Thus, we will denote a sig
 
 We could implement the convolution between discrete-time signals $x$ and $h$ by implementing the definition directly [1]
 
-$$ y[n] = x[n] \ast h[n] = \sum_{k=\max\{0,n-N_h+1\}}^{\min\{n, N_x-1\}} x[k] h[n - k], \\ \quad n \in \{0, \dots, N_x + N_h - 1\}. \quad ({% increment equationId20210514 %})$$
+$$ y[n] = x[n] \ast h[n] = \sum_{k=\max\{0,n-N_h+1\}}^{\min\{n, N_x-1\}} x[k] h[n - k], \newline  \quad n \in \{0, \dots, N_x + N_h - 1\}. \quad ({% increment equationId20210514 %})$$
 
 <!-- Check the k range in the above -->
 
