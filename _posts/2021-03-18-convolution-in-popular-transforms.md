@@ -88,12 +88,12 @@ $$ y(t) = x(t) \ast h(t) \quad (8) $$
 
 and deriving its Fourier transform
 
-$$  Y(j\omega) = \mathcal{F}\{y(t)\} = \int \limits_{-\infty}^{\infty} y(t) e^{-j\omega t} dt \\
-    = \int \limits_{-\infty}^{\infty} (x \ast h)(t) e^{-j\omega t} dt \\
-    = \int \limits_{-\infty}^{\infty} \int \limits_{-\infty}^{\infty} x(\tau)h(t - \tau) e^{-j\omega t} dt d\tau\\
-    = \int \limits_{-\infty}^{\infty} x(\tau) e^{-j\omega \tau} \int \limits_{-\infty}^{\infty} h(t - \tau) e^{-j\omega (t-\tau)} dt d\tau\\
-    = \int \limits_{-\infty}^{\infty} x(\tau) e^{-j\omega \tau} H(j\omega) d\tau\\
-    = \int \limits_{-\infty}^{\infty} x(\tau) e^{-j\omega \tau} d\tau H(j\omega) \\
+$$  Y(j\omega) = \mathcal{F}\{y(t)\} = \int \limits_{-\infty}^{\infty} y(t) e^{-j\omega t} dt \newline 
+    = \int \limits_{-\infty}^{\infty} (x \ast h)(t) e^{-j\omega t} dt \newline 
+    = \int \limits_{-\infty}^{\infty} \int \limits_{-\infty}^{\infty} x(\tau)h(t - \tau) e^{-j\omega t} dt d\tau\newline 
+    = \int \limits_{-\infty}^{\infty} x(\tau) e^{-j\omega \tau} \int \limits_{-\infty}^{\infty} h(t - \tau) e^{-j\omega (t-\tau)} dt d\tau\newline 
+    = \int \limits_{-\infty}^{\infty} x(\tau) e^{-j\omega \tau} H(j\omega) d\tau\newline 
+    = \int \limits_{-\infty}^{\infty} x(\tau) e^{-j\omega \tau} d\tau H(j\omega) \newline 
     = X(j\omega) H(j\omega). \quad \Box$$
 
 #### Application
@@ -168,10 +168,10 @@ where $R_{XH}$ denotes the region of convergence of the transform. As in the cas
 
 #### Proof
 The proof of the convolution property is rather straightforward
-$$ \mathcal{Z}\{x[n] \ast h[n]\} = \sum \limits_{n=-\infty}^{\infty} (x \ast h)[n] z^{-n} \\
-    = \sum \limits_{n=-\infty}^{\infty} \left(\sum \limits_{k=-\infty}^{\infty} x[k] h[n-k]\right) z^{-n} \\
-    = \sum \limits_{k=-\infty}^{\infty} x[k] z^{-k} \sum \limits_{n=-\infty}^{\infty} h[n-k] z^{-(n-k)} \\
-    = \sum \limits_{k=-\infty}^{\infty} x[k] z^{-k} H(z) \\
+$$ \mathcal{Z}\{x[n] \ast h[n]\} = \sum \limits_{n=-\infty}^{\infty} (x \ast h)[n] z^{-n} \newline 
+    = \sum \limits_{n=-\infty}^{\infty} \left(\sum \limits_{k=-\infty}^{\infty} x[k] h[n-k]\right) z^{-n} \newline 
+    = \sum \limits_{k=-\infty}^{\infty} x[k] z^{-k} \sum \limits_{n=-\infty}^{\infty} h[n-k] z^{-(n-k)} \newline 
+    = \sum \limits_{k=-\infty}^{\infty} x[k] z^{-k} H(z) \newline 
     = X(z)H(z). \quad \Box$$
 
 ## Summary

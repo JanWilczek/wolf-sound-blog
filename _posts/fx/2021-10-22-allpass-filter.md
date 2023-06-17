@@ -140,7 +140,7 @@ $$y[n] = a_1 x[n] - a_1^2 v[n-1] + v[n-1]. \quad ({% increment equationId2021102
 Finally, replace the first $v[n-1]$ with $\frac{y[n-1] - v[n-2]}{a_1}$ (from Eq. 5) and the second $v[n-1]$ with $x[n-1] - a_1 v[n-2]$ (from Eq. 4):
 
 $$y[n] = a_1 x[n] - a_1^2 \frac{y[n-1] - v[n-2]}{a_1} + x[n-1] - a_1 v[n-2] 
-\\= a_1 x[n] - a_1 y[n-1] + x[n-1], \quad ({% increment equationId20211022 %})$$
+\newline = a_1 x[n] - a_1 y[n-1] + x[n-1], \quad ({% increment equationId20211022 %})$$
 
 which is equivalent to Eq. 3.
 

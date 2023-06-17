@@ -241,7 +241,7 @@ $$s^{2N} = (-1)^{N+1}, \quad ({% increment equationId20211203 %})$$
 
 $$s^{2N} = \begin{cases} -1, \quad \text{if } N \text{ is even},\newline  1, \quad \text{if } N \text{ is odd}.\end{cases} \quad ({% increment equationId20211203 %})$$
 
-$$s_k = \begin{cases} e^{i(\pi + 2k\pi)/2N}, \quad \text{if } N \text{ is even},\newline  e^{i2k\pi/2N}, \quad \text{if } N \text{ is odd.}\end{cases}, \\ \quad k=-(N-1), -(N-2), \dots, 0, 1, 2, \dots , N-1, N. \quad ({% increment equationId20211203 %})$$
+$$s_k = \begin{cases} e^{i(\pi + 2k\pi)/2N}, \quad \text{if } N \text{ is even},\newline  e^{i2k\pi/2N}, \quad \text{if } N \text{ is odd.}\end{cases}, \newline  \quad k=-(N-1), -(N-2), \dots, 0, 1, 2, \dots , N-1, N. \quad ({% increment equationId20211203 %})$$
 
 *Note: This indexing of $k$ is chosen so as to simplify further derivations. Another but equivalent indexing is $k=0,1,2,\dots,2N-1$.*
 

@@ -133,9 +133,9 @@ $$\pmb{y}[n] = \mathbf{H} \pmb{x}[n], \quad ({% increment equationId20210723 %})
 where $\mathbf{H}$ is an $N \times (M+N-1)$ *convolution matrix* which has *Toeplitz structure* (identical elements along each diagonal of the matrix)
 
 $$\mathbf{H} = \begin{bmatrix}
-    h[0] & h[1] & \dots & h[M-1] & 0 & \dots & 0 \\
-    0 & h[0] & h[1] & \dots & h[M-1] & \dots & 0 \\
-    \vdots &  & \ddots & & & & \vdots \\
+    h[0] & h[1] & \dots & h[M-1] & 0 & \dots & 0 \newline 
+    0 & h[0] & h[1] & \dots & h[M-1] & \dots & 0 \newline 
+    \vdots &  & \ddots & & & & \vdots \newline 
     0 & & \dots & h[0] & h[1] & \dots & h[M-1]
 \end{bmatrix}. \quad ({% increment equationId20210723 %})$$
 
@@ -188,7 +188,7 @@ $$\hat{X}(z) = \log X(z), \quad ({% increment equationId20210723 %})$$
 where $X(z)$ is the $z$-transform of $x[n]$. Thus, $\hat{x}[n]$ can be expressed as
 
 $$\hat{x}[n] = \frac{1}{2 \pi} \int \limits_{-\pi}^{\pi} \log(X(e^{j\omega}))e^{j\omega n} d\omega 
-\\=\frac{1}{2 \pi} \int \limits_{-\pi}^{\pi} (\log |X(e^{j\omega})| + j \angle X(e^{j\omega})) e^{j\omega n} d\omega. \quad ({% increment equationId20210723 %})$$
+\newline =\frac{1}{2 \pi} \int \limits_{-\pi}^{\pi} (\log |X(e^{j\omega})| + j \angle X(e^{j\omega})) e^{j\omega n} d\omega. \quad ({% increment equationId20210723 %})$$
 
 As we know from the [convolution property of the $z$-transform]({% post_url collections.posts, '2021-03-18-convolution-in-popular-transforms' %}), a convolution of time-domain signals is equivalent to multiplication of their $z$-transforms. If we apply a logarithm function to the multiplication of these transforms, we obtain a summation of the logarithms of the individual transforms. Mathematically speaking, if
 

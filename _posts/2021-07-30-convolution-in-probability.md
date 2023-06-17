@@ -75,9 +75,9 @@ Now to the main part of the proof!
 We have two independent random variables, $X$ and $Y$, with probability density functions $f_X$ and $f_Y$ respectively. We want to know what is the probability density function of the sum of $X$ and $Y$, i.e., what is the formula for $f_{X+Y}$. To discover that formula, we calculate the characteristic function of $X+Y$:
 
 $$\Phi_{X+Y}(j \omega) = \mathbb{E} \left[ e^{j\omega (X+Y)} \right] 
-\\= \int \limits_{-\infty}^{\infty} \int \limits_{-\infty}^{\infty} f_{XY}(x, y) e ^{j\omega (x+y)} dxdy
-\\=  \int \limits_{-\infty}^{\infty} f_X(x) e ^{j\omega x} dx  \int \limits_{-\infty}^{\infty} f_Y(y) e ^{j\omega y} dy 
-\\= \mathbb{E} \left[ e^{j\omega X} \right] \mathbb{E} \left[ e^{j\omega Y} \right] = \Phi_X(j \omega) \Phi_Y(j \omega). \quad ({% increment equationId20210730  %})$$
+\newline = \int \limits_{-\infty}^{\infty} \int \limits_{-\infty}^{\infty} f_{XY}(x, y) e ^{j\omega (x+y)} dxdy
+\newline =  \int \limits_{-\infty}^{\infty} f_X(x) e ^{j\omega x} dx  \int \limits_{-\infty}^{\infty} f_Y(y) e ^{j\omega y} dy 
+\newline = \mathbb{E} \left[ e^{j\omega X} \right] \mathbb{E} \left[ e^{j\omega Y} \right] = \Phi_X(j \omega) \Phi_Y(j \omega). \quad ({% increment equationId20210730  %})$$
 
 Note that we could separate the integrals only thanks to the independence of the two random variables: splitting $f_{XY}$ into a product of $f_X$ and $f_Y$.
 
@@ -94,7 +94,7 @@ $$\Phi_{X+Y}(-j \omega) = \Phi_{X}(-j \omega) \Phi_{Y}(-j \omega) , \quad ({% in
 The [convolution property of the Fourier transform]({% post_url collections.posts, '2021-03-18-convolution-in-popular-transforms' %}) tells us that the multiplication in the Fourier domain is equivalent to convolution in the other domain (here: the domain of the random variable). Therefore,
 
 $$\Phi_{X+Y}(-j \omega) = \Phi_{X}(-j \omega) \Phi_{Y}(-j \omega) \stackrel{\mathcal{F}}{\longleftrightarrow} f_X(x) \ast f_Y(x) 
-\\= f_{X+Y}(x), \quad ({% increment equationId20210730  %})$$
+\newline = f_{X+Y}(x), \quad ({% increment equationId20210730  %})$$
 
 what concludes the proof $\Box$.
 

@@ -96,7 +96,7 @@ _Figure {% increment figureId20220115 %}. A diagram of the analog integrator sys
 We want to obtain a discrete system described by a discrete transfer function $G(z)$ that behaves like $\frac{1}{s}$. To this end, we observe the output of the continuous system at discrete time points $t = kT$, where $k \in \mathbb{Z}$ and $T$ is the sampling interval (inverse of the sampling rate).
 
 $$y(kT) = \int \limits_{0}^{kT} x(\tau) d\tau = \int \limits_{0}^{(k-1)T} x(\tau) d \tau + \int \limits_{(k-1)T}^{kT} x(\tau) d \tau 
-\\= y((k-1)T) + \int \limits_{(k-1)T}^{kT} x(\tau) d \tau. \quad ({% increment equationId20220115 %})$$
+\newline = y((k-1)T) + \int \limits_{(k-1)T}^{kT} x(\tau) d \tau. \quad ({% increment equationId20220115 %})$$
 
 We can now approximate the last integral in Equation 6 via the [trapezoidal rule](https://en.wikipedia.org/wiki/Trapezoidal_rule)
 
@@ -155,7 +155,7 @@ The mathematical relation between the analog frequencies $\omega_\text{a}$ and d
 
 $$j \omega_\text{a} = \frac{2}{T}\frac{1 - e^{-j\omega_\text{d}T}}{1 + e^{-j\omega_\text{d}T}}
 = \frac{2}{T}\frac{e^{-j\omega_\text{d}T/2}(e^{j\omega_\text{d}T/2} - e^{-j\omega_\text{d}T/2})}{e^{-j\omega_\text{d}T/2}(e^{2j\omega_\text{d}T/2} + e^{-j\omega_\text{d}T/2})}
-\\= \frac{2}{T} \frac{j \sin(\omega_\text{d} T / 2)}{\cos(\omega_\text{d}T / 2)} = j \frac{2}{T} \tan(\omega_\text{d}T/2). \quad ({% increment equationId20220115 %})$$
+\newline = \frac{2}{T} \frac{j \sin(\omega_\text{d} T / 2)}{\cos(\omega_\text{d}T / 2)} = j \frac{2}{T} \tan(\omega_\text{d}T/2). \quad ({% increment equationId20220115 %})$$
 
 Therefore,
 

@@ -116,12 +116,12 @@ As we can observe, Equations 1 and 3, 2 and 4 and Figures 3 and 4 are somewhat s
 
 ### Discrete Correlation Obtained Using Discrete Convolution
 
-$$\phi_{xh}[n] \\
-= \sum \limits_{k=-\infty}^{\infty} x[n + k]h[k] \\
-= \sum \limits_{k=-\infty}^{\infty} x[-(-n) + k]h[k] \\
-= \sum \limits_{k=-\infty}^{\infty} x[-((-n) - k)]h[k] \\
-\stackrel{x_1[l]=x[-l]}{=} \sum \limits_{k=-\infty}^{\infty} x_1[((-n) - k)]h[k] \\
-= (x_1[n] \ast h[n])[-n] \\
+$$\phi_{xh}[n] \newline 
+= \sum \limits_{k=-\infty}^{\infty} x[n + k]h[k] \newline 
+= \sum \limits_{k=-\infty}^{\infty} x[-(-n) + k]h[k] \newline 
+= \sum \limits_{k=-\infty}^{\infty} x[-((-n) - k)]h[k] \newline 
+\stackrel{x_1[l]=x[-l]}{=} \sum \limits_{k=-\infty}^{\infty} x_1[((-n) - k)]h[k] \newline 
+= (x_1[n] \ast h[n])[-n] \newline 
 \stackrel{x[-l]=x_1[l]}{=} (x[-n] \ast h[n])[-n]. \quad ({% increment equationId20210618 %})$$
 
 In the above derivation, we used the "helper function trick", which you can read more about [here]({% post_url collections.posts, '2021-04-03-star-notation-of-the-convolution-a-notational-trap' %}).
@@ -133,8 +133,8 @@ It turned out that correlation can be obtained by convolving the signals to be c
 
 Analogously to the discrete case,
 
-$$\phi_{xh}(t) = \int \limits_{-\infty}^{\infty} x(t + \tau) h(\tau) d\tau \\
-= \int \limits_{-\infty}^{\infty} x(-((-t) - \tau))) h(\tau) d\tau \\
+$$\phi_{xh}(t) = \int \limits_{-\infty}^{\infty} x(t + \tau) h(\tau) d\tau \newline 
+= \int \limits_{-\infty}^{\infty} x(-((-t) - \tau))) h(\tau) d\tau \newline 
 = (x(-t) \ast h(t))(-t). 
 \quad ({% increment equationId20210618 %})$$
 

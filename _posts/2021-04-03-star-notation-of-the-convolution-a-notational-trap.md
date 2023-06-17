@@ -99,7 +99,7 @@ This approach always works for me. At the same time, any shortcuts in an attempt
 
 This final example should make clear why "helper functions" ensure us that we correctly evaluate the star notation. In this example, one of the operands is time-reversed.
 
-$$x[n] \ast h[-n] \stackrel{h_2[n]=h[-n]}{=} x[n] \ast h_2[n] = \sum_{k=-\infty}^{\infty} x[k] h_2[n-k]\\
+$$x[n] \ast h[-n] \stackrel{h_2[n]=h[-n]}{=} x[n] \ast h_2[n] = \sum_{k=-\infty}^{\infty} x[k] h_2[n-k]\newline 
 \stackrel{h_2[n-k]=h[-(n-k)]}{=} \sum_{k=-\infty}^{\infty} x[k] h[k-n]. \quad ({% increment equationId2  %})$$
 
 Is it possible to guess the correct answer right away? Yes, definitely. But it is not easy, especially if the arguments get even more complicated and the convolution is a part of a much larger body of derivations.
