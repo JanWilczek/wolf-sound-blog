@@ -34,6 +34,7 @@ From November 13 to November 16 2022, I took part in the Audio Developers Confer
 <div markdown="0">
 <img class="lazyload" data-src="{{ images | append: "ADC22-Logo..webp" }}" alt="ADC22 Conference logo.">
 </div>
+
 _Figure {% increment figureId202211214  %}. Audio Developers Conference 2022 logo._
 
 From what I understood, there were 1052 attendees of which around 700 were present online and around 300 attended in person. There were 93 talk submissions, out of which around half was voted in.
@@ -67,6 +68,7 @@ These are the highlights of ADC 2022 as seen by an audio C++ developer:
 <div markdown="0">
 <img class="lazyload article-img" data-src="{{ images | append: "RussellMcClellan..webp" }}" alt="Russell McClellan.">
 </div>
+
 _Figure {% increment figureId202211214  %}. Russell McClellan._
 
 This talk was given by Russell McClellan from Soundwide and is my personal favorite of all the talks. Mostly thanks to its illustrative and insightful examples.
@@ -91,6 +93,7 @@ The CppCon 2022 version of this talk was given by Roth Michaels and can be found
 <div markdown="0">
 <img class="lazyload article-img" data-src="{{ images | append: "RothMichaels..webp" }}" alt="Roth Michaels.">
 </div>
+
 _Figure {% increment figureId202211214  %}. Roth Michaels._
 
 Another great C++-related talk was given by a colleague of Russell from iZotope (Soundwide), Roth Michaels.
@@ -106,6 +109,7 @@ All of these requirements can be fulfilled by using the [Xoroshiro128+ pseudoran
 <div markdown="0">
 <img class="lazyload article-img" data-src="{{ images | append: "EsaJaaskela.webp" }}" alt="Esa Jääskelä.">
 </div>
+
 _Figure {% increment figureId202211214  %}. Esa Jääskelä._
 
 An interesting talk was given by Esa Jääskelä, who advocated for testing your digital signal processing code. I am a big believer in unit and integration testing, thus, I was very happy to listen to his ideas and evangelism on this topic.
@@ -119,6 +123,7 @@ He also showed the usefulness of the [Pamplejuce template](https://github.com/su
 <div markdown="0">
 <img class="lazyload" data-src="{{ images | append: "rnbo-intro.webp" }}" alt="RNBO.">
 </div>
+
 _Figure {% increment figureId202211214  %}. RNBO._
 
 This major announcement from Cycling '74 could be a real game-changer in the long run.
@@ -132,6 +137,7 @@ I took part in the workshop on RNBO and the generated code compiled under Window
 <div markdown="0">
 <img class="lazyload article-img" data-src="{{ images | append: "SamTarakajian.webp" }}" alt="Sam Tarakajian.">
 </div>
+
 _Figure {% increment figureId202211214  %}. Sam Tarakajian._
 
 The only caveat of RNBO is that you need a dedicated license for it. But for people using Max, this should come as no surprise.
@@ -141,6 +147,7 @@ The only caveat of RNBO is that you need a dedicated license for it. But for peo
 <div markdown="0">
 <img class="lazyload article-img" data-src="{{ images | append: "DavidRowland.webp" }}" alt="David Rowland.">
 </div>
+
 _Figure {% increment figureId202211214  %}. David Rowland._
 
 A great talk from David Rowland, the CTO of [Tracktion](https://www.tracktion.com/), in which he showed a complete guide to optimizing audio code on a rather high level including everything from performance measurement to automated reporting to regression benchmarks (ones that send you an email once a performance dropped in a specific area of code).
@@ -154,6 +161,7 @@ However, it wasn't a talk discussing low-level optimizations, like loop unrollin
 <div markdown="0">
 <img class="lazyload" data-src="{{ images | append: "MIDI2.0Logo.webp" }}" alt="MIDI 2.0 Logo.">
 </div>
+
 _Figure {% increment figureId202211214  %}. MIDI 2.0 Logo._
 
 MIDI 2.0 is slowly introduced to all major operating systems (OSs). Representatives of the MIDI Association presented the current state of the standard and representatives of the Windows, Mac/iOS, and Android teams discussed the changes to their APIs.
@@ -169,6 +177,7 @@ For me personally, it was great to hear that the MIDI 2.0 standard is extensible
 <div markdown="0">
 <img class="lazyload" data-src="{{ images | append: "SoundWithoutSightLogoBlack.webp" }}" alt="Sound Without Sight Logo." width="60%">
 </div>
+
 _Figure {% increment figureId202211214  %}. Sound Without Sight Logo._
 
 It was amazing to learn how differently abled musicians closely collaborate with companies on product development. A lot in this area is done by [Jason Dasent](https://www.jasondasentinstudio.com/) and the [Sound Without Sight](https://soundwithoutsight.org/) organization.
@@ -186,6 +195,7 @@ I found it fascinating to see how crackers can inspect your binary code and be a
 <div markdown="0">
 <img class="lazyload article-img" data-src="{{ images | append: "BrickworksLogo.svg" }}" alt="Brickworks Logo.">
 </div>
+
 _Figure {% increment figureId202211214  %}. Brickworks Logo._
 
 This talk gave a nice overview of the whole audio programming business and the technologies involved. In a rather streamlined way, Stefano managed to capture the current state of digital signal processing engineering industry and the challenges the DSP engineers must face.
@@ -197,6 +207,7 @@ Interestingly, to help push things in the right direction, he proposed a code li
 <div markdown="0">
 <img class="lazyload" data-src="{{ images | append: "CmajorLogo.webp" }}" alt="Cmajor Logo.">
 </div>
+
 _Figure {% increment figureId202211214  %}. Cmajor Logo._
 
 A major announcement came from [SoundStacks](https://www.soundwide.com/en/sound-stacks.html) (which is a part of SoundWide): [the Cmajor language for audio-specific software.](https://cmajor.dev/)
@@ -231,6 +242,7 @@ Since it's an Asia-based company, it's hard to find something about them in the 
 <div markdown="0">
 <img class="lazyload" data-src="{{ images | append: "ElkLogo.svg" }}" alt="Elk Logo.">
 </div>
+
 _Figure {% increment figureId202211214  %}. Elk Logo._
 
 This technology by [Elk Audio](https://www.elk.audio/) allows you to control remote audio software in real time (for example, running on an embedded device) without a loss in performance.
@@ -258,6 +270,7 @@ a.k.a. my talk…
 <div markdown="0">
 <img class="lazyload" data-src="{{ images | append: "JumpstartGuideToDeepLearningInAudioTitleSlide.webp" }}" alt="Title slide of my presentation.">
 </div>
+
 _Figure {% increment figureId202211214  %}. Title slide of my presentation._
 
 I would like to mention here my talk not because of its quality (that's not for me to judge) but because I was honored (and surprised, to be honest) to be able to speak at the Audio Developers Conference 2022.
@@ -277,6 +290,7 @@ It's YOU.
 <div markdown="0">
 <img class="lazyload" data-src="{{ images | append: "ADC22-Thank-You.webp" }}" alt="ADC22 thank you banner.">
 </div>
+
 _Figure {% increment figureId202211214  %}._
 
 Thanks to all of you who walked up to me to say "hi" or "thank you for your tutorials." I really appreciate every gesture like this and I hope to continue to serve you in the field of audio programming education in 2023 to the best of my ability.
