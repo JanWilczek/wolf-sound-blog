@@ -17,13 +17,16 @@ discussion_id: 2023-06-19-jay-pocknell
 ---
 Easily make your audio software accessible to the widest audience possible!
 
+<script async defer onload="redcircleIframe();" src="https://api.podcache.net/embedded-player/sh/bf40a1d2-7e41-4ddb-8c3a-ed82394723ba/ep/cf1ba41a-5837-463c-bc7e-3e991b63b6bc"></script> <div class="redcirclePlayer-cf1ba41a-5837-463c-bc7e-3e991b63b6bc"></div> <style> .redcircle-link:link { color: #ea404d; text-decoration: none; } .redcircle-link:hover { color: #ea404d; } .redcircle-link:active { color: #ea404d; } .redcircle-link:visited { color: #ea404d; } </style>
+<p style="margin-top:3px;margin-left:11px;font-family: sans-serif;font-size: 10px; color: gray;">Powered by <a class="redcircle-link" href="https://redcircle.com?utm_source=rc_embedded_player&utm_medium=web&utm_campaign=embedded_v1">RedCircle</a></p>
+
 ## Listen on
 
-* 🎧 Spotify (TBA)
+* 🎧 [Spotify](https://open.spotify.com/episode/3i9ftXnSBoA4LBY3Euzpd3?si=ecf61583cb6548b2)
 * 🎥 YouTube (TBA)
 * 🎧 Apple Podcasts (iTunes) (TBA)
-* 🎧 Amazon Music (TBA)
-* 🎧 Google Podcasts (TBA)
+* 🎧 [Amazon Music](https://music.amazon.com/podcasts/b42682b5-61ba-4a6f-8b11-aed42b07ef9f/episodes/cd834b11-5859-4bcf-98ab-8f72a8190dda/how-to-create-accessible-audio-software-with-jay-pocknell-wolftalk-013)
+* 🎧 [Google Podcasts](https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkcy5yZWRjaXJjbGUuY29tL2JmNDBhMWQyLTdlNDEtNGRkYi04YzNhLWVkODIzOTQ3MjNiYQ/episode/MzdhYWY5NjUtNWZiOS00MWFkLThmZGYtM2VkODQ2ZjZmMTcx?sa=X&ved=0CAUQkfYCahcKEwj4wvnai9D_AhUAAAAAHQAAAAAQAQ)
 * 🎧 Stitcher (TBA)
 * 🎧 TuneIn Radio (TBA)
 
