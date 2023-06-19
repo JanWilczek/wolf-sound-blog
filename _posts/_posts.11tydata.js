@@ -18,10 +18,11 @@ module.exports = {
                 return "";
             }
 
-            // get the article and strip html tags
-            const markdownContent = parts[2].replace(/<\/?[^>]+(>|$)/g, "");
-            
+            const htmlContent = parts[2];
+            const markdownContent = stripHtml(htmlContent);
             const firstLine = truncateToFirstLine(markdownContent);
+
+            // the recommended length of a meta description
             const MAX_CHARACTERS = 160;
             const truncatedCharacters = firstLine.length > MAX_CHARACTERS;
             if (truncatedCharacters) {
@@ -29,6 +30,7 @@ module.exports = {
             }
             let excerpt = firstLine;
             if (truncatedCharacters) {
+                // replace the last 3 characters with ellipsis
                 excerpt = excerpt.substring(0, MAX_CHARACTERS - 3) + "...";
             }
             return excerpt;
@@ -45,4 +47,8 @@ function truncateToFirstLine(string) {
         }
     }
     return "";
+}
+
+function stripHtml(string) {
+    return string.replace(/<\/?[^>]+(>|$)/g, "");
 }
