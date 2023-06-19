@@ -95,11 +95,6 @@
     <link href="/assets/css/prism-vs.css" rel="stylesheet">
 
     <!-- Additional CSS files -->
-    {% if layout.custom_css %}
-        {% for stylesheet in layout.custom_css %}
-            <link rel="stylesheet" href="{{ stylesheet }}">
-        {% endfor %}
-    {% endif %}
     {% if custom_css %}
         {% for stylesheet in custom_css %}
             <link rel="stylesheet" href="{{ stylesheet }}">
