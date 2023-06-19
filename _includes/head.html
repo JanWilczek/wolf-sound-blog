@@ -51,11 +51,11 @@
     <link rel="canonical" href="{{ url | replace:'index.html','' | absolute_url }}">
 
     <!-- Relative pagination (for Bing and accessibility) -->
-    {% if paginator.previous_page_path %}
-    <link rel="prev" href="{{ paginator.previous_page_path | absolute_url }}" />
+    {% if pagination.href.previous %}
+    <link rel="prev" href="{{ pagination.href.previous }}" />
     {% endif %}
-    {% if paginator.next_page_path %}
-    <link rel="next" href="{{ paginator.next_page_path | absolute_url }}" />
+    {% if pagination.href.next %}
+    <link rel="next" href="{{ pagination.href.next }}" />
     {% endif %}
 
     <!-- feed_meta -->
