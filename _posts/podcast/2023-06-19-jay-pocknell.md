@@ -23,12 +23,12 @@ Easily make your audio software accessible to the widest audience possible!
 ## Listen on
 
 * 🎧 [Spotify](https://open.spotify.com/episode/3i9ftXnSBoA4LBY3Euzpd3?si=ecf61583cb6548b2)
-* 🎥 YouTube (TBA)
-* 🎧 Apple Podcasts (iTunes) (TBA)
+* 🎥 [YouTube](https://youtu.be/m2W-p4LY5Yg)
+* 🎧 [Apple Podcasts (iTunes)](https://podcasts.apple.com/us/podcast/how-to-create-accessible-audio-software-with-jay/id1595913701?i=1000617609734)
 * 🎧 [Amazon Music](https://music.amazon.com/podcasts/b42682b5-61ba-4a6f-8b11-aed42b07ef9f/episodes/cd834b11-5859-4bcf-98ab-8f72a8190dda/how-to-create-accessible-audio-software-with-jay-pocknell-wolftalk-013)
 * 🎧 [Google Podcasts](https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkcy5yZWRjaXJjbGUuY29tL2JmNDBhMWQyLTdlNDEtNGRkYi04YzNhLWVkODIzOTQ3MjNiYQ/episode/MzdhYWY5NjUtNWZiOS00MWFkLThmZGYtM2VkODQ2ZjZmMTcx?sa=X&ved=0CAUQkfYCahcKEwj4wvnai9D_AhUAAAAAHQAAAAAQAQ)
-* 🎧 Stitcher (TBA)
-* 🎧 TuneIn Radio (TBA)
+* 🎧 [Stitcher](https://listen.stitcher.com/yvap/?af_dp=stitcher://episode/304582337&af_web_dp=https://www.stitcher.com/episode/304582337&deep_link_value=stitcher://episode/304582337)
+* 🎧 [TuneIn Radio](http://tun.in/tucJie)
 
 [All podcast episodes.](/podcast)
 
