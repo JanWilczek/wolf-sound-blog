@@ -35,13 +35,23 @@ Easily make your audio software accessible to the widest audience possible!
 
 In this podcast episode, I was lucky to interview Jay Pocknell; a production and mixing engineer from the UK.
 
-Not only is a skilled sound engineer and a lovely person to talk to but also a proactive member of the audio community. He founded the Sound Without Sight organization and currently works at the Royal National Institute of Blind People (RNIB) advocating for music software, music hardware, and music instruments accessible to everyone: including musicians and sound engineers with disabilities.
+Not only is he a skilled sound engineer and a lovely person to talk to but also a proactive member of the audio community. He founded the Sound Without Sight organization and currently works at the Royal National Institute of Blind People (RNIB) advocating for music software, music hardware, and music instruments accessible to everyone: including musicians and sound engineers with disabilities.
 
 Basing on his lived experience with sight loss, he gives invaluable advice on how **any audio programmer can make their software accessible**. This is a gold mine of first-hand information!
 
 In the podcast episode, we discuss his path to becoming a sound engineer, which obstacles he needed to overcome, and how we as the audio community can remove some of these obstacles permanently.
 
 *Note:* If you like the podcast so far, please, [go to Apple Podcasts and leave me a review there](https://podcasts.apple.com/us/podcast/wolftalk-podcast-about-audio-programming-people-careers/id1595913701). It will benefit both sides: more reviews mean a broader reach on Apple Podcasts and feedback can help me to improve the show and provide better quality content to you. Thank you for doing this 🙏
+
+<script defer src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6611455743195468"
+     crossorigin="anonymous"></script><ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+     data-ad-layout="in-article"
+     data-ad-format="fluid"
+     data-ad-client="ca-pub-6611455743195468"
+     data-ad-slot="7289385396"></ins><script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 
 ## Episode Contents
 
