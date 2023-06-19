@@ -22,15 +22,14 @@ module.exports = {
             const markdownContent = parts[2].replace(/<\/?[^>]+(>|$)/g, "");
             
             const firstLine = truncateToFirstLine(markdownContent);
-            let firstLineWords = firstLine.split(' ');
-            const MAX_WORDS = 15;
-            const truncatedWords = firstLineWords.length > MAX_WORDS;
-            if (truncatedWords) {
-                firstLineWords.length = MAX_WORDS;
+            const MAX_CHARACTERS = 160;
+            const truncatedCharacters = firstLine.length > MAX_CHARACTERS;
+            if (truncatedCharacters) {
+                firstLine.length = MAX_CHARACTERS;
             }
-            let excerpt = firstLineWords.join(' ');
-            if (truncatedWords) {
-                excerpt += "...";
+            let excerpt = firstLine;
+            if (truncatedCharacters) {
+                excerpt = excerpt.substring(0, MAX_CHARACTERS - 3) + "...";
             }
             return excerpt;
         }
