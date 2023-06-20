@@ -17,7 +17,7 @@ background: "/assets/img/home/Logo.webp"
 
     {% include 'scripts.html' %}
     
-    {% if jekyll.environment == "production" %}
+    {% if buildSettings.environment == "production" %}
         {% include 'cookify.html' %}
     {% endif %}
 </body>

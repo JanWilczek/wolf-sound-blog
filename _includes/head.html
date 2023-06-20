@@ -1,5 +1,5 @@
 <head>
-    {% if jekyll.environment == "production" %}
+    {% if buildSettings.environment == "production" %}
     <!-- Google Optimize -->
     {% if url == "/" %}
     <script src="https://www.googleoptimize.com/optimize.js?id=OPT-TQMXDMB"></script>
@@ -101,7 +101,7 @@
         {% endfor %}
     {% endif %}
 
-    {% if jekyll.environment == "production" %}
+    {% if buildSettings.environment == "production" %}
     <!-- Meta Pixel Code -->
     <script data-c-script="statistics">
         !function (f, b, e, v, n, t, s) {
