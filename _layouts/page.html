@@ -19,7 +19,9 @@ layout: default
             {% else %}
             {{ eleventyComputed.title }}
             {% endif %}
+            {% unless pagination.data == "collections" %}
             {% if pagination.pageNumber > 0 %} - Page {{ pagination.pageNumber | plus: 1 }}{% endif %}
+            {% endunless %}
             </h1>
             {% if description %}
             <span class="subheading">{{ description }}</span>
