@@ -34,7 +34,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("wp-content");
   eleventyConfig.addPassthroughCopy("favicon.png");
   eleventyConfig.addPassthroughCopy("ads.txt");
-  eleventyConfig.addPassthroughCopy("robots.txt");
+  eleventyConfig.addPassthroughCopy("robot.txt");
   eleventyConfig.addPassthroughCopy(".htaccess");
 
   eleventyConfig.addCollection("posts", function (collectionApi) {
