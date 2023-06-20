@@ -1,9 +1,5 @@
 <head>
     {% if buildSettings.environment == "production" %}
-    <!-- Google Optimize -->
-    {% if url == "/" %}
-    <script src="https://www.googleoptimize.com/optimize.js?id=OPT-TQMXDMB"></script>
-    {% endif %}
     <!-- Global site tag (gtag.js) - Google Analytics UA -->
     <script async data-c-script="statistics"
         src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"></script>
