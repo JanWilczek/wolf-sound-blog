@@ -87,7 +87,7 @@ $$Y(z) = X(z)H(z). \quad ({% increment equationId20210723 %})$$
 
 With this formulation we can easily obtain the desired time domain signal $h[n]$ if we know $x[n]$
 
-$$h[n] = \mathcal{Z}^{-1} \{H(z)\} = \mathcal{Z}^{-1} \left\{ \frac{Y(z)}{X(z)} \right\}. \quad ({% increment equationId20210723 %})$$
+$$h[n] = \mathcal{Z}^{-1} \lbrace H(z) \rbrace = \mathcal{Z}^{-1} \lbrace \frac{Y(z)}{X(z)} \rbrace. \quad ({% increment equationId20210723 %})$$
 
 There are two caveats to this approach:
 1. $X(z)$ mustn't be zero for any $z$ (we mustn't divide by 0),
