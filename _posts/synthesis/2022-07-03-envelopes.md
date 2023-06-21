@@ -106,7 +106,7 @@ Synthesizers tried to mimic the behavior of natural instruments and so they intr
 
 Here's an example of a 220 Hz sine tone with the ADSR envelope from Figure 1 applied as an amplitude envelope.
 
-{% include 'embed-audio.html' src="/assets/wav/posts/synthesis/2022-07-03-envelopes/sine_adsr.flac" %}
+{% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2022-07-03-envelopes/sine_adsr.flac" %}
 
 This single change, the introduction of amplitude envelopes, sufficed to make the synthesizers sound more natural. But to make them sound even more natural, another envelope was needed...
 
@@ -122,7 +122,7 @@ When we hit a synthesizer key, the cutoff frequency rises, the sound becomes bri
 
 Here's an example of the ADSR envelope controlling the cutoff of a lowpass filter processing a 220 Hz sawtooth:
 
-{% include 'embed-audio.html' src="/assets/wav/posts/synthesis/2022-07-03-envelopes/cutoff_adsr.flac" %}
+{% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2022-07-03-envelopes/cutoff_adsr.flac" %}
 
 As you can hear, the cutoff envelope influences the amplitude envelope because by decreasing the energy of partials, it decreases the overall signal energy.
 
@@ -200,11 +200,11 @@ Each one plays a sine at 220 Hz.
 
 This one has the linear attack envelope (left in Figure 3).
 
-{% include 'embed-audio.html' src="/assets/wav/posts/synthesis/2022-07-03-envelopes/linear.flac" %}
+{% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2022-07-03-envelopes/linear.flac" %}
 
 This one has the exponential attack envelope (right in Figure 3).
 
-{% include 'embed-audio.html' src="/assets/wav/posts/synthesis/2022-07-03-envelopes/exponential.flac" %}
+{% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2022-07-03-envelopes/exponential.flac" %}
 
 Which change sounds more "linearly" to you?
 
@@ -237,7 +237,7 @@ _Figure {% increment figureId20220703  %}. Attack-Decay (AD) envelope._
 
 Sound example:
 
-{% include 'embed-audio.html' src="/assets/wav/posts/synthesis/2022-07-03-envelopes/ad_example.flac" %}
+{% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2022-07-03-envelopes/ad_example.flac" %}
 
 ### AR
 
@@ -248,7 +248,7 @@ _Figure {% increment figureId20220703  %}. Attack-Release (AR) envelope._
 
 Sound example:
 
-{% include 'embed-audio.html' src="/assets/wav/posts/synthesis/2022-07-03-envelopes/ar_example.flac" %}
+{% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2022-07-03-envelopes/ar_example.flac" %}
 
 ### ADR
 
@@ -259,7 +259,7 @@ _Figure {% increment figureId20220703  %}. Attack-Decay-Release envelope._
 
 Sound example:
 
-{% include 'embed-audio.html' src="/assets/wav/posts/synthesis/2022-07-03-envelopes/adr_example.flac" %}
+{% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2022-07-03-envelopes/adr_example.flac" %}
 
 ### ADS
 
@@ -270,7 +270,7 @@ _Figure {% increment figureId20220703  %}. Attack-Decay-Sustain (ADS) envelope w
 
 Sound example:
 
-{% include 'embed-audio.html' src="/assets/wav/posts/synthesis/2022-07-03-envelopes/ads_example.flac" %}
+{% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2022-07-03-envelopes/ads_example.flac" %}
 
 ![]({{ images | append: "ADSD.webp" }}){: alt="Attack-Decay-Sustain (ADS) envelope with a repeated decay segment" }
 _Figure {% increment figureId20220703  %}. Attack-Decay-Sustain (ADS) envelope with a repeated decay segment._
@@ -278,7 +278,7 @@ _Figure {% increment figureId20220703  %}. Attack-Decay-Sustain (ADS) envelope w
 
 Sound example:
 
-{% include 'embed-audio.html' src="/assets/wav/posts/synthesis/2022-07-03-envelopes/adsd_example.flac" %}
+{% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2022-07-03-envelopes/adsd_example.flac" %}
 
 ### ADSR
 
@@ -289,7 +289,7 @@ _Figure {% increment figureId20220703  %}. Attack-Decay-Sustain-Release (ADSR) e
 
 Sound example:
 
-{% include 'embed-audio.html' src="/assets/wav/posts/synthesis/2022-07-03-envelopes/adsr_example.flac" %}
+{% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2022-07-03-envelopes/adsr_example.flac" %}
 
 ### AHDSR
 
@@ -300,7 +300,7 @@ _Figure {% increment figureId20220703  %}. Attack-Hold-Decay-Sustain-Release (AH
 
 Sound example:
 
-{% include 'embed-audio.html' src="/assets/wav/posts/synthesis/2022-07-03-envelopes/ahdsr_example.flac" %}
+{% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2022-07-03-envelopes/ahdsr_example.flac" %}
 
 ### ADBDR
 
@@ -311,7 +311,7 @@ _Figure {% increment figureId20220703  %}. Attack-Decay1-Break-Decay2-Release (A
 
 Sound example:
 
-{% include 'embed-audio.html' src="/assets/wav/posts/synthesis/2022-07-03-envelopes/adbdr_example.flac" %}
+{% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2022-07-03-envelopes/adbdr_example.flac" %}
 
 ### Arbitrary
 

@@ -159,7 +159,7 @@ As this filter requires quite easy computations to control the center frequency 
 
 As an example, here's a white noise signal filtered with the bandstop filter, whose center frequency varies from 100 to 16000 Hz over time and Q is equal to 3.
 
-{% include 'embed-audio.html' src="/assets/wav/posts/fx/2022-07-12-allpass-based-bandstop-and-bandpass-filters/bandstop_filtered_noise.flac" %}
+{% render 'embed-audio.html', src: "/assets/wav/posts/fx/2022-07-12-allpass-based-bandstop-and-bandpass-filters/bandstop_filtered_noise.flac" %}
 
 To visualize what's happening here, take a look at the spectrogram of the audio file.
 
@@ -204,7 +204,7 @@ Exactly as the bandstop filter, the bandpass filter can be easily controlled in 
 
 Here's an audio sample with a bandpass-filtered white noise, where the center frequency varies from 100 Hz to 16000 Hz and Q is equal to 3.
 
-{% include 'embed-audio.html' src="/assets/wav/posts/fx/2022-07-12-allpass-based-bandstop-and-bandpass-filters/bandpass_filtered_noise.flac" %}
+{% render 'embed-audio.html', src: "/assets/wav/posts/fx/2022-07-12-allpass-based-bandstop-and-bandpass-filters/bandpass_filtered_noise.flac" %}
 
 You can observe the effect of the bandpass filter on the spectrogram of the above audio file (Figure 9).
 
