@@ -22,7 +22,7 @@ module.exports = function (eleventyConfig) {
       allowedAttributes: [],
     })
     .use(markdownItTexmath, {
-      engine: require("katex"),
+      engine: katex,
       delimiters: ["dollars", "beg_end"],
       katexOptions: {
         throwOnError: true,
