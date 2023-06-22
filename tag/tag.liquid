@@ -1,0 +1,49 @@
+---
+layout: page
+pagination:
+  data: collections
+  alias: tag
+  size: 1
+  addAllPagesToCollections: true
+  filter:
+    - all
+    - posts
+    - ccpp
+    - sound_in_general
+    - audio_fx
+    - dsp
+    - programming_in_general
+    - synthesis
+    - podcast
+    - python_category
+    - sound_in_general
+permalink: /tag/{{ tag | slugify }}/
+eleventyComputed:
+    title: Posts tagged with "{{ tag }}"
+---
+{% include 'categories.html' %}
+
+{% for post in collections[tag] reversed %}
+
+  <article class="post-preview">
+    <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}">
+      <h2 class="post-title">{{ post.data.title }}</h2>
+      {% if post.data.subtitle %}
+        <h3 class="post-subtitle">{{ post.data.subtitle }}</h3>
+      {% else %}
+        <h3 class="post-subtitle">{{ post.templateContent | strip_html | truncate_to_first_newline | truncatewords: 15 }}</h3>
+      {% endif %}
+    </a>
+    <p class="post-meta">Posted by
+      {% if post.data.author %}
+        {{ post.data.author }}
+      {% else %}
+        {{ site.author }}
+      {% endif %}
+      on {{ post.date | date: '%B %d, %Y' }} &middot; {% render 'read_time.html', content: post.templateContent %}
+    </p>
+  </article>
+
+  <hr>
+
+{% endfor %}

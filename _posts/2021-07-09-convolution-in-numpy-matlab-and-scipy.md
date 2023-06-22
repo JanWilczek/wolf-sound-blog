@@ -4,15 +4,15 @@ date: 2021-07-09
 author: Jan Wilczek
 layout: post
 permalink: /convolution-in-matlab-numpy-and-scipy/
-images: assets/img/posts/2021-07-09-convolution-in-matlab-numpy-and-scipy
+images: /assets/img/posts/2021-07-09-convolution-in-matlab-numpy-and-scipy
 background: /assets/img/posts/2021-07-09-convolution-in-matlab-numpy-and-scipy/Thumbnail.png
 categories:
  - Digital Signal Processing
  - Python
 tags:
  - convolution
- - Matlab
- - Python
+ - matlab
+ - python
 discussion_id: 2021-07-09-convolution-in-matlab-numpy-and-scipy
 ---
 How to compute convolution using numerical software libraries?
@@ -20,19 +20,19 @@ How to compute convolution using numerical software libraries?
 <iframe width="560" height="315" src="https://www.youtube.com/embed/9yVowuBuASQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ### The Convolution Series
-1. [Definition of convolution and intuition behind it]({% post_url 2020-06-20-the-secret-behind-filtering %})
-1. [Mathematical properties of convolution]({% post_url 2020-07-05-mathematical-properties-of-convolution %})
-1. [Convolution property of Fourier, Laplace, and z-transforms]({% post_url 2021-03-18-convolution-in-popular-transforms %})
-1. [Identity element of the convolution]({% post_url 2021-04-01-identity-element-of-the-convolution %})
-1. [Star notation of the convolution]({% post_url 2021-04-03-star-notation-of-the-convolution-a-notational-trap %})
-1. [Circular vs. linear convolution]({% post_url 2021-05-07-circular-vs-linear-convolution %})
-1. [Fast convolution]({% post_url 2021-05-14-fast-convolution %})
-1. [Convolution vs. correlation]({% post_url 2021-06-18-convolution-vs-correlation %})
+1. [Definition of convolution and intuition behind it]({% post_url collections.posts, '2020-06-20-the-secret-behind-filtering' %})
+1. [Mathematical properties of convolution]({% post_url collections.posts, '2020-07-05-mathematical-properties-of-convolution' %})
+1. [Convolution property of Fourier, Laplace, and z-transforms]({% post_url collections.posts, '2021-03-18-convolution-in-popular-transforms' %})
+1. [Identity element of the convolution]({% post_url collections.posts, '2021-04-01-identity-element-of-the-convolution' %})
+1. [Star notation of the convolution]({% post_url collections.posts, '2021-04-03-star-notation-of-the-convolution-a-notational-trap' %})
+1. [Circular vs. linear convolution]({% post_url collections.posts, '2021-05-07-circular-vs-linear-convolution' %})
+1. [Fast convolution]({% post_url collections.posts, '2021-05-14-fast-convolution' %})
+1. [Convolution vs. correlation]({% post_url collections.posts, '2021-06-18-convolution-vs-correlation' %})
 1. **Convolution in MATLAB, NumPy, and SciPy**
-1. [Deconvolution: Inverse convolution]({% post_url 2021-07-23-deconvolution %})
-1. [Convolution in probability: Sum of independent random variables]({% post_url 2021-07-30-convolution-in-probability %})
+1. [Deconvolution: Inverse convolution]({% post_url collections.posts, '2021-07-23-deconvolution' %})
+1. [Convolution in probability: Sum of independent random variables]({% post_url collections.posts, '2021-07-30-convolution-in-probability' %})
 
-{% katexmm %}
+
 
 Most often we won't be implementing convolution every time we need to use it. Therefore, it is important to know functions from numerical software libraries we can use.
 
@@ -44,19 +44,19 @@ Before we dive into the specific functions, it is important to understand 3 diff
 
 We will observe their effect using the following signals: $x[n]$
 
-![]({{ page.images | absolute_url | append: "/x.png" }}){: width="700" }
+![]({{ images | append: "/x.png" }}){: width="700" }
 _Figure 1. $x[n]$._
 
 and $y[n]$
 
-![]({{ page.images | absolute_url | append: "/y.png" }}){: width="700" }
+![]({{ images | append: "/y.png" }}){: width="700" }
 _Figure 2. $y[n]$._
 
 ### Full
 
 'Full' is the mathematical implementation of convolution. Having signals of length $M$ and $N$, the 'full' mode returns a signal of length $M + N - 1$. At points where signals do not overlap, they are padded with zeros.
 
-![]({{ page.images | absolute_url | append: "/xy_full.png" }}){: width="700" }
+![]({{ images | append: "/xy_full.png" }}){: width="700" }
 _Figure 3. 'Full' mode of the convolution._
 
 This is the default option for Matlab, NumPy, and SciPy.
@@ -65,7 +65,7 @@ This is the default option for Matlab, NumPy, and SciPy.
 
 'Valid' mode does not use zero padding at all. The output is calculated only at positions where signals overlap completely. The result is a very short vector of length $\max(M, N) - \min(M, N) + 1$.
 
-![]({{ page.images | absolute_url | append: "/xy_valid.png" }}){: width="700" }
+![]({{ images | append: "/xy_valid.png" }}){: width="700" }
 _Figure 4. 'Valid' mode of the convolution._
 
 Note that using this mode of convolution shrinks the output signal with each application [6].
@@ -74,7 +74,7 @@ Note that using this mode of convolution shrinks the output signal with each app
 
 'Same' acts as an intermediate level between 'full' and 'valid'; it crops the middle part out of the 'full' mode. Its length is equal to the length of the longer signal (NumPy, SciPy) or the first signal given (Matlab). This approach comes in handy when we want to keep the size of the convolution output constant.
 
-![]({{ page.images | absolute_url | append: "/xy_same.png" }}){: width="700" }
+![]({{ images | append: "/xy_same.png" }}){: width="700" }
 _Figure 5. 'Same' mode of the convolution._
 
 ## Convolution Functions
@@ -101,9 +101,9 @@ output = scipy.signal.convolve(x, y, mode='full', method='auto')
 
 `x` and `y` are N-D-arrays, `mode` is a string containing the convolution mode name, and `method` can be `direct` (evaluation according to the convolution definition), `fft` (equivalent to the usage of `scipy.signal.fftconvolve`, i.e., the fast convolution algorithm), or `auto` (let the software decide).
 
-[FFT convolution (fast convolution)]({% post_url 2021-05-14-fast-convolution %}) is recommended for long signals of similar size.
+[FFT convolution (fast convolution)]({% post_url collections.posts, '2021-05-14-fast-convolution' %}) is recommended for long signals of similar size.
 
-SciPy has another convolution function, namely, `oaconvolve`. It lets the user pick the axes to compute convolution over. It uses the [overlap-add scheme]({% post_url 2021-05-14-fast-convolution %}) and, thus, is recommended for long signals of significanlty different sizes.
+SciPy has another convolution function, namely, `oaconvolve`. It lets the user pick the axes to compute convolution over. It uses the [overlap-add scheme]({% post_url collections.posts, '2021-05-14-fast-convolution' %}) and, thus, is recommended for long signals of significanlty different sizes.
 
 `oaconvolve` and `fftconvolve` have the same signature: they take two multidimensional input signals, `mode` argument, and axes argument to compute the convolution over (an integer, an array, or `None` to use all axes).
 
@@ -143,4 +143,4 @@ Check out the references below for more details.
 [6] I. Goodfellow, Y. Bengio, A. Courville *Deep learning*, MIT Press, 2016, [https://www.deeplearningbook.org/](https://www.deeplearningbook.org/).
 
 
-{% endkatexmm %}
+

@@ -34,7 +34,7 @@ A researcher in Spatial Audio and Architectural Acoustics.
 
 [All podcast episodes.]({{"/podcast" | relative_url }})
 
-[Sign up for WolfSound's newsletter!]({% link newsletter.md %})
+[Sign up for WolfSound's newsletter!]({% link collections.all, 'newsletter.md' %})
 
 In this episode, I was fortunate to interview Dr Tom McKenzie, a researcher in the field of spatial audio and acoustics and a musician, who is currently working at the University of Edinburgh as a lecturer in Acoustics and Architectural Acoustics.
 
@@ -42,25 +42,17 @@ At the time of the interview (November 2021), Tom was a postdoctoral researcher 
 
 He was the last member of the lab interviewed by me. Previous interviews included:
 
-- [Leonardo Fierro]({% post_url podcast/2021-11-19-leonardo-fierro %}),
-- [Jon Fagerström]({% post_url podcast/2021-12-17-jon-fagerstrom %}), and
-- [Alec Wright]({% post_url podcast/2022-01-29-alec-wright %}).
+- [Leonardo Fierro]({% post_url collections.posts, 'podcast/2021-11-19-leonardo-fierro' %}),
+- [Jon Fagerström]({% post_url collections.posts, 'podcast/2021-12-17-jon-fagerstrom' %}), and
+- [Alec Wright]({% post_url collections.posts, 'podcast/2022-01-29-alec-wright' %}).
 
 Please, if you are enjoying the podcast, leave it a review on [Apple Podcasts.](https://podcasts.apple.com/us/podcast/wolftalk-podcast-about-audio-programming-people-careers/id1595913701)
 
-And if you’re looking for a simple checklist on what is needed to start writing code to process sound, download my free [audio plugin developer checklist]({% link single-pages/checklist.html %})!
+And if you’re looking for a simple checklist on what is needed to start writing code to process sound, download my free [audio plugin developer checklist]({% link collections.all, 'single-pages/checklist.html' %})!
 
 Many thanks to Aalto Acoustics Lab for letting us record this interview in their office.
 
-<script defer src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6611455743195468"
-     crossorigin="anonymous"></script><ins class="adsbygoogle"
-     style="display:block; text-align:center;"
-     data-ad-layout="in-article"
-     data-ad-format="fluid"
-     data-ad-client="ca-pub-6611455743195468"
-     data-ad-slot="7289385396"></ins><script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+{% render 'google-ad.liquid' %}
 
 ## Episode Contents
 

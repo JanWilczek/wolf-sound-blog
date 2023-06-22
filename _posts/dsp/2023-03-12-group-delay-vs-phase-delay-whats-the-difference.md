@@ -33,23 +33,15 @@ I don’t know about you but I have always been confused about the group delay, 
 5. [Summary](#summary)
 6. [Bibliography](#bibliography)
 
-<script defer src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6611455743195468"
-     crossorigin="anonymous"></script><ins class="adsbygoogle"
-     style="display:block; text-align:center;"
-     data-ad-layout="in-article"
-     data-ad-format="fluid"
-     data-ad-client="ca-pub-6611455743195468"
-     data-ad-slot="7289385396"></ins><script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+{% render 'google-ad.liquid' %}
 
-{% katexmm %}
+
 {% capture _ %}{% increment equationId20230312  %}{% endcapture %}
 {% capture _ %}{% increment figureId20230312  %}{% endcapture %}
 
 ## What is a sample delay?
 
-The first one to start off is the [sample delay]({% post_url 2021-04-01-identity-element-of-the-convolution %}#delay).
+The first one to start off is the [sample delay]({% post_url collections.posts, '2021-04-01-identity-element-of-the-convolution' %}#delay).
 
 A system that delays the input by a constant number of samples introduces a delay to the signal.
 
@@ -60,42 +52,47 @@ Let’s look at an example.
 Here, we have an example signal $x[n]$.
 
 <div markdown="0">
-<img class="lazyload" data-src="{{ page.images | absolute_url | append: "/two_sines_signal.webp" }}" alt="Example waveform." width="80%">
+<img class="lazyload" data-src="{{ images | append: "/two_sines_signal.webp" }}" alt="Example waveform." width="80%">
 </div>
+
 _Figure {% increment figureId20230312 %}. Some signal._
 
 What happens to it if we delay it by 4 samples?
 
 <div markdown="0">
-<img class="lazyload" data-src="{{ page.images | absolute_url | append: "/delayed_two_sines_signal.webp" }}" alt="Example waveform delayed by 4 samples." width="80%">
+<img class="lazyload" data-src="{{ images | append: "/delayed_two_sines_signal.webp" }}" alt="Example waveform delayed by 4 samples." width="80%">
 </div>
+
 _Figure {% increment figureId20230312 %}. Signal delayed by 4 samples._
 
 As you can see at the output of the delay, the signal is simply delayed by 4 samples. We denote the delayed signal by $x[n-4]$.
 
 Remember that by the sample delay of a system, we refer to the delay of the whole signal by some number of samples between the output and the input. Pure delay elements, do not introduce any other change beyond the delay.
 
-I have discussed the delay in samples in more detail in the following [article & video]({% post_url 2021-04-01-identity-element-of-the-convolution %}).
+I have discussed the delay in samples in more detail in the following [article & video]({% post_url collections.posts, '2021-04-01-identity-element-of-the-convolution' %}).
 
 ## What is a phase delay?
 
 Let’s consider once again the output of the system delayed by 4 samples.
 
 <div markdown="0">
-<img class="lazyload" data-src="{{ page.images | absolute_url | append: "/delayed_two_sines_no_shadow.webp" }}" alt="Waveform of a signal consisting of 2 sines delayed by 4 samples." width="80%">
+<img class="lazyload" data-src="{{ images | append: "/delayed_two_sines_no_shadow.webp" }}" alt="Waveform of a signal consisting of 2 sines delayed by 4 samples." width="80%">
 </div>
+
 _Figure {% increment figureId20230312 %}. Signal consisting of 2 sines delayed by 4 samples._
 
 This signal consists of 2 sines: one of them has period equal to 16 samples and the other one has period equal to 8 samples.
 
 <div markdown="0">
-<img class="lazyload" data-src="{{ page.images | absolute_url | append: "/sine1_signal.webp" }}" alt="Waveform of a sine with period of 16 samples." width="80%">
+<img class="lazyload" data-src="{{ images | append: "/sine1_signal.webp" }}" alt="Waveform of a sine with period of 16 samples." width="80%">
 </div>
+
 _Figure {% increment figureId20230312 %}. Sine with period of 16 samples._
 
 <div markdown="0">
-<img class="lazyload" data-src="{{ page.images | absolute_url | append: "/sine2_signal.webp" }}" alt="Waveform of a sine with period of 8 samples." width="80%">
+<img class="lazyload" data-src="{{ images | append: "/sine2_signal.webp" }}" alt="Waveform of a sine with period of 8 samples." width="80%">
 </div>
+
 _Figure {% increment figureId20230312 %}. Sine with period of 8 samples._
 
 If you don’t know what the period of a signal is, it’s the smallest positive number of samples after which the signal starts repeating itself. For example, the “2-sine” signal repeats every 16 samples.
@@ -125,8 +122,9 @@ where $\arg$ returns the principal argument of the given complex number in radia
 Here is an example phase response plot. It is the phase response of the second-order Butterworth IIR lowpass filter with the cutoff frequency set to $\frac{1}{4}$ of the Nyquist frequency.
 
 <div markdown="0">
-<img class="lazyload" data-src="{{ page.images | absolute_url | append: "/butterworth_lp2_phase_response.webp" }}" alt="IIR lowpass filter phase response plot." width="80%">
+<img class="lazyload" data-src="{{ images | append: "/butterworth_lp2_phase_response.webp" }}" alt="IIR lowpass filter phase response plot." width="80%">
 </div>
+
 _Figure {% increment figureId20230312 %}. Phase response of the second-order Butterworth IIR lowpass filter with the cutoff frequency set to $\frac{1}{4}$ of the Nyquist frequency._
 
 As you can see, this phase response is clearly nonlinear; in fact, all IIR filters have nonlinear phase.
@@ -148,20 +146,23 @@ To use our “2-sine” signal again, let’s say we delay the sine with the per
 Here you can see the output of the described frequency-dependent delaying system.
 
 <div markdown="0">
-<img class="lazyload" data-src="{{ page.images | absolute_url | append: "/phase_delayed_two_sines_signal.webp" }}" alt="Waveform of a signal consisting of 2 sines delayed with a frequency-dependent delay" width="80%">
+<img class="lazyload" data-src="{{ images | append: "/phase_delayed_two_sines_signal.webp" }}" alt="Waveform of a signal consisting of 2 sines delayed with a frequency-dependent delay" width="80%">
 </div>
+
 _Figure {% increment figureId20230312 %}. Signal consisting of 2 sines delayed with a frequency-dependent delay._
 
 Looking at the sines separately, at the output of this system the delayed sines look as follows.
 
 <div markdown="0">
-<img class="lazyload" data-src="{{ page.images | absolute_url | append: "/delayed_sine1_signal.webp" }}" alt="Waveform of the sine with period of 16 samples delayed by 8 samples" width="80%">
+<img class="lazyload" data-src="{{ images | append: "/delayed_sine1_signal.webp" }}" alt="Waveform of the sine with period of 16 samples delayed by 8 samples" width="80%">
 </div>
+
 _Figure {% increment figureId20230312 %}. Sine with period of 16 samples delayed by 8 samples (phase delayed by $\pi$)._
 
 <div markdown="0">
-<img class="lazyload" data-src="{{ page.images | absolute_url | append: "/delayed_sine2_signal.webp" }}" alt="Waveform of the sine with period of 8 samples delayed by 4 samples" width="80%">
+<img class="lazyload" data-src="{{ images | append: "/delayed_sine2_signal.webp" }}" alt="Waveform of the sine with period of 8 samples delayed by 4 samples" width="80%">
 </div>
+
 _Figure {% increment figureId20230312 %}. Sine with period of 8 samples delayed by 4 samples (phase delayed by $\pi$)._
 
 What is interesting, now both sines have the same phase delay, $\pi$. However, you can see that the output in Figure 7 looks different visually from the input although these are still those two sines; if you’re unsure that they are different, check the first nonzero samples of the delayed signal. The relative position of the sines changed and, thus, the waveform changed.
@@ -195,8 +196,9 @@ Let’s look at an example of a constant-group delay filter.
 Here is the phase response of our delay by 4 samples.
 
 <div markdown="0">
-<img class="lazyload" data-src="{{ page.images | absolute_url | append: "/delay_by_4_phase_response.webp" }}" alt="Wrapped phase response plot" width="80%">
+<img class="lazyload" data-src="{{ images | append: "/delay_by_4_phase_response.webp" }}" alt="Wrapped phase response plot" width="80%">
 </div>
+
 _Figure {% increment figureId20230312 %}. Wrapped phase response of a 4-sample delay system._
 
 You can see that the phase is wrapped: when it reaches $-\pi$ it jumps up to $\pi$.
@@ -204,8 +206,9 @@ You can see that the phase is wrapped: when it reaches $-\pi$ it jumps up to $\p
 If we unwrap the phase, the phase response looks as follows.
 
 <div markdown="0">
-<img class="lazyload" data-src="{{ page.images | absolute_url | append: "/delay_by_4_unwrapped_phase_response.webp" }}" alt="Unwrapped phase response plot" width="80%">
+<img class="lazyload" data-src="{{ images | append: "/delay_by_4_unwrapped_phase_response.webp" }}" alt="Unwrapped phase response plot" width="80%">
 </div>
+
 _Figure {% increment figureId20230312 %}. Unwrapped phase response of a 4-sample delay system._
 
 By the way, these plots were obtained using [scipy.signal.freqz](https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.freqz.html), [numpy.angle](https://numpy.org/doc/stable/reference/generated/numpy.angle.html), [numpy.unwrap](https://numpy.org/doc/stable/reference/generated/numpy.unwrap.html), and the [matplotlib](https://matplotlib.org/stable/index.html) library 🙂
@@ -219,8 +222,9 @@ The derivative of the phase response with respect to the frequency is simply the
 Here is the plot of the group delay of the second-order Butterworth IIR lowpass filter with the cutoff frequency set to $\frac{1}{4}$ of the Nyquist frequency whose phase response you’ve seen in Figure 6.
 
 <div markdown="0">
-<img class="lazyload" data-src="{{ page.images | absolute_url | append: "/butterworth_lp2_group_delay.webp" }}" alt="IIR lowpass filter group delay plot." width="80%">
+<img class="lazyload" data-src="{{ images | append: "/butterworth_lp2_group_delay.webp" }}" alt="IIR lowpass filter group delay plot." width="80%">
 </div>
+
 _Figure {% increment figureId20230312 %}. Group delay of the second-order Butterworth IIR lowpass filter with the cutoff frequency set to $\frac{1}{4}$ of the Nyquist frequency._
 
 This group delay was calculated with the [scipy.signal.group_delay](https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.group_delay.html) function.
@@ -259,4 +263,4 @@ If you want to know which other bits and pieces of knowledge are necessary for w
 
 [OppenheimSchafer10] [Alan V Oppenheim, Ronald W. Schafer, *Discrete-Time Signal Processing*, 3rd Edition, Pearson 2010.](https://amzn.to/3vygXGl)
 
-{% endkatexmm %}
+

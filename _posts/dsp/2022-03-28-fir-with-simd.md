@@ -15,8 +15,8 @@ tags:
   - effects
   - simd
   - convolution
-  - C++
-  - C
+  - cpp
+  - c
 discussion_id: 2022-03-28-fir-with-simd
 ---
 How to make your FIR filters fast in the time domain?
@@ -49,28 +49,20 @@ How to perform it fast?
 1. [Summary](#summary)
 1. [Bibliography](#bibliography)
 
-{% katexmm %}
+
 {% capture _ %}{% increment equationId20220328  %}{% endcapture %}
 {% capture _ %}{% increment listingId20220328  %}{% endcapture %}
 {% capture _ %}{% increment figureId20220328  %}{% endcapture %}
 
 ## What Are FIR Filters?
 
-FIR filters are filters, which are defined by their finite-length impulse response, $h[n]$. The output $y[n]$ of an FIR filter is a [convolution]({% post_url 2020-06-20-the-secret-behind-filtering %}) of its input signal $x[n]$ with the impulse response. We can write it as
+FIR filters are filters, which are defined by their finite-length impulse response, $h[n]$. The output $y[n]$ of an FIR filter is a [convolution]({% post_url collections.posts, '2020-06-20-the-secret-behind-filtering' %}) of its input signal $x[n]$ with the impulse response. We can write it as
 
 $$y[n] = x[n] \ast h[n] = \sum \limits_{k=-\infty}^{\infty} x[k] h[n - k].  \quad ({% increment equationId20220212 %})$$
 
-I have published [a number of articles and videos on convolution]({% post_url 2020-06-20-the-secret-behind-filtering %}), which you can check out for more insight.
+I have published [a number of articles and videos on convolution]({% post_url collections.posts, '2020-06-20-the-secret-behind-filtering' %}), which you can check out for more insight.
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6611455743195468"
-     crossorigin="anonymous"></script><ins class="adsbygoogle"
-     style="display:block; text-align:center;"
-     data-ad-layout="in-article"
-     data-ad-format="fluid"
-     data-ad-client="ca-pub-6611455743195468"
-     data-ad-slot="7289385396"></ins><script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+{% render 'google-ad.liquid' %}
 
 ## 2 Sides of Optimization
 
@@ -79,10 +71,10 @@ If you want to make any software execute as fast as possible, there are two ways
 1. Optimal algorithm.
 2. Efficient implementation.
 
-The same principles apply to DSP code. To have a fast [finite-impulse response (FIR) filter]({% post_url 2020-06-20-the-secret-behind-filtering %}) in code, you can either
+The same principles apply to DSP code. To have a fast [finite-impulse response (FIR) filter]({% post_url collections.posts, '2020-06-20-the-secret-behind-filtering' %}) in code, you can either
 
-1. use an algorithm with a optimal lower bound on execution time, such as the [fast convolution via the Fourier transform domain]({% post_url 2021-05-14-fast-convolution %}), or
-2. take advantage of hardware and software resources to efficiently implement time-domain convolution. This typically means using [single instruction, multiple data (SIMD) instructions]({% post_url fx/2022-02-12-simd-in-dsp %}) to vectorize your code.
+1. use an algorithm with a optimal lower bound on execution time, such as the [fast convolution via the Fourier transform domain]({% post_url collections.posts, '2021-05-14-fast-convolution' %}), or
+2. take advantage of hardware and software resources to efficiently implement time-domain convolution. This typically means using [single instruction, multiple data (SIMD) instructions]({% post_url collections.posts, 'fx/2022-02-12-simd-in-dsp' %}) to vectorize your code.
 
 
 
@@ -112,7 +104,7 @@ This process is called *loop vectorization*.
 
 Loop vectorization is often done by the compiler but the degree of this automatic vectorization is typically insufficient for real-time DSP. Instead, we need to instruct the compiler exactly what to do.
 
-SIMD instructions achieve the best performance when they operate on [aligned data]({% post_url 2020-04-09-what-is-data-alignment %}). Therefore, data alignment is another factor we should take into account.
+SIMD instructions achieve the best performance when they operate on [aligned data]({% post_url collections.posts, '2020-04-09-what-is-data-alignment' %}). Therefore, data alignment is another factor we should take into account.
 
 In summary, an efficient FIR filter implementation uses 2 strategies in tandem:
 
@@ -151,7 +143,7 @@ We will now discuss these two strategies in detail.
 
 ## Preliminary Assumptions
 
-The [linear convolution formula]({% post_url 2020-06-20-the-secret-behind-filtering %}#definition) is
+The [linear convolution formula]({% post_url collections.posts, '2020-06-20-the-secret-behind-filtering' %}#definition) is
 
 $$ x[n] \ast h[n] = \sum_{k=-\infty}^{\infty} x[k] h[n - k] = y[n], \quad n \in \mathbb{Z}. \quad ({% increment equationId20220328  %})$$
 
@@ -183,15 +175,15 @@ We assume that $c$ is 0 everywhere else.
 
 After introducing these two assumptions, we can rewrite the convolution formula from Equation 1 into 
 
-$$ y[n] = (x[n] \ast h[n])[n] \\= \sum_{k=0}^{N_h-1} x[n+k] c[k], \quad n = 0, \dots, N_x - 1. \quad ({% increment equationId20220328  %})$$
+$$ y[n] = (x[n] \ast h[n])[n] \newline = \sum_{k=0}^{N_h-1} x[n+k] c[k], \quad n = 0, \dots, N_x - 1. \quad ({% increment equationId20220328  %})$$
 
-This formulation resembles the [correlation]({% post_url 2021-06-18-convolution-vs-correlation %}#correlation-definition) formula a lot but remember that it's still [convolution]({% post_url 2021-06-18-convolution-vs-correlation %}#convolution-definition) albeit written differently.
+This formulation resembles the [correlation]({% post_url collections.posts, '2021-06-18-convolution-vs-correlation' %}#correlation-definition) formula a lot but remember that it's still [convolution]({% post_url collections.posts, '2021-06-18-convolution-vs-correlation' %}#convolution-definition) albeit written differently.
 
 In this new formulation, one convolution output is simply an *inner product* of two vectors $\pmb{x}$ and $\pmb{c}$, each containing $N_h$ values from $x$ and $c$ respectively.
 
-Note also that Equation 3 is a convolution in the ["same"]({% post_url 2021-07-09-convolution-in-numpy-matlab-and-scipy %}#same) mode, i.e., $y[0]$ corresponds to $y[N_h-1]$ of the full mode. 
+Note also that Equation 3 is a convolution in the ["same"]({% post_url collections.posts, '2021-07-09-convolution-in-numpy-matlab-and-scipy' %}#same) mode, i.e., $y[0]$ corresponds to $y[N_h-1]$ of the full mode. 
 
-If we prepend $x$ with $N_h - 1$ zeros, we will get a convolution in the ["full"]({% post_url 2021-07-09-convolution-in-numpy-matlab-and-scipy %}#full) mode.
+If we prepend $x$ with $N_h - 1$ zeros, we will get a convolution in the ["full"]({% post_url collections.posts, '2021-07-09-convolution-in-numpy-matlab-and-scipy' %}#full) mode.
 
 As you will see, this will simplify our discussion significantly.
 
@@ -199,7 +191,7 @@ As you will see, this will simplify our discussion significantly.
 
 Equation 3 is visualized on Figure 1. It show which elements are multiplied to calculate $y[0]$.
 
-![]({{ page.images | append: "LoopVectorizationSingle.svg" }}){: alt="Scalar linear convolution visualization."}
+![]({{ images | append: "LoopVectorizationSingle.svg" }}){: alt="Scalar linear convolution visualization."}
 _Figure {% increment figureId20220328 %}. Convolution as an inner product of the input vector and the reversed filter coefficients vector._
 
 The orange frames mark which elements are multiplied together to compute $y[0]$. The results of multiplications are then summed up for the final result.
@@ -274,7 +266,7 @@ Their names specify at which line of Listing 1 we load the data to the SIMD regi
 
 In the _inner loop vectorization_, we vectorize (rewrite in vector notation) the behavior of the inner loop from Listing 1. 
 
-Let's write that in a verbose manner (Listing 2). We assume that our vectors are of length 4. That would correspond to registers that can fit 4 floats (for example, [ARM's Neon registers]({% post_url fx/2022-02-12-simd-in-dsp %}#mmx-sse-avx-neon)).
+Let's write that in a verbose manner (Listing 2). We assume that our vectors are of length 4. That would correspond to registers that can fit 4 floats (for example, [ARM's Neon registers]({% post_url collections.posts, 'fx/2022-02-12-simd-in-dsp' %}#mmx-sse-avx-neon)).
 
 _Listing {% increment listingId20220328 %}. Conceptual inner loop vectorization_
 ```cpp
@@ -304,7 +296,7 @@ Mind you that we assume that the passed-in vectors are already zero-padded and a
 
 Figure 2 shows what happens in inner loop vectorization.
 
-![]({{ page.images | append: "LoopVectorizationVIL.svg" }}){: alt="Convolution via inner loop vectorization visualization."}
+![]({{ images | append: "LoopVectorizationVIL.svg" }}){: alt="Convolution via inner loop vectorization visualization."}
 _Figure {% increment figureId20220328 %}. Inner loop vectorization._
 
 Vectors in orange frames have their inner product calculated in the inner loop (hence the name). Again, one orange frame corresponds to one inner loop iteration.
@@ -315,7 +307,7 @@ How does this implementation look in real SIMD code?
 
 ### VIL AVX Implementation
 
-For convenience, I am using the [intrinsic functions]({% post_url fx/2022-02-12-simd-in-dsp %}#how-to-access-simd-instructions) of the [AVX instruction set]({% post_url fx/2022-02-12-simd-in-dsp %}#mmx-sse-avx-neon) to show example implementations. Its instructions are the most readable from all SIMD instruction sets I know so they should be easy to understand.
+For convenience, I am using the [intrinsic functions]({% post_url collections.posts, 'fx/2022-02-12-simd-in-dsp' %}#how-to-access-simd-instructions) of the [AVX instruction set]({% post_url collections.posts, 'fx/2022-02-12-simd-in-dsp' %}#mmx-sse-avx-neon) to show example implementations. Its instructions are the most readable from all SIMD instruction sets I know so they should be easy to understand.
 
 Listing 3 shows how to implement the FIR filter using the inner loop vectorization.
 
@@ -408,7 +400,7 @@ Again, we assume that the passed-in vectors are already zero-padded and are of l
 
 Figure 3 shows how code from Listing 4 works.
 
-![]({{ page.images | append: "LoopVectorizationVOL.svg" }}){: alt="Convolution via outer loop vectorization visualization."}
+![]({{ images | append: "LoopVectorizationVOL.svg" }}){: alt="Convolution via outer loop vectorization visualization."}
 _Figure {% increment figureId20220328 %}. Outer loop vectorization._
 
 Again, one frame corresponds to one inner loop iteration and again it shows which elements of $x$ and $h$ are multiplied to compute $y[0]$. In a way, it can be thought of as multiplying each 4-element vector from $x$ by a scalar (one element from $c$).
@@ -523,7 +515,7 @@ float* applyFirFilterOuterInnerLoopVectorization(
 
 This can be visualized as shown in Figure 4.
 
-![]({{ page.images | append: "LoopVectorizationVOIL.svg" }}){: alt="Convolution via outer-inner loop vectorization visualization."}
+![]({{ images | append: "LoopVectorizationVOIL.svg" }}){: alt="Convolution via outer-inner loop vectorization visualization."}
 _Figure {% increment figureId20220328 %}. Outer-inner loop vectorization._
 
 Now one **frame style** corresponds one inner loop iteration. Each frame marks 1 inner product.
@@ -654,4 +646,4 @@ And as always, if you have any questions, feel free to post them below.
 [Wefers2015] Frank Wefers *Partitioned convolution algorithms for real-time auralization*, PhD Thesis, Zugl.: Aachen, Techn. Hochsch., 2015.
 
 
-{% endkatexmm %}
+

@@ -4,7 +4,7 @@ date: 2021-07-23
 author: Jan Wilczek
 layout: post
 permalink: /deconvolution-inverse-convolution/
-images: assets/img/posts/2021-07-23-deconvolution
+images: /assets/img/posts/2021-07-23-deconvolution
 background: /assets/img/posts/2021-07-23-deconvolution/Thumbnail.png
 categories:
  - Digital Signal Processing
@@ -17,19 +17,19 @@ Can we invert the effect of convolution?
 <iframe width="560" height="315" src="https://www.youtube.com/embed/pGDfrj_uzdU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ### The Convolution Series
-1. [Definition of convolution and intuition behind it]({% post_url 2020-06-20-the-secret-behind-filtering %})
-1. [Mathematical properties of convolution]({% post_url 2020-07-05-mathematical-properties-of-convolution %})
-1. [Convolution property of Fourier, Laplace, and z-transforms]({% post_url 2021-03-18-convolution-in-popular-transforms %})
-1. [Identity element of the convolution]({% post_url 2021-04-01-identity-element-of-the-convolution %})
-1. [Star notation of the convolution]({% post_url 2021-04-03-star-notation-of-the-convolution-a-notational-trap %})
-1. [Circular vs. linear convolution]({% post_url 2021-05-07-circular-vs-linear-convolution %})
-1. [Fast convolution]({% post_url 2021-05-14-fast-convolution %})
-1. [Convolution vs. correlation]({% post_url 2021-06-18-convolution-vs-correlation %})
-1. [Convolution in MATLAB, NumPy, and SciPy]({% post_url 2021-07-09-convolution-in-numpy-matlab-and-scipy %})
+1. [Definition of convolution and intuition behind it]({% post_url collections.posts, '2020-06-20-the-secret-behind-filtering' %})
+1. [Mathematical properties of convolution]({% post_url collections.posts, '2020-07-05-mathematical-properties-of-convolution' %})
+1. [Convolution property of Fourier, Laplace, and z-transforms]({% post_url collections.posts, '2021-03-18-convolution-in-popular-transforms' %})
+1. [Identity element of the convolution]({% post_url collections.posts, '2021-04-01-identity-element-of-the-convolution' %})
+1. [Star notation of the convolution]({% post_url collections.posts, '2021-04-03-star-notation-of-the-convolution-a-notational-trap' %})
+1. [Circular vs. linear convolution]({% post_url collections.posts, '2021-05-07-circular-vs-linear-convolution' %})
+1. [Fast convolution]({% post_url collections.posts, '2021-05-14-fast-convolution' %})
+1. [Convolution vs. correlation]({% post_url collections.posts, '2021-06-18-convolution-vs-correlation' %})
+1. [Convolution in MATLAB, NumPy, and SciPy]({% post_url collections.posts, '2021-07-09-convolution-in-numpy-matlab-and-scipy' %})
 1. **Deconvolution: Inverse convolution**
-1. [Convolution in probability: Sum of independent random variables]({% post_url 2021-07-30-convolution-in-probability %})
+1. [Convolution in probability: Sum of independent random variables]({% post_url collections.posts, '2021-07-30-convolution-in-probability' %})
 
-{% katexmm %}
+
 
 {% capture _ %}{% increment equationId20210723  %}{% endcapture %}
 
@@ -50,15 +50,7 @@ While tasks 1 and 2 are somewhat similar thanks to the commutativity of convolut
 This article contains a brief description of various methods used to accomplish deconvolution. By no means is this list complete nor are the explanations in-depth. Nevertheless, it will give you an overview of the methodologies used and when to use them.
 
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6611455743195468"
-     crossorigin="anonymous"></script><ins class="adsbygoogle"
-     style="display:block; text-align:center;"
-     data-ad-layout="in-article"
-     data-ad-format="fluid"
-     data-ad-client="ca-pub-6611455743195468"
-     data-ad-slot="7289385396"></ins><script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+{% render 'google-ad.liquid' %}
 
 But before I give you a tour of the deconvolution methods, I will present two vivid use cases of deconvolution to motivate the topic. 
 
@@ -85,7 +77,7 @@ Here's a navigable table of contents:
 
 ### Deconvolution Using Frequency-Domain Division
 
-As we know from the [convolution property of the $z$-transform]({% post_url 2021-03-18-convolution-in-popular-transforms %}), a convolution of time-domain signals is equivalent to multiplication of their $z$-transforms. Thus, why not try to deconvolve the signals in the $z$-domain?
+As we know from the [convolution property of the $z$-transform]({% post_url collections.posts, '2021-03-18-convolution-in-popular-transforms' %}), a convolution of time-domain signals is equivalent to multiplication of their $z$-transforms. Thus, why not try to deconvolve the signals in the $z$-domain?
 
 In the following we will assume that capital letters denote the $z$-transforms of the time-domain signals. We have
 
@@ -95,7 +87,7 @@ $$Y(z) = X(z)H(z). \quad ({% increment equationId20210723 %})$$
 
 With this formulation we can easily obtain the desired time domain signal $h[n]$ if we know $x[n]$
 
-$$h[n] = \mathcal{Z}^{-1} \{H(z)\} = \mathcal{Z}^{-1} \left\{ \frac{Y(z)}{X(z)} \right\}. \quad ({% increment equationId20210723 %})$$
+$$h[n] = \mathcal{Z}^{-1} \lbrace H(z) \rbrace = \mathcal{Z}^{-1} \lbrace \frac{Y(z)}{X(z)} \rbrace. \quad ({% increment equationId20210723 %})$$
 
 There are two caveats to this approach:
 1. $X(z)$ mustn't be zero for any $z$ (we mustn't divide by 0),
@@ -141,9 +133,9 @@ $$\pmb{y}[n] = \mathbf{H} \pmb{x}[n], \quad ({% increment equationId20210723 %})
 where $\mathbf{H}$ is an $N \times (M+N-1)$ *convolution matrix* which has *Toeplitz structure* (identical elements along each diagonal of the matrix)
 
 $$\mathbf{H} = \begin{bmatrix}
-    h[0] & h[1] & \dots & h[M-1] & 0 & \dots & 0 \\
-    0 & h[0] & h[1] & \dots & h[M-1] & \dots & 0 \\
-    \vdots &  & \ddots & & & & \vdots \\
+    h[0] & h[1] & \dots & h[M-1] & 0 & \dots & 0 \newline 
+    0 & h[0] & h[1] & \dots & h[M-1] & \dots & 0 \newline 
+    \vdots &  & \ddots & & & & \vdots \newline 
     0 & & \dots & h[0] & h[1] & \dots & h[M-1]
 \end{bmatrix}. \quad ({% increment equationId20210723 %})$$
 
@@ -196,9 +188,9 @@ $$\hat{X}(z) = \log X(z), \quad ({% increment equationId20210723 %})$$
 where $X(z)$ is the $z$-transform of $x[n]$. Thus, $\hat{x}[n]$ can be expressed as
 
 $$\hat{x}[n] = \frac{1}{2 \pi} \int \limits_{-\pi}^{\pi} \log(X(e^{j\omega}))e^{j\omega n} d\omega 
-\\=\frac{1}{2 \pi} \int \limits_{-\pi}^{\pi} (\log |X(e^{j\omega})| + j \angle X(e^{j\omega})) e^{j\omega n} d\omega. \quad ({% increment equationId20210723 %})$$
+\newline =\frac{1}{2 \pi} \int \limits_{-\pi}^{\pi} (\log |X(e^{j\omega})| + j \angle X(e^{j\omega})) e^{j\omega n} d\omega. \quad ({% increment equationId20210723 %})$$
 
-As we know from the [convolution property of the $z$-transform]({% post_url 2021-03-18-convolution-in-popular-transforms %}), a convolution of time-domain signals is equivalent to multiplication of their $z$-transforms. If we apply a logarithm function to the multiplication of these transforms, we obtain a summation of the logarithms of the individual transforms. Mathematically speaking, if
+As we know from the [convolution property of the $z$-transform]({% post_url collections.posts, '2021-03-18-convolution-in-popular-transforms' %}), a convolution of time-domain signals is equivalent to multiplication of their $z$-transforms. If we apply a logarithm function to the multiplication of these transforms, we obtain a summation of the logarithms of the individual transforms. Mathematically speaking, if
 
 $$y[n] = x[n] \ast h[n], \quad ({% increment equationId20210723 %})$$
 
@@ -254,4 +246,4 @@ In this article, we discussed 4 deconvolution techniques out of which 1 works in
 
 [5] [Matlab's `deconv` documentation](https://mathworks.com/help/matlab/ref/deconv.html)
 
-{% endkatexmm %}
+

@@ -4,15 +4,15 @@ description: "Leverage intrinsic vector functions of your processor for efficien
 date: 2022-02-12
 author: Jan Wilczek
 layout: post
-images: assets/img/posts/fx/2022-02-12-simd-in-dsp/
+images: /assets/img/posts/fx/2022-02-12-simd-in-dsp/
 background: /assets/img/posts/fx/2022-02-12-simd-in-dsp/Thumbnail.webp
 categories:
   - Audio FX
   - Digital Signal Processing
 tags:
   - simd
-  - C++
-  - C
+  - cpp
+  - c
 discussion_id: 2022-02-12-simd-in-dsp
 ---
 Speed up DSP operations with vector instructions.
@@ -37,7 +37,7 @@ Speed up DSP operations with vector instructions.
 12. [Summary](#summary)
 13. [Bibliography, Reference, and Further Reading](#bibliography-reference-and-further-reading)
 
-{% katexmm %}
+
 
 ## Introduction
 
@@ -53,15 +53,7 @@ Single instruction, multiple data (SIMD) are special processor instructions that
 
 In mathematical terms, we could say that SIMD operates on vectors ("arrays") of variables as "normal" code operates on single variables.
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6611455743195468"
-     crossorigin="anonymous"></script><ins class="adsbygoogle"
-     style="display:block; text-align:center;"
-     data-ad-layout="in-article"
-     data-ad-format="fluid"
-     data-ad-client="ca-pub-6611455743195468"
-     data-ad-slot="7289385396"></ins><script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+{% render 'google-ad.liquid' %}
 
 ## SIMD Pseudocode Example
 
@@ -254,7 +246,7 @@ The SIMD is not all blue skies, unfortunately. Here are some disadvantages of SI
 
    Don't think that if you write Android-only code, your code will always run on ARM architectures. Nowadays, there are lots of devices running Android on a processor from the x86 family. That is why, it is best to use a library that informs you about current processor's capabilities such as Google's [cpu_features](https://github.com/google/cpu_features) library.
 1. **Run-time availability checks.** As mentioned above, you sometimes need to determine at run time which instruction set to use. That adds additional code and execution time overhead.
-2. **Unaligned data.** Extended instructions sets work best on [aligned data]({% post_url 2020-04-09-what-is-data-alignment %}). Unfortunately, your data typically won't be aligned by itself. The necessity to align the vectors on a specific boundary adds yet another layer of code and complexity on top of your algorithm.
+2. **Unaligned data.** Extended instructions sets work best on [aligned data]({% post_url collections.posts, '2020-04-09-what-is-data-alignment' %}). Unfortunately, your data typically won't be aligned by itself. The necessity to align the vectors on a specific boundary adds yet another layer of code and complexity on top of your algorithm.
 3. **Edge cases, single samples.** What if the signal data that you want to process does not come in blocks which are of size equal to the multiplicity of the SIMD register size? You will then need to "manually" finish off the algorithm with its scalar version. That means even more complexity.
 4. **Little resources on the topic.** Processing signals with SIMD is not a very well explained topic on the web or on YouTube. One needs to turn to specialized books and research papers to understand the basics. SIMD is a topic that must be discussed in the context it is applied in. It's not easy to transfer tutorials from image processing or 3D graphics to audio processing. These reasons make the entry barrier quite high.
 5. **Low readability.** SIMD code is full of functions like `vrecpeq_f32` or `_mm256_testnzc_ps`, which are not easy to read and understand when you look at the code or pronounce when you talk to your colleagues. On the other hand, these names make very good mnemonics once you get a bit into the intrinsic functions.
@@ -402,7 +394,7 @@ If you have any questions, feel free to ask them in the comments below!
 
 In the next article, I will show you how to implement FIR filtering using SIMD instructions, so stay tuned! 🙂
 
-{% endkatexmm %}
+
 
 ## Bibliography, Reference, and Further Reading
 

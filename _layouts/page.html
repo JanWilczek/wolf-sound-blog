@@ -3,8 +3,8 @@ layout: default
 ---
 
 <!-- Page Header -->
-{% if page.background %}
-<header class="masthead" style="background-image: url('{{ page.background | prepend: site.baseurl | replace: '//', '/' }}')">
+{% if background %}
+<header class="masthead" style="background-image: url('{{ background }}')">
   {% else %}
   <header class="masthead">
     {% endif %}
@@ -13,9 +13,18 @@ layout: default
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
           <div class="page-heading">
-            <h1>{{ page.title }}</h1>
-            {% if page.description %}
-            <span class="subheading">{{ page.description }}</span>
+            <h1>
+            {% if title %}
+            {{ title }}
+            {% else %}
+            {{ eleventyComputed.title }}
+            {% endif %}
+            {% unless pagination.data == "collections" %}
+            {% if pagination.pageNumber > 0 %} - Page {{ pagination.pageNumber | plus: 1 }}{% endif %}
+            {% endunless %}
+            </h1>
+            {% if description %}
+            <span class="subheading">{{ description }}</span>
             {% endif %}
           </div>
         </div>
@@ -32,7 +41,7 @@ layout: default
       </div>
       
       <div class="col-sm-12 col-xl-4">
-        {% include sidebar.html %}
+        {% include 'sidebar.html' %}
       </div>
 
     </div>

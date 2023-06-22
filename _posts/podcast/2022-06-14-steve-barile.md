@@ -11,7 +11,7 @@ categories:
   - Sound in general
   - Sound Synthesis
 tags:
-  - JUCE
+  - juce
   - career
   - hardware
 discussion_id: 2022-06-14-steve-barile
@@ -32,7 +32,7 @@ From a 9-5 employee to a maker and a founder.
 
 [All podcast episodes.]({{"/podcast" | relative_url }})
 
-[Sign up for WolfSound's newsletter!]({% link newsletter.md %})
+[Sign up for WolfSound's newsletter!]({% link collections.all, 'newsletter.md' %})
 
 In this podcast episode, I was happy to interview Steve Barile from Conductive Labs. Steve was a 9-5 employee of Intel, until he and his best friend Darryl, started experimenting with building their own audio hardware. First prototypes led to concrete product ideas, which led to a crowdfunding campaign, which led to founding a successful business... but let's listen to him tell the story!
 
@@ -62,7 +62,7 @@ Below are all the resources that are referenced in the podcast episode.
 
 * Places:
   * [Conductive Labs](https://conductivelabs.com/)
-  * [Intel](https://www.intel.com/content/www/us/en/homepage.html)
+  * [Intel](https://www.intel.com/content/www/us/en/homehtml)
   * [Notes and Volts](https://www.notesandvolts.com/) blog and YouTube channel
   * [Kickstarter](https://www.kickstarter.com/)
   * [PCB Way](https://www.pcbway.com/)

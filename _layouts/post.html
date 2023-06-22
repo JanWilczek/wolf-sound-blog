@@ -3,8 +3,8 @@ layout: default
 ---
 
 <!-- Page Header -->
-{% if page.background %}
-<header class="masthead" style="background-image: url('{{ page.background | prepend: site.baseurl | replace: '//', '/' }}')">
+{% if background %}
+<header class="masthead" style="background-image: url('{{ background | prepend: site.baseurl | replace: '//', '/' }}')">
   {% else %}
 <header class="masthead" style="background-image: url('{{ site.default_background_path | prepend: site.baseurl | replace: '//', '/' }}')">
   {% endif %}
@@ -13,14 +13,14 @@ layout: default
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
         <div class="post-heading">
-          <h1>{{ page.title }}</h1>
-          {% if page.subtitle %}
-          <h2 class="subheading">{{ page.subtitle }}</h2>
+          <h1>{{ title }}</h1>
+          {% if subtitle %}
+          <h2 class="subheading">{{ subtitle }}</h2>
           {% endif %}
           <span class="meta">Posted by
-            <a href="#">{% if page.author %}{{ page.author }}{% else %}{{ site.author }}{% endif %}</a>
-            on {{ page.date | date: '%B %d, %Y' }} &middot; {% include read_time.html
-            content=page.content %}
+            <a href="#">{% if author %}{{ author }}{% else %}{{ site.author }}{% endif %}</a>
+            on {{ date | date: '%B %d, %Y' }} &middot; {% include 'read_time.html',
+            content=content %}
           </span>
         </div>
       </div>
@@ -32,7 +32,7 @@ layout: default
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
 
-        {% include categories.html %}
+        {% include 'categories.html' %}
 
         <hr>
 
@@ -40,29 +40,29 @@ layout: default
             {{ content }}
         </div>
 
-        {% include share-buttons.html %}
+        {% include 'share-buttons.html' %}
 
         <hr>
 
         <div class="clearfix">
 
-          {% if page.previous.url %}
-          <a class="btn btn-primary float-left" href="{{ page.previous.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{ page.previous.title }}">&larr; Previous<span class="d-none d-md-inline">
+          {% if previous.url %}
+          <a class="btn btn-primary float-left" href="{{ previous.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{ previous.title }}">&larr; Previous<span class="d-none d-md-inline">
               Post</span></a>
           {% endif %}
-          {% if page.next.url %}
-          <a class="btn btn-primary float-right" href="{{ page.next.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{ page.next.title }}">Next<span class="d-none d-md-inline">
+          {% if next.url %}
+          <a class="btn btn-primary float-right" href="{{ next.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{ next.title }}">Next<span class="d-none d-md-inline">
               Post</span> &rarr;</a>
           {% endif %}
 
         </div>
 
-        {% include talkyard-comments.html %}
+        {% include 'talkyard-comments.html' %}
 
       </div>
 
       <div class="col-sm-12 col-xl-4">
-        {% include sidebar.html %}
+        {% include 'sidebar.html' %}
       </div>
 
     </div>

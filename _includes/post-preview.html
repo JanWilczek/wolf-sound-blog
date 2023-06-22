@@ -1,20 +1,20 @@
 <article class="post-preview">
     <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}">
-      <h2 class="post-title">{{ post.title }}</h2>
-      {% if post.subtitle %}
-      <h3 class="post-subtitle">{{ post.subtitle }}</h3>
+      <h2 class="post-title">{{ post.data.title }}</h2>
+      {% if post.data.subtitle %}
+      <h3 class="post-subtitle">{{ post.data.subtitle }}</h3>
       {% else %}
-      <h3 class="post-subtitle">{{ post.excerpt | strip_html | truncatewords: 15 }}</h3>
+      <h3 class="post-subtitle">{{ post.templateContent | strip_html | truncate_to_first_newline | truncatewords: 15 }}</h3>
       {% endif %}
     </a>
     <p class="post-meta">Posted by
-      {% if post.author %}
-      {{ post.author }}
+      {% if post.data.author %}
+      {{ post.data.author }}
       {% else %}
       {{ site.author }}
       {% endif %}
       on
-      {{ post.date | date: '%B %d, %Y' }} &middot; {% include read_time.html content=post.content %}            
+      {{ post.date | date: '%B %d, %Y' }} &middot; {% render 'read_time.html', content: post.templateContent %}            
     </p>
   </article>
 

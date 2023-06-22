@@ -4,7 +4,7 @@ description: "A thorough, step-by-step tutorial on the derivation of the transfe
 date: 2021-12-03
 author: Jan Wilczek
 layout: post
-images: assets/img/posts/fx/2021-12-03-analog-prototype/
+images: /assets/img/posts/fx/2021-12-03-analog-prototype/
 background: /assets/img/posts/fx/2021-12-03-analog-prototype/Thumbnail.webp
 categories:
   - Audio FX
@@ -18,11 +18,11 @@ Design prototypes for stable, efficient, parametric IIR filters.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/rrMRkPpRQAs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-{% katexmm %}
+
 {% capture _ %}{% increment equationId20211203  %}{% endcapture %}
 {% capture _ %}{% increment figureId20211203  %}{% endcapture %}
 
-In the [last article]({% post_url fx/2021-11-26-parametric-eq-design %}), I outlined the process of creating a parametric filter. The steps are
+In the [last article]({% post_url collections.posts, 'fx/2021-11-26-parametric-eq-design' %}), I outlined the process of creating a parametric filter. The steps are
 
 1. Decide on the filter type.
 2. Design an analog prototype.
@@ -31,17 +31,17 @@ In the [last article]({% post_url fx/2021-11-26-parametric-eq-design %}), I outl
 
 Here's how the process looks:
 
-![]({{ page.images | absolute_url | append: "/PipelineUnmarked.webp"}}){: alt="Parametric filter design workflow." }
+![]({{ images | append: "/PipelineUnmarked.webp"}}){: alt="Parametric filter design workflow." }
 _Figure {% increment figureId20211203 %}. Parametric filter design workflow._
 
 In this article, we'll discuss the second step of the process: **designing the analog prototype**.
 
-![]({{ page.images | absolute_url | append: "/PipelineMarked.webp"}}){: alt="Parametric filter design workflow with marked second step." }
+![]({{ images | append: "/PipelineMarked.webp"}}){: alt="Parametric filter design workflow with marked second step." }
 _Figure {% increment figureId20211203 %}. In this article, we discuss analog prototype design._
 
 ## Recap
 
-As you remember from the [previous article]({% post_url fx/2021-11-26-parametric-eq-design %}), parametric filters must have [VälimäkiReiss16]
+As you remember from the [previous article]({% post_url collections.posts, 'fx/2021-11-26-parametric-eq-design' %}), parametric filters must have [VälimäkiReiss16]
 
 * interpretable, real-time-adjustable controls and
 * low processing delay.
@@ -111,7 +111,7 @@ We know that we want to design an analog prototype low-pass using the Butterwort
 
 The goal of the approximation is the *ideal low-pass filter*.
 
-![]({{ page.images | absolute_url | append: "/IdealLowPass.webp"}}){: alt="Amplitude response of the ideal low-pass filter."}
+![]({{ images | append: "/IdealLowPass.webp"}}){: alt="Amplitude response of the ideal low-pass filter."}
 _Figure {% increment figureId20211203  %}. Amplitude response of the ideal low-pass filter with cutoff frequency equal to 1._
 
 Frequency $\omega_\text{a}$ is the analog cutoff frequency in radians per second. We assume that $\omega_\text{a} = 1$, i.e., the filter's transfer function is *normalized*.
@@ -130,11 +130,11 @@ We will formulate the problem of approximating the ideal filter in terms of the 
 
 To be able to get from the squared magnitude response to the transfer function, we introduce an intermediate, complex-valued function of the complex variable $s$
 
-$$\mathcal{H}_\text{a}(s) = H_\text{a}(s) H_\text{a}(-s). \quad ({% increment equationId20211203 %})$$
+$$\mathcal{H}_\text{a} (s) = H_\text{a} (s) H_\text{a} (-s). \quad ({% increment equationId20211203 %})$$
 
 It can be easily shown that
 
-$$\mathcal{H}_\text{a}(s) \Bigr\rvert_{s=j\omega} = |H_\text{a}(j\omega)|^2. \quad ({% increment equationId20211203 %})$$
+$$\mathcal{H}_\text{a}(s) \Bigr \rvert_{s=j\omega} = |H_\text{a}(j\omega)|^2. \quad ({% increment equationId20211203 %})$$
 
 The Butterworth squared magnitude response $\mathcal{H}_\text{a}(\omega) = |H_\text{a}(j \omega)|^2$ is a *Taylor series approximation* of the ideal squared magnitude response around $\omega=0$.
 
@@ -169,7 +169,7 @@ $$\mathcal{H}_\text{a}(j\omega) = 1 + E(\omega). \quad ({% increment equationId2
 
 We can insert Equation 6 into Equation 5 and obtain
 
-$$d_0 + d_2 \omega^2 + \dots + d_{2M} \omega^{2M} = c_0 + c_2 \omega^2 + \dots + c_{2N} \omega^{2N} \\+ E(\omega) [c_0 + c_2 \omega^2 + \dots + c_{2N} \omega^{2N}]. \quad ({% increment equationId20211203 %})$$
+$$d_0 + d_2 \omega^2 + \dots + d_{2M} \omega^{2M} = c_0 + c_2 \omega^2 + \dots + c_{2N} \omega^{2N} \newline + E(\omega) [c_0 + c_2 \omega^2 + \dots + c_{2N} \omega^{2N}]. \quad ({% increment equationId20211203 %})$$
 
 #### Error Minimization
 
@@ -239,9 +239,9 @@ $$(-1)^N s^{2N} = -1, \quad ({% increment equationId20211203 %})$$
 
 $$s^{2N} = (-1)^{N+1}, \quad ({% increment equationId20211203 %})$$
 
-$$s^{2N} = \begin{cases} -1, \quad \text{if } N \text{ is even},\\ 1, \quad \text{if } N \text{ is odd}.\end{cases} \quad ({% increment equationId20211203 %})$$
+$$s^{2N} = \begin{cases} -1, \quad \text{if } N \text{ is even},\newline  1, \quad \text{if } N \text{ is odd}.\end{cases} \quad ({% increment equationId20211203 %})$$
 
-$$s_k = \begin{cases} e^{i(\pi + 2k\pi)/2N}, \quad \text{if } N \text{ is even},\\ e^{i2k\pi/2N}, \quad \text{if } N \text{ is odd.}\end{cases}, \\ \quad k=-(N-1), -(N-2), \dots, 0, 1, 2, \dots , N-1, N. \quad ({% increment equationId20211203 %})$$
+$$s_k = \begin{cases} e^{i(\pi + 2k\pi)/2N}, \quad \text{if } N \text{ is even},\newline  e^{i2k\pi/2N}, \quad \text{if } N \text{ is odd.}\end{cases}, \newline  \quad k=-(N-1), -(N-2), \dots, 0, 1, 2, \dots , N-1, N. \quad ({% increment equationId20211203 %})$$
 
 *Note: This indexing of $k$ is chosen so as to simplify further derivations. Another but equivalent indexing is $k=0,1,2,\dots,2N-1$.*
 
@@ -255,7 +255,7 @@ We can obtain it by finding the poles of $H_\text{a}(-s)$ (which lie on the righ
 
 Poles of $H_\text{a}(-s)$ are $s_k$ from Equation 23 with arguments in the $(-\pi/2,\pi/2)$ range, i.e., for $k=0,\pm 1,\pm 2,\dots,\pm (N-1)/2$ if $N$ is odd, and for $k=0, \pm 1, \pm 2, \dots, \pm (N/2 -1),-N/2$ if $N$ is even. After negating the real part of these $s_k$, we obtain the pole locations of $H_\text{a}(s)$
 
-$$s_k^{H_\text{a}(s)} = \begin{cases} -e^{-i(\pi + 2k\pi)/2N},k=0, \pm 1, \dots, \pm (N/2 -1),-N/2 \quad \text{if } N \text{ is even},\\ -e^{-i2k\pi/2N}, k=0,\pm 1,\pm 2,\dots,\pm (N-1)/2 \quad \text{if } N \text{ is odd.}\end{cases} \quad ({% increment equationId20211203 %})$$
+$$s_k^{H_\text{a}(s)} = \begin{cases} -e^{-i(\pi + 2k\pi)/2N},k=0, \pm 1, \dots, \pm (N/2 -1),-N/2 \quad \text{if } N \text{ is even},\newline  -e^{-i2k\pi/2N}, k=0,\pm 1,\pm 2,\dots,\pm (N-1)/2 \quad \text{if } N \text{ is odd.}\end{cases} \quad ({% increment equationId20211203 %})$$
 
 *Note: Negating the real part of a complex number is equivalent to negating its complex conjugate.*
 
@@ -271,7 +271,7 @@ The polynomial in the denominator of Equation 17 has real coefficients. Therefor
 
 Since the complex conjugate lies on the same half-plane, we can combine the roots with their conjugates to create a neat-looking real polynomial in the denominator. The single real pole ($-1$) must be factored out of the product, because it doesn't have a conjugate pair.
 
-$$H_\text{a}(s) = \frac{1}{s+1} \prod \limits_k \frac{1}{(s + e^{-i 2 k \pi / 2N})(s + e^{i 2 k \pi / 2N})} \\= \frac{1}{s+1} \prod \limits_k \frac{1}{s^2 + 2 \cos (k \pi / N) s + 1}, \quad ({% increment equationId20211203 %})$$
+$$H_\text{a}(s) = \frac{1}{s+1} \prod \limits_k \frac{1}{(s + e^{-i 2 k \pi / 2N})(s + e^{i 2 k \pi / 2N})} \newline = \frac{1}{s+1} \prod \limits_k \frac{1}{s^2 + 2 \cos (k \pi / N) s + 1}, \quad ({% increment equationId20211203 %})$$
 
 with $k=1, 2,\dots, (N-1)/2$ (note the lack of nonpositive integers).
 
@@ -303,7 +303,7 @@ $$H_4(s) = \frac{1}{(s^2 + 1.848 s + 1)(s^2 + 0.765 s + 1)}. \quad ({% increment
 
 To see, how much the Butterworth low-pass filter deviates from the ideal response from Figure 3, let's plot the amplitude responses of both filters against the ideal response.
 
-![]({{ page.images | absolute_url | append: "/ButterworthComparison.webp"}}){: alt="Comparison of Butterworth filters amplitude responses of orders 2, 4, and 11, and the ideal low-pass amplitude response." }
+![]({{ images | append: "/ButterworthComparison.webp"}}){: alt="Comparison of Butterworth filters amplitude responses of orders 2, 4, and 11, and the ideal low-pass amplitude response." }
 _Figure {% increment figureId20211203 %}. Butterworth low-pass amplitude response of 2nd, 4th, and 11th order plotted against the ideal response._
 
 The 11th order is shown for additional comparison.
@@ -316,7 +316,7 @@ Figure 4 also shows that the Butterworth approximation is indeed maximally flat 
 
 Figure 5 shows the same amplitude responses but this time the magnitude is expressed in decibels ($20 \log_{10}(\cdot)$). The -3 dB at cutoff frequency is clearly visible.
 
-![]({{ page.images | absolute_url | append: "/ButterworthComparisonDecibels.webp"}}){: alt="Comparison of Butterworth filters amplitude responses on the decibel scale for orders 2, 4, and 11, and the ideal low-pass amplitude response." }
+![]({{ images | append: "/ButterworthComparisonDecibels.webp"}}){: alt="Comparison of Butterworth filters amplitude responses on the decibel scale for orders 2, 4, and 11, and the ideal low-pass amplitude response." }
 _Figure {% increment figureId20211203 %}. Butterworth low-pass amplitude response in decibels for 2nd, 4th, and 11th orders plotted against the ideal response._
 
 
@@ -352,6 +352,6 @@ accessed November 26, 2021.
 
 [Zölzer08] [Zölzer Udo, *Digital Audio Signal Processing*, 2nd ed., Helmut Schmidt University, Hamburg, Germany, John Wiley & Sons Ltd, 2008.](https://amzn.to/30XUTdn)
 
-{% include affiliate-disclaimer.html %}
+{% include 'affiliate-disclaimer.html' %}
 
-{% endkatexmm %}
+

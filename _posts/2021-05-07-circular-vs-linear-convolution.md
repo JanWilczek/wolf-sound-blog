@@ -4,7 +4,7 @@ date: 2021-05-07
 author: Jan Wilczek
 layout: post
 permalink: /circular-vs-linear-convolution-whats-the-difference/
-images: assets/img/posts/2021-05-07-circular-vs-linear-convolution
+images: /assets/img/posts/2021-05-07-circular-vs-linear-convolution
 background: /assets/img/posts/2021-05-07-circular-vs-linear-convolution/thumbnail.png
 categories:
  - Digital Signal Processing
@@ -17,20 +17,20 @@ What is the circular convolution and how does it differ from the linear convolut
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/zquMVVCnmuk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-{% katexmm %}
+
 
 ### The Convolution Series
-1. [Definition of convolution and intuition behind it]({% post_url 2020-06-20-the-secret-behind-filtering %})
-1. [Mathematical properties of convolution]({% post_url 2020-07-05-mathematical-properties-of-convolution %})
-1. [Convolution property of Fourier, Laplace, and z-transforms]({% post_url 2021-03-18-convolution-in-popular-transforms %})
-1. [Identity element of the convolution]({% post_url 2021-04-01-identity-element-of-the-convolution %})
-1. [Star notation of the convolution]({% post_url 2021-04-03-star-notation-of-the-convolution-a-notational-trap %})
+1. [Definition of convolution and intuition behind it]({% post_url collections.posts, '2020-06-20-the-secret-behind-filtering' %})
+1. [Mathematical properties of convolution]({% post_url collections.posts, '2020-07-05-mathematical-properties-of-convolution' %})
+1. [Convolution property of Fourier, Laplace, and z-transforms]({% post_url collections.posts, '2021-03-18-convolution-in-popular-transforms' %})
+1. [Identity element of the convolution]({% post_url collections.posts, '2021-04-01-identity-element-of-the-convolution' %})
+1. [Star notation of the convolution]({% post_url collections.posts, '2021-04-03-star-notation-of-the-convolution-a-notational-trap' %})
 1. **Circular vs. linear convolution**
-1. [Fast convolution]({% post_url 2021-05-14-fast-convolution %})
-1. [Convolution vs. correlation]({% post_url 2021-06-18-convolution-vs-correlation %})
-1. [Convolution in MATLAB, NumPy, and SciPy]({% post_url 2021-07-09-convolution-in-numpy-matlab-and-scipy %})
-1. [Deconvolution: Inverse convolution]({% post_url 2021-07-23-deconvolution %})
-1. [Convolution in probability: Sum of independent random variables]({% post_url 2021-07-30-convolution-in-probability %})
+1. [Fast convolution]({% post_url collections.posts, '2021-05-14-fast-convolution' %})
+1. [Convolution vs. correlation]({% post_url collections.posts, '2021-06-18-convolution-vs-correlation' %})
+1. [Convolution in MATLAB, NumPy, and SciPy]({% post_url collections.posts, '2021-07-09-convolution-in-numpy-matlab-and-scipy' %})
+1. [Deconvolution: Inverse convolution]({% post_url collections.posts, '2021-07-23-deconvolution' %})
+1. [Convolution in probability: Sum of independent random variables]({% post_url collections.posts, '2021-07-30-convolution-in-probability' %})
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -71,22 +71,14 @@ $$ X[k] = \mathcal{DFT}\{x[n]\} = \sum \limits_{n=0}^{N-1} x[n] e^{-j(2\pi/N)kn}
 
 ### Convolution Theorem of the Fourier Transform
 
-In [one of the previous articles]({% post_url 2021-03-18-convolution-in-popular-transforms %}) we argued that for the continuous-time Fourier transform it holds that
+In [one of the previous articles]({% post_url collections.posts, '2021-03-18-convolution-in-popular-transforms' %}) we argued that for the continuous-time Fourier transform it holds that
 
 $$x(t) \ast h(t) \stackrel{\mathcal{F}}{\longleftrightarrow} X(j\omega)H(j\omega), \quad ({% increment equationId20210507 %})$$
 
 i.e., the Fourier transform of a convolution equals the multiplication of the Fourier transforms of the convolved signals. A similar property holds for the Laplace and z-transforms. However, **it does not**, in general, hold for the discrete Fourier transform. Instead, multiplication of discrete Fourier transforms corresponds to the *circular convolution* of the corresponding time-domain signals [1].
 
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6611455743195468"
-     crossorigin="anonymous"></script><ins class="adsbygoogle"
-     style="display:block; text-align:center;"
-     data-ad-layout="in-article"
-     data-ad-format="fluid"
-     data-ad-client="ca-pub-6611455743195468"
-     data-ad-slot="7289385396"></ins><script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+{% render 'google-ad.liquid' %}
 
 ### Convolution Theorem of the DFT
 
@@ -124,22 +116,22 @@ Let's look at a comparison between a linear and a circular convolution.
 
 Let's assume we have a signal $x[n]$
 
-![]({{ page.images | absolute_url | append: "/x_short.png" }}){: width="600" }
+![]({{ images | append: "/x_short.png" }}){: width="600" }
 _Figure 1. $x[n]$._
 
-and a [discrete-time impulse delayed by 1 sample]({% post_url 2021-04-01-identity-element-of-the-convolution %}) $h[n]$
+and a [discrete-time impulse delayed by 1 sample]({% post_url collections.posts, '2021-04-01-identity-element-of-the-convolution' %}) $h[n]$
 
-![]({{ page.images | absolute_url | append: "/unit_delay.png" }}){: width="600" }
+![]({{ images | append: "/unit_delay.png" }}){: width="600" }
 _Figure 2. $h[n]$._
 
 The linear convolution between the two delays $x[n]$ by one sample, as expected
 
-![]({{ page.images | absolute_url | append: "/linear_convolution_shift.png" }}){: width="600" }
+![]({{ images | append: "/linear_convolution_shift.png" }}){: width="600" }
 _Figure 3. Linear convolution between $x[n]$ and $h[n]$._
 
 However, the circular convolution performs a **circular shift** of the signal $x[n]$
 
-![]({{ page.images | absolute_url | append: "/circular_shift.png" }}){: width="600" }
+![]({{ images | append: "/circular_shift.png" }}){: width="600" }
 _Figure 4. Circular convolution between $x[n]$ and $h[n]$._
 
 Circular shift means that whichever samples "fall off" one end reappear at the other end of the signal vector. In other words, the excessive samples "wrap around" the signal buffer.
@@ -166,7 +158,7 @@ Equation 9 is identical to Equation 1, i.e, the definition of the DFT, with the 
 
 The same holds for the DFT coefficients $X[k]$
 
-$$X[k] = \begin{cases} \tilde{X}[k] \quad \text{if } k\in \{0, \dots, N-1\},\\ 0 \quad \text{otherwise}. \end{cases} \quad ({% increment equationId20210507 %})$$
+$$X[k] = \begin{cases} \tilde{X}[k] \quad \text{if } k\in \{0, \dots, N-1\},\newline  0 \quad \text{otherwise}. \end{cases} \quad ({% increment equationId20210507 %})$$
 
 Unfortunately, the fact that $x[n]$ and $X[k]$ are 0 for $n,k \notin \{0, \dots, N-1\}$ is only **implicit**. It means we can state it but we cannot enforce it. Since the DFT uses directly the formulas of the DFS, the DFT will behave as if the signal $x[n]$ was periodic with period $N$. The only solution to that, would be padding the signal vector $x[n]$ with infinitely many zeros. Without such a padding, the DFT $X[k]$ is also periodic with period $N$.
 
@@ -174,32 +166,32 @@ Unfortunately, the fact that $x[n]$ and $X[k]$ are 0 for $n,k \notin \{0, \dots,
 
 Let's say we have a signal $x[n]$ given as a vector with four samples
 
-![]({{ page.images | absolute_url | append: "/x_vector.png" }}){: width="600" }
+![]({{ images | append: "/x_vector_time.png" }}){: width="600" }
 _Figure 5. $x[n]$._
 
 You may think it is defined as follows
 
-![]({{ page.images | absolute_url | append: "/x_zeros.png" }}){: width="600" }
+![]({{ images | append: "/x_zeros_frequency.png" }}){: width="600" }
 _Figure 6. $x[n]$ as we wish it to be._
 
 but the DFS (and the DFT accordingly) treat it as
 
-![]({{ page.images | absolute_url | append: "/x_repeated.png" }}){: width="600" }
+![]({{ images | append: "/x_repeated_time.png" }}){: width="600" }
 _Figure 7. $x[n]$ as seen by discrete Fourier series and the discrete Fourier transform._
 
 Analogously, in the discrete frequency domain, we can obtain the magnitude Fourier coefficients $|X[k]|$ from Equation 1. This yields
 
-![]({{ page.images | absolute_url | append: "/X_vector.png" }}){: width="600" }
+![]({{ images | append: "/X_vector_frequency.png" }}){: width="600" }
 _Figure 8. Magnitude discrete-frequency coefficients of $x[n]$._
 
 Again, one may assume that it is defined as follows
 
-![]({{ page.images | absolute_url | append: "/X_zeros.png" }}){: width="600" }
+![]({{ images | append: "/X_zeros_frequency.png" }}){: width="600" }
 _Figure 9. Magnitude DFT of $x[n]$ naively visualized with zeros surrounding the 4 nonzero coefficients._
 
 but the inherent periodicity of the DFT results in
 
-![]({{ page.images | absolute_url | append: "/X_repeated.png" }}){: width="600" }
+![]({{ images | append: "/X_repeated_frequency.png" }}){: width="600" }
 _Figure 10. True magnitude DFT of $x[n]$._
 
 ### Sampling of the Fourier transform
@@ -210,7 +202,7 @@ All of the above observations are confirmed when one treats the DFT as a sampled
 
 Having established that the DFT is periodic, we can now explain the circular convolution phenomenon. I like to think of it as **aliasing in the time domain**.
 
-*Note: We have discussed the notion of aliasing in the frequency domain in [one of the previous articles]({% post_url 2019-11-28-what-is-aliasing-what-causes-it-how-to-avoid-it %}).*
+*Note: We have discussed the notion of aliasing in the frequency domain in [one of the previous articles]({% post_url collections.posts, '2019-11-28-what-is-aliasing-what-causes-it-how-to-avoid-it' %}).*
 
 #### Output Length of Discrete Convolution
 
@@ -236,7 +228,7 @@ We can achieve it via inverse discrete Fourier transform (iDFT)
 
 $$y[n] = \mathcal{IDFT}\{Y[k]\} = \sum \limits_{k=0}^{N-1} Y[k] e^{j(2\pi/N)kn}. \quad ({% increment equationId20210507 %})$$
 
-If $x$ and $h$ were continuous-time and we were using the Fourier transform instead of the discrete Fourier transform, the [convolution theorem]({% post_url 2021-03-18-convolution-in-popular-transforms %}) would tell us that $y$ is the convolution of $x$ and $h$. We explicitly showed that the convolution of $x$ and $h$ should be a discrete signal of length 5 (see Figure 3). How long is $y$?
+If $x$ and $h$ were continuous-time and we were using the Fourier transform instead of the discrete Fourier transform, the [convolution theorem]({% post_url collections.posts, '2021-03-18-convolution-in-popular-transforms' %}) would tell us that $y$ is the convolution of $x$ and $h$. We explicitly showed that the convolution of $x$ and $h$ should be a discrete signal of length 5 (see Figure 3). How long is $y$?
 
 Inverse DFT inherently assumes that the time domain signal is of the same length as the frequency-domain coefficient vector. Thus, $y[n]$ is of length 4. So by multiplying frequency-domain vectors $\pmb{X}$ and $\pmb{H}$ and going back to the discrete-time domain we squashed a 5-element-long vector into a 4-element-long vector. Thus, we introduced aliasing in the time domain; hence the wrap-around of the last sample in Figure 4, and more broadly, circular convolution effect.
 
@@ -260,10 +252,10 @@ The question is: which subset?
 
 Figures 11 and 12 present the linear and circular convolution example, respectively, with marked matching samples. They match in terms of indices and amplitude.
 
-![]({{ page.images | absolute_url | append: "/linear_convolution_shift_marked.png" }}){: width="600" }
+![]({{ images | append: "/linear_convolution_shift_marked.png" }}){: width="600" }
 _Figure 11. Linear convolution result. Samples marked in red would also be correctly calculated by the circular convolution._
 
-![]({{ page.images | absolute_url | append: "/circular_shift_marked.png" }}){: width="600" }
+![]({{ images | append: "/circular_shift_marked.png" }}){: width="600" }
 _Figure 12. Circular convolution result. Samples marked in red correspond to the linear convolution result in terms of index and amplitude._
 
 To understand fully which samples in the circular convolution correspond to the correct samples of the linear convolution we need to look at a concept broader than circular convolution: periodic convolution.
@@ -274,19 +266,19 @@ Circular convolution is an example of *periodic convolution*&#8211;a convolution
 
 Let's compare the linear convolution and the periodic convolution. Given signals $x$ and (zero-padded) $h$, their periodic versions look as follows (black color indicates samples stored in the vector, grey color indicates implicit sample values)
 
-![]({{ page.images | absolute_url | append: "/x_tilde_repeated.png" }}){: width="600" }
+![]({{ images | append: "/x_tilde_repeated.png" }}){: width="600" }
 _Figure 13. Signal $\tilde{x}$: periodic version of $x$._
-![]({{ page.images | absolute_url | append: "/h_repeated.png" }}){: width="600" }
+![]({{ images | append: "/h_repeated.png" }}){: width="600" }
 _Figure 14. Signal $\tilde{h}$: periodic version of $h$._
 
 Let's compare the linear convolution of the original $x$ and $h$
 
-![]({{ page.images | absolute_url | append: "/linear_convolution_full.png" }}){: width="600" }
+![]({{ images | append: "/linear_convolution_full.png" }}){: width="600" }
 _Figure 15. Linear convolution of $x$ and $h$. Its length is 5._
 
 with the periodic convolution of their periodic counterparts
 
-![]({{ page.images | absolute_url | append: "/periodic_convolution.png" }}){: width="600" }
+![]({{ images | append: "/periodic_convolution.png" }}){: width="600" }
 _Figure 16. Periodic convolution of $\tilde{x}$ and $\tilde{h}$. Its length is 4 and it's periodic._
 
 We can observe that the circular convolution is a superposition of the linear convolution shifted by 4 samples, i.e., 1 sample less than the linear convolution's length. That is why the last sample is "eaten up"; it wraps around and is added to the initial 0 sample.
@@ -312,7 +304,7 @@ Let's assume that we have two signals, of length $M$ and $N$, $M \geq N$. We wan
 
 A straightforward implementation of the circular convolution, as presented in Equation 6, is rather brute-force
 
-{% highlight python %}
+```python
 import numpy as np
 
 def periodic_convolution_naive(x, h):
@@ -328,13 +320,13 @@ def periodic_convolution_naive(x, h):
             output += x[m] * h[(n - m) % N]
     
     return output
-{% endhighlight %}
+```
 
 This implementation has time complexity $O(N^2)$.
 
 However, the convolution property of the DFT, as presented in Equation 5, suggests a much more efficient implementation
 
-{% highlight python %}
+```python
 import numpy as np
 
 def periodic_convolution_fast(x, h):
@@ -345,7 +337,7 @@ def periodic_convolution_fast(x, h):
     H = np.fft.fft(h)
 
     return np.real(np.fft.ifft(np.multiply(X, H)))
-{% endhighlight %}
+```
 
 The complexity of the "fast" implementation is determined by the complexity of the forward and inverse DFT as implemented in the `numpy.fft` module, which is $O(N \log N)$.
 
@@ -369,4 +361,4 @@ Circular convolution can be implemented efficiently via multiplication in the DF
 
 [3] Frank Wefers *Partitioned convolution algorithms for real-time auralization*, PhD Thesis, Zugl.: Aachen, Techn. Hochsch., 2015.
 
-{% endkatexmm %}
+

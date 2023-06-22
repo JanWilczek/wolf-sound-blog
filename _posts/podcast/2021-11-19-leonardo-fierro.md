@@ -12,7 +12,7 @@ categories:
 tags:
   - career
   - learning
-  - MATLAB
+  - matlab
   - research
 discussion_id: 2021-11-19-leonardo-fierro
 ---
@@ -31,7 +31,7 @@ Listen on:
 
 [All podcast episodes.]({{"/podcast" | relative_url }})
 
-[Sign up for WolfSound's newsletter!]({% link newsletter.md %})
+[Sign up for WolfSound's newsletter!]({% link collections.all, 'newsletter.md' %})
 
 In this episode, I had the privilege to interview Leonard Fierro, a PhD student at the Aalto Acoustics Lab of the Aalto University in Espoo, Finland.
 

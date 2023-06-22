@@ -19,22 +19,22 @@ How does the convolution relate to the most popular transforms in signal process
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/f3pjtqYUlW0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-{% katexmm %}
+
 
 The *convolution property* appears in at least in three very important transforms: the Fourier transform, the Laplace transform, and the $z$-tranform. These are the most often used transforms in continuous and discrete signal processing, so understanding the significance of convolution in them is of great importance to every engineer. In this article the definitions of the aforementioned transforms are presented, followed by their respective convolution property versions with their proofs.
 
 ### The Convolution Series
-1. [Definition of convolution and intuition behind it]({% post_url 2020-06-20-the-secret-behind-filtering %})
-1. [Mathematical properties of convolution]({% post_url 2020-07-05-mathematical-properties-of-convolution %})
+1. [Definition of convolution and intuition behind it]({% post_url collections.posts, '2020-06-20-the-secret-behind-filtering' %})
+1. [Mathematical properties of convolution]({% post_url collections.posts, '2020-07-05-mathematical-properties-of-convolution' %})
 1. **Convolution property of Fourier, Laplace, and z-transforms**
-1. [Identity element of the convolution]({% post_url 2021-04-01-identity-element-of-the-convolution %})
-1. [Star notation of the convolution]({% post_url 2021-04-03-star-notation-of-the-convolution-a-notational-trap %})
-1. [Circular vs. linear convolution]({% post_url 2021-05-07-circular-vs-linear-convolution %})
-1. [Fast convolution]({% post_url 2021-05-14-fast-convolution %})
-1. [Convolution vs. correlation]({% post_url 2021-06-18-convolution-vs-correlation %})
-1. [Convolution in MATLAB, NumPy, and SciPy]({% post_url 2021-07-09-convolution-in-numpy-matlab-and-scipy %})
-1. [Deconvolution: Inverse convolution]({% post_url 2021-07-23-deconvolution %})
-1. [Convolution in probability: Sum of independent random variables]({% post_url 2021-07-30-convolution-in-probability %})
+1. [Identity element of the convolution]({% post_url collections.posts, '2021-04-01-identity-element-of-the-convolution' %})
+1. [Star notation of the convolution]({% post_url collections.posts, '2021-04-03-star-notation-of-the-convolution-a-notational-trap' %})
+1. [Circular vs. linear convolution]({% post_url collections.posts, '2021-05-07-circular-vs-linear-convolution' %})
+1. [Fast convolution]({% post_url collections.posts, '2021-05-14-fast-convolution' %})
+1. [Convolution vs. correlation]({% post_url collections.posts, '2021-06-18-convolution-vs-correlation' %})
+1. [Convolution in MATLAB, NumPy, and SciPy]({% post_url collections.posts, '2021-07-09-convolution-in-numpy-matlab-and-scipy' %})
+1. [Deconvolution: Inverse convolution]({% post_url collections.posts, '2021-07-23-deconvolution' %})
+1. [Convolution in probability: Sum of independent random variables]({% post_url collections.posts, '2021-07-30-convolution-in-probability' %})
 
 ## Recap
 Let us briefly recap the definition of the discrete convolution
@@ -88,12 +88,12 @@ $$ y(t) = x(t) \ast h(t) \quad (8) $$
 
 and deriving its Fourier transform
 
-$$  Y(j\omega) = \mathcal{F}\{y(t)\} = \int \limits_{-\infty}^{\infty} y(t) e^{-j\omega t} dt \\
-    = \int \limits_{-\infty}^{\infty} (x \ast h)(t) e^{-j\omega t} dt \\
-    = \int \limits_{-\infty}^{\infty} \int \limits_{-\infty}^{\infty} x(\tau)h(t - \tau) e^{-j\omega t} dt d\tau\\
-    = \int \limits_{-\infty}^{\infty} x(\tau) e^{-j\omega \tau} \int \limits_{-\infty}^{\infty} h(t - \tau) e^{-j\omega (t-\tau)} dt d\tau\\
-    = \int \limits_{-\infty}^{\infty} x(\tau) e^{-j\omega \tau} H(j\omega) d\tau\\
-    = \int \limits_{-\infty}^{\infty} x(\tau) e^{-j\omega \tau} d\tau H(j\omega) \\
+$$  Y(j\omega) = \mathcal{F}\{y(t)\} = \int \limits_{-\infty}^{\infty} y(t) e^{-j\omega t} dt \newline 
+    = \int \limits_{-\infty}^{\infty} (x \ast h)(t) e^{-j\omega t} dt \newline 
+    = \int \limits_{-\infty}^{\infty} \int \limits_{-\infty}^{\infty} x(\tau)h(t - \tau) e^{-j\omega t} dt d\tau\newline 
+    = \int \limits_{-\infty}^{\infty} x(\tau) e^{-j\omega \tau} \int \limits_{-\infty}^{\infty} h(t - \tau) e^{-j\omega (t-\tau)} dt d\tau\newline 
+    = \int \limits_{-\infty}^{\infty} x(\tau) e^{-j\omega \tau} H(j\omega) d\tau\newline 
+    = \int \limits_{-\infty}^{\infty} x(\tau) e^{-j\omega \tau} d\tau H(j\omega) \newline 
     = X(j\omega) H(j\omega). \quad \Box$$
 
 #### Application
@@ -106,7 +106,7 @@ The convolution property of the Fourier transform has a number of practical appl
 * cascaded systems analysis,
 * further transform properties derivations.
 
-Additionally, the convolution property makes the commutativity property from the [previous article]({% post_url 2020-07-05-mathematical-properties-of-convolution %}) immediately obvious, as the multiplication operands $X(j\omega)$ and $H(j\omega)$ can be exchanged.
+Additionally, the convolution property makes the commutativity property from the [previous article]({% post_url collections.posts, '2020-07-05-mathematical-properties-of-convolution' %}) immediately obvious, as the multiplication operands $X(j\omega)$ and $H(j\omega)$ can be exchanged.
 
 ## Laplace transform
 The Laplace transform is another frequently used transform even outside the field of engineering. For example, it plays an important role in solving differential equations. 
@@ -168,10 +168,10 @@ where $R_{XH}$ denotes the region of convergence of the transform. As in the cas
 
 #### Proof
 The proof of the convolution property is rather straightforward
-$$ \mathcal{Z}\{x[n] \ast h[n]\} = \sum \limits_{n=-\infty}^{\infty} (x \ast h)[n] z^{-n} \\
-    = \sum \limits_{n=-\infty}^{\infty} \left(\sum \limits_{k=-\infty}^{\infty} x[k] h[n-k]\right) z^{-n} \\
-    = \sum \limits_{k=-\infty}^{\infty} x[k] z^{-k} \sum \limits_{n=-\infty}^{\infty} h[n-k] z^{-(n-k)} \\
-    = \sum \limits_{k=-\infty}^{\infty} x[k] z^{-k} H(z) \\
+$$ \mathcal{Z}\{x[n] \ast h[n]\} = \sum \limits_{n=-\infty}^{\infty} (x \ast h)[n] z^{-n} \newline 
+    = \sum \limits_{n=-\infty}^{\infty} \left(\sum \limits_{k=-\infty}^{\infty} x[k] h[n-k]\right) z^{-n} \newline 
+    = \sum \limits_{k=-\infty}^{\infty} x[k] z^{-k} \sum \limits_{n=-\infty}^{\infty} h[n-k] z^{-(n-k)} \newline 
+    = \sum \limits_{k=-\infty}^{\infty} x[k] z^{-k} H(z) \newline 
     = X(z)H(z). \quad \Box$$
 
 ## Summary
@@ -183,4 +183,4 @@ In this article the convolution property of the Fourier, Laplace, and $z$-transf
 
 [2] Alan V. Oppenheim, Ronald W. Schafer *Discrete-Time Signal Processing*, 3rd Edition, Pearson 2010.
 
-{% endkatexmm %}
+

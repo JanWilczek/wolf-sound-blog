@@ -4,7 +4,7 @@ description: "Learn how design and implement your own parametric filter of any p
 date: 2021-11-26
 author: Jan Wilczek
 layout: post
-images: assets/img/posts/fx/2021-11-26-parametric-eq-design/
+images: /assets/img/posts/fx/2021-11-26-parametric-eq-design/
 background: /assets/img/posts/fx/2021-11-26-parametric-eq-design/Thumbnail.webp
 categories:
   - Audio FX
@@ -22,7 +22,7 @@ You probably have seen some form of a parametric equalizer in your digital audio
 
 In this article, I will outline 4 steps necessary to create such software. By the end of this article, you will know exactly what to do when you want to implement a parametric filter, even if it’s just for a university or hobby project.
 
-{% katexmm %}
+
 {% capture _ %}{% increment equationId20211126  %}{% endcapture %}
 {% capture _ %}{% increment figureId20211126  %}{% endcapture %}
 
@@ -32,12 +32,12 @@ An **equalizer (EQ)** is a software program or a device that allows you to adjus
 
 A **parametric equalizer** is an equalizer that gives you the greatest amount of control: you can specify exactly which frequency ranges you want to affect and how much. As such, it is the most powerful and flexible equalizer of all [VälimäkiReiss16]. A parametric EQ consists of different types of *parametric filters*, which are aligned in a series (a *cascade*).
 
-![]({{ page.images | absolute_url | append: "ParametricEQPlugin.webp"}}){: alt="The architecture of a parametric EQ plugin."}
+![]({{ images | append: "ParametricEQPlugin.webp"}}){: alt="The architecture of a parametric EQ plugin."}
 _Figure {% increment figureId20211126  %}. Parametric EQ plugin consists of cascaded parametric filters._
 
 An **audio plugin** is a piece of software that runs inside a digital audio workstation (DAW) to modify a certain track containing audio recordings. Sample plugin formats are: VST, AAX, AU.
 
-![]({{ page.images | absolute_url | append: "ReaEQ.webp"}}){: width="80%" alt="Graphical user interface of ReaEQ parametric equalizer plugin."}
+![]({{ images | append: "ReaEQ.webp"}}){: width="80%" alt="Graphical user interface of ReaEQ parametric equalizer plugin."}
 _Figure {% increment figureId20211126  %}. Graphical user interface of [ReaEQ parametric equalizer plugin](https://www.reaper.fm/reaplugs/)._
 
 In this article, we will discuss *how to design and implement a parametric EQ audio effect plugin*.
@@ -52,7 +52,7 @@ If you come from the digital signal processing field, you may be familiar with f
 
 For example, a low-pass filter may have a cutoff frequency parameter and a resonance parameter, both of which are well defined and understandable even to people untrained in digital signal processing.
 
- ![]({{ page.images | absolute_url | append: "/LowpassGUI.png" }}){: width="50%" alt="Graphical user interface of a low-pass filter plugin."}
+ ![]({{ images | append: "/LowpassGUI.png" }}){: width="50%" alt="Graphical user interface of a low-pass filter plugin."}
 _Figure {% increment figureId20211126  %}. Physically interpretable controls of a low-pass filter._
  
 As opposed to that, if I gave you control over filter coefficients, like $a_1$, $a_2$, or $b_1$, you probably wouldn’t know what to do with it to achieve the desired filtering. Well, neither would I.
@@ -73,7 +73,7 @@ Now, when we know, what is important for a musically useful plug-in filter we ca
 3.	Digitize the analog prototype using the bilinear transform.
 4.	Implement the digital filter in code.
 
-*There’s one additional step that I encourage you to do now that will allow you to excel at audio programming in general: [subscribing to the WolfSound email list]({% link newsletter.md %}). If you haven’t done that already, please, do it now. Thank you: each and every subscriber makes me want to do more articles and videos so that you can enjoy the beauty of audio programming.*
+*There’s one additional step that I encourage you to do now that will allow you to excel at audio programming in general: [subscribing to the WolfSound email list]({% link collections.all, 'newsletter.md' %}). If you haven’t done that already, please, do it now. Thank you: each and every subscriber makes me want to do more articles and videos so that you can enjoy the beauty of audio programming.*
 
 Let’s now elaborate on every of the 4 steps.
 
@@ -140,7 +140,7 @@ In digital signal processing, there are lots of filter types but in parametric E
 
 A *low-pass filter* attenuates all frequencies higher than the cutoff frequency.
 
-![]({{ page.images | absolute_url | append: "/LowPass.webp"}}){: width="70%" alt="Low-pass filter amplitude response."}
+![]({{ images | append: "/LowPass.webp"}}){: width="70%" alt="Low-pass filter amplitude response."}
 _Figure {% increment figureId20211126  %}. Low-pass filter amplitude response._
 
 The *cutoff frequency* is the frequency at which the filter attenuation is -3 dB relative to the unfiltered signal. Another parameter is the *resonance*. Resonance let’s you create a peak around the cutoff frequency in the amplitude response of the filter. The resonance was probably the main factor behind the success of the Moog synthesizer filter section.
@@ -158,7 +158,7 @@ In itself, the low-pass filter is a powerful musical tool.
 
 A *high-pass filter* works exactly the same as the low-pass filter, except that it attenuates frequencies below the cutoff frequency. All the parameters are the same as for the low-pass filter.
 
-![]({{ page.images | absolute_url | append: "/HighPass.webp"}}){: width="70%" alt="High-pass filter amplitude response."}
+![]({{ images | append: "/HighPass.webp"}}){: width="70%" alt="High-pass filter amplitude response."}
 _Figure {% increment figureId20211126  %}. High-pass filter amplitude response._
 
 High-pass filter is usually used to remove undesired frequencies below 100 Hz.
@@ -167,14 +167,14 @@ High-pass filter is usually used to remove undesired frequencies below 100 Hz.
 
 A *band-pass filter* passes through frequencies only in a certain range. It cannot additionally boost or attenuate them. The only two parameters it lets us control is the *center frequency* of the band and the *bandwidth* or, alternatively, $Q$ (quality factor) parameter.
 
-![]({{ page.images | absolute_url | append: "/Bandpass.webp"}}){: width="70%" alt="Band-pass filter amplitude response."}
+![]({{ images | append: "/Bandpass.webp"}}){: width="70%" alt="Band-pass filter amplitude response."}
 _Figure {% increment figureId20211126  %}. Band-pass filter amplitude response._
 
 ### Notch Filter
 
 A *notch filter* also called a *band-stop* or *band-reject* filter does the opposite than the band-pass filter: it eliminates a certain frequency range from the signal. Again, we can control it through center frequency and bandwidth (or $Q$, quality factor) parameter.
 
-![]({{ page.images | absolute_url | append: "/Notch.webp"}}){: width="70%" alt="Notch filter amplitude response."}
+![]({{ images | append: "/Notch.webp"}}){: width="70%" alt="Notch filter amplitude response."}
 _Figure {% increment figureId20211126  %}. Notch filter amplitude response._
 
 ### Shelving Filter
@@ -183,19 +183,19 @@ Milder versions of the low-pass and high-pass filters are high-shelving and low-
 
 A *high-shelving filter* lets us boost or attenuate frequencies above the crossover frequency. The crossover frequency specifies the frequency at which the filter's gain reaches half of the shelf gain $G$ (given in decibels). It may also be called corner, cutoff, or transition frequency [VälimäkiReiss16]. Apart from the crossover frequency and the gain of the shelf, we can also control the steepness or the width of the slope in the transition band.
 
-![]({{ page.images | absolute_url | append: "/HighShelving.webp"}}){: width="70%" alt="High-shelving filter amplitude response."}
+![]({{ images | append: "/HighShelving.webp"}}){: width="70%" alt="High-shelving filter amplitude response."}
 _Figure {% increment figureId20211126  %}. High-shelving filter amplitude response._
 
 A *low-shelving filter*, as you might guess at this point, lets us manipulate the shelf below the crossover frequency. It has exactly the same parameters as the high-shelving filter.
 
-![]({{ page.images | absolute_url | append: "/LowShelving.webp"}}){: width="70%" alt="Low-shelving filter amplitude response."}
+![]({{ images | append: "/LowShelving.webp"}}){: width="70%" alt="Low-shelving filter amplitude response."}
 _Figure {% increment figureId20211126  %}. Low-shelving filter amplitude response._
 
 ### Peak Filter
 
 The final filter that is musically useful is the *peak filter* also called a peaking or band filter. A peak filter lets us boost or attenuate a frequency range. We can control the center frequency and the relative bandwidth ($Q$, quality factor) so the width of the frequency band affected  relative to the center frequency. 
 
-![]({{ page.images | absolute_url | append: "/Peak.webp"}}){: width="70%" alt="Peak filter amplitude response."}
+![]({{ images | append: "/Peak.webp"}}){: width="70%" alt="Peak filter amplitude response."}
 _Figure {% increment figureId20211126  %}. Peak filter amplitude response._
 
 Now that you know the types of the filters, you can decide on which of them you want to implement. Even if you want to implement them all, start with a single, specific filter. You have it? Then it’s time for step 2.
@@ -218,7 +218,7 @@ The third step to implement a filter plugin is the digitization of the analog pr
 
 The bilinear transform maps the analog frequencies from the $j\omega$ analog frequency axis in the $s$-plane to digital frequencies on the unit circle in the $z$-plane. This may seem kind of complicated, and frankly it is, but fortunately there are ready-made formulas for this:
 
-![]({{ page.images | absolute_url | append: "/BilinearTransform.webp"}}){: width="70%" alt="Bilinear transform formulas."}
+![]({{ images | append: "/BilinearTransform.webp"}}){: width="70%" alt="Bilinear transform formulas."}
 _Figure {% increment figureId20211126  %}. Bilinear transform formulas._
 
 For audio purposes, $c$ is typically set to align cutoff frequencies of $H_\text{a}(s)$ and $H_\text{d}(z)$ [Smith07]. You can make these substitutions in your analog transfer functions and voilà: you have a digital filter!
@@ -265,7 +265,7 @@ In summary, in this article I showed you 4 steps to create a filter plugin: from
 
 Over the next couple of articles and videos, I will discuss in detail every step so that you can understand fully the process behind parametric EQ design and implementation. Then I will show you sample implementations of the parametric filters in the JUCE C++ framework in the form of do-it-yourself plugin tutorials. So there is a lot ahead of us!
 
-If you want to be notified about weekly WolfSound content in a condensed form, [subscribe to my email list.]({% link newsletter.md %}). Thank you!
+If you want to be notified about weekly WolfSound content in a condensed form, [subscribe to my email list.]({% link collections.all, 'newsletter.md' %}). Thank you!
 
 ## Bibliography
 
@@ -284,6 +284,6 @@ accessed November 26, 2021.
 
 [Robert Bristow-Johnson, *Audio EQ Cookbook*](https://webaudio.github.io/Audio-EQ-Cookbook/audio-eq-cookbook.html).
 
-{% include affiliate-disclaimer.html %}
+{% include 'affiliate-disclaimer.html' %}
 
-{% endkatexmm %}
+

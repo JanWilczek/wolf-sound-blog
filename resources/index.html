@@ -10,7 +10,7 @@ description: "Resources recommended by WolfSound for learning audio programming"
     </p>
 
     <p>
-        Before we dive into it, let me just say that if you truly want to learn audio programming, the best way I know to do it is to <a href="{% link newsletter.md %}" target="_blank">subscribe to my newsletter</a>. In this way, you'll have regular and instant access to the most valuable materials on audio programming fundamentals and advanced techniques.
+        Before we dive into it, let me just say that if you truly want to learn audio programming, the best way I know to do it is to <a href="{% link collections.all, 'newsletter.md' %}" target="_blank">subscribe to my newsletter</a>. In this way, you'll have regular and instant access to the most valuable materials on audio programming fundamentals and advanced techniques.
     </p>
 
     <p>
@@ -41,12 +41,12 @@ description: "Resources recommended by WolfSound for learning audio programming"
     <h2>Jump to Category</h2>
 
     <ol>
-        {% for category in site.data.resources.all_resources %}
+        {% for category in resources.all_resources %}
         <li><a href="#{{ category.category | slugify }}">{{ category.category }}</a></li>
         {% endfor %}
     </ol>
 
-    {% for category in site.data.resources.all_resources %}
+    {% for category in resources.all_resources %}
     <hr/>
     <h2 id="{{ category.category | slugify }}">{{ category.category }}</h2>
     <hr/>
@@ -90,6 +90,6 @@ description: "Resources recommended by WolfSound for learning audio programming"
     </div>
     {% endfor %}
 
-    {% include affiliate-disclaimer.html %}
+    {% include 'affiliate-disclaimer.html' %}
 
 </article>

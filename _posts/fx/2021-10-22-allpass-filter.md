@@ -4,7 +4,7 @@ description: "Condensed knowledge on the digital allpass filter: all necessary d
 date: 2021-10-22
 author: Jan Wilczek
 layout: post
-images: assets/img/posts/fx/2021-10-22-allpass-filter
+images: /assets/img/posts/fx/2021-10-22-allpass-filter
 background: /assets/img/posts/fx/2021-10-22-allpass-filter/first_order_allpass_filter.webp
 categories:
   - Audio FX
@@ -70,7 +70,7 @@ In this article, we will discuss the digital allpass filter in detail, present i
 6. [Summary](#summary)
 7. [Bibliography](#bibliography)
 
-{% katexmm %}
+
 {% capture _ %}{% increment equationId20211022  %}{% endcapture %}
 {% capture _ %}{% increment figureId20211022  %}{% endcapture %}
 
@@ -82,18 +82,10 @@ Formally, if we denote the transfer function of an allpass filter by $H_\text{AP
 
 But wait, since the magnitude does not change, what do we need allpass filters for? We need them, because they introduce a **frequency-dependent phase delay**. In other words, we are able to manipulate the phase of the frequency components without altering their magnitude.
 
-*Note: A **transfer function** of a digital filter is a [Fourier transform]({% post_url 2021-03-18-convolution-in-popular-transforms %}#fourier-transform) or a [$z$-transform]({% post_url 2021-03-18-convolution-in-popular-transforms %}#z-transform) of its impulse response. We denote them by $H(j\omega)$ and $H(z)$ respectively.*
+*Note: A **transfer function** of a digital filter is a [Fourier transform]({% post_url collections.posts, '2021-03-18-convolution-in-popular-transforms' %}#fourier-transform) or a [$z$-transform]({% post_url collections.posts, '2021-03-18-convolution-in-popular-transforms' %}#z-transform) of its impulse response. We denote them by $H(j\omega)$ and $H(z)$ respectively.*
 
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6611455743195468"
-     crossorigin="anonymous"></script><ins class="adsbygoogle"
-     style="display:block; text-align:center;"
-     data-ad-layout="in-article"
-     data-ad-format="fluid"
-     data-ad-client="ca-pub-6611455743195468"
-     data-ad-slot="7289385396"></ins><script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+{% render 'google-ad.liquid' %}
 
 ## Types of Allpass Systems
 
@@ -101,16 +93,16 @@ There are many types of systems that have the *allpass property*. They can be ro
 
 ### FIR Allpass System
 
-The simplest allpass filter is the [delay]({% post_url 2021-04-01-identity-element-of-the-convolution %}#delay) [4]
+The simplest allpass filter is the [delay]({% post_url collections.posts, '2021-04-01-identity-element-of-the-convolution' %}#delay) [4]
 
 $$H_\text{AP}(z) = \pm z^{-K}, \quad ({% increment equationId20211022 %})$$
 
 where $K$ is an integer not smaller than 0, $K \geq 0$. Note that a unit delay $H_\text{AP}(z) = z^{-1}$ is also an allpass filter. Phase can be unaltered or inverted (multiplication by 1 or -1 respectively), because we are operating in the real domain.
 
-![]({{ page.images | absolute_url | append: "/fir_allpass.webp" }}){: width="80%" alt="Block diagram of the FIR allpass filter."}
+![]({{ images | append: "/fir_allpass.webp" }}){: width="80%" alt="Block diagram of the FIR allpass filter."}
 _Figure {% increment figureId20211022 %}. Block diagram of an FIR allpass filter._
 
-[A broader description of the properties of the delay can be found in my article]({% post_url 2021-04-01-identity-element-of-the-convolution %}#delay).
+[A broader description of the properties of the delay can be found in my article]({% post_url collections.posts, '2021-04-01-identity-element-of-the-convolution' %}#delay).
 
 ### First-Order IIR Allpass
 
@@ -128,7 +120,7 @@ where $x[n]$ is the input signal, $y[n]$ is the output signal, and $d[n-1]$ can 
 
 The difference equation 3 is equivalent to the following DSP diagram.
 
-![]({{ page.images | absolute_url | append: "/first_order_allpass_filter.webp" }}){: alt="Block diagram of the first-order allpass filter."}
+![]({{ images | append: "/first_order_allpass_filter.webp" }}){: alt="Block diagram of the first-order allpass filter."}
 _Figure {% increment figureId20211022 %}. Block diagram of the first-order allpass filter._
 
 How to see the equivalence? First, observe that we have here a combination of two comb filters: a feedback and a feedforward comb filter [4].
@@ -148,7 +140,7 @@ $$y[n] = a_1 x[n] - a_1^2 v[n-1] + v[n-1]. \quad ({% increment equationId2021102
 Finally, replace the first $v[n-1]$ with $\frac{y[n-1] - v[n-2]}{a_1}$ (from Eq. 5) and the second $v[n-1]$ with $x[n-1] - a_1 v[n-2]$ (from Eq. 4):
 
 $$y[n] = a_1 x[n] - a_1^2 \frac{y[n-1] - v[n-2]}{a_1} + x[n-1] - a_1 v[n-2] 
-\\= a_1 x[n] - a_1 y[n-1] + x[n-1], \quad ({% increment equationId20211022 %})$$
+\newline = a_1 x[n] - a_1 y[n-1] + x[n-1], \quad ({% increment equationId20211022 %})$$
 
 which is equivalent to Eq. 3.
 
@@ -165,7 +157,7 @@ where $\overline{z}$ denotes the complex conjugate of $z$. We used the facts tha
 
 What is the role of the $a_1$ (*allpass*) coefficient? It controls the *break frequency* of the allpass filter. What is the break frequency? It is the frequency at which the phase shift of the first-order allpass filter is exactly $-\frac{\pi}{2}$ rad. To understand the break frequency we need to look at the phase frequency response of the allpass filter.
 
-![]({{ page.images | absolute_url | append: "/first_order_allpass_phase_response.webp" }}){: width="80%" alt="Phase response of the first-order allpass filter."}
+![]({{ images | append: "/first_order_allpass_phase_response.webp" }}){: width="80%" alt="Phase response of the first-order allpass filter."}
 _Figure {% increment figureId20211022 %}. Phase response of a first-order allpass filter for different break frequencies $f_\text{b}$._
 
 We here refer to the digital frequency, i.e., the ratio of the frequency $f$ in Hz to the sampling rate $f_s$ in Hz.
@@ -218,14 +210,14 @@ Note how $BW$ is coupled with $c$ but not with $d$ and $f_\text{b}$ is coupled w
 
 The phase response of the second-order allpass filter with different break frequencies $f_\text{b}$ looks as follows:
 
-![]({{ page.images | absolute_url | append: "/second_order_allpass_phase_response.webp" }}){: width="80%" alt="Phase response of the second-order allpass filter with constant bandwidth."}
+![]({{ images | append: "/second_order_allpass_phase_response.webp" }}){: width="80%" alt="Phase response of the second-order allpass filter with constant bandwidth."}
 _Figure {% increment figureId20211022 %}. Phase response of a second-order allpass filter for different break frequencies frequencies $f_\text{b}$ and bandwidth $BW / f_s = 0.022$._
 
 As you can see above, the break frequency determines the point of the phase shift by $-\pi$. All slopes, however, have the same curvature.
 
 If instead, we keep the break frequency constant and change the bandwidth parameter, we obtain the following phase responses:
 
-![]({{ page.images | absolute_url | append: "/second_order_allpass_phase_response_break.webp" }}){: width="80%" alt="Phase response of the second-order allpass filter with constant break frequency."}
+![]({{ images | append: "/second_order_allpass_phase_response_break.webp" }}){: width="80%" alt="Phase response of the second-order allpass filter with constant break frequency."}
 _Figure {% increment figureId20211022 %}. Phase response of a second-order allpass filter for different bandwidths $BW$ and break frequency $f_\text{b} / f_s = 1/8$._
 
 The curvature of the slope gets milder with the increasing $BW$ parameter but the $-\pi$ shift point remains at the same frequency.
@@ -241,7 +233,7 @@ $$y[n] = -c v[n] + d (1-c) v[n-1] + v[n-2].  \quad ({% increment equationId20211
 
 If that seems complicated, a diagram should make it clear 🙂
 
-![]({{ page.images | absolute_url | append: "/second_order_allpass_filter.webp" }}){: alt="Block diagram of the second-order allpass filter."}
+![]({{ images | append: "/second_order_allpass_filter.webp" }}){: alt="Block diagram of the second-order allpass filter."}
 _Figure {% increment figureId20211022 %}. Block diagram of the second-order allpass filter._
 
 #### Properties of the Second-Order Allpass Filter
@@ -304,12 +296,12 @@ Different microphones may introduce different frequency-dependent delays. Mixing
 
 In [Reaper's ReaEQ VST plugin](https://www.reaper.fm/reaplugs/), there is an allpass filter available.
 
-![]({{ page.images | absolute_url | append: "/ReaEQAllpass.webp" }}){: width="80%" alt="ReaEQ plugin window with the allpass filter selected."}
+![]({{ images | append: "/ReaEQAllpass.webp" }}){: width="80%" alt="ReaEQ plugin window with the allpass filter selected."}
 _Figure {% increment figureId20211022 %}. Allpass filter in the Reaper's ReaEQ VST plugin._
 
 How to observe the frequency-dependent phase cancellation with a parallel allpass? Here's a quick tutorial:
 
-![]({{ page.images | absolute_url | append: "/ReaEQAllpassAppliedMaster.webp" }}){: alt="Application of a parallel allpass filter with ReaEQ to create a notch."}
+![]({{ images | append: "/ReaEQAllpassAppliedMaster.webp" }}){: alt="Application of a parallel allpass filter with ReaEQ to create a notch."}
 _Figure {% increment figureId20211022 %}. Application of a parallel allpass filter with ReaEQ to create a notch._
 
 Steps to reproduce:
@@ -333,7 +325,7 @@ In this article, we have discussed an allpass filter. Now, you understand
 * how they are applied in various effects,
 * how to use an allpass filter in a DAW.
 
-Thank you for reading! If you enjoyed the article and want to learn even more, [sign up for my newsletter]({% link newsletter.md %})! You will become an expert in digital audio effects without the need to read thick books on DSP.
+Thank you for reading! If you enjoyed the article and want to learn even more, [sign up for my newsletter]({% link collections.all, 'newsletter.md' %})! You will become an expert in digital audio effects without the need to read thick books on DSP.
 
 If you have any questions, don't hesitate to ask them below!
 
@@ -349,6 +341,6 @@ If you have any questions, don't hesitate to ask them below!
 
 [5] [R. Kiiski, F. Esqueda, and V. Välimäki, *Time-Variant Gray-Box Modeling of a Phaser Pedal*, in Proceedings of the 19th International Conference on Digital Audio Effects (DAFx-16), Brno, Czech Republic, September 5–9, pp. 121–128, 2016.](https://www.dafx.de/paper-archive/2016/dafxpapers/05-DAFx-16_paper_42-PN.pdf)
 
-{% include affiliate-disclaimer.html %}
+{% include 'affiliate-disclaimer.html' %}
 
-{% endkatexmm %}
+

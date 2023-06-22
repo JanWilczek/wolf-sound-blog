@@ -5,7 +5,7 @@ date: 2021-08-13
 author: Jan Wilczek
 layout: post
 permalink: /sound-synthesis/wavetable-synthesis-algorithm/
-images: assets/img/posts/synthesis/2021-08-13-wavetable-synthesis-theory
+images: /assets/img/posts/synthesis/2021-08-13-wavetable-synthesis-theory
 background: /assets/img/posts/synthesis/2021-08-13-wavetable-synthesis-theory/Thumbnail.png
 categories:
  - Sound Synthesis
@@ -20,7 +20,7 @@ How to generate sound in code using the wavetable synthesis technique?
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/ssIJ8kFG7qs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-{% katexmm %}
+
 
 {% capture _ %}{% increment equationId20210813 %}{% endcapture %}
 
@@ -31,7 +31,7 @@ In this article, you will learn:
 * what are pros and cons of wavetable synthesis, and
 * how is wavetable synthesis related to other synthesis methods.
 
-In the follow-up articles, [an implementation of this technique in the Python programming language]({% post_url synthesis/2021-08-27-wavetable-synthesis-python %}), [the JUCE framework]({% post_url synthesis/2021-09-24-wavetable-synthesis-juce %}), and [the Rust programming language]({% post_url synthesis/2021-10-15-wavetable-synthesis-rust %}) are presented.
+In the follow-up articles, [an implementation of this technique in the Python programming language]({% post_url collections.posts, 'synthesis/2021-08-27-wavetable-synthesis-python' %}), [the JUCE framework]({% post_url collections.posts, 'synthesis/2021-09-24-wavetable-synthesis-juce' %}), and [the Rust programming language]({% post_url collections.posts, 'synthesis/2021-10-15-wavetable-synthesis-rust' %}) are presented.
 
 ## A Need for a Fast and Efficient Synthesis Method
 
@@ -43,7 +43,7 @@ In the early days of digital sound synthesis, sound was synthesised using specia
 
 The process of generating sound begins with a *musician*'s *gesture*. Let's put aside who a musician might be or what kind of gestures they perform. For the purpose of this article, a gesture could be as simple as pressing a key on a MIDI keyboard, clicking on a virtual keybord's key, or pressing a button on any controller device.
 
-![]({{ page.images | absolute_url | append: "/gesture_to_sound.png" }}){: alt="Sound synthesis pipeline: gesture, synthesis algorithm, sound." width="600px" }
+![]({{ images | append: "/gesture_to_sound.png" }}){: alt="Sound synthesis pipeline: gesture, synthesis algorithm, sound." width="600px" }
 _Figure 1. In sound synthesis, a gesture of a musician controls the sound generation process._
 
 A gesture provides *control information*. In the case of pressing a key on a MIDI keyboard, control information would incorporate information on which key was pressed and how fast was it pressed (*velocity* of a keystroke). We can change the note number information into frequency $f$ and the velocity information into amplitude $A$. This information is sufficient to generate sound using most of the popular synthesis algorithms.
@@ -56,7 +56,7 @@ $$s(t) = A \sin (2 \pi f t + \phi), \quad ({% increment equationId20210813 %})$$
 
 where $f$ is the frequency in Hz, $A$ is the amplitude in range $[0, 1]$, $t$ is time in seconds, and $\phi$ is the initial phase, which we will ignore for now (i.e., assume that $\phi=0$).
 
-As we discussed in the [digital audio basics article]({% post_url 2019-11-12-what-is-sound-the-notion-of-an-audio-signal %}), digital audio operates using samples rather than physical time. The $n$-th sample occurs at time $t$ when
+As we discussed in the [digital audio basics article]({% post_url collections.posts, '2019-11-12-what-is-sound-the-notion-of-an-audio-signal' %}), digital audio operates using samples rather than physical time. The $n$-th sample occurs at time $t$ when
 
 $$n = f_s t, \quad ({% increment equationId20210813 %})$$
 
@@ -78,7 +78,7 @@ Above expansion is infinite, so on real-world hardware, it needs to be truncated
 
 A *wave table* is an array in memory in which we store a fragment of a waveform. A *waveform* is a plot of a signal over time. Thus, one period of a sine wave stored in memory looks as follows:
 
-![]({{ page.images | absolute_url | append: "/sine_wave_table.png" }}){: alt="A wave table with 64 samples of the sine waveform." width="600px" }
+![]({{ images | append: "/sine_wave_table.png" }}){: alt="A wave table with 64 samples of the sine waveform." width="600px" }
 _Figure 2. A wave table with 64 samples of the sine waveform._
 
 The above wave table uses 64 samples to store one period of the sine wave. These values **can** be calculated using the Taylor expansion because we compute them only once and store them in memory.
@@ -130,7 +130,7 @@ $\theta_\text{inc}(f)$ depends explicitly on $f$ (tone frequency) and implicitly
 
 Having the information on phase increment, we can calculate the *index increment*, i.e., how the index to the wave table changes with each sample.
 
-$$k_\text{inc} = (k+1) - k = \frac{(\phi_x + \theta_\text{inc})L}{2\pi} - \frac{\phi_x L}{2\pi} \\= \frac{\theta_\text{inc} L}{2\pi} = \frac{fL}{f_s}. \quad ({% increment equationId20210813 %})$$
+$$k_\text{inc} = (k+1) - k = \frac{(\phi_x + \theta_\text{inc})L}{2\pi} - \frac{\phi_x L}{2\pi} \newline = \frac{\theta_\text{inc} L}{2\pi} = \frac{fL}{f_s}. \quad ({% increment equationId20210813 %})$$
 
 When a key is pressed, we set an `index` variable to 0. For each sample, we increase the `index` variable by $k_\text{inc}$ and do a lookup. As long as the key is pressed, $k_\text{inc}$ is nonzero and we perform the wave table lookup.
 
@@ -144,12 +144,12 @@ Phase increment and index increment are two sides of the same coin. The former h
 
 Below is a schematic of how wavetable synthesis using index increment works.
 
-![]({{ page.images | absolute_url | append: "/wavetable-synthesis-algorithm-diagram.png" }}){: alt="A DSP diagram of the wavetable synthesis algorithm" }
+![]({{ images | append: "/wavetable-synthesis-algorithm-diagram.png" }}){: alt="A DSP diagram of the wavetable synthesis algorithm" }
 _Figure 3. A diagram of the wavetable synthesis algorithm using index increment. After [2]._
 
 $k_\text{inc}[n]$ is the increment of the index into the wave table. It is denoted as a digital signal because in practice it can be changed on a sample-by-sample basis. It is directly dependent on the frequency of the played sound. If no sound is played $k_\text{inc}[n]$ is 0 and the `index` should be reset to 0. Alternatively, one could specify that if no sound is played this diagram is inactive (no signals are supplied to or taken from it).
 
-For each new output sample, index increment is added to the `index` variable stored in a single-sample buffer (denoted by $z^{-1}$ as explained in the [article on delays]({% post_url 2021-04-01-identity-element-of-the-convolution %})). This index is then "brought back" into the range of wavetable indices $[0, L)$ using the `fmod` operation. We still keep the fractional part of the index.
+For each new output sample, index increment is added to the `index` variable stored in a single-sample buffer (denoted by $z^{-1}$ as explained in the [article on delays]({% post_url collections.posts, '2021-04-01-identity-element-of-the-convolution' %})). This index is then "brought back" into the range of wavetable indices $[0, L)$ using the `fmod` operation. We still keep the fractional part of the index.
 
 Then, we perform the lookup into the wavetable. The lookup can be done using an interpolation strategy of choice.
 
@@ -163,7 +163,7 @@ The output signal $y[n]$ is determined by the wave table used for the lookup and
 
 The diagram in Figure 3 presents an *oscillator*. An oscillator is any unit capable of generating sound. It is typically depicted as a rectangle combined with a half-circle [3, 4] as in Figure 4. That symbol typically has an amplitude input A ($A[n]$ in Figure 3) and a frequency input $f$ (used to calculate $k_\text{inc}[n]$ in Figure 3). 
 
-![]({{ page.images | absolute_url | append: "/oscillator.png" }}){: alt="Oscillator symbol" }
+![]({{ images | append: "/oscillator.png" }}){: alt="Oscillator symbol" }
 _Figure 4. The oscillator symbol._
 
 Additionally, what is not shown in Figure 4, an oscillator pictogram usually has some indication of what type of waveform it generates. For example, it may have the sine symbol <i class="fas fa-wave-sine"></i> inside to show that it outputs a sine wave.
@@ -178,11 +178,11 @@ Let's use a precomputed wave table with 64 samples of one sine period from Figur
 
 We thus have $L = 64$, $f=440$ Hz, $f_s=44100$ Hz, $k_\text{inc} = 0.6395\dots$. The resulting sound is:
 
-{% include embed-audio.html src="/assets/wav/posts/synthesis/2021-08-13-wavetable-synthesis-theory/sine.wav" %}
+{% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2021-08-13-wavetable-synthesis-theory/sine.wav" %}
 
 The magnitude spectrum of this tone is shown below.
 
-![]({{ page.images | absolute_url | append: "/sine_spectrum.png" }}){: alt="Magnitude frequency spectrum of a sine generated with wavetable synthesis" }
+![]({{ images | append: "/sine_spectrum.png" }}){: alt="Magnitude frequency spectrum of a sine generated with wavetable synthesis" }
 _Figure 5. Magnitude frequency spectrum of a sine generated with wavetable synthesis._
 
 Great! It sounds like a sine and we obtain just one frequency component. Everything as expected! Now, let's generate sound using a different wavetable, shall we?
@@ -191,27 +191,27 @@ Great! It sounds like a sine and we obtain just one frequency component. Everyth
 
 To generate a sawtooth, we use the same parameters as before just a different wave table:
 
-![]({{ page.images | absolute_url | append: "/sawtooth_wave_table.png" }}){: alt="A wave table with 64 samples of the sawtooth waveform." width="600px" }
+![]({{ images | append: "/sawtooth_wave_table.png" }}){: alt="A wave table with 64 samples of the sawtooth waveform." width="600px" }
 _Figure 6. A wave table with 64 samples of the sawtooth waveform._
 
 Let's listen to the output:
 
-{% include embed-audio.html src="/assets/wav/posts/synthesis/2021-08-13-wavetable-synthesis-theory/sawtooth.wav" %}
+{% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2021-08-13-wavetable-synthesis-theory/sawtooth.wav" %}
 
 That sounds ok, but we hear some ringing. How does it look in the spectrum?
 
-![]({{ page.images | absolute_url | append: "/sawtooth_spectrum.png" }}){: alt="Magnitude frequency spectrum of a sawtooth generated with wavetable synthesis" }
+![]({{ images | append: "/sawtooth_spectrum.png" }}){: alt="Magnitude frequency spectrum of a sawtooth generated with wavetable synthesis" }
 _Figure 7. Magnitude frequency spectrum of a sawtooth generated with wavetable synthesis._
 
-We can notice that there are some inharmonic frequency components that do not correspond to the typical decay of the sawtooth spectrum. These are aliased partials which occur because the spectrum of the sawtooth crossed the Nyquist frequency. To learn more about why this happens, you can [check out my article on aliasing]({% post_url 2019-11-28-what-is-aliasing-what-causes-it-how-to-avoid-it %}).
+We can notice that there are some inharmonic frequency components that do not correspond to the typical decay of the sawtooth spectrum. These are aliased partials which occur because the spectrum of the sawtooth crossed the Nyquist frequency. To learn more about why this happens, you can [check out my article on aliasing]({% post_url collections.posts, '2019-11-28-what-is-aliasing-what-causes-it-how-to-avoid-it' %}).
 
 Aliasing increases if we go 1 octave higher:
 
-{% include embed-audio.html src="/assets/wav/posts/synthesis/2021-08-13-wavetable-synthesis-theory/sawtooth880.wav" %}
+{% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2021-08-13-wavetable-synthesis-theory/sawtooth880.wav" %}
 
 Ouch, that doesn't sound nice. The frequency spectrum reveals aliased partials that appear as inharmonicities:
 
-![]({{ page.images | absolute_url | append: "/sawtooth880_spectrum.png" }}){: alt="Magnitude frequency spectrum of a 880 Hz sawtooth generated with wavetable synthesis" }
+![]({{ images | append: "/sawtooth880_spectrum.png" }}){: alt="Magnitude frequency spectrum of a 880 Hz sawtooth generated with wavetable synthesis" }
 _Figure 8. Magnitude frequency spectrum of a 880Hz sawtooth generated with wavetable synthesis._
 
 We've just discovered the main drawback of wavetable synthesis: aliasing at high frequencies. If we went even higher with the pitch, we would obtain a completely distorted signal. 
@@ -224,18 +224,18 @@ The type of digital distortion seen in Figure 8 was typical of the early digital
 
 With wavetable synthesis we can use arbitrary wavetables. For example, in Figure 9, I summed 5 Gaussians, subtracted the mean and introduced a fade-in and fade-out.
 
-![]({{ page.images | absolute_url | append: "/gaussians_wave_table.png" }}){: alt="A wave table constructed with 5 Gaussians." width="600px" }
+![]({{ images | append: "/gaussians_wave_table.png" }}){: alt="A wave table constructed with 5 Gaussians." width="600px" }
 _Figure 9. An abstract wave table constructed with 5 Gaussians._
 
 Here is a sound generated using this wave table at 110 Hz.
 
-{% include embed-audio.html src="/assets/wav/posts/synthesis/2021-08-13-wavetable-synthesis-theory/gaussians.wav" %}
+{% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2021-08-13-wavetable-synthesis-theory/gaussians.wav" %}
 
 Sounds like a horn, doesn't it?
 
 Here's its spectrum:
 
-![]({{ page.images | absolute_url | append: "/gaussians_spectrum.png" }}){: alt="Magnitude frequency spectrum of a 110 Hz sound generated from an abstract wavetable." width="600px" }
+![]({{ images | append: "/gaussians_spectrum.png" }}){: alt="Magnitude frequency spectrum of a 110 Hz sound generated from an abstract wavetable." width="600px" }
 _Figure 10. Magnitude frequency spectrum of a 110 Hz sound generated from an abstract wavetable._
 
 As we can see, it decays quite nicely, so no audible aliasing is present.
@@ -252,37 +252,37 @@ With sampling, a lot more implementation issues come up. Since sampling is not t
 
 What we discussed so far is a *single-cycle* variant of the wavetable synthesis, where we use just 1 period of a waveform stored in memory to generate the sound (Figure 11). There are more options available.
 
-![]({{ page.images | absolute_url | append: "/single_cycle_wavetable_synthesis.png" }}){: alt="Single-cycle wavetable synthesis scheme." width="200px" }
+![]({{ images | append: "/single_cycle_wavetable_synthesis.png" }}){: alt="Single-cycle wavetable synthesis scheme." width="200px" }
 _Figure 11. Single-cycle wavetable synthesis loops over 1 wave table._
 
 In *multi-cycle* wavetable synthesis, we effectively concatenate different wavetables, whose order can be fixed or random (Figure 12). 
 
-![]({{ page.images | absolute_url | append: "/multi_cycle_wavetable_synthesis.png" }}){: alt="Multi-cycle wavetable synthesis scheme." width="400px" }
+![]({{ images | append: "/multi_cycle_wavetable_synthesis.png" }}){: alt="Multi-cycle wavetable synthesis scheme." width="400px" }
 _Figure 12. Multi-cycle wavetable synthesis loops over multiple wave tables, possibly in a cycle._
 
 For example, we could concatenate sine, square, and sawtooth wave tables to obtain a more interesting timbre.
 
 The resulting wave table would look like this:
 
-![]({{ page.images | absolute_url | append: "/multi_cycle_wave_table.png" }}){: alt="A wave table from a concatenation of sine, square, and sawtooth wave tables." width="600px" }
+![]({{ images | append: "/multi_cycle_wave_table.png" }}){: alt="A wave table from a concatenation of sine, square, and sawtooth wave tables." width="600px" }
 _Figure 13. A wave table from a concatenation of sine, square, and sawtooth wave tables._
 
 Here is a sound generated using this wave table at 330 Hz.
 
-{% include embed-audio.html src="/assets/wav/posts/synthesis/2021-08-13-wavetable-synthesis-theory/multi_cycle.wav" %}
+{% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2021-08-13-wavetable-synthesis-theory/multi_cycle.wav" %}
 
 One can hear the characteristics of all 3 waveforms.
 
 Here's its spectrum:
 
-![]({{ page.images | absolute_url | append: "/multi_cycle_spectrum.png" }}){: alt="Magnitude frequency spectrum of a 330 Hz sound generated from a concatenation of wave tables." width="600px" }
+![]({{ images | append: "/multi_cycle_spectrum.png" }}){: alt="Magnitude frequency spectrum of a 330 Hz sound generated from a concatenation of wave tables." width="600px" }
 _Figure 14. Magnitude frequency spectrum of a 330 Hz sound generated from a concatenation of wave tables._
 
 The above spectrum is heavily aliased. Additionally, we got a frequency component at 110 Hz. That is because by concatenating 3 wave tables, we essentially lengthened the base period of the waveform, effectively lowering its fundamental frequency 3 times. Original waveform was at 330 Hz; the fundamental is now at 110 Hz.
 
 In *multiple wavetable* variant, one mixes a few wave tables at the same time (Figure 15). 
 
-![]({{ page.images | absolute_url | append: "/multiple_wavetable_synthesis.png" }}){: alt="Multiple wavetable synthesis scheme." width="400px" }
+![]({{ images | append: "/multiple_wavetable_synthesis.png" }}){: alt="Multiple wavetable synthesis scheme." width="400px" }
 _Figure 15. Multiple wavetable synthesis mixes between multiple wave tables while looping over them._
 
 The impact of each of the used wave tables may depend on control parameters. For example, if we press a key mildly, we can get a sine-like timbre, but if we press it fast, we may hear more high-frequency partials. That could be realized by mixing the sine and sawtooth wave tables. The ratio of these waveforms would directly depend on the velocity of the key stroke. There could also be some gradual change in the ratio while a key is pressed.
@@ -306,7 +306,7 @@ Software synthesizers typically use more sophisticated algorithms than the one p
 
 ## Bibliography
 
-These are the references I used for this article. If you are interested in the topic of sound synthesis, each of them is a valuable source of information. Alternatively, [subscribe to WolfSound's newsletter]({% link newsletter.md %}) to stay up to date with the newly published articles on sound synthesis!
+These are the references I used for this article. If you are interested in the topic of sound synthesis, each of them is a valuable source of information. Alternatively, [subscribe to WolfSound's newsletter]({% link collections.all, 'newsletter.md' %}) to stay up to date with the newly published articles on sound synthesis!
 
 [1] [Taylor series expansion of the sine function on MIT Open CourseWare](https://ocw.mit.edu/courses/mathematics/18-01sc-single-variable-calculus-fall-2010/unit-5-exploring-the-infinite/part-b-taylor-series/session-99-taylors-series-continued/MIT18_01SCF10_Ses99c.pdf)
 
@@ -322,7 +322,7 @@ These are the references I used for this article. If you are interested in the t
 
 [7] [Giovanni De Poli, *A Tutorial on Digital Sound Synthesis Techniques*, Computer Music Journal, January 1992.](https://www.researchgate.net/publication/245122776_A_Tutorial_on_Digital_Sound_Synthesis_Techniques)
 
-{% include affiliate-disclaimer.html %}
+{% include 'affiliate-disclaimer.html' %}
 
-{% endkatexmm %}
+
 

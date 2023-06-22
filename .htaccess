@@ -1,4 +1,9 @@
 RewriteEngine On
+
+# Enforce https and lack of www
 RewriteCond %{HTTPS} off [OR]
 RewriteCond %{HTTP_HOST} ^www\.thewolfsound\.com [NC]
 RewriteRule ^(.*)$ https://thewolfsound.com/$1 [L,R=301]
+
+# Redirect tag subpages to the single tag listing; This is necessary after the migration from Jekyll to Eleventy.
+RewriteRule ^tag/([a-z\-]+)/page[1-9]/$ /tag/$1/ [R=301,L]

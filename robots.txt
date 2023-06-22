@@ -1,0 +1,4 @@
+Sitemap: https://thewolfsound.com/sitemap.xml
+
+User-agent: *
+Disallow:
