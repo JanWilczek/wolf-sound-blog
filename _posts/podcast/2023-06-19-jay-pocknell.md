@@ -32,7 +32,7 @@ Easily make your audio software accessible to the widest audience possible!
 
 [All podcast episodes.](/podcast)
 
-[Sign up for WolfSound's newsletter!]({% link newsletter.md %})
+[Sign up for WolfSound's newsletter!]({% link collections.all, 'newsletter.md' %})
 
 ## Introduction
 
