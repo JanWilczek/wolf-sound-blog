@@ -24,14 +24,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>
-        {% if title %}{{ title | escape }} | {{ site.title | escape }}
-        {% elsif eleventyComputed.title %}{{ eleventyComputed.title | escape }} | {{ site.title | escape }}
-        {% else %}{{ site.title | escape }}{% endif %}
-    </title>
+    {% capture pageTitle %}{% if title %}{{ title | escape }} | {{ site.title | escape }}{% elsif eleventyComputed.title %}{{ eleventyComputed.title | escape }} | {{ site.title | escape }}{% else %}{{ site.title | escape }}{% endif %}{% endcapture %}
+    <title>{{ pageTitle }}</title>
 
+    {% capture pageDescription %}{{ description | default: excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}{% endcapture %}
     <meta name="description"
-        content="{{ description | default: excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
+        content="{{ pageDescription }}">
     <meta name="robots" content="index, follow" />
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
@@ -45,7 +43,9 @@
 
     <link rel="stylesheet" href="{{"/assets/main.css" | relative_url }}">
     <link rel="shortcut icon" type="image/png" href="/favicon.png">
-    <link rel="canonical" href="{{ site.url }}{{ page.url | url }}">
+
+    {% capture canonicalUrl %}{{ site.url }}{{ page.url | url }}{% endcapture %}
+    <link rel="canonical" href="{{ canonicalUrl }}">
 
     <!-- Relative pagination (for Bing and accessibility) -->
     {% if pagination.href.previous %}
@@ -98,4 +98,10 @@
             src="https://www.facebook.com/tr?id=3305719803045802&ev=PageView&noscript=1" /></noscript>
     <!-- End Meta Pixel Code -->
     {% endif %}
+
+    <meta property="og:title" content="{{ pageTitle }}"/>
+    <meta property="og:url" content="{{ canonicalUrl }}"/>
+    <meta property="og:description" content="{{ pageDescription }}"/>
+    <meta property="og:image" content="{{ background | default: "/assets/img/home/Logo.webp" }}"/>
+    <meta property="og:type" content="article" />
 </head>
