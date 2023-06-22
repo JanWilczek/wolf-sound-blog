@@ -1,7 +1,8 @@
 const markdownIt = require("markdown-it");
 const markdownItAnchor = require("markdown-it-anchor");
 const markdownItFootnote = require("markdown-it-footnote");
-const markdownItAttrs = require('markdown-it-attrs');
+const markdownItAttrs = require("markdown-it-attrs");
+const markdownItTexmath = require("markdown-it-texmath");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const katex = require("katex");
 const site = require("./_data/site.json");
@@ -12,10 +13,22 @@ const { minify } = require("terser");
 module.exports = function (eleventyConfig) {
   // Add header anchor and footnotes plugin to Markdown renderer
   const markdownLib = markdownIt({ html: true, typographer: true });
-  markdownLib.use(markdownItFootnote).use(markdownItAnchor).use(markdownItAttrs, {
-        leftDelimiter: '{:',
-        rightDelimiter: '}',
-        allowedAttributes: []});
+  markdownLib
+    .use(markdownItFootnote)
+    .use(markdownItAnchor)
+    .use(markdownItAttrs, {
+      leftDelimiter: "{:",
+      rightDelimiter: "}",
+      allowedAttributes: [],
+    })
+    .use(markdownItTexmath, {
+      engine: require("katex"),
+      delimiters: ["dollars", "beg_end"],
+      katexOptions: {
+        throwOnError: true,
+        strict: false,
+      },
+    });
   eleventyConfig.setLibrary("md", markdownLib);
 
   // Watch CSS files for changes
@@ -161,19 +174,16 @@ module.exports = function (eleventyConfig) {
     return Array.from(tagSet);
   });
 
-  eleventyConfig.addLiquidFilter(
-    "jsmin",
-    async function (code) {
-      try {
-        const minified = await minify(code);
-        return minified.code;
-      } catch (err) {
-        console.error("Terser error: ", err);
-        // Fail gracefully.
-        return code;
-      }
+  eleventyConfig.addLiquidFilter("jsmin", async function (code) {
+    try {
+      const minified = await minify(code);
+      return minified.code;
+    } catch (err) {
+      console.error("Terser error: ", err);
+      // Fail gracefully.
+      return code;
     }
-  );
+  });
 
   return {
     dir: {

@@ -130,11 +130,11 @@ We will formulate the problem of approximating the ideal filter in terms of the 
 
 To be able to get from the squared magnitude response to the transfer function, we introduce an intermediate, complex-valued function of the complex variable $s$
 
-$$\mathcal{H}_\text{a}(s) = H_\text{a}(s) H_\text{a}(-s). \quad ({% increment equationId20211203 %})$$
+$$\mathcal{H}_\text{a} (s) = H_\text{a} (s) H_\text{a} (-s). \quad ({% increment equationId20211203 %})$$
 
 It can be easily shown that
 
-$$\mathcal{H}_\text{a}(s) \Bigr\rvert_{s=j\omega} = |H_\text{a}(j\omega)|^2. \quad ({% increment equationId20211203 %})$$
+$$\mathcal{H}_\text{a}(s) \Bigr \rvert_{s=j\omega} = |H_\text{a}(j\omega)|^2. \quad ({% increment equationId20211203 %})$$
 
 The Butterworth squared magnitude response $\mathcal{H}_\text{a}(\omega) = |H_\text{a}(j \omega)|^2$ is a *Taylor series approximation* of the ideal squared magnitude response around $\omega=0$.
 
