@@ -32,6 +32,7 @@
 
     <meta name="description"
         content="{{ description | default: excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
+    <meta name="robots" content="index, follow" />
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
     <link
@@ -44,7 +45,7 @@
 
     <link rel="stylesheet" href="{{"/assets/main.css" | relative_url }}">
     <link rel="shortcut icon" type="image/png" href="/favicon.png">
-    <link rel="canonical" href="{{ url | replace:'index.html','' | absolute_url }}">
+    <link rel="canonical" href="{{ site.url }}{{ page.url | url }}">
 
     <!-- Relative pagination (for Bing and accessibility) -->
     {% if pagination.href.previous %}
