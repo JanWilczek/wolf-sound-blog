@@ -297,7 +297,7 @@ Let's assume that we have two signals, of length $M$ and $N$, $M \geq N$. We wan
 
 1. First, we pad the shorter signal with zeros. Now both signals have length $M$.
 1. The result of the circular convolution has length $M$.
-1. The samples that did not fit the linear convolution wrapped around and were added to the beginning of the output. The exact number of wrapped-around samples is $ M + N - 1 - M = N - 1.$
+1. The samples that did not fit the linear convolution wrapped around and were added to the beginning of the output. The exact number of wrapped-around samples is $M + N - 1 - M = N - 1.$
 1. The above means that the first $N-1$ samples of the output need to be discarded. This means that the last $M - N + 1$ samples are valid, i.e., samples at indices $\{N, N+1, \dots, M-1\}$ (we start indexing from 0).
 
 ## Circular Convolution Implementation
