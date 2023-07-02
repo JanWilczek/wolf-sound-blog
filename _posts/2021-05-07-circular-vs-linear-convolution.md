@@ -317,7 +317,7 @@ def periodic_convolution_naive(x, h):
 
     for n in range(N):
         for m in range(N):
-            output += x[m] * h[(n - m) % N]
+            output[n] += x[m] * h[(n - m) % N]
     
     return output
 ```
