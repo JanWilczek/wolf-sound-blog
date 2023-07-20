@@ -5,7 +5,7 @@ date: 2021-10-15
 author: Jan Wilczek
 layout: post
 permalink: /sound-synthesis/wavetable-synth-in-rust/
-images: assets/img/posts/synthesis/2021-10-15-wavetable-synthesis-rust
+images: /assets/img/posts/synthesis/2021-10-15-wavetable-synthesis-rust
 background: /assets/img/posts/synthesis/2021-10-15-wavetable-synthesis-rust/Thumbnail.webp
 categories:
  - Sound Synthesis
@@ -33,23 +33,23 @@ This article is self-contained: no knowledge of Rust is necessary.
 
 Rust is a general-purpose programming language designed for high-performance and high-reliability computing. While these two goals may seem contradictory, Rust actually manages to accomplish both of them thanks to the concept of ownership, similar to C++'s `unique_ptr`s.
 
-![]({{ page.images | absolute_url | append: "/Rust_programming_language_black_logo.svg" }}){: alt="Rust programming language logo." width="600px" }
+![]({{ images | append: "/Rust_programming_language_black_logo.svg" }}){: alt="Rust programming language logo." width="600px" }
 _Figure 1. Rust logo._
 
 Being optimized and safe makes Rust an attractive alternative to C or C++: we could possibly get the same speed and memory performance but at the same time avoid the pitfalls of the C family, for example, invalid pointers.
 
 As an interesting fact, Rust was voted the most loved language on StackOverflow for 6 consecutive years as of 2021.
 
-![]({{ page.images | absolute_url | append: "/SORust.webp" }}){: alt="Stack Overflow's most loved vs most dreaded programming languages in 2021 developer survey." width="100%" }
+![]({{ images | append: "/SORust.webp" }}){: alt="Stack Overflow's most loved vs most dreaded programming languages in 2021 developer survey." width="100%" }
 _Figure 2. [Most loved vs most dreaded programming languages in 2021 Stack Overflow Developer Survey.](https://insights.stackoverflow.com/survey/2021#technology-most-loved-dreaded-and-wanted)_
 
 Although I really appreciate the features of Rust, I still think that the amount of code written in C ensures that C and C++ programmers will be needed for many years to come 🙂 It also must take some time for Rust to mature... But this language is definitely worth exploring!
 
 I personally find its clear compiler messages most useful. Although I am a newbie to Rust, with the help of the compiler, [*The Rust Programming Language* book](https://doc.rust-lang.org/book/), and googling, I was able to write a wavetable synthesizer. In this article, I will walk you through that process, showing you **the minimum amount of features and knowledge needed to do audio programming in Rust**. 
 
-*Note: If you don't know how wavetable synthesis algorithm works, [check out my article on the theory behind it]({% post_url synthesis/2021-08-13-wavetable-synthesis-theory %}). I also have articles on [wavetable synthesis implementation in Python]({% post_url synthesis/2021-08-27-wavetable-synthesis-python %}) and [wavetable synth plugin in the JUCE C++ framework]({% post_url synthesis/2021-09-24-wavetable-synthesis-juce %}).*
+*Note: If you don't know how wavetable synthesis algorithm works, [check out my article on the theory behind it]({% post_url collections.posts, 'synthesis/2021-08-13-wavetable-synthesis-theory' %}). I also have articles on [wavetable synthesis implementation in Python]({% post_url collections.posts, 'synthesis/2021-08-27-wavetable-synthesis-python' %}) and [wavetable synth plugin in the JUCE C++ framework]({% post_url collections.posts, 'synthesis/2021-09-24-wavetable-synthesis-juce' %}).*
 
-*At [WolfSound]({% link index.html %}), you are fully covered!*
+*At [WolfSound](/), you are fully covered!*
 
 ## Project Setup
 
@@ -95,7 +95,7 @@ fn main() {
 }
 ```
 
-{% katexmm %}
+
 
 With these formalities out of the way, let's start with arranging a basic audio output with Rust.
 
@@ -120,7 +120,7 @@ If you now execute `cargo run`, the dependency will be immediately installed.
 
 ## Wave Table Generation
 
-To use the [wavetable synthesis algorithm]({% post_url synthesis/2021-08-13-wavetable-synthesis-theory %}), one needs to generate a wave table first.
+To use the [wavetable synthesis algorithm]({% post_url collections.posts, 'synthesis/2021-08-13-wavetable-synthesis-theory' %}), one needs to generate a wave table first.
 
 Just as a quick reminder: a wave table is an array in memory, which contains 1 period of the waveform we want to play out through our oscillator.
 
@@ -167,7 +167,7 @@ for n in 0..wave_table_size {
 
 In the loop, we append values to the end of the vector with the `push()` function. Interesting is the sine calculation. To perform successful multiplication and division, we need to bring all expressions to a common type (here: `f32`). Rust readily provides the $\pi$ constant.
 
-As I explained in the [Python tutorial]({% post_url synthesis/2021-08-27-wavetable-synthesis-python %}), in the loop, we calculate the value of the sine waveform for arguments linearly increasing from $0$ to $2\pi$. To calculate the sine value for argument `x`, we write `x.sin()` instead of `sin(x)`.
+As I explained in the [Python tutorial]({% post_url collections.posts, 'synthesis/2021-08-27-wavetable-synthesis-python' %}), in the loop, we calculate the value of the sine waveform for arguments linearly increasing from $0$ to $2\pi$. To calculate the sine value for argument `x`, we write `x.sin()` instead of `sin(x)`.
 
 We have generated our wave table. Now, it is time to initialize an oscillator with it.
 
@@ -225,7 +225,7 @@ impl WavetableOscillator {
 }
 ```   
 
-This is the exact formula from the [wavetable synthesis algorithm article]({% post_url synthesis/2021-08-13-wavetable-synthesis-theory %}) with the addition of Rust-style casting.
+This is the exact formula from the [wavetable synthesis algorithm article]({% post_url collections.posts, 'synthesis/2021-08-13-wavetable-synthesis-theory' %}) with the addition of Rust-style casting.
 
 Note that we pass in `&mut self` parameter as the first one. The `self` keyword denotes the receiver of the method, in this case, the struct instance we invoke our method on. Using `self` frees us from the duty of specifying the type of the argument. I find it similar to Python's `self`.
 
@@ -363,4 +363,4 @@ Check out the [full source code on GitHub](https://github.com/JanWilczek/wolf-so
 
 If you have any questions related to Rust or this implementation, please, leave a comment below!
 
-{% endkatexmm %}
+

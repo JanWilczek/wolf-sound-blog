@@ -13,7 +13,7 @@ tags:
   - android
   - wavetable
   - kotlin
-  - C++
+  - cpp
 discussion_id: 2022-08-02-app-architecture
 custom_js:
  - /assets/vendor/lazyload/lazyload.min.js
@@ -27,45 +27,37 @@ Built using Jetpack Compose, Oboe library, C++, Kotlin, and modern architecture 
 
 ### Android Wavetable Synthesizer Tutorial Series
 
-1. [App Architecture (this one)]({% post_url synthesis/android-wavetable-synthesizer/2022-08-02-app-architecture %})
-2. [UI with Jetpack Compose]({% post_url synthesis/android-wavetable-synthesizer/2022-08-10-ui %})
-3. [ViewModel]({% post_url synthesis/android-wavetable-synthesizer/2022-09-11-view-model %})
-4. [Calling C++ Code From Kotlin with JNI]({% post_url synthesis/android-wavetable-synthesizer/2022-10-09-jni %})
-5. [Playing Back Audio on Android with C++]({% post_url synthesis/android-wavetable-synthesizer/2022-10-23-oboe %})
-6. [Wavetable Synthesis Algorithm in C++]({% post_url synthesis/android-wavetable-synthesizer/2022-11-03-cpp-synth %})
+1. [App Architecture (this one)]({% post_url collections.posts, 'synthesis/android-wavetable-synthesizer/2022-08-02-app-architecture' %})
+2. [UI with Jetpack Compose]({% post_url collections.posts, 'synthesis/android-wavetable-synthesizer/2022-08-10-ui' %})
+3. [ViewModel]({% post_url collections.posts, 'synthesis/android-wavetable-synthesizer/2022-09-11-view-model' %})
+4. [Calling C++ Code From Kotlin with JNI]({% post_url collections.posts, 'synthesis/android-wavetable-synthesizer/2022-10-09-jni' %})
+5. [Playing Back Audio on Android with C++]({% post_url collections.posts, 'synthesis/android-wavetable-synthesizer/2022-10-23-oboe' %})
+6. [Wavetable Synthesis Algorithm in C++]({% post_url collections.posts, 'synthesis/android-wavetable-synthesizer/2022-11-03-cpp-synth' %})
 
 ## Introduction
 
 Recently, thanks to my employer [Loudly](https://www.loudly.com/), I went to droidcon Berlin 2022 and learned a lot about modern Android development. That is, "modern" as of 2022 😉
 
 <div markdown="0">
-<img class="lazyload" data-src="{{ page.images | absolute_url | append: "/JanWilczekAndManuelVivo.webp" }}" alt="Jan Wilczek and Manuel Vivo at droidcon Berlin 2022" width="60%">
+<img class="lazyload" data-src="{{ images | append: "/JanWilczekAndManuelVivo.webp" }}" alt="Jan Wilczek and Manuel Vivo at droidcon Berlin 2022" width="60%">
 </div>
 
 _Figure {% increment figureId20220802 %}. At droidcon Berlin 2022, I was lucky to meet [Manuel Vivo](https://manuelvivo.dev/) of Google and listen to his talk on the modern Android app architecture. And I was happy to get some German pretzels too!_
 
 Recent developments on this platform, especially, the brand-new Compose UI framework, inspired me to write a synthesizer app for Android.
 
-What kind of synthesizer? A [wavetable synthesizer]({% post_url synthesis/2021-08-13-wavetable-synthesis-theory %}), of course!
+What kind of synthesizer? A [wavetable synthesizer]({% post_url collections.posts, 'synthesis/2021-08-13-wavetable-synthesis-theory' %}), of course!
 
-We've built one in [Python]({% post_url synthesis/2021-08-27-wavetable-synthesis-python %}), another one in [Rust]({% post_url synthesis/2021-10-15-wavetable-synthesis-rust %}), and another one in [C++ as an audio plugin]({% post_url synthesis/2021-09-24-wavetable-synthesis-juce %}). So why not Android?
+We've built one in [Python]({% post_url collections.posts, 'synthesis/2021-08-27-wavetable-synthesis-python' %}), another one in [Rust]({% post_url collections.posts, 'synthesis/2021-10-15-wavetable-synthesis-rust' %}), and another one in [C++ as an audio plugin]({% post_url collections.posts, 'synthesis/2021-09-24-wavetable-synthesis-juce' %}). So why not Android?
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6611455743195468"
-     crossorigin="anonymous"></script><ins class="adsbygoogle"
-     style="display:block; text-align:center;"
-     data-ad-layout="in-article"
-     data-ad-format="fluid"
-     data-ad-client="ca-pub-6611455743195468"
-     data-ad-slot="7289385396"></ins><script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+{% render 'google-ad.liquid' %}
 
 ## Project Goal
 
 The goal of the app is to build a wavetable synthesizer on Android with basic controls. You can see them in the user interface (UI) of the app.
 
 <div markdown="0">
-<img class="lazyload" data-src="{{ page.images | absolute_url | append: "/SynthesizerUI.webp" }}" alt="Graphical user interface of the synthesizer app">
+<img class="lazyload" data-src="{{ images | append: "/SynthesizerUI.webp" }}" alt="Graphical user interface of the synthesizer app">
 </div>
 
 _Figure {% increment figureId20220802 %}. Graphical user interface of the synthesizer app we are going to build._
@@ -81,7 +73,7 @@ The secondary goal is to use cutting-edge Android tools and practices like
 
 Thanks to this tutorial, you will learn
 
-* How [wavetable synthesis]({% post_url synthesis/2021-08-13-wavetable-synthesis-theory %}) can be implemented in an app,
+* How [wavetable synthesis]({% post_url collections.posts, 'synthesis/2021-08-13-wavetable-synthesis-theory' %}) can be implemented in an app,
 * Kotlin basics in a fun and easy way, including [Kotlin Coroutines](https://kotlinlang.org/docs/coroutines-overview.html),
 * Android development basics,
 * Jetpack Compose framework basics,
@@ -94,7 +86,7 @@ Thanks to this tutorial, you will learn
 This tutorial is for:
 
 * Complete Android beginners who want to learn app development basics in an enjoyable way,
-* People who want to learn [wavetable synthesis]({% post_url synthesis/2021-08-13-wavetable-synthesis-theory %}) and how to implement it,
+* People who want to learn [wavetable synthesis]({% post_url collections.posts, 'synthesis/2021-08-13-wavetable-synthesis-theory' %}) and how to implement it,
 * Android developers who want to learn the audio side of Android apps,
 * Kotlin developers who want to understand coroutines,
 * Android developers who want to see a modern Android architecture in action,
@@ -107,14 +99,14 @@ The complete source code is available on [GitHub](https://github.com/JanWilczek/
 
 ## App Architecture
 
-Before we start with the [project setup]({% post_url synthesis/android-wavetable-synthesizer/2022-08-10-ui %}#how-to-set-up-your-project-for-compose), I want to discuss the architecture of our app.
+Before we start with the [project setup]({% post_url collections.posts, 'synthesis/android-wavetable-synthesizer/2022-08-10-ui' %}#how-to-set-up-your-project-for-compose), I want to discuss the architecture of our app.
 
 How can one come up with an architecture at the very beginning?
 
 The answer is: one doesn't.
 
 <div markdown="0">
-<img class="lazyload" data-src="{{ page.images | absolute_url | append: "/BoromirArchitectureMeme.webp" }}" alt="One does not simply fix architecture at project start">
+<img class="lazyload" data-src="{{ images | append: "/BoromirArchitectureMeme.webp" }}" alt="One does not simply fix architecture at project start">
 </div>
 
 _Figure {% increment figureId20220802 %}. Boromir knows what he's saying 😉._
@@ -132,7 +124,7 @@ So here I will show you the architecture of the completed app. The initial idea 
 [Android architecture guidelines](https://developer.android.com/topic/architecture) encourage developers to build their apps in layers.
 
 <div markdown="0">
-<img class="lazyload" data-src="{{ page.images | absolute_url | append: "/ModernAndroidArchitectureOverview.webp" }}" alt="Diagram of a generic architecture of an Android app as recommended by Google">
+<img class="lazyload" data-src="{{ images | append: "/ModernAndroidArchitectureOverview.webp" }}" alt="Diagram of a generic architecture of an Android app as recommended by Google">
 </div>
 
 _Figure {% increment figureId20220802 %}. Officially recommended app architecture by Google ([source](https://developer.android.com/topic/architecture))._
@@ -140,7 +132,7 @@ _Figure {% increment figureId20220802 %}. Officially recommended app architectur
 In general, I prefer the [ports and adapters](https://en.wikipedia.org/wiki/Hexagonal_architecture_(software)) approach. As a result, our app is a mix of the two.
 
 <div markdown="0">
-<img class="lazyload" data-src="{{ page.images | absolute_url | append: "/SynthesizerArchitecture.svg" }}" alt="Component diagram of the app">
+<img class="lazyload" data-src="{{ images | append: "/SynthesizerArchitecture.svg" }}" alt="Component diagram of the app">
 </div>
 
 _Figure {% increment figureId20220802 %}. Architecture of our wavetable synthesizer Android app. &lt;I&gt; marks an interface._
@@ -174,6 +166,6 @@ The remaining dependencies can be found in the [_build.gradle_ file](https://git
 
 In this introductory part of the tutorial, we discussed the goals of the project and the architecture of our wavetable synthesizer Android app. Following this tutorial in full or in parts will allow you to learn a handful of modern technologies in an easy and enjoyable way. You can code it yourself or you can download the source code from [GitHub](https://github.com/JanWilczek/android-wavetable-synthesizer). Have fun!
 
-If you want to check out my guidelines on what knowledge is needed to write sound-processing software, [download my free audio plugin developer checklist]({% link single-pages/checklist.html %}).
+If you want to check out my guidelines on what knowledge is needed to write sound-processing software, [download my free audio plugin developer checklist]({% link collections.all, 'single-pages/checklist.html' %}).
 
-Up next: [implementing the UI in Jetpack Compose]({% post_url synthesis/android-wavetable-synthesizer/2022-08-10-ui %})!
+Up next: [implementing the UI in Jetpack Compose]({% post_url collections.posts, 'synthesis/android-wavetable-synthesizer/2022-08-10-ui' %})!

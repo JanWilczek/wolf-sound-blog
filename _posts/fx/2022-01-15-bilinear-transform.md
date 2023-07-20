@@ -4,7 +4,7 @@ description: "Learn how to derive and use the bilinear transform to convert anal
 date: 2022-01-15
 author: Jan Wilczek
 layout: post
-images: assets/img/posts/fx/2022-01-15-bilinear-transform/
+images: /assets/img/posts/fx/2022-01-15-bilinear-transform/
 background: /assets/img/posts/fx/2022-01-15-bilinear-transform/Thumbnail.webp
 categories:
   - Audio FX
@@ -18,21 +18,21 @@ Learn how to derive and use the bilinear transform to convert analog systems int
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/5RLMpdbt6B0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-{% katexmm %}
+
 {% capture _ %}{% increment equationId20220115 %}{% endcapture %}
 {% capture _ %}{% increment figureId20220115 %}{% endcapture %}
 
-To design and implement a parametric filter, [4 steps are needed]({% post_url fx/2021-11-26-parametric-eq-design %}):
+To design and implement a parametric filter, [4 steps are needed]({% post_url collections.posts, 'fx/2021-11-26-parametric-eq-design' %}):
 
-1.	[Decide on the filter type you want to implement.]({% post_url fx/2021-11-26-parametric-eq-design %}#step-1-decide-on-the-filter-type)
-2.	[Design an analog prototype.]({% post_url fx/2021-12-03-analog-prototype %})
+1.	[Decide on the filter type you want to implement.]({% post_url collections.posts, 'fx/2021-11-26-parametric-eq-design' %}#step-1-decide-on-the-filter-type)
+2.	[Design an analog prototype.]({% post_url collections.posts, 'fx/2021-12-03-analog-prototype' %})
 3.	**Digitize the analog prototype using the bilinear transform.**
 4.	Implement the digital filter in code.
 
 
 In this article, we'll explain the second step of that process: how to go from an analog prototype to a digital form of the parametric filter. This is shown on the diagram below.
 
-![]({{ page.images | absolute_url | append: "/PipelineMarked.webp"}}){: alt="Parametric filter design workflow with marked third step." }
+![]({{ images | append: "/PipelineMarked.webp"}}){: alt="Parametric filter design workflow with marked third step." }
 _Figure {% increment figureId20220115 %}. In this article, we discuss the bilinear transform._
 
 ## System Digitization Methods
@@ -45,15 +45,7 @@ There are many methods of digitalization (discretization) of analog (continuous)
 Because the impulse-invariant transformation may introduce aliasing, in the music domain, we usually use the bilinear transform. So how is it defined?
 
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6611455743195468"
-     crossorigin="anonymous"></script><ins class="adsbygoogle"
-     style="display:block; text-align:center;"
-     data-ad-layout="in-article"
-     data-ad-format="fluid"
-     data-ad-client="ca-pub-6611455743195468"
-     data-ad-slot="7289385396"></ins><script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+{% render 'google-ad.liquid' %}
 
 ## The Bilinear Transform
 
@@ -98,13 +90,13 @@ $$Y(s) = \frac{1}{s}X(s), \quad ({% increment equationId20220115 %})$$
 
 where $s \in \mathbb{C}$. Therefore, the integrator can be shown on the diagram as in Figure 3.
 
-![]({{ page.images | absolute_url | append: "/IntegratorDiagram.webp"}}){: alt="A diagram of the analog integrator system." width="50%" }
+![]({{ images | append: "/IntegratorDiagram.webp"}}){: alt="A diagram of the analog integrator system." width="50%" }
 _Figure {% increment figureId20220115 %}. A diagram of the analog integrator system._
 
 We want to obtain a discrete system described by a discrete transfer function $G(z)$ that behaves like $\frac{1}{s}$. To this end, we observe the output of the continuous system at discrete time points $t = kT$, where $k \in \mathbb{Z}$ and $T$ is the sampling interval (inverse of the sampling rate).
 
 $$y(kT) = \int \limits_{0}^{kT} x(\tau) d\tau = \int \limits_{0}^{(k-1)T} x(\tau) d \tau + \int \limits_{(k-1)T}^{kT} x(\tau) d \tau 
-\\= y((k-1)T) + \int \limits_{(k-1)T}^{kT} x(\tau) d \tau. \quad ({% increment equationId20220115 %})$$
+\newline = y((k-1)T) + \int \limits_{(k-1)T}^{kT} x(\tau) d \tau. \quad ({% increment equationId20220115 %})$$
 
 We can now approximate the last integral in Equation 6 via the [trapezoidal rule](https://en.wikipedia.org/wiki/Trapezoidal_rule)
 
@@ -140,7 +132,7 @@ First of all, it is called *bilinear* because **the numerator and the denominato
 
 Second of all, **the bilinear transform maps the left half-plane of the $s$-plane into the interior of of the unit circle in the $z$-plane**. This is shown on Figure 4.
 
-![]({{ page.images | absolute_url | append: "/BilinearTransformVisualization.webp"}}){: alt="A visualization of the bilinear transform." width="100%" }
+![]({{ images | append: "/BilinearTransformVisualization.webp"}}){: alt="A visualization of the bilinear transform." width="100%" }
 _Figure {% increment figureId20220115 %}. Bilinear transform maps the left half-plane of the $s$-plane into the unit circle of the $z$-plane. The infinitely long analog frequency axis $j\omega$ becomes the finite-length circle. Axis bending in the middle is shown only for the visualization purposes: it is not what is meant by the mathematics._
 
 As a consequence, the poles from the left half-plane of the $s$-plane are mapped to the poles within the unit circle of the $z$-plane. That means that **stable analog filters are transformed into stable digital filters**, what is a very desirable property in the context of musically useful parametric filters.
@@ -163,7 +155,7 @@ The mathematical relation between the analog frequencies $\omega_\text{a}$ and d
 
 $$j \omega_\text{a} = \frac{2}{T}\frac{1 - e^{-j\omega_\text{d}T}}{1 + e^{-j\omega_\text{d}T}}
 = \frac{2}{T}\frac{e^{-j\omega_\text{d}T/2}(e^{j\omega_\text{d}T/2} - e^{-j\omega_\text{d}T/2})}{e^{-j\omega_\text{d}T/2}(e^{2j\omega_\text{d}T/2} + e^{-j\omega_\text{d}T/2})}
-\\= \frac{2}{T} \frac{j \sin(\omega_\text{d} T / 2)}{\cos(\omega_\text{d}T / 2)} = j \frac{2}{T} \tan(\omega_\text{d}T/2). \quad ({% increment equationId20220115 %})$$
+\newline = \frac{2}{T} \frac{j \sin(\omega_\text{d} T / 2)}{\cos(\omega_\text{d}T / 2)} = j \frac{2}{T} \tan(\omega_\text{d}T/2). \quad ({% increment equationId20220115 %})$$
 
 Therefore,
 
@@ -175,7 +167,7 @@ $$\omega_\text{d} = \frac{2}{T} \text{arctan}(\omega_\text{a} T / 2). \quad ({% 
 
 The visualization of Equation 14 on Figure 5 shows what is frequency warping.
 
-![]({{ page.images | absolute_url | append: "/FrequencyWarping.webp"}}){: alt="Plot showing how analog frequencies are mapped to digital frequencies by the bilinear transform." width="70%" }
+![]({{ images | append: "/FrequencyWarping.webp"}}){: alt="Plot showing how analog frequencies are mapped to digital frequencies by the bilinear transform." width="70%" }
 _Figure {% increment figureId20220115 %}. Plot showing how analog frequencies are mapped to digital frequencies by the bilinear transform._
 
 
@@ -226,7 +218,7 @@ $$s = \frac{\omega_\text{a0}}{\tan(\omega_\text{d0}T/2)} \frac{1 - z^{-1}}{1 + z
 
 ### Cutoff Frequency from Prewarping
 
-As you might recall from [the analog prototype design tutorial]({% post_url fx/2021-12-03-analog-prototype %}), we design our analog filters to have the cutoff frequency equal to 1. Since thanks to prewarping, we can independently change $\omega_\text{a0}$ and $\omega_\text{d0}$, we can simply set $\omega_\text{a0} = 1$ and $\omega_\text{d0} = \omega_\text{dc}$ (cutoff frequency of the digital filter). Thus, Equation 21 (bilinear transform + prewarping) becomes
+As you might recall from [the analog prototype design tutorial]({% post_url collections.posts, 'fx/2021-12-03-analog-prototype' %}), we design our analog filters to have the cutoff frequency equal to 1. Since thanks to prewarping, we can independently change $\omega_\text{a0}$ and $\omega_\text{d0}$, we can simply set $\omega_\text{a0} = 1$ and $\omega_\text{d0} = \omega_\text{dc}$ (cutoff frequency of the digital filter). Thus, Equation 21 (bilinear transform + prewarping) becomes
 
 $$s = \frac{1}{\tan(\omega_\text{d0} T/2)} \frac{1 - z^{-1}}{1 + z^{-1}}. \quad ({% increment equationId20220115 %})$$
 
@@ -236,7 +228,7 @@ So prewarping actally lets us set the cutoff frequency of the filter we design �
 
 Finally, let's put to practice all that we've learned.
 
-Let us digitize the analog prototype Butterworth low-pass of order 2 that we designed in [the previous article]({% post_url fx/2021-12-03-analog-prototype %}).
+Let us digitize the analog prototype Butterworth low-pass of order 2 that we designed in [the previous article]({% post_url collections.posts, 'fx/2021-12-03-analog-prototype' %}).
 
 It's transfer function in the $s$-domain was
 
@@ -270,7 +262,7 @@ Finally, we discretized the second-order analog Butterworth low-pass with the bi
 
 Thanks for reading! If you have any questions, don't hesitate to ask them in the comments below 🙂
 
-{% endkatexmm %}
+
 
 ## Bibiliography
 
@@ -286,4 +278,4 @@ accessed November 26, 2021.
 
 [Zölzer08] [Zölzer Udo, *Digital Audio Signal Processing*, 2nd ed., Helmut Schmidt University, Hamburg, Germany, John Wiley & Sons Ltd, 2008.](https://amzn.to/30XUTdn)
 
-{% include affiliate-disclaimer.html %}
+{% include 'affiliate-disclaimer.html' %}

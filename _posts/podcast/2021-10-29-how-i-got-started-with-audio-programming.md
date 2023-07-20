@@ -29,7 +29,7 @@ Listen on:
 
 [All podcast episodes.]({{"/podcast" | relative_url }})
 
-[Sign up for WolfSound's newsletter!]({% link newsletter.md %})
+[Sign up for WolfSound's newsletter!]({% link collections.all, 'newsletter.md' %})
 
 *"How do I get started with audio programming?"*
 
@@ -84,7 +84,7 @@ Below are all the resources that I referenced in the podcast episode.
   * [Vesa Välimäki](http://users.spa.aalto.fi/vpv/)
   * [Alec Wright](https://www.aalto.fi/en/people/alec-wright)
 
-{% include affiliate-disclaimer.html %}
+{% include 'affiliate-disclaimer.html' %}
 
 
 <!-- TODO: ## Transcript -->

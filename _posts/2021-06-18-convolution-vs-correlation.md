@@ -4,7 +4,7 @@ date: 2021-06-18
 author: Jan Wilczek
 layout: post
 permalink: /convolution-vs-correlation-in-signal-processing-and-deep-learning/
-images: assets/img/posts/2021-06-18-convolution-vs-correlation
+images: /assets/img/posts/2021-06-18-convolution-vs-correlation
 background: /assets/img/posts/2021-06-18-convolution-vs-correlation/Thumbnail.png
 categories:
  - Digital Signal Processing
@@ -18,19 +18,19 @@ Can we calculate correlation using convolution?
 <iframe width="560" height="315" src="https://www.youtube.com/embed/R7cn9b7BNyk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ### The Convolution Series
-1. [Definition of convolution and intuition behind it]({% post_url 2020-06-20-the-secret-behind-filtering %})
-1. [Mathematical properties of convolution]({% post_url 2020-07-05-mathematical-properties-of-convolution %})
-1. [Convolution property of Fourier, Laplace, and z-transforms]({% post_url 2021-03-18-convolution-in-popular-transforms %})
-1. [Identity element of the convolution]({% post_url 2021-04-01-identity-element-of-the-convolution %})
-1. [Star notation of the convolution]({% post_url 2021-04-03-star-notation-of-the-convolution-a-notational-trap %})
-1. [Circular vs. linear convolution]({% post_url 2021-05-07-circular-vs-linear-convolution %})
-1. [Fast convolution]({% post_url 2021-05-14-fast-convolution %})
+1. [Definition of convolution and intuition behind it]({% post_url collections.posts, '2020-06-20-the-secret-behind-filtering' %})
+1. [Mathematical properties of convolution]({% post_url collections.posts, '2020-07-05-mathematical-properties-of-convolution' %})
+1. [Convolution property of Fourier, Laplace, and z-transforms]({% post_url collections.posts, '2021-03-18-convolution-in-popular-transforms' %})
+1. [Identity element of the convolution]({% post_url collections.posts, '2021-04-01-identity-element-of-the-convolution' %})
+1. [Star notation of the convolution]({% post_url collections.posts, '2021-04-03-star-notation-of-the-convolution-a-notational-trap' %})
+1. [Circular vs. linear convolution]({% post_url collections.posts, '2021-05-07-circular-vs-linear-convolution' %})
+1. [Fast convolution]({% post_url collections.posts, '2021-05-14-fast-convolution' %})
 1. **Convolution vs. correlation**
-1. [Convolution in MATLAB, NumPy, and SciPy]({% post_url 2021-07-09-convolution-in-numpy-matlab-and-scipy %})
-1. [Deconvolution: Inverse convolution]({% post_url 2021-07-23-deconvolution %})
-1. [Convolution in probability: Sum of independent random variables]({% post_url 2021-07-30-convolution-in-probability %})
+1. [Convolution in MATLAB, NumPy, and SciPy]({% post_url collections.posts, '2021-07-09-convolution-in-numpy-matlab-and-scipy' %})
+1. [Deconvolution: Inverse convolution]({% post_url collections.posts, '2021-07-23-deconvolution' %})
+1. [Convolution in probability: Sum of independent random variables]({% post_url collections.posts, '2021-07-30-convolution-in-probability' %})
 
-{% katexmm %}
+
 
 {% capture _ %}{% increment equationId20210618  %}{% endcapture %}
 
@@ -39,15 +39,7 @@ In many contexts, convolution and correlation are mixed up. One of the biggest s
 Let's explain the difference between correlation and convolution once and for all.
 
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6611455743195468"
-     crossorigin="anonymous"></script><ins class="adsbygoogle"
-     style="display:block; text-align:center;"
-     data-ad-layout="in-article"
-     data-ad-format="fluid"
-     data-ad-client="ca-pub-6611455743195468"
-     data-ad-slot="7289385396"></ins><script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+{% render 'google-ad.liquid' %}
 
 ## Convolution Definition
 
@@ -59,7 +51,7 @@ Discrete convolution is defined as
 
 $$ x[n] \ast h[n] = \sum_{k=-\infty}^{\infty} x[n - k] h[k], \quad n \in \mathbb{Z}. \quad ({% increment equationId20210618 %})$$
 
-[Click here]({% post_url 2020-06-20-the-secret-behind-filtering %}) to read about the rationale behind these formulas.
+[Click here]({% post_url collections.posts, '2020-06-20-the-secret-behind-filtering' %}) to read about the rationale behind these formulas.
 
 ## Correlation Definition
 
@@ -81,22 +73,22 @@ In the subsequent discussion, we assume that the integrals in Equations 1 and 3,
 
 Let's assume we have two signals of length 40, $x[n]$
 
-![]({{ page.images | absolute_url | append: "/x.png" }}){: width="700" }
+![]({{ images | append: "/x.png" }}){: width="700" }
 _Figure 1. $x[n]$._
 
 and $y[n]$
 
-![]({{ page.images | absolute_url | append: "/y.png" }}){: width="700" }
+![]({{ images | append: "/y.png" }}){: width="700" }
 _Figure 2. $y[n]$._
 
 The convolution between $x$ and $y$ is shown in Figure 3
 
-![]({{ page.images | absolute_url | append: "/xy_convolution.png" }}){: width="700" }
+![]({{ images | append: "/xy_convolution.png" }}){: width="700" }
 _Figure 3. Convolution of $x$ and $y$._
 
 and their correlation in Figure 4.
 
-![]({{ page.images | absolute_url | append: "/xy_correlation.png" }}){: width="700" }
+![]({{ images | append: "/xy_correlation.png" }}){: width="700" }
 _Figure 4. Correlation of $x$ and $y$._
 
 As you can observe, they are kind of similar.
@@ -109,7 +101,7 @@ This concept is best visibile for autocorrelation, which is a measure of *self-s
 
 In Figure 5, we can see the autocorrelation of signal $x$ from Figure 1.
 
-![]({{ page.images | absolute_url | append: "/xx_autocorrelation.png" }}){: width="700" }
+![]({{ images | append: "/xx_autocorrelation.png" }}){: width="700" }
 _Figure 5. Autocorrelation of $x$._
 
 Obviously, autocorrelation achieves its peak value for lag $n=0$ because signal is most similar to an unshifted version of itself.
@@ -124,15 +116,15 @@ As we can observe, Equations 1 and 3, 2 and 4 and Figures 3 and 4 are somewhat s
 
 ### Discrete Correlation Obtained Using Discrete Convolution
 
-$$\phi_{xh}[n] \\
-= \sum \limits_{k=-\infty}^{\infty} x[n + k]h[k] \\
-= \sum \limits_{k=-\infty}^{\infty} x[-(-n) + k]h[k] \\
-= \sum \limits_{k=-\infty}^{\infty} x[-((-n) - k)]h[k] \\
-\stackrel{x_1[l]=x[-l]}{=} \sum \limits_{k=-\infty}^{\infty} x_1[((-n) - k)]h[k] \\
-= (x_1[n] \ast h[n])[-n] \\
+$$\phi_{xh}[n] \newline 
+= \sum \limits_{k=-\infty}^{\infty} x[n + k]h[k] \newline 
+= \sum \limits_{k=-\infty}^{\infty} x[-(-n) + k]h[k] \newline 
+= \sum \limits_{k=-\infty}^{\infty} x[-((-n) - k)]h[k] \newline 
+\stackrel{x_1[l]=x[-l]}{=} \sum \limits_{k=-\infty}^{\infty} x_1[((-n) - k)]h[k] \newline 
+= (x_1[n] \ast h[n])[-n] \newline 
 \stackrel{x[-l]=x_1[l]}{=} (x[-n] \ast h[n])[-n]. \quad ({% increment equationId20210618 %})$$
 
-In the above derivation, we used the "helper function trick", which you can read more about [here]({% post_url 2021-04-03-star-notation-of-the-convolution-a-notational-trap %}).
+In the above derivation, we used the "helper function trick", which you can read more about [here]({% post_url collections.posts, '2021-04-03-star-notation-of-the-convolution-a-notational-trap' %}).
 Index $l$ in the substitution formulas was used not to confuse the reader but it still denotes the discrete-time index.
 
 It turned out that correlation can be obtained by convolving the signals to be correlated, with one of them having its element order reversed, and then reversing the output of the convolution.
@@ -141,8 +133,8 @@ It turned out that correlation can be obtained by convolving the signals to be c
 
 Analogously to the discrete case,
 
-$$\phi_{xh}(t) = \int \limits_{-\infty}^{\infty} x(t + \tau) h(\tau) d\tau \\
-= \int \limits_{-\infty}^{\infty} x(-((-t) - \tau))) h(\tau) d\tau \\
+$$\phi_{xh}(t) = \int \limits_{-\infty}^{\infty} x(t + \tau) h(\tau) d\tau \newline 
+= \int \limits_{-\infty}^{\infty} x(-((-t) - \tau))) h(\tau) d\tau \newline 
 = (x(-t) \ast h(t))(-t). 
 \quad ({% increment equationId20210618 %})$$
 
@@ -174,9 +166,9 @@ if __name__=='__main__':
 
 ## Application
 
-The fact that correlation can be obtained using convolution is significant. For example, one could use the [fast convolution algorithms]({% post_url 2021-05-14-fast-convolution %}) to compute correlation efficiently; that is the basis of *fast correlation* algorithms [2].
+The fact that correlation can be obtained using convolution is significant. For example, one could use the [fast convolution algorithms]({% post_url collections.posts, '2021-05-14-fast-convolution' %}) to compute correlation efficiently; that is the basis of *fast correlation* algorithms [2].
 
-This fact also points to how closely convolution and correlation are related. This similarity was mentioned in the introduction in the context of deep learning, where terms "convolution" and "correlation" are used interchangeably [3]. What is more, exactly as we have circular convolution, we also have *circular correlation*. However, the correlation function does not have many useful properties that [convolution has]({% post_url 2020-07-05-mathematical-properties-of-convolution %}), e.g., correlation is not commutative [3].
+This fact also points to how closely convolution and correlation are related. This similarity was mentioned in the introduction in the context of deep learning, where terms "convolution" and "correlation" are used interchangeably [3]. What is more, exactly as we have circular convolution, we also have *circular correlation*. However, the correlation function does not have many useful properties that [convolution has]({% post_url collections.posts, '2020-07-05-mathematical-properties-of-convolution' %}), e.g., correlation is not commutative [3].
 
 ## Bibliography
 
@@ -186,4 +178,4 @@ This fact also points to how closely convolution and correlation are related. Th
 
 [3] I. Goodfellow, Y. Bengio, A. Courville *Deep learning*, MIT Press, 2016, [https://www.deeplearningbook.org/](https://www.deeplearningbook.org/).
 
-{% endkatexmm %}
+

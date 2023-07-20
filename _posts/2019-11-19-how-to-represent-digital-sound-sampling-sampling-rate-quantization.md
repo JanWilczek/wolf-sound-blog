@@ -40,7 +40,7 @@ To process the audio signal, we need to somehow represent it on our machine. Sev
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/f53m72uLa2I" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-{% katexmm %}
+
 
 
 Mind you, that in this article expressions _function_ and _signal_ are used interchangeably. Both function and signal can be continuous or discrete.
@@ -79,7 +79,7 @@ $$p(t) =   \sum_{n=-\infty}^{+\infty}\delta (t - n T)$$
 
 is called an a _sampling function_ or an _impulse-train_ (a series of discrete Dirac impulses spaced at time intervals $T$). In the equations above, $t$ is the continuous time, whereas $n$ is the index of the sample taken. Discrete Dirac&#8217;s delta $\delta (x)$ is equal to $1$ if $x$ is equal to $0$ and $0$ everywhere else:
 
-$$\delta (x) = \begin{cases}1 & \quad\text{if } x = 0  \\  0 & \quad\text{if } x \ne 0 \end{cases}$$
+$$\delta (x) = \begin{cases}1 & \quad\text{if } x = 0  \newline   0 & \quad\text{if } x \ne 0 \end{cases}$$
 
 so the right hand side expression in {eq:sampling} is equal to $0$ unless $t = nT$. $T$ is called the sampling period and is equal to the reciprocal of the _sampling frequency_:
 
@@ -121,7 +121,7 @@ Having discussed the basics of sampling and quantization, we are ready to put th
 
 This example code samples a 1 Hz sine with the sample rate of 8 Hz and displays the results:
 
-```python
+```py
 #!/usr/bin/env python3
 """Example of sine sampling"""
 import numpy as np
@@ -187,4 +187,3 @@ You can copy the above code and run it yourself!
 Reference:  
 [1] Oppenheim, A. V. and Willsky, A. S. Signals & Systems. 2nd ed. Upper Sadle River, New Jersey: Prentice Hall, 1997.
 
-{% endkatexmm %}

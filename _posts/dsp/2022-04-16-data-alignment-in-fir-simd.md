@@ -15,18 +15,18 @@ tags:
   - effects
   - simd
   - convolution
-  - C++
-  - C
+  - cpp
+  - c
 discussion_id: 2022-04-16-data-alignment-in-fir-simd
 ---
 How to align data for optimal filtering?
 
-{% katexmm %}
+
 {% capture _ %}{% increment equationId20220416  %}{% endcapture %}
 {% capture _ %}{% increment listingId20220416 %}{% endcapture %}
 {% capture _ %}{% increment figureId20220416  %}{% endcapture %}
 
-In the [previous article]({% post_url dsp/2022-03-28-fir-with-simd %}), we discussed how to implement the finite impulse response (FIR) filter using single instruction, multiple data (SIMD) instructions. We used a technique called *loop vectorization* to speed up the computations.
+In the [previous article]({% post_url collections.posts, 'dsp/2022-03-28-fir-with-simd' %}), we discussed how to implement the finite impulse response (FIR) filter using single instruction, multiple data (SIMD) instructions. We used a technique called *loop vectorization* to speed up the computations.
 
 Can we do even more?
 
@@ -64,27 +64,19 @@ If we say that our data is aligned as 4 `float`s, we mean that the pointer to ou
 
 C++ has a lot of features concerning alignment. Most notably, from C++ 17, standard containers like `std::array` or `std::vector` are always aligned according to the type they hold.
 
-If you want to learn more about data alignment in general, I have a [dedicated article about it]({% post_url 2020-04-09-what-is-data-alignment %}). There I go into more detail and show concrete C++ features concerning alignment.
+If you want to learn more about data alignment in general, I have a [dedicated article about it]({% post_url collections.posts, '2020-04-09-what-is-data-alignment' %}). There I go into more detail and show concrete C++ features concerning alignment.
 
 In this article, we focus on how to achieve optimal data alignment for FIR filtering.
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6611455743195468"
-     crossorigin="anonymous"></script><ins class="adsbygoogle"
-     style="display:block; text-align:center;"
-     data-ad-layout="in-article"
-     data-ad-format="fluid"
-     data-ad-client="ca-pub-6611455743195468"
-     data-ad-slot="7289385396"></ins><script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+{% render 'google-ad.liquid' %}
 
 ## Why Does Alignment Matter in SIMD?
 
-In [FIR filters implementation with SIMD]({% post_url dsp/2022-03-28-fir-with-simd %}#vil-avx-implementation), we are using the load/store instrinsic functions. The load functions move the data from plain C arrays (e.g., `float*`) to dedicated vector registers, which are identified by a type specific to the given SIMD instruction set, e.g., `__m256` in the AVX instruction set. The store instructions transport the contents of the given SIMD register to the given C-style array. 
+In [FIR filters implementation with SIMD]({% post_url collections.posts, 'dsp/2022-03-28-fir-with-simd' %}#vil-avx-implementation), we are using the load/store instrinsic functions. The load functions move the data from plain C arrays (e.g., `float*`) to dedicated vector registers, which are identified by a type specific to the given SIMD instruction set, e.g., `__m256` in the AVX instruction set. The store instructions transport the contents of the given SIMD register to the given C-style array. 
 
 These transitions are shown in Figure 1.
 
-![]({{ page.images }}/load_store_instructions.webp){: width="60%" alt="Explanation diagram of the load/store instructions" }
+![]({{ images }}/load_store_instructions.webp){: width="60%" alt="Explanation diagram of the load/store instructions" }
 _Figure {% increment figureId20220416 %}. Load/store instructions transport the data between the memory and the SIMD registers._
 
 These load/store instructions take pointers to C-style arrays. The data under these pointers can be aligned or not. If it is aligned, we can call the aligned version of the load/store instructions, which are typically faster than their unaligned counterparts. If the data under the pointer is not aligned or we don't know if it is aligned, we have to to use the unaligned instrinsic functions.
@@ -101,13 +93,13 @@ Imagine now that we can perform each of these operations a little bit faster. Th
 
 ### Which Loop Vectorization Techniques Can Benefit From Data Alignment?
 
-In the [loop vectorization techniques]({% post_url dsp/2022-03-28-fir-with-simd %}#loop-vectorization), optimal data alignment (one that allows using the aligned load/store instructions in every case) seems impossible. That is because we always need to load vectors that start at successive samples.
+In the [loop vectorization techniques]({% post_url collections.posts, 'dsp/2022-03-28-fir-with-simd' %}#loop-vectorization), optimal data alignment (one that allows using the aligned load/store instructions in every case) seems impossible. That is because we always need to load vectors that start at successive samples.
 
-In the [inner loop vectorization]({% post_url dsp/2022-03-28-fir-with-simd %}#inner-loop-vectorization-vil), if we are lucky to have the vectors used for inner product computation aligned, we know that on the next outer loop iteration, they won't be aligned.
+In the [inner loop vectorization]({% post_url collections.posts, 'dsp/2022-03-28-fir-with-simd' %}#inner-loop-vectorization-vil), if we are lucky to have the vectors used for inner product computation aligned, we know that on the next outer loop iteration, they won't be aligned.
 
-In the [outer loop vectorization]({% post_url dsp/2022-03-28-fir-with-simd %}#outer-loop-vectorization-vol), if one of the loads of the input signal is aligned, the next couple of loads won't be. Additionally, filter coefficients are read one by one and copied into every element of the SIMD register so this part cannot ever be aligned.
+In the [outer loop vectorization]({% post_url collections.posts, 'dsp/2022-03-28-fir-with-simd' %}#outer-loop-vectorization-vol), if one of the loads of the input signal is aligned, the next couple of loads won't be. Additionally, filter coefficients are read one by one and copied into every element of the SIMD register so this part cannot ever be aligned.
 
-In the [outer-inner loop vectorization]({% post_url dsp/2022-03-28-fir-with-simd %}#outer-and-inner-loop-vectorization-voil), one of the input signals could have aligned loads (because we read it in non-overlapping chunks), however, the other signal is being read in overlapping chunks starting at every possible sample.
+In the [outer-inner loop vectorization]({% post_url collections.posts, 'dsp/2022-03-28-fir-with-simd' %}#outer-and-inner-loop-vectorization-voil), one of the input signals could have aligned loads (because we read it in non-overlapping chunks), however, the other signal is being read in overlapping chunks starting at every possible sample.
 
 Nevertheless, each of these can be optimized to work on fully aligned data.
 
@@ -127,9 +119,9 @@ Note that it can only be done with a signal that is known before the processing.
 
 ### Aligning Inputs
 
-Let's revisit how we access the elements in the [outer-inner loop vectorization]({% post_url dsp/2022-03-28-fir-with-simd %}#outer-and-inner-loop-vectorization-voil) (Figure 2).
+Let's revisit how we access the elements in the [outer-inner loop vectorization]({% post_url collections.posts, 'dsp/2022-03-28-fir-with-simd' %}#outer-and-inner-loop-vectorization-voil) (Figure 2).
 
-![]({{ page.images }}/LoopVectorizationVOIL.svg){: alt="Outer-inner loop vectorization diagram."}
+![]({{ images }}/LoopVectorizationVOIL.svg){: alt="Outer-inner loop vectorization diagram."}
 _Figure {% increment figureId20220416 %}. Data accessed in one iteration of the outer loop in the outer-inner loop vectorization technique._
 
 The $x$-signal's elements are accessed starting at every possible sample. The goal is to multiply the short vectors from the input signal with the short vectors of the filter's reversed coefficients.
@@ -138,7 +130,7 @@ We could copy the short vectors from $x$ so that each access is aligned. Or we c
 
 Take a look at how we can replicate the filter's reversed coefficients to obtain aligned access every time (Figure 3).
 
-![]({{ page.images }}/LoopVectorizationDataAlignment.svg){: alt="Aligned data access in outer-inner loop vectorization."}
+![]({{ images }}/LoopVectorizationDataAlignment.svg){: alt="Aligned data access in outer-inner loop vectorization."}
 _Figure {% increment figureId20220416 %}. Copying filter coefficients allows aligned access._
 
 As you can see, we perform the same multiplications as before although not in the same order (for example, $x[4]$ is multiplied with $c[3]$ in the second inner loop iteration, not in the first one).
@@ -284,7 +276,7 @@ for (auto k = 0u; k < AVX_FLOAT_COUNT; ++k) {
 
 ## Aligned Outer-Inner Loop Vectorization in AVX
 
-The outer-inner loop vectorization with the AVX instructions was explained in the [previous article]({% post_url dsp/2022-03-28-fir-with-simd %}).
+The outer-inner loop vectorization with the AVX instructions was explained in the [previous article]({% post_url collections.posts, 'dsp/2022-03-28-fir-with-simd' %}).
 
 With properly aligned data, we must simply change all `_mm256_loadu_ps` and `_mm256_storeu_ps` calls to `_mm256_load_ps` and `_mm256_store_ps` respectively. We must, of course, pass to them pointers to aligned data.
 
@@ -366,4 +358,4 @@ Thanks for reading! If you have any questions, just ask them in the comments bel
 [Shahbarhrami2005] Asadollah Shahbahrami, Ben Juurlink, and Stamatis Vassiliadis, *Efficient Vectorization of the FIR Filter*. [[PDF](https://www.aes.tu-berlin.de/fileadmin/fg196/publication/old-juurlink/efficient_vectorization_of_the_fir_filter.pdf)]
 
 
-{% endkatexmm %}
+

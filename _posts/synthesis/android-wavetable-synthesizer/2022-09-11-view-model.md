@@ -27,12 +27,12 @@ Modern Android architecture in its glory!
 
 ### Android Wavetable Synthesizer Tutorial Series
 
-1. [App Architecture]({% post_url synthesis/android-wavetable-synthesizer/2022-08-02-app-architecture %})
-2. [UI with Jetpack Compose]({% post_url synthesis/android-wavetable-synthesizer/2022-08-10-ui %})
-3. [ViewModel (this one)]({% post_url synthesis/android-wavetable-synthesizer/2022-09-11-view-model %})
-4. [Calling C++ Code From Kotlin with JNI]({% post_url synthesis/android-wavetable-synthesizer/2022-10-09-jni %})
-5. [Playing Back Audio on Android with C++]({% post_url synthesis/android-wavetable-synthesizer/2022-10-23-oboe %})
-6. [Wavetable Synthesis Algorithm in C++]({% post_url synthesis/android-wavetable-synthesizer/2022-11-03-cpp-synth %})
+1. [App Architecture]({% post_url collections.posts, 'synthesis/android-wavetable-synthesizer/2022-08-02-app-architecture' %})
+2. [UI with Jetpack Compose]({% post_url collections.posts, 'synthesis/android-wavetable-synthesizer/2022-08-10-ui' %})
+3. [ViewModel (this one)]({% post_url collections.posts, 'synthesis/android-wavetable-synthesizer/2022-09-11-view-model' %})
+4. [Calling C++ Code From Kotlin with JNI]({% post_url collections.posts, 'synthesis/android-wavetable-synthesizer/2022-10-09-jni' %})
+5. [Playing Back Audio on Android with C++]({% post_url collections.posts, 'synthesis/android-wavetable-synthesizer/2022-10-23-oboe' %})
+6. [Wavetable Synthesis Algorithm in C++]({% post_url collections.posts, 'synthesis/android-wavetable-synthesizer/2022-11-03-cpp-synth' %})
 
 ## Introduction
 
@@ -41,14 +41,14 @@ Welcome to the 3rd part of the Android wavetable synthesizer app tutorial!
 In this tutorial series, we want to design and implement a synthesizer app on Android using all the modern technologies and best practices.
 
 <div markdown="0">
-<img class="lazyload" data-src="{{ page.images | absolute_url | append: "/SynthesizerUI.webp" }}" alt="Graphical user interface of the synthesizer app">
+<img class="lazyload" data-src="{{ images | append: "/SynthesizerUI.webp" }}" alt="Graphical user interface of the synthesizer app">
 </div>
 
 _Figure {% increment figureId20220911 %}. Graphical user interface of the synthesizer app we are going to build._
 
-In the [first part of this tutorial]({% post_url synthesis/android-wavetable-synthesizer/2022-08-02-app-architecture %}), we discussed the architecture of our app.
+In the [first part of this tutorial]({% post_url collections.posts, 'synthesis/android-wavetable-synthesizer/2022-08-02-app-architecture' %}), we discussed the architecture of our app.
 
-In the [previous part of this tutorial]({% post_url synthesis/android-wavetable-synthesizer/2022-08-10-ui %}), we discussed how to create its user interface (UI) using Jetpack Compose.
+In the [previous part of this tutorial]({% post_url collections.posts, 'synthesis/android-wavetable-synthesizer/2022-08-10-ui' %}), we discussed how to create its user interface (UI) using Jetpack Compose.
 
 In this part, we will implement the bridge between the UI and the core logic of our app.
 
@@ -96,7 +96,7 @@ MVVM is a convenient way to represent the interaction of the UI and the core (bu
 Figure 2 illustrates these dependencies.
 
 <div markdown="0">
-<img class="lazyload" data-src="{{ page.images | absolute_url | append: "/MVVM.svg" }}" alt="MVVM pattern diagram">
+<img class="lazyload" data-src="{{ images | append: "/MVVM.svg" }}" alt="MVVM pattern diagram">
 </div>
 
 _Figure {% increment figureId20220911 %}. Model-View-ViewModel (MVVM) pattern._
@@ -109,22 +109,14 @@ MVVM is an alternative to another design pattern called **Model-View-Controller 
 
 Even if you don’t fully understand what the ViewModel is, after going through this tutorial, you will definitely understand it!
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6611455743195468"
-     crossorigin="anonymous"></script><ins class="adsbygoogle"
-     style="display:block; text-align:center;"
-     data-ad-layout="in-article"
-     data-ad-format="fluid"
-     data-ad-client="ca-pub-6611455743195468"
-     data-ad-slot="7289385396"></ins><script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+{% render 'google-ad.liquid' %}
 
 ## What Is a Model in the Synthesizer App?
 
 To recap, here is the architecture of our app with parts that will be created in this part of the tutorial.
 
 <div markdown="0">
-<img class="lazyload" data-src="{{ page.images | absolute_url | append: "/SynthesizerArchitecture.svg" }}" alt="Component diagram of the app">
+<img class="lazyload" data-src="{{ images | append: "/SynthesizerArchitecture.svg" }}" alt="Component diagram of the app">
 </div>
 
 _Figure {% increment figureId20220911 %}. Synthesizer app architecture._
@@ -157,7 +149,7 @@ What do particular methods do?
 3. `isPlaying()` will return `true` if the synthesizer is playing and `false` otherwise.
 4. `setFrequency()` will set the frequency of the synthesizer that is being played back.
 5. `setVolume()` will set the volume of the sound that is being played back.
-6. `setWavetable()` will set the played-back wavetable. If you don’t know what a wavetable is or why do we need it, I have described it thoroughly in my [wavetable synthesis algorithm article]({% post_url synthesis/2021-08-13-wavetable-synthesis-theory %}). I have also already shown how to implement a wavetable synthesizer [in Python]({% post_url synthesis/2021-08-27-wavetable-synthesis-python %}), [in C++]({% post_url synthesis/2021-09-24-wavetable-synthesis-juce %}), and [in Rust]({% post_url synthesis/2021-10-15-wavetable-synthesis-rust %}) so feel free to check out those articles.
+6. `setWavetable()` will set the played-back wavetable. If you don’t know what a wavetable is or why do we need it, I have described it thoroughly in my [wavetable synthesis algorithm article]({% post_url collections.posts, 'synthesis/2021-08-13-wavetable-synthesis-theory' %}). I have also already shown how to implement a wavetable synthesizer [in Python]({% post_url collections.posts, 'synthesis/2021-08-27-wavetable-synthesis-python' %}), [in C++]({% post_url collections.posts, 'synthesis/2021-09-24-wavetable-synthesis-juce' %}), and [in Rust]({% post_url collections.posts, 'synthesis/2021-10-15-wavetable-synthesis-rust' %}) so feel free to check out those articles.
 
 You may be wondering why are the methods marked with `suspend`. Well… I will explain it later on 😉
 
@@ -271,7 +263,7 @@ class LoggingWavetableSynthesizer : WavetableSynthesizer {
 As you can see, each method logs what is happening using the `Log.d` method from the `android.util`package. That ensures that these messages will appear in the Logcat of Android Studio when the application runs and the message level is set to "Debug".
 
 <div markdown="0">
-<img class="lazyload" data-src="{{ page.images | absolute_url | append: "/SampleLogcatOutput.webp" }}" alt="Sample output of the synthesizer app in the Logcat of Android Studio.">
+<img class="lazyload" data-src="{{ images | append: "/SampleLogcatOutput.webp" }}" alt="Sample output of the synthesizer app in the Logcat of Android Studio.">
 </div>
 
 _Figure {% increment figureId20220911 %}. Log messages in the Logcat of Android Studio._
@@ -338,7 +330,7 @@ val frequency: LiveData<Float>
   }
 ```
 
-If you don’t know what state hoisting is, you can read about it in the [previous tutorial part]({% post_url synthesis/android-wavetable-synthesizer/2022-08-10-ui %}).
+If you don’t know what state hoisting is, you can read about it in the [previous tutorial part]({% post_url collections.posts, 'synthesis/android-wavetable-synthesizer/2022-08-10-ui' %}).
 
 The private `_frequency` field is of type `MutableLiveData` , which represents an **observable, mutable state**.
 
@@ -357,7 +349,7 @@ Ain’t that elegant?
 As you remember, the user controls the frequency of the synthesizer via a slider.
 
 <div markdown="0">
-<img class="lazyload" data-src="{{ page.images | absolute_url | append: "/FrequencySlider.webp" }}" alt="Frequency control slider of the synthesizer app.">
+<img class="lazyload" data-src="{{ images | append: "/FrequencySlider.webp" }}" alt="Frequency control slider of the synthesizer app.">
 </div>
 
 _Figure {% increment figureId20220911 %}. Frequency control slider._
@@ -391,7 +383,7 @@ Let’s tackle these issues one by one.
 
 **Human perception of frequency is logarithmic.**
 
-That’s why we need to map the slider position from the [0, 1] range to the same range but with a different "distribution" of values. I have discussed the logarithmic approach to musical parameters in the [envelope article]({% post_url synthesis/2022-07-03-envelopes %}) so please refer to it for more information.
+That’s why we need to map the slider position from the [0, 1] range to the same range but with a different "distribution" of values. I have discussed the logarithmic approach to musical parameters in the [envelope article]({% post_url collections.posts, 'synthesis/2022-07-03-envelopes' %}) so please refer to it for more information.
 
 To convert the slider position to a frequency value, we
 
@@ -634,7 +626,7 @@ How to achieve it?
 
 By passing the `WavetableSynthesizerViewModel` down the composables’ hierarchy as an additional argument.
 
-Below you will find just the state-hoisting composables and how they changed in comparison to the [previous tutorial part]({% post_url synthesis/android-wavetable-synthesizer/2022-08-10-ui %}).
+Below you will find just the state-hoisting composables and how they changed in comparison to the [previous tutorial part]({% post_url collections.posts, 'synthesis/android-wavetable-synthesizer/2022-08-10-ui' %}).
 
 Note that you have to modify the signatures of the composable functions to account for the ViewModel argument.
 
@@ -875,4 +867,4 @@ And all this according to the [modern Android architecture guidelines](https://d
 
 Whew! We’re awesome 😎
 
-Next up: [making a bridge between the Kotlin code and the C++ code using Java Native Interface (JNI)!]({% post_url synthesis/android-wavetable-synthesizer/2022-10-09-jni %})
+Next up: [making a bridge between the Kotlin code and the C++ code using Java Native Interface (JNI)!]({% post_url collections.posts, 'synthesis/android-wavetable-synthesizer/2022-10-09-jni' %})

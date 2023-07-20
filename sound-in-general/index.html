@@ -3,6 +3,6 @@ layout: paginator
 title: Sound Theory Articles
 description: "Here, you will find articles related to the science of sound: everything that is outside of but relevant to audio processing with software."
 pagination:
-  enabled: true
-  category: Sound in General
+  data: collections.sound_in_general
+permalink: "/sound-in-general/{% if pagination.pageNumber > 0 %}page{{ pagination.pageNumber | plus: 1 }}/{% endif %}"
 ---

@@ -4,7 +4,7 @@ date: 2021-05-14
 author: Jan Wilczek
 layout: post
 permalink: /fast-convolution-fft-based-overlap-add-overlap-save-partitioned/
-images: assets/img/posts/2021-05-14-fast-convolution
+images: /assets/img/posts/2021-05-14-fast-convolution
 background: /assets/img/posts/2021-05-14-fast-convolution/Thumbnail.png
 categories:
  - Digital Signal Processing
@@ -17,20 +17,20 @@ How to compute convolution fast for real-time applications?
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/fYggIQTaVx4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-{% katexmm %}
+
 
 ### The Convolution Series
-1. [Definition of convolution and intuition behind it]({% post_url 2020-06-20-the-secret-behind-filtering %})
-1. [Mathematical properties of convolution]({% post_url 2020-07-05-mathematical-properties-of-convolution %})
-1. [Convolution property of Fourier, Laplace, and z-transforms]({% post_url 2021-03-18-convolution-in-popular-transforms %})
-1. [Identity element of the convolution]({% post_url 2021-04-01-identity-element-of-the-convolution %})
-1. [Star notation of the convolution]({% post_url 2021-04-03-star-notation-of-the-convolution-a-notational-trap %})
-1. [Circular vs. linear convolution]({% post_url 2021-05-07-circular-vs-linear-convolution %})
+1. [Definition of convolution and intuition behind it]({% post_url collections.posts, '2020-06-20-the-secret-behind-filtering' %})
+1. [Mathematical properties of convolution]({% post_url collections.posts, '2020-07-05-mathematical-properties-of-convolution' %})
+1. [Convolution property of Fourier, Laplace, and z-transforms]({% post_url collections.posts, '2021-03-18-convolution-in-popular-transforms' %})
+1. [Identity element of the convolution]({% post_url collections.posts, '2021-04-01-identity-element-of-the-convolution' %})
+1. [Star notation of the convolution]({% post_url collections.posts, '2021-04-03-star-notation-of-the-convolution-a-notational-trap' %})
+1. [Circular vs. linear convolution]({% post_url collections.posts, '2021-05-07-circular-vs-linear-convolution' %})
 1. **Fast convolution**
-1. [Convolution vs. correlation]({% post_url 2021-06-18-convolution-vs-correlation %})
-1. [Convolution in MATLAB, NumPy, and SciPy]({% post_url 2021-07-09-convolution-in-numpy-matlab-and-scipy %})
-1. [Deconvolution: Inverse convolution]({% post_url 2021-07-23-deconvolution %})
-1. [Convolution in probability: Sum of independent random variables]({% post_url 2021-07-30-convolution-in-probability %})
+1. [Convolution vs. correlation]({% post_url collections.posts, '2021-06-18-convolution-vs-correlation' %})
+1. [Convolution in MATLAB, NumPy, and SciPy]({% post_url collections.posts, '2021-07-09-convolution-in-numpy-matlab-and-scipy' %})
+1. [Deconvolution: Inverse convolution]({% post_url collections.posts, '2021-07-23-deconvolution' %})
+1. [Convolution in probability: Sum of independent random variables]({% post_url collections.posts, '2021-07-30-convolution-in-probability' %})
 
 {% capture _ %}{% increment equationId20210514  %}{% endcapture %}
 
@@ -45,15 +45,7 @@ In this article, we first show why the naive approach to the convolution is inef
 *Note: An amazing source about fast convolution techniques is [1]. I highly encourage you to check it out especially if you would like to read more on the topic.*
 
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6611455743195468"
-     crossorigin="anonymous"></script><ins class="adsbygoogle"
-     style="display:block; text-align:center;"
-     data-ad-layout="in-article"
-     data-ad-format="fluid"
-     data-ad-client="ca-pub-6611455743195468"
-     data-ad-slot="7289385396"></ins><script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+{% render 'google-ad.liquid' %}
 
 ## Notation
 
@@ -63,13 +55,13 @@ In software, the signals are always of finite length. Thus, we will denote a sig
 
 We could implement the convolution between discrete-time signals $x$ and $h$ by implementing the definition directly [1]
 
-$$ y[n] = x[n] \ast h[n] = \sum_{k=\max\{0,n-N_h+1\}}^{\min\{n, N_x-1\}} x[k] h[n - k], \\ \quad n \in \{0, \dots, N_x + N_h - 1\}. \quad ({% increment equationId20210514 %})$$
+$$ y[n] = x[n] \ast h[n] = \sum_{k=\max\{0,n-N_h+1\}}^{\min\{n, N_x-1\}} x[k] h[n - k], \newline  \quad n \in \{0, \dots, N_x + N_h - 1\}. \quad ({% increment equationId20210514 %})$$
 
 <!-- Check the k range in the above -->
 
 This translates to the following code
 
-{% highlight python %}
+```python
 def naive_convolution(x, h):    
     """Compute the discrete convolution of two sequences"""
     
@@ -94,27 +86,27 @@ def naive_convolution(x, h):
         y[i] = x[i:i+N].dot(h)
         
     return y
-{% endhighlight %}
+```
 _Listing 1. Naive linear convolution._
 
 ## FFT-based implementation
 
-As we know from the [article on circular convolution]({% post_url 2021-05-07-circular-vs-linear-convolution %}), multiplication in the discrete-frequency domain is equivalent to circular convolution in the discrete-time domain. Element-wise multiplication of 2 vectors has time complexity $O(N)$. This is superior to $O(N^2)$ in case of the naive approach. The bottleneck of frequency-based convolution is the transformation to that domain, but it can be achieved in $O(N \log N)$ time, which is still better than $O(N^2)$. And so arises the FFT-based fast convolution (Figure 1).
+As we know from the [article on circular convolution]({% post_url collections.posts, '2021-05-07-circular-vs-linear-convolution' %}), multiplication in the discrete-frequency domain is equivalent to circular convolution in the discrete-time domain. Element-wise multiplication of 2 vectors has time complexity $O(N)$. This is superior to $O(N^2)$ in case of the naive approach. The bottleneck of frequency-based convolution is the transformation to that domain, but it can be achieved in $O(N \log N)$ time, which is still better than $O(N^2)$. And so arises the FFT-based fast convolution (Figure 1).
 
-![]({{ page.images | absolute_url | append: "/fft-based-fc.png" }}){: width="700" }
+![]({{ images | append: "/fft-based-fc.png" }}){: width="700" }
 _Figure 1. FFT-based fast convolution. Source: [1]._
 
 In order to make circular convolution correspond to linear convolution we need to pad the input signals with sufficiently many zeros so that the frequency-domain representation has enough capacity to represent the result of the linear convolution. This means, that each signal should be extended to have length $K = Nx + Nh - 1$. 
 
 We can obtain it using function `pad_zeros_to()`.
 
-{% highlight python %}
+```python
 def pad_zeros_to(x, new_length):
     """Append new_length - x.shape[0] zeros to x's end via copy."""
     output = np.zeros((new_length,))
     output[:x.shape[0]] = x
     return output
-{% endhighlight %}
+```
 _Listing 2._
 
 If our signals are sufficiently long we can compute their discrete Fourier transforms (DFTs) using the Fast Fourier Transform (FFT) algorithm. Thanks to the FFT, the transformation from the time domain to the frequency domain can be computed in $O(N \log N)$ time.
@@ -127,15 +119,15 @@ $$ q_{\text{next}} = \log2(n - 1) + 1. \quad ({% increment equationId20210514 %}
 
 The above equation allows us to implement another helper function
 
-{% highlight python %}
+```python
 def next_power_of_2(n):
     return 1 << (int(np.log2(n - 1)) + 1)
-{% endhighlight %}
+```
 _Listing 3._
 
 Wrapping it all together
 
-{% highlight python %}
+```python
 def fft_convolution(x, h, K=None):
     Nx = x.shape[0]
     Nh = h.shape[0]
@@ -158,7 +150,7 @@ def fft_convolution(x, h, K=None):
 
     # Trim the signal to the expected length
     return y[:Ny]
-{% endhighlight %}
+```
 _Listing 4. FFT-based fast convolution._
 
 Remember that the above algorithm is fast *algorithmically*. I am not claiming this code is maximally optimized 😉. It is provided for understanding and as a possible baseline implementation.
@@ -173,7 +165,7 @@ In this section, we will assume that the input signal is an infinite stream (e.g
 
 The first idea to process the input in blocks is to convolve each incoming block with the full filter using FFT-based convolution, store the results of appropriately many past convolutions, and output sums of their subsequent parts in blocks of the same length as the input signal we process. This scheme can be seen in Figure 2.
 
-![]({{ page.images | absolute_url | append: "/overlap-add.png" }}){: width="700" }
+![]({{ images | append: "/overlap-add.png" }}){: width="700" }
 _Figure 2. Overlap-Add convolution scheme. Source: [1]._
 
 Some important remarks concerning this methodology:
@@ -184,7 +176,7 @@ Some important remarks concerning this methodology:
 
 #### Implementation
 
-{% highlight python %}
+```python
 def overlap_add_convolution(x, h, B, K=None):
     """Overlap-Add convolution of x and h with block length B"""
 
@@ -213,7 +205,7 @@ def overlap_add_convolution(x, h, B, K=None):
         y[n*B:n*B+len(u)] += u
 
     return y[:M+N-1]
-{% endhighlight %}
+```
 _Listing 5. Overlap-Add convolution._
 
 ### Overlap-Save Scheme
@@ -226,12 +218,12 @@ Inherently, the result of this operation is a circular convolution (because the 
 
 The entire scheme can be seen in Figure 3.
 
-![]({{ page.images | absolute_url | append: "/overlap-save.png" }}){: width="700" }
+![]({{ images | append: "/overlap-save.png" }}){: width="700" }
 _Figure 3. Overlap-Save convolution scheme. Source: [1]._
 
 #### Implementation
 
-{% highlight python %}
+```python
 def overlap_save_convolution(x, h, B, K=None):
     """Overlap-Save convolution of x and h with block length B"""
 
@@ -270,7 +262,7 @@ def overlap_save_convolution(x, h, B, K=None):
         y[n*B:n*B+B] = u[-B:]
 
     return y[:M+N-1]
-{% endhighlight %}
+```
 _Listing 6. Overlap-Save convolution._
 
 ## What If the Filter Is Long Too?
@@ -281,7 +273,7 @@ Describing partitioned convolution algorithms is beyond the scope of this articl
 
 Non-uniformly partitioned convolution is the current state of the art in artificial reverberation using FIR filters for real-time auralization in games and Virtual Reality.
 
-![]({{ page.images | absolute_url | append: "/nonuniformly-partitioned-convolution.png" }}){: width="700" }
+![]({{ images | append: "/nonuniformly-partitioned-convolution.png" }}){: width="700" }
 _Figure 4. Non-uniformly partitioned convolution scheme. Note the presence of frequency-domain delay lines. Source: [1]._
 
 ## Summary
@@ -298,4 +290,4 @@ With an understanding of these concepts you can rush off to code an unforgettabl
 
 [1] Frank Wefers *Partitioned convolution algorithms for real-time auralization*, PhD Thesis, Zugl.: Aachen, Techn. Hochsch., 2015.
 
-{% endkatexmm %}
+

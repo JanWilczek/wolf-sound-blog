@@ -5,7 +5,7 @@ date: 2023-03-13
 author: Jan Wilczek
 layout: post
 permalink: /talk011/
-# background: /assets/img/posts/podcast/talk010/Thumbnail.webp
+background: /assets/img/posts/podcast/talk011/Thumbnail.webp
 categories:
   - Podcast
 tags:
@@ -20,6 +20,23 @@ discussion_id: 2023-03-13-andrew-fyfe
 ---
 Effortlessly deploy your trained model to a DAW!
 
+<script async defer onload="redcircleIframe();" src="https://api.podcache.net/embedded-player/sh/bf40a1d2-7e41-4ddb-8c3a-ed82394723ba/ep/311f2973-7147-4c64-8af3-06ab03d6e167"></script> <div class="redcirclePlayer-311f2973-7147-4c64-8af3-06ab03d6e167"></div> <style> .redcircle-link:link { color: #ea404d; text-decoration: none; } .redcircle-link:hover { color: #ea404d; } .redcircle-link:active { color: #ea404d; } .redcircle-link:visited { color: #ea404d; } </style>
+<p style="margin-top:3px;margin-left:11px;font-family: sans-serif;font-size: 10px; color: gray;">Powered by <a class="redcircle-link" href="https://redcircle.com?utm_source=rc_embedded_player&utm_medium=web&utm_campaign=embedded_v1">RedCircle</a></p>
+
+## Listen on
+
+* 🎧 [Spotify](https://open.spotify.com/episode/1Vie1dWj55TaTLApRV2Se2?si=2c1a1ab984c145a8)
+* 🎥 [YouTube](https://youtu.be/pbahnCUWlD8)
+* 🎧 [Apple Podcasts (iTunes)](https://podcasts.apple.com/us/podcast/how-to-run-your-neural-networks-in-an-audio-plugin/id1595913701?i=1000603900116)
+* 🎧 [Amazon Music](https://music.amazon.com/podcasts/b42682b5-61ba-4a6f-8b11-aed42b07ef9f/episodes/2eba12aa-3051-4b11-8a43-464fedbd600c/how-to-run-your-neural-networks-in-an-audio-plugin-with-andrew-fyfe-wolftalk-011)
+* 🎧 [Google Podcasts](https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkcy5yZWRjaXJjbGUuY29tL2JmNDBhMWQyLTdlNDEtNGRkYi04YzNhLWVkODIzOTQ3MjNiYQ/episode/OTM3ODc2NzgtZGRiNS00MDBmLTg4M2MtZTdlOTU4N2FjMzE4?sa=X&ved=0CAUQkfYCahcKEwioo4bWwtj9AhUAAAAAHQAAAAAQAQ)
+* 🎧 [Stitcher](https://www.stitcher.com/show/wolftalk-podcast-about-audio-programming-people-careers-learning/episode/how-to-run-your-neural-networks-in-an-audio-plugin-with-andrew-fyfe-wolftalk-011-300502703)
+* 🎧 [TuneIn Radio](<https://tunein.com/podcasts/Education-Podcasts/WolfTalk-Podcast-About-Audio-Programming-(People-p1562232/?topicId=263778201>)
+
+[All podcast episodes.]({{"/podcast" | relative_url }})
+
+[Sign up for WolfSound's newsletter!]({% link collections.all, 'newsletter.md' %})
+
 ## Introduction
 
 In this episode, I was honored to interview Andrew Fyfe; a musician, a software engineer, and a researcher in the field of deep learning applied to audio.
@@ -31,6 +48,8 @@ At the same time, Andrew is wrapping up his PhD while working full time from Jap
 Don’t forget to submit your plugins for the [**Neural Audio Plugin Competition**](https://www.theaudioprogrammer.com/neural-audio) until March the 17th of 2023!
 
 *Note:* If you like the podcast so far, please, [go to Apple Podcasts and leave me a review there](https://podcasts.apple.com/us/podcast/wolftalk-podcast-about-audio-programming-people-careers/id1595913701). It will benefit both sides: more reviews mean a broader reach on Apple Podcasts and feedback can help me to improve the show and provide better quality content to you. Thank you for doing this 🙏
+
+{% render 'google-ad.liquid' %}
 
 ## Episode Contents
 
@@ -44,7 +63,10 @@ In this podcast episode, you will learn:
 
 ## References
 
+Below you'll find all people, places, and references mentioned in the podcast episode.
+
 1. Andrew Fyfe ([andrew@qosmo.jp](mailto:andrew@qosmo.jp))
+    1. [LinkedIn profile](https://www.linkedin.com/in/andrewfyfe93/)
 2. Technologies
     1. [Pure Data](https://puredata.info/)
     2. Python

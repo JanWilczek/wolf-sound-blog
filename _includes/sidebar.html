@@ -12,7 +12,7 @@
                         <p class="card-text">My name is Jan Wilczek. I am an audio programmer, a researcher in the field of music technology, and a musician. Through articles and videos from WolfSound, you will easily understand the main concepts of sound processing using software.</p>
                     </div>
                     <div class="row justify-content-center">
-                        <a href="{% link about.md %}" class="btn btn-primary sidebar-btn" title="Read more about WolfSound">Read More About WolfSound</a>
+                        <a href="{% link collections.all, 'about.md' %}" class="btn btn-primary sidebar-btn" title="Read more about WolfSound">Read More About WolfSound</a>
                     </div>
                 </div>
             </div>
@@ -20,15 +20,15 @@
 
         <div class="checklist-banner">
             <h5 class="text-center">Free Audio Plugin Developer Checklist</h5>
-            <img src="{% link assets/img/pages/ChecklistMiniatureSmall.webp %}" alt="Preview of the ultimate audio plugin developer checklist"/>
+            <img src="/assets/img/pages/ChecklistMiniatureSmall.webp" alt="Preview of the ultimate audio plugin developer checklist"/>
             <div class="row justify-content-center m-1">
-            <a href="{% link single-pages/checklist.html %}" class="btn btn-primary sidebar-btn" title="Get the Ultimate Audio Plugin Developer Checklist">
+            <a href="{% link collections.all, 'single-pages/checklist.html' %}" class="btn btn-primary sidebar-btn" title="Get the Ultimate Audio Plugin Developer Checklist">
                 Get the Checklist Now
             </a>
             </div>
         </div>
 
-        {% include share-buttons.html %}
+        {% include 'share-buttons.html' %}
         
         <h5>Follow me on:</h5>
         <ul>
@@ -137,7 +137,7 @@
         <h5>Popular series:</h5>
         <ul>
             <li>
-                <a href="{% post_url 2020-06-20-the-secret-behind-filtering %}">
+                <a href="{% post_url collections.posts, '2020-06-20-the-secret-behind-filtering' %}">
                     <div class="row">
                         <!-- Image used for background: https://www.flickr.com/photos/53416677@N08/4972851531/in/photostream/lightbox/ -->
                         <!-- Distributed under Attribution 2.0 Generic Creative Commons License. Link to the license: https://creativecommons.org/licenses/by/2.0/ -->
@@ -151,8 +151,8 @@
         <div class="online-course-banner">
           <h5>Online course progress</h5>
           <div class="progress course-progress">
-            <div class="progress-bar course-progress-bar" role="progressbar" style="width: 58%;" aria-valuenow="58"
-              aria-valuemin="0" aria-valuemax="100">58%</div>
+            <div class="progress-bar course-progress-bar" role="progressbar" style="width: 71%;" aria-valuenow="71"
+              aria-valuemin="0" aria-valuemax="100">71%</div>
           </div>
           <p>In response to numerous requests, I am currently working intensively on my first online course on audio
             programming. Because of this workload, I have reduced the number of articles and videos I release each month (but
@@ -169,8 +169,9 @@
 
         <h5>Tag cloud</h5>
         <div class="tagcloud">
-            {% for tag in site.tags %}
-            <a href="/tag/{{ tag[0] | slugify }}" class="tag-cloud-link">{{ tag[0] }}</a>
+            {% assign tags = collections.all | getAllTags %}
+            {% for tag in tags %}
+            <a href="/tag/{{ tag | slugify }}" class="tag-cloud-link">{{ tag }}</a>
             {% endfor %}
         </div>
         

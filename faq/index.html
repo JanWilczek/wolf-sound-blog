@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Frequently Asked Questions
-descriptions: The most popular questions asked by the audience of WolfSound with answers.
+description: The most popular questions asked by the audience of WolfSound with answers.
 ---
 <article class="faq">
 
@@ -24,12 +24,12 @@ descriptions: The most popular questions asked by the audience of WolfSound with
 <h2>Table of Contents</h2>
 
 <ol>
-{% for questions_category in site.data.faq.categories %}
+{% for questions_category in faq.categories %}
     <li><a href="#section{{ questions_category.id }}">{{ questions_category.name }}.</a></li>
 {% endfor %}
 </ol>
 
-{% for questions_category in site.data.faq.categories %}
+{% for questions_category in faq.categories %}
 <div class="accordion" id="faqAccordion{{ questions_category.id }}">
     <h2 id="section{{ questions_category.id }}">{{ questions_category.name }}</h2>
     <p>
@@ -57,4 +57,4 @@ descriptions: The most popular questions asked by the audience of WolfSound with
 
 <h2 id="comments">Comments</h2>
 
-{% include talkyard-comments.html %}
+{% include 'talkyard-comments.html' %}

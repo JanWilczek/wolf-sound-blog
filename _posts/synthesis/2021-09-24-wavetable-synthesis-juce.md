@@ -5,23 +5,23 @@ date: 2021-09-24
 author: Jan Wilczek
 layout: post
 permalink: /sound-synthesis/wavetable-synth-plugin-in-juce/
-images: assets/img/posts/synthesis/2021-09-24-wavetable-synthesis-juce
+images: /assets/img/posts/synthesis/2021-09-24-wavetable-synthesis-juce
 background: /assets/img/posts/synthesis/2021-09-24-wavetable-synthesis-juce/Thumbnail.png
 categories:
  - Sound Synthesis
 tags:
  - wavetable
- - JUCE
- - C++
+ - juce
+ - cpp
 discussion_id: 2021-09-24-wavetable-synthesis-juce
 ---
 Let's write a wavetable synthesizer in JUCE C++ framework!
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Ah4P-zOfdYc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-{% katexmm %}
 
-In previous articles, I explained [how wavetable synthesis algorithm works]({% post_url synthesis/2021-08-13-wavetable-synthesis-theory %}) and showed [an implementation of it in Python]({% post_url synthesis/2021-08-27-wavetable-synthesis-python %}). Now is the time to write a real-time wavetable synth in C++!
+
+In previous articles, I explained [how wavetable synthesis algorithm works]({% post_url collections.posts, 'synthesis/2021-08-13-wavetable-synthesis-theory' %}) and showed [an implementation of it in Python]({% post_url collections.posts, 'synthesis/2021-08-27-wavetable-synthesis-python' %}). Now is the time to write a real-time wavetable synth in C++!
 
 *Note: The article presents only code written by me. For the full, operational project, [see the related repository on GitHub](https://github.com/JanWilczek/wavetable-synth).*
 
@@ -37,7 +37,7 @@ JUCE is free for personal use, which makes it perfect for our goal of developing
 
 To understand this article, you only need to know 1 thing about JUCE.
 
-![]({{ page.images | absolute_url | append: "/InceptionJUCEMeme.jpg" }}){: alt="There is 1 thing you need to know about JUCE meme." width="600px" }
+![]({{ images | append: "/InceptionJUCEMeme.jpg" }}){: alt="There is 1 thing you need to know about JUCE meme." width="600px" }
 
 Plugins built with JUCE consist of two parts:
 
@@ -53,7 +53,7 @@ Plugins built with JUCE consist of two parts:
 1. `void prepareToPlay (double sampleRate, int samplesPerBlock)` enables us to configure our synthesizer after plugin start or after a major settings change, e.g., after changing the audio device settings.
 1. `void processBlock (juce::AudioBuffer<float>&, juce::MidiBuffer&)` contains the audio processing code that a developer using JUCE should write. `AudioBuffer` object contains audio samples of the current block and `MidiBuffer` object contains MIDI events that happened during that block.
 
-If you don't know what an audio block is, [check out this short paragraph]({% post_url 2021-05-14-fast-convolution %}#block-based-convolution).
+If you don't know what an audio block is, [check out this short paragraph]({% post_url collections.posts, '2021-05-14-fast-convolution' %}#block-based-convolution).
 
 **All we need to do is fill two above member functions.**
 
@@ -316,7 +316,7 @@ The DSP diagram is bigger than the code 😏.
 
 ### Setting the Frequency
 
-`setFrequency()` [5] implements Equation 9 from [the wave table theory article]({% post_url synthesis/2021-08-13-wavetable-synthesis-theory %}).
+`setFrequency()` [5] implements Equation 9 from [the wave table theory article]({% post_url collections.posts, 'synthesis/2021-08-13-wavetable-synthesis-theory' %}).
 
 _Listing 10. WavetableOscillator.cpp: setFrequency()._
 ```cpp
@@ -555,13 +555,13 @@ One thing you will hear instantly after playing some notes is that there are aud
 
 In this article, we implemented a wavetable synthesizer plugin in the JUCE C++ framework. If you have any questions or comments, don't hesitate to write them below!
 
-If you would like to see a wavetable synthesis implementation in other programming languages, I have [one in Python]({% post_url synthesis/2021-08-27-wavetable-synthesis-python %}) and [one in Rust]({% post_url synthesis/2021-10-15-wavetable-synthesis-rust %}) as well. Make sure to check them out!
+If you would like to see a wavetable synthesis implementation in other programming languages, I have [one in Python]({% post_url collections.posts, 'synthesis/2021-08-27-wavetable-synthesis-python' %}) and [one in Rust]({% post_url collections.posts, 'synthesis/2021-10-15-wavetable-synthesis-rust' %}) as well. Make sure to check them out!
 
 ## Bibliography
 
 Here is a list of useful references for the topic:
 
-[My article on how wavetable synthesis algorithm works]({% post_url synthesis/2021-08-13-wavetable-synthesis-theory %}).
+[My article on how wavetable synthesis algorithm works]({% post_url collections.posts, 'synthesis/2021-08-13-wavetable-synthesis-theory' %}).
 
 [Repository for this article containing the full code and source files](https://github.com/JanWilczek/wavetable-synth)
 
@@ -571,6 +571,6 @@ Here is a list of useful references for the topic:
 
 [MIDI] [MIDI Standard Specification, retrieved 24.09.2021](https://www.midi.org/specifications).
 
-{% include affiliate-disclaimer.html %}
+{% include 'affiliate-disclaimer.html' %}
 
-{% endkatexmm %}
+

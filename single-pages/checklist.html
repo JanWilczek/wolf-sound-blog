@@ -1,4 +1,5 @@
 ---
+layout: default
 permalink: /checklist/
 title: Free Checklist for Audio Plugin Development
 description: Get "The Ultimate Audio Plugin Developer Checklist" for free and start coding audio plugins for digital audio workstations now.
@@ -9,7 +10,7 @@ custom_css:
 
 <html lang="en">
 
-{% include head.html %}
+{% include 'head.html' %}
 
 <body>
 
@@ -70,10 +71,10 @@ custom_css:
         </div>
     </section>
 
-    {% include scripts.html %}
+    {% include 'scripts.html' %}
 
-    {% if jekyll.environment == "production" %}
-    {% include cookify.html %}
+    {% if buildSettings.environment == "production" %}
+    {% include 'cookify.html' %}
     {% endif %}
 </body>
 

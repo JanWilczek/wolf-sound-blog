@@ -1,9 +1,5 @@
 <head>
-    {% if jekyll.environment == "production" %}
-    <!-- Google Optimize -->
-    {% if page.url == "/" %}
-    <script src="https://www.googleoptimize.com/optimize.js?id=OPT-TQMXDMB"></script>
-    {% endif %}
+    {% if buildSettings.environment == "production" %}
     <!-- Global site tag (gtag.js) - Google Analytics UA -->
     <script async data-c-script="statistics"
         src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"></script>
@@ -28,13 +24,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>
-        {% if page.title %}{{ page.title | escape }} - {{ site.title | escape }}
-        {% else %}{{ site.title | escape }}{% endif %}
-    </title>
+    {% capture pageTitle %}{% if title %}{{ title | escape }} | {{ site.title | escape }}{% elsif eleventyComputed.title %}{{ eleventyComputed.title | escape }} | {{ site.title | escape }}{% else %}{{ site.title | escape }}{% endif %}{% endcapture %}
+    <title>{{ pageTitle }}</title>
 
+    {% capture pageDescription %}{{ description | default: excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}{% endcapture %}
     <meta name="description"
-        content="{{ page.description | default: page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
+        content="{{ pageDescription }}">
+    <meta name="robots" content="index, follow" />
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
     <link
@@ -46,45 +42,42 @@
     <link rel="stylesheet" href="{{"/assets/vendor/fontawesome-free/css/all.min.css" | relative_url }}">
 
     <link rel="stylesheet" href="{{"/assets/main.css" | relative_url }}">
-    <link rel="shortcut icon" type="image/png" href="{{"/favicon.png" | absolute_url}}">
-    <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
+    <link rel="shortcut icon" type="image/png" href="/favicon.png">
+
+    {% capture canonicalUrl %}{{ site.url }}{{ page.url | url }}{% endcapture %}
+    <link rel="canonical" href="{{ canonicalUrl }}">
 
     <!-- Relative pagination (for Bing and accessibility) -->
-    {% if paginator.previous_page_path %}
-    <link rel="prev" href="{{ paginator.previous_page_path | absolute_url }}" />
+    {% if pagination.href.previous %}
+    <link rel="prev" href="{{ pagination.href.previous }}" />
     {% endif %}
-    {% if paginator.next_page_path %}
-    <link rel="next" href="{{ paginator.next_page_path | absolute_url }}" />
+    {% if pagination.href.next %}
+    <link rel="next" href="{{ pagination.href.next }}" />
     {% endif %}
 
-    {% feed_meta %}
+    <!-- feed_meta -->
+    <link rel="alternate" href="/feed.xml" title="WolfSound's Activity Feed" type="application/rss+xml">
 
     <!-- KaTeX setup -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"
-        integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"
-        integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz"
-        crossorigin="anonymous"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"
-        integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
-        onload="renderMathInElement(document.body);"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css" integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI" crossorigin="anonymous">
+
+    <!-- The loading of KaTeX is deferred to speed up page rendering -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.js" integrity="sha384-G0zcxDFp5LWZtDuRMnBkk3EphCK1lhEf4UEyEM693ka574TZGwo4IWwS6QLzM/2t" crossorigin="anonymous"></script>
 
     <!-- Mailchimp popup -->
     <script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/5da91b45702ac45410802e155/fdaf0cfc974f6a2b434f92396.js");</script>
     
+    <!-- Syntax highlight CSS file -->
+    <link href="/assets/css/prism-vs.css" rel="stylesheet">
+
     <!-- Additional CSS files -->
-    {% if layout.custom_css %}
-        {% for stylesheet in layout.custom_css %}
-            <link rel="stylesheet" href="{{ stylesheet }}">
-        {% endfor %}
-    {% endif %}
-    {% if page.custom_css %}
-        {% for stylesheet in page.custom_css %}
+    {% if custom_css %}
+        {% for stylesheet in custom_css %}
             <link rel="stylesheet" href="{{ stylesheet }}">
         {% endfor %}
     {% endif %}
 
-    {% if jekyll.environment == "production" %}
+    {% if buildSettings.environment == "production" %}
     <!-- Meta Pixel Code -->
     <script data-c-script="statistics">
         !function (f, b, e, v, n, t, s) {
@@ -105,4 +98,20 @@
             src="https://www.facebook.com/tr?id=3305719803045802&ev=PageView&noscript=1" /></noscript>
     <!-- End Meta Pixel Code -->
     {% endif %}
+
+    {% capture shareableImage %}{{ background | default: "/assets/img/home/Logo.webp" }}{% endcapture %}
+
+    <meta property="og:title" content="{{ pageTitle }}"/>
+    <meta property="og:url" content="{{ canonicalUrl }}"/>
+    <meta property="og:description" content="{{ pageDescription }}"/>
+    <meta property="og:image" content="{{ shareableImage }}"/>
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name " content="{{ site.title }}" />
+
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:title" content="{{ pageTitle }}"/>
+    <meta name="twitter:description" content="{{ pageDescription }}"/>
+    <meta name="twitter:site" content="@{{ site.twitter_handle }}"/>
+    <meta name="twitter:image" content="{{ shareableImage }}"/>
+    <meta name="twitter:creator" content="@{{ site.twitter_handle }}"/>
 </head>

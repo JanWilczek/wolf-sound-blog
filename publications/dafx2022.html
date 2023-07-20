@@ -70,7 +70,7 @@ custom_js:
 
 <h3>Table of Contents</h3>
 <ol>
-    {% for device in site.data.publications.dafx2022.devices %}
+    {% for device in publications.dafx2022.devices %}
         <li><a href="#{{ device.name | slugify }}">{{ device.name }}</a></li>
         <ol>
             {% for example in device.examples %}
@@ -81,7 +81,7 @@ custom_js:
     {% endfor %}
 </ol>
 
-{% for device in site.data.publications.dafx2022.devices %}
+{% for device in publications.dafx2022.devices %}
     <h3 id="{{ device.name | slugify }}">{{ device.name }}</h3>
 
     {% for example in device.examples %}
@@ -94,7 +94,7 @@ custom_js:
                 </p>
                 {% for file in example.files %}
                     <ts-track title="{{file.name}}">
-                        <ts-source src="{{ page.assets  | append: device.modeled_device | append: '/' | append: sampling_rate | append: '/' | append: file.filename }}" type="audio/flac">
+                        <ts-source src="{{ assets  | append: device.modeled_device | append: '/' | append: sampling_rate | append: '/' | append: file.filename }}" type="audio/flac">
                         </ts-source>
                     </ts-track>
                 {% endfor %}

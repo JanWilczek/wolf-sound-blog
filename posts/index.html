@@ -5,5 +5,6 @@ description: Here, you will find all articles posted on WolfSound since 2019. <b
 redirect_from:
  - /articles/
 pagination:
-    enabled: true
+  data: collections.posts
+permalink: "/posts/{% if pagination.pageNumber > 0 %}page{{ pagination.pageNumber | plus: 1 }}/{% endif %}"
 ---

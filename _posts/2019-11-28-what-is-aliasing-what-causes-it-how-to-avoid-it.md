@@ -39,7 +39,7 @@ discussion_id: 2019-11-28-what-is-aliasing-what-causes-it-how-to-avoid-it
 ---
 <iframe width="560" height="315" src="https://www.youtube.com/embed/npeMd5U-5QI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-{% katexmm %}
+
 
 Aliasing is a very important phenomenon which highly influences the digital signal processing area. It is tightly coupled with the notion of sampling and sampling rate. Let&#8217;s discuss it in detail!
 
@@ -48,15 +48,7 @@ Aliasing is a very important phenomenon which highly influences the digital sign
 **Aliasing** is the effect of overlapping frequency components resulting from unsufficiently large sample rate. In other words, it causes appearance of frequencies in the amplitude-frequency spectrum, that are not in the original signal. How does it come to life?
 
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6611455743195468"
-     crossorigin="anonymous"></script><ins class="adsbygoogle"
-     style="display:block; text-align:center;"
-     data-ad-layout="in-article"
-     data-ad-format="fluid"
-     data-ad-client="ca-pub-6611455743195468"
-     data-ad-slot="7289385396"></ins><script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+{% render 'google-ad.liquid' %}
 
 ## Sampling theorem revisited
 
@@ -230,4 +222,3 @@ Feel free to download and run it yourself! You should have numpy, matplotlib and
 Reference:  
 [1] Oppenheim, A. V. and Willsky, A. S. Signals & Systems. 2nd ed. Upper Sadle River, New Jersey: Prentice Hall, 1997. 
 
-{% endkatexmm %}
