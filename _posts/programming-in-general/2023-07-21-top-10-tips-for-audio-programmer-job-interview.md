@@ -61,7 +61,7 @@ Quite often, the hiring process from the company side is a mess so it is not to 
 7. the position is not relevant anymore,
 8. the position got filled.
 
-So don't worry! If you did not get an invitation to an interview, it does not mean that you weren't the best candidtate; you may simply have been overlooked.
+So don't worry! If you did not get an invitation to an interview, it does not mean that you weren't the best candidate; you may simply have been overlooked.
 
 ## Tip #2: Don't Stress Too Much Over Your Resume
 
