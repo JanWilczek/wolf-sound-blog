@@ -23,6 +23,8 @@ custom_js:
 
 In my job of helping people transition to an audio programmer's position, I am often asked "how to prepare for an audio programming job interview"? In this article, I am going to share with you my top 10 tips on the topic, which helped others and me land their desired jobs or contracting offers.
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/cwECWAICs_0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 ### Table Of Contents
 
 1. [Assumptions](#assumptions)
