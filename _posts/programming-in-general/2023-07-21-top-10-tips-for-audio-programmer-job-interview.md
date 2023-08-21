@@ -5,7 +5,7 @@ date: 2023-07-21
 author: Jan Wilczek
 layout: post
 images: /assets/img/posts/programming-in-general/2023-07-21-top-10-tips-for-audio-programmer-job-interview/
-# background: /assets/img/posts/programming-in-general/2023-07-21-top-10-tips-for-audio-programmer-job-interview/Thumbnail.webp
+background: /assets/img/posts/programming-in-general/2023-07-21-top-10-tips-for-audio-programmer-job-interview/Thumbnail.webp
 # permalink: /audio-developers-conference-2022-highlights/
 categories:
   - Programming in general
