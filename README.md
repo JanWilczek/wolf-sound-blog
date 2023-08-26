@@ -17,3 +17,9 @@ To build pngs from latex files:
 ```
 latexmk filename.tex -shell-escape
 ```
+
+To resize a png image and convert it to a webp image:
+
+```bash
+cwebp Thumbnail.png -q 65 -s 1024 0 -o Thumbnail.webp
+```
