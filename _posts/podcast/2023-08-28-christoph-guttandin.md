@@ -16,7 +16,7 @@ tags:
   - typescript
 discussion_id: 2023-08-28-christoph-guttandin
 ---
-Write audio code for the browser using recommended languages & frameworks.
+Write audio code for the browser using recommended languages & frameworks!
 
 <!-- TODO: RedCircle link -->
 
