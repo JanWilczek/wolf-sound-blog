@@ -1,20 +1,18 @@
 # WolfSound Blog
+
 Source code of my WolfSound audio programming blog. The site runs on Jekyll and can be found under www.thewolfsound.com.
 
-# Useful commands
+## Useful commands
 
 To run the test server
-```
-bundle exec jekyll serve
-```
 
-To run the test server when working on an article
-```
-bundle exec jekyll serve --incremental
+```bash
+npx @11ty/eleventy --serve
 ```
 
 To build pngs from latex files:
-```
+
+```bash
 latexmk filename.tex -shell-escape
 ```
 
