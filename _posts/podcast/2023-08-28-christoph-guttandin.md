@@ -23,13 +23,13 @@ Write audio code for the browser using recommended languages & frameworks!
 
 ## Listen on
 
-* 🎧 [Spotify](#)
-* 🎥 [YouTube](#)
-* 🎧 [Apple Podcasts (iTunes)](#)
-* 🎧 [Amazon Music](#)
-* 🎧 [Google Podcasts](#)
-* 🎧 [Stitcher](#)
-* 🎧 [TuneIn Radio](#)
+* 🎧 [Spotify](https://open.spotify.com/episode/1bbz2pLon3Haagfu1sXtCd?si=600cc31d14ae4fe4)
+* 🎥 [YouTube](https://youtu.be/Mqaq0rlRPaQ?si=Axza6Pv2MU-G1tYe)
+* 🎧 [Apple Podcasts (iTunes)](https://podcasts.apple.com/us/podcast/web-audio-programming-basics-with-christoph-guttandin/id1595913701?i=1000625911204)
+* 🎧 [Amazon Music](https://music.amazon.com/podcasts/b42682b5-61ba-4a6f-8b11-aed42b07ef9f/episodes/40096845-3735-45fa-96dd-dffbead72473/web-audio-programming-basics-with-christoph-guttandin-wolftalk-014)
+* 🎧 [Google Podcasts](https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkcy5yZWRjaXJjbGUuY29tL2JmNDBhMWQyLTdlNDEtNGRkYi04YzNhLWVkODIzOTQ3MjNiYQ/episode/NzQ5YzllMzktOWJlZC00ZTVkLWEwNTctMDkyMmVlNDYyM2Q0?sa=X&ved=0CAUQkfYCahcKEwiA5MSXxv-AAxUAAAAAHQAAAAAQAQ)
+* 🎧 [Stitcher](https://listen.stitcher.com/yvap/?af_dp=stitcher://episode/306787912&af_web_dp=https://www.stitcher.com/episode/306787912&deep_link_value=stitcher://episode/306787912)
+* 🎧 TuneIn Radio (TBA)
 
 [All podcast episodes.](/podcast)
 
@@ -66,42 +66,42 @@ Below you’ll find all people, places, and references mentioned in the podcast 
     1. [Media Codings website](https://media-codings.com)
     2. [GitHub](https://github.com/chrisguttandin)
     3. [Audio Developer Conference 2022 talk](https://youtu.be/BfOCjG12_2I)
-7. [Medieninformatik HTW Berlin](https://imi-bachelor.htw-berlin.de/)
-8. Berlin Music Hackday
-9. [The World Wide Web Consortium (W3C)](https://www.w3.org/)
+1. [Medieninformatik HTW Berlin](https://imi-bachelor.htw-berlin.de/)
+1. Berlin Music Hackday
+1. [The World Wide Web Consortium (W3C)](https://www.w3.org/)
     1. [Audio Working Group](https://www.w3.org/groups/wg/audio/)
-        3. [Github](https://github.com/WebAudio)
+        1. [Github](https://github.com/WebAudio)
     2. [Audio Community Group](https://www.w3.org/community/audio-comgp/)
-10. Web audio technologies
-    10. [Web Audio API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API)
+1. Web audio technologies
+    1. [Web Audio API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API)
         1. AudioWorklet
         2. Shared AudioBuffer
         3. OscillatorNode
         4. BiquadFilterNode
-    11. [MediaSession](https://developer.mozilla.org/en-US/docs/Web/API/MediaSession)
-    12. [Tone.js library](https://tonejs.github.io/)
-    19. [WebAssembly](https://webassembly.org/)
-    15. [Christoph's Standardized Audio Context](https://github.com/chrisguttandin/standardized-audio-context)
-    16. [Web Platform Tests](https://web-platform-tests.org/)
-    18. [Web RTC](https://webrtc.org/)
-20. Resources to learn web audio programming:
-    20. [MDN web docs on web audio API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API/Using_Web_Audio_API)
-    21. [Web Audio School](https://mmckegg.github.io/web-audio-school/)
-    22. [Chrome Team Web Audio Examples](https://googlechromelabs.github.io/web-audio-samples/)
-    23. [Paul from Mozilla Firefox on WebAudio API](https://blog.paul.cx/)
-    24. [Ruth John from Mozilla talks & tutorials](https://ruthjohn.com/#speaking)
-    25. [Web Audio Slack Channel](https://web-audio-slackin.herokuapp.com/)
-    26. [StackOverflow web audio questions](https://stackoverflow.com/questions/tagged/web-audio-api)
-13. [Chris Rogers](https://www.linkedin.com/in/diagonal/)
-14. Browsers:
+    2. [MediaSession](https://developer.mozilla.org/en-US/docs/Web/API/MediaSession)
+    3. [Tone.js library](https://tonejs.github.io/)
+    4. [WebAssembly](https://webassembly.org/)
+    5. [Christoph's Standardized Audio Context](https://github.com/chrisguttandin/standardized-audio-context)
+    6. [Web Platform Tests](https://web-platform-tests.org/)
+    7. [Web RTC](https://webrtc.org/)
+1. Resources to learn web audio programming:
+    0. [MDN web docs on web audio API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API/Using_Web_Audio_API)
+    1. [Web Audio School](https://mmckegg.github.io/web-audio-school/)
+    2. [Chrome Team Web Audio Examples](https://googlechromelabs.github.io/web-audio-samples/)
+    3. [Paul from Mozilla Firefox on WebAudio API](https://blog.paul.cx/)
+    4. [Ruth John from Mozilla talks & tutorials](https://ruthjohn.com/#speaking)
+    5. [Web Audio Slack Channel](https://web-audio-slackin.herokuapp.com/)
+    6. [StackOverflow web audio questions](https://stackoverflow.com/questions/tagged/web-audio-api)
+1. [Chris Rogers](https://www.linkedin.com/in/diagonal/)
+1. Browsers:
     1. Chrome
     2. Firefox
     3. Edge
     4. Safari
-2. Programming languages
-    2. TypeScript
-    3. JavaScript
-    4. Coffee Script
-    5. Java
+1. Programming languages
+    1. TypeScript
+    1. JavaScript
+    1. Coffee Script
+    1. Java
 
 Thank you for listening!
