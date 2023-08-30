@@ -4,7 +4,6 @@ description: "Learn how to easily structure your audio plugin C++ repository and
 date: 2023-08-21
 author: Jan Wilczek
 layout: post
-images: /assets/img/posts/programming-in-general/2023-07-21-top-10-tips-for-audio-programmer-job-interview/
 background: /assets/img/posts/programming-in-general/2023-08-21-audio-plugin-template/Thumbnail.webp
 permalink: /how-to-build-audio-plugin-with-juce-cpp-framework-cmake-and-unit-tests/
 categories:
