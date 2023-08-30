@@ -19,8 +19,7 @@ layout: default
           {% endif %}
           <span class="meta">Posted by
             <a href="#">{% if author %}{{ author }}{% else %}{{ site.author }}{% endif %}</a>
-            on {{ date | date: '%B %d, %Y' }} &middot; {% include 'read_time.html',
-            content=content %}
+            on {{ date | date: '%B %d, %Y' }} &middot; {% render 'read_time.html', content: content %}
           </span>
         </div>
       </div>
