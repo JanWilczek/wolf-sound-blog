@@ -6,7 +6,6 @@ author: Jan Wilczek
 layout: post
 images: /assets/img/posts/fx/2023-08-30-designing-audio-effect-plugins-in-cpp-book-review/
 background: /assets/img/posts/fx/2023-08-30-designing-audio-effect-plugins-in-cpp-book-review/Thumbnail.webp
-# permalink: /how-to-build-audio-plugin-with-juce-cpp-framework-cmake-and-unit-tests/
 categories:
   - Audio FX
 tags:
