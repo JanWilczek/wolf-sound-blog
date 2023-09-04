@@ -27,6 +27,8 @@ custom_js:
 ---
 Book review from the perspective of a C++ audio programmer.
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/8VPdm-yNCsk?si=r6uMbAtXIItY1N6m" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 "Designing Audio Effect Plugins in C++" by Will Pirkle is one of the most widely recommended books to learn audio programming. As it's quite a long and expensive book, I've decided to read it cover-to-cover and give an honest and unbiased opinion on it so that you can consciously decide whether to read it or not. So… is it worth the hype? Let's find out!
 
 ### Table of Contents
@@ -52,7 +54,7 @@ Let's start with what is this book about.
 
 _Figure 1. "Designing Audio Effect Plugins in C++: For AAX, AU, and VST3 With DSP Theory" (2nd edition) by Will Pirkle book cover._
 
-"Designing Audio Effect Plugins in C++: For AAX, AU, and VST3 With DSP Theory" (2nd edition) by Will Pirkle aims to be a tutorial on creating audio plugins for digital audio workstations (DAWs). It stands exactly in the middle of the ground that WolfSound covers: a place where digitial signal processing theory, C++, music, and operating systems theory meet to allow sound engineers, composers, sound designers, and sound engineers come up with sonically amusing landscapes.
+"Designing Audio Effect Plugins in C++: For AAX, AU, and VST3 With DSP Theory" (2nd edition) by Will Pirkle aims to be a tutorial on creating audio plugins for digital audio workstations (DAWs). It stands exactly in the middle of the ground that WolfSound covers: a place where digitial signal processing theory, C++, music, and operating systems theory meet to allow sound engineers, composers, sound designers, and musicians come up with sonically amusing landscapes.
 
 This is quite a long book. A few chapters of the book deal very briefly with digital audio signal processing. The introduction is more of a review than an explanation so don't approach it thinking that you'll learn digital signal processing (DSP) in this way.
 
