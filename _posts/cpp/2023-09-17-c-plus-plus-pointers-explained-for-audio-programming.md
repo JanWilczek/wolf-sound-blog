@@ -701,24 +701,78 @@ The easiest way to approach this is to **read from right to left.**
 
 In the following table is your guide. Remember that `float*` can be a pointer to a single `float` or a pointer to an array of `float`s... And you need to remember its meaning 😉
 
-| Type | Meaning |
-| --- | --- |
-| `float*` | pointer to `float` (single or an array) |
-| `const float*` | pointer to `const` `float` (the `float` cannot be modified) |
-| `float const*` | same as `const float*` |
-| `float* const` | `const` pointer to `float` (the pointer cannot be modified) |
-| `float**` | pointer to a pointer to `float` or an array of arrays of `float`s |
-| `const float**` | pointer to a pointer to `const` `float` or an array of arrays of `const` `float`s |
-| `float const**` | same as `const float**` |
-| `float* const*` | a pointer to a `const` pointer to `float` or (more probably) an array of `const` pointers to `float`s; the pointers in the array cannot be modified, the `float`s in the arrays can be modified; ideal for the “output samples” argument |
-| `float** const` | a const pointer to a non-`const` pointer to `float` or a `const` pointer to an array of arrays, where all pointers and all `float`s can be modified |
-| `const float const**` | duplicate `const`, malformed |
-| `const float* const*` | a pointer to a const pointer to a `const` `float` or an array of `const` pointers to arrays of `const` `float`s; ideal for input samples that must not be mutated and where pointers to individual channels must not be mutated either |
-| `float const* const*` | same as `const float* const*` |
-| `float* const const*` | duplicate `const`, malformed |
-| `float* const* const` | const pointer to an array of `const` pointers to non-`const` `float`(s) |
-| `const float* const* const` | `const` pointer to an array of `const` pointers to `const` `float`(s) |
-| `float const* const* const` | same as `const float* const* const` |
+<table class="table table-striped table-responsive">
+    <thead>
+    <tr>
+        <th width="250px">Type</th>
+        <th>Meaning</th>
+    </tr>
+    </thead>
+    <tr>
+        <td><code>float*</code></td>
+        <td>pointer to <code>float</code> (single or an array)</td>
+    </tr>
+    <tr>
+        <td><code>const float*</code></td>
+        <td>pointer to <code>const</code> <code>float</code> (the <code>float</code> cannot be modified)</td>
+    </tr>
+    <tr>
+        <td><code>float const*</code></td>
+        <td>same as <code>const float*</code></td>
+    </tr>
+    <tr>
+        <td><code>float* const</code></td>
+        <td><code>const</code> pointer to <code>float</code> (the pointer cannot be modified)</td>
+    </tr>
+    <tr>
+        <td><code>float**</code></td>
+        <td>pointer to a pointer to <code>float</code> or an array of arrays of <code>float</code>s</td>
+    </tr>
+    <tr>
+        <td><code>const float**</code></td>
+        <td>pointer to a pointer to <code>const</code> <code>float</code> or an array of arrays of <code>const</code> <code>float</code>s</td>
+    </tr>
+    <tr>
+        <td><code>float const**</code></td>
+        <td>same as <code>const float**</code></td>
+    </tr>
+    <tr>
+        <td><code>float* const*</code></td>
+        <td>a pointer to a <code>const</code> pointer to <code>float</code> or (more probably) an array of <code>const</code> pointers to <code>float</code>s; the pointers in the array cannot be modified, the <code>float</code>s in the arrays can be modified; ideal for the “output samples” argument</td>
+    </tr>
+    <tr>
+        <td><code>float** const</code></td>
+        <td>a const pointer to a non-<code>const</code> pointer to <code>float</code> or a <code>const</code> pointer to an array of arrays, where all pointers and all <code>float</code>s can be modified</td>
+    </tr>
+    <tr>
+        <td><code>const float const**</code></td>
+        <td>duplicate <code>const</code>, malformed</td>
+    </tr>
+    <tr>
+        <td><code>const float* const*</code></td>
+        <td>a pointer to a const pointer to a <code>const</code> <code>float</code> or an array of <code>const</code> pointers to arrays of <code>const</code> <code>float</code>s; ideal for input samples that must not be mutated and where pointers to individual channels must not be mutated either</td>
+    </tr>
+    <tr>
+        <td><code>float const* const*</code></td>
+        <td>same as <code>const float* const*</code></td>
+    </tr>
+    <tr>
+        <td><code>float* const const*</code></td>
+        <td>duplicate <code>const</code>, malformed</td>
+    </tr>
+    <tr>
+        <td><code>float* const* const</code></td>
+        <td>const pointer to an array of <code>const</code> pointers to non-<code>const</code> <code>float</code>(s)</td>
+    </tr>
+    <tr>
+        <td><code>const float* const* const</code></td>
+        <td><code>const</code> pointer to an array of <code>const</code> pointers to <code>const</code> <code>float</code>(s)</td>
+    </tr>
+    <tr>
+        <td><code>float const* const* const</code></td>
+        <td>same as <code>const float* const* const</code></td>
+    </tr>
+</table>
 
 Here are examples of how each of these work that you can [check out on Compiler Explorer.](https://godbolt.org/z/j89hEc1rK)
 
