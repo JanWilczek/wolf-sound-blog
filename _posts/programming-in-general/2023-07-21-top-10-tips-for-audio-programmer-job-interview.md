@@ -29,7 +29,7 @@ In my job of helping people transition to an audio programmer's position, I am o
 
 1. [Assumptions](#assumptions)
 2. [Tip #1: Don't Panic When They Don't Respond](#tip-1-dont-panic-when-they-dont-respond)
-3. [Tip #2: Don't Stress Too Much About Your Resume](#tip-2-dont-stress-too-much-about-your-resume)
+3. [Tip #2: Don't Stress Too Much Over Your Resume](#tip-2-dont-stress-too-much-over-your-resume)
 4. [Tip #3: Don't Be Discouraged By The Requirements](#tip-3-dont-be-discouraged-by-the-requirements)
 5. [Tip #4: Be Mindful Of What You Know And What You Don't Know](#tip-4-be-mindful-of-what-you-know-and-what-you-dont-know)
 6. [Tip #5: Prepare On Your Experience](#tip-5-prepare-on-your-experience)
