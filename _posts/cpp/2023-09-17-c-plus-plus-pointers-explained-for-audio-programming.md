@@ -331,7 +331,7 @@ To directly create a `unique_ptr` or a `shared_ptr` without using `new`, use `[s
 
 ### In audio programming
 
-We use raw pointers to use polymorphism and interact with audio APIs like the VST3 API or the JUCE C++ framework.
+We use raw pointers to use polymorphism and interact with audio APIs like the [VST3 API](https://steinbergmedia.github.io/vst3_doc/vstsdk/index.html) or the [JUCE C++ framework](https://juce.com/).
 
 An example of this is JUCE’s `createPluginFilter()` function which allocates a new audio plugin processor and returns it:
 
