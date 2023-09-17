@@ -102,8 +102,8 @@ First of all, a perfectionist like me cannot stand **not conforming to the best 
 
 Some of the "sins" that struck me where
 
-- manual memory allocation (naked new) instead of `make_shared` or `make_unique`,
-- not using `std::vector`; the author used `std::unique_ptr<T[]>` instead and I still don't know why (it wasn't an alignment issue),
+- manual memory allocation (naked `new`) instead of `make_shared` or `make_unique`,
+- not using `std::vector<T>`; the author used `std::unique_ptr<T[]>` instead and I still don't know why (it wasn't an alignment issue),
 - manual specification of copy constructor and copy assignment operators; in C++ code like this:
 
 ```cpp
