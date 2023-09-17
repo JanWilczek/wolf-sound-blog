@@ -11,11 +11,24 @@ const pluginRss = require("@11ty/eleventy-plugin-rss");
 const { minify } = require("terser");
 
 module.exports = function (eleventyConfig) {
+  // Workaround for ES modules that don't support require()
+  let slugify;
+  eleventyConfig.on('eleventy.before', async ({}) => {
+        slugify = (await import("@sindresorhus/slugify")).default;
+  });
+
   // Add header anchor and footnotes plugin to Markdown renderer
   const markdownLib = markdownIt({ html: true, typographer: true });
+  const permalinkOptions = {
+    symbol: "<i class=\"fas fa-link\"></i>",
+    placement: 'after'
+  };
   markdownLib
     .use(markdownItFootnote)
-    .use(markdownItAnchor)
+    .use(markdownItAnchor, {
+        permalink: markdownItAnchor.permalink.ariaHidden(permalinkOptions),
+        slugify: s => slugify(s)
+    })
     .use(markdownItAttrs, {
       leftDelimiter: "{:",
       rightDelimiter: "}",

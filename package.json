@@ -26,6 +26,7 @@
     "url": "git+https://github.com/BlackrockDigital/startbootstrap-clean-blog-jekyll.git"
   },
   "dependencies": {
+    "@sindresorhus/slugify": "^2.2.1",
     "bootstrap": "4.3.1",
     "cookify": "^3.0.1",
     "eleventy-plugin-wordcount": "^1.0.5",

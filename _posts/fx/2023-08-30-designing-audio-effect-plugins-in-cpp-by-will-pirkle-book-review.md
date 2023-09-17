@@ -33,11 +33,11 @@ Book review from the perspective of a C++ audio programmer.
 
 ### Table of Contents
 
-1. [What is "Designing Audio Effect Plugins in C++" about?](#what-is-%E2%80%9Cdesigning-audio-effect-plugins-in-c%2B%2B%E2%80%9D-about%3F)
-2. [What makes it good or bad?](#what-makes-it-good-or-bad%3F)
+1. [What is "Designing Audio Effect Plugins in C++" about?](#what-is-designing-audio-effect-plugins-in-c-about)
+2. [What makes it good or bad?](#what-makes-it-good-or-bad)
    1. [The Good](#the-good)
    2. [The Bad](#the-bad)
-3. [Why should you read "Designing Audio Effect Plugins in C++"?](#why-should-you-read-%E2%80%9Cdesigning-audio-effect-plugins-in-c%2B%2B%E2%80%9D%3F)
+3. [Why should you read "Designing Audio Effect Plugins in C++"?](#why-should-you-read-designing-audio-effect-plugins-in-c)
 4. [My final thoughts](#my-final-thoughts)
 
 {% render 'google-ad.liquid' %}
