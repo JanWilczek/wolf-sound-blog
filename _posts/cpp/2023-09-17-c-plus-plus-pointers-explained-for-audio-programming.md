@@ -215,12 +215,14 @@ void foo() {
     auto vector = std::vector<float>(4);
 
     if (alreadyDone()) {
-         // 100% safe, memory allocated by the vector will be deallocated in the vector's destructor
+         // 100% safe, memory allocated by the vector will be
+         // deallocated in the vector's destructor
         return;
     }
 
     if (error()) {
-         // 100% safe, memory allocated by the vector will be deallocated in the vector's destructor
+         // 100% safe, memory allocated by the vector will be
+         // deallocated in the vector's destructor
         throw std::exception{};
     }
 }
@@ -349,9 +351,9 @@ We also use raw pointers to pass arrays of samples:
 float gain = 0.5f;
 //...
 void applyGainTo(float* samples, int samplesToProcess) {
-	for (auto i = 0; i < samplesToProcess; ++i) {
-		samples[i] *= gain; // use as an array
-	}
+  for (auto i = 0; i < samplesToProcess; ++i) {
+    samples[i] *= gain; // use as an array
+  }
 }
 ```
 
@@ -380,7 +382,7 @@ You can check if a pointer points somewhere by comparing it against the `nullptr
 float* ptr;
 //...
 if (ptr != nullptr) {
-	// ptr (hopefully) points somewhere meaningful
+  // ptr (hopefully) points somewhere meaningful
 }
 ```
 
@@ -390,7 +392,7 @@ We can simplify this comparison by using a pointer as the condition directly.
 float* ptr;
 //...
 if (ptr) {
-	// ptr (hopefully) points somewhere meaningful
+  // ptr (hopefully) points somewhere meaningful
 }
 ```
 
@@ -411,7 +413,7 @@ When you deal with audio, you stumble across the type `void*`. Now, `void` befor
 
 ```cpp
 void returnImmediately() {
-	return;
+  return;
 }
 ```
 
@@ -448,16 +450,16 @@ Another example (which is very important) is passing data to some operating syst
 
 ```cpp
 typedef void (SLAPIENTRY *slPlayCallback) (
-	SLPlayItf caller,
-	void *pContext,
-	SLuint32 event
+  SLPlayItf caller,
+  void *pContext,
+  SLuint32 event
 );
 
 SLresult (*RegisterCallback) (
-		SLPlayItf self,
-		slPlayCallback callback,
-		void *pContext
-	);
+    SLPlayItf self,
+    slPlayCallback callback,
+    void *pContext
+  );
 ```
 
 You can pass some additional data like a pointer to a class instance in the callback to redirect the callback to a more appropriate place than a free function or a global instance. Here’s an example based on the [OpenSL ES specification](https://registry.khronos.org/OpenSL-ES/specs/OpenSL_ES_Specification_1.0.1.pdf) with as many details as possible omitted.
@@ -465,14 +467,15 @@ You can pass some additional data like a pointer to a class instance in the call
 ```cpp
 struct PlaybackEventHandler {
 void handle(SLuint32 playEvent) {
-	//...
+  //...
 }
 };
 
 // the callback function
 void playEventCallback(SLPlayItf caller, void* pContext, SLuint32 playEvent) {
  // retrieve the handler from the context
- PlaybackEventHandler* handler = reinterpret_cast<PlaybackEventHandler*>(pContext);
+ PlaybackEventHandler* handler
+                        = reinterpret_cast<PlaybackEventHandler*>(pContext);
  // redirect the callback to the actual handler
  handler->handle(playEvent);
 }
@@ -481,9 +484,11 @@ void playEventCallback(SLPlayItf caller, void* pContext, SLuint32 playEvent) {
 // create the actual handler
 auto handler = std::make_unique<PlaybackEventHandler>();
 
-// register the callback which can only be a free function (but I'm not 100% sure on this)
+// register the callback which can only be a free function
+// (but I'm not 100% sure on this)
 // pass the handler as "raw" memory
-res = (*playItf)->RegisterCallback(playItf, playEventCallback, reinterpret_cast<void*>(handler.get()));
+res = (*playItf)->RegisterCallback(playItf, playEventCallback,
+                                   reinterpret_cast<void*>(handler.get()));
 ```
 
 So `void*` does come up in audio processing because audio code often deals with low-level C-style application programming interfaces (APIs).
@@ -495,10 +500,11 @@ Note that to call a member function of a class using a pointer to its instance, 
 
 struct PlaybackEventHandler {
 void handle(SLuint32 playEvent) {
-	//...
+  //...
 }
 };
-std::unique_ptr<PlaybackEventHandler> handler = std::make_unique<PlaybackEventHandler>();
+std::unique_ptr<PlaybackEventHandler> handler
+                = std::make_unique<PlaybackEventHandler>();
 PlaybackEventHandler* handlerRawPtr = handler.get();
 
 // these are equivalent but -> is more handy
@@ -532,7 +538,7 @@ A use case for it in C-style APIs is to change the value of a pointer variable p
 #include <cassert>
 
 void allocate(float** p) {
-		// p's value can be manipulated
+    // p's value can be manipulated
     *p = new float;
 }
 
@@ -584,7 +590,7 @@ JUCE requires the audio callback to be a class that inherits from `juce::AudioIO
 
 class AudioCallback : public juce::AudioIODeviceCallback {
 public:
-	void audioDeviceIOCallbackWithContext(
+  void audioDeviceIOCallbackWithContext(
       const float* const* inputChannelData,
       int numInputChannels,
       float* const* outputChannelData,
@@ -628,19 +634,20 @@ void audioDeviceIOCallbackWithContext(
       int numOutputChannels,
       int numSamples,
       const juce::AudioIODeviceCallbackContext& context) {
-	for (auto channel = 0; channel < numInputChannels; ++channel) {
-		for (auto i = 0; i < numSamples; ++i) {
-			// inputChannelData[channel][i] holds the i-th sample in the channel-th channel
-		}
-	}
+  for (auto channel = 0; channel < numInputChannels; ++channel) {
+    for (auto i = 0; i < numSamples; ++i) {
+      // inputChannelData[channel][i] holds the i-th sample
+      // in the channel-th channel
+    }
+  }
 
-	for (auto channel = 0; channel < numOutputChannels; ++channel) {
-		for (auto i = 0; i < numSamples; ++i) {
-			// set the i-th sample of the channel-th channel to 0 (silence)
-			outputChannelData[channel][i] = 0.f;
-		}
-	}
-	
+  for (auto channel = 0; channel < numOutputChannels; ++channel) {
+    for (auto i = 0; i < numSamples; ++i) {
+      // set the i-th sample of the channel-th channel to 0 (silence)
+      outputChannelData[channel][i] = 0.f;
+    }
+  }
+  
 }
 ```
 
@@ -651,7 +658,7 @@ But even JUCE’s examples show that we want to escape from raw pointers and fra
 // Create an AudioBuffer to wrap our incoming data, note that this does
 // no allocations or copies, it simply references our input data
 juce::AudioBuffer<float> buffer(const_cast<float**>(inputChannelData),
-																numInputChannels, numSamples);
+                                numInputChannels, numSamples);
 ```
 
 The `juce::AudioBuffer` class used in this code is a nice wrapper for multidimensional arrays containing samples.
@@ -696,22 +703,22 @@ In the following table is your guide. Remember that `float*` can be a pointer to
 
 | Type | Meaning |
 | --- | --- |
-| float* | pointer to float (single or an array) |
-| const float* | pointer to  const float (the float cannot be modified) |
-| float const* | same as const float* |
-| float* const | const pointer to float (the pointer cannot be modified) |
-| float** | pointer to a pointer to float or an array of arrays of floats |
-| const float** | pointer to a pointer to const float or an array of arrays of const floats |
-| float const** | same as const float** |
-| float* const* | a pointer to a const pointer to float or (more probably) an array of const pointers to floats; the pointers in the array cannot be modified, the floats in the arrays can be modified; ideal for the “output samples” argument |
-| float** const | a const pointer to a non-const pointer to float or a const pointer to an array of arrays, where all pointers and all floats can be modified |
-| const float const** | duplicate const, malformed |
-| const float* const* | a pointer to a const pointer to a const float or an array of const pointers to arrays of const floats; ideal for input samples that must not be mutated and where pointers to individual channels must not be mutated either |
-| float const* const* | same as const float* const* |
-| float* const const* | duplicate const, malformed |
-| float* const* const | const pointer to an array of const pointers to non-const float(s) |
-| const float* const* const | const pointer to an array of const pointers to const float(s) |
-| float const* const* const | same as const float* const* const |
+| `float*` | pointer to `float` (single or an array) |
+| `const float*` | pointer to `const` `float` (the `float` cannot be modified) |
+| `float const*` | same as `const float*` |
+| `float* const` | `const` pointer to `float` (the pointer cannot be modified) |
+| `float**` | pointer to a pointer to `float` or an array of arrays of `float`s |
+| `const float**` | pointer to a pointer to `const` `float` or an array of arrays of `const` `float`s |
+| `float const**` | same as `const float**` |
+| `float* const*` | a pointer to a `const` pointer to `float` or (more probably) an array of `const` pointers to `float`s; the pointers in the array cannot be modified, the `float`s in the arrays can be modified; ideal for the “output samples” argument |
+| `float** const` | a const pointer to a non-`const` pointer to `float` or a `const` pointer to an array of arrays, where all pointers and all `float`s can be modified |
+| `const float const**` | duplicate `const`, malformed |
+| `const float* const*` | a pointer to a const pointer to a `const` `float` or an array of `const` pointers to arrays of `const` `float`s; ideal for input samples that must not be mutated and where pointers to individual channels must not be mutated either |
+| `float const* const*` | same as `const float* const*` |
+| `float* const const*` | duplicate `const`, malformed |
+| `float* const* const` | const pointer to an array of `const` pointers to non-`const` `float`(s) |
+| `const float* const* const` | `const` pointer to an array of `const` pointers to `const` `float`(s) |
+| `float const* const* const` | same as `const float* const* const` |
 
 Here are examples of how each of these work that you can [check out on Compiler Explorer.](https://godbolt.org/z/j89hEc1rK)
 
@@ -797,7 +804,7 @@ While constructing the above examples, I’ve run into a problem when trying to 
 
 ```cpp
 void multidimensionalArrayTest(float** arr)  {
-  // error: invalid conversion from 'float**' to 'const float**'	
+  // error: invalid conversion from 'float**' to 'const float**'  
   const float** arr2 = arr;
 }
 ```
@@ -830,8 +837,8 @@ In other words, why a function like this
 
 ```cpp
 void process1(float* samples, int samplesCount) {
-	for (auto i = 0; i < samplesCount; ++i) {
-		samples[i] = 0.f; // modify the sample
+  for (auto i = 0; i < samplesCount; ++i) {
+    samples[i] = 0.f; // modify the sample
   }
 }
 ```
@@ -892,7 +899,7 @@ In this way, we are sure that we can safely access the samples in the `process2(
 
 void process2(std::span<float> samples) {
   for (auto& sample : samples) {
-		sample = 0.f;
+    sample = 0.f;
   }
 }
 ```
