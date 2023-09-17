@@ -1,6 +1,6 @@
 ---
-title: "C++ Pointers Explained For Audio Progamming"
-description: "Book review from a perspective of a C++ audio programmer."
+title: "C++ Pointers Explained For Audio Programming"
+description: "One-stop shop for audio programmers to understand C and C++ pointers containing real-world audio code examples."
 date: 2023-09-17
 author: Jan Wilczek
 layout: post
@@ -19,6 +19,8 @@ custom_js:
  - /assets/vendor/lazyload/lazyload.min.js
  - /assets/js/wolfsound/modules/load_lazyload.js
 ---
+Understand what are pointers, where to use them, and how to avoid common pitfalls.
+
 In audio programming, we often deal with **audio callbacks**: functions, which in their simplest form have the following signature:
 
 ```cpp
@@ -34,6 +36,8 @@ Right of the bat, a lot of my students are confused: “What? A pointer to an ar
 
 That’s why in this article, we’ll clarify the topic of C++ pointers in audio programming once and for all.
 
+### Table of Contents
+
 1. [What is a pointer?](#what-is-a-pointer)
 2. [Static arrays (=size known at compile time)](#static-arrays-size-known-at-compile-time)
 3. [Dynamic arrays (=size known at run time)](#dynamic-arrays-size-known-at-run-time)
@@ -47,9 +51,9 @@ That’s why in this article, we’ll clarify the topic of C++ pointers in audio
    1. [When memory allocation fails: `std::bad_alloc`](#when-memory-allocation-fails-stdbad_alloc)
    2. [Audio Callbacks and `float**`](#audio-callbacks-and-float)
 9. [Pointers and `const`](#pointers-and-const)
-10. [Why cannot we cast from `float**` to `const float**`?](#why-cannot-we-cast-from-float-to-const-float)
-11. [Why passing a raw pointer to an array and its size to a function is problematic?](#why-passing-a-raw-pointer-to-an-array-and-its-size-to-a-function-is-problematic)
-12. [Summary](#summary)
+   1. [Why cannot we cast from `float**` to `const float**`?](#why-cannot-we-cast-from-float-to-const-float)
+10. [Why passing a raw pointer to an array and its size to a function is problematic?](#why-passing-a-raw-pointer-to-an-array-and-its-size-to-a-function-is-problematic)
+11. [Summary](#summary)
 
 {% render 'google-ad.liquid' %}
 
@@ -787,7 +791,7 @@ void multidimensionalArrayTest(float** arr, const float** constArr)  {
 }
 ```
 
-## Why cannot we cast from `float**` to `const float**`?
+### Why cannot we cast from `float**` to `const float**`?
 
 While constructing the above examples, I’ve run into a problem when trying to compile the following code.
 
