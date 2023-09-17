@@ -289,11 +289,7 @@ Local variables are always on the stack. Objects allocated with `new`, `std::mal
 
 So when we refer to objects on the heap, we mean objects that were dynamically allocated and must be eventually freed.
 
-All objects on a process’s heap are automatically freed when the process terminates. I have once thought that it alleviates the problem of memory leaks: after all, the memory will be freed up in the end anyway, right? Unfortunately, even in a short-running program a memory leak can dramatically increase RAM consumption, which can slow down the machine, and annoy the user. Also it increases chances of failing to allocate new memory.
-
-TODO: Link to the bad_alloc section
-
-TODO: Cite operating systems by Silberschatz
+All objects on a process’s heap are automatically freed when the process terminates. I have once thought that it alleviates the problem of memory leaks: after all, the memory will be freed up in the end anyway, right? Unfortunately, even in a short-running program a memory leak can dramatically increase RAM consumption, which can slow down the machine, and annoy the user. Also it increases chances of [failing to allocate new memory](#when-memory-allocation-fails-stdbad_alloc) [Silberschatz2018].
 
 ### When to use dynamically allocated objects?
 
@@ -774,7 +770,7 @@ In the following table is your guide. Remember that `float*` can be a pointer to
     </tr>
 </table>
 
-Here are examples of how each of these work that you can [check out on Compiler Explorer.](https://godbolt.org/z/j89hEc1rK)
+Here are examples of how each of these work that you can [check out on Compiler Explorer.](https://godbolt.org/#z:OYLghAFBqd5QCxAYwPYBMCmBRdBLAF1QCcAaPECAMzwBtMA7AQwFtMQByARg9KtQYEAysib0QXACx8BBAKoBnTAAUAHpwAMvAFYhptJg1DIApACYAQuYukl9ZATwDKjdAGFUtAK4sGE0q4AMngMmAByPgBGmMQgAJykAA6oCoRODB7evv7JqY4CwaERLNGxCXaYDulCBEzEBJk%2Bfly2mPb5DDV1BIXhUTHxtrX1jdktCsM9IX0lA3EAlLaoXsTI7BwAbqh46ADUdcRMAJ4AKpgT1LSoTAQAVPvExPO7JgDsVhoAgrs/u1RXN3uBy4LwAzAARB7EEygj7fX7AkwAVgsGmRkJhkK4ADoqDC4b8oSDMbsGF5aLREgRobCTF86fCfmgGBM/gC7lCzGDIQd8QzCQB6AWc5Go9Hc3Y4vGw3ZC3boVDnUmoAi7NAsRJ0dhs66qvAKXZ4FgsLy1SL0fkIx5cklkilUmlwy0/f66tUCCZAx6giW82lfQXCg6g0VopEYiGS3H42XChVKhgq90arUgHU3Q0Go0ms0WgNW4g%2B23kynUvn0/Mu9n3Zmsg6SX2PcuMqGSUPiklS5uB1sSu2lx2x%2BWKg2J1XqzXiXbJEIEGKZw3G01Mc2YBlvcHrr5bHa7E20Rz4Ngs9JiT6PY5nC6uwFesjulmqm93Gsegjnp4/N4E37P2534lIz9H8fkRFEw03cCO0jLt/RbMCxXDPsSwdbsC0AyF%2B1QuDnQfVk/zvG1I1rd8mzgnsDjMdtw2oiMsWjGU5XjUckwnVN0z1LMl1zNdKxFKCkOLe0y3IgsiMwlCRKdPjnzwl8oSLYi3w/NCfjlYNaNoiVYIsIdmOVcdUBTKdZP1RccxXPN4O9LShIHVSFOQ4THS3Fs/zku8GxJYDcPrTSBLoqNpRAoc/ICpz7MYuMRwM5NJ21GdBHnIgOIXbNl1XXzHi8yMsKk1zCQIuSoSRRsXL4g4kX8xDAp0rLiCq8K7OwkL1MeUrmqkvSYrHOL2MSudiDS7jLN4z5cLlEjUpI/8oQANjKmMmJ61ijLwRIpxYMR%2BGINh0AK34pvcmaoVeRbRLUoNHleaqIO0hjdOWhNVuM7VTK4izMr4triBuprcskwcnpYwzXrTAbktQVKzPSnj6rOzryvGmT2Q8tGDgADnO1qruIDHbug%2Bjgu657QfitN3vMjKrIox58f%2BiTnKW6LSb6qcIaGlLKdh0b6qxxHmwm4VjrfdHHjibGSZBtntS22gdr2g6q11V9H1VutHi4DRsfqrWCcEmCHqFokwxqiKWql2K2PZ7Yks5qHuZGr6Wx%2BrXza64GraM8np1twbhs%2BqzcKO6s0am4EMKhBzXa4fXaoey3eutt7UZhp2ad%2BGPbIBpmouHVnk/Bv3Iehj7qbG2niC4SO8qBlnpcL33Z3nNPA4r35cNkk7u9F4FxKji7Qs1qiAuzonmfzhvvfYx22%2BNvux9JQGJ/0pPp5t5v7dLqm4e%2B3GuH72uV5Wsn%2BuLobW/L9dXk3CtPlnPcmBCCBnm/DcGQ4RZaE4JFeD8DgtCkFQJwNw1hrC7AUMsVYmAXhmFBJIXgBBNCf0WAAaz0HEbEcRXiSC4K8DG2CzAaGIaCUEpBv4cAQaQf%2BgDgEcF4AoEAGhSBIIAZ/UgcBYBIEwKoSopoSDkEoHUYAChlCGDaEIBAqAADu/8eCkGtjcdIYjQi0EkTImhvBk6xGAFwUEZgFHrxiGEVg6wtFGOIAAeVNOo2RyCAi8OQOeERnBeA8MqDUfA/9eD8EECIMQ7ApAyEEIoFQ6g2GkF0GQgwRgUBgMsOQvAkRGGQEWKgKk6RGH0KARsGIxAdjnHgIsSBKw1h6CGF4lREipF2O4LwaRhxEicB4F/H%2Bf97F0OwI4/hQ1VAYzmgAWjmg2YAyBkCSlBNiLkEBQGWGsKQXYuBCAkFgfA%2BYiDkHzDQSAJEGhsQaDMEiDGZgtZmFeHEC5c0MbkM4FQzRQDXG2CYSwzZrSOBmHaREuhGy2FbNILk4gqRnCSCAA)
 
 ```cpp
 void arrayTest(float* arr) {
@@ -981,3 +977,7 @@ This was a long article so I have summarized the key takeaways here 😉
 9. If you need to manually allocate memory, wrap it in a class so that the destructor will deallocate the memory.
 10. Use `std::span` as an argument to functions that should take an array of objects and you don’t care if they are present on the stack or on the heap.
 11. If you need to interact with C-style APIs, convert the relevant data to `std::span` or a dedicated resource-managing class ASAP (see point 9).
+
+## Bibliography
+
+[Silberschatz2018] Silberschatz A., Galvin P. B., Gagne G. *Operating System Concepts*, 10th ed. Hoboken, NJ: Wiley, 2018.
