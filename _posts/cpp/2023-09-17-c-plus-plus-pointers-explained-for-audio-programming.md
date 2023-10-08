@@ -325,9 +325,9 @@ delete largeObject;
 
 *The **stack** is the place where all variables whose size is known at compile time are placed, the **heap** is the place where a program can dynamically allocate objects.*
 
-But again, we are prone to “forgetting” to delete objects, that’s why we should prefer using `[std::unique_ptr<>](https://en.cppreference.com/w/cpp/memory/unique_ptr)` and [`std::shared_ptr<>`](https://en.cppreference.com/w/cpp/memory/shared_ptr) instead just like we should prefer using `std::vector` instead of dynamically allocated C-style arrays. They are called “smart pointers” and ensure that we don’t leak any memory.
+But again, we are prone to “forgetting” to delete objects, that’s why we should prefer using [`std::unique_ptr<>`](https://en.cppreference.com/w/cpp/memory/unique_ptr) and [`std::shared_ptr<>`](https://en.cppreference.com/w/cpp/memory/shared_ptr) instead just like we should prefer using `std::vector` instead of dynamically allocated C-style arrays. They are called “smart pointers” and ensure that we don’t leak any memory.
 
-To directly create a `unique_ptr` or a `shared_ptr` without using `new`, use `[std::make_unique](https://en.cppreference.com/w/cpp/memory/unique_ptr/make_unique)` and `[std::make_shared](https://en.cppreference.com/w/cpp/memory/shared_ptr/make_shared)` functions.
+To directly create a `unique_ptr` or a `shared_ptr` without using `new`, use [`std::make_unique`](https://en.cppreference.com/w/cpp/memory/unique_ptr/make_unique) and [`std::make_shared`](https://en.cppreference.com/w/cpp/memory/shared_ptr/make_shared) functions.
 
 ### In audio programming
 
