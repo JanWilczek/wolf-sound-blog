@@ -21,6 +21,8 @@ custom_js:
 ---
 Understand what are pointers, where to use them, and how to avoid common pitfalls.
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/QfjBJo8Igs0?si=MAYagT9t7eT0IDNx" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 In audio programming, we often deal with **audio callbacks**: functions, which in their simplest form have the following signature:
 
 ```cpp
@@ -49,11 +51,12 @@ That’s why in this article, we’ll clarify the topic of C++ pointers in audio
 7. [What is `void*`?](#what-is-void)
 8. [Double pointer? `float**`](#double-pointer-float)
    1. [When memory allocation fails: `std::bad_alloc`](#when-memory-allocation-fails-stdbad_alloc)
-   2. [Audio Callbacks and `float**`](#audio-callbacks-and-float)
+   2. [Audio callbacks and `float**`](#audio-callbacks-and-float)
 9. [Pointers and `const`](#pointers-and-const)
    1. [Why cannot we cast from `float**` to `const float**`?](#why-cannot-we-cast-from-float-to-const-float)
 10. [Why passing a raw pointer to an array and its size to a function is problematic?](#why-passing-a-raw-pointer-to-an-array-and-its-size-to-a-function-is-problematic)
 11. [Summary](#summary)
+12. [Bibliography](#bibliography)
 
 {% render 'google-ad.liquid' %}
 
@@ -573,7 +576,7 @@ The above code has a problem; if the second or the third allocation fails (for e
 
 Remember that memory allocations can fail. I have never seen this handled in practice but I did see that happen in practice. So again, avoid naked `new` because it can throw and cause a memory leak; use smart pointers instead.
 
-### Audio Callbacks and `float**`
+### Audio callbacks and `float**`
 
 `float**` pops up very often in audio, especially in the audio callbacks.
 
