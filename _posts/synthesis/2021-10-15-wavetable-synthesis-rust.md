@@ -11,7 +11,7 @@ categories:
  - Sound Synthesis
 tags:
  - wavetable
- - Rust
+ - rust
 discussion_id: 2021-10-15-wavetable-synthesis-rust
 ---
 Let's write a wavetable synthesizer in Rust!
