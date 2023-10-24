@@ -78,7 +78,7 @@ but... the main problem with MATLAB®️ is that it's crazy expensive: it's so e
 The next honorable mention is Max/MSP. I must admit out of the box that I don't have much experience with with it and that's the main reason why it's not in the top five. Also, again, it needs a license but if you can afford it and you think it's worth it, then go for it! It's simply not for me.
 
 <div markdown="0">
-<img class="lazyload" data-src="{{ images | append: "MaxMSP_snippet.png.webp" }}" alt="Max/MSP snippet" width="50%">
+<img class="lazyload" data-src="{{ images | append: "snippets/MaxMSP_snippet.png.webp" }}" alt="Max/MSP snippet">
 </div>
 
 ### Zig/Nim/etc
@@ -109,7 +109,7 @@ Another honorable mention here and one that I'm really curious to observe in the
 The last honorable mention is the C-Major programming language: it was announced last year during the Audio Developer Conference by SoundStacks. It's a new programming language dedicated to prototyping audio plugins. I haven't used it extensively and I also haven't heard about people using it. There are some tutorials on the Internet so if you find it interesting, of course, check it out. I just feel that maybe we need to wait a few years before it's widely adopted; I don't know.
 
 <div markdown="0">
-<img class="lazyload" data-src="{{ images | append: "CMajor_snippte.png.webp" }}" alt="C-Major code snippet" width="50%">
+<img class="lazyload" data-src="{{ images | append: "snippets/CMajor_snippte.png.webp" }}" alt="C-Major code snippet">
 </div>
 
 _C-Major code snippet._
@@ -125,7 +125,7 @@ With this out of the way, here are now my top 5 languages that I believe are gre
 The number five is PureData. Sometimes PureData is described as Max/MSP for poor people; I disagree with this statement completely. I have had a great pleasure of meeting Miller Puckette, the creator of PureData, in person. What's interesting, PureData was licensed to become the foundation of Max/MSP. What's great about PureData is that it's free. It is also widely used by sound designers and composers. Additionally, a lot of industry books explain DSP topics using PureData (for example, *The Theory and Technique of Electronic Music* by Miller Puckette) so I really believe that it's highly beneficial to learn this language. I experimented with it a bit but I plan to learn it more and more, maybe even make some tutorials about it on the YouTube channel. Whats great about PureData is that there are so many resources on it available: not just books but also a huge number of YouTube videos where people do crazy stuff using PureData as LEGO bricks; I imagine it must be a lot of fun! Of course, visually it may not be as attractive as Max/MSP but, nevertheless, it's completely free and it seems crazy powerful.
 
 <div markdown="0">
-<img class="lazyload" data-src="{{ images | append: "PureData_snippet.png.webp" }}" alt="PureData code snippet" width="50%">
+<img class="lazyload" data-src="{{ images | append: "snippets/PureData_snippet.png.webp" }}" alt="PureData code snippet">
 </div>
 
 ## Number 4: Rust
