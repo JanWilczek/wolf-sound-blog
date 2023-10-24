@@ -57,6 +57,10 @@ Before we jump into the list of the five programming languages, I would like to 
 
 ### MATLAB®️
 
+<div markdown="0">
+<img class="lazyload" data-src="{{ images | append: "Matlab_Logo.png.webp" }}" alt="MATLAB logo" width="50%">
+</div>
+
 The first honorable/dishonorable mention is MATLAB®️. MATLAB®️ is a huge programming environment created by MathWorks that is very popular in academia. If you go to university to study audio programming, you are likely to use MATLAB®️ and for a good reason: it's a very powerful environment. It's pros are:
 
 - you can code even very advanced algorithms very fast,
@@ -67,28 +71,68 @@ but... the main problem with MATLAB®️ is that it's crazy expensive: it's so e
 
 ### Max/MSP
 
+<div markdown="0">
+<img class="lazyload" data-src="{{ images | append: "Max_8_software.jpg.webp" }}" alt="Max/MSP logo" width="50%">
+</div>
+
 The next honorable mention is Max/MSP. I must admit out of the box that I don't have much experience with with it and that's the main reason why it's not in the top five. Also, again, it needs a license but if you can afford it and you think it's worth it, then go for it! It's simply not for me.
 
+<div markdown="0">
+<img class="lazyload" data-src="{{ images | append: "MaxMSP_snippet.png.webp" }}" alt="Max/MSP snippet" width="50%">
+</div>
+
 ### Zig/Nim/etc
+
+<div markdown="0">
+<img class="lazyload" data-src="{{ images | append: "Nim_logo.svg" }}" alt="Nim logo" width="50%">
+</div>
+
+_Nim logo._
 
 The next ones on this list are languages like Zig, Nim, or maybe some other language that I don't even know that has come up in the last years. New languages seem to sprout everywhere these days. I prefer stable, widely used languages that are well supported, have their package managers, coding environments, etc. Maybe Zig and Nim are super fast and maybe there's something amazing about them; I just haven't seen them widely adopted in the industry. For example, at the [Audio Developer Conference 2022]({% post_url collections.posts, '2022-12-14-adc22-highlights' %}), few people talked about them. Maybe that's a good reason why you shouldn't use them either.
 
 ### JavaScript (TypeScript)
+
+<div markdown="0">
+<img class="lazyload" data-src="{{ images | append: "JavaScript-logo.png.webp" }}" alt="JavaScript logo" width="50%">
+</div>
 
 Another honorable mention here and one that I'm really curious to observe in the coming years is JavaScript. (We could also extend it to include TypeScript). This is something to look out for in the near future. Will the web audio community grow exponentially? I don't know. But if you have watched or listened to [my recent interview with Christoph Guttandin]({% post_url collections.posts, '2023-08-28-christoph-guttandin' %}), who is a web audio developer, you have learned how many amazing things you can do in the browser with
  audio. As Chris said: it's so easy to share a link with someone nowadays so it's really amazing what will be possible in the future. Right now, I just don't feel that we are in that spot yet but who knows, maybe it's soon to come!
 
 ### C-Major
 
+<div markdown="0">
+<img class="lazyload" data-src="{{ images | append: "Cmajor-Word-Logo.png.webp" }}" alt="C-Major logo" width="50%">
+</div>
+
 The last honorable mention is the C-Major programming language: it was announced last year during the Audio Developer Conference by SoundStacks. It's a new programming language dedicated to prototyping audio plugins. I haven't used it extensively and I also haven't heard about people using it. There are some tutorials on the Internet so if you find it interesting, of course, check it out. I just feel that maybe we need to wait a few years before it's widely adopted; I don't know.
+
+<div markdown="0">
+<img class="lazyload" data-src="{{ images | append: "CMajor_snippte.png.webp" }}" alt="C-Major code snippet" width="50%">
+</div>
+
+_C-Major code snippet._
 
 With this out of the way, here are now my top 5 languages that I believe are great for audio programming.
 
 ## Number 5: PureData
 
+<div markdown="0">
+<img class="lazyload" data-src="{{ images | append: "Pure_Data_logo.svg" }}" alt="PureData logo" width="50%">
+</div>
+
 The number five is PureData. Sometimes PureData is described as Max/MSP for poor people; I disagree with this statement completely. I have had a great pleasure of meeting Miller Puckette, the creator of PureData, in person. What's interesting, PureData was licensed to become the foundation of Max/MSP. What's great about PureData is that it's free. It is also widely used by sound designers and composers. Additionally, a lot of industry books explain DSP topics using PureData (for example, *The Theory and Technique of Electronic Music* by Miller Puckette) so I really believe that it's highly beneficial to learn this language. I experimented with it a bit but I plan to learn it more and more, maybe even make some tutorials about it on the YouTube channel. Whats great about PureData is that there are so many resources on it available: not just books but also a huge number of YouTube videos where people do crazy stuff using PureData as LEGO bricks; I imagine it must be a lot of fun! Of course, visually it may not be as attractive as Max/MSP but, nevertheless, it's completely free and it seems crazy powerful.
 
+<div markdown="0">
+<img class="lazyload" data-src="{{ images | append: "PureData_snippet.png.webp" }}" alt="PureData code snippet" width="50%">
+</div>
+
 ## Number 4: Rust
+
+<div markdown="0">
+<img class="lazyload" data-src="{{ images | append: "rust-logo-blk.svg" }}" alt="Rust logo" width="50%">
+</div>
 
 Number four on this list is Rust. Rust is a language that's very popular in the programming community in general. I see it also adopted more and more in the DSP community and for a good reason: it's designed in a way to ensure memory safety and in my opinion it simply has so many great defaults:
 
@@ -101,9 +145,17 @@ There really are so many amazing things that you get out of the box as a default
 
 ## Number 3: C
 
+<div markdown="0">
+<img class="lazyload" data-src="{{ images | append: "C_Programming_Language.svg" }}" alt="C logo" width="50%">
+</div>
+
 We have lots and lots of audio code written in C. For example, PureData (which was number five) is written in C. C is so widespread that it may be really beneficial to learn this language. I believe that if you know C, it should be quite easy for you to find an audio related job, especially related to embedded software where the programming environment is more restricted in terms of languages or frameworks. So definitely C still holds strong; I don't know what the future will bring but at the moment, the amount of audio code written in C is so huge that I doubt that it will go away soon. But of course, it has its disadvantages like manual memory management and lack of type safety.
 
 ## Number 2: Python
+
+<div markdown="0">
+<img class="lazyload" data-src="{{ images | append: "python-logo-generic.svg" }}" alt="Python logo" width="50%">
+</div>
 
 Number two and my favorite language for prototyping is Python. I love Python:
 
@@ -119,6 +171,10 @@ Python is simply so enjoyable: you write a few lines of code and create a powerf
 The only downsides of Python are its optimality and threading because of the global interpreter lock. So if you're looking for something performant or real-time capable then maybe Python is not the best option. But for single scripts, understanding  algorithms, and especially prototyping, I think it's simply amazing: I love Python!
 
 ## Number 1: C++
+
+<div markdown="0">
+<img class="lazyload" data-src="{{ images | append: "Cpp.svg" }}" alt="C++ logo" width="50%">
+</div>
 
 The number one in the top 5 languages for audio programming is, of course, (we all have seen it coming) C++.
 
