@@ -38,13 +38,13 @@ WolfSound is a place where you can learn how to process sound using self-written
 
 ### Table of Contents
 
-1. [(Dis)honorable mentions](#dishonorable-mentions)
+1. [(Dis)honorable mentions](#dis-honorable-mentions)
    1. [MATLAB®️](#matlab️)
-   2. [Max/MSP](#maxmsp)
-   3. [Zig/Nim/etc](#zignimetc)
-   4. [JavaScript (TypeScript)](#javascript-typescript)
+   2. [Max/MSP](#max-msp)
+   3. [Zig/Nim/etc](#zig-nim-etc)
+   4. [JavaScript (TypeScript)](#java-script-type-script)
    5. [C-Major](#c-major)
-2. [Number 5: PureData](#number-5-puredata)
+2. [Number 5: PureData](#number-5-pure-data)
 3. [Number 4: Rust](#number-4-rust)
 4. [Number 3: C](#number-3-c)
 5. [Number 2: Python](#number-2-python)
@@ -71,11 +71,11 @@ The next honorable mention is Max/MSP. I must admit out of the box that I don't 
 
 ### Zig/Nim/etc
 
-The next ones on this list are languages like Zig, Nim, or maybe some other language that I don't even know that has come up in the last years. New languages seem to sprout everywhere these days. I prefer stable, widely used languages that are well supported, have their package managers, coding environments, etc. Maybe Zig and Nim are super fast and maybe there's something amazing about them; I just haven't seen them widely adopted in the industry. For example, at the Audio Developer Conference 2022, few people talked about them. Maybe that's a good reason why you shouldn't use them either.
+The next ones on this list are languages like Zig, Nim, or maybe some other language that I don't even know that has come up in the last years. New languages seem to sprout everywhere these days. I prefer stable, widely used languages that are well supported, have their package managers, coding environments, etc. Maybe Zig and Nim are super fast and maybe there's something amazing about them; I just haven't seen them widely adopted in the industry. For example, at the [Audio Developer Conference 2022]({% post_url collections.posts, '2022-12-14-adc22-highlights' %}), few people talked about them. Maybe that's a good reason why you shouldn't use them either.
 
 ### JavaScript (TypeScript)
 
-Another honorable mention here and one that I'm really curious to observe in the coming years is JavaScript. (We could also extend it to include TypeScript). This is something to look out for in the near future. Will the web audio community grow exponentially? I don't know. But if you have watched or listened to my recent interview with Christoph Guttandin, who is a web audio developer, you have learned how many amazing things you can do in the browser with
+Another honorable mention here and one that I'm really curious to observe in the coming years is JavaScript. (We could also extend it to include TypeScript). This is something to look out for in the near future. Will the web audio community grow exponentially? I don't know. But if you have watched or listened to [my recent interview with Christoph Guttandin]({% post_url collections.posts, '2023-08-28-christoph-guttandin' %}), who is a web audio developer, you have learned how many amazing things you can do in the browser with
  audio. As Chris said: it's so easy to share a link with someone nowadays so it's really amazing what will be possible in the future. Right now, I just don't feel that we are in that spot yet but who knows, maybe it's soon to come!
 
 ### C-Major
