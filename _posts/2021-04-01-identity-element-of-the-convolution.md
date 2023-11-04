@@ -168,17 +168,17 @@ $$x[2] = \sum_{k=-\infty}^{\infty} x[k] \delta[2 - k] = x[2]\delta[2 - 2] = x[2]
 $$\vdots$$
 $$x[n] = \sum_{k=-\infty}^{\infty} x[k] \delta[n - k] = x[n]\delta[n - n] = x[n].$$
 
-As the value of $n$ changes, the corresponsing shift $k$ of the delta argument must change as well to make $n-k$ equal to 0 and produce a single result $x[n]$. We could think of this change of $k$ as a change of the delay length.
+As the value of $n$ changes, the corresponding shift $k$ of the delta argument must change as well to make $n-k$ equal to 0 and produce a single result $x[n]$. We could think of this change of $k$ as a change of the delay length.
 
 Let's now assume that $x[n]$ starts at 0, i. e., $x[n]=  0 \forall n <0$. Writing down the sum in Equation 12 explicitly yields [2]
 
-$$x[n] = x[0]\delta[n] + x[1]\delta[n-1] + x[2]\delta[n-2] + \dots \newline + x[n-1]\delta[n-(n-1)] x[n]\delta[n - n] + \dots \quad ({% increment equationId  %})$$
+$$x[n] = x[0]\delta[n] + x[1]\delta[n-1] + x[2]\delta[n-2] + \dots \newline + x[n-1]\delta[n-(n-1)] + x[n]\delta[n - n] + \dots \quad ({% increment equationId  %})$$
 
 Can you see the beauty of it? **$x[n]$ already contains all possible samples of the sequence $x$; we just need to delay it properly to receive the desired sample.** In other words, any discrete-time signal is a convolutional sum, a weighted sum of delayed impulses. Fixing index $n$ to some concrete value sets the delay length accordingly so as to return the signal value for that particular $n$.
 
 ## Summary
 
-In this article we examined the identity element of the convolution, i. e., $\delta[n]$ for the discrete convolution (Equation 3) and $\delta(t)$ for the continuous convolution (Equation 5). The former is much more easily tractable mathemathically [2].
+In this article we examined the identity element of the convolution, i. e., $\delta[n]$ for the discrete convolution (Equation 3) and $\delta(t)$ for the continuous convolution (Equation 5). The former is much more easily tractable mathematically [2].
 
 We introduced the sifting property of the delta impulse and interpreted it as the delay in the context of digital signal processing. 
 
