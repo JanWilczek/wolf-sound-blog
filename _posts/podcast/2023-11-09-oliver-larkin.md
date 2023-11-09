@@ -42,9 +42,9 @@ Learn from an audio programming legend: audio programmer in C++/Swift/Faust/Java
 
 In this podcast episode, I was lucky to interview Oliver Larkin: an audio programming legend from the UK.
 
-Starting with a passion for music, going through Max, SynthEdit, PureData, then C++ to JavaScript and others, there is no audio technology that's not known to him. He worked for Arturia, Focusrite, and Ableton (among many more), conducted research in spatial audio, and created successful plugins, like the Casio CZ-101 synthesizer emulation.
+Starting with a passion for music, going through Max, SynthEdit, PureData, then C++ to JavaScript and others, there is no audio technology that's not known to him. He has worked on projects with Arturia and Focusrite (among many more) and nowadays works for Ableton. He has conducted research in spatial audio, and has created successful plugins, like the Casio CZ-101 synthesizer emulation.
 
-He is most widely known as the author of iPlug2: an C++ framework for creating audio plugins and web-hosted audio apps. It allows you to have a single codebase that builds various plugin formats out of the box, e.g., VST, AAX, and AU. Sounds familiar? That's because it is an alternative to the JUCE framework.
+He is most widely known as the co-author of Web Audio Modules and iPlug2: an C++ framework for creating audio plugins and web-hosted audio apps. It allows you to have a single codebase that builds various plugin formats out of the box, e.g., VST, AAX, and AU. Sounds familiar? That's because it is an alternative to the JUCE framework.
 
 With 20 years of experience in audio programming, he can be a role model for aspiring audio programmers.
 
@@ -89,7 +89,7 @@ Below you’ll find all people, places, and references mentioned in the podcast 
 2. People
     1. [Hyunkook Lee](https://pure.hud.ac.uk/en/persons/hyunkook-lee), professor at the University of Huddersfield
     2. Jean-Claude Risset: A French composer
-    3. [Alex Harker](https://www.alexanderjharker.co.uk/), researcher at the University of Huddersfield and contributor to iPlug2
+    3. [Alex Harker](https://www.alexanderjharker.co.uk/), researcher at the University of Huddersfield and a y of iPlug2
     4. [Jari Kleimola](https://fi.linkedin.com/in/jari-kleimola-824b49153): co-creator of Web Audio Modules
     5. [Michel Buffa](https://www.linkedin.com/in/michelbuffa/?originalSubdomain=fr): researcher deeply involved in Web Audio Modules
 3. Programming languages and technologies
