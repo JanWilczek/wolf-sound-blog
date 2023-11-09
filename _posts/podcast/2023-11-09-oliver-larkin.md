@@ -22,6 +22,9 @@ discussion_id: 2023-11-09-oliver-larkin
 ---
 Learn from an audio programming legend: audio programmer in C++/Swift/Faust/JavaScript/PureData/Max and more.
 
+<script async defer onload="redcircleIframe();" src="https://api.podcache.net/embedded-player/sh/bf40a1d2-7e41-4ddb-8c3a-ed82394723ba/ep/443e0764-8c3f-47bb-88b6-78192e01cbf6"></script> <div class="redcirclePlayer-443e0764-8c3f-47bb-88b6-78192e01cbf6"></div> <style> .redcircle-link:link { color: #ea404d; text-decoration: none; } .redcircle-link:hover { color: #ea404d; } .redcircle-link:active { color: #ea404d; } .redcircle-link:visited { color: #ea404d; } </style>
+<p style="margin-top:3px;margin-left:11px;font-family: sans-serif;font-size: 10px; color: gray;">Powered by <a class="redcircle-link" href="https://redcircle.com?utm_source=rc_embedded_player&utm_medium=web&utm_campaign=embedded_v1">RedCircle</a></p>
+
 ## Listen on
 
 * 🎧 [Spotify](#)
