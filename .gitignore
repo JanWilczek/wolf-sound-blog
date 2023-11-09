@@ -8,6 +8,7 @@ vendor
 
 _deploy.sh
 _deploy.bat
+_deploy.ps1
 
 # Ignore images before processing
 *.ps
