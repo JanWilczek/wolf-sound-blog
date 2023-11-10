@@ -101,7 +101,7 @@ Below you’ll find all people, places, and references mentioned in the podcast 
     6. [MUSIC V](https://en.wikipedia.org/wiki/MUSIC-N) programming language
     7. Max for Live
     8. iPlug C++ framework
-    9. iPlug2 C++ framework
+    9. [iPlug2 C++ framework](https://iplug2.github.io/)
     10. Reaper DAW
     11. [WDL](https://github.com/justinfrankel/WDL)
     12. [WDL-OL](https://github.com/olilarkin/wdl-ol): extension of WDL by Oli Larkin
@@ -110,12 +110,13 @@ Below you’ll find all people, places, and references mentioned in the podcast 
     15. Web Audio Modules
     16. WebAssembly
     17. Dolby Atmos
-    18. Swift
-    19. [Faust](https://faust.grame.fr/)
-    20. Python
+    18. Swift programming language
+    19. [Faust programming language](https://faust.grame.fr/)
+    20. Python programming language
     21. ChatGPT
-    22. [RNBO by Cycling74](https://rnbo.cycling74.com/)
-    23. [Cmajor](https://cmajor.dev/)
+    22. [Pluggo by Cycling74](https://www.soundonsound.com/reviews/cycling-74-pluggo)
+    23. [RNBO by Cycling74](https://rnbo.cycling74.com/)
+    24. [Cmajor](https://cmajor.dev/)
 4. Audio concepts
     1. ambisonics
     2. Shephard Tone
