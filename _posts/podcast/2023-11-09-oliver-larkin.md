@@ -87,9 +87,9 @@ Below you’ll find all people, places, and references mentioned in the podcast 
         3. (Oli has given many talks, a lot of them are available online. I encourage you to search for his name online and check them out!)
     7. Spatial AudioKit: an upcoming app and a library to play back files in spatial audio formats on iPhone
 2. People
-    1. [Hyunkook Lee](https://pure.hud.ac.uk/en/persons/hyunkook-lee), professor at the University of Huddersfield
-    2. Jean-Claude Risset: A French composer
-    3. [Alex Harker](https://www.alexanderjharker.co.uk/), researcher at the University of Huddersfield and a y of iPlug2
+    1. [Hyunkook Lee](https://pure.hud.ac.uk/en/persons/hyunkook-lee): professor at the University of Huddersfield
+    2. Jean-Claude Risset: A French composer of electronic music
+    3. [Alex Harker](https://www.alexanderjharker.co.uk/): researcher at the University of Huddersfield and a co-author of iPlug2
     4. [Jari Kleimola](https://fi.linkedin.com/in/jari-kleimola-824b49153): co-creator of Web Audio Modules
     5. [Michel Buffa](https://www.linkedin.com/in/michelbuffa/?originalSubdomain=fr): researcher deeply involved in Web Audio Modules
 3. Programming languages and technologies
