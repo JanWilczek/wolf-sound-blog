@@ -17,5 +17,6 @@
   "permalink": "/:title/",
   "highlighter": "rouge",
   "talkyard_server_url": "https://site-1cdvkitrrm.talkyard.net",
-  "talkyard_script_url": "https://c1.ty-cdn.net/-/talkyard-comments.min.js"
+  "talkyard_script_url": "https://c1.ty-cdn.net/-/talkyard-comments.min.js",
+  "dsp_pro_url": "https://www.wolfsoundacademy.com/dsp-pro"
 }
