@@ -14,6 +14,9 @@ discussion_id: 2024-01-04-ian-hobson
 ---
 Interview with Ian Hobson: ex-Ableton freelancer in audio programming using Rust!
 
+<script async defer onload="redcircleIframe();" src="https://api.podcache.net/embedded-player/sh/bf40a1d2-7e41-4ddb-8c3a-ed82394723ba/ep/0998d600-716c-4397-8486-c2c27878921a"></script> <div class="redcirclePlayer-0998d600-716c-4397-8486-c2c27878921a"></div> <style> .redcircle-link:link { color: #ea404d; text-decoration: none; } .redcircle-link:hover { color: #ea404d; } .redcircle-link:active { color: #ea404d; } .redcircle-link:visited { color: #ea404d; } </style>
+<p style="margin-top:3px;margin-left:11px;font-family: sans-serif;font-size: 10px; color: gray;">Powered by <a class="redcircle-link" href="https://redcircle.com?utm_source=rc_embedded_player&utm_medium=web&utm_campaign=embedded_v1">RedCircle</a></p>
+
 ## Listen on
 
 * 🎧 [Spotify]()
@@ -21,7 +24,7 @@ Interview with Ian Hobson: ex-Ableton freelancer in audio programming using Rust
 * 🎧 [Apple Podcasts (iTunes)]()
 * 🎧 [Amazon Music]()
 * 🎧 [Google Podcasts]()
-* 🎧 TuneIn Radio ()
+* 🎧 [TuneIn Radio]()
 
 [All podcast episodes.](/podcast)
 
@@ -54,8 +57,6 @@ I highly encourage you to listen to the podcast in full!
 ## Episode Contents
 
 In this podcast episode, you will learn:
-
-In this podcast episode, you’ll learn
 
 * how Ian got into DJ-ing and how he then went back to the univerisity to become an audio programmer
 * how he landed his job at Ableton
