@@ -123,6 +123,6 @@ Below you’ll find all people, places, and references mentioned in the podcast 
     5. [Online course on Rust from the Android Google team](https://google.github.io/comprehensive-rust/)
     6. [#rust-audio Discord](https://rust.audio/)
 8. Music:
-    2. [Aleksi Perälä](https://www.discogs.com/artist/15690-Aleksi-Per%C3%A4l%C3%A4)
+    1. [Aleksi Perälä](https://www.discogs.com/artist/15690-Aleksi-Per%C3%A4l%C3%A4)
 
 Thank you for listening!
