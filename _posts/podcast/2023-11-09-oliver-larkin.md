@@ -32,7 +32,7 @@ Learn from an audio programming legend: audio programmer in C++/Swift/Faust/Java
 * 🎧 [Apple Podcasts (iTunes)](https://podcasts.apple.com/us/podcast/oli-larkin-creator-of-iplug2-and-web-audio/id1595913701?i=1000634267809)
 * 🎧 [Amazon Music](https://music.amazon.com/podcasts/b42682b5-61ba-4a6f-8b11-aed42b07ef9f/episodes/a9f0c0bb-878b-4609-919a-0eea90ae6633/oli-larkin-creator-of-iplug2-and-web-audio-modules-wolftalk-015)
 * 🎧 [Google Podcasts](https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkcy5yZWRjaXJjbGUuY29tL2JmNDBhMWQyLTdlNDEtNGRkYi04YzNhLWVkODIzOTQ3MjNiYQ/episode/MjU2NTk0MWMtYmVkNC00MzkwLWI2N2EtZjhhYWQ4ZDk0NmM3?sa=X&ved=0CAUQkfYCahcKEwiQorGi9LiCAxUAAAAAHQAAAAAQAg)
-* 🎧 TuneIn Radio (TBA)
+* 🎧 [TuneIn Radio](http://tun.in/txJJGR)
 
 [All podcast episodes.](/podcast)
 

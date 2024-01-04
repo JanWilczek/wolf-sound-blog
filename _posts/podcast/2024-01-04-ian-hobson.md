@@ -19,12 +19,12 @@ Interview with Ian Hobson: ex-Ableton freelancer in audio programming using Rust
 
 ## Listen on
 
-* 🎧 [Spotify]()
+* 🎧 [Spotify](https://open.spotify.com/episode/5hSmPGlCctympA0Oy0XBcJ?si=09ae5d09ae9d440f)
 * 🎥 [YouTube]()
-* 🎧 [Apple Podcasts (iTunes)]()
-* 🎧 [Amazon Music]()
-* 🎧 [Google Podcasts]()
-* 🎧 [TuneIn Radio]()
+* 🎧 [Apple Podcasts (iTunes)](https://podcasts.apple.com/us/podcast/rust-audio-programming-with-ian-hobson-wolftalk-016/id1595913701?i=1000640569940)
+* 🎧 [Amazon Music](https://music.amazon.com/podcasts/b42682b5-61ba-4a6f-8b11-aed42b07ef9f/episodes/33b29aa0-64a4-43a0-b893-e50d6c104713/rust-audio-programming-with-ian-hobson-wolftalk-016)
+* 🎧 [Google Podcasts](https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkcy5yZWRjaXJjbGUuY29tL2JmNDBhMWQyLTdlNDEtNGRkYi04YzNhLWVkODIzOTQ3MjNiYQ/episode/NDFmNWZlZDMtNzBlMC00ZWYwLThlYzctYmQwNmU0ZjkzMTY1?sa=X&ved=0CAUQkfYCahcKEwjI3oLErcSDAxUAAAAAHQAAAAAQAQ)
+* 🎧 TuneIn Radio (TBA)
 
 [All podcast episodes.](/podcast)
 
@@ -50,7 +50,7 @@ Ian shares a ton of useful knowledge on
 
 I highly encourage you to listen to the podcast in full!
 
-*Note:* If you like the podcast so far, please, [go to Apple Podcasts and leave me a review there](https://podcasts.apple.com/us/podcast/wolftalk-podcast-about-audio-programming-people-careers/id1595913701). It will benefit both sides: more reviews mean a broader reach on Apple Podcasts and feedback can help me to improve the show and provide better quality content to you. Thank you for doing this 🙏
+*Note:* If you like the podcast so far, please, [go to Apple Podcasts and leave me a review there](https://podcasts.apple.com/us/podcast/wolftalk-podcast-about-audio-programming-people-careers/id1595913701). You can [do so on Spotify as well](https://open.spotify.com/show/5xc7EJiH9shG6zdSC5ejyw?si=eb35597e60a54e70). It will benefit both sides: more reviews mean a broader reach on Apple Podcasts and feedback can help me to improve the show and provide better quality content to you. Thank you for doing this 🙏
 
 {% render 'google-ad.liquid' %}
 
