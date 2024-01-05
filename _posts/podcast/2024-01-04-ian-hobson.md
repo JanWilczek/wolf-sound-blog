@@ -24,7 +24,7 @@ Interview with Ian Hobson: ex-Ableton freelancer in audio programming using Rust
 * 🎧 [Apple Podcasts (iTunes)](https://podcasts.apple.com/us/podcast/rust-audio-programming-with-ian-hobson-wolftalk-016/id1595913701?i=1000640569940)
 * 🎧 [Amazon Music](https://music.amazon.com/podcasts/b42682b5-61ba-4a6f-8b11-aed42b07ef9f/episodes/33b29aa0-64a4-43a0-b893-e50d6c104713/rust-audio-programming-with-ian-hobson-wolftalk-016)
 * 🎧 [Google Podcasts](https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkcy5yZWRjaXJjbGUuY29tL2JmNDBhMWQyLTdlNDEtNGRkYi04YzNhLWVkODIzOTQ3MjNiYQ/episode/NDFmNWZlZDMtNzBlMC00ZWYwLThlYzctYmQwNmU0ZjkzMTY1?sa=X&ved=0CAUQkfYCahcKEwjI3oLErcSDAxUAAAAAHQAAAAAQAQ)
-* 🎧 TuneIn Radio (TBA)
+* 🎧 [TuneIn Radio](http://tun.in/tySoHB)
 
 [All podcast episodes.](/podcast)
 
@@ -88,6 +88,7 @@ Below you’ll find all people, places, and references mentioned in the podcast 
         1. [Reality Labs](https://about.meta.com/realitylabs/)
             1. [Meta Quest (formerly Oculus Quest) VR headset](https://www.meta.com/pl/quest/?utm_content=53191)
     5. Pick Streams
+    6. [Super Hi-Fi](https://www.superhifi.com/)
 6. Technologies
     1. [Unity](https://unity.com/)
     2. [Nice Vibrations](https://nice-vibrations.moremountains.com/)
@@ -124,6 +125,7 @@ Below you’ll find all people, places, and references mentioned in the podcast 
     5. [Online course on Rust from the Android Google team](https://google.github.io/comprehensive-rust/)
     6. [#rust-audio Discord](https://rust.audio/)
 8. Music:
+    1. [Surgeon](https://www.instagram.com/tony_surgeon)
     1. [Aleksi Perälä](https://www.discogs.com/artist/15690-Aleksi-Per%C3%A4l%C3%A4)
 
 Thank you for listening!
