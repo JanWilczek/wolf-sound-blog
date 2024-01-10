@@ -254,6 +254,8 @@ _Figure {% increment figureId20240111  %}. My talk on how to write bug-free audi
 
 While I covered the top talks, I can't skip mentioning my own presentation, which was an absolute favorite of mine. Titled "Bug-Free Audio Code: Leverage Simple DSP Principles to Write Rock Solid Music Software Every Time," it was focused on ensuring the reliability and functionality of audio software. I aimed to provide insights on how to confidently present and release audio code, ensuring it operates flawlessly.
 
+[Check out the slides and example code here.](https://github.com/JanWilczek/adc23)
+
 I'm thrilled that my session was held in the largest auditorium, receiving great attendance and positive feedback. Thank you for attending!
 
 ## Summary
