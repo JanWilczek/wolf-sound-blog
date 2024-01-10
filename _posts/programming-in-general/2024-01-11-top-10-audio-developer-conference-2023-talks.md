@@ -87,7 +87,7 @@ _Figure {% increment figureId20240111  %}. James Hallowell._
 
 The first workshop I attended was about integrating C++ audio code into Rust, a language that's increasingly popular among developers. This workshop, led by Joe Noël, Nico Chatzigianis, and James Hallowell from Focusrite, was an eye-opener. It was a practical, step-by-step guide on writing applications in Rust that interact with C++ code. The experience was very fun and, most importantly, very educative. I even shared my results on LinkedIn, proud of the progress and the knowledge gained.
 
-If you want to learn more about Rust for audio programming, definitely listen to the [16th episode of the WolfTalk podcast]({% link collections.all, '2024-01-04-ian-hobson.md' }), where I interviewed Ian Hobson, a great proponent of Rust!
+If you want to learn more about Rust for audio programming, definitely listen to the [16th episode of the WolfTalk podcast]({% link collections.all, '2024-01-04-ian-hobson.md' %}), where I interviewed Ian Hobson, a great proponent of Rust!
 
 ### Accessibility panel led by Jay Pocknell & Harry Morley
 
