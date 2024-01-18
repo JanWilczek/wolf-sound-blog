@@ -28,10 +28,10 @@ From mixing heavy metal to audio programming!
 
 * 🎧 [Spotify](https://open.spotify.com/episode/05qcPwJmitxVIxDO4XgD7y?si=ywsRDULBRaypwvFW9kTnfQ)
 * 🎥 [YouTube](https://youtu.be/0LoAvaiRvXg)
-* 🎧 [Apple Podcasts (iTunes)](#)
-* 🎧 [Amazon Music](#)
-* 🎧 [Google Podcasts](#)
-* 🎧 [TuneIn Radio](#)
+* 🎧 [Apple Podcasts (iTunes)](https://podcasts.apple.com/us/podcast/how-can-a-mixing-engineer-become-an-audio/id1595913701?i=1000642072746)
+* 🎧 [Amazon Music](https://music.amazon.com/podcasts/b42682b5-61ba-4a6f-8b11-aed42b07ef9f/episodes/e7437a19-2689-4ede-ac7e-1d01d3b271e2/how-can-a-mixing-engineer-become-an-audio-programmer-with-linus-corneliusson-wolftalk-017)
+* 🎧 [Google Podcasts](https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkcy5yZWRjaXJjbGUuY29tL2JmNDBhMWQyLTdlNDEtNGRkYi04YzNhLWVkODIzOTQ3MjNiYQ/episode/ODI2MGIzOWEtZmIwNy00YmE1LWIzOTUtOTVkZTNmOTczMWNh?sa=X&ved=0CAUQkfYCahcKEwj4h4Cy5OaDAxUAAAAAHQAAAAAQAQ)
+* 🎧 [TuneIn Radio](http://tun.in/tzccHy)
 
 [All podcast episodes.](/podcast)
 
