@@ -10,6 +10,10 @@ categories:
   - Podcast
 tags:
   - rust
+  - cpp
+  - juce
+  - career
+  - learning
 discussion_id: 2024-01-04-ian-hobson
 ---
 Interview with Ian Hobson: ex-Ableton freelancer in audio programming using Rust!
@@ -50,7 +54,7 @@ Ian shares a ton of useful knowledge on
 
 I highly encourage you to listen to the podcast in full!
 
-*Note:* If you like the podcast so far, please, [go to Apple Podcasts and leave me a review there](https://podcasts.apple.com/us/podcast/wolftalk-podcast-about-audio-programming-people-careers/id1595913701). You can [do so on Spotify as well](https://open.spotify.com/show/5xc7EJiH9shG6zdSC5ejyw?si=eb35597e60a54e70). It will benefit both sides: more reviews mean a broader reach on Apple Podcasts and feedback can help me to improve the show and provide better quality content to you. Thank you for doing this 🙏
+*Note:* If you like the podcast so far, please, [go to Apple Podcasts and leave me a review there](https://podcasts.apple.com/us/podcast/wolftalk-podcast-about-audio-programming-people-careers/id1595913701). You can [do so on Spotify as well](https://open.spotify.com/show/5xc7EJiH9shG6zdSC5ejyw?si=eb35597e60a54e70). It will benefit both sides: more reviews mean a broader reach on Apple Podcasts and feedback can help me to improve the show and provide better quality content to you. You can also subscribe and give a like on [YouTube](https://youtube.com/c/WolfSoundAudio). Thank you for doing this 🙏
 
 {% render 'google-ad.liquid' %}
 
