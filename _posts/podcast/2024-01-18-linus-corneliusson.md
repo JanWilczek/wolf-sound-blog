@@ -26,8 +26,8 @@ From mixing heavy metal to audio programming!
 
 ## Listen on
 
-* 🎧 [Spotify](#)
-* 🎥 [YouTube](#)
+* 🎧 [Spotify](https://open.spotify.com/episode/05qcPwJmitxVIxDO4XgD7y?si=ywsRDULBRaypwvFW9kTnfQ)
+* 🎥 [YouTube](https://youtu.be/0LoAvaiRvXg)
 * 🎧 [Apple Podcasts (iTunes)](#)
 * 🎧 [Amazon Music](#)
 * 🎧 [Google Podcasts](#)
