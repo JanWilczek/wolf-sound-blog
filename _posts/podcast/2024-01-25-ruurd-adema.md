@@ -28,12 +28,12 @@ How an AV engineer self-taught himself audio programming.
 
 ## Listen on
 
-* 🎧 [Spotify](#)
-* 🎥 [YouTube](#)
-* 🎧 [Apple Podcasts (iTunes)](#)
-* 🎧 [Amazon Music](#)
-* 🎧 [Google Podcasts](#)
-* 🎧 [TuneIn Radio](#)
+* 🎧 [Spotify](https://open.spotify.com/episode/1svxCP9cvTDyApiJYqNbFE?si=6buVesHgT9qsPKy4Kwc2wA)
+* 🎥 [YouTube](https://youtu.be/a-bzsbejXy0)
+* 🎧 [Apple Podcasts (iTunes)](https://podcasts.apple.com/us/podcast/how-to-transition-from-live-sound-to-freelance-audio/id1595913701?i=1000642881016)
+* 🎧 [Amazon Music](https://music.amazon.com/podcasts/b42682b5-61ba-4a6f-8b11-aed42b07ef9f/episodes/59341e48-5991-4d02-a350-adee88484f8d/how-to-transition-from-live-sound-to-freelance-audio-programming-with-ruurd-adema-wolftalk-018)
+* 🎧 [Google Podcasts](https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkcy5yZWRjaXJjbGUuY29tL2JmNDBhMWQyLTdlNDEtNGRkYi04YzNhLWVkODIzOTQ3MjNiYQ/episode/ZWVkYTg1ZWItZTFhNS00NWZiLTkyNWQtOWMyM2VhYjdiNzcz?sa=X&ved=0CAUQkfYCahcKEwjotrrVjviDAxUAAAAAHQAAAAAQAQ)
+* 🎧 [TuneIn Radio] (TBA)
 
 [All podcast episodes.](/podcast)
 
