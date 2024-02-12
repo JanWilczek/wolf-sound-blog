@@ -24,12 +24,12 @@ What should an audio programmer know on cybersecurity? Audio, Rust, assembly & A
 
 ## Listen on
 
-* 🎧 [Spotify]()
-* 🎥 [YouTube]()
-* 🎧 [Apple Podcasts (iTunes)]()
-* 🎧 [Amazon Music]()
-* 🎧 [Google Podcasts]()
-* 🎧 [TuneIn Radio]()
+* 🎧 [Spotify (TBA)](#)
+* 🎥 [YouTube (TBA)](#)
+* 🎧 [Apple Podcasts (iTunes (TBA))]#()
+* 🎧 [Amazon Music (TBA)](#)
+* 🎧 [Google Podcasts (TBA)](#)
+* 🎧 [TuneIn Radio (TBA)](#)
 
 [All podcast episodes.](/podcast)
 
