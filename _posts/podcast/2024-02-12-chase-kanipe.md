@@ -18,18 +18,22 @@ tags:
   - research
   - deep learning
   - plugin
+  - flutter
 discussion_id: 2024-02-12-chase-kanipe
 ---
 What should an audio programmer know on cybersecurity? Audio, Rust, assembly & AI with a cybersecurity professional.
 
+<script async defer onload="redcircleIframe();" src="https://api.podcache.net/embedded-player/sh/bf40a1d2-7e41-4ddb-8c3a-ed82394723ba/ep/9d5a7a5a-f133-4184-91bd-886ef2ea21d9"></script> <div class="redcirclePlayer-9d5a7a5a-f133-4184-91bd-886ef2ea21d9"></div> <style> .redcircle-link:link { color: #ea404d; text-decoration: none; } .redcircle-link:hover { color: #ea404d; } .redcircle-link:active { color: #ea404d; } .redcircle-link:visited { color: #ea404d; } </style>
+<p style="margin-top:3px;margin-left:11px;font-family: sans-serif;font-size: 10px; color: gray;">Powered by <a class="redcircle-link" href="https://redcircle.com?utm_source=rc_embedded_player&utm_medium=web&utm_campaign=embedded_v1">RedCircle</a></p>
+
 ## Listen on
 
-* 🎧 [Spotify (TBA)](#)
-* 🎥 [YouTube (TBA)](#)
-* 🎧 [Apple Podcasts (iTunes (TBA))]#()
-* 🎧 [Amazon Music (TBA)](#)
-* 🎧 [Google Podcasts (TBA)](#)
-* 🎧 [TuneIn Radio (TBA)](#)
+* 🎧 [Spotify](https://open.spotify.com/episode/5cSCd13BUG1hFx8riDUOUl?si=QqLieHJnSreeb_WNZTgcHg)
+* 🎥 [YouTube](https://youtu.be/3w-9os1aKOE?si=XWPCnTpkY5hfSX2K)
+* 🎧 [Apple Podcasts (iTunes)](https://podcasts.apple.com/us/podcast/how-to-secure-your-audio-code-using-rust-with-chase/id1595913701?i=1000645059437)
+* 🎧 [Amazon Music](https://music.amazon.com/podcasts/b42682b5-61ba-4a6f-8b11-aed42b07ef9f/episodes/d2e69deb-b020-49c4-abd1-8b0d70dd86ac/how-to-secure-your-audio-code-using-rust-with-chase-kanipe-wolftalk-019)
+* 🎧 [Google Podcasts](https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkcy5yZWRjaXJjbGUuY29tL2JmNDBhMWQyLTdlNDEtNGRkYi04YzNhLWVkODIzOTQ3MjNiYQ/episode/ZmQ1NWE4ZWQtOTUzOS00NTI2LWIxMDctZjM1ODM2NGJjNWZj?sa=X&ved=0CAUQkfYCahcKEwjo2qqgoaaEAxUAAAAAHQAAAAAQAQ)
+* 🎧 [TuneIn Radio](http://tun.in/tzNxU4)
 
 [All podcast episodes.](/podcast)
 
