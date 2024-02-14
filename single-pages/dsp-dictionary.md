@@ -60,6 +60,16 @@ The impulse response of a minimum-phase system has most of its energy concentrat
 
 ## P
 
+### Pulse-Code Modulation (PCM)
+
+PCM samples is a fancy-sounding term for a very simple concept known to every audio programmer: sample values. However, it is used in the context of sampled analog signals. A PCM sample has
+
+* a value: the instantaneous amplitude value of a sample (that's exactly the value that you can find in an audio buffer),
+* a bit width: how many bits are used to represent a sample; these bits may be used to represent integer, fixed-point or floating-point samples; bit width and sample representation determine the quantization levels of a sample (which values a single sample can take)
+* a sampling rate: at what rate the samples of the analog signal are taken at (the number of samples per second).
+
+The name of this method originates from telephony, thus, it may be confusing to some.
+
 
 ## Q
 
