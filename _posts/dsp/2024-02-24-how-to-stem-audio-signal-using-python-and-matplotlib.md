@@ -1,6 +1,5 @@
 ---
 title: "How To Stem An Audio Signal Using Python And Matplotlib | Tutorial For Beginners"
-description: "Need to plot some audio signals? This code snippet allows you to easily plot any audio signal as a continuous waveform (+ explainer video)."
 description: "How to plot individual samples of an audio signal. Use the stem plot. This tutorial + explainer video shows you how to do it in Python"
 date: 2024-02-24
 author: Jan Wilczek
@@ -28,8 +27,8 @@ Display audio signal samples using Python!
 Explanation:
 
 1. In the `main()` function, we generate a sine and pass the initial 40 samples into the "stem and save" function.
-2. In the `stem_signal()` function, we mostly adjust figure's properties. We adjust the limits of the figure to include all samples. Lines starting with `ax` turn off the ugly frame of the plot.
-3. In `save()` function, we create the output directory and then save the figure there with high quality and transparent background.
+2. In the `stem_signal()` function, we mostly adjust the figure's properties. We adjust the limits of the figure to include all samples. Lines starting with `ax` turn off the ugly frame of the plot.
+3. In the `save()` function, we create the output directory and then save the figure in it with high quality and transparent background.
 
 ## Code explanation video
 
