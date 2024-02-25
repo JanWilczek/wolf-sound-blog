@@ -34,6 +34,6 @@ Explanation:
 
 Watch how this code was written and why I included particular lines in this explainer video:
 
-<!-- TODO -->
+<iframe width="560" height="315" src="https://www.youtube.com/embed/MgpPkVttIUY?si=8A3PKBCIKUmNS6-c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 Want to know what knowledge from digital signal processing in needed for audio programming? Check out my [free Audio Plugin Developer Checklist]({% link collections.all, 'single-pages/checklist.html' %})!
