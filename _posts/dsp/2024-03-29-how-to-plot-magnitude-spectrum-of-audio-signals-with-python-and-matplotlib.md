@@ -61,6 +61,6 @@ Python libraries used:
 
 Watch how this code was written and why I included particular lines in this explainer video:
 
-
+<iframe width="560" height="315" src="https://www.youtube.com/embed/nA778DSmZew?si=efXK2-SZFHHY9E_u" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 Want to know what knowledge from digital signal processing in needed for audio programming? Check out my [free Audio Plugin Developer Checklist]({% link collections.all, 'single-pages/checklist.html' %})!
