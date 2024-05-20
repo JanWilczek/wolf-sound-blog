@@ -24,16 +24,17 @@ discussion_id: 2024-05-20-fabian-renn-giles
 ---
 Former lead developer of JUCE shares his journey and insights into audio programming!
 
-<!-- TODO: RedCircle player -->
+<script async defer onload="redcircleIframe();" src="https://api.podcache.net/embedded-player/sh/bf40a1d2-7e41-4ddb-8c3a-ed82394723ba/ep/04962693-6dc4-41a3-b5ca-1a80921df0ca"></script> <div class="redcirclePlayer-04962693-6dc4-41a3-b5ca-1a80921df0ca"></div> <style> .redcircle-link:link { color: #ea404d; text-decoration: none; } .redcircle-link:hover { color: #ea404d; } .redcircle-link:active { color: #ea404d; } .redcircle-link:visited { color: #ea404d; } </style>
+<p style="margin-top:3px;margin-left:11px;font-family: sans-serif;font-size: 10px; color: gray;">Powered by <a class="redcircle-link" href="https://redcircle.com?utm_source=rc_embedded_player&utm_medium=web&utm_campaign=embedded_v1">RedCircle</a></p>
 
 ## Listen on
 
-* 🎧 [Spotify (TBA)](#)
+* 🎧 [Spotify](https://open.spotify.com/episode/0fQw83kqXXXAy4BZj7L0jf?si=jVpQMeL9Qry16Rww103OuA)
 * 🎥 [YouTube (TBA)](#)
-* 🎧 [Apple Podcasts (iTunes) (TBA)](#)
-* 🎧 [Amazon Music (TBA)](#)
-* 🎧 [Google Podcasts (TBA)](#)
-* 🎧 [TuneIn Radio (TBA)](#)
+* 🎧 [Apple Podcasts (iTunes)](https://podcasts.apple.com/us/podcast/how-to-master-real-time-audio-c-with-fabian-renn-giles/id1595913701?i=1000656174630)
+* 🎧 [Amazon Music](https://music.amazon.com/podcasts/b42682b5-61ba-4a6f-8b11-aed42b07ef9f/episodes/d06ac668-48cb-44d6-8d75-95c908f77ad5/how-to-master-realtime-audio-c-with-fabian-renngiles-wolftalk-021)
+* 🎧 [Google Podcasts](https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkcy5yZWRjaXJjbGUuY29tL2JmNDBhMWQyLTdlNDEtNGRkYi04YzNhLWVkODIzOTQ3MjNiYQ/episode/OTM0NTIwYTMtZjNjZi00ZTVjLWFjOWYtMDI3YWU2NzhmMmJi?sa=X&ved=0CAUQkfYCahcKEwiIzuKvgJ2GAxUAAAAAHQAAAAAQAQ)
+* 🎧 [TuneIn Radio](http://tun.in/tBl1zt)
 
 [All podcast episodes.](/podcast)
 
