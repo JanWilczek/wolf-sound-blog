@@ -71,8 +71,6 @@ In this podcast episode, you will learn:
 
 This episode was recorded on January 26, 2024.
 
-## Tips from Eric on learning DSP
-
 ## Tips from Fabian on C++ audio programming
 
 1. A mentors should let their mentees fail and learn from their mistakes.
@@ -109,9 +107,9 @@ Below you’ll find all people, places, and references mentioned in the podcast 
         1. [Fielding DSP](https://www.fieldingdsp.com/home)
             1. [Reviver plugin](https://www.fieldingdsp.com/reviver)
         2. [LinkedIn](https://www.linkedin.com/in/fabian-r-8392bb90)
-    2. [Tom Poole](https://www.linkedin.com/in/tbpoole?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAAA7y-T0BFUVfe2zX-RbZOx4wr-OYWzPWvoE&lipi=urn%3Ali%3Apage%3Ad_flagship3_search_srp_all%3BOlgJP1VuR8%2BTrueo4nYs7g%3D%3D)
-    3. [Julian “Jules” Storer](https://www.linkedin.com/in/julian-storer-2412b194?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAABP6GxEB8M6u2VN0bzObGyTzUiu4ND4HcMw&lipi=urn%3Ali%3Apage%3Ad_flagship3_search_srp_all%3BMtvcUwIVQ6WmfK8Zj7SYTg%3D%3D)
-    4. [Andre Bergner](https://www.linkedin.com/in/andrebergner?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAAAnDy4oBXHuSsgNyYea6J6knUIA19G3tSeo&lipi=urn%3Ali%3Apage%3Ad_flagship3_search_srp_all%3BQ0x7%2B2hIQOaWgv6ta0RUxg%3D%3D)
+    2. [Tom Poole](https://www.linkedin.com/in/tbpoole/)
+    3. [Julian “Jules” Storer](https://www.linkedin.com/in/julian-storer-2412b194/)
+    4. [Andre Bergner](https://www.linkedin.com/in/andrebergner/)
     5. [Timur Doumler](https://timur.audio/)
 2. Companies & products
     1. MetroWerks’s [CodeWarrior](https://en.wikipedia.org/wiki/CodeWarrior)
@@ -158,7 +156,7 @@ Below you’ll find all people, places, and references mentioned in the podcast 
     2. Visual Studio Code
 9. Conference talks
     1. Real-Time 101 from ADC 2019 by Fabian and Dave
-        1. [Part 1](https://youtu.be/Q0vrQFyAdWI?si=Y_7pMxzzPPocjkx_)
+        1. [Part 1](https://youtu.be/Q0vrQFyAdWI?si=ppAemJP-O7118OZZ)
         2. [Part 2](https://youtu.be/PoZAo2Vikbo?si=gJHqlga6_br-8uSS)
     2. [Audio playback synchronization from ADC 2021 by Fabian](https://www.youtube.com/watch?v=8jHLusUVa2Y&ab_channel=ADC-AudioDeveloperConference)
     3. [Real-time sins & confessions in C++ from ADC 2023 by Fabian](https://www.youtube.com/watch?v=JG7lqt7V1uY&ab_channel=ADC-AudioDeveloperConference)
@@ -167,7 +165,7 @@ Below you’ll find all people, places, and references mentioned in the podcast 
     6. [Clang performance annotations talk from CppCon by Ofek Shilon](https://www.youtube.com/watch?v=qmEsx4MbKoc&ab_channel=CppCon)
 10. Resources for learning audio programming
     1. [ADC mentorship program](https://audio.dev/mentorship/)
-    2. [Fabian’s JUCE forum post on vectorization](https://forum.juce.com/t/simdregister-is-it-worth-it/53362/4?u=jawitrle)
+    2. [Fabian’s JUCE forum post on vectorization](https://forum.juce.com/t/simdregister-is-it-worth-it/53362/4)
     3. [ChatGPT](https://chatgpt.com/)
 
 Thank you for listening! 🙏
