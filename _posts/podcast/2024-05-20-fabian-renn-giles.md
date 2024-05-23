@@ -108,10 +108,13 @@ Below you’ll find all people, places, and references mentioned in the podcast 
         1. [Fielding DSP](https://www.fieldingdsp.com/home)
             1. [Reviver plugin](https://www.fieldingdsp.com/reviver)
         2. [LinkedIn](https://www.linkedin.com/in/fabian-r-8392bb90)
-    2. [Tom Poole](https://www.linkedin.com/in/tbpoole/)
-    3. [Julian “Jules” Storer](https://www.linkedin.com/in/julian-storer-2412b194/)
-    4. [Andre Bergner](https://www.linkedin.com/in/andrebergner/)
-    5. [Timur Doumler](https://timur.audio/)
+    2. [Marius Renn](https://www.linkedin.com/in/marius-renn/) (Fabian's brother)
+    3. [Johannes Auer](https://www.linkedin.com/in/johannes-auer-6ab278109/)
+    4. [Christoph Kaup](https://cflox.com/impressum/)
+    5. [Tom Poole](https://www.linkedin.com/in/tbpoole/)
+    6. [Julian “Jules” Storer](https://www.linkedin.com/in/julian-storer-2412b194/)
+    7. [Andre Bergner](https://www.linkedin.com/in/andrebergner/)
+    8. [Timur Doumler](https://timur.audio/)
 2. Companies & products
     1. MetroWerks’s [CodeWarrior](https://en.wikipedia.org/wiki/CodeWarrior)
     2. [Behringer](https://www.behringer.com/)
@@ -130,6 +133,7 @@ Below you’ll find all people, places, and references mentioned in the podcast 
         1. [JUCE framework](https://juce.com/)
             1. [Forum](https://forum.juce.com/)
             2. [Multibus API](https://forum.juce.com/t/multibus-api/18491)
+        3. [C++ Concurrency in Action book by Anthony Williams](https://www.google.de/books/edition/C++_Concurrency_in_Action/BzgzEAAAQBAJ?hl=en&gbpv=0)
     2. Python
     3. [SOUL](https://soul.dev/)
     4. Swift
