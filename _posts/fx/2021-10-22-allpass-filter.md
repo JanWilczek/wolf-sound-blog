@@ -151,7 +151,7 @@ Why is this system allpass? Let's calculate its magnitude transfer function at t
 $$\Bigl\lvert H_{\text{AP}_1}(j\omega) \Bigr\rvert = \Bigl\lvert \frac{a_1 + e^{-j\omega}}{1 + a_1e^{-j\omega}} \Bigr\rvert = \Bigl\lvert e^{-j\omega} \frac{a_1e^{j\omega} + 1}{a_1e^{-j\omega} + 1} \Bigr\rvert
 = \bigl\lvert e^{-j\omega} \bigr\rvert \Bigl\lvert \frac{\overline{a_1 e^{-j\omega} + 1}}{ a_1 e^{-j\omega} + 1} \Bigr\rvert = 1,  \quad ({% increment equationId20211022 %})$$
 
-where $\overline{z}$ denotes the complex conjugate of $z$. We used the facts that $ \Bigl\lvert e^{-j\omega} \Bigr\rvert = 1$ and $ \Bigl\lvert \frac{\overline{z}}{z} \Bigr\rvert = 1$.
+where $\overline{z}$ denotes the complex conjugate of $z$. We used the facts that $\Bigl\lvert e^{-j\omega} \Bigr\rvert = 1$ and $\Bigl\lvert \frac{\overline{z}}{z} \Bigr\rvert = 1$.
 
 #### Phase Response
 
