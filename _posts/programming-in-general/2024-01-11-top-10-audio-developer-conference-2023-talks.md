@@ -219,6 +219,8 @@ What makes this talk stand out is its focus on design and architectural choices 
 
 ### A more intuitive approach to optimising audio DSP code – Guiding the compiler through optimising your code for you by Gustav Andersson
 
+[Video](https://youtu.be/HdyiQLQCvfs?si=0Yi26KVDWurYweUf)
+
 <div markdown="0">
 <img class="lazyload" data-src="{{ images | append: "Gustav Andersson.webp" }}" width="50%">
 </div>
