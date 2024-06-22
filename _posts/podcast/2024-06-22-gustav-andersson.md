@@ -22,14 +22,17 @@ discussion_id: 2024-06-22-gustav-andersson
 ---
 Learn how to write well-structured, highly-optimized real-time C++ audio code from a senior C++ audio developer at Elk Audio.
 
+<script async defer onload="redcircleIframe();" src="https://api.podcache.net/embedded-player/sh/bf40a1d2-7e41-4ddb-8c3a-ed82394723ba/ep/d5b118ec-df32-4a04-8c28-89f04db8b062"></script> <div class="redcirclePlayer-d5b118ec-df32-4a04-8c28-89f04db8b062"></div> <style> .redcircle-link:link { color: #ea404d; text-decoration: none; } .redcircle-link:hover { color: #ea404d; } .redcircle-link:active { color: #ea404d; } .redcircle-link:visited { color: #ea404d; } </style>
+<p style="margin-top:3px;margin-left:11px;font-family: sans-serif;font-size: 10px; color: gray;">Powered by <a class="redcircle-link" href="https://redcircle.com?utm_source=rc_embedded_player&utm_medium=web&utm_campaign=embedded_v1">RedCircle</a></p>
+
 ## Listen on
 
-* 🎧 [Spotify](#)
-* 🎥 [YouTube](#)
-* 🎧 [Apple Podcasts (iTunes)](#)
-* 🎧 [Amazon Music](#)
-* 🎧 [Google Podcasts](#)
-* 🎧 [TuneIn Radio](#)
+* 🎧 [Spotify](https://open.spotify.com/episode/5LM4CTD1eHzePDgHRAIIED?si=TQw2n5ETRHynq7zsDdxrWw)
+* 🎥 [YouTube](https://youtu.be/Nm6ehE9MQs4?si=nwwdzUWE__j0qG1P)
+* 🎧 [Apple Podcasts (iTunes)](https://podcasts.apple.com/us/podcast/how-to-master-real-time-audio-c-with-fabian-renn-giles/id1595913701?i=1000656174630)
+* 🎧 [Amazon Music](https://music.amazon.com/podcasts/b42682b5-61ba-4a6f-8b11-aed42b07ef9f/episodes/25a48edd-ecc1-45a5-961d-c5dabb282392/audio-c-architecture-optimization-best-practices-with-gustav-andersson-wolftalk-022)
+* 🎧 [Google Podcasts (TBA)](#)
+* 🎧 [TuneIn Radio (TBA)](#)
 
 [All podcast episodes.](/podcast)
 
