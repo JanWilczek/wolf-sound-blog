@@ -39,15 +39,15 @@ Learn how to write well-structured, highly-optimized real-time C++ audio code fr
 
 One of [my top 10 Audio Developer Conference 2023 talks]({% post_url collections.posts, 'programming-in-general/2024-01-11-top-10-audio-developer-conference-2023-talks.md' %}) was [Gustav Andersson’s talk on optimizing C++ audio code](https://youtu.be/HdyiQLQCvfs?si=0Yi26KVDWurYweUf).
 
-This makes it all the more exciting to have Gustav on the show!
+This made it all the more exciting to have Gustav on the show!
 
 **Gustav Andersson** is a Swedish senior C++ audio developer at Elk Audio. He has worked on their Sensus guitar featuring a rich set of controls, Elk Audio OS for embedded platforms, Sushi digital audio workstation, and Elk Live software for live music collaboration over the internet.
 
-Having studied Electrical Engineering and Digital Signal Processing Gustav had been looking for a very long time to get into the audio industry. As for many developers, getting his first audio-related job was like a dream come true.
+Having studied Electrical Engineering and Digital Signal Processing, Gustav had been looking for a very long time to get into the audio industry. As for many developers, getting his first audio-related job was like a dream come true.
 
 In his free time, Gustav plays and composes his own music.
 
-In the interview, we discuss Gustav’s story, his journey to learn audio programming in C++, and his software projects, including his personal plugin. We don’t shy away from software engineering details and architectural challenges of complex software like a DAW.
+In the interview, we discuss Gustav’s story, his journey to learn audio programming in C++, and his software projects, including his own plugin. We don’t shy away from software engineering details and architectural challenges of complex software like DAWs.
 
 We mention a ton of resources and tips for learning real-time & scalable audio C++, so stay tuned for these!
 
@@ -74,9 +74,8 @@ This podcast was recorded on January 30, 2024.
 Below you’ll find all people, places, and references mentioned in the podcast episode.
 
 - Gustav Andersson
-    - NB01 plugin: [https://www.kvraudio.com/product/nb01---distortion-sustainer-by-noizebox-industries](https://www.kvraudio.com/product/nb01---distortion-sustainer-by-noizebox-industries)
+    - [NB01 plugin](https://www.kvraudio.com/product/nb01---distortion-sustainer-by-noizebox-industries)
 - [Chalmers University of Technology](https://www.chalmers.se/en/)
-- Printed ciruit boards (PCBs)
 - Programming languages
     - C
     - C++
@@ -124,6 +123,7 @@ Below you’ll find all people, places, and references mentioned in the podcast 
     - [No Budget Orchestra (NBO) plugins](https://linuxmusicians.com/viewtopic.php?t=25459)
 - Hardware
     - Amiga personal computer
+    - Printed ciruit boards (PCBs)
     - Roland Funny Cat guitar pedal
 - Music
     - MUSE (band)
