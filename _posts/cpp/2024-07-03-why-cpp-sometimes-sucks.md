@@ -28,7 +28,7 @@ I have recently worked as an architect and a lead developer on a green-field C++
 
 I had been a huge supporter of C++. I read the C++ Programming Language by Bjarne Stroustrup and a few other C++ books but now I have a love-hate relationship with it. I do realize that a lot of these issues are there because of historical reasons and I highly respect C++ for being able to stay in the game for so long.
 
-Came up with a list to add my voice to the discussion that goes on in the C++ community: I’d love to hear your feedback.
+I've come up with a list to add my voice to the discussion that goes on in the C++ community: I’d love to hear your feedback.
 
 I’m not an expert C++ developer: that probably takes years and even the standard committee members happen to get things wrong. But I’m not a C++ newbie.
 
