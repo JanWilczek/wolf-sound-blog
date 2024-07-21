@@ -4,10 +4,26 @@ Source code of my WolfSound audio programming blog. The site runs on Jekyll and 
 
 ## Useful commands
 
+Before you build the website or run in dev mode, run
+
+```bash
+npx gulp
+```
+
+to copy the CSS assets to the right folders.
+
 To run the test server
 
 ```bash
 npx @11ty/eleventy --serve
+# or
+npm start
+```
+
+To build the website
+
+```bash
+npm build
 ```
 
 To build pngs from latex files:
