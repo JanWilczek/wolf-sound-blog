@@ -60,7 +60,7 @@ From this podcast episode, you will learn:
 * how he approaches creating his widely acclaimed conference talks,
 * which resources to use to learn high-performance real-time programming.
 
-<!-- TODO: This podcast was recorded on January 30, 2024. -->
+This podcast was recorded on March 25, 2024.
 
 ## Dave’s tips on being a good audio programmer
 
@@ -79,62 +79,92 @@ From this podcast episode, you will learn:
 
 Below you’ll find all people, places, and references mentioned in the podcast episode.
 
-- Gustav Andersson
-    - [NB01 plugin](https://www.kvraudio.com/product/nb01---distortion-sustainer-by-noizebox-industries)
-- [Chalmers University of Technology](https://www.chalmers.se/en/)
+- People
+    - [Dave Rowland](https://www.linkedin.com/in/david-rowland-478a22112/)
+    - [Tom Mitchell](https://www.linkedin.com/in/thomas-mitchell-72172013/)
+    - [Julian Storer](https://www.linkedin.com/in/julian-storer-2412b194/)
+    - [Cesare Ferrari](https://www.linkedin.com/in/cesareferrari/)
+    - [Fabian Renn-Giles](https://www.linkedin.com/in/fabian-r-8392bb90/)
+    - [Timur Doumler](https://timur.audio/about)
+- [University of the West of England](https://www.uwe.ac.uk/)
+    - Music Systems Engineering: apparently replaced by [Audio and Music Technology](https://courses.uwe.ac.uk/J932/audio-and-music-technology)
 - Programming languages
     - C
     - C++
-        - [Dear ImGui GUI library for C++](https://github.com/ocornut/imgui)
-        - [OpenGL graphics library](https://www.opengl.org/)
-        - [Vulkan graphics library](https://www.vulkan.org/)
-        - [Compiler Explorer](https://godbolt.org/)
-        - [Google Benchmark benchmarking library](https://github.com/google/benchmark)
-        - [Valgrind](https://valgrind.org/): a suite of tools for detecting memory management and threading bugs, and profiling
-        - [Twine: C++ threading library](https://codeberg.org/jfinkhaeuser/twine)
-    - Java
+        - [JUCE C++ framework](https://juce.com/) (podcast sponsor 🎉 )
+        - [NanoRange](https://github.com/tcbrindle/NanoRange) library
+        - [flux](https://github.com/tcbrindle/flux) library
+        - [TartanLlama/expected](https://github.com/TartanLlama/expected) library
+        - [magic_enum](https://github.com/Neargye/magic_enum) library
+        - [fmt](https://github.com/fmtlib/fmt) formatting library
+    - Rust
+    - bash scripting language
+    - Max/MSP
     - Python
-    - SuperCollider
-    - Lua
+    - [Scratch](https://en.wikipedia.org/wiki/Scratch_(programming_language))
+    - [CMajor](https://cmajor.dev/)
 - Companies
-    - Elk Audio (Mind Music Labs)
-        - People:
-            - [Stefano Zambon](https://www.linkedin.com/in/stefano-zambon-38113410a?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAABttfBEB_ouCihI5cIyESCoAUvPBxj5i2_w&lipi=urn%3Ali%3Apage%3Ad_flagship3_search_srp_all%3BAy3ZCttkRiaiH66wd7G5CA%3D%3D) (founder)
-            - [Ilias Bergström](https://www.linkedin.com/in/ilias-bergstr%C3%B6m-0ba8aa4?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAAADYDg4Bbu5bPW5JVA2E1VNQkjffAC15sT4&lipi=urn%3Ali%3Apage%3Ad_flagship3_search_srp_all%3BjdVdrBVGSmCK%2BnNsipYTNg%3D%3D)
-        - Products
-            - Sensus guitar [(demo video](https://youtu.be/fqzEQnsSIoY?si=z52M9HwSJ7Q0mgfC))
-            - Elk Audio OS (open source)
-            - Sushi digital audio workstation (open source)
-            - ElkLive (2.0) standalone + plugin
-    - Ericsson
-    - [Arturia](https://www.arturia.com/)
-    - [Fishman guitar pickups](https://www.fishman.com/)
-- Resources on C++ and audio programming
-    - [KVR developer forum](https://www.kvraudio.com/forum)
-    - [Ross Bencina’s blog](http://www.rossbencina.com/)
-    - [C++ Core Guidelines](https://github.com/isocpp/CppCoreGuidelines)
-    - [Audio Developer Conference](https://audio.dev/)
-    - [CppCon](https://cppcon.org/)
-    - Andrei Alexandrescu: *Modern C++ Design* book
-- Technology concepts
-    - [Serial Peripheral Interface (SPI) communication](https://en.wikipedia.org/wiki/Serial_Peripheral_Interface)
-    - [UDP hole punching](https://en.wikipedia.org/wiki/UDP_hole_punching)
-    - ISP: internet service provider
-    - COM: Component Object Model, a standard for software components and a C++ programming paradigm on Windows
-- Software
-    - [Ardour digital audio workstation](https://github.com/Ardour/ardour)
-    - [JACK Audio Connection Kit](https://wiki.archlinux.org/title/JACK_Audio_Connection_Kit)
-    - [Yocto Project for creating Linux distros](https://www.yoctoproject.org/)
-    - CLion IDE
-    - [No Budget Orchestra (NBO) plugins](https://linuxmusicians.com/viewtopic.php?t=25459)
-- Hardware
-    - Amiga personal computer
-    - Printed ciruit boards (PCBs)
-    - Roland Funny Cat guitar pedal
-- Music
-    - MUSE (band)
-        - Matt Bellamy
-    - [Music for Programming](https://musicforprogramming.net/latest/)
+    - dRowAudio: Dave’s freelance company from before Tracktion
+    - [Audio Squadron](https://www.audiosquadron.com/): a group of audio-related companies consisting of
+        - [Tracktion Corporation](https://www.tracktion.com/)
+            - [Tracktion DAW, currently Waveform](https://www.tracktion.com/products/waveform-pro)
+                - [Waveform 13 feature list](https://www.tracktion.com/products/waveform-pro-features)
+            - [Tracktion Engine](https://github.com/Tracktion/tracktion_engine): fully featured DAW engine
+                - [List of features](https://github.com/Tracktion/tracktion_engine/blob/develop/FEATURES.md)
+            - [pluginval](https://github.com/Tracktion/pluginval): audio plugin validation tool
+        - [Prism Sound](https://www.prismsound.com/)
+        - [SADiE](https://www.sadie.com/sadie_home.php)
+            - DAW + dedicated hardware
+        - 2JW Design
+    - [Mackie](https://mackie.com/)
+    - [Native Instruments group](https://www.native-instruments.com/en/)
+        - SoundStacks
+    - [Roli](https://roli.com/)
+    - [PACE](https://paceap.com/)
+    - [CMajor Software Ltd.](https://cmajor.dev/)
+- Programming concepts
+    - [Builder pattern](https://en.wikipedia.org/wiki/Builder_pattern)
+    - [Model-View-Controller pattern](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller)
+    - JUCE’s [ValueTree](https://docs.juce.com/master/classValueTree.html)
+    - Audio Unit: plugin format from Apple
+- Resources to learn C++ and audio programming
+    - online conference recordings
+    - finance industry
+    - game industry
+    - [Read-Copy-Update talk](https://youtu.be/7fKxIZOyBCE?si=gGt4LA34ZcOKPOyz) by Timur Doumler
+    - Low-latency C++ talk by Timur Doumler
+        - [Part 1](https://youtu.be/EzmNeAhWqVs?si=xHUh5yOI8txS9IA8)
+        - [Part 2](https://youtu.be/5uIsadq-nyk?si=30USxfgTIN9zOZb8)
+    - Fedor Pikus’s talks
+    - David Gross’s talks
+        - E.g., [“Trading at light speed”](https://youtu.be/8uAW5FQtcvE?si=sGJHyg8ntgWIcpRY)
+    - Daniel Anderson talks
+        - [Concurrent access to smart pointers](https://youtu.be/OS7Asaa6zmY?si=GC-SXIcQmCs17A95)
+        - [Lock-free atomic shared pointers](https://youtu.be/lNPZV9Iqo3U?si=PWpHUKcyw9S-7Qvc)
+    - Dave’s talks
+        - Real-time 101 (with Fabian Renn-Giles)
+            - [Part 1](https://youtu.be/Q0vrQFyAdWI?si=JIq5ux_pcbgsGNOn)
+            - [Part 2](https://youtu.be/PoZAo2Vikbo?si=uQP7m-GCktsdkngf)
+        - [Optimising a real-time audio processing library](https://youtu.be/FpymA7NLNDs?si=FFQbZpo9IPr-gHoJ)
+        - [JUCE’s ValueTree](https://youtu.be/3IaMjH5lBEY?si=WnUtP5jUacEWNpKS)
+- Audio-related communities
+    - [JUCE forum](https://forum.juce.com/)
+    - [The Audio Programmer’s Discord](https://www.theaudioprogrammer.com/discord)
+- Conferences
+    - JUCE Summit (now [Audio Developer Conference](https://audio.dev/))
+    - [CppCon](https://www.youtube.com/@CppCon)
+    - [Cpp on Sea](https://www.youtube.com/@cpponsea)
+    - [C++ Online](https://www.youtube.com/@CppOnline)
+    - [Meeting Cpp](https://www.youtube.com/@MeetingCPP)
+    - [CppNow](https://www.youtube.com/@BoostCon)
+- Tools
+    - XCode
+    - CLion
+    - Github Actions
+    - Azure Pipelines
+    - Apple Clang
+    - [Realtime-Safety Sanitizer (RADSan)](https://github.com/realtime-sanitizer/radsan)
+    - [ChatGPT](https://openai.com/chatgpt/)
 
 Thank you for listening! 🙏
 
