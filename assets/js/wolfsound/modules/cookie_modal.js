@@ -9,6 +9,18 @@ function handle_cookies() {
     },
     function (data) {
       console.log(data);
+      if (data[0].statistics) {
+        gtag("consent", "update", {
+          analytics_storage: "granted",
+        });
+      }
+      if (data[0].marketing) {
+        gtag("consent", "update", {
+          ad_user_data: "granted",
+          ad_personalization: "granted",
+          ad_storage: "granted",
+        });
+      }
     },
     false,
     false,
@@ -17,6 +29,19 @@ function handle_cookies() {
 
   if (!cookify.getDataState(cookify.viewedName)) {
     cookieModal.style.display = "block";
+  } else {
+    if (cookify.getDataState("statistics")) {
+      gtag("consent", "update", {
+        analytics_storage: "granted",
+      });
+    }
+    if (cookify.getDataState("marketing")) {
+      gtag("consent", "update", {
+        ad_user_data: "granted",
+        ad_personalization: "granted",
+        ad_storage: "granted",
+      });
+    }
   }
 }
 window.addEventListener("load", handle_cookies);

@@ -1,5 +1,19 @@
 <head>
     {% if buildSettings.environment == "production" %}
+    <script>
+        // Define dataLayer and the gtag function.
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        
+        // Set default consent to 'denied' as a placeholder
+        // Determine actual values based on your own requirements
+        gtag('consent', 'default', {
+          'ad_storage': 'denied',
+          'ad_user_data': 'denied',
+          'ad_personalization': 'denied',
+          'analytics_storage': 'denied'
+        });
+    </script>
     <!-- Global site tag (gtag.js) - Google Analytics GA4 -->
     <script defer data-c-script="statistics" src="https://www.googletagmanager.com/gtag/js?id=G-S5BSDKRNCW"></script>
     <script data-c-script="statistics">
@@ -55,7 +69,7 @@
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.js" integrity="sha384-G0zcxDFp5LWZtDuRMnBkk3EphCK1lhEf4UEyEM693ka574TZGwo4IWwS6QLzM/2t" crossorigin="anonymous"></script>
 
     <!-- Audio Plugin Developer Checklist POPUP Kajabi form -->
-    <script defer src=https://www.wolfsoundacademy.com/forms/2148393622/embed.js></script>
+    <script src=https://www.wolfsoundacademy.com/forms/2148393622/embed.js></script>
     
     <!-- Syntax highlight CSS file -->
     <link href="/assets/css/prism-vs.css" rel="stylesheet">
