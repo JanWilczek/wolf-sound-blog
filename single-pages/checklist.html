@@ -44,6 +44,9 @@ custom_css:
 
     {% include 'scripts.html' %}
 
+    {% if buildSettings.environment == "production" %}
+    {% include 'cookify.html' %}
+    {% endif %}
 </body>
 
 </html>
