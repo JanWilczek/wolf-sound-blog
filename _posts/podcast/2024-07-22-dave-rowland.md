@@ -23,15 +23,14 @@ discussion_id: 2024-07-22-dave-rowland
 ---
 Architect of Waveform DAW & real-time C++ programming expert.
 
-<!-- TODO: RedCircle player -->
+<script async defer onload="redcircleIframe();" src="https://api.podcache.net/embedded-player/sh/bf40a1d2-7e41-4ddb-8c3a-ed82394723ba/ep/acf8e644-e9cb-4511-90c3-7fcb6e92a606"></script> <div class="redcirclePlayer-acf8e644-e9cb-4511-90c3-7fcb6e92a606"></div> <style> .redcircle-link:link { color: #ea404d; text-decoration: none; } .redcircle-link:hover { color: #ea404d; } .redcircle-link:active { color: #ea404d; } .redcircle-link:visited { color: #ea404d; } </style>
+<p style="margin-top:3px;margin-left:11px;font-family: sans-serif;font-size: 10px; color: gray;">Powered by <a class="redcircle-link" href="https://redcircle.com?utm_source=rc_embedded_player&utm_medium=web&utm_campaign=embedded_v1">RedCircle</a></p>
 
 ## Listen on
 
-* 🎧 [Spotify](#)
-* 🎥 [YouTube](#)
-* 🎧 [Apple Podcasts (iTunes)](#)
-* 🎧 [Amazon Music](#)
-* 🎧 [Google Podcasts (TBA)](#)
+* 🎧 [Spotify (TBA)](#)
+* 🎥 [YouTube (TBA)](#)
+* 🎧 [Apple Podcasts (iTunes) (TBA)](#)
 * 🎧 [TuneIn Radio (TBA)](#)
 
 [All podcast episodes.](/podcast)

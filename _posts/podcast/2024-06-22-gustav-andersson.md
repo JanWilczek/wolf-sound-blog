@@ -31,8 +31,7 @@ Learn how to write well-structured, highly-optimized real-time C++ audio code fr
 * 🎥 [YouTube](https://youtu.be/Nm6ehE9MQs4?si=nwwdzUWE__j0qG1P)
 * 🎧 [Apple Podcasts (iTunes)](https://podcasts.apple.com/us/podcast/how-to-master-real-time-audio-c-with-fabian-renn-giles/id1595913701?i=1000656174630)
 * 🎧 [Amazon Music](https://music.amazon.com/podcasts/b42682b5-61ba-4a6f-8b11-aed42b07ef9f/episodes/25a48edd-ecc1-45a5-961d-c5dabb282392/audio-c-architecture-optimization-best-practices-with-gustav-andersson-wolftalk-022)
-* 🎧 [Google Podcasts (TBA)](#)
-* 🎧 [TuneIn Radio (TBA)](#)
+* 🎧 [TuneIn Radio](http://tun.in/tBG1uv)
 
 [All podcast episodes.](/podcast)
 
