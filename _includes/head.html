@@ -1,7 +1,7 @@
 <head>
     {% if buildSettings.environment == "production" %}
     <!-- Global site tag (gtag.js) - Google Analytics GA4 -->
-    <script async data-c-script="statistics" src="https://www.googletagmanager.com/gtag/js?id=G-S5BSDKRNCW"></script>
+    <script defer data-c-script="statistics" src="https://www.googletagmanager.com/gtag/js?id=G-S5BSDKRNCW"></script>
     <script data-c-script="statistics">
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
@@ -55,7 +55,7 @@
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.js" integrity="sha384-G0zcxDFp5LWZtDuRMnBkk3EphCK1lhEf4UEyEM693ka574TZGwo4IWwS6QLzM/2t" crossorigin="anonymous"></script>
 
     <!-- Audio Plugin Developer Checklist POPUP Kajabi form -->
-    <script src=https://www.wolfsoundacademy.com/forms/2148393622/embed.js></script>
+    <script defer src=https://www.wolfsoundacademy.com/forms/2148393622/embed.js></script>
     
     <!-- Syntax highlight CSS file -->
     <link href="/assets/css/prism-vs.css" rel="stylesheet">
@@ -69,7 +69,7 @@
 
     {% if buildSettings.environment == "production" %}
     <!-- Meta Pixel Code -->
-    <script data-c-script="statistics">
+    <script defer data-c-script="statistics">
         !function (f, b, e, v, n, t, s) {
             if (f.fbq) return; n = f.fbq = function () {
                 n.callMethod ?
