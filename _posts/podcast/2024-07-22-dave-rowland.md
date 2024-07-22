@@ -42,9 +42,9 @@ Architect of Waveform DAW & real-time C++ programming expert.
 
 Dave Rowland is the CTO of Audio Squadron: a group of audio-related companies. More specifically, he's the architect and the lead developer of the Waveform digital audio workstation (DAW) and an Audio Manager of Prism Sound (which focuses on audio hardware manufacturing). He's also a very successful speaker, having given talks at conferences like Audio Developer Conference or C++ on Sea.
 
-Given the popularity of Dave's talks and his X-year long experience in developing the Waveform DAW and its open source engine, I am incredibly excited to have him on the WolfTalk podcast.
+Given the popularity of Dave's talks and his 11-year long (as of 2024) experience in developing the Waveform DAW and its open source engine, I am incredibly excited to have him on the WolfTalk podcast.
 
-During the interview, we learn not only Dave's story but we also discuss the challenges of building real-time audio software including DAWs and learning C++, software architecture, and high-performance real-time programming concerning audio. Dave shares a ton of highly useful tips and resources so you don't want to miss out this one!
+During the interview, we learn not only Dave's story but we also discuss the challenges of building real-time audio software including DAWs and learning C++, software architecture, and high-performance real-time programming concerning audio. Dave shares a ton of highly useful tips and resources so you don't want to miss out on this one!
 
 *Note:* If you like the podcast so far, please, [go to Apple Podcasts and leave me a review there](https://podcasts.apple.com/us/podcast/wolftalk-podcast-about-audio-programming-people-careers/id1595913701). You can [do so on Spotify as well](https://open.spotify.com/show/5xc7EJiH9shG6zdSC5ejyw?si=eb35597e60a54e70). It will benefit both sides: more reviews mean a broader reach on Apple Podcasts and feedback can help me to improve the show and provide better quality content to you. You can also subscribe and give a like on [YouTube](https://youtube.com/c/WolfSoundAudio). Thank you for doing this 🙏
 
@@ -56,7 +56,7 @@ From this podcast episode, you will learn:
 
 * how Dave organizes his day for maximum productivity,
 * which tools he's leveraging on the day-to-day basis,
-* how he went from being a music systems engineering student to a freelance audio developer to the lead developer on the Tracktion DAW (now Waveform),
+* how he went from being a music technology student to a freelance audio developer to the lead developer on the Tracktion DAW (now Waveform),
 * how he approaches creating his widely acclaimed conference talks,
 * which resources to use to learn high-performance real-time programming.
 
