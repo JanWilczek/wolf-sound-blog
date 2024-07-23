@@ -28,10 +28,10 @@ Architect of Waveform DAW & real-time C++ programming expert.
 
 ## Listen on
 
-* 🎧 [Spotify (TBA)](#)
-* 🎥 [YouTube (TBA)](#)
-* 🎧 [Apple Podcasts (iTunes) (TBA)](#)
-* 🎧 [TuneIn Radio (TBA)](#)
+* 🎧 [Spotify](https://open.spotify.com/episode/16J1S3poIFclIAfUAmD9mb?si=7OBl92-ORYeCdDJncx9BWw)
+* 🎥 [YouTube](https://youtu.be/x3-BIT-1yv8)
+* 🎧 [Apple Podcasts (iTunes)](https://podcasts.apple.com/us/podcast/building-daw-software-with-dave-rowland-tracktion/id1595913701?i=1000662958374)
+* 🎧 [TuneIn Radio](http://tun.in/tBYccT)
 
 [All podcast episodes.](/podcast)
 
@@ -82,9 +82,17 @@ Below you’ll find all people, places, and references mentioned in the podcast 
     - [Dave Rowland](https://www.linkedin.com/in/david-rowland-478a22112/)
     - [Tom Mitchell](https://www.linkedin.com/in/thomas-mitchell-72172013/)
     - [Julian Storer](https://www.linkedin.com/in/julian-storer-2412b194/)
+    - Woody from Mackie
+    - Dave Christenson from Mackie
+        - Before he worked for Mackie was the lead singer of the 80’s pop band [The Stabilizers](https://en.wikipedia.org/wiki/Stabilizers_(band))
+    - Roland Rabien
+        - https://github.com/FigBug/
+        - https://socalabs.com/
     - [Cesare Ferrari](https://www.linkedin.com/in/cesareferrari/)
     - [Fabian Renn-Giles](https://www.linkedin.com/in/fabian-r-8392bb90/)
     - [Timur Doumler](https://timur.audio/about)
+    - Wolfram from Tracktion
+        - [Stroke Machine iOS app](https://www.kvraudio.com/product/stroke-machine-by-franke-music)
 - [University of the West of England](https://www.uwe.ac.uk/)
     - Music Systems Engineering: apparently replaced by [Audio and Music Technology](https://courses.uwe.ac.uk/J932/audio-and-music-technology)
 - Programming languages
