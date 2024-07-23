@@ -86,8 +86,8 @@ Below you’ll find all people, places, and references mentioned in the podcast 
     - Dave Christenson from Mackie
         - Before he worked for Mackie was the lead singer of the 80’s pop band [The Stabilizers](https://en.wikipedia.org/wiki/Stabilizers_(band))
     - Roland Rabien
-        - https://github.com/FigBug/
-        - https://socalabs.com/
+        - [GitHub](https://github.com/FigBug/)
+        - [Plugins](https://socalabs.com/)
     - [Cesare Ferrari](https://www.linkedin.com/in/cesareferrari/)
     - [Fabian Renn-Giles](https://www.linkedin.com/in/fabian-r-8392bb90/)
     - [Timur Doumler](https://timur.audio/about)
