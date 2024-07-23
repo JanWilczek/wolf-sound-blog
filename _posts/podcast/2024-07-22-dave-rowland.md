@@ -134,6 +134,7 @@ Below you’ll find all people, places, and references mentioned in the podcast 
     - [Model-View-Controller pattern](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller)
     - JUCE’s [ValueTree](https://docs.juce.com/master/classValueTree.html)
     - Audio Unit: plugin format from Apple
+    - [Seqlock: implementation by Timur Doumler](https://github.com/crill-dev/crill/blob/main/include/crill/seqlock_object.h)
 - Resources to learn C++ and audio programming
     - online conference recordings
     - finance industry
