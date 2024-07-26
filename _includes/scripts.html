@@ -1,14 +1,14 @@
-<script data-c-script="necessary" src="{{"/assets/vendor/jquery/jquery.min.js" | relative_url }}"></script>
-<script data-c-script="necessary" src="{{"/assets/vendor/bootstrap/js/bootstrap.bundle.min.js" | relative_url }}"></script>
-<script data-c-script="necessary" src="{{"/assets/vendor/startbootstrap-clean-blog/js/clean-blog.min.js" | relative_url }}"></script>
+<script defer data-c-script="necessary" src="{{"/assets/vendor/jquery/jquery.min.js" | relative_url }}"></script>
+<script defer data-c-script="necessary" src="{{"/assets/vendor/bootstrap/js/bootstrap.bundle.min.js" | relative_url }}"></script>
+<script defer data-c-script="necessary" src="{{"/assets/vendor/startbootstrap-clean-blog/js/clean-blog.min.js" | relative_url }}"></script>
 
-<script data-c-script="necessary" src="{{"/assets/scripts.js" | relative_url }}"></script>
+<script defer data-c-script="necessary" src="{{"/assets/scripts.js" | relative_url }}"></script>
 
 {% if url contains 'contact' %}
   <!-- Form Validation -->
-  <script data-c-script="necessary" src="{{"/assets/vendor/startbootstrap-clean-blog/js/jqBootstrapValidation.js" | relative_url }}"></script>
+  <script defer data-c-script="necessary" src="{{"/assets/vendor/startbootstrap-clean-blog/js/jqBootstrapValidation.js" | relative_url }}"></script>
   <!-- Send Form -->
-  <script data-c-script="necessary">
+  <script defer data-c-script="necessary">
     $(function () {
 
       $("#contactForm input,#contactForm textarea").jqBootstrapValidation({
@@ -87,6 +87,6 @@
 <!-- Additional JavaScript files -->
 {% if custom_js %}
     {% for js_file in custom_js %}
-        <script data-c-script="necessary" type="text/javascript" src="{{ js_file }}"></script>
+        <script defer data-c-script="necessary" type="text/javascript" src="{{ js_file }}"></script>
     {% endfor %}
 {% endif %}
