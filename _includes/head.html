@@ -41,7 +41,11 @@
 
     <link rel="stylesheet" href="{{"/assets/vendor/fontawesome-free/css/all.min.css" | relative_url }}">
 
-    <link rel="stylesheet" href="{{"/assets/main.css" | relative_url }}">
+    <link rel="preload" href="{{"/assets/main.css" | relative_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="{{"/assets/main.css" | relative_url }}">
+    </noscript>
+
     <link rel="shortcut icon" type="image/png" href="/favicon.png">
 
     {% capture canonicalUrl %}{{ site.url }}{{ page.url | url }}{% endcapture %}
