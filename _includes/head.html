@@ -1,4 +1,6 @@
 <head>
+    <meta charset="utf-8">
+
     {% if buildSettings.environment == "production" %}
     <!-- Google Tag Manager -->
     <script data-c-script="statistics">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -9,7 +11,6 @@
     <!-- End Google Tag Manager -->
     {% endif %}
 
-    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     {% capture pageTitle %}{% if title %}{{ title | escape }} | {{ site.title | escape }}{% elsif eleventyComputed.title %}{{ eleventyComputed.title | escape }} | {{ site.title | escape }}{% else %}{{ site.title | escape }}{% endif %}{% endcapture %}
