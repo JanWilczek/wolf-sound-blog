@@ -16,7 +16,7 @@ discussion_id: 2021-10-22-allpass-filter
 ---
 What is an allpass filter? What is it used for?
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/AKMoKWYGe8I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/AKMoKWYGe8I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
 
 An *allpass filter* is a filter with a **unity gain across all frequencies**. This means that no frequency passing through that filter will be boosted or attenuated. It introduces, however, a *frequency-dependent delay*. 
 

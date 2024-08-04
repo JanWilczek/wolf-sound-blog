@@ -17,7 +17,7 @@ discussion_id: 2021-09-24-wavetable-synthesis-juce
 ---
 Let's write a wavetable synthesizer in JUCE C++ framework!
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Ah4P-zOfdYc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Ah4P-zOfdYc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
 
 
 

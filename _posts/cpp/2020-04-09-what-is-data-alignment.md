@@ -36,7 +36,7 @@ tags:
   - cpp
 discussion_id: 2020-04-09-what-is-data-alignment
 ---
-<iframe width="560" height="315" src="https://www.youtube.com/embed/tyw6_B0-QZA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/tyw6_B0-QZA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
 
 So you want to speed up your software so that it is capable of running even the most sophisticated audio algorithms in real time. How to achieve that? This question has multiple answers, but one of them is definitely data alignment, the topic of today&#8217;s article.
 

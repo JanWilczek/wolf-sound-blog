@@ -18,7 +18,7 @@ discussion_id: 2021-11-19-leonardo-fierro
 ---
 From Communications to Audio Signal Processing and Time-Scale Modification.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/-G5tNfLy84g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/-G5tNfLy84g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
 
 Listen on:
 * [SoundCloud](https://soundcloud.com/jan-wilczek-wolf-sound/how-to-start-a-career-in-audio-research-with-leonardo-fierro-wolftalk-002)

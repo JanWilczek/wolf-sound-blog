@@ -37,9 +37,9 @@ tags:
   - testing
 discussion_id: 2020-01-21-how-to-write-good-code-lessons-learned-from-clean-code
 ---
-<iframe width="560" height="315" src="https://www.youtube.com/embed/5DFUH0zCn3Y" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/5DFUH0zCn3Y" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/OR41NOATLhU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/OR41NOATLhU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
 
 Today we are going to talk about THIS book:
 

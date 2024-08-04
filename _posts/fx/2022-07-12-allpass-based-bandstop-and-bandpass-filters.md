@@ -19,7 +19,7 @@ discussion_id: 2022-07-12-allpass-based-bandstop-and-bandpass-filters
 ---
 With real-time center frequency and bandwidth control!
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/wodumxEF9u0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/wodumxEF9u0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
 
 In [one of the previous articles]({% post_url collections.posts, 'fx/2022-05-08-allpass-based-lowpass-and-highpass-filters' %}), we discussed how to implement a simple lowpass and a highpass filter using the first-order allpass filter. That filter had a real-time cutoff frequency control.
 
@@ -215,7 +215,7 @@ Once again, the y-axis is a log-frequency axis, the x-axis is a time axis, and c
 
 ### Implementation
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/boHWH_8ODv8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/boHWH_8ODv8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
 
 Here is a sample Python implementation of both filters: the bandpass and the bandstop.
 

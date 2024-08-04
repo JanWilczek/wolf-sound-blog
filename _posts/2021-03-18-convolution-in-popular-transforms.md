@@ -17,7 +17,7 @@ discussion_id: 2021-03-18-convolution-in-popular-transforms
 ---
 How does the convolution relate to the most popular transforms in signal processing?
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/f3pjtqYUlW0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/f3pjtqYUlW0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
 
 
 

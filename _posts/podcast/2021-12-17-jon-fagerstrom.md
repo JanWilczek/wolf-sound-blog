@@ -19,7 +19,7 @@ discussion_id: 2021-12-17-jon-fagerstrom
 ---
 Improving reverb and sampling techniques while playing the bass guitar.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/AevdiBbtR-0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/AevdiBbtR-0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
 
 Listen on:
 

@@ -18,7 +18,7 @@ discussion_id: 2022-01-29-alec-wright
 ---
 Apply neural networks to Virtual Analog modeling of audio effects.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/joMXK09-lUM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/joMXK09-lUM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
 
 Listen on:
 

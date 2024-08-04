@@ -31,7 +31,7 @@ custom_js:
 ---
 Which language should you learn first for audio programming?
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/VcN7uYz19eA?si=RpOTIQxrvTIiw2vH" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/VcN7uYz19eA?si=RpOTIQxrvTIiw2vH" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
 
 So... you would like to write software that processes sound and for this you need a programming language. But there are so many of them out there! Which one to
  use? That's why in this article I'm going to discuss my personal top 5 programming languages for audio programming.

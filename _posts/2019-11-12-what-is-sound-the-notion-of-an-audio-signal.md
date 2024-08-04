@@ -36,7 +36,7 @@ tags:
   - sampling (A/D conversion)
 discussion_id: 2019-11-12-what-is-sound-the-notion-of-an-audio-signal
 ---
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Q6NldT7pgEY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Q6NldT7pgEY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
 
 Sound is everywhere around us, when we speak, when we listen to music, when we hear traffic noise and even when everything seems to be silent. But what is sound actually? We need to understand this phenomenon before we are able to store it on a machine and process it.
 

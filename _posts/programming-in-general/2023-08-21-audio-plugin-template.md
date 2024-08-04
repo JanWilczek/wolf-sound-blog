@@ -21,7 +21,7 @@ custom_js:
 ---
 An easy-to-use template to kick-start your every audio plugin C++ project!
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Uq7Hwt18s3s?si=DPit1QziNoJYawfF" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Uq7Hwt18s3s?si=DPit1QziNoJYawfF" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
 
 Get the [template repository on GitHub.](https://github.com/JanWilczek/audio-plugin-template)
 

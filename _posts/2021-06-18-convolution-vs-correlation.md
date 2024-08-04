@@ -15,7 +15,7 @@ discussion_id: 2021-06-18-convolution-vs-correlation
 ---
 Can we calculate correlation using convolution?
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/R7cn9b7BNyk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/R7cn9b7BNyk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
 
 ### The Convolution Series
 1. [Definition of convolution and intuition behind it]({% post_url collections.posts, '2020-06-20-the-secret-behind-filtering' %})

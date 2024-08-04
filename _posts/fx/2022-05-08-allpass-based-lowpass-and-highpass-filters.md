@@ -19,7 +19,7 @@ discussion_id: 2022-05-08-allpass-based-lowpass-and-highpass-filters
 ---
 Control the cutoff with just one coefficient!
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Aht4letBAmA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Aht4letBAmA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
 
 
 {% capture _ %}{% increment equationId20220508  %}{% endcapture %}

@@ -18,7 +18,7 @@ custom_js:
 ---
 I don’t know about you but I have always been confused about the group delay, phase delay, and sample delay in digital signal processing… Let’s clear this all up once and for all!
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/ox-CyJVpJEM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ox-CyJVpJEM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
 
 1. [What is a sample delay?](#what-is-a-sample-delay)
 2. [What is a phase delay?](#what-is-a-phase-delay)
