@@ -21,8 +21,8 @@ If you want to create an audio plugin or a C++ application and you want to use f
 
 You can
 
-- download the sources,
-- use git submodules, or
+- download the sources (don't!),
+- use git submodules (risky!), or
 - use a C++ package manager.
 
 One of the most popular C++ package managers is [vcpkg](https://vcpkg.io/en/).
@@ -71,7 +71,7 @@ Today we'll see exactly step by step how to use the vcpkg package manager to hav
     
 6. Create a top-level *CMakeLists.txt* file
     
-    ```bash
+    ```cmake
     cmake_minimum_required(VERSION 3.22)
     project(JuceVcpkgDemo)
     
@@ -81,7 +81,8 @@ Today we'll see exactly step by step how to use the vcpkg package manager to hav
 7. Generate the CMake project with the correct toolchain file.
     
     ```bash
-    cmake -S . -B build -DCMAKE_TOOLCHAIN_FILE="vcpkg/scripts/buildsystems/vcpkg.cmake"
+    cmake -S . -B build \
+          -DCMAKE_TOOLCHAIN_FILE="vcpkg/scripts/buildsystems/vcpkg.cmake"
     ```
     
     You can simplify this step if you create *CMakePresets.json* file in the root folder:
@@ -112,4 +113,8 @@ Today we'll see exactly step by step how to use the vcpkg package manager to hav
     1. copy the AudioPlugin folder and
     2. `add_subdirectory(AudioPlugin)` on it in the top-level *CMakeLists.txt*.
 
-**Want create audio plugins with JUCE? Check what you need to know in the [free Audio Developer Checklist]({% link collections.all, 'single-pages/checklist.html' %}).**
+Now you know how to include the JUCE C++ framework as a dependency using the vcpkg package manager.
+
+But... That's not all!
+
+**Want create audio plugins with JUCE? Check what you need to know in my [free Audio Developer Checklist]({% link collections.all, 'single-pages/checklist.html' %}).**
