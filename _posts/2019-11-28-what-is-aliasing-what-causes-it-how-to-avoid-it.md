@@ -1,33 +1,11 @@
 ---
-id: 197
 title: What is aliasing? What causes it? How to avoid it?
 description: "Learn what is aliasing, how it is related to the sampling rate, and how to combat it."
-date: 2019-11-28T16:21:16+00:00
+date: 2019-11-28
 author: Jan Wilczek
 layout: post
 guid: https://thewolfsound.com/?p=197
 permalink: /what-is-aliasing-what-causes-it-how-to-avoid-it/
-content_width:
-  - default_width
-hide_post_title:
-  - default
-unlink_post_title:
-  - default
-hide_post_date:
-  - default
-hide_post_image:
-  - default
-unlink_post_image:
-  - default
-header_wrap:
-  - solid
-background_repeat:
-  - fullcover
-themify_used_global_styles:
-  - 'a:1:{i:0;s:0:"";}'
-tbp_custom_css:
-  - ""
-image: /wp-content/uploads/2019/11/thumbnail.png
 background: /wp-content/uploads/2019/11/thumbnail.png
 categories:
   - Digital Signal Processing
@@ -38,8 +16,6 @@ tags:
 discussion_id: 2019-11-28-what-is-aliasing-what-causes-it-how-to-avoid-it
 ---
 <iframe width="560" height="315" src="https://www.youtube.com/embed/npeMd5U-5QI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-
-
 
 Aliasing is a very important phenomenon which highly influences the digital signal processing area. It is tightly coupled with the notion of sampling and sampling rate. Let&#8217;s discuss it in detail!
 
