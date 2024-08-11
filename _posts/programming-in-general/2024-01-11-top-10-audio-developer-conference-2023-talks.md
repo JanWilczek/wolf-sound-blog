@@ -91,6 +91,8 @@ If you want to learn more about Rust for audio programming, definitely listen to
 
 ### Accessibility panel led by Jay Pocknell & Harry Morley
 
+[Video](https://youtu.be/-iVDiV1Iwio?si=H1k2NDLTK-YZuOsN)
+
 <div markdown="0">
 <img class="lazyload" data-src="{{ images | append: "Jay Pocknell.webp" }}" width="50%">
 </div>
@@ -121,6 +123,8 @@ That said, the top 10 talks I'm about to share were, in my opinion, the standout
 
 ### Developing an AI-powered karaoke experience by Thomas Hézard & Clément Tabary
 
+[Video](https://youtu.be/OaV0d9qOV9k?si=SnJ-MuQP1yN-mMIE)
+
 <div markdown="0">
 <img class="lazyload" data-src="{{ images | append: "Thomas_Hezard.webp" }}" width="50%">
 </div>
@@ -137,6 +141,8 @@ Alright, so the number 10 talk was about creating an AI-powered karaoke app, led
 
 ### Creating ubiquitous, composable, performant DSP modules by Stefano D'Angelo
 
+[Video](https://youtu.be/lKhVtbnILDk?si=9hj6TLUlmhl_376e)
+
 <div markdown="0">
 <img class="lazyload" data-src="{{ images | append: "Stefano D'Angelo.webp" }}" width="50%">
 </div>
@@ -146,6 +152,8 @@ _Figure {% increment figureId20240111  %}. Stefano D'Angelo._
 Now, the number 9 talk that grabbed my attention was by Stefano D'Angelo. He's the brain behind Orastron and their DSP components library, Brickworks. This wasn't just a showcase of their library, though. Stefano provided a comprehensive view on building composable and efficient DSP modules. It was like a deep dive into the nuts and bolts of digital signal processing, and how you can make your DSP code not just good, but top-notch in terms of stability and performance. If you're looking to get your hands dirty with real-deal DSP implementation, Stefano's insights are gold. Plus, checking out the Brickworks library could give you some solid leads on how to shape your own DSP code.
 
 ### An Introduction to CLAP, a new plug-in standard by Alexandre Bique
+
+[Video](https://youtu.be/9kuP87ZMHJo?si=T5AEUtE6FDfu7Gb1)
 
 <div markdown="0">
 <img class="lazyload" data-src="{{ images | append: "Alexandre Bique.webp" }}" width="50%">
@@ -159,6 +167,8 @@ CLAP also employs a C-based API, meaning it's versatile across platforms. I'm ke
 
 ### Exploration of strongly-typed units: a case-study from digital audio by Roth Michaels
 
+[Video](https://youtu.be/4NMeXvUQuOQ?si=wx6YJ0bgqZrXXfTs)
+
 <div markdown="0">
 <img class="lazyload" data-src="{{ images | append: "Roth Michaels.webp" }}" width="50%">
 </div>
@@ -170,6 +180,8 @@ Number seven on my list was a must-see for me – Roth Michaels' talk. Roth tack
 What I found particularly enlightening was Roth's approach to this problem using pre-written libraries for a more generalized solution, moving away from primitive data types to more explicit, strongly typed units. This not only improves the quality of the code but also its readability and reliability. Adding to the intrigue was the library discussed by Roth, developed by Mateusz Pusz, a prominent figure in the C++ community. As a fellow Polish, it's always great to see such recognition in the programming and audio world. For anyone coding in C++, especially in digital audio, Roth's talk provides a valuable insight.
 
 ### RADSan: a realtime-safety sanitizer by David Trevelyan & Ali Barker
+
+[Video](https://youtu.be/P8rDWmmMmlg?si=Adb9sHdSxmSAytJz)
 
 <div markdown="0">
 <img class="lazyload" data-src="{{ images | append: "David Trevelyan.webp" }}" width="50%">
@@ -183,6 +195,8 @@ But RADSan? It's a new player in the game, focusing on ensuring real-time code d
 
 ### Writing elegant DSP code with Rust by Chase Kanipe
 
+[Video](https://youtu.be/RcBnGiDSn6g?si=bmLV8oZBlbe7IcYG)
+
 <div markdown="0">
 <img class="lazyload" data-src="{{ images | append: "Chase Kanipe.webp" }}" width="50%">
 </div>
@@ -195,6 +209,8 @@ Despite these setbacks, I later watched the talk on my computer and it was thoro
 
 ### Lessons learned from implementing a real-time multichannel audio application on Linux by Olivier Petit
 
+[Video](https://youtu.be/1TgzjOoiqIs?si=-XCi7LMxRdIWCmA0)
+
 <div markdown="0">
 <img class="lazyload" data-src="{{ images | append: "Olivier Petit.webp" }}" width="50%">
 </div>
@@ -206,6 +222,8 @@ Ranked fourth in my list of top talks at the conference was Olivier Petit's pres
 What stood out to me in this talk was the practical advice on using system traces — a common recommendation that often lacks detailed guidance. Olivier's hands-on approach not only made the concept clear but also demonstrated its application in real-world scenarios. A lot of impact was put on ensuring that the audio thread is scheduled even if the CPU is occupied with a lot of other tasks such as networking.
 
 ### The architecture of digital audio workstations (and other time-based media software) by Ilias Bergström
+
+[Video](https://youtu.be/q5Q-vXzC0Ig?si=s3pIOnU2DBogjtcj)
 
 <div markdown="0">
 <img class="lazyload" data-src="{{ images | append: "Ilias_Bergstrom.webp" }}" width="50%">
@@ -234,6 +252,8 @@ This talk is a must-watch for anyone interested in DSP code optimization. Gustav
 
 ### Real-time confessions: the most common “sins” in real-time code by Fabian Renn-Giles
 
+[Video](https://youtu.be/JG7lqt7V1uY?si=xFp1RiUQEXmBkCYO)
+
 <div markdown="0">
 <img class="lazyload" data-src="{{ images | append: "Fabian Renn-Giles.webp" }}" width="50%">
 </div>
@@ -249,6 +269,8 @@ The talk was particularly significant because it underscored the complexities an
 For anyone involved in audio development, especially in real-time contexts, this talk is an invaluable resource. Fabian's insights offer a rare glimpse into the thought processes of a seasoned developer, making it a must-watch for those aspiring to master the art of real-time audio coding.
 
 ## Surprise mention
+
+[Video](https://youtu.be/Tvf7VVH53-4?si=TTIYXVeXP_5_cD8f)
 
 <div markdown="0">
 <img class="lazyload" data-src="{{ images | append: "Bug-free audio code-_Title Card_cropped.webp" }}" width="50%">
