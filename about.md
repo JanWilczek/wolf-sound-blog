@@ -3,9 +3,11 @@ layout: page
 title: About
 description: What is WolfSound all about?
 ---
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lite-youtube-embed/0.3.3/lite-yt-embed.min.css" integrity="sha512-jGFXuWMxJUKzdfBmoyqCXz9k2AU3Z/ZNoayoUPEBAtJZjHbTbw50AxTR1ICVPQJbSamH9ny1JwOur0x4WOdcWQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <script defer src="https://cdnjs.cloudflare.com/ajax/libs/lite-youtube-embed/0.3.3/lite-yt-embed.min.js" integrity="sha512-l8cIzs5aAJutiOPIyW/9PAvDevwTA8F17Pmge51rwmKBkjZ47tap3kRv+pI8JX9owkkBpRMuOIUE7v+Rg6os9w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <article markdown="1">
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/5A4y6pUL1CM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+{% include 'youtube-video', video_id: '5A4y6pUL1CM' %}
 
 Welcome to the WolfSound! Thank You for being here.
 
