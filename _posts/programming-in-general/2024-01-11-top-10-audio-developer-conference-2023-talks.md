@@ -122,13 +122,13 @@ That said, the top 10 talks I'm about to share were, in my opinion, the standout
 ### Developing an AI-powered karaoke experience by Thomas Hézard & Clément Tabary
 
 <div markdown="0">
-<img class="lazyload" data-src="{{ images | append: "Thomas Hézard.webp" }}" width="50%">
+<img class="lazyload" data-src="{{ images | append: "Thomas_Hezard.webp" }}" width="50%">
 </div>
 
 _Figure {% increment figureId20240111  %}. Thomas Hézard._
 
 <div markdown="0">
-<img class="lazyload" data-src="{{ images | append: "Clément Tabary.webp" }}" width="50%">
+<img class="lazyload" data-src="{{ images | append: "Clement_Tabary.webp" }}" width="50%">
 </div>
 
 _Figure {% increment figureId20240111  %}. Clément Tabary._
@@ -208,7 +208,7 @@ What stood out to me in this talk was the practical advice on using system trace
 ### The architecture of digital audio workstations (and other time-based media software) by Ilias Bergström
 
 <div markdown="0">
-<img class="lazyload" data-src="{{ images | append: "Ilias Bergström.webp" }}" width="50%">
+<img class="lazyload" data-src="{{ images | append: "Ilias_Bergstrom.webp" }}" width="50%">
 </div>
 
 _Figure {% increment figureId20240111  %}. Ilias Bergström._
