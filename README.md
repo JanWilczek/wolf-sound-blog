@@ -1,13 +1,18 @@
 # WolfSound Blog
 
-Source code of my WolfSound audio programming blog. The site runs on Jekyll and can be found under www.thewolfsound.com.
+Source code of my WolfSound audio programming blog. The site runs on Eleventy and can be found under [https://thewolfsound.com](https://thewolfsound.com).
 
 ## Useful commands
 
 Before you build the website or run in dev mode, run
 
 ```bash
-npx gulp
+npm install
+
+git lfs install
+git lfs pull # to get the actual images locally
+
+npx gulp # to package local dependencies
 ```
 
 to copy the CSS assets to the right folders.
@@ -20,10 +25,10 @@ npx @11ty/eleventy --serve
 npm start
 ```
 
-To build the website
+To build the website to the *_site* folder.
 
 ```bash
-npm build
+npm run build
 ```
 
 To build pngs from latex files:
