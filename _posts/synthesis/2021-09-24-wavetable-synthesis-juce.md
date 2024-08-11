@@ -17,11 +17,7 @@ discussion_id: 2021-09-24-wavetable-synthesis-juce
 ---
 Let's write a wavetable synthesizer in JUCE C++ framework!
 
-<lite-youtube videoid="Ah4P-zOfdYc" style="background-image: url('https://i.ytimg.com/vi/Ah4P-zOfdYc/hqdefault.jpg');">
-  <a href="https://youtube.com/watch?v=Ah4P-zOfdYc" class="lty-playbtn" title="Play Video">
-    <span class="lyt-visually-hidden">Play Video: Keynote (Google I/O '18)</span>
-  </a>
-</lite-youtube>
+{% include 'youtube-video', video_id: 'Ah4P-zOfdYc' %}
 
 In previous articles, I explained [how wavetable synthesis algorithm works]({% post_url collections.posts, 'synthesis/2021-08-13-wavetable-synthesis-theory' %}) and showed [an implementation of it in Python]({% post_url collections.posts, 'synthesis/2021-08-27-wavetable-synthesis-python' %}). Now is the time to write a real-time wavetable synth in C++!
 
