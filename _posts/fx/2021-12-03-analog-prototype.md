@@ -16,7 +16,7 @@ discussion_id: 2021-12-03-analog-prototype
 ---
 Design prototypes for stable, efficient, parametric IIR filters.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/rrMRkPpRQAs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+{% include 'youtube-video', video_id: 'rrMRkPpRQAs' %}
 
 
 {% capture _ %}{% increment equationId20211203  %}{% endcapture %}
@@ -103,7 +103,7 @@ Additionally, it is easy to control the slope of the roll-off above the cutoff f
 
 ## Analog Prototype Butterworth Low-pass
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/00hNt7uBpEI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+{% include 'youtube-video', video_id: '00hNt7uBpEI' %}
 
 We know that we want to design an analog prototype low-pass using the Butterworth approximation. What do we want to approximate exactly?
 

@@ -16,7 +16,7 @@ discussion_id: 2021-04-01-identity-element-of-the-convolution
 ---
 How to convolve and do nothing at the same time?
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/XIWXmV92ju4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+{% include 'youtube-video', video_id: 'XIWXmV92ju4' %}
 
 
 

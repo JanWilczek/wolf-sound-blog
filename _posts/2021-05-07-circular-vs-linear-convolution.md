@@ -15,7 +15,7 @@ discussion_id: 2021-05-07-circular-vs-linear-convolution
 ---
 What is the circular convolution and how does it differ from the linear convolution?
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/zquMVVCnmuk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+{% include 'youtube-video', video_id: 'zquMVVCnmuk' %}
 
 
 

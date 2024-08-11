@@ -17,7 +17,7 @@ discussion_id: 2024-08-04-how-to-use-juce-with-vcpkg
 ---
 C++ package management made easy.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/hKk9a35I5LM?si=mdg-LsO4RvL5Y1ZO" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+{% include 'youtube-video', video_id: 'hKk9a35I5LM' %}
 
 If you want to create an audio plugin or a C++ application and you want to use for that purpose the [JUCE C++ framework](https://github.com/juce-framework/JUCE),  you always have the problem of how to include JUCE as a dependency.
 

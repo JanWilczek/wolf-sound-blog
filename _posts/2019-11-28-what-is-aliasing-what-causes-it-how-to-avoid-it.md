@@ -15,7 +15,7 @@ tags:
   - sampling (A/D conversion)
 discussion_id: 2019-11-28-what-is-aliasing-what-causes-it-how-to-avoid-it
 ---
-<iframe width="560" height="315" src="https://www.youtube.com/embed/npeMd5U-5QI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+{% include 'youtube-video', video_id: 'npeMd5U-5QI' %}
 
 Aliasing is a very important phenomenon which highly influences the digital signal processing area. It is tightly coupled with the notion of sampling and sampling rate. Let&#8217;s discuss it in detail!
 

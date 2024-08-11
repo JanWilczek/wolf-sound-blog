@@ -17,7 +17,7 @@ discussion_id: 2022-05-17-lowpass-highpass-filter-plugin-with-juce
 ---
 Let's build a lowpass/highpass filter audio plugin from scratch!
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/xJCt0MVZZ7Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+{% include 'youtube-video', video_id: 'xJCt0MVZZ7Q' %}
 
 {% capture _ %}{% increment listingId20220517  %}{% endcapture %}
 {% capture _ %}{% increment figureId20220517  %}{% endcapture %}

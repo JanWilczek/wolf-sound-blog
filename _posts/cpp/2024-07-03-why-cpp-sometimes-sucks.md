@@ -22,7 +22,7 @@ custom_js:
 ---
 It’s time for a small rant! 😈
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/y37NzWaqpbI?si=AbRoLq-tuZNQuyLL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+{% include 'youtube-video', video_id: 'y37NzWaqpbI' %}
 
 I have recently worked as an architect and a lead developer on a green-field C++ project and I found a few big pain points of C++.
 

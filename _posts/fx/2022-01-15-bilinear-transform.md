@@ -16,7 +16,7 @@ discussion_id: 2022-01-15-bilinear-transform
 ---
 Learn how to derive and use the bilinear transform to convert analog systems into digital ones.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/5RLMpdbt6B0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+{% include 'youtube-video', video_id: '5RLMpdbt6B0' %}
 
 
 {% capture _ %}{% increment equationId20220115 %}{% endcapture %}

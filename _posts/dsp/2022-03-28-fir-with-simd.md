@@ -204,7 +204,7 @@ Before we improve on the speed of our FIR filter with SIMD, we need to start wit
 
 You can also watch this part explained in a video form:
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/6sxsrUkaTGU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+{% include 'youtube-video', video_id: '6sxsrUkaTGU' %}
 
 _The full code referenced in this article [can be found in my GitHub repository](https://github.com/JanWilczek/fir-simd.git)._
 
@@ -252,7 +252,7 @@ Let's see how we can vectorize this code...
 
 *Watch this part in a video form on my YouTube channel:*
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/yPIuSx2iYAg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+{% include 'youtube-video', video_id: 'yPIuSx2iYAg' %}
 
 There are 3 types of loop vectorization in the context of FIR filtering:
 

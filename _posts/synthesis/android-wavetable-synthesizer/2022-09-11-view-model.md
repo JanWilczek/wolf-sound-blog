@@ -20,7 +20,7 @@ custom_js:
 ---
 Modern Android architecture in its glory!
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Vxk9e82GY6c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+{% include 'youtube-video', video_id: 'Vxk9e82GY6c' %}
 
 {% capture _ %}{% increment figureId20220911 %}{% endcapture %}
 {% capture _ %}{% increment listingId20220911 %}{% endcapture %}

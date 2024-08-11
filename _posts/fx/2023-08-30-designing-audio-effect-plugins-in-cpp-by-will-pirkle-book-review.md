@@ -27,7 +27,7 @@ custom_js:
 ---
 Book review from the perspective of a C++ audio programmer.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/8VPdm-yNCsk?si=r6uMbAtXIItY1N6m" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+{% include 'youtube-video', video_id: '8VPdm-yNCsk' %}
 
 "Designing Audio Effect Plugins in C++" by Will Pirkle is one of the most widely recommended books to learn audio programming. As it's quite a long and expensive book, I've decided to read it cover-to-cover and give an honest and unbiased opinion on it so that you can consciously decide whether to read it or not. So… is it worth the hype? Let's find out!
 

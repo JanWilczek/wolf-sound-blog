@@ -21,7 +21,7 @@ custom_js:
 ---
 Built using Jetpack Compose, Oboe library, C++, Kotlin, and modern architecture guidelines.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/G0lRFeQ99Jg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+{% include 'youtube-video', video_id: 'G0lRFeQ99Jg' %}
 
 {% capture _ %}{% increment figureId20220802  %}{% endcapture %}
 

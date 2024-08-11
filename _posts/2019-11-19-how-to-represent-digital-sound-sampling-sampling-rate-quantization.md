@@ -37,7 +37,7 @@ discussion_id: 2019-11-19-how-to-represent-digital-sound-sampling-sampling-rate-
 ---
 To process the audio signal, we need to somehow represent it on our machine. Several different options are possible, but the most common and useful one for sound processing is the discrete sample representation. That&#8217;s where the concepts of sampling and quantization come into play.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/f53m72uLa2I" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+{% include 'youtube-video', video_id: 'f53m72uLa2I' %}
 
 
 

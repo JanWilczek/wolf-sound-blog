@@ -16,7 +16,7 @@ discussion_id: 2021-10-29-how-i-got-started-with-audio-programing
 ---
 My story from zero to... audio programmer and researcher.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/0kBpcACGM6g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+{% include 'youtube-video', video_id: '0kBpcACGM6g' %}
 
 Listen on:
 * [SoundCloud](https://soundcloud.com/jan-wilczek-wolf-sound/talk001)

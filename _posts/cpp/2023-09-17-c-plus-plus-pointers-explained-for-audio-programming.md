@@ -21,7 +21,7 @@ custom_js:
 ---
 Understand what are pointers, where to use them, and how to avoid common pitfalls.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/QfjBJo8Igs0?si=MAYagT9t7eT0IDNx" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+{% include 'youtube-video', video_id: 'QfjBJo8Igs0' %}
 
 In audio programming, we often deal with **audio callbacks**: functions, which in their simplest form have the following signature:
 

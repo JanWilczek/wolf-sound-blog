@@ -18,7 +18,7 @@ discussion_id: 2022-07-03-envelopes
 ---
 Everything on envelopes for coding your own synthesizer.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/06WoAY1uhbk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+{% include 'youtube-video', video_id: '06WoAY1uhbk' %}
 
 {% capture _ %}{% increment figureId20220703  %}{% endcapture %}
 

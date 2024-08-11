@@ -15,7 +15,7 @@ discussion_id: 2021-05-14-fast-convolution
 ---
 How to compute convolution fast for real-time applications?
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/fYggIQTaVx4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+{% include 'youtube-video', video_id: 'fYggIQTaVx4' %}
 
 
 

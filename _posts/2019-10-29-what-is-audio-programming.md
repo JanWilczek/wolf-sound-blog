@@ -32,7 +32,7 @@ categories:
   - Sound in general
 discussion_id: 2019-10-29-what-is-audio-programming
 ---
-<iframe width="560" height="315" src="https://www.youtube.com/embed/K-cV30eDCeE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+{% include 'youtube-video', video_id: 'K-cV30eDCeE' %}
 
 On this blog we are dealing with the topic of audio programming. But what is it actually?
 

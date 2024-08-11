@@ -16,7 +16,7 @@ discussion_id: 2020-07-05-mathematical-properties-of-convolution
 ---
 Inspecting the mathematical properties of convolution leads to interesting conclusions regarding digital signal processing.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/kkZMk1E5suU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+{% include 'youtube-video', video_id: 'kkZMk1E5suU' %}
 
 
 
