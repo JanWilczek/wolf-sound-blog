@@ -26,7 +26,7 @@ themify_used_global_styles:
   - 'a:1:{i:0;s:0:"";}'
 tbp_custom_css:
   - ""
-background: /wp-content/uploads/2019/11/thumbnail_sampling.png
+background: /wp-content/uploads/2019/11/thumbnail_sampling.webp
 categories:
   - Digital Signal Processing
 tags:

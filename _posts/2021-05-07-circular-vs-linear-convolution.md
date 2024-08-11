@@ -5,7 +5,7 @@ author: Jan Wilczek
 layout: post
 permalink: /circular-vs-linear-convolution-whats-the-difference/
 images: /assets/img/posts/2021-05-07-circular-vs-linear-convolution
-background: /assets/img/posts/2021-05-07-circular-vs-linear-convolution/thumbnail.png
+background: /assets/img/posts/2021-05-07-circular-vs-linear-convolution/thumbnail.webp
 categories:
  - Digital Signal Processing
 tags:

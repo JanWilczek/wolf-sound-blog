@@ -4,7 +4,7 @@ date: 2021-03-18
 author: Jan Wilczek
 layout: post
 permalink: /convolution-property-of-fourier-laplace-and-z-transforms/
-background: /assets/img/posts/2021-03-18-convolution-in-popular-transforms/Thumbnail.png
+background: /assets/img/posts/2021-03-18-convolution-in-popular-transforms/Thumbnail.webp
 categories:
  - Digital Signal Processing
 tags:

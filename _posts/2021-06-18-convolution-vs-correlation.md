@@ -5,7 +5,7 @@ author: Jan Wilczek
 layout: post
 permalink: /convolution-vs-correlation-in-signal-processing-and-deep-learning/
 images: /assets/img/posts/2021-06-18-convolution-vs-correlation
-background: /assets/img/posts/2021-06-18-convolution-vs-correlation/Thumbnail.png
+background: /assets/img/posts/2021-06-18-convolution-vs-correlation/Thumbnail.webp
 categories:
  - Digital Signal Processing
 tags:

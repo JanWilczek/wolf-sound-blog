@@ -27,7 +27,7 @@ header_wrap:
   - solid
 background_repeat:
   - fullcover
-background: /wp-content/uploads/2019/10/thumbnail_what_is_sound.png
+background: /wp-content/uploads/2019/10/thumbnail_what_is_sound.webp
 categories:
   - Sound in general
 tags:

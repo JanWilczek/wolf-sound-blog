@@ -6,7 +6,7 @@ author: Jan Wilczek
 layout: post
 permalink: /sound-synthesis/wavetable-synth-plugin-in-juce/
 images: /assets/img/posts/synthesis/2021-09-24-wavetable-synthesis-juce
-background: /assets/img/posts/synthesis/2021-09-24-wavetable-synthesis-juce/Thumbnail.png
+background: /assets/img/posts/synthesis/2021-09-24-wavetable-synthesis-juce/Thumbnail.webp
 categories:
  - Sound Synthesis
 tags:

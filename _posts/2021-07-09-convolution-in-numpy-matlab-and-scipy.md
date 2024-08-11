@@ -5,7 +5,7 @@ author: Jan Wilczek
 layout: post
 permalink: /convolution-in-matlab-numpy-and-scipy/
 images: /assets/img/posts/2021-07-09-convolution-in-matlab-numpy-and-scipy
-background: /assets/img/posts/2021-07-09-convolution-in-matlab-numpy-and-scipy/Thumbnail.png
+background: /assets/img/posts/2021-07-09-convolution-in-matlab-numpy-and-scipy/Thumbnail.webp
 categories:
  - Digital Signal Processing
  - Python

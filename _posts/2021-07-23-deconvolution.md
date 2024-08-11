@@ -5,7 +5,7 @@ author: Jan Wilczek
 layout: post
 permalink: /deconvolution-inverse-convolution/
 images: /assets/img/posts/2021-07-23-deconvolution
-background: /assets/img/posts/2021-07-23-deconvolution/Thumbnail.png
+background: /assets/img/posts/2021-07-23-deconvolution/Thumbnail.webp
 categories:
  - Digital Signal Processing
 tags:

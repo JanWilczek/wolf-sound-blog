@@ -3,7 +3,7 @@ title: "Convolution: The secret behind filtering"
 date: 2020-06-20
 author: Jan Wilczek
 layout: post
-background: /assets/img/posts/2020-06-20-the-secret-behind-filtering/h_superposed.png
+background: /assets/img/posts/2020-06-20-the-secret-behind-filtering/h_superposed.webp
 permalink: /convolution-the-secret-behind-filtering/
 images: /assets/img/posts/2020-06-20-the-secret-behind-filtering
 categories:

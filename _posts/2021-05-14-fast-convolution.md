@@ -5,7 +5,7 @@ author: Jan Wilczek
 layout: post
 permalink: /fast-convolution-fft-based-overlap-add-overlap-save-partitioned/
 images: /assets/img/posts/2021-05-14-fast-convolution
-background: /assets/img/posts/2021-05-14-fast-convolution/Thumbnail.png
+background: /assets/img/posts/2021-05-14-fast-convolution/Thumbnail.webp
 categories:
  - Digital Signal Processing
 tags:

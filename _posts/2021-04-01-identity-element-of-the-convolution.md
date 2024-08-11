@@ -4,7 +4,7 @@ date: 2021-04-01
 author: Jan Wilczek
 layout: post
 permalink: /identity-element-of-the-convolution/
-background: /assets/img/posts/2021-04-01-identity-element-of-the-convolution/Thumbnail.png
+background: /assets/img/posts/2021-04-01-identity-element-of-the-convolution/Thumbnail.webp
 images: /assets/img/posts/2021-04-01-identity-element-of-the-convolution
 categories:
  - Digital Signal Processing

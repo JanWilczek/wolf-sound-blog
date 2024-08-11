@@ -6,7 +6,7 @@ author: Jan Wilczek
 layout: post
 permalink: /sound-synthesis/wavetable-synthesis-algorithm/
 images: /assets/img/posts/synthesis/2021-08-13-wavetable-synthesis-theory
-background: /assets/img/posts/synthesis/2021-08-13-wavetable-synthesis-theory/Thumbnail.png
+background: /assets/img/posts/synthesis/2021-08-13-wavetable-synthesis-theory/Thumbnail.webp
 categories:
  - Sound Synthesis
 tags:

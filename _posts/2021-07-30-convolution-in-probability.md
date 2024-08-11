@@ -5,7 +5,7 @@ author: Jan Wilczek
 layout: post
 permalink: /convolution-in-probability-sum-of-independent-random-variables-with-proof/
 images: /assets/img/posts/2021-07-30-convolution-in-probability
-background: /assets/img/posts/2021-07-30-convolution-in-probability/Thumbnail.png
+background: /assets/img/posts/2021-07-30-convolution-in-probability/Thumbnail.webp
 categories:
  - Digital Signal Processing
 tags:

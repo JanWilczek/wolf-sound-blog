@@ -4,7 +4,7 @@ date: 2020-07-05
 author: Jan Wilczek
 layout: post
 permalink: /mathematical-properties-of-convolution/
-background: /assets/img/posts/2020-06-20-the-secret-behind-filtering/h_superposed.png
+background: /assets/img/posts/2020-06-20-the-secret-behind-filtering/h_superposed.webp
 images: /assets/img/posts/2020-07-05-mathematical-properties-of-convolution
 categories:
  - Digital Signal Processing

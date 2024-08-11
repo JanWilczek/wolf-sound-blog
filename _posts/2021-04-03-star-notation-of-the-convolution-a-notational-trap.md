@@ -4,7 +4,7 @@ date: 2021-04-03
 author: Jan Wilczek
 layout: post
 permalink: /star-notation-of-the-convolution-a-notational-trap/
-background: /assets/img/posts/2021-04-03-star-notation-of-the-convolution-a-notational-trap/Thumbnail.png
+background: /assets/img/posts/2021-04-03-star-notation-of-the-convolution-a-notational-trap/Thumbnail.webp
 images: /assets/img/posts/2021-04-03-star-notation-of-the-convolution-a-notational-trap
 categories:
  - Digital Signal Processing
