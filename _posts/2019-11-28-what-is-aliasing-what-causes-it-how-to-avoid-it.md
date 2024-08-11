@@ -6,7 +6,7 @@ author: Jan Wilczek
 layout: post
 guid: https://thewolfsound.com/?p=197
 permalink: /what-is-aliasing-what-causes-it-how-to-avoid-it/
-background: /wp-content/uploads/2019/11/thumbnail.png
+background: /wp-content/uploads/2019/11/thumbnail.webp
 categories:
   - Digital Signal Processing
 tags:
