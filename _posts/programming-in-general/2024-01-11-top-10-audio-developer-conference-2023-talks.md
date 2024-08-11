@@ -25,6 +25,10 @@ custom_js:
 ---
 Missed the conference? Read this article!
 
+{% include 'youtube-video', video_id: '4ohmt4yKtYA' %}
+
+<br>
+
 {% capture _ %}{% increment figureId20240111  %}{% endcapture %}
 
 <div markdown="0">
