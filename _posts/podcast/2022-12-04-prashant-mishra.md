@@ -17,8 +17,7 @@ discussion_id: 2022-12-04-prashant-mishra
 ---
 An Audio Director and an Audio Product Developer.
 
-<script async defer onload="redcircleIframe();" src="https://api.podcache.net/embedded-player/sh/bf40a1d2-7e41-4ddb-8c3a-ed82394723ba/ep/55570a2d-cd49-4776-85ed-6d0c69e1ddce"></script><div class="redcirclePlayer-55570a2d-cd49-4776-85ed-6d0c69e1ddce"></div><style>.redcircle-link:link {color: #ea404d;text-decoration: none;}.redcircle-link:hover {color: #ea404d;}.redcircle-link:active {color: #ea404d;}.redcircle-link:visited {color: #ea404d;}</style>
-<p style="margin-top:3px;margin-left:11px;font-family: sans-serif;font-size: 10px; color: gray;">Powered by <a class="redcircle-link" href="https://redcircle.com?utm_source=rc_embedded_player&utm_medium=web&utm_campaign=embedded_v1">RedCircle</a></p>
+<script async defer onload="redcircleIframe();" src="https://api.podcache.net/embedded-player/sh/bf40a1d2-7e41-4ddb-8c3a-ed82394723ba/ep/55570a2d-cd49-4776-85ed-6d0c69e1ddce"></script><div class="redcirclePlayer-55570a2d-cd49-4776-85ed-6d0c69e1ddce"></div>
 
 ## Listen on
 
