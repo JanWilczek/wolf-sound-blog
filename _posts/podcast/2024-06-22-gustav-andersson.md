@@ -23,8 +23,6 @@ discussion_id: 2024-06-22-gustav-andersson
 Learn how to write well-structured, highly-optimized real-time C++ audio code from a senior C++ audio developer at Elk Audio.
 
 {% include 'redcircle-podcast-player', redcircle_podcast_id: 'd5b118ec-df32-4a04-8c28-89f04db8b062' %}
- <style> .redcircle-link:link { color: #ea404d; text-decoration: none; } .redcircle-link:hover { color: #ea404d; } .redcircle-link:active { color: #ea404d; } .redcircle-link:visited { color: #ea404d; } </style>
-<p style="margin-top:3px;margin-left:11px;font-family: sans-serif;font-size: 10px; color: gray;">Powered by <a class="redcircle-link" href="https://redcircle.com?utm_source=rc_embedded_player&utm_medium=web&utm_campaign=embedded_v1">RedCircle</a></p>
 
 ## Listen on
 

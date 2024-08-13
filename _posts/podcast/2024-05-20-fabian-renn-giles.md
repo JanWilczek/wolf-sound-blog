@@ -25,8 +25,6 @@ discussion_id: 2024-05-20-fabian-renn-giles
 Former lead developer of JUCE shares his journey and insights into audio programming!
 
 {% include 'redcircle-podcast-player', redcircle_podcast_id: '04962693-6dc4-41a3-b5ca-1a80921df0ca' %}
- <style> .redcircle-link:link { color: #ea404d; text-decoration: none; } .redcircle-link:hover { color: #ea404d; } .redcircle-link:active { color: #ea404d; } .redcircle-link:visited { color: #ea404d; } </style>
-<p style="margin-top:3px;margin-left:11px;font-family: sans-serif;font-size: 10px; color: gray;">Powered by <a class="redcircle-link" href="https://redcircle.com?utm_source=rc_embedded_player&utm_medium=web&utm_campaign=embedded_v1">RedCircle</a></p>
 
 ## Listen on
 
