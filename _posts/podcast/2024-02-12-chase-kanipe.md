@@ -23,7 +23,8 @@ discussion_id: 2024-02-12-chase-kanipe
 ---
 What should an audio programmer know on cybersecurity? Audio, Rust, assembly & AI with a cybersecurity professional.
 
-<script async defer onload="redcircleIframe();" src="https://api.podcache.net/embedded-player/sh/bf40a1d2-7e41-4ddb-8c3a-ed82394723ba/ep/9d5a7a5a-f133-4184-91bd-886ef2ea21d9"></script> <div class="redcirclePlayer-9d5a7a5a-f133-4184-91bd-886ef2ea21d9"></div> <style> .redcircle-link:link { color: #ea404d; text-decoration: none; } .redcircle-link:hover { color: #ea404d; } .redcircle-link:active { color: #ea404d; } .redcircle-link:visited { color: #ea404d; } </style>
+{% include 'redcircle-podcast-player', redcircle_podcast_id: '9d5a7a5a-f133-4184-91bd-886ef2ea21d9' %}
+ <style> .redcircle-link:link { color: #ea404d; text-decoration: none; } .redcircle-link:hover { color: #ea404d; } .redcircle-link:active { color: #ea404d; } .redcircle-link:visited { color: #ea404d; } </style>
 <p style="margin-top:3px;margin-left:11px;font-family: sans-serif;font-size: 10px; color: gray;">Powered by <a class="redcircle-link" href="https://redcircle.com?utm_source=rc_embedded_player&utm_medium=web&utm_campaign=embedded_v1">RedCircle</a></p>
 
 ## Listen on

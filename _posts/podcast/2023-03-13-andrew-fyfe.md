@@ -20,7 +20,8 @@ discussion_id: 2023-03-13-andrew-fyfe
 ---
 Effortlessly deploy your trained model to a DAW!
 
-<script async defer onload="redcircleIframe();" src="https://api.podcache.net/embedded-player/sh/bf40a1d2-7e41-4ddb-8c3a-ed82394723ba/ep/311f2973-7147-4c64-8af3-06ab03d6e167"></script> <div class="redcirclePlayer-311f2973-7147-4c64-8af3-06ab03d6e167"></div> <style> .redcircle-link:link { color: #ea404d; text-decoration: none; } .redcircle-link:hover { color: #ea404d; } .redcircle-link:active { color: #ea404d; } .redcircle-link:visited { color: #ea404d; } </style>
+{% include 'redcircle-podcast-player', redcircle_podcast_id: '311f2973-7147-4c64-8af3-06ab03d6e167' %}
+ <style> .redcircle-link:link { color: #ea404d; text-decoration: none; } .redcircle-link:hover { color: #ea404d; } .redcircle-link:active { color: #ea404d; } .redcircle-link:visited { color: #ea404d; } </style>
 <p style="margin-top:3px;margin-left:11px;font-family: sans-serif;font-size: 10px; color: gray;">Powered by <a class="redcircle-link" href="https://redcircle.com?utm_source=rc_embedded_player&utm_medium=web&utm_campaign=embedded_v1">RedCircle</a></p>
 
 ## Listen on
