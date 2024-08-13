@@ -18,7 +18,11 @@ discussion_id: 2022-06-14-steve-barile
 ---
 From a 9-5 employee to a maker and a founder.
 
-<script defer type="text/javascript" onload="redcircleIframe();" src="https://api.podcache.net/embedded-player/sh/bf40a1d2-7e41-4ddb-8c3a-ed82394723ba/ep/675643ca-dcf5-49cf-98f8-0c5501d6475a"></script><div class="redcirclePlayer-675643ca-dcf5-49cf-98f8-0c5501d6475a"></div><style>.redcircle-link:link {color: #ea404d;text-decoration: none;}.redcircle-link:hover {color: #ea404d;}.redcircle-link:active {color: #ea404d;}.redcircle-link:visited {color: #ea404d;}</style>
+<script type="text/plain" onload="redcircleIframe();" data-cookieconsent="marketing" src="https://api.podcache.net/embedded-player/sh/bf40a1d2-7e41-4ddb-8c3a-ed82394723ba/ep/675643ca-dcf5-49cf-98f8-0c5501d6475a"></script><div class="redcirclePlayer-675643ca-dcf5-49cf-98f8-0c5501d6475a"></div>
+<script type="text/plain" data-cookieconsent="marketing">
+  redcircleIframe();
+</script>
+<style>.redcircle-link:link {color: #ea404d;text-decoration: none;}.redcircle-link:hover {color: #ea404d;}.redcircle-link:active {color: #ea404d;}.redcircle-link:visited {color: #ea404d;}</style>
 <p style="margin-top:3px;margin-left:11px;font-family: sans-serif;font-size: 10px; color: gray;">Powered by <a class="redcircle-link" href="https://redcircle.com?utm_source=rc_embedded_player&utm_medium=web&utm_campaign=embedded_v1">RedCircle</a></p>
 
 ## Listen on
