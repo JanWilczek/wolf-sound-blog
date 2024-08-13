@@ -19,7 +19,7 @@ discussion_id: 2022-11-12-tom-mckenzie
 ---
 A researcher in Spatial Audio and Architectural Acoustics.
 
-<script async defer onload="redcircleIframe();" src="https://api.podcache.net/embedded-player/sh/bf40a1d2-7e41-4ddb-8c3a-ed82394723ba/ep/9f26af35-b24e-42b6-9bcc-121dd2e6605d"></script><div class="redcirclePlayer-9f26af35-b24e-42b6-9bcc-121dd2e6605d"></div>
+{% include 'redcircle-podcast-player', redcircle_podcast_id: '9f26af35-b24e-42b6-9bcc-121dd2e6605d' %}
 
 ## Listen on
 

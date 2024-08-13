@@ -21,7 +21,7 @@ discussion_id: 2022-12-20-stefano-dangelo
 ---
 With concrete advice on how to start freelancing in the field of audio programming!
 
-<script async defer onload="redcircleIframe();" src="https://api.podcache.net/embedded-player/sh/bf40a1d2-7e41-4ddb-8c3a-ed82394723ba/ep/32b2b923-7b9c-44ef-b114-058b8cef427b"></script><div class="redcirclePlayer-32b2b923-7b9c-44ef-b114-058b8cef427b"></div>
+{% include 'redcircle-podcast-player', redcircle_podcast_id: '32b2b923-7b9c-44ef-b114-058b8cef427b' %}
 
 ## Listen on
 

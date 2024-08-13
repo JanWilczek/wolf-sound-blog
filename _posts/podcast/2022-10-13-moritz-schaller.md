@@ -18,7 +18,7 @@ discussion_id: 2022-10-13-moritz-schaller
 ---
 How a professional musician learned Python and transitioned into the music tech industry.
 
-<script async defer onload="redcircleIframe();" src="https://api.podcache.net/embedded-player/sh/bf40a1d2-7e41-4ddb-8c3a-ed82394723ba/ep/a0f22dfe-7229-4cc5-a9e7-b535b1d7817f"></script><div class="redcirclePlayer-a0f22dfe-7229-4cc5-a9e7-b535b1d7817f"></div>
+{% include 'redcircle-podcast-player', redcircle_podcast_id: 'a0f22dfe-7229-4cc5-a9e7-b535b1d7817f' %}
 
 ## Listen on
 
