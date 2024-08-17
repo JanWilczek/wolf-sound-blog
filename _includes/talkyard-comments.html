@@ -1,10 +1,17 @@
 {% if site.talkyard_server_url %}
-<script data-c-script="necessary">talkyardServerUrl='{{ site.talkyard_server_url }}';</script>
-<script defer data-c-script="necessary" src="{{ site.talkyard_script_url }}"></script>
+<script>talkyardServerUrl='{{ site.talkyard_server_url }}';</script>
+<script defer type="text/plain" data-cookieconsent="marketing" src="{{ site.talkyard_script_url }}"></script>
+<div class="cookieconsent-optin-marketing">
 <!-- You can specify a per page discussion id on the next line, if your URLs might change. -->
 <div class="talkyard-comments" data-discussion-id="{{ discussion_id }}" style="margin-top: 45px;">
 <noscript>Please enable Javascript to view comments.</noscript>
 <p style="margin-top: 25px; opacity: 0.9; font-size: 96%">Comments powered by
 <a href="https://www.talkyard.io">Talkyard</a>.</p>
 </div>
+</div>
+<p class="cookieconsent-optout-marketing post-content">
+  Please
+  <a href="javascript:Cookiebot.renew()">accept marketing cookies</a>
+  to access the display and add comments.
+</p>
 {% endif %}
