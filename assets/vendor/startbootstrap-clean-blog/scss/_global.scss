@@ -32,7 +32,7 @@ a {
   }
 }
 
-article, div.post-content {
+article, .post-content {
     a {
         color: $blue;
         &:visited {
