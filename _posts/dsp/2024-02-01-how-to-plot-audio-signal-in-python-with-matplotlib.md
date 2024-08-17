@@ -20,7 +20,7 @@ Plot any audio signal using Python!
 
 ## Code snippet to plot an audio signal in Python
 
-<script src="https://gist.github.com/JanWilczek/ccda1ea11a4288780548a4977b413d29.js"></script>
+{% include 'github-gist', github_gist_id: 'JanWilczek/ccda1ea11a4288780548a4977b413d29' %}
 
 {% render 'google-ad.liquid' %}
 

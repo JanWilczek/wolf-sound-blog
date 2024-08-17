@@ -71,7 +71,7 @@ From the video, you will learn:
 
 ### Code snippet to plot the magnitude spectrum of an audio signal in Python
 
-<script src="https://gist.github.com/JanWilczek/680c63a2f3710e1ad833d7c8aa8a7250.js"></script>
+{% include 'github-gist', github_gist_id: 'JanWilczek/680c63a2f3710e1ad833d7c8aa8a7250' %}
 
 {% render 'google-ad.liquid' %}
 

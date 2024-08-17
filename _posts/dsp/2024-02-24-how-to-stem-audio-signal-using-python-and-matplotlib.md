@@ -20,7 +20,7 @@ Display audio signal samples using Python!
 
 ## Code snippet to stem an audio signal in Python
 
-<script src="https://gist.github.com/JanWilczek/8ad9f37b2a10a77785947374487047a0.js"></script>
+{% include 'github-gist', github_gist_id: 'JanWilczek/8ad9f37b2a10a77785947374487047a0' %}
 
 {% render 'google-ad.liquid' %}
 
