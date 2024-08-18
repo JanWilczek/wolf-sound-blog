@@ -1,1 +1,10 @@
+{% comment %}
+Unfortunately, GitHub gists cannot be loaded after the page has been loaded because they use document.write().
+<script type="text/plain" data-cookieconsent="statistics" src="https://gist.github.com/{{ github_gist_id }}.js"></script>
+<p class="cookieconsent-optout-statistics">
+  Please
+  <a href="javascript:Cookiebot.renew()">accept statistics cookies</a>
+  to display the source code.
+</p>
+{% endcomment %}
 <script src="https://gist.github.com/{{ github_gist_id }}.js"></script>
