@@ -53,7 +53,7 @@ Jatin Chowdhury is quite well known in the audio programming community for his n
 
 The list could go on on and on but you get the point: he’s both incredibly productive and highly successful while being very generous to the community with his knowledge.
 
-That why it was amazing to have him on the podcast.
+That's why it was amazing to have him on the podcast!
 
 Jatin currently leads his own audio plugin company ChowDSP which provides consulting and contracting as well.
 
@@ -99,7 +99,7 @@ This episode was recorded on June 14, 2024.
 ## References
 
 - Jatin Chowdhury
-    - e-mail: jatin@chowdsp.com
+    - e-mail: jatin [ at ] chowdsp [ dot ] com
     - [Personal webpage](https://ccrma.stanford.edu/~jatin/)
     - [The Audio Programmer Discord](https://www.theaudioprogrammer.com/discord)
     - [Medium blog](https://jatinchowdhury18.medium.com/)
@@ -161,7 +161,7 @@ This episode was recorded on June 14, 2024.
     - [TensorFlow Lite Micro](https://github.com/tensorflow/tflite-micro)
     - [xsimd library](https://github.com/xtensor-stack/xsimd)
     - [Eigen library](https://eigen.tuxfamily.org/index.php?title=Main_Page)
-    - [**JUCE C++ framework](https://juce.com/) (podcast sponsor 💝 )**
+    - [JUCE C++ framework](https://juce.com/) (podcast sponsor 💝)
 - Virtual Analog methods:
     - Nodal Analysis
     - Modified Nodal Analysis
@@ -174,12 +174,12 @@ This episode was recorded on June 14, 2024.
 - Jatin’s projects (selection):
     - Water bottle model using modal synthesis.
     - RTNeural: neural network inference engine (version 2 is coming).
-    - ChowTapeModel: An analog tape emulation.
-    - BYOD: A modular system for creating guitar effect signal chains.
-    - ChowMatrix: A dynamic matrix of stereo delay effects.
-    - ChowKick: A kick drum synthesizer based on creative circuit modelling.
-    - ChowCentaur: A digital emulation of the Klon Centaur distortion pedal, using Wave Digital Filters and recurrent neural networks.
-    - ChowPhaser: A phaser effect based loosely on the Schulte Compact Phasing ‘A’ circuit.
+    - ChowTapeModel: an analog tape emulation.
+    - BYOD: a modular system for creating guitar effect signal chains.
+    - ChowMatrix: a dynamic matrix of stereo delay effects.
+    - ChowKick: a kick drum synthesizer based on creative circuit modelling.
+    - ChowCentaur: a digital emulation of the Klon Centaur distortion pedal, using Wave Digital Filters and recurrent neural networks.
+    - ChowPhaser: a phaser effect based loosely on the Schulte Compact Phasing ‘A’ circuit.
 - Tools
     - CLion IDE
     - [10x Editor](https://10xeditor.com/) IDE
