@@ -30,6 +30,8 @@ discussion_id: 2024-09-14-jatin-chowdhury
 ---
 Learn from the DSP wizard!
 
+{% include 'redcircle-podcast-player', redcircle_podcast_id: 'cd7360fa-6824-483d-8e26-294cd7cdc96c' %}
+
 ## Listen on
 
 * 🎧 [Spotify (TBA)](#)
