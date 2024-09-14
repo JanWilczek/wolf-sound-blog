@@ -34,10 +34,10 @@ Learn from the DSP wizard!
 
 ## Listen on
 
-* 🎧 [Spotify (TBA)](#)
-* 🎥 [YouTube (TBA)](#)
-* 🎧 [Apple Podcasts (iTunes (TBA))](#)
-* 🎧 [TuneIn Radio (TBA)](#)
+* 🎧 [Spotify](https://open.spotify.com/episode/0yFHxdpFNQvskhUkaupyKz?si=jL2vSy8YTsGeSkL8iSAloQ)
+* 🎥 [YouTube](https://youtu.be/Ybj-Yuqs2Us?si=LEMoksB8o_qLvFoz)
+* 🎧 [Apple Podcasts (iTunes)](https://podcasts.apple.com/pl/podcast/successful-audio-plugin-freelancing-with-jatin/id1595913701?i=1000669549795)
+* 🎧 [TuneIn Radio](http://tun.in/tCsD5J)
 
 [All podcast episodes.](/podcast)
 
