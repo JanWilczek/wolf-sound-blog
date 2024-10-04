@@ -109,7 +109,7 @@ This episode was recorded on June 14, 2024.
 - Digital audio workstations (DAWs)
     - Ableton Live
     - Logic Pro
-    - Bitwig
+    - Bitwig (supports CLAP)
     - Reaper (supports CLAP)
     - FL Studio (supports CLAP)
 - Programming languages
@@ -135,6 +135,10 @@ This episode was recorded on June 14, 2024.
     - [Julius O. Smith III](https://ccrma.stanford.edu/~jos/)
     - CCRMA signal processing group:
         - [Orchisama Das](https://www.kcl.ac.uk/people/orchisama-das)
+        - [Elliot Canfield-Dafilou](https://steinhardt.nyu.edu/people/elliot-k-canfield-dafilou)
+        - [Mark Rau](https://ccrma.stanford.edu/~mrau/)
+        - [Jingjie Zhan (JJ)](https://ccrma.stanford.edu/~jingjiez/)
+        - Kim
     - [David Yeh](https://www.linkedin.com/in/davidyeh)
     - [Alexandre Bique](https://fr.linkedin.com/in/alexandre-bique)
     - Alfred Fettweis, creator of Wave Digital Filters
@@ -159,6 +163,8 @@ This episode was recorded on June 14, 2024.
 - Plugins:
     - [Surge XT synthesizer](https://surge-synthesizer.github.io/)
         - [GitHub with source code](https://github.com/surge-synthesizer/surge)
+    - [Geonkick](https://geonkick.org/)
+        - [GitHub with source code](https://github.com/Geonkick-Synthesizer/geonkick)
 - Software libraries & frameworks
     - [TensorFlow Lite Micro](https://github.com/tensorflow/tflite-micro)
     - [xsimd library](https://github.com/xtensor-stack/xsimd)
@@ -194,6 +200,7 @@ This episode was recorded on June 14, 2024.
     - [*The Design and Evolution of C++* by Bjarne Stroustrup](https://www.stroustrup.com/dne.html)
     - [Julius O. Smith III textbooks](https://ccrma.stanford.edu/~jos/)
     - [Digital Audio FX (DAFX) conference](https://www.dafx.de/)
+    - [Martin Finke's blog on developing plugins with WDL-OL](https://www.martin-finke.de/tags/making_audio_plugins.html)
 - Other
     - [Audio Developer Conference](https://audio.dev/)
     - [Roland TR-808 drum machine](https://en.wikipedia.org/wiki/Roland_TR-808)
