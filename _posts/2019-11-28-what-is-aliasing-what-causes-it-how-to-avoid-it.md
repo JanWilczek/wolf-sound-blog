@@ -4,7 +4,6 @@ description: "Learn what is aliasing, how it is related to the sampling rate, an
 date: 2019-11-28
 author: Jan Wilczek
 layout: post
-guid: https://thewolfsound.com/?p=197
 permalink: /what-is-aliasing-what-causes-it-how-to-avoid-it/
 background: /wp-content/uploads/2019/11/thumbnail.webp
 categories:
@@ -34,21 +33,21 @@ $$f_s > 2 f_{max}$$
 
 where $f_s$ is the sampling rate (how many samples of a continuous signal we take per second) and $f_{max}$ is the highest frequency in the observed signal. If we sample the signal holding on to the above inequality, we are able to perfectly reconstruct the signal:
 
-![](https://thewolfsound.com/wp-content/uploads/2019/11/Sine100HzSampled9.png)
+![](/wp-content/uploads/2019/11/Sine100HzSampled9.png)
 *Accurately sampled signal.*
 
 Clearly the samples preserve the original shape of the signal.
 
 What happens if $f_s = 2 f_{max}$? Such a situation is depicted below:
 
-![](https://thewolfsound.com/wp-content/uploads/2019/11/Sine100HzSampled7-1024x725.png)
+![](/wp-content/uploads/2019/11/Sine100HzSampled7-1024x725.png)
 *Signal sampled at the edge of reconstructibility.*
 
 The sampled sinusoid is treated as a constant value; it can even become 0! So we clearly miss a part of the signal.
 
 When we increase the maximum frequency $f_{max}$ (or equivalently: decrease the sampling rate $f_s$) we can observe the following:
 
-![](https://thewolfsound.com/wp-content/uploads/2019/11/Sine100HzSampled5-1024x725.png)
+![](/wp-content/uploads/2019/11/Sine100HzSampled5-1024x725.png)
 *Signal sampled at a too low rate to accurately reconstruct.*
 
 The samples do not resemble the original signal and the information about it is lost. But we get **some** signal out of the sampling procedure. What is its frequency?
@@ -59,7 +58,7 @@ To learn the outcome of this operation we need to look at continuous and discret
 
 Having a continuous (analog) signal and being able to derive its continuous spectrum would enable us to see a situation similar as below:
 
-![](https://thewolfsound.com/wp-content/uploads/2019/11/AnalogSpectrum-1024x605.png)
+![](/wp-content/uploads/2019/11/AnalogSpectrum-1024x605.png)
 *Continuous spectrum of a continuous signal.*
 
 The abscissa is equivalent to frequency $f$ and the ordinate to amplitude $|\hat{s}(f)|$ of particular frequency components. We can view a signal as a sum of its frequency components. The spectrum is even ($\hat{s}(f) = \hat{s}(-f)$), because values of the original signal are real ($s(t) \in \mathbb{R}$). We can clearly see, that there is some $f_{max}$ above which no frequency components are present.
@@ -70,12 +69,12 @@ _(Note: examples of continuous signals that are not finite in the frequency doma
 
 How does the spectrum of a sampled signal look? Well, it repeats itself every $f_s$:
 
-![](https://thewolfsound.com/wp-content/uploads/2019/11/DiscreteSpectrum-1024x680.png)
+![](/wp-content/uploads/2019/11/DiscreteSpectrum-1024x680.png)
 *Discrete spectrum of a discrete signal. Although not visible here, the spectrum is quantized in frequency as well.*
 
 Why is that? You can explain it intuitively that having a set of samples, you can always insert one or more periods of a sine between them and it would still get sampled the same way:
 
-![](https://thewolfsound.com/wp-content/uploads/2019/11/SpectraMultiplicity-2-1024x787.png)
+![](/wp-content/uploads/2019/11/SpectraMultiplicity-2-1024x787.png)
 *Discrete nodes may be viewed as sampling a sine of frequency 0, $f_s$, $2f_s$, etc.*
 
 If we do not know anything about the signal that was sampled, we cannot say what frequencies it originally had. But we generally (not always) assume that the frequencies in the original signal were between 0 and $\frac{f_s}{2}$ (we ignore negative frequencies as they have no physical meaning). Thus, during reconstruction, we restrict ourselves to these frequencies only.
@@ -84,12 +83,12 @@ If we do not know anything about the signal that was sampled, we cannot say what
 
 Now with aliasing $f_{max} > \frac{f_s}{2}$, so we could observe something like this:
 
-![](https://thewolfsound.com/wp-content/uploads/2019/11/AliasingSpectrum-1024x698.png)
+![](/wp-content/uploads/2019/11/AliasingSpectrum-1024x698.png)
 *Aliasing: frequency components of multiplicated spectra overlap.*
 
 The repeated spectra overlap and in the overlapping regions a permantent loss of signal information happens. That exactly is aliasing. Afterwards we cannot reconstruct the original signal anymore. Going back to our sine example: if the sampled sine had a frequency of $38 \text{ kHz}$ and we sampled it with $f_s =48 \text{kHz}$, due to spectra duplication we would get a reflected component at $ f = -10 \text{ kHz}$ and at  $ f = 10 \text{ kHz}$ because the spectrum is even. It will be audible in the output and we shall demonstrate it below:
 
-![](https://thewolfsound.com/wp-content/uploads/2019/11/AliasedSpectrum-1024x807.png)
+![](/wp-content/uploads/2019/11/AliasedSpectrum-1024x807.png)
 *Aliased frequency components: sine at 38 kHz appears at 10 kHz.*
 
 ## How to avoid aliasing?
