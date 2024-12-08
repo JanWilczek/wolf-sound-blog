@@ -31,7 +31,7 @@ Learn behind-the-scenes of the most famous audio companies!
 ## Listen on
 
 * 🎧 [Spotify]()
-* 🎥 [YouTube]()
+* 🎥 [YouTube](https://youtu.be/NLVM7oiUGMs?si=l-ZTWRbZukltdhD1)
 * 🎧 [Apple Podcasts (iTunes)]()
 * 🎧 [TuneIn Radio]()
 
@@ -64,6 +64,8 @@ From this podcast, you will learn:
 - how to be able to focus on research papers even if you read them after hours
 - how to produce quality research
 - how to rest & recharge after intense and focused work
+
+This episode was recorded on June 26, 2024.
 
 ## Julian’s Tips & Observations For Successful DSP Research & Development
 
