@@ -28,12 +28,14 @@ discussion_id: 2024-12-08-julian-parker
 ---
 Learn behind-the-scenes of the most famous audio companies!
 
+{% include 'redcircle-podcast-player', redcircle_podcast_id: '52e4f3d7-8ba8-442d-b5a6-b561c4caecc7' %}
+
 ## Listen on
 
-* 🎧 [Spotify]()
+* 🎧 [Spotify (TBA)]()
 * 🎥 [YouTube](https://youtu.be/NLVM7oiUGMs?si=l-ZTWRbZukltdhD1)
-* 🎧 [Apple Podcasts (iTunes)]()
-* 🎧 [TuneIn Radio]()
+* 🎧 [Apple Podcasts (iTunes) (TBA)]()
+* 🎧 [TuneIn Radio (TBA)]()
 
 [All podcast episodes.](/podcast)
 
