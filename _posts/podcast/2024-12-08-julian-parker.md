@@ -32,10 +32,10 @@ Learn behind-the-scenes of the most famous audio companies!
 
 ## Listen on
 
-* 🎧 [Spotify (TBA)]()
+* 🎧 [Spotify](https://open.spotify.com/episode/4hkitf7wiIcfIZsViF0v2L?si=nhQdjkNCSlCneiI9m8b0fQ)
 * 🎥 [YouTube](https://youtu.be/NLVM7oiUGMs?si=l-ZTWRbZukltdhD1)
-* 🎧 [Apple Podcasts (iTunes) (TBA)]()
-* 🎧 [TuneIn Radio (TBA)]()
+* 🎧 [Apple Podcasts (iTunes)](https://podcasts.apple.com/pl/podcast/generating-ai-music-with-julian-parker-stability-ai-ex/id1595913701?i=1000679632584)
+* 🎧 [TuneIn Radio](http://tun.in/tDYcSk)
 
 [All podcast episodes.](/podcast)
 
