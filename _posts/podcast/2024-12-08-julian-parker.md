@@ -114,8 +114,7 @@ This episode was recorded on June 26, 2024.
     18. Music artists
         1. AphexTwin
         2. [Warp Records](https://en.wikipedia.org/wiki/Warp_Records)
-        3. [Node Modular](https://www.soundonsound.com/people/node) 
-        4. [TJ Herz (objekt)](https://soundcloud.com/static_cast)
+        3. [TJ Herz (objekt)](https://soundcloud.com/static_cast)
 2. Places
     1. University of Cambridge
         1. [Natural Sciences undergraduate course](https://www.undergraduate.study.cam.ac.uk/courses/natural-sciences-ba-hons-msci)
@@ -162,8 +161,9 @@ This episode was recorded on June 26, 2024.
     3. KORG Prophecy
     4. spring reverb
     5. Buchla filter (see below for a paper)
-    6. [monome’s norns platform](https://monome.org/docs/norns/)
-    7. From Native Instruments
+    6. Clavia Nord Micro Modular (https://www.vintagesynth.com/clavia/nord-micro-modular)
+    7. [monome’s norns platform](https://monome.org/docs/norns/)
+    8. From Native Instruments
         1. [Maschine](https://www.native-instruments.com/en/products/maschine/production-systems/maschine/?srsltid=AfmBOor8UwDWATYq_jFEK_g90BsLS5hUDeUq13hZ6VEChVbVUMcIWUsY)
         2. [Traktor](https://www.native-instruments.com/en/catalog/hardware/traktor/)
 5. Audio software
