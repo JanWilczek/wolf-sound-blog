@@ -172,7 +172,7 @@ This episode was recorded on June 26, 2024.
     3. [Realms plugin](https://www.samplelogic.com/products/realms/) 
     4. From Native Instruments
         1. [Reaktor Blocks](https://www.native-instruments.com/en/products/komplete/synths/reaktor-6/blocks/?srsltid=AfmBOoqfV8mJ5cdeSyBsCTFIyh-PfVzKVgTzc8VUqf7y9StNWxvPfYb9)
-        2. [Reactor User Library](https://www.native-instruments.com/en/reaktor-community/reaktor-user-library/all/all/all/all/all/latest/1/all/)
+        2. [Reaktor User Library](https://www.native-instruments.com/en/reaktor-community/reaktor-user-library/all/all/all/all/all/latest/1/all/)
         3. [Replika XT](https://www.native-instruments.com/en/products/komplete/effects/replika-xt/)
         4. [Mod Pack](https://www.native-instruments.com/en/products/komplete/effects/effects-series-mod-pack/)
         5. [Crush Pack](https://www.native-instruments.com/en/products/komplete/effects/effects-series-crush-pack/)
