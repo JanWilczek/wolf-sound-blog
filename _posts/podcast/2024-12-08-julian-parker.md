@@ -97,6 +97,7 @@ This episode was recorded on June 26, 2024.
         1. [MSc thesis on spring reverberation [PDF]](https://www.pure.ed.ac.uk/ws/portalfiles/portal/12456049/Spring_Reverbation_A_Physical_Perspective.pdf)
         2. [PhD thesis on dispersive systems](https://aaltodoc.aalto.fi/items/5b1ff7ca-c56a-4073-9471-06846271625f)
         3. [LinkedIn](https://www.linkedin.com/in/julian-parker-28a49313/)
+        4. [Harmonai Discord](https://www.harmonai.org/)
     2. [Stefan Bilbao](https://www.acoustics.ed.ac.uk/people/dr-stefan-bilbao/)
     3. [Vesa Välimäki](https://www.aalto.fi/en/people/vesa-valimaki)
     4. [Julius O. Smith](https://ccrma.stanford.edu/~jos/)
@@ -106,12 +107,15 @@ This episode was recorded on June 26, 2024.
     8. [Mati Karjalainen](https://en.wikipedia.org/wiki/Matti_Antero_Karjalainen)
     9. [Till Bovermann](https://www.linkedin.com/in/tillbovermann/)
     10. [Manfred Schroeder](https://en.wikipedia.org/wiki/Manfred_R._Schroeder)
-    12. [Colin Raffael](https://colinraffel.com/) (a co-author of T5 text embedding model)
-    13. [Fabian Esqueda](https://www.linkedin.com/in/fabian-esqueda-ba3750157/)
-    15. [Ed Newton-Rex](https://ed.newtonrex.com/)
-    16. [Lykon: a Twitter user training his image generation model with stable diffusion](https://x.com/Lykon4072)
-    17. [AK on Hugging Face](https://huggingface.co/akhaliq)
-    18. Music artists
+    11. [Egbert Juergens](https://www.linkedin.com/in/egbertjuergens/)
+    12. [Steinunn Arnardottir](https://www.linkedin.com/in/steinunn-arnardottir/)
+    13. [Colin Raffael](https://colinraffel.com/) (a co-author of T5 text embedding model)
+    14. [Fabian Esqueda](https://www.linkedin.com/in/fabian-esqueda-ba3750157/)
+    15. [Hans-Joachim "Eddie" Mond](https://www.linkedin.com/in/hans-joachim-eddie-mond-8525b9265/)
+    16. [Ed Newton-Rex](https://ed.newtonrex.com/)
+    17. [Lykon: a Twitter user training his image generation model with stable diffusion](https://x.com/Lykon4072)
+    18. [AK on Hugging Face](https://huggingface.co/akhaliq)
+    19. Music artists
         1. AphexTwin
         2. [Warp Records](https://en.wikipedia.org/wiki/Warp_Records)
         3. [TJ Herz (objekt)](https://soundcloud.com/static_cast)
@@ -158,6 +162,7 @@ This episode was recorded on June 26, 2024.
     15. [SIMD](https://thewolfsound.com/simd-in-dsp/)
 4. Hardware
     1. ZX Spectrum
+    2. [Yamaha SG](https://www.guitarguitar.co.uk/news/141247/)
     3. KORG Prophecy
     4. spring reverb
     5. Buchla filter (see below for a paper)
@@ -167,17 +172,20 @@ This episode was recorded on June 26, 2024.
         1. [Maschine](https://www.native-instruments.com/en/products/maschine/production-systems/maschine/?srsltid=AfmBOor8UwDWATYq_jFEK_g90BsLS5hUDeUq13hZ6VEChVbVUMcIWUsY)
         2. [Traktor](https://www.native-instruments.com/en/catalog/hardware/traktor/)
 5. Audio software
-    1. [JPRev reverb by Julian](https://faustdoc.grame.fr/examples/reverb/)
+    1. [JPverb reverb by Julian](https://faustdoc.grame.fr/examples/reverb/)
+        1. [Source code](https://github.com/supercollider/sc3-plugins/blob/main/source/DEINDUGens/JPverbRaw.cpp)
     2. [Greyhole reverb by Julian](https://faustdoc.grame.fr/examples/reverb/)
+        1. [Source code](https://github.com/supercollider/sc3-plugins/blob/main/source/DEINDUGens/GreyholeRaw.cpp)
     3. [Realms plugin](https://www.samplelogic.com/products/realms/) 
     4. From Native Instruments
         1. [Reaktor Blocks](https://www.native-instruments.com/en/products/komplete/synths/reaktor-6/blocks/?srsltid=AfmBOoqfV8mJ5cdeSyBsCTFIyh-PfVzKVgTzc8VUqf7y9StNWxvPfYb9)
-        2. [Reaktor User Library](https://www.native-instruments.com/en/reaktor-community/reaktor-user-library/all/all/all/all/all/latest/1/all/)
+        2. [Reaktor User Library](https://www.native-instruments.com/en/reaktor-community/reaktor-user-library/)
         3. [Replika XT](https://www.native-instruments.com/en/products/komplete/effects/replika-xt/)
         4. [Mod Pack](https://www.native-instruments.com/en/products/komplete/effects/effects-series-mod-pack/)
         5. [Crush Pack](https://www.native-instruments.com/en/products/komplete/effects/effects-series-crush-pack/)
         6. [Guitar Rig](https://www.native-instruments.com/en/products/komplete/guitar/guitar-rig-7-pro/)
         7. [Traktor](https://www.native-instruments.com/en/catalog/hardware/traktor/)
+        8. [Raum reverb plugin](https://www.native-instruments.com/en/products/komplete/effects/raum/)
 6. Programming languages
     1. FAUST
     2. Super Collider
@@ -190,7 +198,8 @@ This episode was recorded on June 26, 2024.
     3. Pytorch
     4. TensorFlow
     5. Keras
-    6. CUDA
+    6. [jax from Google](https://github.com/jax-ml/jax)
+    7. CUDA
 8. Research papers
     1. [Manfred Schroeder’s original reverb paper [PDF]](https://hajim.rochester.edu/ece/sites/zduan/teaching/ece472/reading/Schroeder_1962.pdf)
     2. artificial reverberation review paper: [“Fifty Years of Artificial Reverberation” by Julian D. Parker et. al.](https://ieeexplore.ieee.org/document/6161610)
