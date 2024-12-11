@@ -8,7 +8,6 @@ effective from December 9, 2024.
 
 **Warning: This document has been translated to English for convenience. However, its binding form is Polish.**
 
-
 ## Scope of Collected Information and Data
 User data is collected for the purpose of properly providing our services, including those related to website operation and properly informing users about available goods and services. Data is collected particularly in the following situations and within the indicated scope:
 
