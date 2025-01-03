@@ -4,7 +4,7 @@ layout: page
 permalink: /privacy-policy/
 ---
 
-effective from December 9, 2024.
+effective from January 3, 2025.
 
 **Warning: This document has been translated to English for convenience. However, its binding form is Polish.**
 
@@ -33,7 +33,7 @@ User data is collected for the purpose of properly providing our services, inclu
 ### Combining data from different sources within the scope indicated above, including supplementing or combining personal data with information from various external sources, including demographic data, geographical data, data on interactions with external service providers.
 
 ## How We Use Collected Information and Data
-User data is collected for purposes defined by national and Community law, including in particular:
+User data is collected for purposes defined by national and European Union law, including in particular:
 
 ### For contract conclusion and proper execution, as well as taking actions at user's request before contract conclusion, including in particular regarding distance purchase of goods and services (including delivery), provision of services related to our websites, responses to inquiries directed through forms and email messages – Art. 6(1)(b) GDPR;
 
@@ -71,7 +71,7 @@ Users have the following demands and rights:
 - Request personal data portability;
 - Right to lodge a complaint with the supervisory authority i.e., President of the Personal Data Protection Office (www.uodo.gov.pl).
 
-All requests regarding user data can be submitted to the address: ...........................
+All requests regarding user data can be submitted to the address: contact [ at ] thewolfsound [ dot ] com.
 Each request will be considered by us, but we will not always be able to fulfill it, e.g., due to applicable legal regulations. Provision of personal data by the user is voluntary but necessary for our service provision to the extent that data is marked as mandatory.
 
 ## Sharing Data with Other Entities
