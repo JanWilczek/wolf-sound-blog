@@ -61,7 +61,7 @@ b) enabling the Service Recipient to use the Newsletter.
 
 2\. Use of the Newsletter is possible after:
 
-a) providing name and email address in the appropriate field in the Newsletter section on the Website and clicking the "Subscribe Me to Wolfsound's Email List" icon;
+a) providing name and email address in the appropriate field in the Newsletter section on the Website and clicking the "Subscribe Me to WolfSound's Email List" icon;
 
 b) confirming the desire to subscribe to the Newsletter by clicking the confirmation link automatically sent to the provided email address.
 
