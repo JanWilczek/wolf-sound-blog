@@ -36,7 +36,7 @@ Recreating room acoustics using feedback delay networks, scattering delay networ
 
 * 🎧 [Spotify](https://open.spotify.com/episode/2GeSXmtBopJcSFcedfsJ1v?si=bAGMkXK6SbGXVdbWQVCyMA)
 * 🎥 [YouTube](https://youtu.be/UaWuxYKQhu8?si=hmsMc45rEF1-4omI)
-* 🎧 [Apple Podcasts (iTunes) (TBA)](#)
+* 🎧 [Apple Podcasts (iTunes)](https://podcasts.apple.com/us/podcast/reverb-spatial-immersive-audio-with-orchisama-das/id1595913701?i=1000694429397)
 * 🎧 [TuneIn Radio (TBA)](#)
 
 [All podcast episodes.](/podcast)
@@ -63,7 +63,7 @@ From this podcast, you will learn:
 - About her internships at Tesla and Meta Reality Labs, as well as tips and advice on how to get internships as a researcher.
 - A big picture technical overview of artificial reverberation, virtual room acoustics, and immersive audio.
 - Resources for learning about these topics, including books, papers, and tools.
-- Tips and advice for a good research carrer.
+- Tips and advice for a good research career.
 - Her thoughts on the gender imbalance in audio research and ways to address it.
 
 This episode was recorded on November 21, 2024.
