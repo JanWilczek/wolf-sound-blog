@@ -51,7 +51,7 @@ Julian’s career is incredible: from natural sciences through a master’s in p
 
 There are few people who have such a rich background in audio research and industry and even fewer who are willing to share the details of it publicly. That makes this episode all the more exciting!
 
-*Note:* If you like the podcast so far, please, [go to Apple Podcasts and leave me a review there](https://podcasts.apple.com/us/podcast/wolftalk-podcast-about-audio-programming-people-careers/id1595913701). You can [do so on Spotify as well](https://open.spotify.com/show/5xc7EJiH9shG6zdSC5ejyw?si=eb35597e60a54e70). It will benefit both sides: more reviews mean a broader reach on Apple Podcasts and feedback can help me to improve the show and provide better quality content to you. You can also subscribe and give a like on [YouTube](https://youtube.com/c/WolfSoundAudio). Thank you for doing this 🙏
+{% include 'podcast_cta' %}
 
 ## Episode contents
 
