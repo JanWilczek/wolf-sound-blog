@@ -43,6 +43,15 @@ To resize a png image and convert it to a webp image:
 cwebp Thumbnail.png -q 65 -s 1024 0 -o Thumbnail.webp
 ```
 
+## Eleventy Snippets ✂️
+
+### Including an include
+
+```md
+{% include 'podcast_cta' %}
+{% include 'youtube-video', video_id: '5DFUH0zCn3Y' %}
+```
+
 ## All tags used
 
 - sound wave
