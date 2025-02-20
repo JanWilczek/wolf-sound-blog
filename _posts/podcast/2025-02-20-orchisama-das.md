@@ -77,7 +77,7 @@ This episode was recorded on November 21, 2024.
       2. Scattering Delay Network
    3. Wave-based physics solvers
    4. Convolution reverb (measuring impulse responses)
-      1. Partitioned convolution
+      1. [Partitioned convolution]({% post_url collections.posts, '2021-05-14-fast-convolution' %})
 2. Challenges in artificial reverberation
    1. Listener movement (6 degrees of freedom)
    2. Modeling reverb in complex geometries
