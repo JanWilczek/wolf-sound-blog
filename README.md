@@ -52,6 +52,12 @@ cwebp Thumbnail.png -q 65 -s 1024 0 -o Thumbnail.webp
 {% include 'youtube-video', video_id: '5DFUH0zCn3Y' %}
 ```
 
+### Linking to a post
+
+```md
+[Partitioned convolution]({% post_url collections.posts, '2021-05-14-fast-convolution' %})
+```
+
 ## All tags used
 
 - sound wave
