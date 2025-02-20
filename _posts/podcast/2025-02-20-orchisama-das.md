@@ -30,12 +30,14 @@ discussion_id: 2025-02-20-orchisama-das
 ---
 Recreating room acoustics using feedback delay networks, scattering delay networks, and more!
 
+{% include 'redcircle-podcast-player', redcircle_podcast_id: '6584fddd-d8b9-4f60-81bc-16f92a77fc80' %}
+
 ## Listen on
 
-* 🎧 [Spotify]()
-* 🎥 [YouTube]()
-* 🎧 [Apple Podcasts (iTunes)]()
-* 🎧 [TuneIn Radio]()
+* 🎧 [Spotify](https://open.spotify.com/episode/2GeSXmtBopJcSFcedfsJ1v?si=bAGMkXK6SbGXVdbWQVCyMA)
+* 🎥 [YouTube](https://youtu.be/UaWuxYKQhu8?si=hmsMc45rEF1-4omI)
+* 🎧 [Apple Podcasts (iTunes) (TBA)](#)
+* 🎧 [TuneIn Radio (TBA)](#)
 
 [All podcast episodes.](/podcast)
 
@@ -162,7 +164,7 @@ This episode was recorded on November 21, 2024.
     4. C++
 6. Tools used by Orchi
     1. Libraries and Frameworks
-        1. [JUCE](https://juce.com)
+        1. [**JUCE C++ framework (podcast sponsor ♥️)**](https://juce.com/)
         2. [PyTorch](https://pytorch.org)
         3. [Jupyter](https://jupyter.org/)
         4. [Pydantic](https://docs.pydantic.dev/latest/) ([YAML](https://yaml.org))
