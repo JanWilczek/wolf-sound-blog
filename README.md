@@ -42,3 +42,64 @@ To resize a png image and convert it to a webp image:
 ```bash
 cwebp Thumbnail.png -q 65 -s 1024 0 -o Thumbnail.webp
 ```
+
+## All tags used
+
+- sound wave
+- sampling (A/D conversion)
+- quantization
+- sample rate
+- aliasing
+- effects
+- python
+- software architecture
+- design principles
+- testing
+- c
+- cpp
+- convolution
+- filtering
+- maths
+- fourier
+- laplace
+- transform
+- impulse
+- template metaprogramming
+- correlation
+- matlab
+- probability
+- wavetable
+- waveform
+- sampling (sound generation)
+- juce
+- rust
+- career
+- learning
+- research
+- reverb
+- deep learning
+- virtual analog
+- amplifiers
+- simd
+- hardware
+- envelope
+- android
+- kotlin
+- java
+- virtual reality
+- spatial audio
+- acoustics
+- accessibility
+- cmake
+- plugin
+- web audio
+- javascript
+- typescript
+- book review
+- puredata
+- iplug2
+- swift
+- flutter
+- cmajor
+- digital audio workstation
+- audio generation
