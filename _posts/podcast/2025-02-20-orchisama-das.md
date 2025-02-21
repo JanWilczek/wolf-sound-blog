@@ -37,7 +37,7 @@ Recreating room acoustics using feedback delay networks, scattering delay networ
 * 🎧 [Spotify](https://open.spotify.com/episode/2GeSXmtBopJcSFcedfsJ1v?si=bAGMkXK6SbGXVdbWQVCyMA)
 * 🎥 [YouTube](https://youtu.be/UaWuxYKQhu8?si=hmsMc45rEF1-4omI)
 * 🎧 [Apple Podcasts (iTunes)](https://podcasts.apple.com/us/podcast/reverb-spatial-immersive-audio-with-orchisama-das/id1595913701?i=1000694429397)
-* 🎧 [TuneIn Radio (TBA)](#)
+* 🎧 [TuneIn Radio](http://tun.in/tEZFnq)
 
 [All podcast episodes.](/podcast)
 
