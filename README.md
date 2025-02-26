@@ -58,6 +58,12 @@ cwebp Thumbnail.png -q 65 -s 1024 0 -o Thumbnail.webp
 [Partitioned convolution]({% post_url collections.posts, '2021-05-14-fast-convolution' %})
 ```
 
+### Linking to a page
+
+```md
+[About me]({% link collections.all, 'about.md' %})
+```
+
 ## All tags used
 
 - sound wave
