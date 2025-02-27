@@ -144,10 +144,10 @@ This episode was recorded on June 26, 2024.
     18. [Digital Audio FX (DAFX) conference](https://www.dafx.de/)
     19. [Hugging Face](https://huggingface.co/)
 3. DSP concepts
-    1. FM Synthesis
-    2. Virtual Analog (VA)
+    1. [FM Synthesis](https://en.wikipedia.org/wiki/Frequency_modulation_synthesis){:target="_blank"}
+    2. [Virtual Analog (VA)](https://en.wikipedia.org/wiki/Analog_modeling_synthesizer){:target="_blank"}
     3. finite difference scheme
-    4. allpass filter
+    4. [allpass filter](https://www.youtube.com/watch?v=AKMoKWYGe8I&t=1s){:target="_blank"}
     5. dynamic range compression
     6. dispersive systems: different frequencies travel in them at different speeds
     7. Music Information Retrieval (MIR)
@@ -166,7 +166,7 @@ This episode was recorded on June 26, 2024.
     3. KORG Prophecy
     4. spring reverb
     5. Buchla filter (see below for a paper)
-    6. Clavia Nord Micro Modular (https://www.vintagesynth.com/clavia/nord-micro-modular)
+    6. [Clavia Nord Micro Modular](https://www.vintagesynth.com/clavia/nord-micro-modular)
     7. [monome’s norns platform](https://monome.org/docs/norns/)
     8. From Native Instruments
         1. [Maschine](https://www.native-instruments.com/en/products/maschine/production-systems/maschine/?srsltid=AfmBOor8UwDWATYq_jFEK_g90BsLS5hUDeUq13hZ6VEChVbVUMcIWUsY)
