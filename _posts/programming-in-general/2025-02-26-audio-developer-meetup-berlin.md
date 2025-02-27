@@ -34,7 +34,7 @@ It's an exciting new opportunity for audio developers (not just C++) as well as 
 
 Given that speakers have already been Astrid Bin and Timur Doumler, this is a top-notch experience.
 
-Oh, and did I say that it's **enitrely free**?
+Oh, and did I say that it's **entirely free**?
 
 So grab your U-Bahn, S-Bahn, train or plane and to go to Berlin!
 
