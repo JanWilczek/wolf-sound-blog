@@ -17,18 +17,38 @@ tags:
   - audio generation
 discussion_id: 2025-03-01-fm-synthesis
 ---
-
 Frequency modulation (FM) synthesis is an exciting topic: with a few simple operations, we can create complex sounds that can instantaneously change in timbre with a few simple coefficient changes.
 
-How does it work? How to control to produce musical notes? Why was it so popular in the 1980s? We will explore all that in this single article!
+How does it work? How to control it to produce musical notes? Why was it so popular in the 1980s? We will explore all that in this single article!
 
-TODO: Table of contents
+1. [History](#history)
+2. [Vibrato](#vibrato)
+3. [Basic FM Synth](#basic-fm-synth)
+   1. [Proper FM Formula](#proper-fm-formula)
+   2. [Simple FM Diagram](#simple-fm-diagram)
+4. [Simple FM Spectrum](#simple-fm-spectrum)
+5. [Timbre control of simple FM](#timbre-control-of-simple-fm)
+6. [Modulation Index](#modulation-index)
+7. [Phase Modulation](#phase-modulation)
+8. [How to control the timbre of FM?](#how-to-control-the-timbre-of-fm)
+   1. [When is FM spectrum harmonic?](#when-is-fm-spectrum-harmonic)
+   2. [What’s the fundamental frequency (the pitch) in FM?](#whats-the-fundamental-frequency-the-pitch-in-fm)
+   3. [How to eliminate every $N\_2$-th harmonic?](#how-to-eliminate-every-n_2-th-harmonic)
+   4. [How to control the brightness of FM spectra?](#how-to-control-the-brightness-of-fm-spectra)
+   5. [FM Efficiency](#fm-efficiency)
+   6. [How to control the partials’ amplitudes? Bessel functions](#how-to-control-the-partials-amplitudes-bessel-functions)
+9. [Presenting FM algorithm visually](#presenting-fm-algorithm-visually)
+10. [Example FM sounds](#example-fm-sounds)
+11. [Extensions of simple FM](#extensions-of-simple-fm)
+12. [Summary](#summary)
 
-TODO: Google Ad
+{% render 'google-ad.liquid' %}
 
 TODO: Add Python code (at least links to)
 
 ## History
+
+TODO: History?
 
 ## Vibrato
 
