@@ -568,13 +568,13 @@ Finally, we have mentioned various extensions to the simple FM technique.
 
 In the future articles, we will look into how to implement the PM synthesis technique using various programming languages. So look out for those!
 
-If you want to become an audio developer today, check out my free Audio Developer Checklist. It lists every bit and piece of knowledge I believe is necessary to become a full-fledged audio programmer and be able to create software synths, for example, with FM synthesis.
-
-TODO: Make add link to checklist
+If you want to become an audio developer today, check out my [free Audio Developer Checklist]({% link collections.all, 'checklist.html' %}). It lists every bit and piece of knowledge I believe is necessary to become a full-fledged audio programmer and be able to create software synths, for example, with FM synthesis.
 
 TODO: Make links relative
 
 TODO: Create bibliography
+
+TODO: Number the figures.
 
 ## Bibliography
 
