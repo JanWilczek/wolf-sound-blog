@@ -2,5 +2,6 @@
 
 for file in $1/*
 do
-    cwebp -resize 550 0 -preset drawing $file -o ${file::-4}.webp
+    filename="${file%.*}"
+    cwebp -preset drawing -resize 550 0 "$file" -o "$filename.webp"
 done
