@@ -110,7 +110,7 @@ because it’s not mathematically correct. Here, $A_C$ stands for the **carrier 
 
 {% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2025-03-01-fm-synthesis/wrong_fm_220Hz.flac" %}
 
-Instead, we need to use the fact the **angular frequency is the derivative of phase** [Farina2000]. Mathematically speaking,
+Instead, we need to use the fact that the **angular frequency is the derivative of phase** [Farina2000]. Mathematically speaking,
 
 $$
 \begin{equation}
@@ -572,7 +572,7 @@ TODO: Create bibliography
 
 ## Bibliography
 
-[Chowning1973] **Original FM paper by John Chowning**: J. M. Chowning. The Synthesis of Complex Audio Spectra by Means of Frequency Modulation. J. Audio Eng. Soc. 21, 7, 1973 [[PDF](https://web.eecs.umich.edu/~fessler/course/100/misc/chowning-73-tso.pdf)]
+[Chowning1973] **Original FM paper by John Chowning**: J. M. Chowning. The Synthesis of Complex Audio Spectra by Means of Frequency Modulation. J. Audio Eng. Soc. 21, 7, 1973 [[PDF](https://web.eecs.umich.edu/~fessler/course/100/misc/chowning-73-tso.pdf), accessed March 5, 2025]
 
 [SOS2000] Gordon Reid, An Introduction To Frequency Modulation, Synth Secrets, Sound on Sound https://www.soundonsound.com/techniques/introduction-frequency-modulation (accessed March 5, 2025)
 
@@ -582,3 +582,5 @@ TODO: Create bibliography
 of the Federal Armed Forces, Hamburg, Germany: John Wiley & Sons Ltd, 2011.
 
 [Pluta2019] Marek Pluta, *Sound Synthesis for Music Reproduction and Performance*, monograph, AGH University of Science and Technology Press 2019.
+
+[Farina 2000] Angelo Farina, *Simultaneous Measurement of Impulse Response and Distortion With a Swept-Sine Technique*, 108th AES Convention, Paris, France, 2000 [[PDF](https://www.researchgate.net/publication/2456363_Simultaneous_Measurement_of_Impulse_Response_and_Distortion_With_a_Swept-Sine_Technique), accessed March 5, 2025]
