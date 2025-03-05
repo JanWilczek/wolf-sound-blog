@@ -60,11 +60,11 @@ In this sense, we **modulate** the pitch. To achieve the vibrato, the modulation
 
 Here’s how a single musical note (a sine representing the MIDI note 57) without the vibrato sounds.
 
-{% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2022-06-26-sine-saw-square-triangle-basic-waveforms-in-synthesis/plain_note_220Hz.wav" %}
+{% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2025-03-01-fm-synthesis/plain_note_220Hz.wav" %}
 
 Here’s how the same note sounds when we apply a 10 Hz vibrato to it with a modulation index 2 (which means that the pitch should change by +/- 20 Hz).
 
-{% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2022-06-26-sine-saw-square-triangle-basic-waveforms-in-synthesis/vibrato_note_220Hz.wav" %}
+{% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2025-03-01-fm-synthesis/vibrato_note_220Hz.wav" %}
 
 ## Basic FM Synth
 
@@ -98,7 +98,7 @@ $$
 
 because it’s not mathematically correct. Here, $A_C$ stands for **carrier frequency**. If we would apply this to generate a signal where $A_C = 1, f_C=220 \text{ Hz}, f_M=110 \text{Hz},$ and $A_M = 220 \text{ Hz}$, then we would get a signal that sounds like this.
 
-{% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2022-06-26-sine-saw-square-triangle-basic-waveforms-in-synthesis/wrong_fm_220Hz.wav" %}
+{% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2025-03-01-fm-synthesis/wrong_fm_220Hz.wav" %}
 
 Instead, we need to use the fact the **angular frequency is the derivative of phase** [Farina2000]. Mathematically speaking,
 
@@ -188,7 +188,7 @@ Here’s an example. (From now on, you can assume that $A_C = 1$ because changin
 
 Here’s a sound generated with $f_C = 200 \text{ Hz}, f_M = 400 \text{ Hz},$  and $A_M = 800$.
 
-{% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2022-06-26-sine-saw-square-triangle-basic-waveforms-in-synthesis/basic_signal.flac" %}
+{% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2025-03-01-fm-synthesis/basic_signal.flac" %}
 
 Here’s its spectrum
 
@@ -204,7 +204,7 @@ In this particular case, it suffices to double the modulation frequency $f_M$ to
 
 Here’s the resulting sound generated with $f_C = 400 \text{ Hz}, f_M = 800 \text{ Hz},$  and $A_M = 800$.
 
-{% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2022-06-26-sine-saw-square-triangle-basic-waveforms-in-synthesis/octave_higher_half_index.flac" %}
+{% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2025-03-01-fm-synthesis/octave_higher_half_index.flac" %}
 
 And here’s its spectrum.
 
@@ -212,7 +212,7 @@ And here’s its spectrum.
 
 You can hear that the octave-higher version has similar timbre and the partials are correctly spaced, yet their amplitudes look a little bit different. That is because we have not changed the modulation amplitude. If we set $A_M=1600$, we get the following sound.
 
-{% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2022-06-26-sine-saw-square-triangle-basic-waveforms-in-synthesis/octave_higher.flac" %}
+{% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2025-03-01-fm-synthesis/octave_higher.flac" %}
 
 Here’s its spectrum.
 
@@ -292,11 +292,11 @@ As you can see, the spectra nicely overlap. Audibly, there is no difference eith
 
 FM at 96 kHz:
 
-{% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2022-06-26-sine-saw-square-triangle-basic-waveforms-in-synthesis/fm_fs96000.flac" %}
+{% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2025-03-01-fm-synthesis/fm_fs96000.flac" %}
 
 PM at 96 kHz:
 
-{% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2022-06-26-sine-saw-square-triangle-basic-waveforms-in-synthesis/pm_fs96000.flac" %}
+{% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2025-03-01-fm-synthesis/pm_fs96000.flac" %}
 
 However, if we decrease the sampling rate to 22.05 kHz…
 
@@ -308,11 +308,11 @@ We can also start hearing a difference between the two sounds.
 
 FM at 22.05 kHz:
 
-{% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2022-06-26-sine-saw-square-triangle-basic-waveforms-in-synthesis/fm_fs22050.flac" %}
+{% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2025-03-01-fm-synthesis/fm_fs22050.flac" %}
 
 PM at 22.05 kHz:
 
-{% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2022-06-26-sine-saw-square-triangle-basic-waveforms-in-synthesis/pm_fs22050.flac" %}
+{% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2025-03-01-fm-synthesis/pm_fs22050.flac" %}
 
 To my ear, the FM sound has a more pronounced low-frequency partial.
 
@@ -334,25 +334,25 @@ Let’s look at a few examples and listen to them. In all of them, $I=\pi$.
 
 $R_f = 1:2$
 
-{% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2022-06-26-sine-saw-square-triangle-basic-waveforms-in-synthesis/c1_m2_f0200.flac" %}
+{% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2025-03-01-fm-synthesis/c1_m2_f0200.flac" %}
 
 ![c=1_m=2_f0=200_spectrum.png](Article%202e4bc2536e334d0d8e33d181f527fb25/c1_m2_f0200_spectrum.png)
 
 $R_f = 2:1$
 
-{% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2022-06-26-sine-saw-square-triangle-basic-waveforms-in-synthesis/c2_m1_f0200.flac" %}
+{% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2025-03-01-fm-synthesis/c2_m1_f0200.flac" %}
 
 ![c=2_m=1_f0=200_spectrum.png](Article%202e4bc2536e334d0d8e33d181f527fb25/c2_m1_f0200_spectrum.png)
 
 $R_f = 10:9$
 
-{% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2022-06-26-sine-saw-square-triangle-basic-waveforms-in-synthesis/c10_m9_f0200.flac" %}
+{% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2025-03-01-fm-synthesis/c10_m9_f0200.flac" %}
 
 ![c=10_m=9_f0=200_spectrum.png](Article%202e4bc2536e334d0d8e33d181f527fb25/c10_m9_f0200_spectrum.png)
 
 $R_f = \sqrt{2}:1$
 
-{% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2022-06-26-sine-saw-square-triangle-basic-waveforms-in-synthesis/c1.4142135623730951_m1_f0200.flac" %}
+{% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2025-03-01-fm-synthesis/c1.4142135623730951_m1_f0200.flac" %}
 
 ![c=1_spectrum.png](Article%202e4bc2536e334d0d8e33d181f527fb25/c1_spectrum.png)
 
@@ -395,13 +395,13 @@ Specifically,
 
 - If $N_2 =1$, all harmonics are present. Example ($f_C=5000\text{ Hz}, f_M=1000 \text{ Hz}, I=2$):
     
-    {% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2022-06-26-sine-saw-square-triangle-basic-waveforms-in-synthesis/c5_m1_f01000.flac" %}
+    {% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2025-03-01-fm-synthesis/c5_m1_f01000.flac" %}
     
     ![c=5_m=1_f0=1000_spectrum.png](Article%202e4bc2536e334d0d8e33d181f527fb25/c5_m1_f01000_spectrum.png)
     
 - If $N_2$ is even, the spectrum is odd, i.e., only odd partials are present. Example ($f_C=5000\text{ Hz}, f_M=2000 \text{ Hz}, I=2$):
     
-    {% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2022-06-26-sine-saw-square-triangle-basic-waveforms-in-synthesis/c5_m2_f01000.flac" %}
+    {% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2025-03-01-fm-synthesis/c5_m2_f01000.flac" %}
     
     ![c=5_m=2_f0=1000_spectrum.png](Article%202e4bc2536e334d0d8e33d181f527fb25/c5_m2_f01000_spectrum.png)
     
@@ -409,7 +409,7 @@ Specifically,
     
 - If $N_2 =3$, every third harmonic is missing. Example ($f_C=5000\text{ Hz}, f_M=3000 \text{ Hz}, I=2$):
     
-    {% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2022-06-26-sine-saw-square-triangle-basic-waveforms-in-synthesis/c5_m3_f01000.flac" %}
+    {% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2025-03-01-fm-synthesis/c5_m3_f01000.flac" %}
     
     ![c=5_m=3_f0=1000_spectrum.png](Article%202e4bc2536e334d0d8e33d181f527fb25/c5_m3_f01000_spectrum.png)
     
@@ -432,7 +432,7 @@ Let’s look at some examples using $f_C = 1000 \text{ Hz}$ and $f_M = 200 \text
 
 Let’s set $I=1$. Here’s the resulting sound.
 
-{% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2022-06-26-sine-saw-square-triangle-basic-waveforms-in-synthesis/c5_m1_f0200_I1.flac" %}
+{% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2025-03-01-fm-synthesis/c5_m1_f0200_I1.flac" %}
 
 And here’s its spectrum.
 
@@ -442,7 +442,7 @@ As you can see, its bandwidth is 800 Hz. Although there are partials outside of 
 
 Here, $I=2$.
 
-{% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2022-06-26-sine-saw-square-triangle-basic-waveforms-in-synthesis/c5_m1_f0200_I2.flac" %}
+{% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2025-03-01-fm-synthesis/c5_m1_f0200_I2.flac" %}
 
 ![c=5_m=1_f0=200_I=2_spectrum.png](Article%202e4bc2536e334d0d8e33d181f527fb25/c5_m1_f0200_I2_spectrum.png)
 
@@ -450,13 +450,13 @@ As you can hear and see, the spectrum got wider and as a result, it sounds brigh
 
 Here, $I=3$.
 
-{% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2022-06-26-sine-saw-square-triangle-basic-waveforms-in-synthesis/c5_m1_f0200_I3.flac" %}
+{% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2025-03-01-fm-synthesis/c5_m1_f0200_I3.flac" %}
 
 ![c=5_m=1_f0=200_I=3_spectrum.png](Article%202e4bc2536e334d0d8e33d181f527fb25/c5_m1_f0200_I3_spectrum.png)
 
 Here, $I=4$.
 
-{% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2022-06-26-sine-saw-square-triangle-basic-waveforms-in-synthesis/c5_m1_f0200_I4.flac" %}
+{% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2025-03-01-fm-synthesis/c5_m1_f0200_I4.flac" %}
 
 ![c=5_m=1_f0=200_I=4_spectrum.png](Article%202e4bc2536e334d0d8e33d181f527fb25/c5_m1_f0200_I4_spectrum.png)
 
@@ -464,7 +464,7 @@ As you can see, the spectrum got so wide that it expanded over to negative frequ
 
 Here, $I=5$.
 
-{% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2022-06-26-sine-saw-square-triangle-basic-waveforms-in-synthesis/c5_m1_f0200_I5.flac" %}
+{% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2025-03-01-fm-synthesis/c5_m1_f0200_I5.flac" %}
 
 ![c=5_m=1_f0=200_I=5_spectrum.png](Article%202e4bc2536e334d0d8e33d181f527fb25/c5_m1_f0200_I5_spectrum.png)
 
