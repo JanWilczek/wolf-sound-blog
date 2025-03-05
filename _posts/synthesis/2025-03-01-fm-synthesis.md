@@ -47,7 +47,15 @@ TODO: Add Python code (at least links to)
 
 ## History
 
-TODO: History?
+Just as a brief word of history, to give credit to people's hard work, the original publication on FM synthesis came from John Chowning  in 1973 [Chowning1973]. Because of lack of interest of American manufacturers in using the technique in hardware synths, Chowning turned to Japan-based manufacturer Yamaha in the same year. [SOS2000]
+
+{% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/Chowning.jpg", "John Chowning" %}
+
+_Figure . John Chowning. [Source](https://commons.wikimedia.org/wiki/File:Chowning.jpg), accessed March 5, 2025, licensed under the [Creative Commons Attribution-Share Alike 3.0 Unported license](https://creativecommons.org/licenses/by-sa/3.0/deed.en)._
+
+However, it wasn't until 1983, when the first widely successful FM synth was introduced, namely, Yamaha DX7 FM [Wikipedia]. It took the market by storm and spawned a host of FM-based hardware synths.
+
+That 10-year gap should tell you how much engineering effort was required to make FM commercially usable!
 
 ## Vibrato
 
@@ -558,3 +566,11 @@ TODO: Make add link to checklist
 TODO: Make links relative
 
 TODO: Create bibliography
+
+## Bibliography
+
+[Chowning1973] **Original FM paper by John Chowning**: J. M. Chowning. The Synthesis of Complex Audio Spectra by Means of Frequency Modulation. J. Audio Eng. Soc. 21, 7, 1973 [[PDF](https://web.eecs.umich.edu/~fessler/course/100/misc/chowning-73-tso.pdf)]
+
+[SOS2000] Gordon Reid, An Introduction To Frequency Modulation, Synth Secrets, Sound on Sound https://www.soundonsound.com/techniques/introduction-frequency-modulation (accessed March 5, 2025)
+
+[Wikipedia] [Frequency modulation synthesis, Wikipedia](https://en.wikipedia.org/wiki/Frequency_modulation_synthesis) (accessed March 5, 2025)
