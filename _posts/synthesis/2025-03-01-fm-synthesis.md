@@ -43,7 +43,9 @@ How does it work? How to control it to produce musical notes? Why was it so popu
 
 {% render 'google-ad.liquid' %}
 
-TODO: Add Python code (at least links to)
+## Figures' and audio examples' source code
+
+*Note: All figures and audio examples in this article were generated using [the following Python script](https://github.com/JanWilczek/wolf-sound-blog/blob/master/_py/posts/synthesis/2025-03-01-fm-synthesis/fm_synthesis.py). Feel free to use and tweak it to your needs!*
 
 ## History
 
