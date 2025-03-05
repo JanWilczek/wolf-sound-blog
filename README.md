@@ -64,6 +64,12 @@ cwebp Thumbnail.png -q 65 -s 1024 0 -o Thumbnail.webp
 [About me]({% link collections.all, 'about.md' %})
 ```
 
+### Embedding an audio file
+
+```md
+{% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2022-06-26-sine-saw-square-triangle-basic-waveforms-in-synthesis/sine_example.flac" %}
+```
+
 ## All tags used
 
 - sound wave
