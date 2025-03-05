@@ -276,7 +276,7 @@ In other words: to preserve the timbre when changing pitch, keep the modulation 
 
 Now, our simple FM diagram looks as follows.
 
-TODO
+{% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/SimpleFMInstrumentWithModulationIndex.png", "Simple FM instrument with modulation index" %}
 
 ## Phase Modulation
 
