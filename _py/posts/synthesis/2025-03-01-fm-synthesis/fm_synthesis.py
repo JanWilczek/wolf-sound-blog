@@ -27,7 +27,7 @@ SAMPLE_RATE = 44100
 def vibrato_example():
     carrier_amplitude = 1
     carrier_frequency = librosa.midi_to_hz(57)
-    modulator_frequency = 10
+    modulator_frequency = 6
     modulation_index = 2
     time = np.arange(0, 5, 1 / SAMPLE_RATE)
 
