@@ -220,13 +220,24 @@ function getPostsForCategory(collectionApi, category) {
 }
 
 // src should be a relative path, e.g., "assets/img/posts/synthesis/2025-03-01-fm-synthesis/simple_fm_spectrum.png"
-function imageShortcode(src, alt, sizes="(min-width: 1024px) 100vw, 50vw") {
+async function imageShortcode(src, alt, sizes="(min-width: 1024px) 100vw, 50vw") {
   const parentDir = path.dirname(src);
   const outputDir = "./_site/" + parentDir + "/"
+
   console.log(`Generating image(s) from: ${src} to ${outputDir}`)
+
   const options = {
     widths: [600, 900, 1500],
     formats: ["avif", "jpeg"],
+    returnType: "html",
+    htmlOptions: {
+      imgAttributes: {
+        alt,
+        sizes,
+        loading: "lazy",
+        decoding: "async",
+      },
+    },
     urlPath: "/" + parentDir,
     outputDir: outputDir,
     filenameFormat: function (id, src, width, format, options) {
@@ -235,19 +246,5 @@ function imageShortcode(src, alt, sizes="(min-width: 1024px) 100vw, 50vw") {
       return `${name}-${width}w.${format}`;
     },
   };
-  
-  // generate images
-  Image(src, options);
-
-  const imageAttributes = {
-    alt,
-    sizes,
-    loading: "lazy",
-    decoding: "async",
-  };
-
-  // get metadata
-  const metadata = Image.statsSync(src, options);
-
-  return Image.generateHTML(metadata, imageAttributes);
+  return Image(src, options);
 }
