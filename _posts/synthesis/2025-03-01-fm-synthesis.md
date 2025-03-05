@@ -6,7 +6,6 @@ author: Jan Wilczek
 layout: post
 permalink: /fm-synthesis-explained-for-audio-programmers-art-and-science/
 background: /assets/img/posts/synthesis/2025-03-01-fm-synthesis/Thumbnail.webp
-images: /assets/img/posts/synthesis/2025-03-01-fm-synthesis/
 draft: true
 categories:
   - Sound Synthesis
@@ -150,7 +149,7 @@ Although the spectrum of FM synthesis is quite complex, its structure is very st
 
 You can see exactly how it looks in the frequency domain in this figure.
 
-![simple_fm_spectrum.png](Article%202e4bc2536e334d0d8e33d181f527fb25/simple_fm_spectrum.png)
+{% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/simple_fm_spectrum.png", "Simple FM spectrum" %}
 
 In the middle, there is the carrier frequency and on its sides are the **sidebands**.
 
@@ -509,7 +508,7 @@ What is more important, Bessel functions cross the value of 0 for many values of
 
 It’s hard to get a feeling for the meaning of the partials’ amplitudes equation (Equation 15) without any visuals. Thus, here you can see a plot of how the spectrum changes if we vary the modulation index $I$ value in the $[0, 20]$ range [Pluta2019].
 
-![Untitled](Article%202e4bc2536e334d0d8e33d181f527fb25/Untitled%201.png)
+![bessel_functions_3d](Article%202e4bc2536e334d0d8e33d181f527fb25/bessel_functions_3d.png)
 
 How to read this plot? Say you want to see how the spectrum will look for a particular value of $I$, for example, 10. Then, find 10 on the $I$ axis on the right and mentally cross-sect the 3-dimensional spectrum along the partials’ axis. This cross-section is your sound’s magnitude spectrum at the modulation index 10.
 
