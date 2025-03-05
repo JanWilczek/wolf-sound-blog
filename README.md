@@ -43,6 +43,25 @@ To resize a png image and convert it to a webp image:
 cwebp Thumbnail.png -q 65 -s 1024 0 -o Thumbnail.webp
 ```
 
+## Running Python code
+
+To run Python code, create a virtual environment first.
+
+```bash
+python -m venv venv # create virtual environment
+
+# activate it
+source venv/bin/activate # or .\venv\bin\Scripts\Activate.ps1 if you're using PowerShell
+
+pip install . # install dependencies
+```
+
+You can then run the scripts like usual.
+
+```bash
+python _py/posts/synthesis/2025-03-01-fm-synthesis/fm_synthesis.py
+```
+
 ## Eleventy Snippets ✂️
 
 ### Including an include
@@ -68,6 +87,12 @@ cwebp Thumbnail.png -q 65 -s 1024 0 -o Thumbnail.webp
 
 ```md
 {% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2022-06-26-sine-saw-square-triangle-basic-waveforms-in-synthesis/sine_example.flac" %}
+```
+
+### Embedding an image
+
+```md
+{% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/partials_amplitudes_in_3d.png", "alt text for you to fill" %}
 ```
 
 ## All tags used
