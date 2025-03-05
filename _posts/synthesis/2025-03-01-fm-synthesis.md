@@ -293,7 +293,7 @@ Take a look at this example. Here, $f_C=200 \text{ Hz}, f_M = 400 \text{ Hz}$ an
 
 When the sampling rate is equal to 96 kHz, we obtain the following magnitude spectra of PM and FM.
 
-{% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/fm_vs_pm_modulation_fs96000_spectrum.png", "fm_vs_pm_modulation_fs=96000_spectrum.png" %}
+{% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/fm_vs_pm_modulation_fs_96000_spectrum.png", "fm_vs_pm_modulation_fs_96000_spectrum" %}
 
 As you can see, the spectra nicely overlap. Audibly, there is no difference either.
 
@@ -307,7 +307,7 @@ PM at 96 kHz:
 
 However, if we decrease the sampling rate to 22.05 kHz…
 
-{% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/fm_vs_pm_modulation_fs22050_spectrum.png", "fm_vs_pm_modulation_fs=22050_spectrum.png" %}
+{% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/fm_vs_pm_modulation_fs_22050_spectrum.png", "fm_vs_pm_modulation_fs_22050_spectrum.png" %}
 
 …the partials’ amplitudes differ much more. FM has stronger first, second, and fourth partial, while PM has stronger third partial.
 
@@ -343,25 +343,25 @@ $R_f = 1:2$
 
 {% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2025-03-01-fm-synthesis/c_1_m_2_f0_200.flac" %}
 
-{% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/c1_m2_f0200_spectrum.png", "c=1_m=2_f0=200_spectrum.png" %}
+{% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/c_1_m_2_f0_200_spectrum.png", "c_1_m_2_f0_200_spectrum.png" %}
 
 $R_f = 2:1$
 
 {% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2025-03-01-fm-synthesis/c_2_m_1_f0_200.flac" %}
 
-{% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/c2_m1_f0200_spectrum.png", "c=2_m=1_f0=200_spectrum.png" %}
+{% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/c_2_m_1_f0_200_spectrum.png", "c_2_m_1_f0_200_spectrum.png" %}
 
 $R_f = 10:9$
 
 {% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2025-03-01-fm-synthesis/c_10_m_9_f0_200.flac" %}
 
-{% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/c10_m9_f0200_spectrum.png", "c=10_m=9_f0=200_spectrum.png" %}
+{% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/c_10_m_9_f0_200_spectrum.png", "c_10_m_9_f0_200_spectrum.png" %}
 
 $R_f = \sqrt{2}:1$
 
 {% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2025-03-01-fm-synthesis/c_1.41_m_1_f0_200.flac" %}
 
-{% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/c1_spectrum.png", "c=1_spectrum.png" %}
+{% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/c_1.41_m_1_f0_200_spectrum.png", "c_1.41_m_1_f0_200_spectrum.png" %}
 
 As you could hear, as long as $N_1$ and $N_2$ are integer, the sound and the spectra are harmonic. Even in the extreme case of $R_f = 100:99$, we get the “beating” effect because of the inharmonic partials close to the harmonic ones but this still sounds harmonic. However, as soon as $R_f$ became real but not rational ($\sqrt{2}$), then the sound became metallic and inharmonic like a detuned sawtooth.
 
@@ -404,13 +404,13 @@ Specifically,
     
     {% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2025-03-01-fm-synthesis/c_5_m_1_f0_1000.flac" %}
     
-    {% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/c5_m1_f01000_spectrum.png", "c=5_m=1_f0=1000_spectrum.png" %}
+    {% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/c_5_m_1_f0_1000_spectrum.png", "c_5_m_1_f0_1000_spectrum.png" %}
     
 - If $N_2$ is even, the spectrum is odd, i.e., only odd partials are present. Example ($f_C=5000\text{ Hz}, f_M=2000 \text{ Hz}, I=2$):
     
     {% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2025-03-01-fm-synthesis/c_5_m_2_f0_1000.flac" %}
     
-    {% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/c5_m2_f01000_spectrum.png", "c=5_m=2_f0=1000_spectrum.png" %}
+    {% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/c_5_m_2_f0_1000_spectrum.png", "c_5_m_2_f0_1000_spectrum.png" %}
     
     Note the missing second, fourth, sixth, and eighth harmonics.
     
@@ -418,7 +418,7 @@ Specifically,
     
     {% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2025-03-01-fm-synthesis/c_5_m_3_f0_1000.flac" %}
     
-    {% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/c5_m3_f01000_spectrum.png", "c=5_m=3_f0=1000_spectrum.png" %}
+    {% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/c_5_m_3_f0_1000_spectrum.png", "c_5_m_3_f0_1000_spectrum.png" %}
     
 
 ### How to control the brightness of FM spectra?
@@ -443,7 +443,7 @@ Let’s set $I=1$. Here’s the resulting sound.
 
 And here’s its spectrum.
 
-{% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/c5_m1_f0200_I1_spectrum.png", "c=5_m=1_f0=200_I=1_spectrum.png" %}
+{% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/c_5_m_1_f0_200_I_1_spectrum.png", "c_5_m_1_f0_200_I_1_spectrum.png" %}
 
 As you can see, its bandwidth is 800 Hz. Although there are partials outside of this range, they are not significant.
 
@@ -451,7 +451,7 @@ Here, $I=2$.
 
 {% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2025-03-01-fm-synthesis/c_5_m_1_f0_200_I_2.flac" %}
 
-{% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/c5_m1_f0200_I2_spectrum.png", "c=5_m=1_f0=200_I=2_spectrum.png" %}
+{% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/c_5_m_1_f0_200_I_2_spectrum.png", "c_5_m_1_f0_200_I_2_spectrum.png" %}
 
 As you can hear and see, the spectrum got wider and as a result, it sounds brighter.
 
@@ -459,13 +459,13 @@ Here, $I=3$.
 
 {% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2025-03-01-fm-synthesis/c_5_m_1_f0_200_I_3.flac" %}
 
-{% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/c5_m1_f0200_I3_spectrum.png", "c=5_m=1_f0=200_I=3_spectrum.png" %}
+{% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/c_5_m_1_f0_200_I_3_spectrum.png", "c_5_m_1_f0_200_I_3_spectrum.png" %}
 
 Here, $I=4$.
 
 {% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2025-03-01-fm-synthesis/c_5_m_1_f0_200_I_4.flac" %}
 
-{% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/c5_m1_f0200_I4_spectrum.png", "c=5_m=1_f0=200_I=4_spectrum.png" %}
+{% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/c_5_m_1_f0_200_I_4_spectrum.png", "c_5_m_1_f0_200_I_4_spectrum.png" %}
 
 As you can see, the spectrum got so wide that it expanded over to negative frequencies which means that these frequencies got reflected back and hence the spectrum is no longer symmetric. However, it is still harmonic because just the amplitudes of the partials changed after reflection not their positions.
 
@@ -473,7 +473,7 @@ Here, $I=5$.
 
 {% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2025-03-01-fm-synthesis/c_5_m_1_f0_200_I_5.flac" %}
 
-{% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/c5_m1_f0200_I5_spectrum.png", "c=5_m=1_f0=200_I=5_spectrum.png" %}
+{% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/c_5_m_1_f0_200_I_5_spectrum.png", "c_5_m_1_f0_200_I_5_spectrum.png" %}
 
 This spectrum is clearly the brightest and it’s not symmetric. We could go even further than this but I’d leave it for your experimentation 🙂
 
@@ -508,7 +508,7 @@ Bessel functions are a very important concept in mathematics. They appear in the
 
 Here’s how the Bessel functions of the first kind look for orders from 0 to 3.
 
-{% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/bessel_functions_1st_kind.png", "bessel_functions_1st_kind" %}
+{% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/bessel_functions_first_kind.png", "bessel_functions_first_kind" %}
 
 These are sine-like functions that are getting damped the higher the absolute value of the argument. You can also observe that Bessel functions of even orders are even (symmetrical with respect to the $y$-axis) and Bessel functions of odd orders are odd (symmetrical with respect to the origin of the $xy$-plane).
 
@@ -516,7 +516,7 @@ What is more important, Bessel functions cross the value of 0 for many values of
 
 It’s hard to get a feeling for the meaning of the partials’ amplitudes equation (Equation 15) without any visuals. Thus, here you can see a plot of how the spectrum changes if we vary the modulation index $I$ value in the $[0, 20]$ range [Pluta2019].
 
-{% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/bessel_functions_3d.png", "bessel_functions_3d" %}
+{% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/partials_amplitudes_in_3d.png", "partials_amplitudes_in_3d" %}
 
 How to read this plot? Say you want to see how the spectrum will look for a particular value of $I$, for example, 10. Then, find 10 on the $I$ axis on the right and mentally cross-sect the 3-dimensional spectrum along the partials’ axis. This cross-section is your sound’s magnitude spectrum at the modulation index 10.
 
