@@ -550,7 +550,7 @@ Simple FM can be extended in various ways to create even more complex sounds [Pl
 5. We can use oscillators with exponential control which emulates analog gear. This is called exponential FM. This approach is used in Virtual Analog applications.
 6. We can combine two or more FM algorithms in parallel or in serial. However, this may get very complicated to control very quickly.
 7. We can add envelope generators (EGs) to control various FM parameters. For example, an envelope generator on a modulation index can create a very naturally sounding effect of a brighter timbre after the initial transient that gets darker and darker the longer the sound is played (or a key is held).
-8. Phase distortion (PD) synthesis is another spin on phase modulation. In this technique, the modulator’s frequency is fixed to be either the same as the carrier or to be a multiplicity of the carrier frequency. Moreover, various modulator waveforms are used, for example, a triangle waveform. A picture sometimes says a thousand words, so [here’s a very short but very good explanation of phase distortion synthesis](https://electricdruid.net/phase-distortion-synthesis/) (accessed February 10, 2024). [Oli Larkin, whom I interviewed in the episode 15 of the WolfTalk podcast](https://thewolfsound.com/talk015/), is well known for his implementations of Casio’s phase distortion emulations.
+8. Phase distortion (PD) synthesis is another spin on phase modulation. In this technique, the modulator’s frequency is fixed to be either the same as the carrier or to be a multiplicity of the carrier frequency. Moreover, various modulator waveforms are used, for example, a triangle waveform. A picture sometimes says a thousand words, so [here’s a very short but very good explanation of phase distortion synthesis](https://electricdruid.net/phase-distortion-synthesis/) (accessed February 10, 2024). [Oli Larkin, whom I interviewed in the episode 15 of the WolfTalk podcast]({% post_url collections.posts, '2023-11-09-oliver-larkin' %}), is well known for his implementations of Casio’s phase distortion emulations.
 
 The discussion of all these extensions is beyond the scope of this already quite long article. Should they be discussed in more detail in future articles? Let me know in the comments!
 
@@ -569,8 +569,6 @@ Finally, we have mentioned various extensions to the simple FM technique.
 In the future articles, we will look into how to implement the PM synthesis technique using various programming languages. So look out for those!
 
 If you want to become an audio developer today, check out my [free Audio Developer Checklist]({% link collections.all, 'checklist.html' %}). It lists every bit and piece of knowledge I believe is necessary to become a full-fledged audio programmer and be able to create software synths, for example, with FM synthesis.
-
-TODO: Make links relative
 
 TODO: Number the figures.
 
