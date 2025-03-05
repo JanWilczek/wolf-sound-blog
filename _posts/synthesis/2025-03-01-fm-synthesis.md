@@ -152,7 +152,7 @@ This is the correct formula for a simple FM instrument: we have a sine carrier w
 
 FM variants are most often explained on the basis of diagrams. The diagrams can easily show how the interconnection between the oscillators are placed much like in graphical audio programming languages like Max/MSP or PureData.
 
-Here is the diagram of a simple FM instrument [Pluta2019, Dogde1997].
+Here is the diagram of a simple FM instrument [Pluta2019, Dodge1997].
 
 {% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/SimpleFMInstrument.png", "Simple FM instrument (algorithm)" %}
 
@@ -236,7 +236,7 @@ Here’s its spectrum.
 
 As you can hear, the octave-higher sound sounds more like the original. As you can see, the partials’ structure is completely preserved, they are just spaced apart more because of the higher pitch.
 
-Why did we need to change the modulation amplitude as well? Because the amplitude of each partial is determined by both the amplitude and the frequency of modulation [Dogde1997]. The meaning of the modulation amplitude at modulation frequency equal to 400 Hz is different from its meaning when the modulation frequency is equal to 800 Hz.
+Why did we need to change the modulation amplitude as well? Because the amplitude of each partial is determined by both the amplitude and the frequency of modulation [Dodge1997]. The meaning of the modulation amplitude at modulation frequency equal to 400 Hz is different from its meaning when the modulation frequency is equal to 800 Hz.
 
 ## Modulation Index
 
@@ -280,7 +280,7 @@ Now, our simple FM diagram looks as follows.
 
 ## Phase Modulation
 
-Since we’ve just revisited the simple FM equation (Equation 9), let’s do one more adjustment to it. If we are less mathematically strict and we attempt to solve the integral in the carrier oscillator’s phase, we obtain the following FM equation [Pluta2019,Tolonen1998]
+Since we’ve just revisited the simple FM equation (Equation 9), let’s do one more adjustment to it. If we are less mathematically strict and we attempt to solve the integral in the carrier oscillator’s phase, we obtain the following FM equation [Pluta2019, Tolonen1998]
 
 $$
 \begin{equation}
@@ -296,7 +296,7 @@ where
 - $I$ is the modulation index,
 - $f_M$ is the modulator frequency in Hz.
 
-Why do I say that we are “less mathematically strict”? Well, that’s because $s_\text{PM}(t)$ represents **phase modulation** (PM) not frequency modulation (FM). What’s the difference? That’s a great question. Most sources I’ve seen say that the difference between the two is not relevant [Pluta2019,Roads1996,Tulunen1998,DePoli???] and point to two articles [Bate,Holm] that explain the difference. The answer that I found in [Holm] is that FM and PM are equivalent if the sampling rate is high enough. Then, the numerical integration used to implement the FM equation (Equation 5) approximates the continuous time integration accurately enough. On the other hand, inaccurate integration (when the sample rate is too small) results in diverging partials’ amplitudes between FM and PM.
+Why do I say that we are “less mathematically strict”? Well, that’s because $s_\text{PM}(t)$ represents **phase modulation** (PM) not frequency modulation (FM). What’s the difference? That’s a great question. Most sources I’ve seen say that the difference between the two is not relevant [Pluta2019, Roads1996, Tolonen1998, DePoli1983] and point to two articles [Bate1990, Holm1992] that explain the difference. The answer that I found in [Holm1992] is that FM and PM are equivalent if the sampling rate is high enough. Then, the numerical integration used to implement the FM equation (Equation 5) approximates the continuous time integration accurately enough. On the other hand, inaccurate integration (when the sample rate is too small) results in diverging partials’ amplitudes between FM and PM.
 
 Take a look at this example. Here, $f_C=200 \text{ Hz}, f_M = 400 \text{ Hz}$ and $I = \pi$.
 
@@ -405,7 +405,7 @@ That’s how I generated the above harmonic and inharmonic examples: by setting 
 
 ### How to eliminate every $N_2$-th harmonic?
 
-The frequency ratio $R_f$ not only allows us to fix the timbre and steer the pitch but also to eliminate the desired partials [Chowning1973,Pluta2019].
+The frequency ratio $R_f$ not only allows us to fix the timbre and steer the pitch but also to eliminate the desired partials [Chowning1973, Pluta2019].
 
 Specifically,
 
@@ -496,7 +496,7 @@ TODO: Add link to wavetable synthesis article
 
 In the examples so far, we could see that the FM spectrum definitely has some pattern to it. Can we accurately predict what the partials’ amplitudes will be given the parameters?
 
-It turns out that we can. As the literature reports [Chowning1973, DePoli, Pluta2019], we can write out the PM equation (Equation 10) as
+It turns out that we can. As the literature reports [Chowning1973, DePoli1983, Pluta2019], we can write out the PM equation (Equation 10) as
 
 $$
 \begin{equation}
@@ -545,8 +545,8 @@ Simple FM can be extended in various ways to create even more complex sounds [Pl
 
 1. We can add feedback, where the output of an FM instrument modulates the modulator. We can do this for any setup of carriers and modulators but the most popular approaches use one, two, or three oscillators within the feedback loop.
 2. We can add multiple carriers modulated by the same oscillator. This is called multiple-carrier FM (MCFM). It can be used to create formants in the sound spectrum.
-3. We can have non-sine carriers or modulators. However, non sinusoid modulators can result in very dense spectra quite quickly, so we should be careful when using harmonically rich modulators [Dogde1997].
-4. We can add multiple modulators, parallel or serial, that modulate one carrier. This is called multiple-modulator FM (MMFM). This technique increases the number of partials in the output spectrum. Again, multiple non-sine modulators make little sense because the spectrum gets too dense [Dogde1997].
+3. We can have non-sine carriers or modulators. However, non sinusoid modulators can result in very dense spectra quite quickly, so we should be careful when using harmonically rich modulators [Dodge1997].
+4. We can add multiple modulators, parallel or serial, that modulate one carrier. This is called multiple-modulator FM (MMFM). This technique increases the number of partials in the output spectrum. Again, multiple non-sine modulators make little sense because the spectrum gets too dense [Dodge1997].
 5. We can use oscillators with exponential control which emulates analog gear. This is called exponential FM. This approach is used in Virtual Analog applications.
 6. We can combine two or more FM algorithms in parallel or in serial. However, this may get very complicated to control very quickly.
 7. We can add envelope generators (EGs) to control various FM parameters. For example, an envelope generator on a modulation index can create a very naturally sounding effect of a brighter timbre after the initial transient that gets darker and darker the longer the sound is played (or a key is held).
@@ -578,7 +578,7 @@ TODO: Number the figures.
 
 ## Bibliography
 
-[Chowning1973] **Original FM paper by John Chowning**: J. M. Chowning. The Synthesis of Complex Audio Spectra by Means of Frequency Modulation. J. Audio Eng. Soc. 21, 7, 1973. [[PDF](https://web.eecs.umich.edu/~fessler/course/100/misc/chowning-73-tso.pdf), accessed March 5, 2025]
+[Chowning1973] **Original FM paper by John Chowning**: John M. Chowning, *The Synthesis of Complex Audio Spectra by Means of Frequency Modulation*, J. Audio Eng. Soc. 21, 7, 1973. [[PDF](https://web.eecs.umich.edu/~fessler/course/100/misc/chowning-73-tso.pdf), accessed March 5, 2025]
 
 [SOS2000] [Gordon Reid, An Introduction To Frequency Modulation, Synth Secrets, Sound on Sound](https://www.soundonsound.com/techniques/introduction-frequency-modulation). (accessed March 5, 2025)
 
@@ -594,3 +594,8 @@ TODO: Number the figures.
 
 [Tolonen1998] Tero Tolonen, Vesa Välimäki, and Matti Karjalainen, *Evaluation of Modern Sound Synthesis Methods*, Report 48, Helsinki University of Technology, Espoo 1998. [[**NOT SECURE** PDF](http://legacy.spa.aalto.fi/publications/reports/sound_synth_report.pdf), accessed March 5, 2025]
 
+[DePoli1983] Giovanni De Poli, *A Tutorial on Digital Sound Synthesis Techniques*, Computer Music Journal 7(4), October 1983 [[PDF](https://www.researchgate.net/profile/Giovanni-De-Poli/publication/245122776_A_Tutorial_on_Digital_Sound_Synthesis_Techniques/links/5460a5f50cf295b56162786e/A-Tutorial-on-Digital-Sound-Synthesis-Techniques.pdf), accessed March 5, 2025]
+
+[Holm1992] Frode Holm, *Understanding FM Implementations: A Call for Common Standards*, Computer Music Journal Vol. 16, No. 1, Spring 1992.
+
+[Bate1990] John A. Bate, *The Effect of Modulator Phase on Timbres in FM Synthesis*, Computer Music Journal Vol. 14, No. 3, Autumn 1990.
