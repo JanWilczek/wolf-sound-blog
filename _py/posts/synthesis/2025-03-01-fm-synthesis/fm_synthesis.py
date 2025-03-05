@@ -19,7 +19,7 @@ from dspyplot.plot import (
 from dspyplot.signals import apply_fade
 
 AUDIO_OUTPUT_PATH = Path("assets/wav/posts/synthesis/2025-03-01-fm-synthesis")
-IMG_OUTPUT_PATH = img_output_path("fm_synthesis")
+IMG_OUTPUT_PATH = Path("assets/img/posts/synthesis/2025-03-01-fm-synthesis")
 
 SAMPLE_RATE = 44100
 
@@ -393,7 +393,7 @@ def cool_sounds():
         sustain_level=0.7,
         release_time=0.3,
     )
-    plot_signal_and_save(electric_piano, AUDIO_OUTPUT_PATH / "electric_piano")
+    plot_signal_and_save(electric_piano, IMG_OUTPUT_PATH / "electric_piano")
     postprocess_and_save_audio_file("electric_piano", electric_piano)
 
 
