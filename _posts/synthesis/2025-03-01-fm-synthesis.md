@@ -150,7 +150,7 @@ This is the correct formula for a simple FM instrument: we have a sine carrier w
 
 FM variants are most often explained on the basis of diagrams. The diagrams can easily show how the interconnection between the oscillators are placed much like in graphical audio programming languages like Max/MSP or PureData.
 
-Here is the diagram of a simple FM instrument [Pluta2019, DodgeJerse].
+Here is the diagram of a simple FM instrument [Pluta2019, Dogde1997].
 
 TODO
 
@@ -182,7 +182,9 @@ where
 
 One of the goals of FM synthesis research was to be able to use a MIDI keyboard to control it. That means, that we need a way of keeping the timbre somewhat consistent while changing the pitch.
 
-It turns out that if the ratio of the carrier frequency to the modulation frequency is constant, the partials structure is preserved. In other words, if we multiply the carrier frequency by some real constant, we need to multiply the modulation frequency by the same constant in order to keep the partials structure the intact.
+It turns out that if the ratio of the carrier frequency to the modulation frequency is constant, the partials' structure is preserved.
+
+In other words, if we multiply the carrier frequency by some real constant, we need to multiply the modulation frequency by the same constant in order to keep the partials' structure the intact.
 
 The frequency ratio is sometimes denoted $c:m$ or $R_f$. Mathematically, we can write
 
@@ -194,7 +196,7 @@ $$
 
 If $f_C$ and $f_M$ change but their ratio $R_f$ doesn’t, then we have a single timbre at our hand. There are various recipes for $R_f$ to create different timbres and we will look into them later on in the article.
 
-Here’s an example. (From now on, you can assume that $A_C = 1$ because changing $A_C$ would only change the volume of the waveform not its timbre.)
+Let’s look at an example. (From now on, you can assume that $A_C = 1$ because changing $A_C$ would only change the volume of the waveform not its timbre.)
 
 Here’s a sound generated with $f_C = 200 \text{ Hz}, f_M = 400 \text{ Hz},$  and $A_M = 800$.
 
@@ -204,10 +206,12 @@ Here’s its spectrum
 
 {% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/basic_signal_spectrum.png", "basic_signal_spectrum.png" %}
 
-Let’s now generate a sound that’s twice as high in pitch but has similar timbre. According the frequency ratio (Equation 7),
+Let’s now generate a sound that’s twice higher in pitch but has similar timbre. According the frequency ratio (Equation 7),
 
 $$
+\begin{equation}
 R_f = \frac{f_C}{f_M} = \frac{200}{400} = 0.5.
+\end{equation}
 $$
 
 In this particular case, it suffices to double the modulation frequency $f_M$ to raise the sound by an octave. To preserve the ratio $R_f$ we must double the carrier frequency as well.
@@ -220,7 +224,7 @@ And here’s its spectrum.
 
 {% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/octave_higher_half_index_spectrum.png", "octave_higher_half_index_spectrum.png" %}
 
-You can hear that the octave-higher version has similar timbre and the partials are correctly spaced, yet their amplitudes look a little bit different. That is because we have not changed the modulation amplitude. If we set $A_M=1600$, we get the following sound.
+You can hear that the octave-higher version has similar timbre and the partials are correctly spaced, yet their amplitudes look a little bit different. That is because we have not changed the modulation amplitude. If we set $A_M=1600$ (twice the original value), we get the following sound.
 
 {% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2025-03-01-fm-synthesis/octave_higher.flac" %}
 
@@ -230,7 +234,7 @@ Here’s its spectrum.
 
 As you can hear, the octave-higher sound sounds more like the original. As you can see, the partials’ structure is completely preserved, they are just spaced apart more because of the higher pitch.
 
-Why did we need to change the modulation amplitude as well? Because the amplitude of each partial is determined by both the amplitude and the frequency of modulation [DodgeJerse]. The meaning of the modulation amplitude at modulation frequency equal to 400 Hz is different from its meaning when the modulation frequency is equal to 800 Hz.
+Why did we need to change the modulation amplitude as well? Because the amplitude of each partial is determined by both the amplitude and the frequency of modulation [Dogde1997]. The meaning of the modulation amplitude at modulation frequency equal to 400 Hz is different from its meaning when the modulation frequency is equal to 800 Hz.
 
 ## Modulation Index
 
@@ -539,8 +543,8 @@ Simple FM can be extended in various ways to create even more complex sounds [Pl
 
 1. We can add feedback, where the output of an FM instrument modulates the modulator. We can do this for any setup of carriers and modulators but the most popular approaches use one, two, or three oscillators within the feedback loop.
 2. We can add multiple carriers modulated by the same oscillator. This is called multiple-carrier FM (MCFM). It can be used to create formants in the sound spectrum.
-3. We can have non-sine carriers or modulators. However, non sinusoid modulators can result in very dense spectra quite quickly, so we should be careful when using harmonically rich modulators [DodgeJerse].
-4. We can add multiple modulators, parallel or serial, that modulate one carrier. This is called multiple-modulator FM (MMFM). This technique increases the number of partials in the output spectrum. Again, multiple non-sine modulators make little sense because the spectrum gets too dense [DodgeJerse].
+3. We can have non-sine carriers or modulators. However, non sinusoid modulators can result in very dense spectra quite quickly, so we should be careful when using harmonically rich modulators [Dogde1997].
+4. We can add multiple modulators, parallel or serial, that modulate one carrier. This is called multiple-modulator FM (MMFM). This technique increases the number of partials in the output spectrum. Again, multiple non-sine modulators make little sense because the spectrum gets too dense [Dogde1997].
 5. We can use oscillators with exponential control which emulates analog gear. This is called exponential FM. This approach is used in Virtual Analog applications.
 6. We can combine two or more FM algorithms in parallel or in serial. However, this may get very complicated to control very quickly.
 7. We can add envelope generators (EGs) to control various FM parameters. For example, an envelope generator on a modulation index can create a very naturally sounding effect of a brighter timbre after the initial transient that gets darker and darker the longer the sound is played (or a key is held).
@@ -584,3 +588,5 @@ of the Federal Armed Forces, Hamburg, Germany: John Wiley & Sons Ltd, 2011.
 [Pluta2019] Marek Pluta, *Sound Synthesis for Music Reproduction and Performance*, monograph, AGH University of Science and Technology Press 2019.
 
 [Farina 2000] Angelo Farina, *Simultaneous Measurement of Impulse Response and Distortion With a Swept-Sine Technique*, 108th AES Convention, Paris, France, 2000 [[PDF](https://www.researchgate.net/publication/2456363_Simultaneous_Measurement_of_Impulse_Response_and_Distortion_With_a_Swept-Sine_Technique), accessed March 5, 2025]
+
+[Dodge1997] Charles Dodge, Thomas A. Jerse, *Computer Music: Synthesis, Composition, and Performance*, 2nd ed., Schirmer Books, 1997
