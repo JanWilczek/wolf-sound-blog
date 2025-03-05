@@ -69,7 +69,7 @@ Here’s how a single musical note (a sine representing the MIDI note 57) withou
 
 {% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2025-03-01-fm-synthesis/plain_note_220Hz.flac" %}
 
-Here’s how the same note sounds when we apply a 10 Hz vibrato to it with a modulation index 2 (which means that the pitch should change by +/- 20 Hz).
+Here’s how the same note sounds when we apply a 6 Hz vibrato to it with a modulation index 2 (which means that the pitch should change by +/- 12 Hz).
 
 {% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2025-03-01-fm-synthesis/pm_vibrato_note_220Hz.flac" %}
 
@@ -99,11 +99,14 @@ To create a sine oscillator whose frequency changes according to Equation 1, we 
 
 $$
 \begin{equation}
-s_\text{FM}(t) \neq A_C \sin\left(2 \pi f(t) t\right) = A_C \sin\left(2 \pi (f_C + A_M \cos(2 \pi f_M t))t\right),
+\begin{aligned}
+s_\text{FM}(t) &\neq A_C \sin\left(2 \pi f(t) t\right),\\
+s_\text{FM}(t) &\neq A_C \sin\left(2 \pi (f_C + A_M \cos(2 \pi f_M t))t\right),
+\end{aligned}
 \end{equation}
 $$
 
-because it’s not mathematically correct. Here, $A_C$ stands for **carrier frequency**. If we would apply this to generate a signal where $A_C = 1, f_C=220 \text{ Hz}, f_M=110 \text{Hz},$ and $A_M = 220 \text{ Hz}$, then we would get a signal that sounds like this.
+because it’s not mathematically correct. Here, $A_C$ stands for the **carrier frequency**. If we would apply this to generate a signal where $A_C = 1, f_C=220 \text{ Hz}, f_M=110 \text{Hz},$ and $A_M = 220 \text{ Hz}$, then we would get a signal that sounds like this.
 
 {% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2025-03-01-fm-synthesis/wrong_fm_220Hz.flac" %}
 
@@ -574,3 +577,8 @@ TODO: Create bibliography
 [SOS2000] Gordon Reid, An Introduction To Frequency Modulation, Synth Secrets, Sound on Sound https://www.soundonsound.com/techniques/introduction-frequency-modulation (accessed March 5, 2025)
 
 [Wikipedia] [Frequency modulation synthesis, Wikipedia](https://en.wikipedia.org/wiki/Frequency_modulation_synthesis) (accessed March 5, 2025)
+
+[Zölzer2011] Zölzer, U. DAFX: Digital Audio Effects. 2nd ed. Helmut Schmidt University – University  
+of the Federal Armed Forces, Hamburg, Germany: John Wiley & Sons Ltd, 2011.
+
+[Pluta2019] Marek Pluta, *Sound Synthesis for Music Reproduction and Performance*, monograph, AGH University of Science and Technology Press 2019.
