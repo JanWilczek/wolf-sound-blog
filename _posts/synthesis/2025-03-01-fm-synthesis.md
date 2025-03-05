@@ -578,17 +578,19 @@ TODO: Number the figures.
 
 ## Bibliography
 
-[Chowning1973] **Original FM paper by John Chowning**: J. M. Chowning. The Synthesis of Complex Audio Spectra by Means of Frequency Modulation. J. Audio Eng. Soc. 21, 7, 1973 [[PDF](https://web.eecs.umich.edu/~fessler/course/100/misc/chowning-73-tso.pdf), accessed March 5, 2025]
+[Chowning1973] **Original FM paper by John Chowning**: J. M. Chowning. The Synthesis of Complex Audio Spectra by Means of Frequency Modulation. J. Audio Eng. Soc. 21, 7, 1973. [[PDF](https://web.eecs.umich.edu/~fessler/course/100/misc/chowning-73-tso.pdf), accessed March 5, 2025]
 
-[SOS2000] Gordon Reid, An Introduction To Frequency Modulation, Synth Secrets, Sound on Sound https://www.soundonsound.com/techniques/introduction-frequency-modulation (accessed March 5, 2025)
+[SOS2000] [Gordon Reid, An Introduction To Frequency Modulation, Synth Secrets, Sound on Sound](https://www.soundonsound.com/techniques/introduction-frequency-modulation). (accessed March 5, 2025)
 
-[Wikipedia] [Frequency modulation synthesis, Wikipedia](https://en.wikipedia.org/wiki/Frequency_modulation_synthesis) (accessed March 5, 2025)
+[Wikipedia] [Frequency modulation synthesis, Wikipedia](https://en.wikipedia.org/wiki/Frequency_modulation_synthesis). (accessed March 5, 2025)
 
-[Zölzer2011] Zölzer, U. DAFX: Digital Audio Effects. 2nd ed. Helmut Schmidt University – University  
-of the Federal Armed Forces, Hamburg, Germany: John Wiley & Sons Ltd, 2011.
+[Zölzer2011] Udo Zölzer et al., *DAFX: Digital Audio Effects*, 2nd ed., Helmut Schmidt University – University of the Federal Armed Forces, Hamburg, Germany: John Wiley & Sons Ltd, 2011.
 
 [Pluta2019] Marek Pluta, *Sound Synthesis for Music Reproduction and Performance*, monograph, AGH University of Science and Technology Press 2019.
 
-[Farina 2000] Angelo Farina, *Simultaneous Measurement of Impulse Response and Distortion With a Swept-Sine Technique*, 108th AES Convention, Paris, France, 2000 [[PDF](https://www.researchgate.net/publication/2456363_Simultaneous_Measurement_of_Impulse_Response_and_Distortion_With_a_Swept-Sine_Technique), accessed March 5, 2025]
+[Farina 2000] Angelo Farina, *Simultaneous Measurement of Impulse Response and Distortion With a Swept-Sine Technique*, 108th AES Convention, Paris, France, 2000. [[PDF](https://www.researchgate.net/publication/2456363_Simultaneous_Measurement_of_Impulse_Response_and_Distortion_With_a_Swept-Sine_Technique), accessed March 5, 2025]
 
-[Dodge1997] Charles Dodge, Thomas A. Jerse, *Computer Music: Synthesis, Composition, and Performance*, 2nd ed., Schirmer Books, 1997
+[Dodge1997] Charles Dodge, Thomas A. Jerse, *Computer Music: Synthesis, Composition, and Performance*, 2nd ed., Schirmer Books, 1997.
+
+[Tolonen1998] Tero Tolonen, Vesa Välimäki, and Matti Karjalainen, *Evaluation of Modern Sound Synthesis Methods*, Report 48, Helsinki University of Technology, Espoo 1998. [[**NOT SECURE** PDF](http://legacy.spa.aalto.fi/publications/reports/sound_synth_report.pdf), accessed March 5, 2025]
+
