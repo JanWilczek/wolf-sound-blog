@@ -154,7 +154,7 @@ FM variants are most often explained on the basis of diagrams. The diagrams can 
 
 Here is the diagram of a simple FM instrument [Pluta2019, Dogde1997].
 
-TODO
+{% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/SimpleFMInstrument.png", "Simple FM instrument (algorithm)" %}
 
 ## Simple FM Spectrum
 
