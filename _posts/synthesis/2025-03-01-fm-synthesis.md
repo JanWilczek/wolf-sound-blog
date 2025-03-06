@@ -22,6 +22,7 @@ How does it work? How to control it to produce musical notes? Why was it so popu
 
 {% capture _ %}{% increment figureId20250301  %}{% endcapture %}
 
+1. [Source code of figures and audio examples](#source-code-of-figures-and-audio-examples)
 1. [History](#history)
 2. [Vibrato](#vibrato)
 3. [Basic FM Synth](#basic-fm-synth)
@@ -43,9 +44,9 @@ How does it work? How to control it to produce musical notes? Why was it so popu
 
 {% render 'google-ad.liquid' %}
 
-## Figures' and audio examples' source code
+## Source code of figures and audio examples
 
-*Note: All figures and audio examples in this article were generated using [the following Python script](https://github.com/JanWilczek/wolf-sound-blog/blob/master/_py/posts/synthesis/2025-03-01-fm-synthesis/fm_synthesis.py). Feel free to use and tweak it to your needs!*
+All figures and audio examples in this article were generated using [the following Python script](https://github.com/JanWilczek/wolf-sound-blog/blob/master/_py/posts/synthesis/2025-03-01-fm-synthesis/fm_synthesis.py). Feel free to use and tweak it to your needs!
 
 ## History
 
@@ -134,6 +135,8 @@ $$
 \phi(t) = \int \limits_0^t 2\pi f(\tau)d\tau = 2 \pi \int \limits_0^t (f_C + A_M \cos(2 \pi f_M \tau))d\tau,
 \end{equation}
 $$
+
+*Note: Want to understand the mathematics of DSP? Check out [my online course on digital audio signal processing for beginners]({{ site.dsp_pro_url }})!*
 
 ### Proper FM Formula
 
@@ -604,7 +607,7 @@ If you want to become an audio developer today, check out my [free Audio Develop
 
 [Holm1992] Frode Holm, *Understanding FM Implementations: A Call for Common Standards*, Computer Music Journal Vol. 16, No. 1, Spring 1992.
 
-[Pluta2019] Marek Pluta, *Sound Synthesis for Music Reproduction and Performance*, monograph, AGH University of Science and Technology Press 2019.
+[Pluta2019] Marek Pluta, *Sound Synthesis for Music Reproduction and Performance*, monograph, AGH University of Science and Technology Press 2019. [[PDF](https://winntbg.bg.agh.edu.pl/skrypty4/0612/synteza.pdf), (accessed March 6, 2025)]
 
 [SOS2000] [Gordon Reid, An Introduction To Frequency Modulation, Synth Secrets, Sound on Sound](https://www.soundonsound.com/techniques/introduction-frequency-modulation). (accessed March 5, 2025)
 
