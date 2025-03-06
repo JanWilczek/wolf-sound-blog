@@ -16,7 +16,7 @@ from dspyplot.plot import (
     PlotPeriodCommand,
     plot_signal_and_save,
 )
-from dspyplot.signals import apply_fade
+from dspyplot.signals import apply_fade, generate_sine
 
 AUDIO_OUTPUT_PATH = Path("assets/wav/posts/synthesis/2025-03-01-fm-synthesis")
 IMG_OUTPUT_PATH = Path("assets/img/posts/synthesis/2025-03-01-fm-synthesis")
@@ -251,9 +251,12 @@ def fm_vs_pm_modulation():
             1, carrier_frequency, modulation_index, modulator_frequency, time
         )
 
-        postprocess_and_save_audio_file(f"pm_fs_{sample_rate}", pm, sample_rate)
+        pm_file_name = f"pm_fs_{sample_rate}"
+        fm_file_name = f"fm_fs_{sample_rate}"
+
+        postprocess_and_save_audio_file(pm_file_name, pm, sample_rate)
         postprocess_and_save_audio_file(
-            f"fm_fs_{sample_rate}", standard_fm, sample_rate
+            fm_file_name, standard_fm, sample_rate
         )
 
         standard_fm_spectrum = magnitude_spectrum(standard_fm)
@@ -276,6 +279,61 @@ def fm_vs_pm_modulation():
         plt.legend(["frequency modulation", "phase modulation"])
         save_spectrum(IMG_OUTPUT_PATH / f"fm_vs_pm_modulation_fs_{sample_rate}")
         plt.close()
+
+
+def fm_vs_pm_modulation_2():
+    carrier_frequency = 600
+    modulator_frequency = 50
+    modulation_index = 10
+    sample_rate = SAMPLE_RATE
+    LENGTH_SECONDS = 0.2
+    time = np.arange(0, LENGTH_SECONDS, 1 / sample_rate)
+
+    carrier = generate_sine(carrier_frequency, LENGTH_SECONDS, sample_rate, 0)
+    modulator = generate_sine(modulator_frequency, LENGTH_SECONDS, sample_rate, 0)
+
+    standard_fm = generate_simple_fm(
+        1,
+        carrier_frequency,
+        modulation_index,
+        modulator_frequency,
+        sample_rate,
+        time,
+    )
+    pm = generate_simple_pm(
+        1, carrier_frequency, modulation_index, modulator_frequency, time
+    )
+
+    pm_file_name = f"pm_fs_2_{sample_rate}"
+    fm_file_name = f"fm_fs_2_{sample_rate}"
+
+    plot_signal_and_save(pm, IMG_OUTPUT_PATH / pm_file_name)
+    plot_signal_and_save(standard_fm, IMG_OUTPUT_PATH / fm_file_name)
+
+    # Plot carrier, modulator, FM, and PM on a single plot
+    signals = [carrier, modulator, standard_fm, pm]
+    signal_ylabels = ["carrier", "modulator", "FM", "PM"]
+    signal_styles = [dict(color=style.color, linestyle="-") for _ in signals]
+    yticks = []
+
+    plt.figure(figsize=(12, 6))
+    for i, (signal, ylabel, signal_style) in enumerate(zip(signals, signal_ylabels, signal_styles)):
+        plt.subplot(4, 1, i+1)
+        plt.plot(signal, **signal_style)
+        samples_count = signal.shape[0]
+        xlim = [0, samples_count]
+        plt.xlim(xlim)
+        plt.xticks([])
+        plt.yticks(yticks)
+        plt.ylabel(ylabel)
+    plt.xlabel("time")
+
+    ax = plt.gca()
+    ax.spines["top"].set_visible(False)
+    ax.spines["right"].set_visible(False)
+    ax.spines["bottom"].set_visible(False)
+
+    save(IMG_OUTPUT_PATH / "carrier_modulator_fm_pm", "_signal")
 
 
 def harmonic_and_inharmonic_spectra_example():
@@ -573,6 +631,7 @@ def main():
     simple_fm_spectrum()
     timbre_control_example()
     fm_vs_pm_modulation()
+    fm_vs_pm_modulation_2()
     harmonic_and_inharmonic_spectra_example()
 
 
