@@ -55,7 +55,7 @@ Just as a brief word of history, to give credit to people's hard work, the origi
 {% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/Chowning.jpg", "John Chowning" %}
 _Figure {% increment figureId20250301  %}. John Chowning. [Source](https://commons.wikimedia.org/wiki/File:Chowning.jpg), accessed March 5, 2025, licensed under the [Creative Commons Attribution-Share Alike 3.0 Unported license](https://creativecommons.org/licenses/by-sa/3.0/deed.en)._
 
-However, it wasn't until 1983, when the first widely successful FM synth was introduced, namely, Yamaha DX7 FM [Wikipedia]. It took the market by storm and spawned a host of FM-based hardware synths.
+However, it wasn't until 1983, when the first widely successful FM synth was introduced, namely, Yamaha DX7 [Wikipedia]. It took the market by storm and spawned a host of FM-based hardware synths.
 
 That 10-year gap should tell you how much engineering effort was required to make FM commercially usable!
 
@@ -63,11 +63,11 @@ That 10-year gap should tell you how much engineering effort was required to mak
 
 Before we delve into the frequency modulation synthesis, we should consider what is vibrato.
 
-**Vibrato** is a musical effect of a musical sound varying up and down in pitch. In other words, vibrato is a periodical pitch variation [Zölzer2011].
+**Vibrato** is an effect of a sound varying up and down in pitch. In other words, vibrato is a periodical pitch variation [Zölzer2011].
 
 In this sense, we **modulate** the pitch. To achieve the vibrato, the modulation must be quite slow: in the range of 5-14 Hz [Zölzer2011]. Note that this range is below the human hearing range, which is typically associated with the 20-20 000 Hz range.
 
-Here’s how a single musical note (a sine representing the MIDI note 57) without the vibrato sounds.
+Here’s how a single musical note (a sine representing the MIDI note 57) sounds without the vibrato.
 
 {% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2025-03-01-fm-synthesis/plain_note_220Hz.flac" %}
 
@@ -75,13 +75,15 @@ Here’s how the same note sounds when we apply a 6 Hz vibrato to it with a modu
 
 {% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2025-03-01-fm-synthesis/pm_vibrato_note_220Hz.flac" %}
 
+It turns out that if we increase the vibrato frequency and the range over which we change the pitch, we stop hearing a variation in pitch and start hearing a completely different timbre. That is the basis of frequency modulation synthesis.
+
 ## Basic FM Synth
 
 Let’s now consider a basic frequency modulation instrument.
 
-In FM, we **modulate the frequency** of the carrier waveform. It means that the **instantaneous frequency** (frequency at a particular time instant) is constantly being changed by the **modulator** in a regular fashion.
+In FM, we **modulate the frequency** of a carrier waveform. It means that the **instantaneous frequency** of the waveform (waveform's frequency at a particular time instant) is constantly being changed by a **modulator** (another waveform) in a regular, periodic fashion.
 
-In the simplest FM setup, a sine modulator modulates a sine carrier. In this scenario, the instantaneous frequency $f(t)$ (which is a function of time) is given by the following formula [Pluta2019]
+In the simplest FM setup, a sine modulator modulates a sine carrier. In this scenario, the output signal's instantaneous frequency $f(t)$ (which is a function of time) is given by the following formula [Pluta2019]
 
 $$
 \begin{equation}
@@ -91,10 +93,10 @@ $$
 
 where
 
-- $f_C$ is the frequency of the carrier in Hz,
+- $f_C$ is the frequency of the carrier in Hz, the **carrier frequency**,
 - $A_M$ is the amplitude of the modulator (unitless),
 - $\cos$ is the cosine function,
-- $f_M$ is the frequency of the modulator in Hz,
+- $f_M$ is the frequency of the modulator in Hz, the **modulation frequency**, and
 - $t$ is time in seconds.
 
 To create a sine oscillator whose frequency changes according to Equation 1, we cannot simply put it into the sine formula like this
@@ -108,11 +110,13 @@ s_\text{FM}(t) &\neq A_C \sin\left(2 \pi (f_C + A_M \cos(2 \pi f_M t))t\right),
 \end{equation}
 $$
 
-because it’s not mathematically correct. Here, $A_C$ stands for the **carrier frequency**. If we would apply this to generate a signal where $A_C = 1, f_C=220 \text{ Hz}, f_M=110 \text{Hz},$ and $A_M = 220 \text{ Hz}$, then we would get a signal that sounds like this.
+because it’s not mathematically correct. Here, $A_C$ stands for the **carrier amplitude**.
+
+If we would apply the thing in "Equation" 2 to generate a signal where $A_C = 1, f_C=220 \text{ Hz}, f_M=110 \text{ Hz},$ and $A_M = 220$, then we would get a signal that sounds like this.
 
 {% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2025-03-01-fm-synthesis/wrong_fm_220Hz.flac" %}
 
-Instead, we need to use the fact that the **angular frequency is the derivative of phase** [Farina2000]. Mathematically speaking,
+Instead, we need to use the fact that **angular frequency is the derivative of phase** [Farina2000]. Mathematically speaking,
 
 $$
 \begin{equation}
@@ -123,16 +127,16 @@ $$
 where
 
 - $2 \pi f(t)$ is the angular frequency in radians per sample,
-- $\phi(t)$ denotes the instantaneous phase, and
+- $\phi(t)$ denotes the instantaneous phase (phase at time instant $t$), and
 - $\frac{d}{dt}$ denotes the derivative of a function over time.
 
-*Note: if you don’t know what a derivative is, it is a measure of how much a given function changes at every point in time. The derivative is also a function. If you think about Equation 3, it makes total sense: if the phase is changing rapidly, the derivative is large, and the frequency is high; if the phase changes slowly, the derivative is small, and the frequency is low.*
+*Note: if you don’t know what a derivative is, it is a measure of how much a given function changes at every point in time. The derivative is also a function. If you think about Equation 3, it makes total sense: if the phase changes rapidly, the derivative is large, and the frequency is high; if the phase changes slowly, the derivative is small, and the frequency is low.*
 
-The argument of a sine is the phase NOT the frequency. In order to obtain the phase from the equation for frequency (Equation 3), we must perform the operation that is inverse to derivation: integration.
+The argument of a sine is the phase NOT the frequency. In order to obtain the phase from the equation for frequency (Equation 3), we must perform an operation that is inverse to derivation, namely, integration.
 
 $$
 \begin{equation}
-\phi(t) = \int \limits_0^t 2\pi f(\tau)d\tau = 2 \pi \int \limits_0^t (f_C + A_M \cos(2 \pi f_M \tau))d\tau,
+\phi(t) = \int \limits_0^t 2\pi f(\tau)d\tau = 2 \pi \int \limits_0^t (f_C + A_M \cos(2 \pi f_M \tau))d\tau.
 \end{equation}
 $$
 
@@ -140,15 +144,17 @@ $$
 
 ### Proper FM Formula
 
-Now, we can plug the formula for the phase into the sine function.
+Now, we can plug the formula for the phase (Equation 4) as the argument of a sine function.
 
 $$
 \begin{equation}
-s_\text{FM}(t) = A_C \sin\left(2 \pi \int \limits_0^t (f_C + A_M \cos(2 \pi f_M \tau))d\tau\right),
+\begin{aligned}
+s_\text{FM}(t) &= A_C \sin(\phi(t)) =\\&= A_C \sin\left(2 \pi \int \limits_0^t (f_C + A_M \cos(2 \pi f_M \tau))d\tau\right).
+\end{aligned}
 \end{equation}
 $$
 
-This is the correct formula for a simple FM instrument: we have a sine carrier with amplitde $A_C$ and frequency $f_C$ and a sine modulator (represented by the cosine) with amplitude $A_M$ and frequency $f_M$ (called the **modulation frequency**). Note that we need to use a different symbol for time than $t$ in the integral because $t$ denotes the time point for which we compute the phase for; I chose $\tau$ (tau).
+**This is the correct formula for a simple FM instrument;** we have a sine carrier with amplitde $A_C$ and frequency $f_C$ and a sine modulator (represented by the cosine) with amplitude $A_M$ and frequency $f_M$. Note that we need to use a different symbol for time than $t$ in the integral because $t$ denotes the time point at which we compute the phase; I chose $\tau$ (tau).
 
 ### Simple FM Diagram
 
@@ -163,7 +169,7 @@ Each box with a sine symbol inside is an oscillator. The plus "+" in a circle de
 
 ## Simple FM Spectrum
 
-Although the spectrum of FM synthesis is quite complex, its structure is very straightforward. The partials are centered around the carrier frequency $f_C$ and spaced by the modulator frequency $f_M$.
+Although FM synthesis timbres sound quite complex, their spectrum structure is very straightforward. The partials are centered around the carrier frequency $f_C$ and spaced by the modulator frequency $f_M$.
 
 You can see exactly how it looks in the frequency domain in this figure.
 
