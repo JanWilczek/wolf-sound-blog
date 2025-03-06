@@ -66,33 +66,47 @@ python _py/posts/synthesis/2025-03-01-fm-synthesis/fm_synthesis.py
 
 ### Including an include
 
-```md
+```liquid
 {% include 'podcast_cta' %}
 {% include 'youtube-video', video_id: '5DFUH0zCn3Y' %}
 ```
 
 ### Linking to a post
 
-```md
+```liquid
 [Partitioned convolution]({% post_url collections.posts, '2021-05-14-fast-convolution' %})
 ```
 
 ### Linking to a page
 
-```md
+```liquid
 [About me]({% link collections.all, 'about.md' %})
 ```
 
 ### Embedding an audio file
 
-```md
+```liquid
 {% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2022-06-26-sine-saw-square-triangle-basic-waveforms-in-synthesis/sine_example.flac" %}
 ```
 
 ### Embedding an image
 
-```md
+```liquid
 {% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/partials_amplitudes_in_3d.png", "alt text for you to fill" %}
+```
+
+### Adding a caption to a figure
+
+At the top of the article (but after the first line) paste:
+
+```liquid
+{% capture _ %}{% increment figureId20211022  %}{% endcapture %}
+```
+
+Then immediately underneath each image, paste:
+
+```liquid
+_Figure {% increment figureId20211022 %}. Block diagram of an FIR allpass filter._
 ```
 
 ## All tags used
