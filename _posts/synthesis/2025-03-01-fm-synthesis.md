@@ -466,17 +466,17 @@ Let’s set $I=1$. Here’s the resulting sound.
 
 And here’s its spectrum.
 
-{% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/c_5_m_1_f0_200_I_1_spectrum.png", "c_5_m_1_f0_200_I_1_spectrum.png" %}
-_Figure {% increment figureId20250301  %}._
+{% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/c_5_m_1_f0_200_I_1_spectrum.png", "Plot of the amplitude spectrum of an FM sound generated with carrier frequency equal to 1000 Hz, modulator frequency equal to 200 Hz and modulation index equal to 1. The partials occupy an 800-hertz bandwidth." %}
+_Figure {% increment figureId20250301  %}. Amplitude spectrum of an FM sound where $f_C = 1000 \text{ Hz}$, $f_M = 200 \text{ Hz}$, and $I=1$._
 
-As you can see, its bandwidth is 800 Hz. Although there are partials outside of this range, they are not significant.
+As you can see, its bandwidth is $2 \cdot 200 \text{ Hz} \cdot (1 + 1) = 800 \text{ Hz}$. Although there are partials outside of this range, they are not significant.
 
 Here, $I=2$.
 
 {% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2025-03-01-fm-synthesis/c_5_m_1_f0_200_I_2.flac" %}
 
-{% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/c_5_m_1_f0_200_I_2_spectrum.png", "c_5_m_1_f0_200_I_2_spectrum.png" %}
-_Figure {% increment figureId20250301  %}._
+{% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/c_5_m_1_f0_200_I_2_spectrum.png", "Plot of the amplitude spectrum of an FM sound generated with carrier frequency equal to 1000 Hz, modulator frequency equal to 200 Hz and modulation index equal to 2. The partials occupy an 1200-hertz bandwidth." %}
+_Figure {% increment figureId20250301  %}. Amplitude spectrum of an FM sound where $f_C = 1000 \text{ Hz}$, $f_M = 200 \text{ Hz}$, and $I=2$._
 
 As you can hear and see, the spectrum got wider and as a result, it sounds brighter.
 
@@ -484,15 +484,15 @@ Here, $I=3$.
 
 {% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2025-03-01-fm-synthesis/c_5_m_1_f0_200_I_3.flac" %}
 
-{% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/c_5_m_1_f0_200_I_3_spectrum.png", "c_5_m_1_f0_200_I_3_spectrum.png" %}
-_Figure {% increment figureId20250301  %}._
+{% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/c_5_m_1_f0_200_I_3_spectrum.png", "Plot of the amplitude spectrum of an FM sound generated with carrier frequency equal to 1000 Hz, modulator frequency equal to 200 Hz and modulation index equal to 3. The partials occupy an 1600-hertz bandwidth." %}
+_Figure {% increment figureId20250301  %}. Amplitude spectrum of an FM sound where $f_C = 1000 \text{ Hz}$, $f_M = 200 \text{ Hz}$, and $I=3$._
 
 Here, $I=4$.
 
 {% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2025-03-01-fm-synthesis/c_5_m_1_f0_200_I_4.flac" %}
 
-{% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/c_5_m_1_f0_200_I_4_spectrum.png", "c_5_m_1_f0_200_I_4_spectrum.png" %}
-_Figure {% increment figureId20250301  %}._
+{% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/c_5_m_1_f0_200_I_4_spectrum.png", "Plot of the amplitude spectrum of an FM sound generated with carrier frequency equal to 1000 Hz, modulator frequency equal to 200 Hz and modulation index equal to 4. The partials occupy an 2000-hertz bandwidth." %}
+_Figure {% increment figureId20250301  %}. Amplitude spectrum of an FM sound where $f_C = 1000 \text{ Hz}$, $f_M = 200 \text{ Hz}$, and $I=4$._
 
 As you can see, the spectrum got so wide that it expanded over to negative frequencies which means that these frequencies got reflected back and hence the spectrum is no longer symmetric. However, it is still harmonic because just the amplitudes of the partials changed after reflection not their positions.
 
@@ -500,8 +500,8 @@ Here, $I=5$.
 
 {% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2025-03-01-fm-synthesis/c_5_m_1_f0_200_I_5.flac" %}
 
-{% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/c_5_m_1_f0_200_I_5_spectrum.png", "c_5_m_1_f0_200_I_5_spectrum.png" %}
-_Figure {% increment figureId20250301  %}._
+{% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/c_5_m_1_f0_200_I_5_spectrum.png", "Plot of the amplitude spectrum of an FM sound generated with carrier frequency equal to 1000 Hz, modulator frequency equal to 200 Hz and modulation index equal to 5. The partials occupy an 2400-hertz bandwidth and are not symmetric in amplitude around the carrier because of wraparound of negative frequency components." %}
+_Figure {% increment figureId20250301  %}. Amplitude spectrum of an FM sound where $f_C = 1000 \text{ Hz}$, $f_M = 200 \text{ Hz}$, and $I=5$._
 
 This spectrum is clearly the brightest and it’s not symmetric. We could go even further than this but I’d leave it for your experimentation 🙂
 
@@ -536,8 +536,8 @@ Bessel functions are a very important concept in mathematics. They appear in the
 
 Here’s how the Bessel functions of the first kind look for orders from 0 to 3.
 
-{% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/bessel_functions_first_kind.png", "bessel_functions_first_kind" %}
-_Figure {% increment figureId20250301  %}._
+{% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/bessel_functions_first_kind.png", "Plot of Bessel functions of the first kind for orders 0 to 3. Their maxima do not exceed 1 and they are very similar to sines." %}
+_Figure {% increment figureId20250301  %}. Bessel functions of the first kind with orders 0 to 3. The argument $I$ can be the modulation index._
 
 These are sine-like functions that are getting damped the higher the absolute value of the argument. You can also observe that Bessel functions of even orders are even (symmetrical with respect to the $y$-axis) and Bessel functions of odd orders are odd (symmetrical with respect to the origin of the $xy$-plane).
 
@@ -545,8 +545,8 @@ What is more important, Bessel functions cross the value of 0 for many values of
 
 It’s hard to get a feeling for the meaning of the partials’ amplitudes equation (Equation 15) without any visuals. Thus, here you can see a plot of how the spectrum changes if we vary the modulation index $I$ value in the $[0, 20]$ range [Pluta2019].
 
-{% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/partials_amplitudes_in_3d.png", "partials_amplitudes_in_3d" %}
-_Figure {% increment figureId20250301  %}._
+{% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/partials_amplitudes_in_3d.png", "A 3D visualization of the modulation index's influence on FM spectrum. The larger the modulation index the wider the spectrum. A single partial's magnitude follows a Bessel function of the first kind corresponding to its index" %}
+_Figure {% increment figureId20250301  %}. FM partials' amplitudes for various values of the modulation index. For a particular value of $I$, partials' amplitudes are represented by the cross-section of the plot along the partial index axis. After [Pluta2019]._
 
 How to read this plot? Say you want to see how the spectrum will look for a particular value of $I$, for example, 10. Then, find 10 on the $I$ axis on the right and mentally cross-sect the 3-dimensional spectrum along the partials’ axis. This cross-section is your sound’s magnitude spectrum at the modulation index 10.
 
@@ -584,8 +584,6 @@ Finally, we have mentioned various extensions to the simple FM technique.
 In the future articles, we will look into how to implement the PM synthesis technique using various programming languages. So look out for those!
 
 If you want to become an audio developer today, check out my [free Audio Developer Checklist]({% link collections.all, 'checklist.html' %}). It lists every bit and piece of knowledge I believe is necessary to become a full-fledged audio programmer and be able to create software synths, for example, with FM synthesis.
-
-TODO: Number the figures.
 
 ## Bibliography
 
