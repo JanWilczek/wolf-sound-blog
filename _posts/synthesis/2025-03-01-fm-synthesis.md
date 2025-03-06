@@ -361,29 +361,29 @@ $R_f = 1:2$
 
 {% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2025-03-01-fm-synthesis/c_1_m_2_f0_200.flac" %}
 
-{% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/c_1_m_2_f0_200_spectrum.png", "c_1_m_2_f0_200_spectrum.png" %}
-_Figure {% increment figureId20250301  %}._
+{% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/c_1_m_2_f0_200_spectrum.png", "Plot of the amplitude spectrum of an FM sound generated with carrier to modulator frequency ratio equal to one to two" %}
+_Figure {% increment figureId20250301  %}. Amplitude spectrum of an FM sound with $c:m=1:2$._
 
 $R_f = 2:1$
 
 {% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2025-03-01-fm-synthesis/c_2_m_1_f0_200.flac" %}
 
-{% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/c_2_m_1_f0_200_spectrum.png", "c_2_m_1_f0_200_spectrum.png" %}
-_Figure {% increment figureId20250301  %}._
+{% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/c_2_m_1_f0_200_spectrum.png", "Plot of the amplitude spectrum of an FM sound generated with carrier to modulator frequency ratio equal to two to one" %}
+_Figure {% increment figureId20250301  %}. Amplitude spectrum of an FM sound with $c:m=2:1$._
 
 $R_f = 10:9$
 
 {% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2025-03-01-fm-synthesis/c_10_m_9_f0_200.flac" %}
 
-{% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/c_10_m_9_f0_200_spectrum.png", "c_10_m_9_f0_200_spectrum.png" %}
-_Figure {% increment figureId20250301  %}._
+{% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/c_10_m_9_f0_200_spectrum.png", "Plot of the amplitude spectrum of an FM sound generated with carrier to modulator frequency ratio equal to ten to nine" %}
+_Figure {% increment figureId20250301  %}. Amplitude spectrum of an FM sound with $c:m=10:9$._
 
 $R_f = \sqrt{2}:1$
 
 {% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2025-03-01-fm-synthesis/c_1.41_m_1_f0_200.flac" %}
 
-{% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/c_1.41_m_1_f0_200_spectrum.png", "c_1.41_m_1_f0_200_spectrum.png" %}
-_Figure {% increment figureId20250301  %}._
+{% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/c_1.41_m_1_f0_200_spectrum.png", "Plot of the amplitude spectrum of an FM sound generated with carrier to modulator frequency ratio equal to square root of two to one" %}
+_Figure {% increment figureId20250301  %}. Amplitude spectrum of an FM sound with $c:m=\sqrt{2}:1$._
 
 As you could hear, as long as $N_1$ and $N_2$ are integer, the sound and the spectra are harmonic. Even in the extreme case of $R_f = 100:99$, we get the “beating” effect because of the inharmonic partials close to the harmonic ones but this still sounds harmonic. However, as soon as $R_f$ became real but not rational ($\sqrt{2}$), then the sound became metallic and inharmonic like a detuned sawtooth.
 
