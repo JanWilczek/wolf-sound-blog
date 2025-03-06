@@ -192,6 +192,20 @@ where
 - $f_M$ is the modulator frequency, and
 - $k$ is any integer (that’s what $k \in \mathbb{Z}$ means).
 
+### Partials vs harmonics vs overtones
+
+To avoid confusion, let me just quickly define partials, harmonics, and overtones.
+
+Various sources use various definitions but I rely on a distinct meaning of each of these terms.
+
+* A **partial** is a spectrum member.
+* A **harmonic** is a member of a harmonic spectrum, i.e., spectrum whose partials are in a mathematical relation to each other (e.g., in a sawtooth, harmonics are integer multiples of the **fundamental frequency**).
+* An **overtone** is a harmonic that is not the fundamental frequency.
+
+The first harmonic is the fundamental frequency. The second harmonic is the first overtone.
+
+Acoustic instrument spectra often consist of harmonic partials, inharmonic partials, and noise.
+
 ## Timbre control of simple FM
 
 One of the goals of FM synthesis research was to be able to use a MIDI keyboard to control it. That means, that we need a way of keeping the timbre somewhat consistent while changing the pitch.
