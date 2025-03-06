@@ -190,7 +190,7 @@ where
 
 One of the goals of FM synthesis research was to be able to use a MIDI keyboard to control it. That means, that we need a way of keeping the timbre somewhat consistent while changing the pitch.
 
-It turns out that if the ratio of the carrier frequency to the modulation frequency is constant, the partials' structure is preserved.
+It turns out that **if the ratio of the carrier frequency to the modulation frequency is constant, the partials' structure is preserved.**
 
 In other words, if we multiply the carrier frequency by some real constant, we need to multiply the modulation frequency by the same constant in order to keep the partials' structure the intact.
 
@@ -202,7 +202,7 @@ c:m=R_f=\frac{f_C}{f_M}.
 \end{equation}
 $$
 
-If $f_C$ and $f_M$ change but their ratio $R_f$ doesn’t, then we have a single timbre at our hand. There are various recipes for $R_f$ to create different timbres and we will look into them later on in the article.
+If $f_C$ and $f_M$ change but their ratio $R_f$ doesn’t, then the timbre shouldn't change either. There are various recipes for $R_f$ to create different timbres; you'll hear more examples later on in the article.
 
 Let’s look at an example. (From now on, you can assume that $A_C = 1$ because changing $A_C$ would only change the volume of the waveform not its timbre.)
 
@@ -234,7 +234,7 @@ And here’s its spectrum.
 {% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/octave_higher_half_index_spectrum.png", "Amplitude spectrum of an FM sound" %}
 _Figure {% increment figureId20250301  %}. Amplitude spectrum of a sound generated with $f_C = 400 \text{ Hz}, f_M = 800 \text{ Hz},$  and $A_M = 800$._
 
-You can hear that the octave-higher version has similar timbre and the partials are correctly spaced, yet their amplitudes look a little bit different. That is because we have not changed the modulation amplitude. If we set $A_M=1600$ (twice the original value), we get the following sound.
+You can hear that the octave-higher version has a similar timbre and the partials are correctly spaced, yet their amplitudes look a little bit different. That is because we have not changed the modulation amplitude. If we set $A_M=1600$ (twice the original value), we get the following sound.
 
 {% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2025-03-01-fm-synthesis/octave_higher.flac" %}
 
@@ -243,13 +243,15 @@ Here’s its spectrum.
 {% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/octave_higher_spectrum.png", "Amplitude spectrum of an FM sound" %}
 _Figure {% increment figureId20250301  %}. Amplitude spectrum of a sound generated with $f_C = 400 \text{ Hz}, f_M = 800 \text{ Hz},$  and $A_M = 1600$._
 
-As you can hear, the octave-higher sound sounds more like the original. As you can see, the partials’ structure is completely preserved, they are just spaced apart more because of the higher pitch.
+As you can hear, this last one sounds more like the original. As you can see, the partials’ structure is completely preserved, they are just spaced apart more because of the higher pitch.
 
-Why did we need to change the modulation amplitude as well? Because the amplitude of each partial is determined by both the amplitude and the frequency of modulation [Dodge1997]. The meaning of the modulation amplitude at modulation frequency equal to 400 Hz is different from its meaning when the modulation frequency is equal to 800 Hz.
+Why did we need to change the modulation amplitude as well? Because **the amplitude of each partial is determined by both the amplitude and the frequency of modulation** [Dodge1997]. The meaning of the modulation amplitude at modulation frequency equal to 400 Hz is different from its meaning when the modulation frequency is equal to 800 Hz.
+
+That's why we need to use a different parameter to control the timbre: the modulation index.
 
 ## Modulation Index
 
-To preserve the timbre and be able to have a parameter that controls the timbre in a consistent way across all modulation frequencies, it’s more handy to use the **modulation index** than the modulation amplitude.
+To have a parameter that controls the timbre in a consistent way across all modulation frequencies, it’s more handy to use the **modulation index** than the modulation amplitude.
 
 Here’s the formula for the modulation index $I$ [Pluta2019]
 
@@ -261,7 +263,7 @@ $$
 
 where
 
-- $A_M$ is the modulation amplitude and
+- $A_M$ is the modulation amplitude, and
 - $f_M$ is the modulation frequency.
 
 We can plug this formula into our simple FM equation (Equation 5)
@@ -272,7 +274,7 @@ s_\text{FM}(t) = A_C \sin\left(2 \pi \int \limits_0^t (f_C + I f_M \cos(2 \pi f_
 \end{equation}
 $$
 
-In our previous example, initially we had $A_M=800$ and $f_M=400 \text{ Hz}$ which results in $I=\frac{800}{400} = 2$.
+In our previous example, initially we had $A_M=800$ and $f_M=400 \text{ Hz}$ which resulted in $I=\frac{800}{400} = 2$.
 
 After raising the pitch by an octave, we had $A_M = 800$ and $f_M=800 \text{ Hz}$ which results in $I = \frac{800}{800} = 1$. Thus, our partials’ amplitudes changed because we had not preserved the modulation index. To remedy this, we doubled the modulation amplitude to 1600 and hence obtained $I=\frac{1600}{800}=2$, i.e., the same modulation index as the initial sound.
 
