@@ -20,6 +20,8 @@ Frequency modulation (FM) synthesis is an exciting topic: with a few simple oper
 
 How does it work? How to control it to produce musical notes? Why was it so popular in the 1980s? We will explore all that in this single article!
 
+{% capture _ %}{% increment figureId20250301  %}{% endcapture %}
+
 1. [History](#history)
 2. [Vibrato](#vibrato)
 3. [Basic FM Synth](#basic-fm-synth)
@@ -52,8 +54,7 @@ How does it work? How to control it to produce musical notes? Why was it so popu
 Just as a brief word of history, to give credit to people's hard work, the original publication on FM synthesis came from John Chowning  in 1973 [Chowning1973]. Because of lack of interest of American manufacturers in using the technique in hardware synths, Chowning turned to Japan-based manufacturer Yamaha in the same year. [SOS2000]
 
 {% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/Chowning.jpg", "John Chowning" %}
-
-_Figure . John Chowning. [Source](https://commons.wikimedia.org/wiki/File:Chowning.jpg), accessed March 5, 2025, licensed under the [Creative Commons Attribution-Share Alike 3.0 Unported license](https://creativecommons.org/licenses/by-sa/3.0/deed.en)._
+_Figure {% increment figureId20250301  %}. John Chowning. [Source](https://commons.wikimedia.org/wiki/File:Chowning.jpg), accessed March 5, 2025, licensed under the [Creative Commons Attribution-Share Alike 3.0 Unported license](https://creativecommons.org/licenses/by-sa/3.0/deed.en)._
 
 However, it wasn't until 1983, when the first widely successful FM synth was introduced, namely, Yamaha DX7 FM [Wikipedia]. It took the market by storm and spawned a host of FM-based hardware synths.
 
@@ -155,6 +156,7 @@ FM variants are most often explained on the basis of diagrams. The diagrams can 
 Here is the diagram of a simple FM instrument [Pluta2019, Dodge1997].
 
 {% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/SimpleFMInstrument.png", "Simple FM instrument (algorithm)" %}
+_Figure {% increment figureId20250301  %}._
 
 ## Simple FM Spectrum
 
@@ -163,6 +165,7 @@ Although the spectrum of FM synthesis is quite complex, its structure is very st
 You can see exactly how it looks in the frequency domain in this figure.
 
 {% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/simple_fm_spectrum.png", "Simple FM spectrum" %}
+_Figure {% increment figureId20250301  %}._
 
 In the middle, there is the carrier frequency and on its sides are the **sidebands**.
 
@@ -207,6 +210,7 @@ Here’s a sound generated with $f_C = 200 \text{ Hz}, f_M = 400 \text{ Hz},$  a
 Here’s its spectrum
 
 {% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/basic_signal_spectrum.png", "basic_signal_spectrum.png" %}
+_Figure {% increment figureId20250301  %}._
 
 Let’s now generate a sound that’s twice higher in pitch but has similar timbre. According the frequency ratio (Equation 7),
 
@@ -225,6 +229,7 @@ Here’s the resulting sound generated with $f_C = 400 \text{ Hz}, f_M = 800 \te
 And here’s its spectrum.
 
 {% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/octave_higher_half_index_spectrum.png", "octave_higher_half_index_spectrum.png" %}
+_Figure {% increment figureId20250301  %}._
 
 You can hear that the octave-higher version has similar timbre and the partials are correctly spaced, yet their amplitudes look a little bit different. That is because we have not changed the modulation amplitude. If we set $A_M=1600$ (twice the original value), we get the following sound.
 
@@ -233,6 +238,7 @@ You can hear that the octave-higher version has similar timbre and the partials 
 Here’s its spectrum.
 
 {% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/octave_higher_spectrum.png", "octave_higher_spectrum.png" %}
+_Figure {% increment figureId20250301  %}._
 
 As you can hear, the octave-higher sound sounds more like the original. As you can see, the partials’ structure is completely preserved, they are just spaced apart more because of the higher pitch.
 
@@ -277,6 +283,7 @@ In other words: to preserve the timbre when changing pitch, keep the modulation 
 Now, our simple FM diagram looks as follows.
 
 {% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/SimpleFMInstrumentWithModulationIndex.png", "Simple FM instrument with modulation index" %}
+_Figure {% increment figureId20250301  %}._
 
 ## Phase Modulation
 
@@ -303,6 +310,7 @@ Take a look at this example. Here, $f_C=200 \text{ Hz}, f_M = 400 \text{ Hz}$ an
 When the sampling rate is equal to 96 kHz, we obtain the following magnitude spectra of PM and FM.
 
 {% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/fm_vs_pm_modulation_fs_96000_spectrum.png", "fm_vs_pm_modulation_fs_96000_spectrum" %}
+_Figure {% increment figureId20250301  %}._
 
 As you can see, the spectra nicely overlap. Audibly, there is no difference either.
 
@@ -317,6 +325,7 @@ PM at 96 kHz:
 However, if we decrease the sampling rate to 22.05 kHz…
 
 {% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/fm_vs_pm_modulation_fs_22050_spectrum.png", "fm_vs_pm_modulation_fs_22050_spectrum.png" %}
+_Figure {% increment figureId20250301  %}._
 
 …the partials’ amplitudes differ much more. FM has stronger first, second, and fourth partial, while PM has stronger third partial.
 
@@ -353,24 +362,28 @@ $R_f = 1:2$
 {% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2025-03-01-fm-synthesis/c_1_m_2_f0_200.flac" %}
 
 {% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/c_1_m_2_f0_200_spectrum.png", "c_1_m_2_f0_200_spectrum.png" %}
+_Figure {% increment figureId20250301  %}._
 
 $R_f = 2:1$
 
 {% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2025-03-01-fm-synthesis/c_2_m_1_f0_200.flac" %}
 
 {% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/c_2_m_1_f0_200_spectrum.png", "c_2_m_1_f0_200_spectrum.png" %}
+_Figure {% increment figureId20250301  %}._
 
 $R_f = 10:9$
 
 {% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2025-03-01-fm-synthesis/c_10_m_9_f0_200.flac" %}
 
 {% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/c_10_m_9_f0_200_spectrum.png", "c_10_m_9_f0_200_spectrum.png" %}
+_Figure {% increment figureId20250301  %}._
 
 $R_f = \sqrt{2}:1$
 
 {% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2025-03-01-fm-synthesis/c_1.41_m_1_f0_200.flac" %}
 
 {% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/c_1.41_m_1_f0_200_spectrum.png", "c_1.41_m_1_f0_200_spectrum.png" %}
+_Figure {% increment figureId20250301  %}._
 
 As you could hear, as long as $N_1$ and $N_2$ are integer, the sound and the spectra are harmonic. Even in the extreme case of $R_f = 100:99$, we get the “beating” effect because of the inharmonic partials close to the harmonic ones but this still sounds harmonic. However, as soon as $R_f$ became real but not rational ($\sqrt{2}$), then the sound became metallic and inharmonic like a detuned sawtooth.
 
@@ -414,12 +427,14 @@ Specifically,
     {% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2025-03-01-fm-synthesis/c_5_m_1_f0_1000.flac" %}
     
     {% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/c_5_m_1_f0_1000_spectrum.png", "c_5_m_1_f0_1000_spectrum.png" %}
+    _Figure {% increment figureId20250301  %}._
     
 - If $N_2$ is even, the spectrum is odd, i.e., only odd partials are present. Example ($f_C=5000\text{ Hz}, f_M=2000 \text{ Hz}, I=2$):
     
     {% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2025-03-01-fm-synthesis/c_5_m_2_f0_1000.flac" %}
     
     {% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/c_5_m_2_f0_1000_spectrum.png", "c_5_m_2_f0_1000_spectrum.png" %}
+    _Figure {% increment figureId20250301  %}._
     
     Note the missing second, fourth, sixth, and eighth harmonics.
     
@@ -428,6 +443,7 @@ Specifically,
     {% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2025-03-01-fm-synthesis/c_5_m_3_f0_1000.flac" %}
     
     {% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/c_5_m_3_f0_1000_spectrum.png", "c_5_m_3_f0_1000_spectrum.png" %}
+    _Figure {% increment figureId20250301  %}._
     
 
 ### How to control the brightness of FM spectra?
@@ -453,6 +469,7 @@ Let’s set $I=1$. Here’s the resulting sound.
 And here’s its spectrum.
 
 {% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/c_5_m_1_f0_200_I_1_spectrum.png", "c_5_m_1_f0_200_I_1_spectrum.png" %}
+_Figure {% increment figureId20250301  %}._
 
 As you can see, its bandwidth is 800 Hz. Although there are partials outside of this range, they are not significant.
 
@@ -461,6 +478,7 @@ Here, $I=2$.
 {% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2025-03-01-fm-synthesis/c_5_m_1_f0_200_I_2.flac" %}
 
 {% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/c_5_m_1_f0_200_I_2_spectrum.png", "c_5_m_1_f0_200_I_2_spectrum.png" %}
+_Figure {% increment figureId20250301  %}._
 
 As you can hear and see, the spectrum got wider and as a result, it sounds brighter.
 
@@ -469,12 +487,14 @@ Here, $I=3$.
 {% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2025-03-01-fm-synthesis/c_5_m_1_f0_200_I_3.flac" %}
 
 {% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/c_5_m_1_f0_200_I_3_spectrum.png", "c_5_m_1_f0_200_I_3_spectrum.png" %}
+_Figure {% increment figureId20250301  %}._
 
 Here, $I=4$.
 
 {% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2025-03-01-fm-synthesis/c_5_m_1_f0_200_I_4.flac" %}
 
 {% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/c_5_m_1_f0_200_I_4_spectrum.png", "c_5_m_1_f0_200_I_4_spectrum.png" %}
+_Figure {% increment figureId20250301  %}._
 
 As you can see, the spectrum got so wide that it expanded over to negative frequencies which means that these frequencies got reflected back and hence the spectrum is no longer symmetric. However, it is still harmonic because just the amplitudes of the partials changed after reflection not their positions.
 
@@ -483,6 +503,7 @@ Here, $I=5$.
 {% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2025-03-01-fm-synthesis/c_5_m_1_f0_200_I_5.flac" %}
 
 {% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/c_5_m_1_f0_200_I_5_spectrum.png", "c_5_m_1_f0_200_I_5_spectrum.png" %}
+_Figure {% increment figureId20250301  %}._
 
 This spectrum is clearly the brightest and it’s not symmetric. We could go even further than this but I’d leave it for your experimentation 🙂
 
@@ -518,6 +539,7 @@ Bessel functions are a very important concept in mathematics. They appear in the
 Here’s how the Bessel functions of the first kind look for orders from 0 to 3.
 
 {% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/bessel_functions_first_kind.png", "bessel_functions_first_kind" %}
+_Figure {% increment figureId20250301  %}._
 
 These are sine-like functions that are getting damped the higher the absolute value of the argument. You can also observe that Bessel functions of even orders are even (symmetrical with respect to the $y$-axis) and Bessel functions of odd orders are odd (symmetrical with respect to the origin of the $xy$-plane).
 
@@ -526,6 +548,7 @@ What is more important, Bessel functions cross the value of 0 for many values of
 It’s hard to get a feeling for the meaning of the partials’ amplitudes equation (Equation 15) without any visuals. Thus, here you can see a plot of how the spectrum changes if we vary the modulation index $I$ value in the $[0, 20]$ range [Pluta2019].
 
 {% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/partials_amplitudes_in_3d.png", "partials_amplitudes_in_3d" %}
+_Figure {% increment figureId20250301  %}._
 
 How to read this plot? Say you want to see how the spectrum will look for a particular value of $I$, for example, 10. Then, find 10 on the $I$ axis on the right and mentally cross-sect the 3-dimensional spectrum along the partials’ axis. This cross-section is your sound’s magnitude spectrum at the modulation index 10.
 
@@ -536,6 +559,8 @@ The above plot gives you the full insight into the spectrum of FM sounds. You ca
 TODO, p. 165 in [Pluta2019]
 
 ## Example FM sounds
+
+TODO
 
 ## Extensions of simple FM
 
