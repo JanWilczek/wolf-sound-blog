@@ -561,7 +561,6 @@ def plot_partials_amplitudes_in_3d_for_specific_modulation_index():
     modulation_index = np.arange(0, 20, 0.1)
     base_level = -1
     ylim = np.asarray([0, 20])
-
     ax = plt.figure(figsize=(12, 8)).add_subplot(projection="3d")
     for partial_id in reversed(range(*ylim)):
         partial_amplitude = jv(partial_id, modulation_index)
@@ -598,41 +597,72 @@ def plot_partials_amplitudes_in_3d_for_specific_modulation_index():
     ax.set_yticks(np.arange(ylim[0], ylim[1], 5))
     # to avoid the axes labels being cut off
     plt.tight_layout()
-
+    
     # Plot particular cross-section of the plot
     modulation_index_value = 10
-    cross_section_vertices = [
-        (modulation_index_value, partial_id, jv(partial_id, modulation_index_value))
-        for partial_id in ylim
-    ]
-    cross_section_vertices += [
-        (modulation_index_value, ylim.max(), base_level),
-        (modulation_index_value, ylim.min(), base_level),
-    ]
-    ax.add_collection3d(
-        Poly3DCollection(
-            [cross_section_vertices], color=style.complementary_color_1, edgecolor="red"
+    
+    # Find the closest value in modulation_index array to modulation_index_value
+    idx = np.abs(modulation_index - modulation_index_value).argmin()
+    actual_modulation_index = modulation_index[idx]
+    
+    # Create a proper range of partial indices
+    partial_ids = np.arange(int(ylim[0]), int(ylim[1]))
+    
+    # Create cross-section vertices as a properly formed polygon
+    cross_section_vertices = []
+    
+    # Add top curve points
+    for partial_id in partial_ids:
+        cross_section_vertices.append(
+            (actual_modulation_index, partial_id, jv(partial_id, actual_modulation_index))
         )
+    
+    # Add bottom point at the maximum y value
+    cross_section_vertices.append(
+        (actual_modulation_index, ylim[1]-1, base_level)
+    )
+    
+    # Add bottom point at the minimum y value
+    cross_section_vertices.append(
+        (actual_modulation_index, ylim[0], base_level)
+    )
+    
+    # Add the polygon to the plot with color and edge color
+    poly = Poly3DCollection(
+        [cross_section_vertices], 
+        alpha=0.6,  # Add some transparency
+        color=style.complementary_color_2, 
+        edgecolor=style.complementary_color_3
+    )
+    ax.add_collection3d(poly)
+    
+    # Add a line showing where the cross-section is
+    ax.plot(
+        [actual_modulation_index, actual_modulation_index],
+        [ylim[0], ylim[1]],
+        [base_level, base_level],
+        color=style.complementary_color_3,
+        linewidth=2
     )
 
     save(IMG_OUTPUT_PATH / "partials_amplitudes_in_3d_for_specific_modulation_index")
 
 
 def main():
-    cool_sounds()
+    # cool_sounds()
     plot_partials_amplitudes_in_3d_for_specific_modulation_index()
-    plot_partials_amplitudes_in_3d()
-    plot_bessel_functions()
-    spectrum_brightness_example()
-    eliminating_every_nth_partial_example()
-    vibrato_example()
-    fm_example_1()
-    modulation_index_motivation()
-    simple_fm_spectrum()
-    timbre_control_example()
-    fm_vs_pm_modulation()
-    fm_vs_pm_modulation_2()
-    harmonic_and_inharmonic_spectra_example()
+    # plot_partials_amplitudes_in_3d()
+    # plot_bessel_functions()
+    # spectrum_brightness_example()
+    # eliminating_every_nth_partial_example()
+    # vibrato_example()
+    # fm_example_1()
+    # modulation_index_motivation()
+    # simple_fm_spectrum()
+    # timbre_control_example()
+    # fm_vs_pm_modulation()
+    # fm_vs_pm_modulation_2()
+    # harmonic_and_inharmonic_spectra_example()
 
 
 if __name__ == "__main__":
