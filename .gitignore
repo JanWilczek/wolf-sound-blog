@@ -5,6 +5,8 @@ _site
 .jekyll-metadata
 vendor
 .vscode
+.DS_Store
+todo.md
 
 _deploy.sh
 _deploy.bat
