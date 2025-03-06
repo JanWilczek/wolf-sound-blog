@@ -33,7 +33,7 @@ How does it work? How to control it to produce musical notes? Why was it so popu
 7. [Phase Modulation](#phase-modulation)
 8. [How to control the timbre of FM?](#how-to-control-the-timbre-of-fm)
    1. [When is FM spectrum harmonic?](#when-is-fm-spectrum-harmonic)
-   2. [What’s the fundamental frequency (the pitch) in FM?](#whats-the-fundamental-frequency-the-pitch-in-fm)
+   2. [What’s the fundamental frequency (the pitch) in FM?](#what-s-the-fundamental-frequency-the-pitch-in-fm)
    3. [How to eliminate every $N\_2$-th harmonic?](#how-to-eliminate-every-th-harmonic)
    4. [How to control the brightness of FM spectra?](#how-to-control-the-brightness-of-fm-spectra)
    5. [FM Efficiency](#fm-efficiency)
