@@ -558,6 +558,9 @@ _Figure {% increment figureId20250301  %}. FM partials' amplitudes for various v
 
 How to read this plot? Say you want to see how the spectrum will look for a particular value of $I$, for example, 10. Then, find 10 on the $I$ axis on the right and mentally cross-sect the 3-dimensional spectrum along the partials’ axis. This cross-section is your sound’s magnitude spectrum at the modulation index 10.
 
+{% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/partials_amplitudes_in_3d_for_specific_modulation_index.png", "A cross-section of the 3D visualization of FM synthesis partials' amplitudes corresponding to the modulation index value of 10." %}
+_Figure {% increment figureId20250301  %}. FM partials' amplitudes if the modulation index equals 10._
+
 The above plot gives you the full insight into the spectrum of FM sounds. You can go back to this plot over and over again to discover more and more properties of the FM spectrum. As you can see, it is completely frequency-independent; for each fundamental frequency, the partials behave identically. Of course, this plot does not take reflected frequencies into account but you can visualize them yourself 😉
 
 ## Extensions of simple FM
