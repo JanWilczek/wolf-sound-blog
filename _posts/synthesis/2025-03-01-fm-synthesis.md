@@ -346,8 +346,8 @@ That’s in essence the difference between FM and PM: at high enough sampling ra
 
 To drive this point home, let's take a look at time-domain plots of a carrier at 600 Hz, a modulator at 50 Hz, and the resulting FM and PM signals ($I = 10$).
 
-{% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/carrier_modulator_fm_pm_signal.png", "Plot of time-domain signals of a 600 hertz carrier, 200 hertz modulator and resulting FM and PM signals. FM and PM signals look identical." %}
-_Figure {% increment figureId20250301  %}. A 600-Hz carrier, a 200-Hz modulator and the resulting FM and PM signals. Modulation index equals 10._
+{% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/carrier_modulator_fm_pm_signal.png", "Plot of time-domain signals of a 600 hertz carrier, 50 hertz modulator and resulting FM and PM signals. FM and PM signals look identical." %}
+_Figure {% increment figureId20250301  %}. A 600-Hz carrier, a 50-Hz modulator and the resulting FM and PM signals. Modulation index equals 10._
 
 So, from now on, our go-to formula for frequency modulation will be the PM formula (Equation 11). This is the formula that we will analyze in the context of FM. So everywhere I write “FM” from now on will refer to PM.
 
@@ -477,7 +477,7 @@ And here’s its spectrum.
 {% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/c_5_m_1_f0_200_I_1_spectrum.png", "Plot of the amplitude spectrum of an FM sound generated with carrier frequency equal to 1000 Hz, modulator frequency equal to 200 Hz and modulation index equal to 1. The partials occupy an 800-hertz bandwidth." %}
 _Figure {% increment figureId20250301  %}. Amplitude spectrum of an FM sound where $f_C = 1000 \text{ Hz}$, $f_M = 200 \text{ Hz}$, and $I=1$._
 
-As you can see, its bandwidth is $2 \cdot 200 \text{ Hz} \cdot (1 + 1) = 800 \text{ Hz}$. Although there are partials outside of this range, they are not significant.
+As you can see, its bandwidth is $BW_\text{FM} = 2 \cdot 200 \text{ Hz} \cdot (1 + 1) = 800 \text{ Hz}$. Although there are partials outside of this range, they are not significant.
 
 Here, $I=2$.
 
@@ -584,8 +584,6 @@ In this comprehensive article, you’ve learned about the frequency modulation (
 You’ve also learned what are Bessel functions and how the partials in FM synthesis follow the Bessel functions in their amplitude with increasing modulation index.
 
 You’ve learned what is the modulation index and how to use it to control the bandwidth of FM spectra.
-
-We’ve looked at how to depict various FM setups and we’ve also listened to a few sounds generated with FM.
 
 Finally, we have mentioned various extensions to the simple FM technique.
 
