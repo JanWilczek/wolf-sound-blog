@@ -341,6 +341,11 @@ To my ear, the FM sound has a more pronounced low-frequency partial.
 
 That’s in essence the difference between FM and PM: at high enough sampling rates, they are equivalent. The lower the sampling rates, the more their partials’ amplitudes differ. However, implementation-wise, it’s way easier to use PM and that’s what we’ll do for the remainder of this article.
 
+To drive this point home, let's take a look at time-domain plots of a carrier at 600 Hz, a modulator at 50 Hz, and the resulting FM and PM signals ($I = 10$).
+
+{% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/carrier_modulator_fm_pm_signal.png", "Plot of time-domain signals of a 600 hertz carrier, 200 hertz modulator and resulting FM and PM signals. FM and PM signals look identical." %}
+_Figure {% increment figureId20250301  %}. A 600-Hz carrier, a 200-Hz modulator and the resulting FM and PM signals. Modulation index equals 10._
+
 So, from now on, our go-to formula for frequency modulation will be the PM formula (Equation 10). This is the formula that we will analyze in the context of FM. So everywhere I write “FM” from now on will refer to PM.
 
 ## How to control the timbre of FM?
