@@ -168,7 +168,7 @@ Although the spectrum of FM synthesis is quite complex, its structure is very st
 You can see exactly how it looks in the frequency domain in this figure.
 
 {% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/simple_fm_spectrum.png", "Plot of amplitude spectrum of an FM sound with partials spaced around the carrier frequency by the modulator frequency." %}
-_Figure {% increment figureId20250301  %}. Amplitude spectrum of a sound generated from the simple FM instrument._
+_Figure {% increment figureId20250301  %}. Magnitude spectrum of a sound generated from the simple FM instrument._
 
 In the middle, there is the carrier frequency and on its sides are the **sidebands**.
 
@@ -212,8 +212,8 @@ Here’s a sound generated with $f_C = 200 \text{ Hz}, f_M = 400 \text{ Hz},$  a
 
 Here’s its spectrum.
 
-{% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/basic_signal_spectrum.png", "Amplitude spectrum of an FM sound" %}
-_Figure {% increment figureId20250301  %}. Amplitude spectrum of a sound generated with $f_C = 200 \text{ Hz}, f_M = 400 \text{ Hz},$  and $A_M = 800$._
+{% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/basic_signal_spectrum.png", "Magnitude spectrum of an FM sound" %}
+_Figure {% increment figureId20250301  %}. Magnitude spectrum of a sound generated with $f_C = 200 \text{ Hz}, f_M = 400 \text{ Hz},$  and $A_M = 800$._
 
 Let’s now generate a sound that’s twice higher in pitch but has similar timbre. According the frequency ratio (Equation 7),
 
@@ -231,8 +231,8 @@ Here’s the resulting sound generated with $f_C = 400 \text{ Hz}, f_M = 800 \te
 
 And here’s its spectrum.
 
-{% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/octave_higher_half_index_spectrum.png", "Amplitude spectrum of an FM sound" %}
-_Figure {% increment figureId20250301  %}. Amplitude spectrum of a sound generated with $f_C = 400 \text{ Hz}, f_M = 800 \text{ Hz},$  and $A_M = 800$._
+{% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/octave_higher_half_index_spectrum.png", "Magnitude spectrum of an FM sound" %}
+_Figure {% increment figureId20250301  %}. Magnitude spectrum of a sound generated with $f_C = 400 \text{ Hz}, f_M = 800 \text{ Hz},$  and $A_M = 800$._
 
 You can hear that the octave-higher version has a similar timbre and the partials are correctly spaced, yet their amplitudes look a little bit different. That is because we have not changed the modulation amplitude. If we set $A_M=1600$ (twice the original value), we get the following sound.
 
@@ -240,8 +240,8 @@ You can hear that the octave-higher version has a similar timbre and the partial
 
 Here’s its spectrum.
 
-{% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/octave_higher_spectrum.png", "Amplitude spectrum of an FM sound" %}
-_Figure {% increment figureId20250301  %}. Amplitude spectrum of a sound generated with $f_C = 400 \text{ Hz}, f_M = 800 \text{ Hz},$  and $A_M = 1600$._
+{% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/octave_higher_spectrum.png", "Magnitude spectrum of an FM sound" %}
+_Figure {% increment figureId20250301  %}. Magnitude spectrum of a sound generated with $f_C = 400 \text{ Hz}, f_M = 800 \text{ Hz},$  and $A_M = 1600$._
 
 As you can hear, this last one sounds more like the original. As you can see, the partials’ structure is completely preserved, they are just spaced apart more because of the higher pitch.
 
@@ -384,21 +384,21 @@ $R_f = 1:2$
 {% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2025-03-01-fm-synthesis/c_1_m_2_f0_200.flac" %}
 
 {% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/c_1_m_2_f0_200_spectrum.png", "Plot of the amplitude spectrum of an FM sound generated with carrier to modulator frequency ratio equal to one to two" %}
-_Figure {% increment figureId20250301  %}. Amplitude spectrum of an FM sound with $c:m=1:2$._
+_Figure {% increment figureId20250301  %}. Magnitude spectrum of an FM sound with $c:m=1:2$._
 
 $R_f = 2:1$
 
 {% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2025-03-01-fm-synthesis/c_2_m_1_f0_200.flac" %}
 
 {% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/c_2_m_1_f0_200_spectrum.png", "Plot of the amplitude spectrum of an FM sound generated with carrier to modulator frequency ratio equal to two to one" %}
-_Figure {% increment figureId20250301  %}. Amplitude spectrum of an FM sound with $c:m=2:1$._
+_Figure {% increment figureId20250301  %}. Magnitude spectrum of an FM sound with $c:m=2:1$._
 
 $R_f = \sqrt{2}:1$
 
 {% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2025-03-01-fm-synthesis/c_1.41_m_1_f0_200.flac" %}
 
 {% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/c_1.41_m_1_f0_200_spectrum.png", "Plot of the amplitude spectrum of an FM sound generated with carrier to modulator frequency ratio equal to square root of two to one" %}
-_Figure {% increment figureId20250301  %}. Amplitude spectrum of an FM sound with $c:m=\sqrt{2}:1$._
+_Figure {% increment figureId20250301  %}. Magnitude spectrum of an FM sound with $c:m=\sqrt{2}:1$._
 
 As you could hear, as long as $N_1$ and $N_2$ are integer, the sound and the spectra are harmonic. However, as soon as $R_f$ becomes real but not rational (in our case $R_f$ became $\sqrt{2}$), then the sound becomes metallic and inharmonic like a detuned sawtooth.
 
@@ -417,7 +417,7 @@ Let's listen to an example with $R_f=10:9$.
 {% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2025-03-01-fm-synthesis/c_10_m_9_f0_200.flac" %}
 
 {% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/c_10_m_9_f0_200_spectrum.png", "Plot of the amplitude spectrum of an FM sound generated with carrier to modulator frequency ratio equal to ten to nine" %}
-_Figure {% increment figureId20250301  %}. Amplitude spectrum of an FM sound with $c:m=10:9$._
+_Figure {% increment figureId20250301  %}. Magnitude spectrum of an FM sound with $c:m=10:9$._
 
 Here, we can hear what happens when the small ratio requirement is neglected: although the ratio is rational, we have a sense of inhamonicity. The inhamonicity is caused by reflected partials: partials with negative frequencies that are being mirrored back onto the positive frequency axis. Thus, the sound is not as clearly harmonic as in the previous examples with rational $R_f$.
 
@@ -457,14 +457,14 @@ Specifically,
     {% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2025-03-01-fm-synthesis/c_5_m_1_f0_1000.flac" %}
     
     {% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/c_5_m_1_f0_1000_spectrum.png", "Plot of the amplitude spectrum of an FM sound when carrier-to-modulator frequency ratio is 5 to 1 and modulation index equal to 2" %}
-    _Figure {% increment figureId20250301  %}. Amplitude spectrum of an FM sound with $c:m=5:1$ and $I=2$._
+    _Figure {% increment figureId20250301  %}. Magnitude spectrum of an FM sound with $c:m=5:1$ and $I=2$._
     
 - If $N_2$ is even, the spectrum is odd, i.e., only odd partials are present. Example ($f_C=5000\text{ Hz}, f_M=2000 \text{ Hz}, I=2$):
     
     {% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2025-03-01-fm-synthesis/c_5_m_2_f0_1000.flac" %}
     
     {% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/c_5_m_2_f0_1000_spectrum.png", "Plot of the amplitude spectrum of an FM sound when carrier-to-modulator frequency ratio is 5 to 2 and modulation index equal to 2" %}
-    _Figure {% increment figureId20250301  %}. Amplitude spectrum of an FM sound with $c:m=5:2$ and $I=2$._
+    _Figure {% increment figureId20250301  %}. Magnitude spectrum of an FM sound with $c:m=5:2$ and $I=2$._
     
     Note the missing second, fourth, sixth, and eighth harmonics.
     
@@ -473,7 +473,7 @@ Specifically,
     {% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2025-03-01-fm-synthesis/c_5_m_3_f0_1000.flac" %}
     
     {% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/c_5_m_3_f0_1000_spectrum.png", "Plot of the amplitude spectrum of an FM sound when carrier-to-modulator frequency ratio is 5 to 3 and modulation index equal to 2" %}
-    _Figure {% increment figureId20250301  %}. Amplitude spectrum of an FM sound with $c:m=5:3$ and $I=2$._
+    _Figure {% increment figureId20250301  %}. Magnitude spectrum of an FM sound with $c:m=5:3$ and $I=2$._
     
 
 ### How to control the brightness of FM spectra?
@@ -499,7 +499,7 @@ Let’s set $I=1$. Here’s the resulting sound.
 And here’s its spectrum.
 
 {% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/c_5_m_1_f0_200_I_1_spectrum.png", "Plot of the amplitude spectrum of an FM sound generated with carrier frequency equal to 1000 Hz, modulator frequency equal to 200 Hz and modulation index equal to 1. The partials occupy an 800-hertz bandwidth." %}
-_Figure {% increment figureId20250301  %}. Amplitude spectrum of an FM sound where $f_C = 1000 \text{ Hz}$, $f_M = 200 \text{ Hz}$, and $I=1$._
+_Figure {% increment figureId20250301  %}. Magnitude spectrum of an FM sound where $f_C = 1000 \text{ Hz}$, $f_M = 200 \text{ Hz}$, and $I=1$._
 
 As you can see, its bandwidth is $BW_\text{FM} = 2 \cdot 200 \text{ Hz} \cdot (1 + 1) = 800 \text{ Hz}$. Although there are partials outside this range, they are not significant.
 
@@ -508,7 +508,7 @@ Here, $I=2$.
 {% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2025-03-01-fm-synthesis/c_5_m_1_f0_200_I_2.flac" %}
 
 {% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/c_5_m_1_f0_200_I_2_spectrum.png", "Plot of the amplitude spectrum of an FM sound generated with carrier frequency equal to 1000 Hz, modulator frequency equal to 200 Hz and modulation index equal to 2. The partials occupy an 1200-hertz bandwidth." %}
-_Figure {% increment figureId20250301  %}. Amplitude spectrum of an FM sound where $f_C = 1000 \text{ Hz}$, $f_M = 200 \text{ Hz}$, and $I=2$._
+_Figure {% increment figureId20250301  %}. Magnitude spectrum of an FM sound where $f_C = 1000 \text{ Hz}$, $f_M = 200 \text{ Hz}$, and $I=2$._
 
 As you can hear and see, the spectrum got wider and as a result, it sounds brighter.
 
@@ -517,14 +517,14 @@ Here, $I=3$.
 {% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2025-03-01-fm-synthesis/c_5_m_1_f0_200_I_3.flac" %}
 
 {% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/c_5_m_1_f0_200_I_3_spectrum.png", "Plot of the amplitude spectrum of an FM sound generated with carrier frequency equal to 1000 Hz, modulator frequency equal to 200 Hz and modulation index equal to 3. The partials occupy an 1600-hertz bandwidth." %}
-_Figure {% increment figureId20250301  %}. Amplitude spectrum of an FM sound where $f_C = 1000 \text{ Hz}$, $f_M = 200 \text{ Hz}$, and $I=3$._
+_Figure {% increment figureId20250301  %}. Magnitude spectrum of an FM sound where $f_C = 1000 \text{ Hz}$, $f_M = 200 \text{ Hz}$, and $I=3$._
 
 Here, $I=4$.
 
 {% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2025-03-01-fm-synthesis/c_5_m_1_f0_200_I_4.flac" %}
 
 {% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/c_5_m_1_f0_200_I_4_spectrum.png", "Plot of the amplitude spectrum of an FM sound generated with carrier frequency equal to 1000 Hz, modulator frequency equal to 200 Hz and modulation index equal to 4. The partials occupy an 2000-hertz bandwidth." %}
-_Figure {% increment figureId20250301  %}. Amplitude spectrum of an FM sound where $f_C = 1000 \text{ Hz}$, $f_M = 200 \text{ Hz}$, and $I=4$._
+_Figure {% increment figureId20250301  %}. Magnitude spectrum of an FM sound where $f_C = 1000 \text{ Hz}$, $f_M = 200 \text{ Hz}$, and $I=4$._
 
 As you can see, the spectrum got so wide that it expanded over to negative frequencies which means that these frequencies got reflected back and hence the spectrum is no longer symmetric. However, it is still harmonic because just the amplitudes of the partials changed after the reflection not their positions.
 
@@ -533,7 +533,7 @@ Here, $I=5$.
 {% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2025-03-01-fm-synthesis/c_5_m_1_f0_200_I_5.flac" %}
 
 {% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/c_5_m_1_f0_200_I_5_spectrum.png", "Plot of the amplitude spectrum of an FM sound generated with carrier frequency equal to 1000 Hz, modulator frequency equal to 200 Hz and modulation index equal to 5. The partials occupy an 2400-hertz bandwidth and are not symmetric in amplitude around the carrier because of wraparound of negative frequency components." %}
-_Figure {% increment figureId20250301  %}. Amplitude spectrum of an FM sound where $f_C = 1000 \text{ Hz}$, $f_M = 200 \text{ Hz}$, and $I=5$._
+_Figure {% increment figureId20250301  %}. Magnitude spectrum of an FM sound where $f_C = 1000 \text{ Hz}$, $f_M = 200 \text{ Hz}$, and $I=5$._
 
 This spectrum is clearly the brightest and it’s not symmetric. We could go even further than this but I’d leave it for your experimentation 🙂
 
