@@ -278,7 +278,7 @@ After raising the pitch by an octave, we had $A_M = 800$ and $f_M=800 \text{ Hz}
 
 The key takeaways are: 
 
-- use modulation index instead of the modulation amplitude to preserve partials’ amplitudes when changing pitch and
+- use modulation index instead of the modulation amplitude to preserve partials’ amplitudes when changing pitch, and
 - use constant carrier-to-modulator frequency ratio to preserve timbre.
 
 In other words: to preserve the timbre when changing pitch, keep the modulation index $I$ and the carrier-to-modulator frequency ratio $R_f$ fixed.
@@ -286,7 +286,7 @@ In other words: to preserve the timbre when changing pitch, keep the modulation 
 Now, our simple FM diagram looks as follows.
 
 {% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/SimpleFMInstrumentWithModulationIndex.png", "Simple FM instrument diagram that takes a modulation index as an input" %}
-_Figure {% increment figureId20250301  %}. Simple FM instrument with modulation index._
+_Figure {% increment figureId20250301  %}. Simple FM instrument with modulation index $I$._
 
 Again, a box with a sine symbol inside denotes an oscillator. The plus "+" in a circle denotes sample-wise signal summation. The asterisk "$\ast$" denotes sample-wise multiplication.
 
@@ -308,7 +308,13 @@ where
 - $I$ is the modulation index,
 - $f_M$ is the modulator frequency in Hz.
 
-Why do I say that we are “less mathematically strict”? Well, that’s because $s_\text{PM}(t)$ represents **phase modulation** (PM) not frequency modulation (FM). What’s the difference? That’s a great question. Most sources I’ve seen say that the difference between the two is not relevant [Pluta2019, Roads1996, Tolonen1998, DePoli1983] and point to two articles [Bate1990, Holm1992] that explain the difference. The answer that I found in [Holm1992] is that FM and PM are equivalent if the sampling rate is high enough. Then, the numerical integration used to implement the FM equation (Equation 10) approximates the continuous time integration accurately enough. On the other hand, inaccurate integration (when the sample rate is too small) results in diverging partials’ amplitudes between FM and PM.
+Why do I say that we are “less mathematically strict”? Well, that’s because $s_\text{PM}(t)$ represents **phase modulation** (PM) not frequency modulation (FM).
+
+What’s the difference? That’s a great question.
+
+Most sources I’ve seen say that the difference between the two is not relevant [Pluta2019, Roads1996, Tolonen1998, DePoli1983] and point to two articles [Bate1990, Holm1992] that explain the difference.
+
+The answer that I found in [Holm1992] is that FM and PM are equivalent if the sampling rate is high enough. Then, the numerical integration used to implement the FM equation (Equation 10) approximates the continuous time integration accurately enough. On the other hand, inaccurate integration (when the sample rate is too small) results in diverging partials’ amplitudes between FM and PM.
 
 Take a look at this example. Here, $f_C=200 \text{ Hz}, f_M = 400 \text{ Hz}$ and $I = \pi$.
 
@@ -346,14 +352,18 @@ PM at 22.05 kHz:
 
 To my ear, the FM sound has a more pronounced low-frequency partial.
 
-That’s in essence the difference between FM and PM: at high enough sampling rates, they are equivalent. The lower the sampling rates, the more their partials’ amplitudes differ. However, implementation-wise, it’s way easier to use PM and that’s what we’ll do for the remainder of this article.
+That’s in essence **the difference between FM and PM: at high enough sampling rates, they are equivalent.** The lower the sampling rate, the more their partials’ amplitudes differ.
 
 To drive this point home, let's take a look at time-domain plots of a carrier at 600 Hz, a modulator at 50 Hz, and the resulting FM and PM signals ($I = 10$).
 
 {% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/carrier_modulator_fm_pm_signal.png", "Plot of time-domain signals of a 600 hertz carrier, 50 hertz modulator and resulting FM and PM signals. FM and PM signals look identical." %}
 _Figure {% increment figureId20250301  %}. A 600-Hz carrier, a 50-Hz modulator and the resulting FM and PM signals. Modulation index equals 10._
 
-So, from now on, our go-to formula for frequency modulation will be the PM formula (Equation 11). This is the formula that we will analyze in the context of FM. So everywhere I write “FM” from now on will refer to PM.
+As you can guess from looking at Equations 10 and 11, implementation-wise, it’s way easier to use PM and that’s what we’ll do for the remainder of this article.
+
+So, from now on, our go-to formula for frequency modulation will be the PM formula (Equation 11). This is the formula that we will analyze in the context of FM. So everywhere I write “FM” from now on, I refer to PM.
+
+Just like synth manufacturers!
 
 ## How to control the timbre of FM?
 
@@ -363,7 +373,7 @@ To answer this, we must answer a different question first…
 
 ### When is FM spectrum harmonic?
 
-Harmonic spectra are obtained only if $R_f$ is rational, i.e., $R_f = \frac{N_1}{N_2}, N_1, N_2 \in \mathbb{Z}$ ($R_f$ is a ratio of integer numbers) [Pluta2019].
+**Harmonic spectra are obtained only if $R_f$ is rational**, i.e., $R_f = \frac{N_1}{N_2}, N_1, N_2 \in \mathbb{Z}$ ($R_f$ is a ratio of integer numbers) [Pluta2019].
 
 Let’s look at a few examples and listen to them. In all of them, $I=\pi$.
 
@@ -381,13 +391,6 @@ $R_f = 2:1$
 {% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/c_2_m_1_f0_200_spectrum.png", "Plot of the amplitude spectrum of an FM sound generated with carrier to modulator frequency ratio equal to two to one" %}
 _Figure {% increment figureId20250301  %}. Amplitude spectrum of an FM sound with $c:m=2:1$._
 
-$R_f = 10:9$
-
-{% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2025-03-01-fm-synthesis/c_10_m_9_f0_200.flac" %}
-
-{% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/c_10_m_9_f0_200_spectrum.png", "Plot of the amplitude spectrum of an FM sound generated with carrier to modulator frequency ratio equal to ten to nine" %}
-_Figure {% increment figureId20250301  %}. Amplitude spectrum of an FM sound with $c:m=10:9$._
-
 $R_f = \sqrt{2}:1$
 
 {% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2025-03-01-fm-synthesis/c_1.41_m_1_f0_200.flac" %}
@@ -395,17 +398,26 @@ $R_f = \sqrt{2}:1$
 {% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/c_1.41_m_1_f0_200_spectrum.png", "Plot of the amplitude spectrum of an FM sound generated with carrier to modulator frequency ratio equal to square root of two to one" %}
 _Figure {% increment figureId20250301  %}. Amplitude spectrum of an FM sound with $c:m=\sqrt{2}:1$._
 
-As you could hear, as long as $N_1$ and $N_2$ are integer, the sound and the spectra are harmonic. However, as soon as $R_f$ became real but not rational ($\sqrt{2}$), then the sound became metallic and inharmonic like a detuned sawtooth.
+As you could hear, as long as $N_1$ and $N_2$ are integer, the sound and the spectra are harmonic. However, as soon as $R_f$ becomes real but not rational (in our case $R_f$ became $\sqrt{2}$), then the sound becomes metallic and inharmonic like a detuned sawtooth.
 
-Even in an extreme case of $R_f = 100:99$, where we get the “beating” effect because of the inharmonic partials close to the harmonic ones, we still hear a harmonic sound.
-
-An example sound for $R_f = 100:99$:
+Let's listen to an extreme example of $R_f = 100:99$:
 
 {% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2025-03-01-fm-synthesis/c_1_m_0.99_f0_200_I_3.141592653589793.flac" %}
 
-Furthermore, the literature says that if we want to obtain a clearly audible pitch, $N_1$ and $N_2$ after dividing out common factors should be relatively small [Pluta2019]. You could hear an opposite effect in the $R_f=10:9$ example, where the ringing started to be strong enough to overshadow the pitch (but not completely).
+Even here, we still hear a harmonic sound. And that's despite the “beating” effect caused by inharmonic partials close to harmonic ones,
 
-Although the ratio is rational, the reflected partials (partials with negative frequencies that are being mirrored back onto the positive frequency axis) create a sensation of inhamonicity. Thus, the sound is not as clearly harmonic as in the previous examples with rational $R_f$.
+Apart from the rational ratio requirement, the literature says that **if we want to obtain a clearly audible pitch, $N_1$ and $N_2$ after dividing out common factors should be relatively small** [Pluta2019].
+
+What if they aren't small?
+
+Let's listen to an example with $R_f=10:9$.
+
+{% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2025-03-01-fm-synthesis/c_10_m_9_f0_200.flac" %}
+
+{% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/c_10_m_9_f0_200_spectrum.png", "Plot of the amplitude spectrum of an FM sound generated with carrier to modulator frequency ratio equal to ten to nine" %}
+_Figure {% increment figureId20250301  %}. Amplitude spectrum of an FM sound with $c:m=10:9$._
+
+Here, we can hear what happens when the small ratio requirement is neglected: although the ratio is rational, we have a sense of inhamonicity. The inhamonicity is caused by reflected partials: partials with negative frequencies that are being mirrored back onto the positive frequency axis. Thus, the sound is not as clearly harmonic as in the previous examples with rational $R_f$.
 
 Key takeaway: if you want your FM sound to be harmonic, keep the carrier frequency to modulator frequency ratio rational and relatively small in numerator and denominator.
 
