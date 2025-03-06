@@ -34,12 +34,10 @@ How does it work? How to control it to produce musical notes? Why was it so popu
 8. [How to control the timbre of FM?](#how-to-control-the-timbre-of-fm)
    1. [When is FM spectrum harmonic?](#when-is-fm-spectrum-harmonic)
    2. [What’s the fundamental frequency (the pitch) in FM?](#whats-the-fundamental-frequency-the-pitch-in-fm)
-   3. [How to eliminate every $N\_2$-th harmonic?](#how-to-eliminate-every-n_2-th-harmonic)
+   3. [How to eliminate every $N\_2$-th harmonic?](#how-to-eliminate-every-th-harmonic)
    4. [How to control the brightness of FM spectra?](#how-to-control-the-brightness-of-fm-spectra)
    5. [FM Efficiency](#fm-efficiency)
    6. [How to control the partials’ amplitudes? Bessel functions](#how-to-control-the-partials-amplitudes-bessel-functions)
-9. [Presenting FM algorithm visually](#presenting-fm-algorithm-visually)
-10. [Example FM sounds](#example-fm-sounds)
 11. [Extensions of simple FM](#extensions-of-simple-fm)
 12. [Summary](#summary)
 
@@ -418,7 +416,7 @@ That’s how I generated the above harmonic and inharmonic examples: by setting 
 
 ### How to eliminate every $N_2$-th harmonic?
 
-The frequency ratio $R_f$ not only allows us to fix the timbre and steer the pitch but also to eliminate the desired partials [Chowning1973, Pluta2019].
+The carrier-to-modulator frequency ratio $R_f=\frac{N_1}{N_2}, N_1,N_2 \in \mathbb{Z}$ not only allows us to fix the timbre and steer the pitch but also to eliminate the desired partials [Chowning1973, Pluta2019].
 
 Specifically,
 
@@ -426,15 +424,15 @@ Specifically,
     
     {% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2025-03-01-fm-synthesis/c_5_m_1_f0_1000.flac" %}
     
-    {% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/c_5_m_1_f0_1000_spectrum.png", "c_5_m_1_f0_1000_spectrum.png" %}
-    _Figure {% increment figureId20250301  %}._
+    {% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/c_5_m_1_f0_1000_spectrum.png", "Plot of the amplitude spectrum of an FM sound when carrier-to-modulator frequency ratio is 5 to 1 and modulation index equal to 2" %}
+    _Figure {% increment figureId20250301  %}. Amplitude spectrum of an FM sound with $c:m=5:1$ and $I=2$._
     
 - If $N_2$ is even, the spectrum is odd, i.e., only odd partials are present. Example ($f_C=5000\text{ Hz}, f_M=2000 \text{ Hz}, I=2$):
     
     {% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2025-03-01-fm-synthesis/c_5_m_2_f0_1000.flac" %}
     
-    {% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/c_5_m_2_f0_1000_spectrum.png", "c_5_m_2_f0_1000_spectrum.png" %}
-    _Figure {% increment figureId20250301  %}._
+    {% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/c_5_m_2_f0_1000_spectrum.png", "Plot of the amplitude spectrum of an FM sound when carrier-to-modulator frequency ratio is 5 to 2 and modulation index equal to 2" %}
+    _Figure {% increment figureId20250301  %}. Amplitude spectrum of an FM sound with $c:m=5:2$ and $I=2$._
     
     Note the missing second, fourth, sixth, and eighth harmonics.
     
@@ -442,8 +440,8 @@ Specifically,
     
     {% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2025-03-01-fm-synthesis/c_5_m_3_f0_1000.flac" %}
     
-    {% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/c_5_m_3_f0_1000_spectrum.png", "c_5_m_3_f0_1000_spectrum.png" %}
-    _Figure {% increment figureId20250301  %}._
+    {% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/c_5_m_3_f0_1000_spectrum.png", "Plot of the amplitude spectrum of an FM sound when carrier-to-modulator frequency ratio is 5 to 3 and modulation index equal to 2" %}
+    _Figure {% increment figureId20250301  %}. Amplitude spectrum of an FM sound with $c:m=5:3$ and $I=2$._
     
 
 ### How to control the brightness of FM spectra?
