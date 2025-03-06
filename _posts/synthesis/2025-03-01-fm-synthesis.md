@@ -159,6 +159,8 @@ Here is the diagram of a simple FM instrument [Pluta2019, Dodge1997].
 {% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/SimpleFMInstrument.png", "Simple FM instrument diagram with 2 oscillators: one modulator and one carrier." %}
 _Figure {% increment figureId20250301  %}. Simple FM instrument._
 
+Each box with a sine symbol inside is an oscillator. The plus "+" in a circle denotes sample-wise signal summation.
+
 ## Simple FM Spectrum
 
 Although the spectrum of FM synthesis is quite complex, its structure is very straightforward. The partials are centered around the carrier frequency $f_C$ and spaced by the modulator frequency $f_M$.
@@ -285,6 +287,8 @@ Now, our simple FM diagram looks as follows.
 
 {% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/SimpleFMInstrumentWithModulationIndex.png", "Simple FM instrument diagram that takes a modulation index as an input" %}
 _Figure {% increment figureId20250301  %}. Simple FM instrument with modulation index._
+
+Again, a box with a sine symbol inside denotes an oscillator. The plus "+" in a circle denotes sample-wise signal summation. The asterisk "$\ast$" denotes sample-wise multiplication.
 
 ## Phase Modulation
 
