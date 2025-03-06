@@ -391,19 +391,25 @@ $R_f = \sqrt{2}:1$
 {% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/c_1.41_m_1_f0_200_spectrum.png", "Plot of the amplitude spectrum of an FM sound generated with carrier to modulator frequency ratio equal to square root of two to one" %}
 _Figure {% increment figureId20250301  %}. Amplitude spectrum of an FM sound with $c:m=\sqrt{2}:1$._
 
-As you could hear, as long as $N_1$ and $N_2$ are integer, the sound and the spectra are harmonic. Even in the extreme case of $R_f = 100:99$, we get the “beating” effect because of the inharmonic partials close to the harmonic ones but this still sounds harmonic. However, as soon as $R_f$ became real but not rational ($\sqrt{2}$), then the sound became metallic and inharmonic like a detuned sawtooth.
+As you could hear, as long as $N_1$ and $N_2$ are integer, the sound and the spectra are harmonic. However, as soon as $R_f$ became real but not rational ($\sqrt{2}$), then the sound became metallic and inharmonic like a detuned sawtooth.
+
+Even in an extreme case of $R_f = 100:99$, where we get the “beating” effect because of the inharmonic partials close to the harmonic ones, we still hear a harmonic sound.
+
+An example sound for $R_f = 100:99$:
+
+{% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2025-03-01-fm-synthesis/c_1_m_0.99_f0_200_I_3.141592653589793.flac" %}
 
 Furthermore, the literature says that if we want to obtain a clearly audible pitch, $N_1$ and $N_2$ after dividing out common factors should be relatively small [Pluta2019]. You could hear an opposite effect in the $R_f=10:9$ example, where the ringing started to be strong enough to overshadow the pitch (but not completely).
 
-Although the ratio is rational, the reflected partials (partials with negative frequencies that are being mirrored back onto the positive frequency axis) create the sensation of inhamonicity. Thus, the sound is not as clearly harmonic as in the previous examples with rational $R_f$.
+Although the ratio is rational, the reflected partials (partials with negative frequencies that are being mirrored back onto the positive frequency axis) create a sensation of inhamonicity. Thus, the sound is not as clearly harmonic as in the previous examples with rational $R_f$.
 
-Key takeaway: if you want you FM sound to be harmonic keep the carrier frequency to modulator frequency ratio rational and relatively small in numerator and denominator.
+Key takeaway: if you want your FM sound to be harmonic, keep the carrier frequency to modulator frequency ratio rational and relatively small in numerator and denominator.
 
 ### What’s the fundamental frequency (the pitch) in FM?
 
 The **fundamental frequency** is the difference between the harmonic partials’ frequencies and is typically the lowest harmonic partial. The **pitch** is the sensation of the perceived height of a sound and is most often associated with the fundamental frequency. In the following, I use the two interchangeably.
 
-In FM, if the ratio of the carrier frequency to the modulator frequency is rational, i.e., $\frac{f_C}{f_M} = R_f = \frac{N_1}{N_2}, N_1, N_2 \in \mathbb{Z}$, then the fundamental frequency can be computed as [Pluta2019]
+In FM, if the ratio of the carrier frequency to the modulator frequency is rational, i.e., $\frac{f_C}{f_M} = R_f = \frac{N_1}{N_2}, N_1, N_2 \in \mathbb{Z}$, then the fundamental frequency $f_0$ can be computed as [Pluta2019]
 
 $$
 \begin{equation}
@@ -424,7 +430,7 @@ That’s how I generated the above harmonic and inharmonic examples: by setting 
 
 ### How to eliminate every $N_2$-th harmonic?
 
-The carrier-to-modulator frequency ratio $R_f=\frac{N_1}{N_2}, N_1,N_2 \in \mathbb{Z}$ not only allows us to fix the timbre and steer the pitch but also to eliminate the desired partials [Chowning1973, Pluta2019].
+The carrier-to-modulator frequency ratio $R_f=\frac{N_1}{N_2}, N_1,N_2 \in \mathbb{Z}$ not only allows us to fix the timbre and steer the pitch but also to eliminate partials [Chowning1973, Pluta2019].
 
 Specifically,
 
@@ -454,7 +460,7 @@ Specifically,
 
 ### How to control the brightness of FM spectra?
 
-The brightness of a sound is typically associated with the presence of high frequencies. In FM synthesis, we can control the center of the sound’s spectrum with the carrier frequency, the spacing of the partials with the modulator frequency, and the bandwidth of the spectrum with the modulation frequency and the modulation index. If we want to change the bandwidth of the spectrum (resulting in a change in brightness) without changing the pitch, we can simply alter the modulation index.
+The brightness of a sound is typically associated with the presence of high frequencies. In FM synthesis, we can control the center of the sound’s spectrum with the carrier frequency, the spacing of the partials with the modulator frequency, and the bandwidth of the spectrum with the modulation frequency and the modulation index. If we want to change the bandwidth of the spectrum (resulting in a brightness change) without changing the pitch, we can simply alter the modulation index.
 
 Specifically, John Chowning computed the bandwidth of a simple FM sound as [Chowning1973]
 
@@ -464,7 +470,7 @@ BW_\text{FM} \approx 2 f_M(I + 1),
 \end{equation}
 $$
 
-where $f_M$ is the modulation frequency in Hz and $I$ is the modulation index. Here, the bandwidth means a frequency range in Hz that encompasses not all but the most significant partials.
+where $f_M$ is the modulation frequency in Hz and $I$ is the modulation index. Here, the bandwidth means a frequency range in Hz that encompasses the most significant partials (but not all of the partials).
 
 Let’s look at some examples using $f_C = 1000 \text{ Hz}$ and $f_M = 200 \text{ Hz}.$
 
@@ -477,7 +483,7 @@ And here’s its spectrum.
 {% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/c_5_m_1_f0_200_I_1_spectrum.png", "Plot of the amplitude spectrum of an FM sound generated with carrier frequency equal to 1000 Hz, modulator frequency equal to 200 Hz and modulation index equal to 1. The partials occupy an 800-hertz bandwidth." %}
 _Figure {% increment figureId20250301  %}. Amplitude spectrum of an FM sound where $f_C = 1000 \text{ Hz}$, $f_M = 200 \text{ Hz}$, and $I=1$._
 
-As you can see, its bandwidth is $BW_\text{FM} = 2 \cdot 200 \text{ Hz} \cdot (1 + 1) = 800 \text{ Hz}$. Although there are partials outside of this range, they are not significant.
+As you can see, its bandwidth is $BW_\text{FM} = 2 \cdot 200 \text{ Hz} \cdot (1 + 1) = 800 \text{ Hz}$. Although there are partials outside this range, they are not significant.
 
 Here, $I=2$.
 
@@ -502,7 +508,7 @@ Here, $I=4$.
 {% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/c_5_m_1_f0_200_I_4_spectrum.png", "Plot of the amplitude spectrum of an FM sound generated with carrier frequency equal to 1000 Hz, modulator frequency equal to 200 Hz and modulation index equal to 4. The partials occupy an 2000-hertz bandwidth." %}
 _Figure {% increment figureId20250301  %}. Amplitude spectrum of an FM sound where $f_C = 1000 \text{ Hz}$, $f_M = 200 \text{ Hz}$, and $I=4$._
 
-As you can see, the spectrum got so wide that it expanded over to negative frequencies which means that these frequencies got reflected back and hence the spectrum is no longer symmetric. However, it is still harmonic because just the amplitudes of the partials changed after reflection not their positions.
+As you can see, the spectrum got so wide that it expanded over to negative frequencies which means that these frequencies got reflected back and hence the spectrum is no longer symmetric. However, it is still harmonic because just the amplitudes of the partials changed after the reflection not their positions.
 
 Here, $I=5$.
 
@@ -515,26 +521,26 @@ This spectrum is clearly the brightest and it’s not symmetric. We could go eve
 
 ### FM Efficiency
 
-At this point, I would like to point out how efficient in generating rich sounds FM is. With just two table lookups (to get the value of the sine) we are able to generate quite elaborate spectra. With a few simple controls, we are able to change it in a significant but meaningful way. This low computational effort paired with powerful sonics was the reason why FM was one of the first synthesis techniques (if not the first) to be successfully implemented with digital electronics. In the 1980s, the chips were too weak to efficiently implement additive or subtractive synthesis.
+At this point, I would like to point out how efficient in generating rich sounds FM is. With just two table lookups (to get the values of the carrier and the modulator) we are able to generate quite elaborate spectra. With a few simple controls, we are able to change it in a significant but meaningful way. This low computational effort paired with powerful sonics was the reason why FM was one of the first synthesis techniques (if not the first) to be successfully implemented with digital electronics. In the 1980s, the chips were too weak to efficiently implement the alternatives like additive or subtractive synthesis.
 
 If you want to learn how to efficiently generate a sine (or any waveform for that matter) using table lookup, [check out my wavetable synthesis tutorial]({% post_url collections.posts, "2021-08-13-wavetable-synthesis-theory" %})!
 
 ### How to control the partials’ amplitudes? Bessel functions
 
-In the examples so far, we could see that the FM spectrum definitely has some pattern to it. Can we accurately predict what the partials’ amplitudes will be given the parameters?
+In the examples so far, we could see that the FM spectrum definitely has some pattern to it. Can we accurately predict what the partials’ amplitudes will be for given parameters?
 
 It turns out that we can. As the literature reports [Chowning1973, DePoli1983, Pluta2019], we can write out the PM equation (Equation 11) as
 
 $$
 \begin{equation}
-s_\text{PM} (t) = \sum \limits_{k=-\infty}^{\infty} J_k(I)\sin|2 \pi ((f_C + k f_M)t)|,
+s_\text{PM} (t) = \sum \limits_{k=-\infty}^{\infty} J_k(I)\sin|2 \pi (f_C + k f_M)t|,
 \end{equation}
 $$
 
 where
 
-- $\sum$ is the sum operator; in the above equation, it is an infinite sum where each summand corresponds to one integer value given to $k$; here, each value of $k$ corresponds to one partial,
-- $J_k(I)$ are the Bessel function of the first kind of order $k$ whose argument is the modulation index $I$,
+- $\sum$ is the sum operator; in the above equation, it is an infinite sum where each summand corresponds to one integer value assigned to $k$; here, each value of $k$ corresponds to one partial,
+- $J_k(I)$ is a Bessel function of the first kind of order $k$ whose argument is the modulation index $I$,
 - $|\cdot|$ denotes the absolute value,
 - $f_C$ is the carrier frequency in Hz,
 - $f_M$ is the modulator frequency in Hz,
@@ -542,26 +548,28 @@ where
 
 Bessel functions are a very important concept in mathematics. They appear in the solution of the wave equation: the basic equation of acoustics.
 
-Here’s how the Bessel functions of the first kind look for orders from 0 to 3.
+Here’s how Bessel functions of the first kind look for orders from 0 to 3.
 
 {% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/bessel_functions_first_kind.png", "Plot of Bessel functions of the first kind for orders 0 to 3. Their maxima do not exceed 1 and they are very similar to sines." %}
-_Figure {% increment figureId20250301  %}. Bessel functions of the first kind with orders 0 to 3. The argument $I$ can be the modulation index._
+_Figure {% increment figureId20250301  %}. Bessel functions of the first kind with orders 0 to 3. In FM synthesis, the argument $I$ represents the modulation index._
 
-These are sine-like functions that are getting damped the higher the absolute value of the argument. You can also observe that Bessel functions of even orders are even (symmetrical with respect to the $y$-axis) and Bessel functions of odd orders are odd (symmetrical with respect to the origin of the $xy$-plane).
+These are sine-like functions that decrease in amplitude the higher the absolute value of the argument. You can also observe that Bessel functions of even orders are even (symmetrical with respect to the $y$-axis) and Bessel functions of odd orders are odd (symmetrical with respect to the origin of the $xy$-plane).
 
-What is more important, Bessel functions cross the value of 0 for many values of the argument $I$. It means that with for some modulation index values, some partials will have amplitude 0. As you remember, when we increase the modulation index, the spectrum gets wider but some partials may temporarily disappear.
+What is more important, Bessel functions cross the value of 0 for many values of the argument $I$. It means that at particular values of the modulation index, some partials will have amplitude 0. As you remember, when we increase the modulation index, the spectrum gets wider but some partials may temporarily disappear.
 
-It’s hard to get a feeling for the meaning of the partials’ amplitudes equation (Equation 16) without any visuals. Thus, here you can see a plot of how the spectrum changes if we vary the modulation index $I$ value in the $[0, 20]$ range [Pluta2019].
+It’s hard to get a feeling for the meaning of the partials’ amplitudes equation (Equation 16) without any visuals. Thus, here you can see a plot of how the spectrum changes if we vary the modulation index $I$ in the $[0, 20]$ range [Pluta2019].
 
 {% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/partials_amplitudes_in_3d.png", "A 3D visualization of the modulation index's influence on FM spectrum. The larger the modulation index the wider the spectrum. A single partial's magnitude follows a Bessel function of the first kind corresponding to its index" %}
 _Figure {% increment figureId20250301  %}. FM partials' amplitudes for various values of the modulation index. For a particular value of $I$, partials' amplitudes are represented by the cross-section of the plot along the partial index axis. After [Pluta2019]._
 
 How to read this plot? Say you want to see how the spectrum will look for a particular value of $I$, for example, 10. Then, find 10 on the $I$ axis on the right and mentally cross-sect the 3-dimensional spectrum along the partials’ axis. This cross-section is your sound’s magnitude spectrum at the modulation index 10.
 
+You can see what I mean on the figure below.
+
 {% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/partials_amplitudes_in_3d_for_specific_modulation_index.png", "A cross-section of the 3D visualization of FM synthesis partials' amplitudes corresponding to the modulation index value of 10." %}
 _Figure {% increment figureId20250301  %}. FM partials' amplitudes if the modulation index equals 10._
 
-The above plot gives you the full insight into the spectrum of FM sounds. You can go back to this plot over and over again to discover more and more properties of the FM spectrum. As you can see, it is completely frequency-independent; for each fundamental frequency, the partials behave identically. Of course, this plot does not take reflected frequencies into account but you can visualize them yourself 😉
+The 3D Bessel functions plot (Figure 24) gives you the full insight into the spectrum of FM sounds. You can go back to this plot over and over again to discover more and more properties of the FM spectrum. As you can see, it is completely frequency-independent; for each fundamental frequency, the partials behave identically. Of course, this plot does not take reflected frequencies into account but you can visualize them yourself 😉
 
 ## Extensions of simple FM
 
