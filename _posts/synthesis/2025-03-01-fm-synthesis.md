@@ -285,7 +285,7 @@ _Figure {% increment figureId20250301  %}. Simple FM instrument with modulation 
 
 ## Phase Modulation
 
-Since we’ve just revisited the simple FM equation (Equation 9), let’s do one more adjustment to it. If we are less mathematically strict and we attempt to solve the integral in the carrier oscillator’s phase, we obtain the following FM equation [Pluta2019, Tolonen1998]
+Since we’ve just revisited the simple FM equation (Equation 10), let’s do one more adjustment to it. If we are less mathematically strict and we attempt to solve the integral in the carrier oscillator’s phase, we obtain the following FM equation [Pluta2019, Tolonen1998]
 
 $$
 \begin{equation}
@@ -301,7 +301,7 @@ where
 - $I$ is the modulation index,
 - $f_M$ is the modulator frequency in Hz.
 
-Why do I say that we are “less mathematically strict”? Well, that’s because $s_\text{PM}(t)$ represents **phase modulation** (PM) not frequency modulation (FM). What’s the difference? That’s a great question. Most sources I’ve seen say that the difference between the two is not relevant [Pluta2019, Roads1996, Tolonen1998, DePoli1983] and point to two articles [Bate1990, Holm1992] that explain the difference. The answer that I found in [Holm1992] is that FM and PM are equivalent if the sampling rate is high enough. Then, the numerical integration used to implement the FM equation (Equation 5) approximates the continuous time integration accurately enough. On the other hand, inaccurate integration (when the sample rate is too small) results in diverging partials’ amplitudes between FM and PM.
+Why do I say that we are “less mathematically strict”? Well, that’s because $s_\text{PM}(t)$ represents **phase modulation** (PM) not frequency modulation (FM). What’s the difference? That’s a great question. Most sources I’ve seen say that the difference between the two is not relevant [Pluta2019, Roads1996, Tolonen1998, DePoli1983] and point to two articles [Bate1990, Holm1992] that explain the difference. The answer that I found in [Holm1992] is that FM and PM are equivalent if the sampling rate is high enough. Then, the numerical integration used to implement the FM equation (Equation 10) approximates the continuous time integration accurately enough. On the other hand, inaccurate integration (when the sample rate is too small) results in diverging partials’ amplitudes between FM and PM.
 
 Take a look at this example. Here, $f_C=200 \text{ Hz}, f_M = 400 \text{ Hz}$ and $I = \pi$.
 
@@ -346,7 +346,7 @@ To drive this point home, let's take a look at time-domain plots of a carrier at
 {% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/carrier_modulator_fm_pm_signal.png", "Plot of time-domain signals of a 600 hertz carrier, 200 hertz modulator and resulting FM and PM signals. FM and PM signals look identical." %}
 _Figure {% increment figureId20250301  %}. A 600-Hz carrier, a 200-Hz modulator and the resulting FM and PM signals. Modulation index equals 10._
 
-So, from now on, our go-to formula for frequency modulation will be the PM formula (Equation 10). This is the formula that we will analyze in the context of FM. So everywhere I write “FM” from now on will refer to PM.
+So, from now on, our go-to formula for frequency modulation will be the PM formula (Equation 11). This is the formula that we will analyze in the context of FM. So everywhere I write “FM” from now on will refer to PM.
 
 ## How to control the timbre of FM?
 
@@ -520,7 +520,7 @@ If you want to learn how to efficiently generate a sine (or any waveform for tha
 
 In the examples so far, we could see that the FM spectrum definitely has some pattern to it. Can we accurately predict what the partials’ amplitudes will be given the parameters?
 
-It turns out that we can. As the literature reports [Chowning1973, DePoli1983, Pluta2019], we can write out the PM equation (Equation 10) as
+It turns out that we can. As the literature reports [Chowning1973, DePoli1983, Pluta2019], we can write out the PM equation (Equation 11) as
 
 $$
 \begin{equation}
@@ -548,7 +548,7 @@ These are sine-like functions that are getting damped the higher the absolute va
 
 What is more important, Bessel functions cross the value of 0 for many values of the argument $I$. It means that with for some modulation index values, some partials will have amplitude 0. As you remember, when we increase the modulation index, the spectrum gets wider but some partials may temporarily disappear.
 
-It’s hard to get a feeling for the meaning of the partials’ amplitudes equation (Equation 15) without any visuals. Thus, here you can see a plot of how the spectrum changes if we vary the modulation index $I$ value in the $[0, 20]$ range [Pluta2019].
+It’s hard to get a feeling for the meaning of the partials’ amplitudes equation (Equation 16) without any visuals. Thus, here you can see a plot of how the spectrum changes if we vary the modulation index $I$ value in the $[0, 20]$ range [Pluta2019].
 
 {% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/partials_amplitudes_in_3d.png", "A 3D visualization of the modulation index's influence on FM spectrum. The larger the modulation index the wider the spectrum. A single partial's magnitude follows a Bessel function of the first kind corresponding to its index" %}
 _Figure {% increment figureId20250301  %}. FM partials' amplitudes for various values of the modulation index. For a particular value of $I$, partials' amplitudes are represented by the cross-section of the plot along the partial index axis. After [Pluta2019]._
