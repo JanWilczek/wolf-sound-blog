@@ -558,22 +558,22 @@ _Figure {% increment figureId20250301  %}. FM partials' amplitudes for various v
 
 How to read this plot? Say you want to see how the spectrum will look for a particular value of $I$, for example, 10. Then, find 10 on the $I$ axis on the right and mentally cross-sect the 3-dimensional spectrum along the partials’ axis. This cross-section is your sound’s magnitude spectrum at the modulation index 10.
 
-The above plot gives you the full insight into the spectrum of FM sounds. You can go back to it over and over again to discover more and more properties of this spectrum. As you can see, it is completely frequency-independent; for each fundamental frequency, the partials behave identically. Of course, this plot does not take reflected frequencies into account but you can visualize them yourself 😉
+The above plot gives you the full insight into the spectrum of FM sounds. You can go back to this plot over and over again to discover more and more properties of the FM spectrum. As you can see, it is completely frequency-independent; for each fundamental frequency, the partials behave identically. Of course, this plot does not take reflected frequencies into account but you can visualize them yourself 😉
 
 ## Extensions of simple FM
 
-What we have discussed so far is the “simple FM”, i.e., we have one sine carrier and one sine modulator.
+What we have discussed so far is “simple FM”, i.e., we have one sine carrier and one sine modulator.
 
 Simple FM can be extended in various ways to create even more complex sounds [Pluta2019]:
 
 1. We can add feedback, where the output of an FM instrument modulates the modulator. We can do this for any setup of carriers and modulators but the most popular approaches use one, two, or three oscillators within the feedback loop.
 2. We can add multiple carriers modulated by the same oscillator. This is called multiple-carrier FM (MCFM). It can be used to create formants in the sound spectrum.
-3. We can have non-sine carriers or modulators. However, non sinusoid modulators can result in very dense spectra quite quickly, so we should be careful when using harmonically rich modulators [Dodge1997].
+3. We can have non-sine carriers or modulators. However, non sinusoid modulators can result in very dense spectra, so we should be careful when using harmonically rich modulators [Dodge1997].
 4. We can add multiple modulators, parallel or serial, that modulate one carrier. This is called multiple-modulator FM (MMFM). This technique increases the number of partials in the output spectrum. Again, multiple non-sine modulators make little sense because the spectrum gets too dense [Dodge1997].
-5. We can use oscillators with exponential control which emulates analog gear. This is called exponential FM. This approach is used in Virtual Analog applications.
-6. We can combine two or more FM algorithms in parallel or in serial. However, this may get very complicated to control very quickly.
-7. We can add envelope generators (EGs) to control various FM parameters. For example, an envelope generator on a modulation index can create a very naturally sounding effect of a brighter timbre after the initial transient that gets darker and darker the longer the sound is played (or a key is held).
-8. Phase distortion (PD) synthesis is another spin on phase modulation. In this technique, the modulator’s frequency is fixed to be either the same as the carrier or to be a multiplicity of the carrier frequency. Moreover, various modulator waveforms are used, for example, a triangle waveform. A picture sometimes says a thousand words, so [here’s a very short but very good explanation of phase distortion synthesis](https://electricdruid.net/phase-distortion-synthesis/) (accessed February 10, 2024). [Oli Larkin, whom I interviewed in the episode 15 of the WolfTalk podcast]({% post_url collections.posts, '2023-11-09-oliver-larkin' %}), is well known for his implementations of Casio’s phase distortion emulations.
+5. We can use oscillators with exponential control which emulates analog gear. This is called exponential FM. Exponential FM is used in Virtual Analog applications.
+6. We can combine two or more FM instruments in parallel or in serial. However, this may quickly get too complicated to control.
+7. We can add [envelope generators (EGs)]({% post_url collections.posts, "2022-07-03-envelopes" %}) to control various FM parameters. For example, an envelope generator controlling the modulation index can create a naturally sounding effect of timbre brightening with the initial transient. An EG-controlled timber gets darker and darker the longer the sound is played (or a keyboard key is held).
+8. Phase distortion (PD) synthesis is another take on phase modulation. In this technique, the modulator frequency is equal to the carrier frequency or to its multiplicity. Moreover, various modulator waveforms are used, for example, a triangle waveform. A picture sometimes says a thousand words, so [here’s a very short but very good explanation of phase distortion synthesis](https://electricdruid.net/phase-distortion-synthesis/) (accessed February 10, 2024). [Oli Larkin, whom I interviewed in the 15th episode of the WolfTalk podcast]({% post_url collections.posts, '2023-11-09-oliver-larkin' %}), is well known for his implementations of Casio’s phase distortion emulations.
 
 The discussion of all these extensions is beyond the scope of this already quite long article. Should they be discussed in more detail in future articles? Let me know in the comments!
 
@@ -581,13 +581,13 @@ The discussion of all these extensions is beyond the scope of this already quite
 
 In this comprehensive article, you’ve learned about the frequency modulation (FM) and phase modulation (PM) synthesis. You’ve learned how these two are different, how their spectra look and how to control these spectra.
 
-You’ve also learned what are Bessel functions and how the partials in FM synthesis follow the Bessel functions in their amplitude with increasing modulation index.
+You’ve also learned what are Bessel functions and how the partials' amplitudes in FM synthesis follow Bessel functions with increasing modulation index.
 
 You’ve learned what is the modulation index and how to use it to control the bandwidth of FM spectra.
 
 Finally, we have mentioned various extensions to the simple FM technique.
 
-In the future articles, we will look into how to implement the PM synthesis technique using various programming languages. So look out for those!
+In future articles, we will look into how to implement the PM synthesis technique using various programming languages. So look out for those!
 
 If you want to become an audio developer today, check out my [free Audio Developer Checklist]({% link collections.all, 'checklist.html' %}). It lists every bit and piece of knowledge I believe is necessary to become a full-fledged audio programmer and be able to create software synths, for example, with FM synthesis.
 
