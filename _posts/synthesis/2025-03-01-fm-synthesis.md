@@ -507,9 +507,9 @@ This spectrum is clearly the brightest and it’s not symmetric. We could go eve
 
 ### FM Efficiency
 
-At this point, I would like to point out how efficient in generating rich sounds FM is. With just two table lookups (to get the value of the sine) we are able to generate quite elaborate spectra. With a few simple controls, we are able to change it in a significant but meaningful way. This low computational effort paired with powerful sonics was why FM was one of the first synthesis techniques (if not the first) to be successfully implemented with digital electronics.
+At this point, I would like to point out how efficient in generating rich sounds FM is. With just two table lookups (to get the value of the sine) we are able to generate quite elaborate spectra. With a few simple controls, we are able to change it in a significant but meaningful way. This low computational effort paired with powerful sonics was the reason why FM was one of the first synthesis techniques (if not the first) to be successfully implemented with digital electronics. In the 1980s, the chips were too weak to efficiently implement additive or subtractive synthesis.
 
-TODO: Add link to wavetable synthesis article
+If you want to learn how to efficiently generate a sine (or any waveform for that matter) using table lookup, [check out my wavetable synthesis tutorial]({% post_url collections.posts, "2021-08-13-wavetable-synthesis-theory" %})!
 
 ### How to control the partials’ amplitudes? Bessel functions
 
