@@ -155,8 +155,8 @@ FM variants are most often explained on the basis of diagrams. The diagrams can 
 
 Here is the diagram of a simple FM instrument [Pluta2019, Dodge1997].
 
-{% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/SimpleFMInstrument.png", "Simple FM instrument (algorithm)" %}
-_Figure {% increment figureId20250301  %}._
+{% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/SimpleFMInstrument.png", "Simple FM instrument diagram with 2 oscillators: one modulator and one carrier." %}
+_Figure {% increment figureId20250301  %}. Simple FM instrument._
 
 ## Simple FM Spectrum
 
@@ -164,8 +164,8 @@ Although the spectrum of FM synthesis is quite complex, its structure is very st
 
 You can see exactly how it looks in the frequency domain in this figure.
 
-{% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/simple_fm_spectrum.png", "Simple FM spectrum" %}
-_Figure {% increment figureId20250301  %}._
+{% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/simple_fm_spectrum.png", "Plot of amplitude spectrum of an FM sound with partials spaced around the carrier frequency by the modulator frequency." %}
+_Figure {% increment figureId20250301  %}. Amplitude spectrum of a sound generated from the simple FM instrument._
 
 In the middle, there is the carrier frequency and on its sides are the **sidebands**.
 
@@ -207,10 +207,10 @@ Here’s a sound generated with $f_C = 200 \text{ Hz}, f_M = 400 \text{ Hz},$  a
 
 {% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2025-03-01-fm-synthesis/basic_signal.flac" %}
 
-Here’s its spectrum
+Here’s its spectrum.
 
-{% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/basic_signal_spectrum.png", "basic_signal_spectrum.png" %}
-_Figure {% increment figureId20250301  %}._
+{% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/basic_signal_spectrum.png", "Amplitude spectrum of an FM sound" %}
+_Figure {% increment figureId20250301  %}. Amplitude spectrum of a sound generated with $f_C = 200 \text{ Hz}, f_M = 400 \text{ Hz},$  and $A_M = 800$._
 
 Let’s now generate a sound that’s twice higher in pitch but has similar timbre. According the frequency ratio (Equation 7),
 
@@ -228,8 +228,8 @@ Here’s the resulting sound generated with $f_C = 400 \text{ Hz}, f_M = 800 \te
 
 And here’s its spectrum.
 
-{% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/octave_higher_half_index_spectrum.png", "octave_higher_half_index_spectrum.png" %}
-_Figure {% increment figureId20250301  %}._
+{% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/octave_higher_half_index_spectrum.png", "Amplitude spectrum of an FM sound" %}
+_Figure {% increment figureId20250301  %}. Amplitude spectrum of a sound generated with $f_C = 400 \text{ Hz}, f_M = 800 \text{ Hz},$  and $A_M = 800$._
 
 You can hear that the octave-higher version has similar timbre and the partials are correctly spaced, yet their amplitudes look a little bit different. That is because we have not changed the modulation amplitude. If we set $A_M=1600$ (twice the original value), we get the following sound.
 
@@ -237,8 +237,8 @@ You can hear that the octave-higher version has similar timbre and the partials 
 
 Here’s its spectrum.
 
-{% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/octave_higher_spectrum.png", "octave_higher_spectrum.png" %}
-_Figure {% increment figureId20250301  %}._
+{% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/octave_higher_spectrum.png", "Amplitude spectrum of an FM sound" %}
+_Figure {% increment figureId20250301  %}. Amplitude spectrum of a sound generated with $f_C = 400 \text{ Hz}, f_M = 800 \text{ Hz},$  and $A_M = 1600$._
 
 As you can hear, the octave-higher sound sounds more like the original. As you can see, the partials’ structure is completely preserved, they are just spaced apart more because of the higher pitch.
 
@@ -282,8 +282,8 @@ In other words: to preserve the timbre when changing pitch, keep the modulation 
 
 Now, our simple FM diagram looks as follows.
 
-{% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/SimpleFMInstrumentWithModulationIndex.png", "Simple FM instrument with modulation index" %}
-_Figure {% increment figureId20250301  %}._
+{% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/SimpleFMInstrumentWithModulationIndex.png", "Simple FM instrument diagram that takes a modulation index as an input" %}
+_Figure {% increment figureId20250301  %}. Simple FM instrument with modulation index._
 
 ## Phase Modulation
 
@@ -309,8 +309,8 @@ Take a look at this example. Here, $f_C=200 \text{ Hz}, f_M = 400 \text{ Hz}$ an
 
 When the sampling rate is equal to 96 kHz, we obtain the following magnitude spectra of PM and FM.
 
-{% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/fm_vs_pm_modulation_fs_96000_spectrum.png", "fm_vs_pm_modulation_fs_96000_spectrum" %}
-_Figure {% increment figureId20250301  %}._
+{% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/fm_vs_pm_modulation_fs_96000_spectrum.png", "Plot of amplitude spectra of sounds generated with frequency modulation and phase modulation at 96 kiloherz sampling rate" %}
+_Figure {% increment figureId20250301  %}. Amplitude spectra of FM and PM sounds at 96 kHz sampling rate._
 
 As you can see, the spectra nicely overlap. Audibly, there is no difference either.
 
@@ -324,8 +324,8 @@ PM at 96 kHz:
 
 However, if we decrease the sampling rate to 22.05 kHz…
 
-{% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/fm_vs_pm_modulation_fs_22050_spectrum.png", "fm_vs_pm_modulation_fs_22050_spectrum.png" %}
-_Figure {% increment figureId20250301  %}._
+{% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/fm_vs_pm_modulation_fs_22050_spectrum.png", "Plot of amplitude spectra of sounds generated with frequency modulation and phase modulation at 22.05 kiloherz sampling rate" %}
+_Figure {% increment figureId20250301  %}. Amplitude spectra of FM and PM sounds at 22.05 kHz sampling rate._
 
 …the partials’ amplitudes differ much more. FM has stronger first, second, and fourth partial, while PM has stronger third partial.
 
@@ -553,14 +553,6 @@ _Figure {% increment figureId20250301  %}._
 How to read this plot? Say you want to see how the spectrum will look for a particular value of $I$, for example, 10. Then, find 10 on the $I$ axis on the right and mentally cross-sect the 3-dimensional spectrum along the partials’ axis. This cross-section is your sound’s magnitude spectrum at the modulation index 10.
 
 The above plot gives you the full insight into the spectrum of FM sounds. You can go back to it over and over again to discover more and more properties of this spectrum. As you can see, it is completely frequency-independent; for each fundamental frequency, the partials behave identically. Of course, this plot does not take reflected frequencies into account but you can visualize them yourself 😉
-
-## Presenting FM algorithm visually
-
-TODO, p. 165 in [Pluta2019]
-
-## Example FM sounds
-
-TODO
 
 ## Extensions of simple FM
 
