@@ -6,7 +6,6 @@ author: Jan Wilczek
 layout: post
 permalink: /fm-synthesis-explained-for-audio-programmers-art-and-science/
 background: /assets/img/posts/synthesis/2025-03-01-fm-synthesis/Thumbnail.webp
-draft: true
 categories:
   - Sound Synthesis
 tags:
