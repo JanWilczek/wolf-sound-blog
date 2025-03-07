@@ -649,20 +649,20 @@ def plot_partials_amplitudes_in_3d_for_specific_modulation_index():
 
 
 def main():
-    # cool_sounds()
+    cool_sounds()
     plot_partials_amplitudes_in_3d_for_specific_modulation_index()
-    # plot_partials_amplitudes_in_3d()
-    # plot_bessel_functions()
-    # spectrum_brightness_example()
-    # eliminating_every_nth_partial_example()
-    # vibrato_example()
-    # fm_example_1()
-    # modulation_index_motivation()
-    # simple_fm_spectrum()
-    # timbre_control_example()
-    # fm_vs_pm_modulation()
-    # fm_vs_pm_modulation_2()
-    # harmonic_and_inharmonic_spectra_example()
+    plot_partials_amplitudes_in_3d()
+    plot_bessel_functions()
+    spectrum_brightness_example()
+    eliminating_every_nth_partial_example()
+    vibrato_example()
+    fm_example_1()
+    modulation_index_motivation()
+    simple_fm_spectrum()
+    timbre_control_example()
+    fm_vs_pm_modulation()
+    fm_vs_pm_modulation_2()
+    harmonic_and_inharmonic_spectra_example()
 
 
 if __name__ == "__main__":
