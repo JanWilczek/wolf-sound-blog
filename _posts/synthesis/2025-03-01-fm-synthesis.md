@@ -1,7 +1,7 @@
 ---
 title: "FM Synthesis Explained For Audio Programmers: Art and Science"
 description: "Frequency modulation synthesis explained for audio programmers: a single all-in-one resource"
-date: 2025-03-01
+date: 2025-03-07
 author: Jan Wilczek
 layout: post
 permalink: /fm-synthesis-explained-for-audio-programmers-art-and-science/
