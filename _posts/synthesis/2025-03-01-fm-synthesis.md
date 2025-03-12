@@ -51,7 +51,7 @@ All figures and audio examples in this article were generated using [the followi
 
 ## History
 
-Just as a brief word of history, to give credit to people's hard work, the original publication on FM synthesis came from John Chowning  in 1973 [Chowning1973]. Because of lack of interest of American manufacturers in using the technique in hardware synths, Chowning turned to Japan-based manufacturer Yamaha in the same year. [SOS2000]
+Just as a brief word of history, to give credit to people's hard work, the original publication on FM synthesis came from John Chowning  in 1973 [Chowning1973]. Because of the lack of interest of American manufacturers in using the technique in hardware synths, Chowning turned to Japan-based manufacturer Yamaha in the same year. [SOS2000]
 
 {% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/Chowning.jpg", "John Chowning" %}
 _Figure {% increment figureId20250301  %}. John Chowning. [Source](https://commons.wikimedia.org/wiki/File:Chowning.jpg), accessed March 5, 2025, licensed under the [Creative Commons Attribution-Share Alike 3.0 Unported license](https://creativecommons.org/licenses/by-sa/3.0/deed.en)._
@@ -127,7 +127,7 @@ $$
 
 where
 
-- $2 \pi f(t)$ is the angular frequency in radians per sample,
+- $2 \pi f(t)$ is the instantaneous angular frequency in radians per sample,
 - $\phi(t)$ denotes the instantaneous phase (phase at time instant $t$), and
 - $\frac{d}{dt}$ denotes the derivative of a function over time.
 
@@ -155,7 +155,7 @@ s_\text{FM}(t) &= A_C \sin(\phi(t)) =\\&= A_C \sin\left(2 \pi \int \limits_0^t (
 \end{equation}
 $$
 
-**This is the correct formula for a simple FM instrument;** we have a sine carrier with amplitde $A_C$ and frequency $f_C$ and a sine modulator (represented by the cosine) with amplitude $A_M$ and frequency $f_M$. Note that we need to use a different symbol for time than $t$ in the integral because $t$ denotes the time point at which we compute the phase; I chose $\tau$ (tau).
+**This is the correct formula for a simple FM instrument;** we have a sine carrier with amplitude $A_C$ and frequency $f_C$ and a sine modulator (represented by the cosine) with amplitude $A_M$ and frequency $f_M$. Note that we need to use a different symbol for time than $t$ in the integral because $t$ denotes the time point at which we compute the phase; I chose $\tau$ (tau).
 
 ### Simple FM Diagram
 
@@ -189,8 +189,8 @@ $$
 
 where
 
-- $f_C$ is the carrier frequency,
-- $f_M$ is the modulator frequency, and
+- $f_C$ is the carrier frequency in Hz,
+- $f_M$ is the modulator frequency in Hz, and
 - $k$ is any integer (that’s what $k \in \mathbb{Z}$ means).
 
 ### Partials vs harmonics vs overtones
@@ -209,11 +209,11 @@ Acoustic instrument spectra often consist of harmonic partials, inharmonic parti
 
 ## Timbre control of simple FM
 
-One of the goals of FM synthesis research was to be able to use a MIDI keyboard to control it. That means, that we need a way of keeping the timbre somewhat consistent while changing the pitch.
+One of the goals of FM synthesis research was to be able to use a MIDI keyboard to control it. That means we need a way of keeping the timbre somewhat consistent while changing the pitch.
 
 It turns out that **if the ratio of the carrier frequency to the modulation frequency is constant, the partials' structure is preserved.**
 
-In other words, if we multiply the carrier frequency by some real constant, we need to multiply the modulation frequency by the same constant in order to keep the partials' structure the intact.
+In other words, if we multiply the carrier frequency by some real constant, we need to multiply the modulation frequency by the same constant in order to keep the partials' structure intact.
 
 The frequency ratio is sometimes denoted $c:m$ or $R_f$. Mathematically, we can write
 
@@ -225,7 +225,7 @@ $$
 
 If $f_C$ and $f_M$ change but their ratio $R_f$ doesn’t, then the timbre shouldn't change either. There are various recipes for $R_f$ to create different timbres; you'll hear more examples later on in the article.
 
-Let’s look at an example. (From now on, you can assume that $A_C = 1$ because changing $A_C$ would only change the volume of the waveform not its timbre.)
+Let’s look at an example. (From now on, you can assume that $A_C = 1$ because changing $A_C$ would only change the volume of the waveform, not its timbre.)
 
 Here’s a sound generated with $f_C = 200 \text{ Hz}, f_M = 400 \text{ Hz},$  and $A_M = 800$.
 
@@ -236,7 +236,7 @@ Here’s its spectrum.
 {% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/basic_signal_spectrum.png", "Magnitude spectrum of an FM sound" %}
 _Figure {% increment figureId20250301  %}. Magnitude spectrum of a sound generated with $f_C = 200 \text{ Hz}, f_M = 400 \text{ Hz},$  and $A_M = 800$._
 
-Let’s now generate a sound that’s twice higher in pitch but has similar timbre. According the frequency ratio (Equation 7),
+Let’s now generate a sound that’s twice higher in pitch but has a similar timbre. According to the frequency ratio (Equation 7),
 
 $$
 \begin{equation}
@@ -272,7 +272,7 @@ That's why we need to use a different parameter to control the timbre: the modul
 
 ## Modulation Index
 
-To have a parameter that controls the timbre in a consistent way across all modulation frequencies, it’s more handy to use the **modulation index** than the modulation amplitude.
+To have a parameter that controls the timbre in a consistent way across all modulation frequencies, it’s more handy to use the **modulation index** than the modulation amplitude. Modulation index will change the modulation amplitude according to the current modulator frequency.
 
 Here’s the formula for the modulation index $I$ [Pluta2019]
 
@@ -297,12 +297,12 @@ $$
 
 In our previous example, initially we had $A_M=800$ and $f_M=400 \text{ Hz}$ which resulted in $I=\frac{800}{400} = 2$.
 
-After raising the pitch by an octave, we had $A_M = 800$ and $f_M=800 \text{ Hz}$ which results in $I = \frac{800}{800} = 1$. Thus, our partials’ amplitudes changed because we had not preserved the modulation index. To remedy this, we doubled the modulation amplitude to 1600 and hence obtained $I=\frac{1600}{800}=2$, i.e., the same modulation index as the initial sound.
+After raising the pitch by an octave, we had $A_M = 800$ and $f_M=800 \text{ Hz}$ which resulted in $I = \frac{800}{800} = 1$. Thus, our partials’ amplitudes changed because we had not preserved the modulation index. To remedy this, we doubled the modulation amplitude to 1600 and hence obtained $I=\frac{1600}{800}=2$, i.e., the same modulation index as the initial sound.
 
-The key takeaways are: 
+**The key takeaways** are:
 
 - use modulation index instead of the modulation amplitude to preserve partials’ amplitudes when changing pitch, and
-- use constant carrier-to-modulator frequency ratio to preserve timbre.
+- use constant carrier-to-modulator frequency ratio to preserve partials' frequencies.
 
 In other words: to preserve the timbre when changing pitch, keep the modulation index $I$ and the carrier-to-modulator frequency ratio $R_f$ fixed.
 
@@ -337,7 +337,7 @@ What’s the difference? That’s a great question.
 
 Most sources I’ve seen say that the difference between the two is not relevant [Pluta2019, Roads1996, Tolonen1998, DePoli1983] and point to two articles [Bate1990, Holm1992] that explain the difference.
 
-The answer that I found in [Holm1992] is that FM and PM are equivalent if the sampling rate is high enough. Then, the numerical integration used to implement the FM equation (Equation 10) approximates the continuous time integration accurately enough. On the other hand, inaccurate integration (when the sample rate is too small) results in diverging partials’ amplitudes between FM and PM.
+The answer I found in [Holm1992] is that FM and PM are equivalent if the sampling rate is high enough. Then, the numerical integration used to implement the FM equation (Equation 10) approximates the continuous time integration accurately enough. On the other hand, inaccurate integration (when the sample rate is too small) results in diverging partials’ amplitudes between FM and PM.
 
 Take a look at this example. Here, $f_C=200 \text{ Hz}, f_M = 400 \text{ Hz}$ and $I = \pi$.
 
@@ -382,11 +382,15 @@ To drive this point home, let's take a look at time-domain plots of a carrier at
 {% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/carrier_modulator_fm_pm_signal.png", "Plot of time-domain signals of a 600 hertz carrier, 50 hertz modulator and resulting FM and PM signals. FM and PM signals look identical." %}
 _Figure {% increment figureId20250301  %}. A 600-Hz carrier, a 50-Hz modulator and the resulting FM and PM signals. Modulation index equals 10._
 
-As you can guess from looking at Equations 10 and 11, implementation-wise, it’s way easier to use PM and that’s what we’ll do for the remainder of this article.
+As you can see, they are identical.
+
+Looking at Equations 10 and 11, you can tell that implementation-wise it’s way easier to use PM and that’s what we’ll do for the remainder of this article.
 
 So, from now on, our go-to formula for frequency modulation will be the PM formula (Equation 11). This is the formula that we will analyze in the context of FM. So everywhere I write “FM” from now on, I refer to PM.
 
 Just like synth manufacturers!
+
+**Key takeaway**: FM and PM only differ at low sampling rates. For implementation, use phase modulation (Equation 11).
 
 ## How to control the timbre of FM?
 
@@ -427,7 +431,7 @@ Let's listen to an extreme example of $R_f = 100:99$:
 
 {% render 'embed-audio.html', src: "/assets/wav/posts/synthesis/2025-03-01-fm-synthesis/c_1_m_0.99_f0_200_I_3.141592653589793.flac" %}
 
-Even here, we still hear a harmonic sound. And that's despite the “beating” effect caused by inharmonic partials close to harmonic ones,
+Even here, we still hear a harmonic sound. And that's despite the “beating” effect caused by inharmonic partials close to harmonic ones.
 
 Apart from the rational ratio requirement, the literature says that **if we want to obtain a clearly audible pitch, $N_1$ and $N_2$ after dividing out common factors should be relatively small** [Pluta2019].
 
@@ -440,9 +444,9 @@ Let's listen to an example with $R_f=10:9$.
 {% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/c_10_m_9_f0_200_spectrum.png", "Plot of the amplitude spectrum of an FM sound generated with carrier to modulator frequency ratio equal to ten to nine" %}
 _Figure {% increment figureId20250301  %}. Magnitude spectrum of an FM sound with $c:m=10:9$._
 
-Here, we can hear what happens when the small ratio requirement is neglected: although the ratio is rational, we have a sense of inhamonicity. The inhamonicity is caused by reflected partials: partials with negative frequencies that are being mirrored back onto the positive frequency axis. Thus, the sound is not as clearly harmonic as in the previous examples with rational $R_f$.
+Here, we can hear what happens when the small ratio requirement is neglected: although the ratio is rational, we have a sense of inharmonicity. The inharmonicity is caused by reflected partials: partials with negative frequencies that are being mirrored back onto the positive frequency axis. Thus, the sound is not as clearly harmonic as in the previous examples with rational $R_f$.
 
-Key takeaway: if you want your FM sound to be harmonic, keep the carrier frequency to modulator frequency ratio rational and relatively small in numerator and denominator.
+**Key takeaway**: if you want your FM sound to be harmonic, keep the carrier frequency to modulator frequency ratio rational and relatively small in numerator and denominator.
 
 ### What’s the fundamental frequency (the pitch) in FM?
 
@@ -497,6 +501,8 @@ Specifically,
     _Figure {% increment figureId20250301  %}. Magnitude spectrum of an FM sound with $c:m=5:3$ and $I=2$._
     
 
+In general, if $\frac{f_C}{f_M} = \frac{N_1}{N_2}, N_1, N_2 \in \mathbb{Z}$, then every $N_2$-th partial is missing [Pluta2019].
+
 ### How to control the brightness of FM spectra?
 
 The brightness of a sound is typically associated with the presence of high frequencies. In FM synthesis, we can control the center of the sound’s spectrum with the carrier frequency, the spacing of the partials with the modulator frequency, and the bandwidth of the spectrum with the modulation frequency and the modulation index. If we want to change the bandwidth of the spectrum (resulting in a brightness change) without changing the pitch, we can simply alter the modulation index.
@@ -547,7 +553,7 @@ Here, $I=4$.
 {% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/c_5_m_1_f0_200_I_4_spectrum.png", "Plot of the amplitude spectrum of an FM sound generated with carrier frequency equal to 1000 Hz, modulator frequency equal to 200 Hz and modulation index equal to 4. The partials occupy an 2000-hertz bandwidth." %}
 _Figure {% increment figureId20250301  %}. Magnitude spectrum of an FM sound where $f_C = 1000 \text{ Hz}$, $f_M = 200 \text{ Hz}$, and $I=4$._
 
-As you can see, the spectrum got so wide that it expanded over to negative frequencies which means that these frequencies got reflected back and hence the spectrum is no longer symmetric. However, it is still harmonic because just the amplitudes of the partials changed after the reflection not their positions.
+As you can hear and see, the spectrum gets so wide that it expands over to negative frequencies. Negative frequencies get reflected back and hence the spectrum is no longer symmetric. However, it is still harmonic because just the amplitudes of the partials changed after the reflection, not their positions.
 
 Here, $I=5$.
 
@@ -601,7 +607,7 @@ It’s hard to get a feeling for the meaning of the partials’ amplitudes equat
 {% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/partials_amplitudes_in_3d.png", "A 3D visualization of the modulation index's influence on FM spectrum. The larger the modulation index the wider the spectrum. A single partial's magnitude follows a Bessel function of the first kind corresponding to its index" %}
 _Figure {% increment figureId20250301  %}. FM partials' amplitudes for various values of the modulation index. For a particular value of $I$, partials' amplitudes are represented by the cross-section of the plot along the partial index axis. After [Pluta2019]._
 
-How to read this plot? Say you want to see how the spectrum will look for a particular value of $I$, for example, 10. Then, find 10 on the $I$ axis on the right and mentally cross-sect the 3-dimensional spectrum along the partials’ axis. This cross-section is your sound’s magnitude spectrum at the modulation index 10.
+How to read this plot? Say you want to see how the spectrum looks for a particular value of $I$, for example, 10. Then, find 10 on the $I$ axis on the right and mentally cross-sect the 3-dimensional spectrum along the partials’ axis. This cross-section is your sound’s magnitude spectrum at the modulation index 10.
 
 You can see what I mean on the figure below.
 
@@ -622,7 +628,7 @@ Simple FM can be extended in various ways to create even more complex sounds [Pl
 4. We can add multiple modulators, parallel or serial, that modulate one carrier. This is called multiple-modulator FM (MMFM). This technique increases the number of partials in the output spectrum. Again, multiple non-sine modulators make little sense because the spectrum gets too dense [Dodge1997].
 5. We can use oscillators with exponential control which emulates analog gear. This is called exponential FM. Exponential FM is used in Virtual Analog applications.
 6. We can combine two or more FM instruments in parallel or in serial. However, this may quickly get too complicated to control.
-7. We can add [envelope generators (EGs)]({% post_url collections.posts, "2022-07-03-envelopes" %}) to control various FM parameters. For example, an envelope generator controlling the modulation index can create a naturally sounding effect of timbre brightening with the initial transient. An EG-controlled timber gets darker and darker the longer the sound is played (or a keyboard key is held).
+7. We can add [envelope generators (EGs)]({% post_url collections.posts, "2022-07-03-envelopes" %}) to control various FM parameters. For example, an envelope generator controlling the modulation index can create a naturally sounding effect of timbre brightening with the initial transient. An EG-controlled timbre gets darker and darker the longer the sound is played (or a keyboard key is held).
 8. Phase distortion (PD) synthesis is another take on phase modulation. In this technique, the modulator frequency is equal to the carrier frequency or to its multiplicity. Moreover, various modulator waveforms are used, for example, a triangle waveform. A picture sometimes says a thousand words, so [here’s a very short but very good explanation of phase distortion synthesis](https://electricdruid.net/phase-distortion-synthesis/) (accessed February 10, 2024). [Oli Larkin, whom I interviewed in the 15th episode of the WolfTalk podcast]({% post_url collections.posts, '2023-11-09-oliver-larkin' %}), is well known for his implementations of Casio’s phase distortion emulations.
 
 The discussion of all these extensions is beyond the scope of this already quite long article. Should they be discussed in more detail in future articles? Let me know in the comments!
@@ -631,9 +637,9 @@ The discussion of all these extensions is beyond the scope of this already quite
 
 In this comprehensive article, you’ve learned about the frequency modulation (FM) and phase modulation (PM) synthesis. You’ve learned how these two are different, how their spectra look and how to control these spectra.
 
-You’ve also learned what are Bessel functions and how the partials' amplitudes in FM synthesis follow Bessel functions with increasing modulation index.
+You’ve also learned what Bessel functions are and how the partials' amplitudes in FM synthesis follow Bessel functions with increasing modulation index.
 
-You’ve learned what is the modulation index and how to use it to control the bandwidth of FM spectra.
+You’ve learned what the modulation index is and how to use it to control the bandwidth of FM spectra.
 
 Finally, we have mentioned various extensions to the simple FM technique.
 
