@@ -89,8 +89,9 @@ This episode was recorded on December 17, 2024.
         1. [Website (Signalsmith Audio)](https://signalsmith-audio.co.uk)
         2. [GitHub (Signalsmith Audio)](https://github.com/Signalsmith-Audio)
         3. [LinkedIn Profile](https://www.linkedin.com/in/geraintluff/)
-        4. [Blog (Signalsmith Audio)](https://signalsmith-audio.co.uk/writing/)
-        5. [Geraint's Music](https://geraintluff.co.uk)
+        4. [Email](mailto:hello@signalsmith-audio.co.uk)
+        5. [Blog (Signalsmith Audio)](https://signalsmith-audio.co.uk/writing/)
+        6. [Geraint's Music](https://geraintluff.co.uk)
     2. Jelena (Geraint’s partner and collaborator)
     3. [Jules Storer](https://www.linkedin.com/in/julian-storer)
 2. Companies & Academic Institutions
