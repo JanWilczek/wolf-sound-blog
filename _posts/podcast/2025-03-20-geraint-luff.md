@@ -60,7 +60,7 @@ From this episode, you will learn:
 * How Geraint Luff transitioned to audio DSP without formal university training in this  field.
 * His experiences working at Meridian Audio, ARM, and Amazon.
 * Tips and advice on learning DSP effectively.
-* Gereaint's freelancing approach, including:
+* Geraint's freelancing approach, including:
     * The importance of visibility and networking in the industry.
     * How community and conferences helped him establish himself as a DSP programmer.
     * The challenges of quoting projects and managing client expectations.
@@ -94,25 +94,22 @@ This episode was recorded on December 17, 2024.
         6. [Geraint's Music](https://geraintluff.co.uk)
     2. Jelena (Geraint’s partner and collaborator)
     3. [Jules Storer](https://www.linkedin.com/in/julian-storer)
-
 2. Companies & Academic Institutions
     1. [University of Cambridge](https://www.cam.ac.uk)
     2. [Meridian Audio](https://www.meridian-audio.com)
     3. [ARM](https://www.arm.com)
     4. Amazon
         1. [Amazon Ring](https://www.amazon.com/stores/Ring/page/77B53039-540E-4816-BABB-49AA21285FCF)
-
 3. Talks and Conferences
     1. Talks by Geraint
         1. [Let's Write A Reverb | The Audio Programmer](https://youtu.be/QWnD30xHjW4)
         2. [Let's Write a Reverb | ADC 2021](https://youtu.be/6ZK2Goiyotk)
         3. [Four Ways To Write A Pitch-Shifter | ADC 2022](https://youtu.be/fJUmmcGKZMI)
     2. Communities and Conferences
-        1. [The Audio Programmer Discord](https://discord.gg/9wZpHYABC9)
+        1. [The Audio Programmer Discord](https://www.theaudioprogrammer.com/discord)
         2. [Audio Developer Conference](https://audio.dev)
         3. [DAFX Conference](https://www.dafx.de)
         4. [KVR Developer Challenge](https://www.kvraudio.com/kvr-developer-challenge/2021/#dc21-21280)
-
 4. Repositories and Research Papers
     1. [Signalsmith Reverb Example Code](https://github.com/Signalsmith-Audio/reverb-example-code)
     2. [Signalsmith Stretch](https://github.com/Signalsmith-Audio/signalsmith-stretch)
@@ -120,7 +117,6 @@ This episode was recorded on December 17, 2024.
     4. [Cloud Chorus Plugin](https://signalsmith-audio.co.uk/products/cloud-chorus/)
     5. Research Papers
         1. [Reducing The Aliasing Of Nonlinear Waveshaping Using Continuous-Time Convolution](https://dafx16.vutbr.cz/dafxpapers/20-DAFx-16_paper_41-PN.pdf)
-
 5. Programming and Tools
     1. [Reaper JSFX](https://www.reaper.fm/sdk/js/js.php)
     2. [JUCE C++ framework](https://juce.com)
@@ -139,7 +135,6 @@ This episode was recorded on December 17, 2024.
         6. Rust
         7. [CSound](https://csound.com)
         8. [QBasic](https://www.qbasic.net)
-
 6. Music
     1. [Two Steps from Hell](https://www.twostepsfromhell.com)
 
