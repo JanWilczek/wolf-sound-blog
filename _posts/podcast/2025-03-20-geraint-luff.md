@@ -30,10 +30,10 @@ Meet the legendary Signalsmith! ⚔️
 
 ## Listen on
 
-* 🎧 [Spotify]()
+* 🎧 [Spotify](https://open.spotify.com/episode/7ayRwST8NHaD5qYcbvwv5h?si=wLxFTSl1R42KyTOgMSX_1Q)
 * 🎥 [YouTube](https://youtu.be/bi9cnrXRJ0k)
-* 🎧 [Apple Podcasts (iTunes)]()
-* 🎧 [TuneIn Radio]()
+* 🎧 [Apple Podcasts (iTunes)](https://podcasts.apple.com/pl/podcast/reverbs-pitch-shifters-freelancing-with-geraint-luff/id1595913701?i=1000700145841)
+* 🎧 [TuneIn Radio](http://tun.in/tEZFnq)
 
 [All podcast episodes.](/podcast)
 
