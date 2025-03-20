@@ -1,28 +1,30 @@
 ---
-title: " --- | WolfTalk #027"
-description: "---"
-date: "2025-03-xx"
-author: "---"
+title: "Reverbs, Pitch Shifters & Freelancing with Geraint Luff | WolfTalk #027"
+description: "Learn audio DSP from ground up from the SignalSmith himself"
+date: 2025-03-20
+author: Sathira Tennakoon
 layout: post
 permalink: /talk027/
 background: /assets/img/posts/podcast/talk027/Thumbnail.webp
 categories:
   - Podcast
 tags:
-  - audio dsp
-  - freelancing
+  - career
   - learning
   - juce
   - reverb
-  - pitch shifting
-  - open-source
+  - effects
   - web audio
-  - plugin development
-  - audio programming
-
-discussion_id: 2025-03-xx-geraint-luff
-
+  - plugin
+  - java
+  - research
+  - fourier
+  - c
+  - cpp
+  - testing
+discussion_id: 2025-03-20-geraint-luff
 ---
+Meet the legendary Signalsmith! ⚔️
 
 {% include 'redcircle-podcast-player', redcircle_podcast_id: '' %}
 
@@ -37,37 +39,33 @@ discussion_id: 2025-03-xx-geraint-luff
 
 [Sign up for WolfSound's newsletter!]({% link collections.all, 'newsletter.md' %})
 
-# Episode Notes
-
 ## Introduction
 
-In this blog post, I delve into the world of audio digital signal processing (DSP) with Geraint Luff, a seasoned audio
+Geraint Luff is a seasoned audio
 DSP developer and the founder of Signalsmith Audio. Geraint’s presentations, such as “Let’s Write a Reverb” and “Four
-Ways to Write a Pitch Shifter,” are among the most popular talks at the Audio Developer Conference (ADC) due to their
-blend of accessibility and technical depth.
+Ways to Write a Pitch Shifter,” are among the most popular talks at the Audio Developer Conference (ADC) thanks to Geraint's clarity of explanation and easy-to-understand visuals (not to mention the accompanying open-source repos).
 
-Geraint shares his insights on his career path, freelancing in the audio industry, and digital signal processing (DSP).
-He discusses how he enhanced his reputation through open-source projects, community involvement, and technical
-presentations. The conversation also delves into his approach to learning DSP, problem-solving, and the significance of
-visualization in understanding intricate concepts.
+In the interview, Geraint shares his insights on his career path, freelancing in the audio industry, and digital signal processing (DSP).
+He discusses how he gained traction as a freelancer by joining a community, delivering audio-focused technical talks, and sharing open-source repos. We can also learn his approach to learning DSP, problem-solving, and the significance of
+visualization in explanations.
 
-If you find this episode informative, please consider sharing your thoughts through a review on Apple Podcasts or
-Spotify and subscribing to the Wolf Sound YouTube channel. Your support helps grow the podcast and improve its content!
-🙏
+Theory first of practice first? Listen to the podcast episode to find out! 😉
+
+{% include 'podcast_cta' %}
 
 ## Episode Contents
 
 From this episode, you will learn:
 
-* How Geraint Luff transitioned from math to audio DSP without formal university training in the same field.
-* His experiences working in the industry including Meridian Audio, ARM, and Amazon.
+* How Geraint Luff transitioned to audio DSP without formal university training in this  field.
+* His experiences working at Meridian Audio, ARM, and Amazon.
 * Tips and advice on learning DSP effectively.
-* His freelancing approach, including:
+* Gereaint's freelancing approach, including:
     * The importance of visibility and networking in the industry.
-    * How community and conferences helped him establish himself as a top DSP programmer.
+    * How community and conferences helped him establish himself as a DSP programmer.
     * The challenges of quoting projects and managing client expectations.
-* Technical insights on reverberation algorithms, pitch shifting, and low-latency processing.
-* His thoughts on plugin development, JUCE, WebAudio, and C++.
+* Technical insights on reverberation algorithms, pitch shifting, and the Fourier transform.
+* His thoughts on plugin development, JUCE, web audio, and C++ (and his hatred of CMake! 😉).
 
 This episode was recorded on December 17, 2024.
 
@@ -78,7 +76,7 @@ This episode was recorded on December 17, 2024.
 2. Setting small, achievable goals and rewarding yourself at each stage can help you stay motivated.
 3. Teaching reinforces your understanding and helps identify knowledge gaps.
 4. Explore Web UIs for DSP tools. Accessible, browser-based interfaces powered by web technologies are becoming
-   increasingly popular.
+   increasingly popular and make it easy to showcase your work to clients.
 5. Use automated tests to validate basic DSP blocks, which gives you confidence in your implementations.
 6. Finding a supportive community to help you when you get stuck is invaluable.
 7. Don’t undervalue your skills as a freelancer. Whether you’re starting out or experienced, your time, skills, and
