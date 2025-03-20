@@ -26,12 +26,12 @@ discussion_id: 2025-03-20-geraint-luff
 ---
 Meet the legendary Signalsmith! ⚔️
 
-{% include 'redcircle-podcast-player', redcircle_podcast_id: '' %}
+{% include 'redcircle-podcast-player', redcircle_podcast_id: 'baa67efa-0636-4992-be63-4755c10a9898' %}
 
 ## Listen on
 
 * 🎧 [Spotify]()
-* 🎥 [YouTube]()
+* 🎥 [YouTube](https://youtu.be/bi9cnrXRJ0k)
 * 🎧 [Apple Podcasts (iTunes)]()
 * 🎧 [TuneIn Radio]()
 
@@ -89,9 +89,8 @@ This episode was recorded on December 17, 2024.
         1. [Website (Signalsmith Audio)](https://signalsmith-audio.co.uk)
         2. [GitHub (Signalsmith Audio)](https://github.com/Signalsmith-Audio)
         3. [LinkedIn Profile](https://www.linkedin.com/in/geraintluff/)
-        4. [Email](mailto:luffgd@gmail.com)
-        5. [Blog (Signalsmith Audio)](https://signalsmith-audio.co.uk/writing/)
-        6. [Geraint's Music](https://geraintluff.co.uk)
+        4. [Blog (Signalsmith Audio)](https://signalsmith-audio.co.uk/writing/)
+        5. [Geraint's Music](https://geraintluff.co.uk)
     2. Jelena (Geraint’s partner and collaborator)
     3. [Jules Storer](https://www.linkedin.com/in/julian-storer)
 2. Companies & Academic Institutions
