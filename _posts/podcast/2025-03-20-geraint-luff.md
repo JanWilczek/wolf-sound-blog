@@ -49,7 +49,7 @@ In the interview, Geraint shares his insights on his career path, freelancing in
 He discusses how he gained traction as a freelancer by joining a community, delivering audio-focused technical talks, and sharing open-source repos. We can also learn his approach to learning DSP, problem-solving, and the significance of
 visualization in explanations.
 
-Theory first of practice first? Listen to the podcast episode to find out! 😉
+Theory first or practice first? Listen to the podcast episode to find out! 😉
 
 {% include 'podcast_cta' %}
 
