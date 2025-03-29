@@ -39,18 +39,19 @@ def vibrato_example():
         modulator_frequency,
         time,
     )
-    fm_modulated_note = generate_simple_fm(
+
+    extreme_modulator_frequency = 50
+    pm_extremely_modulated_note = generate_simple_pm(
         carrier_amplitude,
         carrier_frequency,
         modulation_index,
-        modulator_frequency,
-        SAMPLE_RATE,
+        extreme_modulator_frequency,
         time,
     )
 
     plain_note = apply_fade(plain_note, 1000)
     pm_modulated_note = apply_fade(pm_modulated_note, 1000)
-    fm_modulated_note = apply_fade(fm_modulated_note, 1000)
+    pm_extremely_modulated_note = apply_fade(pm_extremely_modulated_note, 1000)
 
     save_audio_file_with_normalization(
         AUDIO_OUTPUT_PATH / f"plain_note_{carrier_frequency:.0f}Hz.flac",
@@ -63,8 +64,8 @@ def vibrato_example():
         SAMPLE_RATE,
     )
     save_audio_file_with_normalization(
-        AUDIO_OUTPUT_PATH / f"fm_vibrato_note_{carrier_frequency:.0f}Hz.flac",
-        fm_modulated_note,
+        AUDIO_OUTPUT_PATH / f"pm_extreme_vibrato_c_{carrier_frequency:.0f}Hz_m_{extreme_modulator_frequency:.0f}Hz.flac",
+        pm_extremely_modulated_note,
         SAMPLE_RATE,
     )
 
