@@ -619,7 +619,7 @@ You can see what I mean on the figure below.
 {% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/partials_amplitudes_in_3d_for_specific_modulation_index.png", "A cross-section of the 3D visualization of FM synthesis partials' amplitudes corresponding to the modulation index value of 10." %}
 _Figure {% increment figureId20250301  %}. FM partials' amplitudes if the modulation index equals 10._
 
-The 3D Bessel functions plot (Figure 24) gives you the full insight into the spectrum of FM sounds. You can go back to this plot over and over again to discover more and more properties of the FM spectrum. As you can see, it is completely frequency-independent; for each fundamental frequency, the partials behave identically. Of course, this plot does not take reflected frequencies into account but you can visualize them yourself 😉
+The 3D Bessel functions plot (Figure 25) gives you the full insight into the spectrum of FM sounds. You can go back to this plot over and over again to discover more and more properties of the FM spectrum. As you can see, it is completely frequency-independent; for each fundamental frequency, the partials behave identically. Of course, this plot does not take reflected frequencies into account but you can visualize them yourself 😉
 
 ## Extensions of simple FM
 
