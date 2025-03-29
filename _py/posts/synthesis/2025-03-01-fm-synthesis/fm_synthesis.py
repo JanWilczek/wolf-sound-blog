@@ -343,11 +343,13 @@ def harmonic_and_inharmonic_spectra_example():
         (2, 1, 200),
         (10, 9, 200),
         (np.sqrt(2), 1, 200),
+        (1, .99, 200),
         (1000, 637, 200),
     ]:
         signal = generate_simple_pm_with_ratio(c=c, m=m, pitch=pitch)
         formatted_c = f"{c:.0f}" if isinstance(c, int) else f"{c:.2f}"
-        file_name = f"c_{formatted_c}_m_{m}_f0_{pitch}.flac"
+        formatted_m = f"{c:.0f}" if isinstance(m, int) else f"{m:.2f}"
+        file_name = f"c_{formatted_c}_m_{formatted_m}_f0_{pitch}.flac"
         postprocess_and_save_audio_file(file_name, signal)
         spectrum = magnitude_spectrum(signal)
         frequencies = dft_frequencies(spectrum.shape[0], SAMPLE_RATE)
