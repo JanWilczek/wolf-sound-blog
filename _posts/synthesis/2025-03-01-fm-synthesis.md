@@ -207,6 +207,11 @@ The first harmonic is the fundamental frequency. The second harmonic is the firs
 
 Acoustic instrument spectra often consist of harmonic partials, inharmonic partials, and noise.
 
+You can see a summary of these terms on the following figure.
+
+{% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/partials_vs_harmonics_vs_overtones.svg", "Plot of the magnitude spectrum of a signal containing harmonic and inharmonic partials." %}
+_Figure {% increment figureId20250301  %}. Magnitude spectrum of a signal containing harmonic partials (harmonics) and inharmonic partials._
+
 ## Timbre control of simple FM
 
 One of the goals of FM synthesis research was to be able to use a MIDI keyboard to control it. That means we need a way of keeping the timbre somewhat consistent while changing the pitch.
