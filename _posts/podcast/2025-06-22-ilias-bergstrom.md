@@ -1,5 +1,5 @@
 ---
-title: "Architecting Time-Based Media Software with Ilias Bergstrom | WolfTalk #028"
+title: "Designing Music Software Architecture with Ilias Bergström | WolfTalk #028"
 description: "WolfTalk podcast interview with Ilias Bergstrom: software engineer and researcher specializing in interactive time-based media software and DAW architecture."
 date: 2025-06-22
 author: Sathira Tennakoon
@@ -23,11 +23,12 @@ tags:
 discussion_id: 2025-06-22-ilias-bergstrom
 ---
 
-Exploring Software Architecture at the Intersection of Audio, Visuals, and Interactive Media
+This guy designed the software architecture of 2 DAWs
 
 {% include 'redcircle-podcast-player', redcircle_podcast_id: '-----------------' %}
 
 ## Listen on
+
 * 🎧 [Spotify](https://open.spotify.com/episode/)
 * 🎥 [YouTube](https://youtu.be/)
 * 🎧 [Apple Podcasts (iTunes)](https://podcasts.apple.com/pl/podcast/)
@@ -38,35 +39,43 @@ Exploring Software Architecture at the Intersection of Audio, Visuals, and Inter
 [Sign up for WolfSound's newsletter!]({% link collections.all, 'newsletter.md' %})
 
 ## Introduction
-Ilias Bergstrom is a Software Engineer, Researcher, Interaction Designer, and Musician with a deep love for audio software. He is passionate about software for all kinds of live performance used together with music, including live graphics, controlled lighting, and VR experiences.
 
-He has been involved in music from an early age, taking up drums and synthesizers as a teenager. His career spans over 20 years of developing media technology software and working as a researcher in the field. He has given four talks at the Audio Developer Conference.
+Ilias Bergstrom is a software engineer, researcher, and musician from Sweden. For most of his professional career, spanning over 20 years, he has been working on, as he describes it, "time-based media software."
 
-In this interview, we explore not only Ilias’s personal journey but also many fascinating topics, including "time-based media software", which is a term he uses to describe this category of applications. He talks about how he connects the dots between different types of media software through his personal project Two, best described as a Media Control Workstation. It enables the interactive combination of digital media control signals (such as OSC and MIDI) from several simultaneous sources.
+In the audio programming world, this means digital audio workstations, video editors, and live audio-visual performance software.
 
-We also dive into the architecture of audio software, discussing how software architecture is crucial and also differs depending on the project. Ilias shares his favorite books on these topics, along with a ton of valuable tips and resources. You don’t want to miss this one!
+He generously shared his experience in Audio Developer Conference talks, two of which discuss the much underrepresented topic of the software architecture of digital audio workstations.
+
+Software architecture and software design are fascinating topics to me, so I naturally devoured both of these talks 😉
+
+In this interview, we explore not only Ilias’s journey but also go into the details of what makes audio software design hard. He discusses how he connects the dots between different types of media software through his long-running personal project, TWO, which is best described as a Media Control Workstation. It enables the simultaneous interactive combination of digital media control signals (such as OSC and MIDI) from multiple sources.
+
+Finally, we don't shy away from discussing our favorite books on audio software development! Given that Ilias shares a ton of valuable tips and resources, you don’t want to miss this one!
 
 {% include 'podcast_cta' %}
 
 ## Episode Contents
-From this episode, you will learn:
-- How Ilias's interest in media creation software led to a career in audio, across both research and industry.
--	How he combines music and audio with interaction design, Human Computer Interaction, and even topics such as neuroscience and psychology, and how audio development can be seen as a form of creative coding.
--	How many media creation software tools share the same core characteristics and core architecture.
--	Insights into his personal software project, TWO.
--	The answer to the question: What does a PhD give you? And more broadly, what a university education can offer.
--	The importance of software architecture, planning, and documentation.
--	How the architecture process differs depending on the type of software you are building (whether it's sketching, production code, making art, saving lives, or building bridges)
--	A lot of highly useful book recommendations.
--	Practical advice on how to get started with audio development and audio software architecture.
 
-This episode was recorded on '-----------------'
+From this episode, you will learn:
+
+- How Ilias's interest in media creation software led to a career in audio, across both research and industry.
+- How he combines music and audio with interaction design, Human Computer Interaction, and even topics such as neuroscience and psychology, and how audio development can be seen as a form of creative coding.
+- How different media creation software tools (like DAWs) share the same core characteristics and core architecture.
+- Insights into his personal software project, TWO.
+- What does a PhD give you? What can a university education offer?
+- The importance of software architecture, testing, and documentation.
+- A lot of audio development book recommendations.
+- Practical advice on how to get started with audio development and audio software architecture.
+
+This episode was recorded on January 15, 2025.
 
 ## References
 
 ### People
+
 1. Ilias Bergström 
    - [LinkedIn Profile](https://www.linkedin.com/in/ilias-bergström-0ba8aa4/)
+   - [TWO: Media Control Workstation](https://controlmedia.art)
    - Publications
       - [[PhD Thesis] Soma: live performance where congruent musical, visual, and proprioceptive stimuli fuse to form a combined aesthetic narrative](https://www.researchgate.net/publication/261377470_Soma_live_performance_where_congruent_musical_visual_and_proprioceptive_stimuli_fuse_to_form_a_combined_aesthetic_narrative)
       - [Influence of Music on Anxiety Induced by Fear of Heights in Virtual Reality](http://dx.doi.org/10.3389/fpsyg.2015.01969)
@@ -76,23 +85,25 @@ This episode was recorded on '-----------------'
       - [The Architecture of Digital Audio Workstations (& Other Time-Based Media Software) | ADC23](https://youtu.be/q5Q-vXzC0Ig)
       - [Digital Audio Workstation Architecture - Evaluation and Evolution | ADC24](https://youtu.be/Kw-xP6VUVOc)
 2. [Prof. Alan Blackwell](https://www.cl.cam.ac.uk/~afb21/)
-3. [Gustav Andersson](https://www.linkedin.com/in/gustav-andersson-41b8294/)
+3. [Gustav Andersson (WolfTalk episode 22 guest)](/talk022)
 4. [Stefano Zambon](https://www.linkedin.com/in/stefano-zambon-38113410a/)
-5. [Rubin Svensson](https://www.linkedin.com/in/ruben-svensson-a8371888/)
+5. [Ruben Svensson](https://www.linkedin.com/in/ruben-svensson-a8371888/)
 6. [Laurie Anderson (Musician)](https://laurieanderson.com)
-7. [King Tubby (Dub pioneer and producer)](https://en.wikipedia.org/wiki/King_Tubby)
-8. [Lee Perry (Dub pioneer and producer)](https://en.wikipedia.org/wiki/Lee_%22Scratch%22_Perry)
-9. [Daito Manabe (Media Artist)](https://daito.ws/en/)
+7. [King Tubby (dub pioneer and producer)](https://en.wikipedia.org/wiki/King_Tubby)
+8. [Lee Perry (dub pioneer and producer)](https://en.wikipedia.org/wiki/Lee_%22Scratch%22_Perry)
+9. [Daito Manabe (media artist)](https://daito.ws/en/)
    - [Nosaj Thing - Eclipse/Blue (Official Video)](https://youtu.be/29PSaiPS5co)
-10. [Giles Peterson (Broadcaster, DJ)](https://www.bbc.co.uk/programmes/b01fm4ss)
+10. [Giles Peterson (broadcaster, DJ)](https://www.bbc.co.uk/programmes/b01fm4ss)
 
 ### Universities & Research Labs
+
 1. [Linnaeus University (previously Växjö University)](https://lnu.se/en/)
 2. [University College London](https://www.ucl.ac.uk/)
 3. [Event Lab (University of Barcelona)](https://www.event-lab.org/)
 4. [KTH Royal Institute of Technology](https://www.kth.se/en)
 
 ### Companies and Places
+
 1. Computer Control Systems SA (C.C.S.)
 2. [Sciss](https://www.linkedin.com/company/sciss-ab/)
 3. [Zeiss](https://www.zeiss.com/)
@@ -101,6 +112,7 @@ This episode was recorded on '-----------------'
 6. [The Sphere (Venue)](https://www.thesphere.com)
 
 ### Software
+
 1. [Windows NT](https://en.wikipedia.org/wiki/Windows_NT)
 2. [Softimage 3D](https://en.wikipedia.org/wiki/Softimage_3D)
 3. [Autodesk Maya](https://www.autodesk.com/products/maya/overview)
@@ -120,6 +132,7 @@ This episode was recorded on '-----------------'
 17. [xln audio Addcitive Drummer](https://www.xlnaudio.com/products/addictive_drums_2)
 
 ### Software Development
+
 1. Frameworks / Libraries
    - [JUCE](https://juce.com/)
    - [FMOD](https://www.fmod.com/)
@@ -145,21 +158,23 @@ This episode was recorded on '-----------------'
    - [Visual Studio](https://visualstudio.microsoft.com/)
 
 ### Topics & Concepts
+
 1. Virtual Reality (VR)
-2. Computer Vision 
-3. Interaction design 
-4. Human computer Interaction
-5. Architecture Decision Records
+2. Computer Vision (CV)
+3. Interaction design
+4. Human-Computer Interaction (HCI)
+5. Architecture Decision Records (ADRs)
 6. [Demoscene (Demoscene culture)](https://en.wikipedia.org/wiki/Demoscene)
 
 ### Books
+
 1. [Design Patterns: Elements of Reusable Object-Oriented Software – Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides](https://www.amazon.com/Design-Patterns-Elements-Reusable-Object-Oriented/dp/0201633612)
-2. [Software Architecture in Practice – Len Bass, Paul Clements, Rick Kazman](https://www.amazon.com/Software-Architecture-Practice-3rd-Engineering/dp/0321815734)
+2. [Software Architecture in Practice – Len Bass, Paul Clements, Rick Kazman](https://www.amazon.com/Software-Architecture-Practice-SEI-Engineering-dp-0136886094/dp/0136886094/)
 3. [Just Enough Software Architecture: A Risk-Driven Approach – George Fairbanks](http://georgefairbanks.com/just-enough-software-architecture/)
 4. [A Tour of C++ – Bjarne Stroustrup](https://www.stroustrup.com/Tour.html)
 5. [C++ Software Design – Klaus Iglberger](https://www.amazon.com/Software-Design-Principles-Patterns-High-Quality/dp/1098113160)
 6. [Working Effectively with Legacy Code – Michael C. Feathers](https://www.amazon.com/Working-Effectively-Legacy-Michael-Feathers/dp/0131177052)
-7. [Refactoring: Improving the Design of Existing Code – Martin Fowler](https://martinfowler.com/books/refactoring.html)
+7. [Refactoring: Improving the Design of Existing Code – Martin Fowler](https://refactoring.com/)
 8. [The Clean Code Series – Robert C. Martin (Uncle Bob)](http://cleancoder.com/products)
 9. [Code Complete  (2nd Edition)– Steve McConnell](https://www.amazon.com/Code-Complete-Practical-Handbook-Construction/dp/0735619670)
 10. [Software Architecture: The Hard Parts – Neal Ford, Mark Richards, Pramod Sadalage, Zhamak Dehghani](https://www.amazon.com/Software-Architecture-Trade-Off-Distributed-Architectures/dp/1492086894)
