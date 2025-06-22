@@ -25,14 +25,14 @@ discussion_id: 2025-06-22-ilias-bergstrom
 
 This guy designed the software architecture of 2 DAWs
 
-{% include 'redcircle-podcast-player', redcircle_podcast_id: '-----------------' %}
+{% include 'redcircle-podcast-player', redcircle_podcast_id: '1db75772-15b9-4281-86c6-b7ae5240d7da' %}
 
 ## Listen on
 
-* 🎧 [Spotify](https://open.spotify.com/episode/)
-* 🎥 [YouTube](https://youtu.be/)
-* 🎧 [Apple Podcasts (iTunes)](https://podcasts.apple.com/pl/podcast/)
-* 🎧 [TuneIn Radio](http://tun.in/)
+* 🎧 [Spotify](https://open.spotify.com/episode/652skPBKwRvPvCKIWxOQef?si=jIBDubaCTBCyG4FwPMZprA)
+* 🎥 [YouTube](https://youtu.be/Plwc0awv8v4)
+* 🎧 [Apple Podcasts (iTunes) (TBA)](#)
+* 🎧 [TuneIn Radio (TBA)](#)
 
 [All podcast episodes.](/podcast)
 
