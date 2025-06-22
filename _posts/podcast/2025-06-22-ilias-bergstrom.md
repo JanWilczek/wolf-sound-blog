@@ -2,7 +2,7 @@
 title: "Designing Music Software Architecture with Ilias Bergström | WolfTalk #028"
 description: "WolfTalk podcast interview with Ilias Bergstrom: software engineer and researcher specializing in interactive time-based media software and DAW architecture."
 date: 2025-06-22
-author: Sathira Tennakoon
+author: Jan Wilczek & Sathira Tennakoon
 layout: post
 permalink: /talk028/
 background: /assets/img/posts/podcast/talk028/Thumbnail.webp
