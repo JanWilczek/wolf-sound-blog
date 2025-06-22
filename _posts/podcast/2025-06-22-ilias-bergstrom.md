@@ -1,7 +1,7 @@
 ---
 title: "Architecting Time-Based Media Software with Ilias Bergstrom | WolfTalk #028"
 description: "WolfTalk podcast interview with Ilias Bergstrom: software engineer and researcher specializing in interactive time-based media software and DAW architecture."
-date: 2025-xx-xx
+date: 2025-06-22
 author: Sathira Tennakoon
 layout: post
 permalink: /talk028/
@@ -19,8 +19,8 @@ tags:
   - research
   - learning
   - juce
-  - c++
-discussion_id: '-----------------'
+  - cpp
+discussion_id: 2025-06-22-ilias-bergstrom
 ---
 
 Exploring Software Architecture at the Intersection of Audio, Visuals, and Interactive Media
