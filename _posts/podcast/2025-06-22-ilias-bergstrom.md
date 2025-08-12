@@ -31,8 +31,8 @@ This guy designed the software architecture of 2 DAWs
 
 * 🎧 [Spotify](https://open.spotify.com/episode/652skPBKwRvPvCKIWxOQef?si=jIBDubaCTBCyG4FwPMZprA)
 * 🎥 [YouTube](https://youtu.be/Plwc0awv8v4)
-* 🎧 [Apple Podcasts (iTunes) (TBA)](#)
-* 🎧 [TuneIn Radio (TBA)](#)
+* 🎧 [Apple Podcasts (iTunes)](https://podcasts.apple.com/pl/podcast/designing-music-software-architecture-with-ilias/id1595913701?i=1000714037557)
+* 🎧 [TuneIn Radio](http://tun.in/tGIpnI)
 
 [All podcast episodes.](/podcast)
 
@@ -40,7 +40,7 @@ This guy designed the software architecture of 2 DAWs
 
 ## Introduction
 
-Ilias Bergstrom is a software engineer, researcher, and musician from Sweden. For most of his professional career, spanning over 20 years, he has been working on, as he describes it, "time-based media software."
+Ilias Bergström is a software engineer, researcher, and musician from Sweden. For most of his professional career, spanning over 20 years, he has been working on, as he describes it, "time-based media software."
 
 In the audio programming world, this means digital audio workstations, video editors, and live audio-visual performance software.
 

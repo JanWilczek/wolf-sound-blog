@@ -19,6 +19,8 @@ Frequency modulation (FM) synthesis is an exciting topic: with a few simple oper
 
 How does it work? How to control it to produce musical notes? Why was it so popular in the 1980s? We will explore all that in this single article!
 
+{% include 'youtube-video', video_id: 'qEkqzGPYatc' %}
+
 {% capture _ %}{% increment figureId20250301  %}{% endcapture %}
 
 1. [Source code of figures and audio examples](#source-code-of-figures-and-audio-examples)

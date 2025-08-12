@@ -28,6 +28,8 @@ discussion_id: 2025-03-27-designing-software-synthesizer-plugins-in-cpp-book-rev
 ---
 Should you read it? 📚
 
+{% include 'youtube-video', video_id: 'gcFpDn7Z-go' %}
+
 > "*Designing Software Synthesizer Plugins in C++* provides everything you need to know to start designing and writing your own synthesizer plugins, including theory and practical examples for all of the major synthesizer building blocks, from LFOs and EGs to PCM samples and morphing wavetables, along with complete synthesizer example projects."
 
 Really?
