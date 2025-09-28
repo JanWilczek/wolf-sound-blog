@@ -193,4 +193,4 @@ This episode was recorded on February 18, 2025.
 1. [John Cage](https://www.johncage.org)
    * Prepared Piano
 2. [Devin Townsend](https://hevydevy.com)
-3. [Murcof - La Sangre Illuminada (Album)](https://murcofmusic.bandcamp.com/album/la-sangre-iluminada)\
+3. [Murcof - La Sangre Illuminada (Album)](https://murcofmusic.bandcamp.com/album/la-sangre-iluminada)
