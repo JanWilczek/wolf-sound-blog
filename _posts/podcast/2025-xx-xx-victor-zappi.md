@@ -1,35 +1,33 @@
 ---
-title: " ______________| WolfTalk #028"
-description: "______________"
-date: ______________
-author: ______________
+title: "Designing Digital Musical Instruments with Victor Zappi | WolfTalk #029"
+description: "Podcast interview with Victor Zappi: Assistant Professor of Music Technology at Northeastern University"
+date: 2025-09-28
+author: Jan Wilczek & Sathira Tennakoon
 layout: post
 permalink: /talk029/
 background: /assets/img/posts/podcast/talk029/Thumbnail.webp
 categories:
   - Podcast
 tags:
-- Hardware
-- C++
-- Research
-- Career
-- Learning
-- Android
-- Deep Learning
-- Virtual Reality
-- Acoustics
-- SIMD
-discussion_id: ______________
+- hardware
+- cpp
+- research
+- career
+- learning
+- android
+- virtual reality
+- simd
+discussion_id: 2025-09-28-victor-zappi
 ---
 
 {% include 'redcircle-podcast-player', redcircle_podcast_id: ______________ %}
 
 ## Listen on
 
-* 🎧 [Spotify]()
-* 🎥 [YouTube]()
-* 🎧 [Apple Podcasts]()
-* 🎧 [TuneIn Radio]()
+* 🎧 [Spotify](#)
+* 🎥 [YouTube](#)
+* 🎧 [Apple Podcasts](#)
+* 🎧 [TuneIn Radio](#)
 
 [All podcast episodes.](/podcast)
 
@@ -37,26 +35,36 @@ discussion_id: ______________
 
 ## Introduction
 
-Victor Zappi is a creator, researcher, and educator at the intersection of music, technology, and interaction design. He is an Assistant Professor of Music Technology at Northeastern University and a key developer behind the innovative Bela hardware platform from his time at Queen Mary University of London's prestigious Centre for Digital Music (C4DM).
+Victor Zappi is a creator, researcher, and educator at the intersection of music, technology, and interaction design. He is currently an Assistant Professor of Music Technology at Northeastern University. In his career, among others, he worked on the Bela hardware platform during his time at Queen Mary University of London's prestigious Centre for Digital Music (C4DM).
 
-I had the pleasure of meeting Victor at the DAFx 2024 conference, where we immediately connected over his paper on running neural networks on Android devices. Our conversation in this episode explores his fascinating journey through academia and his hands-on projects pushing the boundaries of what's possible with interactive audio.
+I had the pleasure of meeting Victor at the DAFx 2024 conference, where we immediately connected over his paper on running neural networks on Android devices. It turned out he used [my Android wavetable synthesizer tutorial]({% post_url collections.posts, 'synthesis/android-wavetable-synthesizer/2022-08-02-app-architecture' %}) in one of his research experiments (with proper citation, of course 😉).
 
-In this episode, we dive deep into the philosophy behind the Bela platform, the concept of "appropriation" in musical instruments, and his work on bringing low-latency, real-time audio to everyday Android devices with the LDSP framework. This episode is a must-listen for anyone interested in the future of musical interfaces, hackable hardware, and the technology that drives them!
+In this episode, apart from Victor's inspirating career, we focus on digital musical instruments:
+
+* What is a "good" digital musical intrument like?
+* Is it a fixed "box" that you should learn how to play?
+* Or should it be "abused" by opening "the box," and messing with its internals?
+* Can an artist change the digital intrument to make it their own?
+
+We conclude with the discussion of Victor's LDSP C++ framework to enable low-level audio device control on Android devices.
+
+This episode is a must-listen for anyone interested in the future of musical interfaces, hackable hardware, and the technology that drives them!
 
 {% include 'podcast_cta' %}
 
 ## Episode Contents
 
 From this episode, you will learn:
+
 * How Victor Zappi's journey led him through several disciplines to reach a unique intersection.
 * The story behind creating the Bela platform and its mission to provide ultra-low latency for interactive audio.
 * The philosophy of "hackable instruments" and "appropriation" in musical expression, inspired by concepts like John Cage's prepared piano.
-* Insights into the LDSP C++ framework for achieving real-time audio on rooted Android devices.
+* Insights into the LDSP C++ framework for achieving low-level audio device access on rooted Android devices.
 * The technology behind the Hyper Drumhead instrument and the potential of GPU-accelerated audio.
 * Practical advice for getting started in audio programming, DSP, and academic research.
 * An inside look at the NIME (New Interfaces for Musical Expression) community.
 
-This episode was recorded on ______________
+This episode was recorded on February 18, 2025.
 
 ## References
 
@@ -181,6 +189,7 @@ This episode was recorded on ______________
    6. Democratization of Digital Musical Instruments
 
 ### Artistic & Musical References
+
 1. [John Cage](https://www.johncage.org)
    * Prepared Piano
 2. [Devin Townsend](https://hevydevy.com)
