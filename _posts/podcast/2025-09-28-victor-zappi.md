@@ -17,8 +17,10 @@ tags:
 - android
 - virtual reality
 - simd
+- deep learning
 discussion_id: 2025-09-28-victor-zappi
 ---
+Bela platform, Android audio hacking & more!
 
 {% include 'redcircle-podcast-player', redcircle_podcast_id: ______________ %}
 
@@ -39,14 +41,14 @@ Victor Zappi is a creator, researcher, and educator at the intersection of music
 
 I had the pleasure of meeting Victor at the DAFx 2024 conference, where we immediately connected over his paper on running neural networks on Android devices. It turned out he used [my Android wavetable synthesizer tutorial]({% post_url collections.posts, 'synthesis/android-wavetable-synthesizer/2022-08-02-app-architecture' %}) in one of his research experiments (with proper citation, of course 😉).
 
-In this episode, apart from Victor's inspirating career, we focus on digital musical instruments:
+In this episode, apart from Victor's inspiring career, we focus on digital musical instruments:
 
-* What is a "good" digital musical intrument like?
+* What is a "good" digital musical instrument like?
 * Is it a fixed "box" that you should learn how to play?
 * Or should it be "abused" by opening "the box," and messing with its internals?
-* Can an artist change the digital intrument to make it their own?
+* Can an artist change the digital instrument to make it their own?
 
-We conclude with the discussion of Victor's LDSP C++ framework to enable low-level audio device control on Android devices.
+We conclude with a discussion of Victor's LDSP C++ framework, which enables low-level audio device control on Android devices.
 
 This episode is a must-listen for anyone interested in the future of musical interfaces, hackable hardware, and the technology that drives them!
 
