@@ -194,3 +194,6 @@ This episode was recorded on February 18, 2025.
    * Prepared Piano
 2. [Devin Townsend](https://hevydevy.com)
 3. [Murcof - La Sangre Illuminada (Album)](https://murcofmusic.bandcamp.com/album/la-sangre-iluminada)
+
+Thank you for listening! 🙏
+
