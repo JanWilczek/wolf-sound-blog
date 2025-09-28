@@ -22,7 +22,7 @@ discussion_id: 2025-09-28-victor-zappi
 ---
 Bela platform, Android audio hacking & more!
 
-{% include 'redcircle-podcast-player', redcircle_podcast_id: ______________ %}
+{% include 'redcircle-podcast-player', redcircle_podcast_id: 072685cb-c2cd-4ad3-abd1-1d0cbe9b0139 %}
 
 ## Listen on
 
