@@ -27,7 +27,7 @@ Bela platform, Android audio hacking & more!
 ## Listen on
 
 * 🎧 [Spotify](#)
-* 🎥 [YouTube](#)
+* 🎥 [YouTube](https://youtu.be/t-2ZjMTuraQ?si=lGjrMTDcPwTk5PdB)
 * 🎧 [Apple Podcasts](#)
 * 🎧 [TuneIn Radio](#)
 
