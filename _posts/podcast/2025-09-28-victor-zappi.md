@@ -26,10 +26,10 @@ Bela platform, Android audio hacking & more!
 
 ## Listen on
 
-* 🎧 [Spotify](#)
+* 🎧 [Spotify](https://open.spotify.com/episode/19ja7XjETzpcn4HhySuU6V?si=1RmJQ9DuTW-xC3nlJLXpCA)
 * 🎥 [YouTube](https://youtu.be/t-2ZjMTuraQ?si=lGjrMTDcPwTk5PdB)
-* 🎧 [Apple Podcasts](#)
-* 🎧 [TuneIn Radio](#)
+* 🎧 [Apple Podcasts](https://podcasts.apple.com/pl/podcast/designing-digital-musical-instruments-with-victor/id1595913701?i=1000728916647)
+* 🎧 [TuneIn Radio](http://tun.in/tH211Y)
 
 [All podcast episodes.](/podcast)
 
