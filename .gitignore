@@ -12,6 +12,8 @@ _deploy.sh
 _deploy.bat
 _deploy.ps1
 
+.idea/
+
 # Ignore images before processing
 *.ps
 ./_latex/*.png
