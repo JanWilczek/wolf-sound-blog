@@ -1,7 +1,7 @@
 ---
-title: "Wave Digital Filter with Kurt Werner, PhD (Soundtoys, ex-Native Instruments, ex-iZotope)"
-description: "In this episode, Dr. Kurt James Werner walks us through his work on Wave Digital Filters, nonlinear circuit modeling, and the research process behind today’s most respected audio plugins."
-date: 2025-11-29
+title: "Wave Digital Filter with Kurt Werner (Soundtoys, ex-Native Instruments, ex-iZotope)"
+description: "Kurt explains Wave Digital Filters, nonlinear circuit modeling, and the research behind some of the most popular audio plugins."
+date: 2025-11-30T07
 author: Jan Wilczek & Sathira Tennakoon
 layout: post
 permalink: /talk030/
@@ -24,8 +24,9 @@ tags:
 - plugin
 - cpp
 - cmajor
-discussion_id: 2025-11-29-kurt-werner
+discussion_id: 2025-11-30-kurt-werner
 ---
+Learn the secrets of RX, Ozone, Neoverb, Vinyl, and more!
 
 {% include 'redcircle-podcast-player', redcircle_podcast_id: '__________' %}
 
