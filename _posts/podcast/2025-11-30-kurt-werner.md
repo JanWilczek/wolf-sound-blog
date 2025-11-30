@@ -43,7 +43,6 @@ Learn the secrets of RX, Ozone, Neoverb, Vinyl, and more!
 
 ## Introduction
 
-
 Kurt James Werner, PhD, is a senior research scientist at Soundtoys and one of my favorite researchers in audio DSP (virtual analog modeling in particular).
 
 While you may not have read his papers, it's very likely that you used one of the plugins he worked on:
@@ -55,9 +54,13 @@ While you may not have read his papers, it's very likely that you used one of th
 - Neutron
 - Trash
 
-If, however, you start peeking into the research of modeling analog audio effects in plugins, you stumble across his name right away. I consider him not only brilliant, but also insanely productive. Definitely a role model for me!
+If you start peeking into the research of modeling analog audio effects in plugins, you stumble across his name right away.
 
-In the research world, he's mostly known for his work on **Wave Digital Filters (WDFs)**. It's a technique for creating a mathematical model of a circuit that once done is easy to implement (provided you use a WDF library).
+I consider him not only brilliant, but also insanely productive. Definitely a role model for me!
+
+In the research world, he's mostly known for his work on **Wave Digital Filters (WDFs)**. It's a technique for creating a mathematical model of an analog circuit that once done is easy to implement (provided you use a WDF library).
+
+WDFs are great for modeling analog audio effects to put them inside plugins.
 
 But as a true researcher, Kurt is involved many other audio subfields that we discuss in the podcast!
 
@@ -75,27 +78,28 @@ Trust me, you don't want to miss this one 😉
 
 From this episode, you will learn:
 
-1. How Kurt’s early musical and DIY electronics experiments led him toward audio DSP.
+1. How Kurt’s early musical and DIY electronics experiments led him toward audio DSP
 1. How was it like to study at CCRMA under Julius Smith, Jonathan Abel, and Ge Wang
-4. A clear, high-level explanation of Wave Digital Filters, their origins, and why they matter in virtual analog modeling.
-6. How these methods enable accurate modeling of real-world circuits, including iconic drum machines and analog hardware.
+4. A clear, high-level explanation of Wave Digital Filters, their origins, and why they matter in virtual analog modeling
 7. Insights from his work at iZotope
 8. His current work at Soundtoys
-9. About creative music practices like circuit bending and 1-bit music
-1. Do you need a PhD to work at an audio plugin company?
-1. How does research feed into shipping products?
-10. Kurt’s advice for building a research career in audio, including the role of a PhD and how to stay productive.
+9. Creative music practices like circuit bending and 1-bit music
+1. Whether you need a PhD to work at an audio plugin company
+1. How audio research translates into plugins
 
 ### Tips & Advice
 
-1. Real DSP efficiency is not determined by counting adds and multiplies (as often done in research papers) -> always benchmark.
-2. Becoming an audio research scientist requires demonstrated research ability, usually through a PhD or a publication-heavy Master’s, because companies expect proof that you can navigate the full research process.
+1. A DSP algorithm's performance is not determined by counting adds and multiplies (as often done in research papers); you need a proper benchmark
+2. Getting a research position in the audio industry requires demonstarting research ability through
+    1. a PhD (or a very good Master’s thesis),
+    1. written papers
+    1. published papers
 3. A PhD is not required for DSP engineering roles; for these, practical C++ experience is often more valuable
-4. Strong research writing comes from deep reading, and understanding the full history of a topic is essential for producing meaningful papers and effective related-work sections.
-5. When modeling nonlinear circuits you must warm up the system before audio begins, and WDFs are most efficient for reactive circuits but perform poorly on large resistive networks.
+1. To write good papers, you need to read a lot of other papers, understand them, and critically analyze them; "You need to read all the papers" 😉
+1. In your WDF models, consider that the circuit must warm up before proper audio samples processing can start; slamming a battery (even a virtual one) into a circuit will always produce a sharp transient!
 6. Attending conferences like DAFX is important not only for being up-to-date with the latest research, but also for career prospects
 
-This episode was recorded on __________
+This episode was recorded on February 25, 2025.
 
 ## References
 
@@ -111,11 +115,11 @@ This episode was recorded on __________
 * [Julius O. Smith III](https://ccrma.stanford.edu/~jos/)
 * [Jonathan Abel](https://music.stanford.edu/people/jonathan-abel)
 * [Alfred Fettweis](https://ethw.org/Oral-History:Alfred_Fettweis)
-* [Maximilian Schäfer](https://max-schaefer.org)
+* [Maximilian Schäfer](https://www.maximilianschaefer.org/)
 * [Scott Wyatt](https://scottawyatt.com)
 * [Paul Stapleton](https://www.paulstapleton.net/portfolio/about-me)
-* [Victor Zappi](https://toomuchidle.com)
-* [Jatin Chowdhury](https://ccrma.stanford.edu/~jatin/about.html)
+* [Victor Zappi](/talk029)
+* [Jatin Chowdhury](/talk024)
 * [Maximilian Rest](https://ccrma.stanford.edu/people/maximilian-rest)
 * [David Yeh](https://ccrma.stanford.edu/~dtyeh/)
 * [Stefano D’Angelo](https://www.linkedin.com/in/stefanodangeloaudio/)
@@ -138,7 +142,7 @@ This episode was recorded on __________
 * [John Bailey](https://www.linkedin.com/in/jonathangbailey/)
 * [Fabian Esqueda ](https://www.linkedin.com/in/fabian-esqueda-ba3750157/)
 * [Julian Storer](https://www.linkedin.com/in/julian-storer/)
-* [Julian Parker](https://www.linkedin.com/in/julian-parker-28a49313/)
+* [Julian Parker](/talk025)
 * [Reed Ghazala](http://www.anti-theory.com/bio/)
 * [Tristan Perich](https://www.tristanperich.com)
 
@@ -152,6 +156,7 @@ This episode was recorded on __________
 * [FAU Erlangen–Nürnberg](https://www.fau.eu)
 * [University of Michigan](https://umich.edu)
 * [Aalto University – Finland](https://www.aalto.fi/en)
+    - [Acoustics Lab](https://www.aalto.fi/en/aalto-acoustics-lab)
 * [Politecnico di Milano – Italy](https://www.polimi.it)
 * [MIT – Massachusetts Institute of Technology](https://www.mit.edu)
 * [Tufts University](https://www.tufts.edu)
@@ -184,31 +189,27 @@ This episode was recorded on __________
 
 ### Hardware & Gear
 
-#### Classic Hardware
+#### Classic audio hardware
 
-* [Roland TR-808](https://www.roland.com/us/products/rc_tr-808/)
-* [Roland TR-505](https://support.roland.com/hc/en-us/articles/201940129-TR-505-Technical-Specifications)
+* [Roland TR-808](https://en.wikipedia.org/wiki/Roland_TR-808)
+* [Roland TR-505](https://en.wikipedia.org/wiki/Roland_TR-505)
 * [Casio SK-1](https://en.wikipedia.org/wiki/Casio_SK-1)
-* [Hammond Organ (Vibrato/Chorus)](https://en.wikipedia.org/wiki/Hammond_organ)
-* [Altec 9062A (Graphic EQ)](https://gearspace.com/board/reviews/925123-altec-9062a-passive-graphic-equalizer.html#:~:text=It%20is%20a%20very%20simple,2%2Dbuss%20cannot%20be%20overstated.)
+* Altec 9062A (Graphic EQ)
 * [RCA Mark II](https://en.wikipedia.org/wiki/RCA_Mark_II_Sound_Synthesizer)
 * [E-mu SP-1200](https://en.wikipedia.org/wiki/E-mu_SP-1200)
 * Tascam Digital Four-Track Recorder
+* [Atari Punk Console](https://adamgulyas.ca/projects/APC.html#:~:text=Background,was%20probably%20thinking%20of%20phreaking.)
 
-#### Retro / Chiptune   
+#### Retro platforms
 
 * [NES - Nintendo Entertainment System](https://en.wikipedia.org/wiki/Nintendo_Entertainment_System)
 * [GameBoy](https://en.wikipedia.org/wiki/Game_Boy)
 * [ZX Spectrum](https://en.wikipedia.org/wiki/ZX_Spectrum)
-* [Atari Punk Console](https://adamgulyas.ca/projects/APC.html#:~:text=Background,was%20probably%20thinking%20of%20phreaking.)
-* [Music tracker](https://en.wikipedia.org/wiki/Music_tracker)
-* Dancing Hamster Toy
-* Casio Keyboards (circuit-bent)
 
 ### Software, Frameworks & Tools
 
 * [JUCE](https://juce.com)
-* [Max/MSP](https://cycling74.com/products/max) & Gen~
+* [Max/MSP](https://cycling74.com/products/max) & Gen
 * [Max for Live](https://www.ableton.com/en/live/max-for-live/)
 * [ChucK](https://chuck.stanford.edu)
 * [LTSpice](https://www.analog.com/en/resources/design-tools-and-calculators/ltspice-simulator.html)
@@ -219,6 +220,9 @@ This episode was recorded on __________
 * [C++](https://en.wikipedia.org/wiki/C%2B%2B)
 * [Octave](https://octave.org)
 * [Python](https://www.python.org)
+
+#### WDF libraries
+
 * [Chowdhury-DSP/chowdsp_wdf](https://github.com/Chowdhury-DSP/chowdsp_wdf)
 * [droosenb/faust-wdf-library](https://github.com/droosenb/faust-wdf-library)
 * [gusanthon/pywdf](https://github.com/gusanthon/pywdf)
@@ -229,45 +233,46 @@ This episode was recorded on __________
 * [Tuning, Timbre, Spectrum, Scale — William Sethares](https://link.springer.com/book/10.1007/b138848)
 * [Bits and Pieces: A History of Chiptunes — Kenneth McAlpine](https://www.amazon.co.uk/Bits-Pieces-Chiptunes-Kenneth-McAlpine-ebook/dp/B07HCF4ZDX)
 * [Circuit-Bending: Build Your Own Alien Instruments — Reed Ghazala](https://archive.org/details/CircuitBendingBuildYourOwnAlienInstruments)
-* [DAFx: Digital Audio Effects](https://dafx.de/DAFX_Book_Page/index.html)
+* [DAFX: Digital Audio Effects](https://dafx.de/DAFX_Book_Page_2nd_edition/index.html)
 
 ### Academic Papers & Theses
 
 * Werner, K. J. (2016). Virtual analog modeling of audio circuitry using wave digital filters (Doctoral dissertation, Stanford University). [[PDF] stanford.edu](https://stacks.stanford.edu/file/druid:jy057cz8322/KurtJamesWernerDissertation-augmented.pdf)
-* Werner, K. J., & Burtlington, V. T. (2024). GRAPHIC EQUALIZERS BASED ON LIMITED ACTION NETWORKS. [[PDF] dafx.de](https://dafx.de/paper-archive/2024/papers/DAFx24_paper_83.pdf)
+* Werner, K. J., & Burtlington, V. T. (2024). Graphic equalizers based on limited action networks. [[PDF] dafx.de](https://dafx.de/paper-archive/2024/papers/DAFx24_paper_83.pdf)
 * Werner, K. J., Abel, J., & Smith, J. (2014, September). A physically-informed, circuit-bendable, digital model of the Roland TR-808 bass drum circuit. [[PDF] qub.ac.uk](https://pureadmin.qub.ac.uk/ws/portalfiles/portal/124500900/dafx14_kurt_james_werner_a_physically_informed_ci.pdf)
-* Werner, K. J. (2019, September). Generalizations of velvet noise and their use in 1-bit music. [[PDF] dafx.de](https://www.dafx.de/paper-archive/2019/DAFx2019_paper_53.pdf)
-* Franken, D., Ochs, J., & Ochs, K. (2005). Generation of wave digital structures for networks containing multiport elements. [https://doi.org/10.1109/TCSI.2004.843056](https://doi.org/10.1109/TCSI.2004.843056)
+* Werner, K. J. (2019). Generalizations of velvet noise and their use in 1-bit music. [[PDF] dafx.de](https://www.dafx.de/paper-archive/2019/DAFx2019_paper_53.pdf)
+* Fettweis, A. (1986), Wave Digital Filters: Theory and Practice [[PDF] CCRMA](https://ccrma.stanford.edu/~jingjiez/portfolio/gtr-amp-sim/pdfs/Wave%20Digital%20Filters%20Theory%20and%20Practice.pdf)
+* Franken, D., Ochs, J., & Ochs, K. (2005). Generation of wave digital structures for networks containing multiport elements. [[PDF] IEEE Xplore]](https://doi.org/10.1109/TCSI.2004.843056)
 
-### Events, Journals, Conferences
+### Conferences & Journals
 
-* [DAFx — Digital Audio Effects Conference](https://www.dafx.de)
+* [DAFX — Digital Audio Effects Conference](https://www.dafx.de)
 * [NIME — New Interfaces for Musical Expression](https://nime.org)
 * [Computer Music Journal](https://direct.mit.edu/comj)
 * [Sound On Sound – Synth Secrets series](https://www.soundonsound.com/series/synth-secrets-sound-sound)
 
-### Concepts & Technologies
+### Research/technical concepts
 
 * Wave Digital Filters (WDFs)
-* SPQR Tree Decomposition
-* R-Type Adapters
+* SPQR tree decomposition
+* R-Type adapters
 * Modified Nodal Analysis (MNA)
-* State-Space Modeling
-* Port-Hamiltonian Systems
-* N-Extra Element Theorem (Middlebrook)
-* Newton Solvers
-* Delay-Free Loop Handling
-* 1-bit Audio
+* state-space modeling
+* Port-Hamiltonian modeling
+* N-Extra Element Theorem (R. D. Middlebrook)
+* Newton solvers
+* delay-free loop handling
+* 1-bit audio
 * Pulse Width Modulation (PWM)
-* Velvet Noise
-* Impulse Trains
-* Hard Sync
-* Deep Learning for Virtual Analog
-* Startup Transients in WDF
+* velvet noise
+* impulse trains
+* hard sync
+* deep learning
+* virtual analog modeling
 * R2R DAC
-* Passive EQs
-* Operational Amplifiers (Op-Amps)
-* Voltage Dividers
-* Chebyshev Filters
-* Biquad Filters
-* Digital Logic Chips
+* passive EQs
+* operational amplifiers (op-amps)
+* voltage dividers
+* Chebyshev filters
+* biquad filters
+
