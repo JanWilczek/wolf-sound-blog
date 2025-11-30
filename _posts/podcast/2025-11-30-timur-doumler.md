@@ -27,7 +27,7 @@ C++ Standards Committee member, ex-Native Instruments, ex-JUCE, ex-JetBrains, oh
 ## Listen on
 
 * 🎧 [Spotify]()
-* 🎥 [YouTube]()
+* 🎥 [YouTube](https://youtu.be/_ErQlwHJQL8)
 * 🎧 [Apple Podcasts]()
 * 🎧 [TuneIn Radio]()
 
