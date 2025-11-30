@@ -12,14 +12,12 @@ tags:
   - cpp
   - c
   - simd
-  - hardware
   - juce
   - plugin
-  - software architecture
   - testing
-  - research
   - career
   - learning
+  - rust
 discussion_id: 2025-11-30-timur-doumler
 ---
 C++ Standards Committee member, ex-Native Instruments, ex-JUCE, ex-JetBrains, oh my!
