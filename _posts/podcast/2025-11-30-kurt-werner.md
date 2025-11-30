@@ -32,7 +32,7 @@ Learn the secrets of RX, Ozone, Neoverb, Vinyl, and more!
 
 ## Listen on
 
-* 🎧 [Spotify]()
+* 🎧 [Spotify](https://open.spotify.com/episode/0jwvKlpWfPeJVjwBtJHW3e?si=b0LuF7qHR4yyVYWrRAFIZQ)
 * 🎥 [YouTube](https://youtu.be/ZMbnvEWT6nY)
 * 🎧 [Apple Podcasts]()
 * 🎧 [TuneIn Radio]()
