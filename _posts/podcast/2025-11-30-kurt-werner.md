@@ -9,21 +9,21 @@ background: /assets/img/posts/podcast/talk030/Thumbnail.webp
 categories:
   - Podcast
 tags:
-- filtering
-- maths
-- fourier
-- transform
-- matlab
-- juce
-- career
-- learning
-- research
-- reverb
-- virtual analog
-- amplifiers
-- plugin
-- cpp
-- cmajor
+  - filtering
+  - maths
+  - fourier
+  - transform
+  - matlab
+  - juce
+  - career
+  - learning
+  - research
+  - reverb
+  - virtual analog
+  - amplifiers
+  - plugin
+  - cpp
+  - cmajor
 discussion_id: 2025-11-30-kurt-werner
 ---
 Learn the secrets of RX, Ozone, Neoverb, Vinyl, and more!
@@ -43,41 +43,57 @@ Learn the secrets of RX, Ozone, Neoverb, Vinyl, and more!
 
 ## Introduction
 
-Dr. Kurt James Werner is a senior research scientist at Soundtoys, a former researcher at iZotope, and one of the most influential figures in modern Virtual Analog modeling. His research areas include Wave Digital Filters (WDFs), nonlinear circuit analysis, reverb design, and the mathematical foundations that make today’s plugins sound the way they do.
 
-Kurt’s path into audio is unusual and inspiring. From early experiments with saxophone and GarageBand, to circuit bending Casio keyboards, and pursuing two bachelor’s degrees at UIUC: one in Industrial Engineering and one in Music Composition. His academic journey eventually led him to Stanford’s legendary CCRMA, where under the guidance of Julius O. Smith, he helped modernize the WDF framework and remove long-standing limitations that prevented realistic modeling of complex analog circuits.
+Kurt James Werner, PhD, is a senior research scientist at Soundtoys and one of my favorite researchers in audio DSP (virtual analog modeling in particular).
 
-In this episode, we explore Kurt’s transition from academia to industry, his work on products at iZotope and Soundtoys, and the realities of being a research scientist inside an audio plugin company. What does the day-to-day look like? How does research feed into shipping products? And what role does a PhD play in shaping an audio DSP career?
+While you may not have read his papers, it's very likely that you used one of the plugins he worked on:
+- Neoverb
+- Vinyl
+- RX
+- Guitar Rig (Hammond vibrato/chorus)
+- Ozone
+- Neutron
+- Trash
 
-This conversation is a blend of practical engineering insights, deep DSP theory, and candid career reflection, and is a must-listen for anyone interested in audio DSP, virtual analog modeling, circuit simulation, or the technology behind modern sound design tools.
+If, however, you start peeking into the research of modeling analog audio effects in plugins, you stumble across his name right away. I consider him not only brilliant, but also insanely productive. Definitely a role model for me!
+
+In the research world, he's mostly known for his work on **Wave Digital Filters (WDFs)**. It's a technique for creating a mathematical model of a circuit that once done is easy to implement (provided you use a WDF library).
+
+But as a true researcher, Kurt is involved many other audio subfields that we discuss in the podcast!
+
+Did I mention that he's a graduate from Stanford's CCRMA?
+
+In this episode, you'll learn about Kurt’s transition from academia to industry, his work on products at iZotope, Native Instruments, and Soundtoys, and the realities of being a research scientist in an audio plugin company.
+
+You'll also learn all about WDFs, which is a powerful tool to master.
+
+Trust me, you don't want to miss this one 😉
 
 {% include 'podcast_cta' %}
 
-
-
 ## Episode Contents
 
-### From this episode, you will learn:
+From this episode, you will learn:
 
-1.	How Kurt’s early musical and DIY electronics experiments led him toward audio DSP.
-2.	What studying Industrial Engineering and Music Composition at UIUC taught him about sound, systems, and creativity.
-3.	How the CCRMA environment shaped his research, from psychoacoustics to DSP with Julius O. Smith.
-4.	A clear, high-level explanation of Wave Digital Filters, their origins, and why they matter in virtual analog modeling.
-5.	Kurt’s contributions to modern WDFs, including topology handling, SPQR decomposition, and R-type adaptors.
-6.	How these methods enable accurate modeling of real-world circuits, including iconic drum machines and analog hardware.
-7.	Insights from his work at iZotope, including reverb design, DAC modeling, distortion research, and product integration.
-8.	His current work at Soundtoys, contributing to products like SuperPlate and exploring long-horizon research in a small team.
-9.	How creative hacking practices like circuit bending and 1-bit music inform his DSP thinking.
-10.	Kurt’s advice for building a research or engineering career in audio, including the role of a PhD and how to stay productive.
-
+1. How Kurt’s early musical and DIY electronics experiments led him toward audio DSP.
+1. How was it like to study at CCRMA under Julius Smith, Jonathan Abel, and Ge Wang
+4. A clear, high-level explanation of Wave Digital Filters, their origins, and why they matter in virtual analog modeling.
+6. How these methods enable accurate modeling of real-world circuits, including iconic drum machines and analog hardware.
+7. Insights from his work at iZotope
+8. His current work at Soundtoys
+9. About creative music practices like circuit bending and 1-bit music
+1. Do you need a PhD to work at an audio plugin company?
+1. How does research feed into shipping products?
+10. Kurt’s advice for building a research career in audio, including the role of a PhD and how to stay productive.
 
 ### Tips & Advice
-1. Real DSP efficiency is not determined by counting multipliers, because actual performance depends on memory access, platform behaviour, and algorithm structure, so you must measure real throughput rather than theoretical cost.
+
+1. Real DSP efficiency is not determined by counting adds and multiplies (as often done in research papers) -> always benchmark.
 2. Becoming an audio research scientist requires demonstrated research ability, usually through a PhD or a publication-heavy Master’s, because companies expect proof that you can navigate the full research process.
-3. A PhD is not required for DSP engineering roles, and practical C++, debugging ability, and hands-on product development experience are often more valuable than academic credentials.
+3. A PhD is not required for DSP engineering roles; for these, practical C++ experience is often more valuable
 4. Strong research writing comes from deep reading, and understanding the full history of a topic is essential for producing meaningful papers and effective related-work sections.
 5. When modeling nonlinear circuits you must warm up the system before audio begins, and WDFs are most efficient for reactive circuits but perform poorly on large resistive networks.
-6. Audio careers often move between academia and industry, and attending conferences like DAFx plays an important role in staying connected to the research community.
+6. Attending conferences like DAFX is important not only for being up-to-date with the latest research, but also for career prospects
 
 This episode was recorded on __________
 
@@ -86,10 +102,12 @@ This episode was recorded on __________
 ### People
 
 #### Kurt Werner
+
 * [CCRMA - Dr. Kurt James Werner](https://ccrma.stanford.edu/~kwerner/)
 * [Bandcamp - Kurt James Werner](https://kurtjameswerner.bandcamp.com)
 
 #### Academia & Research
+
 * [Julius O. Smith III](https://ccrma.stanford.edu/~jos/)
 * [Jonathan Abel](https://music.stanford.edu/people/jonathan-abel)
 * [Alfred Fettweis](https://ethw.org/Oral-History:Alfred_Fettweis)
@@ -108,6 +126,7 @@ This episode was recorded on __________
 * [Sebastian Schlecht](https://www.sebastianjiroschlecht.com)
 
 #### Industry and Creative Figures
+
 * [Ken Bogdanowicz](https://www.linkedin.com/in/ken-bogdanowicz-b092476/)
 * [Chris Santoro](https://www.linkedin.com/in/chris-santoro-9773059/)
 * [Pete Edwards](https://www.instagram.com/casperelectronics/)
@@ -124,6 +143,7 @@ This episode was recorded on __________
 * [Tristan Perich](https://www.tristanperich.com)
 
 ### Educational & Research Institutes
+
 * [CCRMA – Stanford University](https://ccrma.stanford.edu)
 * [Stanford Laptop Orchestra (SLOrk)](https://slork.stanford.edu)
 * [SARC – Queen’s University Belfast](https://www.qub.ac.uk/research-centres/sarc/)
@@ -143,6 +163,7 @@ This episode was recorded on __________
 * [SEAMUS – Society for Electro-Acoustic Music in the US](https://seamusonline.org)
 
 ### Companies & Products
+
 * [iZotope](https://www.izotope.com)
     * [Neoverb](https://www.izotope.com/en/products/neoverb)
     * [RX](https://www.izotope.com/en/products/rx)
@@ -153,7 +174,7 @@ This episode was recorded on __________
 * [Native Instruments](https://www.native-instruments.com)
     * [Guitar Rig](https://www.native-instruments.com/en/products/komplete/guitar/guitar-rig-7-pro/)
 * [Soundtoys](https://www.soundtoys.com)
-* [Superplate](https://www.soundtoys.com/product/superplate/)
+    * [Superplate](https://www.soundtoys.com/product/superplate/)
 * [SoundStacks](https://cmajor.dev)
 * [Exponential Audio](https://sonicscoop.com/inside-the-acquisition-why-izotope-set-its-sights-on-exponential-audio/#:~:text=It%20seems%20relatively%20rare%20in,brain%20trust%20are%20all%20covered.)
 * [Brainworx](https://www.brainworx.audio)
@@ -164,6 +185,7 @@ This episode was recorded on __________
 ### Hardware & Gear
 
 #### Classic Hardware
+
 * [Roland TR-808](https://www.roland.com/us/products/rc_tr-808/)
 * [Roland TR-505](https://support.roland.com/hc/en-us/articles/201940129-TR-505-Technical-Specifications)
 * [Casio SK-1](https://en.wikipedia.org/wiki/Casio_SK-1)
@@ -174,6 +196,7 @@ This episode was recorded on __________
 * Tascam Digital Four-Track Recorder
 
 #### Retro / Chiptune   
+
 * [NES - Nintendo Entertainment System](https://en.wikipedia.org/wiki/Nintendo_Entertainment_System)
 * [GameBoy](https://en.wikipedia.org/wiki/Game_Boy)
 * [ZX Spectrum](https://en.wikipedia.org/wiki/ZX_Spectrum)
@@ -183,6 +206,7 @@ This episode was recorded on __________
 * Casio Keyboards (circuit-bent)
 
 ### Software, Frameworks & Tools
+
 * [JUCE](https://juce.com)
 * [Max/MSP](https://cycling74.com/products/max) & Gen~
 * [Max for Live](https://www.ableton.com/en/live/max-for-live/)
@@ -200,6 +224,7 @@ This episode was recorded on __________
 * [gusanthon/pywdf](https://github.com/gusanthon/pywdf)
 
 ### Books
+
 * [Physical Audio Signal Processing — Julius O. Smith](https://ccrma.stanford.edu/~jos/pasp/)
 * [Tuning, Timbre, Spectrum, Scale — William Sethares](https://link.springer.com/book/10.1007/b138848)
 * [Bits and Pieces: A History of Chiptunes — Kenneth McAlpine](https://www.amazon.co.uk/Bits-Pieces-Chiptunes-Kenneth-McAlpine-ebook/dp/B07HCF4ZDX)
@@ -207,6 +232,7 @@ This episode was recorded on __________
 * [DAFx: Digital Audio Effects](https://dafx.de/DAFX_Book_Page/index.html)
 
 ### Academic Papers & Theses
+
 * Werner, K. J. (2016). Virtual analog modeling of audio circuitry using wave digital filters (Doctoral dissertation, Stanford University). [[PDF] stanford.edu](https://stacks.stanford.edu/file/druid:jy057cz8322/KurtJamesWernerDissertation-augmented.pdf)
 * Werner, K. J., & Burtlington, V. T. (2024). GRAPHIC EQUALIZERS BASED ON LIMITED ACTION NETWORKS. [[PDF] dafx.de](https://dafx.de/paper-archive/2024/papers/DAFx24_paper_83.pdf)
 * Werner, K. J., Abel, J., & Smith, J. (2014, September). A physically-informed, circuit-bendable, digital model of the Roland TR-808 bass drum circuit. [[PDF] qub.ac.uk](https://pureadmin.qub.ac.uk/ws/portalfiles/portal/124500900/dafx14_kurt_james_werner_a_physically_informed_ci.pdf)
