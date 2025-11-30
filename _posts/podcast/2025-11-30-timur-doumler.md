@@ -154,36 +154,29 @@ This episode was recorded on September 26, 2025.
 - Kotlin
 - Rust
 
-### Frameworks & Protocols
+### Developer Tools
 
 - [JUCE](https://juce.com) - podcast sponsor ❤️
-- MPE (MIDI Polyphonic Expression)
-- OSC (Open Sound Control)
-
-### Developer Tools & Practices
-
 - [Git](https://git-scm.com)
 - [CLion](https://www.jetbrains.com/clion)
-- IDE workflows
-- Test-Driven Development (TDD)
-- Real-time programming
-- Low-latency programming
 - [GCC](https://gcc.gnu.org)
 - [Clang/LLVM](https://clang.llvm.org)
 - [MSVC](https://learn.microsoft.com/en-us/cpp/?view=msvc-170)
 
 ### Technical Concepts
 
-- Real-time audio constraints
+- MPE (MIDI Polyphonic Expression)
+- OSC (Open Sound Control)
+- Test-Driven Development (TDD)
+- Real-time/low-latency programming
 - Lock-free / wait-free data structures
-- Lock-free queues
-- Seqlocks
+    - Lock-free queues
+- [Seqlock](https://en.wikipedia.org/wiki/Seqlock)
 - SIMD and vectorization
 - Memory ordering
-- Compiler considerations (GCC, Clang, MSVC)
-- RealTimeSanitizer
+- [RealTimeSanitizer](https://clang.llvm.org/docs/RealtimeSanitizer.html)
 - [`[[std::execution]]`](https://en.cppreference.com/w/cpp/experimental/execution.html)
-- Hardware Architectures
+- Hardware architectures
     - [PowerPC](https://www.ibm.com/docs/en/aix/7.3.0?topic=storage-power-family-powerpc-architecture-overview)
     - [RISC-V](https://riscv.org)
 
