@@ -99,9 +99,16 @@ This episode was recorded on September 26, 2025.
 ### Companies & Organizations
 
 - [Cradle](https://cradle.app)
+    - [The Prince plugin](https://cradle.app/products/the-prince)
+    - [The God Particle plugin](https://cradle.app/products/the-god-particle)
+    - [The Spirit plugin](https://cradle.app/products/the-spirit)
 - [Native Instruments](https://www.native-instruments.com/)
+    - [Guitar Rig plugin](https://www.native-instruments.com/en/products/komplete/guitar/guitar-rig-7-pro/)
+    - [Kontakt plugin](https://www.native-instruments.com/en/products/komplete/samplers/kontakt-8)
 - [Ableton](https://www.ableton.com/en/)
 - [ROLI](https://roli.com)
+    - [BLOCKS device](https://www.soundonsound.com/reviews/roli-blocks)
+    - [NOISE app](https://apps.apple.com/uk/app/noise/id1011132019)
 - [JetBrains](https://www.jetbrains.com/)
 - [Bloomberg](https://www.bloomberg.com/)
 - [ISO C++ Standards Committee](https://isocpp.org/std/the-committee)
@@ -152,19 +159,6 @@ This episode was recorded on September 26, 2025.
 - [JUCE](https://juce.com) - podcast sponsor ❤️
 - MPE (MIDI Polyphonic Expression)
 - OSC (Open Sound Control)
-
-### Audio Software & Plugins
-
-- Native Instruments
-    - [Guitar Rig](https://www.native-instruments.com/en/products/komplete/guitar/guitar-rig-7-pro/)
-    - [Kontakt](https://www.native-instruments.com/en/products/komplete/samplers/kontakt-8)
-- ROLI
-    - [BLOCKS](https://www.soundonsound.com/reviews/roli-blocks)
-    - [NOISE](https://apps.apple.com/uk/app/noise/id1011132019)
-- Cradle
-    - [The Prince](https://cradle.app/products/the-prince)
-    - [The God Particle](https://cradle.app/products/the-god-particle)
-    - [The Spirit](https://cradle.app/products/the-spirit)
 
 ### Developer Tools & Practices
 
