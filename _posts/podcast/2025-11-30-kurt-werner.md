@@ -34,7 +34,7 @@ Learn the secrets of RX, Ozone, Neoverb, Vinyl, and more!
 
 * 🎧 [Spotify](https://open.spotify.com/episode/0jwvKlpWfPeJVjwBtJHW3e?si=b0LuF7qHR4yyVYWrRAFIZQ)
 * 🎥 [YouTube](https://youtu.be/ZMbnvEWT6nY)
-* 🎧 [Apple Podcasts]()
+* 🎧 [Apple Podcasts](https://podcasts.apple.com/us/podcast/wave-digital-filters-with-kurt-werner-soundtoys-ex/id1595913701?i=1000738980955)
 * 🎧 [TuneIn Radio]()
 
 [All podcast episodes.](/podcast)
