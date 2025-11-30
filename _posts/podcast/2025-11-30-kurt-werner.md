@@ -28,7 +28,7 @@ discussion_id: 2025-11-30-kurt-werner
 ---
 Learn the secrets of RX, Ozone, Neoverb, Vinyl, and more!
 
-{% include 'redcircle-podcast-player', redcircle_podcast_id: '__________' %}
+{% include 'redcircle-podcast-player', redcircle_podcast_id: '0bfe72a5-ba48-498c-b4df-306cbb11877e' %}
 
 ## Listen on
 
