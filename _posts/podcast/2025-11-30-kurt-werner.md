@@ -1,5 +1,5 @@
 ---
-title: "Wave Digital Filter with Kurt Werner (Soundtoys, ex-Native Instruments, ex-iZotope)"
+title: "Wave Digital Filters with Kurt Werner (Soundtoys, ex-Native Instruments, ex-iZotope) | WolfTalk #030"
 description: "Kurt explains Wave Digital Filters, nonlinear circuit modeling, and the research behind some of the most popular audio plugins."
 date: 2025-11-30T07
 author: Jan Wilczek & Sathira Tennakoon
@@ -33,7 +33,7 @@ Learn the secrets of RX, Ozone, Neoverb, Vinyl, and more!
 ## Listen on
 
 * 🎧 [Spotify]()
-* 🎥 [YouTube]()
+* 🎥 [YouTube](https://youtu.be/ZMbnvEWT6nY)
 * 🎧 [Apple Podcasts]()
 * 🎧 [TuneIn Radio]()
 
