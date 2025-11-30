@@ -188,7 +188,7 @@ This episode was recorded on September 26, 2025.
 - Memory ordering
 - Compiler considerations (GCC, Clang, MSVC)
 - RealTimeSanitizer
-- `std::execution` (C++26)
+- [`[[std::execution]]`](https://en.cppreference.com/w/cpp/experimental/execution.html)
 - Hardware Architectures
     - [PowerPC](https://www.ibm.com/docs/en/aix/7.3.0?topic=storage-power-family-powerpc-architecture-overview)
     - [RISC-V](https://riscv.org)
