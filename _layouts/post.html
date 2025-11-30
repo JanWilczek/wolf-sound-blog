@@ -19,9 +19,10 @@ custom_css:
           {% if subtitle %}
           <h2 class="subheading">{{ subtitle }}</h2>
           {% endif %}
+          <!-- truncate is needed in case the date string has time appended (time messes up the date filter) -->
           <span class="meta">Posted by
             <a href="#">{% if author %}{{ author }}{% else %}{{ site.author }}{% endif %}</a>
-            on {{ date | date: '%B %d, %Y' }} &middot; {% render 'read_time.html', content: content %}
+            on {{ date | truncate: 10 | date: '%B %d, %Y' }} &middot; {% render 'read_time.html', content: content %}
           </span>
         </div>
       </div>
