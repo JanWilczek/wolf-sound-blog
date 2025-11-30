@@ -22,7 +22,7 @@ discussion_id: 2025-11-30-timur-doumler
 ---
 C++ Standards Committee member, ex-Native Instruments, ex-JUCE, ex-JetBrains, oh my!
 
-{% include 'redcircle-podcast-player', redcircle_podcast_id: ______________ %}
+{% include 'redcircle-podcast-player', redcircle_podcast_id: '2ecd4477-4ea1-4d35-8154-9b6f95255d2d' %}
 
 ## Listen on
 
