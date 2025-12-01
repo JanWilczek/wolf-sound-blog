@@ -29,7 +29,7 @@ C++ Standards Committee member, ex-Native Instruments, ex-JUCE, ex-JetBrains, oh
 * 🎧 [Spotify](https://open.spotify.com/episode/0GZAhxELCsnonYvoEwP3hd?si=ATHDSZ1eQW22cdH953CotA)
 * 🎥 [YouTube](https://youtu.be/_ErQlwHJQL8)
 * 🎧 [Apple Podcasts](https://podcasts.apple.com/us/podcast/audio-and-the-c-standard-with-timur-doumler-wolftalk-031/id1595913701?i=1000738981120)
-* 🎧 [TuneIn Radio]()
+* 🎧 [TuneIn Radio](http://tun.in/tI8FdF)
 
 [All podcast episodes.](/podcast)
 
