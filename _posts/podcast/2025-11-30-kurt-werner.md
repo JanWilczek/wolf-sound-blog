@@ -176,6 +176,7 @@ This episode was recorded on February 25, 2025.
     * [Neutron](https://www.izotope.com/en/products/neutron)
     * [Trash](https://www.izotope.com/en/products/trash)
     * [Vinyl](https://www.izotope.com/en/products/vinyl)
+        * [Interview with Russell McClellan and Kurt Werner on Vinyl R2R DAC modeling](https://www.izotope.com/en/learn/lo-fi-a-hip-hop-story)
 * [Native Instruments](https://www.native-instruments.com)
     * [Guitar Rig](https://www.native-instruments.com/en/products/komplete/guitar/guitar-rig-7-pro/)
 * [Soundtoys](https://www.soundtoys.com)
