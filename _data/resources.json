@@ -197,14 +197,6 @@
         "description": "Where the books above give you knowledge about things of science, the books below focus on your ability to learn and use them. They have made me a better student, programmer, scientist, entrepreneur, friend; a better person. And I believe they can serve you well too! Let me know in the comments below what would you add to this category 🙂",
         "resources": [
             {
-                "name": "Weight Loss for Students & Office Workers",
-                "type": "book",
-                "authors": ["Jan Wilczek a.k.a. George Telton"],
-                "description": "My book on how I lost 16 kg without spending much time, exercise, or money on it. If you want to know what the book is about, <a href=\"https://youtu.be/Y4caHZ2cSRo\" target=\"_blank\">watch the summary video on YouTube</a>.",
-                "image": "https://images-na.ssl-images-amazon.com/images/I/41NoPXb2F5S._SX331_BO1,204,203,200_.jpg",
-                "affiliate_link": "https://amzn.to/3CZOoW2"
-            },
-            {
                 "name": "A Mind for Numbers",
                 "type": "book",
                 "authors": ["Barbara Oakley"],
