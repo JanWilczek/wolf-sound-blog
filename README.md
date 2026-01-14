@@ -95,6 +95,8 @@ python _py/posts/synthesis/2025-03-01-fm-synthesis/fm_synthesis.py
 {% image "assets/img/posts/synthesis/2025-03-01-fm-synthesis/partials_amplitudes_in_3d.png", "alt text for you to fill" %}
 ```
 
+This will generate optimized versions of images, no need to add any sizes or similar.
+
 ### Adding a caption to a figure
 
 At the top of the article (but after the first line) paste:
