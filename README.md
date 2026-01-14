@@ -111,6 +111,7 @@ _Figure {% increment figureId20211022 %}. Block diagram of an FIR allpass filter
 
 ## All tags used
 
+- ai
 - sound wave
 - sampling (A/D conversion)
 - quantization
