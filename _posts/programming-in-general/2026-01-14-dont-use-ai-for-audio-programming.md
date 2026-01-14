@@ -5,7 +5,6 @@ date: 2026-01-14
 author: Jan Wilczek
 layout: post
 permalink: /dont-use-ai-for-audio-programming/
-images: /assets/img/posts/programming-in-general/2026-01-14-dont-use-ai-for-audio-programming/
 categories:
   - Programming In General
 tags:
@@ -15,6 +14,9 @@ tags:
 discussion_id: 2026-01-14-dont-use-ai-for-audio-programming
 ---
 Are you using AI for audio programming? You may go deaf.
+
+{% capture _ %}{% increment figureId20250114  %}{% endcapture %}
+{% capture _ %}{% increment listingId20250114  %}{% endcapture %}
 
 At the Audio Developer Conference 2025 last November, one topic dominated the conversation: AI and its applications in audio programming.
 
@@ -38,7 +40,7 @@ Once they tested the software locally, they were happy to bring it to the stage.
 
 But once they started playing to the audience, they noticed that something was off. They were getting constant static in the speakers. The static was getting louder and louder, until eventually, when the musician played a crescendo, the speakers exploded leaving most of the attendees with impaired hearing.
 
-{% image "assets/img/posts/programming-in-general/2026-01-14-dont-use-ai-for-audio-programming/Boomm.svg", "comic book boom depiction" %}
+{% image "assets/img/posts/programming-in-general/2026-01-14-dont-use-ai-for-audio-programming/Boomm.png", "comic book boom depiction"  %}
 
 Is this story true? No. At least not yet. But there’s a high chance that it will be true soon. And here’s why.
 
@@ -98,6 +100,7 @@ But yes, AI models are getting better all the time, so by the time you read this
 
 To show how this looks, please consider the `processBlock()` method of a vibe-coded phaser audio plugin:
 
+_Listing {% increment listingId20250114  %}._
 ```cpp
 void PhaserAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, juce::MidiBuffer& midiMessages)
 {
@@ -216,6 +219,7 @@ In the [Audio Developer Conference 2025](https://audio.dev/archive/adc25-bristol
 - “If you do need one, they are dangerous.”
 
 {% image "assets/img/posts/programming-in-general/2026-01-14-dont-use-ai-for-audio-programming/jules-slide.webp", "Julian Storer's ADC25 keynote slide on using AI code agents" %}
+_Figure {% increment figureId20250114  %}. Julian Storer's ADC25 keynote slide on using AI code agents._
 
 He followed it up by saying, "To use these things well, you have to be a good programmer, you have to have a lot of experience."
 
@@ -229,7 +233,7 @@ But generating audio code with AI can actually hurt you; let me tell you how.
 
 {% image "assets/img/posts/programming-in-general/2026-01-14-dont-use-ai-for-audio-programming/ai-productivity-predictions.webp", "Plot of predictions and measurement of programming with AI. Measurements showed that programmers were actually slower with AI." %}
 
-_[Source](https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/), accessed January 14, 2026._
+_Figure {% increment figureId20250114  %}. Predictions vs reality of productivity increase when using AI for coding. [Source](https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/), accessed January 14, 2026._
 
 There’s one disturbing detail to the results of the study, though.
 
@@ -247,6 +251,7 @@ In [the official JUCE online course](https://www.wolfsoundacademy.com/juce?utm_s
 
 That’s the code I’m sharing:
 
+_Listing {% increment listingId20250114  %}._
 ```cpp
 float triangle(float phase) {
     const auto ft = phase / (2.f * std::numbers::pi_v<float>);
@@ -256,6 +261,7 @@ float triangle(float phase) {
 
 One of the students reported that the code didn’t work for them, so they asked AI to fix it. Here’s the “fixed” code given by AI.
 
+_Listing {% increment listingId20250114  %}._
 ```cpp
 float triangle_ai(float phase) {
     const auto ft = phase / (2.f * std::numbers::pi_v<float>);
@@ -277,7 +283,7 @@ I see my students often blindly accept inline AI suggestions without much though
 
 {% image "assets/img/posts/programming-in-general/2026-01-14-dont-use-ai-for-audio-programming/ai-suggestion.webp", "VS Code AI autocomplete suggestion" %}
 
-_Seeing the suggestion, you just want to hit that sweet little Tab button, don’t you?_
+_Figure {% increment figureId20250114 %}. Seeing the suggestion, you just want to hit that sweet little Tab button, don’t you?_
 
 It’s hard for them to resist hitting the Tab button. They don’t consider *what* they want to achieve or *how* they could achieve it. They just accept whatever is suggested to them, thinking that they are learning from that. But in fact, they are just mindlessly hitting Tab. Without the mental strain of thinking about what to write first, they don’t develop proper programming habits and increase their mental capacity. And the resulting code is awful (as anecdotally confirmed by my colleagues, who were asked to fix vibe-coded audio software).
 
@@ -313,7 +319,7 @@ When you code, you develop a mental model of the program and the domain. This wa
 
 The human brain is a wonderful tool. Programming is an amazing way to sharpen that tool.
 
-Just like Steven Covey said in his book “7 Habits of Highly Successful People”: you need to sharpen the saw.
+Just like Steven Covey wrote in his book “The 7 Habits of Highly Effective People”: you need to sharpen the saw.
 
 Our brains are responsible for creating the rich experience of life. Don’t you want to have it as sharp as possible?
 
@@ -366,7 +372,7 @@ And, ultimately, what is more enjoyable to you? Solving problems with your brain
 
 Let me leave you with this quote from Cal Newport:
 
-> *"Learning requires strain. Learning is hard."*
+> *"Learning requires strain. Learning is hard."* [Source](https://youtu.be/ohruWW2WxYY?si=tCvygZAJEdXO9diZ)
 
 And there’s nothing wrong with hard things and strain. You can do this, too, and become an audio programmer.
 
