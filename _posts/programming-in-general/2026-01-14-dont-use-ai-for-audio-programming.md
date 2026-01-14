@@ -38,7 +38,7 @@ Once they tested the software locally, they were happy to bring it to the stage.
 
 But once they started playing to the audience, they noticed that something was off. They were getting constant static in the speakers. The static was getting louder and louder, until eventually, when the musician played a crescendo, the speakers exploded leaving most of the attendees with impaired hearing.
 
-[Boom image]
+{% image "assets/img/posts/programming-in-general/2026-01-14-dont-use-ai-for-audio-programming/Boomm.svg", "comic book boom depiction" %}
 
 Is this story true? No. At least not yet. But there’s a high chance that it will be true soon. And here’s why.
 
@@ -99,7 +99,6 @@ But yes, AI models are getting better all the time, so by the time you read this
 To show how this looks, please consider the `processBlock()` method of a vibe-coded phaser audio plugin:
 
 ```cpp
-
 void PhaserAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, juce::MidiBuffer& midiMessages)
 {
     juce::ScopedNoDenormals noDenormals;
@@ -166,7 +165,6 @@ private:
   static constexpr float minDelayTime = 1.0f;
   static constexpr float maxDelayTime = 10.0f;
 };
-
 ```
 
 Can you spot what the error is in the `processBlock()` function? I noticed two, but I haven’t analyzed the code in detail, so there may be more 😉
@@ -175,7 +173,7 @@ Can you spot what the error is in the `processBlock()` function? I noticed two, 
 
 <details>
 <summary>Answer</summary>
-The LFO oscillator is shared between the channels. If there is more than one channel, the user may hear a glitch (but more likely a peculiar phaser behavior). The solution is either to have a separate LFO oscillator for each channel or to pre-generate the LFO signal before iterating over the channels. This is a common beginner mistake (maybe that’s how AI learned that!). I discuss the proper solution in the [JUCE audio plugin development course.](https://www.wolfsoundacademy.com/juce?utm_source=dont-use-ai-article&utm_medium=blog)
+The LFO oscillator is shared between the channels. If there is more than one channel, the user may hear a glitch (but more likely a peculiar phaser behavior). The solution is either to have a separate LFO oscillator for each channel or to pre-generate the LFO signal before iterating over the channels. This is a common beginner mistake (maybe that’s how AI learned that!). I discuss the proper solution in the <a href="https://www.wolfsoundacademy.com/juce?utm_source=dont-use-ai-article&utm_medium=blog">JUCE audio plugin development course</a>.
 </details>
 
 For a professional, finding a bug in this blob of code is difficult.
@@ -217,7 +215,7 @@ In the [Audio Developer Conference 2025](https://audio.dev/archive/adc25-bristol
 - “If you don’t need a code agent, they can be a lot of fun.”
 - “If you do need one, they are dangerous.”
 
-![image.png](Article/image.png)
+{% image "assets/img/posts/programming-in-general/2026-01-14-dont-use-ai-for-audio-programming/jules-slide.webp", "Julian Storer's ADC25 keynote slide on using AI code agents" %}
 
 He followed it up by saying, "To use these things well, you have to be a good programmer, you have to have a lot of experience."
 
@@ -229,9 +227,9 @@ But generating audio code with AI can actually hurt you; let me tell you how.
 
 [A 2025 study by METR](https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/) indicates that using AI to complete development tasks may result in longer delivery times. While statistically significant, this study included only 16 developers, all experienced programmers, so we should not generalize these results prematurely.
 
-![[Source](https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/), accessed January 14, 2026.](Article/image%201.png)
+{% image "assets/img/posts/programming-in-general/2026-01-14-dont-use-ai-for-audio-programming/ai-productivity-predictions.webp", "Plot of predictions and measurement of programming with AI. Measurements showed that programmers were actually slower with AI." %}
 
-[Source](https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/), accessed January 14, 2026.
+_[Source](https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/), accessed January 14, 2026._
 
 There’s one disturbing detail to the results of the study, though.
 
@@ -245,9 +243,9 @@ Unfortunately, the ease with which AI provides solutions has its negative effect
 
 ### AI “fixes” triangle-generating function
 
-In [the official JUCE online course](https://www.wolfsoundacademy.com/juce?utm_source=dont-use-ai-article&utm_medium=blog), I teach students how to generate a triangle LFO. [LINKS]
+In [the official JUCE online course](https://www.wolfsoundacademy.com/juce?utm_source=dont-use-ai-article&utm_medium=blog), I teach students how to generate a [triangle LFO]({% post_url collections.posts, "synthesis/2022-07-03-envelopes.md" %}).
 
-That’s the code I’m sharing.
+That’s the code I’m sharing:
 
 ```cpp
 float triangle(float phase) {
@@ -261,7 +259,7 @@ One of the students reported that the code didn’t work for them, so they asked
 ```cpp
 float triangle_ai(float phase) {
     const auto ft = phase / (2.f * std::numbers::pi_v<float>);
-    return 2.f * std::abs( 2.f * (ft - std::floor(ft + 0.5f ) ) ) - 1.f;
+    return 2.f * std::abs(2.f * (ft - std::floor(ft + 0.5f))) - 1.f;
 }
 ```
 
@@ -269,7 +267,7 @@ Can you see the difference between these functions?
 
 <details>
 <summary>Answer</summary>
-The AI function has 2*2 instead of 4 and one of the 2s is moved into the `std::abs()` argument.</details>
+The AI function has 2*2 instead of 4 and one of the 2s is moved into the <code>std::abs()</code> argument.</details>
 
 So mathematically, the two functions are identical, yet the student never reflected on why one works and the other seemingly doesn’t. As it turned out, they had a typo in their initial implementation. By refusing to investigate the error themselves and blindly following AI advice, they prevented learning.
 
@@ -277,9 +275,9 @@ So mathematically, the two functions are identical, yet the student never reflec
 
 I see my students often blindly accept inline AI suggestions without much thought.
 
-![Seeing the suggestion, you just want to hit that sweet little Tab button, don’t you?](Article/image%202.png)
+{% image "assets/img/posts/programming-in-general/2026-01-14-dont-use-ai-for-audio-programming/ai-suggestion.webp", "VS Code AI autocomplete suggestion" %}
 
-Seeing the suggestion, you just want to hit that sweet little Tab button, don’t you?
+_Seeing the suggestion, you just want to hit that sweet little Tab button, don’t you?_
 
 It’s hard for them to resist hitting the Tab button. They don’t consider *what* they want to achieve or *how* they could achieve it. They just accept whatever is suggested to them, thinking that they are learning from that. But in fact, they are just mindlessly hitting Tab. Without the mental strain of thinking about what to write first, they don’t develop proper programming habits and increase their mental capacity. And the resulting code is awful (as anecdotally confirmed by my colleagues, who were asked to fix vibe-coded audio software).
 
@@ -341,7 +339,7 @@ Here are a couple of scenarios that seem good use cases for AI:
 - Being an enabler: starting a project for you if you are completely stuck
 - Vibe-coding prototypes you throw away
 - Serving as a peer reviewer of your code
-- Setting up your development environment (for example, NeoVim config or PyCharm setup). [LINK]
+- Setting up your development environment (for example, [NeoVim config](https://github.com/JanWilczek/neovim-config.git) or PyCharm setup)
 - Writing simple scripts, e.g., in Python
 - Preliminary research, where you try to find research papers on a topic. That can be misleading though because of the possible bias in the training data and online resources (most scientific journals are behind paywalls)
 - Writing regression unit tests (**not** regular unit tests)
@@ -368,7 +366,7 @@ And, ultimately, what is more enjoyable to you? Solving problems with your brain
 
 Let me leave you with this quote from Cal Newport:
 
-*"Learning requires strain. Learning is hard."*
+> *"Learning requires strain. Learning is hard."*
 
 And there’s nothing wrong with hard things and strain. You can do this, too, and become an audio programmer.
 
