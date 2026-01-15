@@ -53,12 +53,12 @@ custom_css:
 
           {% assign previousPost = collections.posts | getPreviousCollectionItem %}
           {% if previousPost %}
-          <a class="btn btn-primary float-left" href="{{ previousPost.url }}" data-toggle="tooltip" data-placement="top" title="{{ previousPost.data.title }}">&larr; Previous<span class="d-none d-md-inline">
+          <a class="btn btn-primary float-start" href="{{ previousPost.url }}" data-bs-toggle="tooltip" data-bs-placement="top" title="{{ previousPost.data.title }}">&larr; Previous<span class="d-none d-md-inline">
             Post</span></a>
             {% endif %}
           {% assign nextPost = collections.posts | getNextCollectionItem %}
           {% if nextPost %}
-          <a class="btn btn-primary float-right" href="{{ nextPost.url }}" data-toggle="tooltip" data-placement="top" title="{{ nextPost.data.title }}">Next<span class="d-none d-md-inline">
+          <a class="btn btn-primary float-end" href="{{ nextPost.url }}" data-bs-toggle="tooltip" data-bs-placement="top" title="{{ nextPost.data.title }}">Next<span class="d-none d-md-inline">
               Post</span> &rarr;</a>
           {% endif %}
 

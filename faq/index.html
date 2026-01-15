@@ -37,13 +37,13 @@ description: The most popular questions asked by the audience of WolfSound with 
     </p>
     {% for question in questions_category.questions %}
     <div class="card">
-        <div class="card-header collapsed" id="heading{{ questions_category.id }}{{ question.id }}" type="button" data-toggle="collapse" data-target="#collapse{{ questions_category.id }}{{ question.id }}" aria-expanded="false" aria-controls="collapse{{ questions_category.id }}{{ question.id }}">
+        <div class="card-header collapsed" id="heading{{ questions_category.id }}{{ question.id }}" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ questions_category.id }}{{ question.id }}" aria-expanded="false" aria-controls="collapse{{ questions_category.id }}{{ question.id }}">
             <h3 class="mb-0 btn btn-link">
                 {{ question.question }}
             </h3>
         </div>
 
-        <div id="collapse{{ questions_category.id }}{{ question.id }}" class="collapse" aria-labelledby="heading{{ questions_category.id }}{{ question.id }}" data-parent="#faqAccordion{{ questions_category.id }}">
+        <div id="collapse{{ questions_category.id }}{{ question.id }}" class="collapse" aria-labelledby="heading{{ questions_category.id }}{{ question.id }}" data-bs-parent="#faqAccordion{{ questions_category.id }}">
             <div class="card-body">
                 {{ question.answer }}
             </div>
