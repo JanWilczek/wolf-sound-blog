@@ -33,7 +33,7 @@
     "jquery": "^3.5.1",
     "katex": "^0.16.7",
     "lazyload": "^2.0.0-rc.2",
-    "startbootstrap-clean-blog": "5.0.8",
+    "startbootstrap-clean-blog": "^5.1.0",
     "trackswitch": "^0.1.0"
   },
   "devDependencies": {
@@ -41,9 +41,9 @@
     "@11ty/eleventy-img": "^6.0.1",
     "@11ty/eleventy-plugin-rss": "^1.2.0",
     "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.0",
-    "browser-sync": "2.27.10",
-    "gulp": "^4.0.2",
-    "gulp-cli": "^2.3.0",
+    "browser-sync": "^3.0.4",
+    "gulp": "^5.0.1",
+    "gulp-cli": "^3.1.0",
     "markdown-it-anchor": "^8.6.7",
     "markdown-it-attrs": "^4.1.6",
     "markdown-it-footnote": "^3.0.3",
