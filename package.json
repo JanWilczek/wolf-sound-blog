@@ -41,7 +41,7 @@
     "@11ty/eleventy-img": "^6.0.1",
     "@11ty/eleventy-plugin-rss": "^1.2.0",
     "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.0",
-    "browser-sync": "^2.29.3",
+    "browser-sync": "^3.0.4",
     "gulp": "^5.0.1",
     "gulp-cli": "^3.1.0",
     "markdown-it-anchor": "^8.6.7",
