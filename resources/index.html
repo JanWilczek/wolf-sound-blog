@@ -55,11 +55,11 @@ description: "Resources recommended by WolfSound for learning audio programming"
     <p>{{ category.description }}</p>
     {% endif %}
 
-    <div class="grid resource-masonry">
+    <div class="resource-masonry">
         <div class="grid-sizer"></div>
         <div class="gutter-sizer"></div>
         {% for resource in category.resources %}
-        <div class="grid-item">
+        <div class="resource-item">
         <div class="card resource-card">
             {% if resource.image  %}
                 <a href="{{ resource.affiliate_link | default: resource.link | default: '#' }}" target="_blank">
