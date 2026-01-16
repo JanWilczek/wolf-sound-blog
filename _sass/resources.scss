@@ -1,10 +1,10 @@
 .resource-card-columns {
-    column-gap: .5rem;
+    column-gap: 1.25rem;
 
     @media (min-width: 576px) {
         column-count: 2;
     }
-    
+
     @media (min-width: 1200px) {
         column-count: 3;
     }
@@ -16,6 +16,9 @@
 
 .resource-card {
     padding: 5%;
+    margin-bottom: 1.25rem;
+    display: inline-block;
+    width: 100%;
 }
 
 .resource-img {
