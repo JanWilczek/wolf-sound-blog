@@ -1,4 +1,22 @@
 // Bootstrap overrides for this template
+
+// Restore Bootstrap 4 container max-width (Bootstrap 5 added xxl breakpoint with 1320px)
+.container,
+.container-lg,
+.container-md,
+.container-sm,
+.container-xl,
+.container-xxl {
+  @media (min-width: 1400px) {
+    max-width: 1140px;
+  }
+}
+
+// Restore Bootstrap 4 gutter width (30px vs Bootstrap 5's 24px)
+.row {
+  --bs-gutter-x: 30px;
+}
+
 .btn {
   font-size: 14px;
   font-weight: 800;
