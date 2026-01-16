@@ -1,5 +1,13 @@
 // Bootstrap overrides for this template
 
+// Cap container at Bootstrap 4 max-width (1140px) instead of Bootstrap 5's 1320px at xxl
+.container,
+.container-xl {
+  @media (min-width: 1400px) {
+    max-width: 1140px;
+  }
+}
+
 // Restore Bootstrap 4 gutter width (30px vs Bootstrap 5's 24px)
 .row {
   --bs-gutter-x: 30px;
