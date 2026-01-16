@@ -1,10 +1,30 @@
-.grid-sizer {
-    padding: 0;
+// Masonry grid sizing
+$resource-grid-space: 1rem;
+
+.grid-sizer,
+.grid-item {
+    width: 100%;
+
+    @media (min-width: 576px) {
+        width: calc(50% - $resource-grid-space);
+    }
+
+    @media (min-width: 992px) {
+        width: calc(33.333% - $resource-grid-space);
+    }
+
+    @media (min-width: 1400px) {
+        width: calc(25% - $resource-grid-space);
+    }
+}
+
+.gutter-sizer {
+    width: $resource-grid-space;
 }
 
 .resource-card {
     padding: 5%;
-    margin-bottom: 1rem;
+    margin-bottom: $resource-grid-space;
 }
 
 .resource-img {

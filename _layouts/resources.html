@@ -45,8 +45,9 @@ layout: default
     document.addEventListener('DOMContentLoaded', function() {
       document.querySelectorAll('.resource-masonry').forEach(function(grid) {
         new Masonry(grid, {
-          itemSelector: '.col-12',
+          itemSelector: '.grid-item',
           columnWidth: '.grid-sizer',
+          gutter: '.gutter-sizer',
           percentPosition: true
         });
       });
