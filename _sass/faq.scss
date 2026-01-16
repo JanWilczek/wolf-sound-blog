@@ -4,7 +4,7 @@
         text-align: left;
     }
 
-    [data-toggle="collapse"] h3::before {
+    [data-bs-toggle="collapse"] h3::before {
         display: inline-block;
         font-style: normal;
         font-variant: normal;
@@ -20,7 +20,7 @@
         transition: all linear 0.25s;
     }
 
-    [data-toggle="collapse"].collapsed h3::before {
+    [data-bs-toggle="collapse"].collapsed h3::before {
         transform: rotate(0deg);
     }
 }
