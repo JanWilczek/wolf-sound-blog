@@ -281,12 +281,7 @@ a[data-bs-toggle="collapse"] {
   border-style: solid;
   border-color: $primary;
   border-radius: 5px;
-  padding-top: 0.3rem;
-  padding-bottom: 0.3rem;
-
-  .sidebar-btn {
-    width: 300px;
-  }
+  padding: 0.3rem 1rem;
 }
 
 .course-progress-bar {
