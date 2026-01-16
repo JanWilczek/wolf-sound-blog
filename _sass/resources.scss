@@ -1,5 +1,23 @@
+.resource-card-columns {
+    column-gap: 1rem;
+
+    @media (min-width: 576px) {
+        column-count: 2;
+    }
+
+    @media (min-width: 992px) {
+        column-count: 3;
+    }
+
+    @media (min-width: 1400px) {
+        column-count: 4;
+    }
+}
+
 .resource-card {
     padding: 5%;
+    display: inline-block;
+    width: 100%;
 }
 
 .resource-img {
