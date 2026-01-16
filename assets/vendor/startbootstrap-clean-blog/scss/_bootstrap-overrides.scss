@@ -1,8 +1,7 @@
 // Bootstrap overrides for this template
 
 // Cap container at Bootstrap 4 max-width (1140px) instead of Bootstrap 5's 1320px at xxl
-.container,
-.container-xl {
+.container {
   @media (min-width: 1400px) {
     max-width: 1140px;
   }
