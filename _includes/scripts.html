@@ -1,86 +1,6 @@
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js" integrity="sha384-5AkRS45j4ukf+JbWAfHL8P4onPA9p0KwwP7pUdjSQA3ss9edbJUJc/XcYAiheSSz" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 
 <script defer data-c-script="necessary" src="{{"/assets/scripts.js" | relative_url }}"></script>
-
-{% if url contains 'contact' %}
-  <!-- Form Validation -->
-  <script defer data-c-script="necessary" src="{{"/assets/vendor/startbootstrap-clean-blog/js/jqBootstrapValidation.js" | relative_url }}"></script>
-  <!-- Send Form -->
-  <script defer data-c-script="necessary">
-    $(function () {
-
-      $("#contactForm input,#contactForm textarea").jqBootstrapValidation({
-        preventSubmit: true,
-        submitError: function ($form, event, errors) {
-          // additional error messages or events
-        },
-        submitSuccess: function ($form, event) {
-          event.preventDefault(); // prevent default submit behaviour
-          // get values from FORM
-          var name = $("input#name").val();
-          var email = $("input#email").val();
-          var phone = $("input#phone").val();
-          var message = $("textarea#message").val();
-          var firstName = name; // For Success/Failure Message
-          // Check for white space in name for Success/Fail message
-          if (firstName.indexOf(' ') >= 0) {
-            firstName = name.split(' ').slice(0, -1).join(' ');
-          }
-          $this = $("#sendMessageButton");
-          $this.prop("disabled", true); // Disable submit button until AJAX call is complete to prevent duplicate messages
-          $.ajax({
-            url: "//formspree.io/{{ site.email }}",
-            type: "POST",
-            data: {
-              name: name,
-              phone: phone,
-              email: email,
-              message: message
-            },
-            cache: false,
-            success: function () {
-              // Success message
-              $('#success').html("<div class='alert alert-success'>");
-              $('#success > .alert-success').html("<button type='button' class='btn-close' data-bs-dismiss='alert' aria-hidden='true'>").append("</button>");
-              $('#success > .alert-success').append("<strong>Your message has been sent. </strong>");
-              $('#success > .alert-success').append('</div>');
-              //clear all fields
-              $('#contactForm').trigger("reset");
-            },
-            error: function () {
-              // Fail message
-              $('#success').html("<div class='alert alert-danger'>");
-              $('#success > .alert-danger').html("<button type='button' class='btn-close' data-bs-dismiss='alert' aria-hidden='true'>").append("</button>");
-              $('#success > .alert-danger').append($("<strong>").text("Sorry " + firstName + ", it seems that my mail server is not responding. Please try again later!"));
-              $('#success > .alert-danger').append('</div>');
-              //clear all fields
-              $('#contactForm').trigger("reset");
-            },
-            complete: function () {
-              setTimeout(function () {
-                $this.prop("disabled", false); // Re-enable submit button when AJAX call is complete
-              }, 1000);
-            }
-          });
-        },
-        filter: function () {
-          return $(this).is(":visible");
-        }
-      });
-
-      $("a[data-bs-toggle=\"tab\"]").click(function (e) {
-        e.preventDefault();
-        $(this).tab("show");
-      });
-    });
-
-    /*When clicking on Full hide fail/success boxes */
-    $('#name').focus(function () {
-      $('#success').html('');
-    });
-  </script>
-{% endif %}
 
 
 <!-- Audio Plugin Developer Checklist POPUP Kajabi form -->
@@ -88,6 +8,11 @@
 
 <!-- Additional JavaScript files -->
 {% if custom_js %}
+    {% assign custom_js_joined = custom_js | join: " " %}
+    {% if custom_js_joined contains "trackswitch" %}
+    <!-- jQuery required for trackswitch.js -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js" integrity="sha384-5AkRS45j4ukf+JbWAfHL8P4onPA9p0KwwP7pUdjSQA3ss9edbJUJc/XcYAiheSSz" crossorigin="anonymous"></script>
+    {% endif %}
     {% for js_file in custom_js %}
         <script defer data-c-script="necessary" type="text/javascript" src="{{ js_file }}"></script>
     {% endfor %}
