@@ -31,7 +31,7 @@
     "eleventy-plugin-wordcount": "^1.0.5",
     "font-awesome": "4.7.0",
     "jquery": "^3.5.1",
-    "katex": "^0.16.7",
+    "katex": "^0.16.27",
     "lazyload": "^2.0.0-rc.2",
     "startbootstrap-clean-blog": "^5.1.0",
     "trackswitch": "^0.1.0"
