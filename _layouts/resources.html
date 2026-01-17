@@ -44,12 +44,13 @@ layout: default
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       document.querySelectorAll('.resource-masonry').forEach(function(grid) {
-        new Masonry(grid, {
+        var msnry = new Masonry(grid, {
           itemSelector: '.resource-item',
           columnWidth: '.grid-sizer',
           gutter: '.gutter-sizer',
           percentPosition: true
         });
+        grid.classList.add('masonry-ready');
       });
     });
   </script>

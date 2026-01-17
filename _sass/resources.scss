@@ -1,6 +1,16 @@
 // Masonry grid sizing
 $resource-grid-space: 1rem;
 
+// Hide grid until Masonry is ready to prevent flash
+.resource-masonry {
+    opacity: 0;
+    transition: opacity 0.3s;
+
+    &.masonry-ready {
+        opacity: 1;
+    }
+}
+
 .grid-sizer,
 .resource-item {
     width: 100%;
