@@ -4,8 +4,12 @@
         text-align: left;
     }
 
-    [data-bs-toggle="collapse"] {
+    .btn-link {
         text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
     }
 
     [data-bs-toggle="collapse"] h3::before {
