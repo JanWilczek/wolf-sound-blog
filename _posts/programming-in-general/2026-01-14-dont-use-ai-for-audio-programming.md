@@ -207,7 +207,7 @@ Professional audio developers report negative feedback on vibe-coded plugins.
 
 - I’ve heard a few opinions coming from the industry how awful vibe-coded plugins are. They are considered “big balls of mud,” that don’t follow any good (not to mention best) software engineering practices.
 - I’ve had this experience myself when mentoring an intern. They didn’t do any vibe-coding but they used AI to generate non-audio parts of the code. Although they thought they understood the code, in reality, they didn’t. That resulted in buggy and duplicated code.
-- If you are a beginner, you probably don’t have an idea of what high-quality code is. Using AI can give you a false sense of confidence and a false idol to follow. But I admit, it’s difficult to find high-quality open-source audio code. Personally, I can recommend [Jatin Chowdhurry’s work.](https://github.com/Chowdhury-DSP)
+- If you are a beginner, you probably don’t have an idea of what high-quality code is. Using AI can give you a false sense of confidence and a false idol to follow. But I admit, it’s difficult to find high-quality open-source audio code. Personally, I can recommend [Jatin Chowdhury’s work.](https://github.com/Chowdhury-DSP)
 
 ## Experts say: beginners should not generate audio code with AI
 
