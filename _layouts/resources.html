@@ -4,10 +4,10 @@ layout: default
 
 <!-- Page Header -->
 {% if background %}
-<header class="masthead" style="background-image: url('{{ background | prepend: site.baseurl | replace: '//', '/' }}')">
-  {% else %}
+  <header class="masthead" style="background-image: url('{{ background | prepend: site.baseurl | replace: '//', '/' }}')">
+{% else %}
   <header class="masthead">
-    {% endif %}
+{% endif %}
     <div class="overlay"></div>
     <div class="container position-relative">
       <div class="row">
@@ -23,34 +23,34 @@ layout: default
     </div>
   </header>
 
-  <div class="container-fluid px-4">
-    <div class="row">
-      <div class="col-xl-9 px-2">
+<div class="container-fluid px-4">
+  <div class="row">
+    <div class="col-xl-9 px-2">
 
-        {{ content }}
+      {{ content }}
 
-        {% include 'talkyard-comments.html' %}
-
-      </div>
-
-      <div class="col-xl-3">
-        {% include 'sidebar.html' %}
-      </div>
+      {% include 'talkyard-comments.html' %}
 
     </div>
-  </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      document.querySelectorAll('.resource-masonry').forEach(function(grid) {
-        var msnry = new Masonry(grid, {
-          itemSelector: '.resource-item',
-          columnWidth: '.grid-sizer',
-          gutter: '.gutter-sizer',
-          percentPosition: true
-        });
-        grid.classList.add('masonry-ready');
+    <div class="col-xl-3">
+      {% include 'sidebar.html' %}
+    </div>
+
+  </div>
+</div>
+
+<script defer src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.resource-masonry').forEach(function(grid) {
+      var msnry = new Masonry(grid, {
+        itemSelector: '.resource-item',
+        columnWidth: '.grid-sizer',
+        gutter: '.gutter-sizer',
+        percentPosition: true
       });
+      grid.classList.add('masonry-ready');
     });
-  </script>
+  });
+</script>
