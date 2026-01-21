@@ -5,7 +5,7 @@
             <div class="card">
                 <div class="card-body">
                     <div class="d-flex flex-column align-items-center gap-2">
-                        <img loading="lazy" id="jan-wilczek-image" src="/assets/img/home/jan_wilczek.webp" width="100px" height="100px" alt="A photo of Jan Wilczek"/>
+                        <img loading="lazy" id="jan-wilczek-image" src="/assets/img/home/jan_wilczek.webp" width="100" height="100" alt="A photo of Jan Wilczek"/>
                         <h5 class="card-title">Welcome to WolfSound!</h5>
                         <p class="card-text">My name is Jan Wilczek. I am an audio programmer, a researcher in the field of music technology, and a musician. Through articles and videos from WolfSound, you will easily understand the main concepts of sound processing using software.</p>
                           <a href="{% link collections.all, 'about.md' %}" class="btn btn-primary sidebar-btn" title="Read more about WolfSound">Read More About WolfSound</a>
@@ -36,7 +36,7 @@
         <ul>
             <li>
                 <a href="{{ site.youtube_channel }}">
-                    <div class="d-flex align-items-center gap-2">
+                    <div class="d-flex align-items-baseline gap-2">
                         <i class="fab fa-youtube"></i>
                         <span>YouTube</span>
                     </div>
@@ -44,7 +44,7 @@
             </li>
             <li>
                 <a href="{{ site.linkedin_account }}">
-                    <div class="d-flex align-items-center gap-2">
+                    <div class="d-flex align-items-baseline gap-2">
                         <i class="fab fa-linkedin"></i>
                         <span>LinkedIn</span>
                     </div>
@@ -52,7 +52,7 @@
             </li>
             <li>
                 <a href="{{ site.twitter_account }}">
-                    <div class="d-flex align-items-center gap-2">
+                    <div class="d-flex align-items-baseline gap-2">
                         <i class="fab fa-twitter"></i>
                         <span>Twitter</span>
                     </div>
@@ -60,7 +60,7 @@
             </li>
             <li>
                 <a href="{{ site.facebook_page }}">
-                    <div class="d-flex align-items-center gap-2">
+                    <div class="d-flex align-items-baseline gap-2">
                         <i class="fab fa-facebook"></i>
                         <span>Facebook</span>
                     </div>
@@ -68,7 +68,7 @@
             </li>
             <li>
                 <a href="https://github.com/{{ site.github_username }}">
-                    <div class="d-flex align-items-center gap-2">
+                    <div class="d-flex align-items-baseline gap-2">
                         <i class="fab fa-github"></i>
                         <span>GitHub</span>
                     </div>
@@ -80,12 +80,10 @@
         <ul>
             <li>
                 <a href="{% post_url collections.posts, '2020-06-20-the-secret-behind-filtering' %}">
-                    <div>
-                        <!-- Image used for background: https://www.flickr.com/photos/53416677@N08/4972851531/in/photostream/lightbox/ -->
-                        <!-- Distributed under Attribution 2.0 Generic Creative Commons License. Link to the license: https://creativecommons.org/licenses/by/2.0/ -->
-                        <img loading="lazy" width="370" height="120" src="/assets/img/home/convolution_series_logo.webp"
-                            alt="Logo of the series of articles on convolution" />
-                    </div>
+                    <!-- Image used for background: https://www.flickr.com/photos/53416677@N08/4972851531/in/photostream/lightbox/ -->
+                    <!-- Distributed under Attribution 2.0 Generic Creative Commons License. Link to the license: https://creativecommons.org/licenses/by/2.0/ -->
+                    <img loading="lazy" width="370" height="120" src="/assets/img/home/convolution_series_logo.webp"
+                        alt="Logo of the series of articles on convolution" />
                 </a>
             </li>
         </ul>
