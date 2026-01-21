@@ -1,7 +1,7 @@
 ---
 title: "Audio and the C++ Standard with Timur Doumler | WolfTalk #031"
 description: "Timur Doumler discusses audio programming, JUCE, Cradle, C++ standardization, real-time systems, and the future of C++ for audio."
-date: 2025-11-30T08
+date: 2025-11-30T08:00:00
 author: Jan Wilczek & Sathira Tennakoon
 layout: post
 permalink: /talk031/

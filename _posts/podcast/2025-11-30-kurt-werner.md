@@ -1,7 +1,7 @@
 ---
 title: "Wave Digital Filters with Kurt Werner (Soundtoys, ex-Native Instruments, ex-iZotope) | WolfTalk #030"
 description: "Kurt explains Wave Digital Filters, nonlinear circuit modeling, and the research behind some of the most popular audio plugins."
-date: 2025-11-30T07
+date: 2025-11-30T07:00:00
 author: Jan Wilczek & Sathira Tennakoon
 layout: post
 permalink: /talk030/
