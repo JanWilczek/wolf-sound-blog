@@ -1,17 +1,17 @@
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 
 <script defer src="{{"/assets/scripts.js" | relative_url }}"></script>
 
 
 <!-- Audio Plugin Developer Checklist POPUP Kajabi form -->
-<script src=https://www.wolfsoundacademy.com/forms/2148393622/embed.js></script>
+<script defer src=https://www.wolfsoundacademy.com/forms/2148393622/embed.js></script>
 
 <!-- Additional JavaScript files -->
 {% if custom_js %}
     {% assign custom_js_joined = custom_js | join: " " %}
     {% if custom_js_joined contains "trackswitch" %}
-    <!-- jQuery required for trackswitch.js -->
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js" integrity="sha384-5AkRS45j4ukf+JbWAfHL8P4onPA9p0KwwP7pUdjSQA3ss9edbJUJc/XcYAiheSSz" crossorigin="anonymous"></script>
+        <!-- jQuery required for trackswitch.js -->
+        <script defer src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js" integrity="sha384-5AkRS45j4ukf+JbWAfHL8P4onPA9p0KwwP7pUdjSQA3ss9edbJUJc/XcYAiheSSz" crossorigin="anonymous"></script>
     {% endif %}
     {% for js_file in custom_js %}
         <script defer type="text/javascript" src="{{ js_file }}"></script>
