@@ -3,56 +3,61 @@ layout: page
 title: Frequently Asked Questions
 description: The most popular questions asked by the audience of WolfSound with answers.
 ---
-<article class="faq">
+<article>
 
-<p>
-    These are the most often asked questions by the WolfSound audience. Over the course of time, this list is expected to grow longer and the answers will get updated according to your or my best knowledge.
-</p>
+    <p>
+        These are the most often asked questions by the WolfSound audience. Over the course of time, this list is
+        expected to grow longer and the answers will get updated according to your or my best knowledge.
+    </p>
 
-<p>
-    If you have any questions or remarks, please, word them in the <a href="#comments">comments section at the bottom</a>.
-</p>
+    <p>
+        If you have any questions or remarks, please, word them in the <a href="#comments">comments section at the
+            bottom</a>.
+    </p>
 
-<p>
-    To help you find just what you need, I have included links to the particular sections below.
-</p>
+    <p>
+        To help you find just what you need, I have included links to the particular sections below.
+    </p>
 
-<p>
-    Enjoy!
-</p>
+    <p>
+        Enjoy!
+    </p>
 
-<h2>Table of Contents</h2>
+    <h2>Table of Contents</h2>
 
-<ol>
-{% for questions_category in faq.categories %}
-    <li><a href="#section{{ questions_category.id }}">{{ questions_category.name }}.</a></li>
-{% endfor %}
-</ol>
+    <ol>
+        {% for questions_category in faq.categories %}
+        <li><a href="#section{{ questions_category.id }}">{{ questions_category.name }}.</a></li>
+        {% endfor %}
+    </ol>
 
-{% for questions_category in faq.categories %}
-<div class="accordion" id="faqAccordion{{ questions_category.id }}">
+    {% for questions_category in faq.categories %}
     <h2 id="section{{ questions_category.id }}">{{ questions_category.name }}</h2>
     <p>
         {{ questions_category.description }}
     </p>
-    {% for question in questions_category.questions %}
-    <div class="card">
-        <div class="card-header collapsed" id="heading{{ questions_category.id }}{{ question.id }}" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ questions_category.id }}{{ question.id }}" aria-expanded="false" aria-controls="collapse{{ questions_category.id }}{{ question.id }}">
-            <h3 class="mb-0 btn btn-link">
-                {{ question.question }}
+    <div class="accordion" id="faqAccordion{{ questions_category.id }}">
+        {% for question in questions_category.questions %}
+        <div class="accordion-item">
+            <h3 class="accordion-header">
+                <button class="accordion-button fs-5 fw-bold collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapse{{ questions_category.id }}{{ question.id }}" aria-expanded="false"
+                    aria-controls="collapse{{ questions_category.id }}{{ question.id }}">
+                    {{ question.question }}
+                </button>
             </h3>
-        </div>
 
-        <div id="collapse{{ questions_category.id }}{{ question.id }}" class="collapse" aria-labelledby="heading{{ questions_category.id }}{{ question.id }}" data-bs-parent="#faqAccordion{{ questions_category.id }}">
-            <div class="card-body">
-                {{ question.answer }}
+            <div id="collapse{{ questions_category.id }}{{ question.id }}" class="accordion-collapse collapse"
+                data-bs-parent="#faqAccordion{{ questions_category.id }}">
+                <div class="accordion-body">
+                    {{ question.answer }}
+                </div>
             </div>
         </div>
+        {% endfor %}
     </div>
+    <br>
     {% endfor %}
-</div>
-<hr>
-{% endfor %}
 </article>
 
 <h2 id="comments">Comments</h2>
