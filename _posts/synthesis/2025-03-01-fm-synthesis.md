@@ -22,6 +22,7 @@ How does it work? How to control it to produce musical notes? Why was it so popu
 {% include 'youtube-video', video_id: 'qEkqzGPYatc' %}
 
 {% capture _ %}{% increment figureId20250301  %}{% endcapture %}
+{% capture _ %}{% increment equationId20250301  %}{% endcapture %}
 
 1. [Source code of figures and audio examples](#source-code-of-figures-and-audio-examples)
 2. [History](#history)
@@ -89,9 +90,7 @@ In FM, we **modulate the frequency** of a carrier waveform. It means that the **
 In the simplest FM setup, a sine modulator modulates a sine carrier. In this scenario, the output signal's instantaneous frequency $f(t)$ (which is a function of time) is given by the following formula [Pluta2019]
 
 $$
-\begin{equation}
-f(t) = f_C + A_M\cos(2\pi f_M t),
-\end{equation}
+f(t) = f_C + A_M\cos(2\pi f_M t).\quad ({% increment equationId20250301  %})
 $$
 
 where
@@ -105,12 +104,10 @@ where
 To create a sine oscillator whose frequency changes according to Equation 1, we cannot simply put it into the sine formula like this
 
 $$
-\begin{equation}
 \begin{aligned}
 s_\text{FM}(t) &\neq A_C \sin\left(2 \pi f(t) t\right),\\
 s_\text{FM}(t) &\neq A_C \sin\left(2 \pi (f_C + A_M \cos(2 \pi f_M t))t\right),
-\end{aligned}
-\end{equation}
+\end{aligned}\quad ({% increment equationId20250301  %})
 $$
 
 because it’s not mathematically correct. Here, $A_C$ stands for the **carrier amplitude**.
@@ -122,9 +119,7 @@ If we would apply the thing in "Equation" 2 to generate a signal where $A_C = 1,
 Instead, we need to use the fact that **angular frequency is the derivative of phase** [Farina2000]. Mathematically speaking,
 
 $$
-\begin{equation}
-2\pi f(t) = \frac{d \phi(t)}{dt},
-\end{equation}
+2\pi f(t) = \frac{d \phi(t)}{dt},\quad ({% increment equationId20250301  %})
 $$
 
 where
@@ -138,9 +133,7 @@ where
 The argument of a sine is the phase NOT the frequency. In order to obtain the phase from the equation for frequency (Equation 3), we must perform an operation that is inverse to derivation, namely, integration.
 
 $$
-\begin{equation}
-\phi(t) = \int \limits_0^t 2\pi f(\tau)d\tau = 2 \pi \int \limits_0^t (f_C + A_M \cos(2 \pi f_M \tau))d\tau.
-\end{equation}
+\phi(t) = \int \limits_0^t 2\pi f(\tau)d\tau = 2 \pi \int \limits_0^t (f_C + A_M \cos(2 \pi f_M \tau))d\tau.\quad ({% increment equationId20250301  %})
 $$
 
 *Note: Want to understand the mathematics of DSP? Check out [my online course on digital audio signal processing for beginners]({{ site.dsp_pro_url }})!*
@@ -150,11 +143,9 @@ $$
 Now, we can plug the formula for the phase (Equation 4) as the argument of a sine function.
 
 $$
-\begin{equation}
 \begin{aligned}
 s_\text{FM}(t) &= A_C \sin(\phi(t)) =\\&= A_C \sin\left(2 \pi \int \limits_0^t (f_C + A_M \cos(2 \pi f_M \tau))d\tau\right).
-\end{aligned}
-\end{equation}
+\end{aligned}\quad ({% increment equationId20250301  %})
 $$
 
 **This is the correct formula for a simple FM instrument;** we have a sine carrier with amplitude $A_C$ and frequency $f_C$ and a sine modulator (represented by the cosine) with amplitude $A_M$ and frequency $f_M$. Note that we need to use a different symbol for time than $t$ in the integral because $t$ denotes the time point at which we compute the phase; I chose $\tau$ (tau).
@@ -184,9 +175,7 @@ In the middle, there is the carrier frequency and on its sides are the **sideban
 In general, the frequency of each partial $f_P$ fulfills the following condition [Pluta2019]
 
 $$
-\begin{equation}
-f_P = f_C + k f_M, \quad k \in \mathbb{Z},
-\end{equation}
+f_P = f_C + k f_M, \quad k \in \mathbb{Z}.\quad ({% increment equationId20250301  %})
 $$
 
 where
@@ -225,9 +214,7 @@ In other words, if we multiply the carrier frequency by some real constant, we n
 The frequency ratio is sometimes denoted $c:m$ or $R_f$. Mathematically, we can write
 
 $$
-\begin{equation}
-c:m=R_f=\frac{f_C}{f_M}.
-\end{equation}
+c:m=R_f=\frac{f_C}{f_M}.\quad ({% increment equationId20250301  %})
 $$
 
 If $f_C$ and $f_M$ change but their ratio $R_f$ doesn’t, then the timbre shouldn't change either. There are various recipes for $R_f$ to create different timbres; you'll hear more examples later on in the article.
@@ -246,9 +233,7 @@ _Figure {% increment figureId20250301  %}. Magnitude spectrum of a sound generat
 Let’s now generate a sound that’s twice higher in pitch but has a similar timbre. According to the frequency ratio (Equation 7),
 
 $$
-\begin{equation}
-R_f = \frac{f_C}{f_M} = \frac{200}{400} = 0.5.
-\end{equation}
+R_f = \frac{f_C}{f_M} = \frac{200}{400} = 0.5.\quad ({% increment equationId20250301  %})
 $$
 
 In this particular case, it suffices to double the modulation frequency $f_M$ to raise the sound by an octave. To preserve the ratio $R_f$ we must double the carrier frequency as well.
@@ -284,9 +269,7 @@ To have a parameter that controls the timbre in a consistent way across all modu
 Here’s the formula for the modulation index $I$ [Pluta2019]
 
 $$
-\begin{equation}
-I = \frac{A_M}{f_M},
-\end{equation}
+I = \frac{A_M}{f_M},\quad ({% increment equationId20250301  %})
 $$
 
 where
@@ -297,9 +280,7 @@ where
 We can plug this formula into our simple FM equation (Equation 5)
 
 $$
-\begin{equation}
-s_\text{FM}(t) = A_C \sin\left(2 \pi \int \limits_0^t (f_C + I f_M \cos(2 \pi f_M \tau))d\tau\right).
-\end{equation}
+s_\text{FM}(t) = A_C \sin\left(2 \pi \int \limits_0^t (f_C + I f_M \cos(2 \pi f_M \tau))d\tau\right).\quad ({% increment equationId20250301  %})
 $$
 
 In our previous example, initially we had $A_M=800$ and $f_M=400 \text{ Hz}$ which resulted in $I=\frac{800}{400} = 2$.
@@ -325,9 +306,7 @@ Again, a box with a sine symbol inside denotes an oscillator. The plus "+" in a 
 Since we’ve just revisited the simple FM equation (Equation 10), let’s do one more adjustment to it. If we are less mathematically strict and we attempt to solve the integral in the carrier oscillator’s phase, we obtain the following FM equation [Pluta2019, Tolonen1998]
 
 $$
-\begin{equation}
-s_\text{PM}(t) = A_C \sin\left(2 \pi f_C t + I \sin(2 \pi f_M t)\right),
-\end{equation}
+s_\text{PM}(t) = A_C \sin\left(2 \pi f_C t + I \sin(2 \pi f_M t)\right),\quad ({% increment equationId20250301  %})
 $$
 
 where
@@ -462,18 +441,16 @@ The **fundamental frequency** is the difference between the harmonic partials’
 In FM, if the ratio of the carrier frequency to the modulator frequency is rational, i.e., $\frac{f_C}{f_M} = R_f = \frac{N_1}{N_2}, N_1, N_2 \in \mathbb{Z}$, then the fundamental frequency $f_0$ can be computed as [Pluta2019]
 
 $$
-\begin{equation}
-f_0 = \frac{f_C}{N_1} = \frac{f_M}{N_2}.
-\end{equation}
+f_0 = \frac{f_C}{N_1} = \frac{f_M}{N_2}.\quad ({% increment equationId20250301  %})
 $$
 
 So if you want to generate a sound with a specific carrier-to-modulator-frequency ratio $R_f$ at pitch $f_0$, you should set the carrier and the modulator frequencies as
 
 $$
-\begin{align}
+\begin{aligned}
 f_C &= N_1f_0,\\
 f_M &= N_2f_0.
-\end{align}
+\end{aligned}\quad ({% increment equationId20250301  %}), ({% increment equationId20250301  %})
 $$
 
 That’s how I generated the above harmonic and inharmonic examples: by setting $f_0 = 200\text{ Hz}$. Thus, the harmonic examples seem to have the same pitch although they differ in timbre.
@@ -517,9 +494,7 @@ The brightness of a sound is typically associated with the presence of high freq
 Specifically, John Chowning computed the bandwidth of a simple FM sound as [Chowning1973]
 
 $$
-\begin{equation}
-BW_\text{FM} \approx 2 f_M(I + 1),
-\end{equation}
+BW_\text{FM} \approx 2 f_M(I + 1),\quad ({% increment equationId20250301  %})
 $$
 
 where $f_M$ is the modulation frequency in Hz and $I$ is the modulation index. Here, the bandwidth means a frequency range in Hz that encompasses the most significant partials (but not all of the partials).
@@ -584,9 +559,7 @@ In the examples so far, we could see that the FM spectrum definitely has some pa
 It turns out that we can. As the literature reports [Chowning1973, DePoli1983, Pluta2019], we can write out the PM equation (Equation 11) as
 
 $$
-\begin{equation}
-s_\text{PM} (t) = \sum \limits_{k=-\infty}^{\infty} J_k(I)\sin|2 \pi (f_C + k f_M)t|,
-\end{equation}
+s_\text{PM} (t) = \sum \limits_{k=-\infty}^{\infty} J_k(I)\sin|2 \pi (f_C + k f_M)t|,\quad ({% increment equationId20250301  %})
 $$
 
 where
