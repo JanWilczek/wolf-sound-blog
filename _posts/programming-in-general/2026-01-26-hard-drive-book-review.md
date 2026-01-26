@@ -132,3 +132,5 @@ This book confirmed to me that Bill Gates is an interesting and inspiring figure
 
 Do you know a good book about Bill Gates? What’s your opinion on Microsoft? Is its global hegemony a good or a bad thing? How do you find Microsoft’s products and software tools? Let me know in the comments; I’d love to continue the conversation there.
 
+_Want to have the latest book reviews delivered straight to your inbox? Consider [subscribing to my newsletter]({% link collections.all, 'newsletter.md' %}). Personal contact, no spam._
+
