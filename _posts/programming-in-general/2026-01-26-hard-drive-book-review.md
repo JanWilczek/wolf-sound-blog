@@ -38,19 +38,31 @@ First and foremost, this book is very well written. Although the first chapter o
 
 ### You feel the emotions of late-night tight-deadline coding
 
-I’d really like to underline that last point: you definitely feel the emotions of the early Microsoft and how motivated the developers were to write code of MS-DOS, Microsoft Excel, Microsoft Word, etc. If I ever feel lazy, I can think of BIll Gates and Paul Allen coding late at night, just to deliver their BASIC implementation.
+I’d really like to underline that last point: you definitely feel the emotions of the early Microsoft and how motivated the developers were to write code of MS-DOS, Microsoft Excel, Microsoft Word, etc.
+
+If I ever feel lazy, I can think of BIll Gates and Paul Allen coding late at night, just to deliver their BASIC implementation.
 
 ### The interviews give you the full picture
 
-The biggest advantage of the book are extensive interviews. We rarely learn the opinion of the authors, we mostly learn about Gates from relations of his collaborators and competitors, and press reports. The wealth of viewpoints gives a pluralistic feel to the book. Contradicting recollections show how hard it is to learn what actually happened during certain events. It’s funny to realize, because we often discuss historical events from a few hundred years ago as if we precisely knew what happened, yet we failed to learn the true story of negotiations between Digital Research and IBM over the CP/M operating system, the DOS predecessor, which happened no more than 50 years ago.
+The biggest advantage of the book are extensive interviews.
+
+We rarely learn the opinion of the authors, we mostly learn about Gates from relations of his collaborators and competitors, and press reports. The wealth of viewpoints gives a pluralistic feel to the book. Contradicting recollections show how hard it is to learn what actually happened during certain events.
+
+It’s funny to realize, because we often discuss historical events from a few hundred years ago as if we precisely knew what happened, yet we failed to learn the true story of negotiations between Digital Research and IBM over the CP/M operating system, the DOS predecessor, which happened no more than 50 years ago.
 
 ### Meet Bill Gates: a brilliant businessman and a horrible manager
 
-Another advantage is that the book does not deify Gates or portray him as a genius, while also not trying to “uncover his dark side” or be sensational. On the contrary, the authors were very diligent at interviewing people from Gates’s surroundings and digging through sources. Their work is all the more precious because they were describing it from the 1992 perspective, which is much different from the modern, 2026 view of Bill Gates. I am not saying their perspective is more objective, I’m saying that it is refreshingly different.
+Another advantage is that the book does not deify Gates or portray him as a genius, while also not trying to “uncover his dark side” or be sensational.
+
+On the contrary, the authors were very diligent at interviewing people from Gates’s surroundings and digging through sources. Their work is all the more precious because they were describing it from the 1992 perspective, which is much different from the modern, 2026 view of Bill Gates. I am not saying their perspective is more objective, I’m saying that it is refreshingly different.
 
 ### From dorm to global domination
 
-It was very interesting to learn the complete story of a company that started in a dorm and became a huge international corporation. There aren’t many stories like this and learning one was very valuable for me. For example, I didn’t know that the real breakthrough came for Microsoft with the MS-DOS contract from IBM. What surprised me as well was that Apple invited Microsoft for a secret Macintosh preview so that Microsoft could start working on office apps for it. Releasing the Macintosh with an office suite was making the product much more valuable on the market. As a result, Microsoft was later suspected of “stealing” some ideas from Apple for their operating system. But the fact is that at some point, Microsoft and Apple were friends. And Bill Gates and Steve Jobs definitely had a good connection. If you think about it, it’s really surprising considering how antagonistic some Microsoft and Apple fans are.
+It was very interesting to learn the complete story of a company that started in a dorm and became a huge international corporation. There aren’t many stories like this and learning one was very valuable for me.
+
+For example, I didn’t know that the real breakthrough came for Microsoft with the MS-DOS contract from IBM.
+
+What surprised me as well was that Apple invited Microsoft for a secret Macintosh preview so that Microsoft could start working on office apps for it. Releasing the Macintosh with an office suite was making the product much more valuable on the market. As a result, Microsoft was later suspected of “stealing” some ideas from Apple for their operating system. But the fact is that at some point, Microsoft and Apple were friends. And Bill Gates and Steve Jobs definitely had a good connection. If you think about it, it’s really surprising considering how antagonistic some Microsoft and Apple fans are.
 
 ### You can achieve succes without being a workaholic
 
@@ -58,7 +70,11 @@ While Gates was the workaholic type, Paul Allen, the other Microsoft founder, wa
 
 ### Not rich already? Then get out of here
 
-Finally, I believe it’s eye-opening to learn that much of Bill Gates’s success came from his privileged start. Don’t get me wrong: Gates was brilliant and hard working, there’s no doubt about it. At the same time, in the late 1960s, only the wealthiest could learn computers at school as he did. That gave him a head-start in this emerging field that few could afford worldwide. With that being said, he had quite a few schoolmates who had the same opportunities as he did, and they didn’t go on to ground successful tech startups. So it was a perfect mixture of luck, ability, and perseverance.
+Finally, I believe it’s eye-opening to learn that much of Bill Gates’s success came from his privileged start.
+
+Don’t get me wrong: Gates was brilliant and hard working, there’s no doubt about it. At the same time, in the late 1960s, only the wealthiest could learn computers at school as he did. That gave him a head-start in this emerging field that few could afford worldwide. With that being said, he had quite a few schoolmates who had the same opportunities as he did, and they didn’t go on to ground successful tech startups.
+
+So it was a perfect mixture of luck, ability, and perseverance.
 
 Now, let’s discuss some of the not-so-good stuff…
 
@@ -76,11 +92,19 @@ Instead of listing the negatives of this book, I’d like to tell you **a few th
 
 ### Horrible manager
 
-The book reveals just how horrible Bill Gates was as a boss. With little managerial skills he was a walking embodiment of the worst management practices. According to the book, he was incredibly high-nosed, believing to be right most if not all of the time. He didn’t hesitate to insult his employees or to force them to work late hours as if it was normal. The culture of Microsoft also seemed quite unhealthy, promoting working late and on the weekends. From today’s standpoint, it’s clear, that a similar approach severely degrades both productivity of developers and the quality of software they write.
+The book reveals just how horrible Bill Gates was as a boss.
+
+With little managerial skills he was a walking embodiment of the worst management practices. According to the book, he was incredibly high-nosed, believing to be right most if not all of the time. He didn’t hesitate to insult his employees or to force them to work late hours as if it was normal. The culture of Microsoft also seemed quite unhealthy, promoting working late and on the weekends.
+
+From today’s standpoint, it’s clear, that a similar approach severely degrades both productivity of developers and the quality of software they write.
 
 ### Worst product owner
 
-Additionally, Gates was the worst product owner you can imagine. According to the book, his vision of  Microsoft Excel changed daily. In addition, at some point, he changed the deployment platform from IBM PC to Apple Macintosh. How any sane employee could have kept up with that? Especially that in the 1980s, good software engineering practices hadn’t been developed yet, so each change of direction must have caused a ripple in the codebase. Honestly, it’s difficult for me to imagine being a developer on such a program! No wonder, why one of the tech leads on the project suffered from a heart attack… (Of course, I don’t know if it was related, so consider this an exaggeration on my side).
+Additionally, Gates was the worst product owner you can imagine.
+
+According to the book, his vision of  Microsoft Excel changed daily. In addition, at some point, he changed the deployment platform from IBM PC to Apple Macintosh. How any sane employee could have kept up with that? Especially that in the 1980s, good software engineering practices hadn’t been developed yet, so each change of direction must have caused a ripple in the codebase. Honestly, it’s difficult for me to imagine being a developer on such a program!
+
+No wonder, why one of the tech leads on the project suffered from a heart attack… (Of course, I don’t know if it was related, so consider this an exaggeration on my side).
 
 ### Not a programmer
 
@@ -88,7 +112,11 @@ What surprised me a bit is that Bill Gates was never really a “true” program
 
 ### Feature thief?
 
-Finally, Microsoft clearly did not hesitate to “steal” software ideas from the competition. A good example is copying the functionality of 1-2-3 or Jazz programs from the Lotus company into Microsoft Excel or the window management system from Apple Macintosh to Windows. While some may argue that it is typical of the software world even today, Microsoft seems to have leveraged their resources to win market share regardless of the quality of their software, which feels like a dirty play. Dynamic hiring combined with aggressive marketing resulted in spectacular triumphs of Microsoft and the fall of their competitors. Is it good that they have dominated some niches of the software market? I honestly don’t know, but it definitely looks scary to potential modern competitors.
+Finally, Microsoft clearly did not hesitate to “steal” software ideas from the competition. A good example is copying the functionality of 1-2-3 or Jazz programs from the Lotus company into Microsoft Excel or the window management system from Apple Macintosh to Windows.
+
+While some may argue that it is typical of the software world even today, Microsoft seems to have leveraged their resources to win market share regardless of the quality of their software, which feels like a dirty play. Dynamic hiring combined with aggressive marketing resulted in spectacular triumphs of Microsoft and the fall of their competitors.
+
+Is it good that they have dominated some niches of the software market? I honestly don’t know, but it definitely looks scary to potential modern competitors.
 
 ## Should you read it?
 
