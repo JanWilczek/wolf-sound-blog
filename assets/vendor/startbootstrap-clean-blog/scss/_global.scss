@@ -1,6 +1,6 @@
 // Global styling for this template
 body {
-  font-size: 18px;
+  font-size: 1.125rem; // 18px desktop
   color: $body-text-color;
   @include serif-font;
 }
@@ -21,6 +21,29 @@ h5,
 h6 {
   font-weight: 800;
   @include sans-serif-font;
+}
+
+h2 {
+  font-size: 1.75rem; // 28px desktop
+}
+
+h3 {
+  font-size: 1.375rem; // 22px desktop
+}
+
+// Mobile adjustments (screens smaller than 768px)
+@media (max-width: 767px) {
+  body {
+    font-size: 1rem; // 16px mobile
+  }
+
+  h2 {
+    font-size: 1.5rem; // 24px mobile
+  }
+
+  h3 {
+    font-size: 1.25rem; // 20px mobile
+  }
 }
 
 a {
