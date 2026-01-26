@@ -22,7 +22,7 @@ This book will cure your side-project procrastination!
 
 I found it when I was looking for a more technically focused Bill Gates biography. Believe it or not, I haven’t found many books fitting this topic. I’ve seen that Bill Gates has started publishing his three-part autobiography, but I’m not sure I want to read it. If you have any recommendations, let me know in the comments.
 
-Why did I want to read about Gates? The stories of tech companies, dedicated programmers, and successful business owners motivate me to write more code, write better code, and work on my own business. There’s nothing more inspiring than hearing someone’s success story against the obstacles!
+**Why did I want to read about Gates?** The stories of tech companies, dedicated programmers, and successful business owners motivate me to write more code, write better code, and work on my own business. There’s nothing more inspiring than hearing someone’s success story against the obstacles!
 
 I didn’t want to read a book about Steve Jobs, though, because I don’t like the cult-like following he has. People see Steve Jobs as a technological genius, making it hard for me to relate. Bill Gates does not seem to have as many fans as Jobs, although he achieved comparable or even greater success.
 
