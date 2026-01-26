@@ -38,8 +38,7 @@ hide_navigation:
 Through my email list, I am able to help you personally. You can expect:
 
 * **possibility to contact me directly,**
-* weekly summary of the site activity (no need to check all platforms separately!),
-* occasional special offers from our partners, and
+* summary of the site activity (no need to check all platforms separately!),
 * tips and tricks regarding audio programming drawn from experience (others and mine).
 
 **Submit the form below to start your personal journey now!**
