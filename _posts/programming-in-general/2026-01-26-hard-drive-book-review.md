@@ -18,7 +18,7 @@ This book will cure your side-project procrastination!
 
 ## What is the book about?
 
-“Bill Gates and the Making of the Microsoft Empire” is a book by James Wallace and Jim Erikson. The book was published in 1992, just before Gates became the wealthiest man on Earth. It tracks the story of Bill Gates from his birth through the founding of Microsoft to the release of Windows 3.1. At the time the book was published, Bill Gates was not even married!
+“Hard Drive: Bill Gates and the Making of the Microsoft Empire” is a book by James Wallace and Jim Erikson. The book was published in 1992, just before Gates became the wealthiest man on Earth. It tracks the story of Bill Gates from his birth through the founding of Microsoft to the release of Windows 3.1. At the time the book was published, Bill Gates was not even married!
 
 I found it when I was looking for a more technically focused Bill Gates biography. Believe it or not, I haven’t found many books fitting this topic. I’ve seen that Bill Gates has started publishing his three-part autobiography, but I’m not sure I want to read it. If you have any recommendations, let me know in the comments.
 
