@@ -90,7 +90,7 @@
 
         <h5>Tag cloud</h5>
         <div class="tagcloud">
-            {% assign tags = collections.all | getAllTags %}
+            {% assign tags = collections.all | getAllTags | sort %}
             {% for tag in tags %}
             <a href="/tag/{{ tag | slugify }}" class="tag-cloud-link">{{ tag }}</a>
             {% endfor %}
