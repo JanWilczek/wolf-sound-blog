@@ -1,8 +1,18 @@
 ---
 layout: default
-custom_css:
-- /assets/css/prism-coy.css
 ---
+
+<link id="prism-theme" rel="stylesheet" href="/assets/css/prism-coy.css">
+<script>
+    // Set correct Prism theme based on current theme
+    (function() {
+        const theme = document.documentElement.getAttribute('data-bs-theme');
+        const prismLink = document.getElementById('prism-theme');
+        if (prismLink && theme === 'dark') {
+            prismLink.href = '/assets/css/prism-tomorrow-night.css';
+        }
+    })();
+</script>
 
 <!-- Page Header -->
 {% if background %}

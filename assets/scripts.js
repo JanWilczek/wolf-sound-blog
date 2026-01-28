@@ -8,6 +8,16 @@ function getPreferredTheme() {
 function setTheme(theme) {
     document.documentElement.setAttribute('data-bs-theme', theme);
     updateThemeIcons(theme);
+    updatePrismTheme(theme);
+}
+
+function updatePrismTheme(theme) {
+    const prismLink = document.getElementById('prism-theme');
+    if (prismLink) {
+        prismLink.href = theme === 'dark'
+            ? '/assets/css/prism-tomorrow-night.css'
+            : '/assets/css/prism-coy.css';
+    }
 }
 
 function updateThemeIcons(theme) {
