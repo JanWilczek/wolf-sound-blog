@@ -11,8 +11,7 @@
     "theme",
     "template"
   ],
-  "homepage": "https://startbootstrap.com/template-overviews/clean-blog",
-  "bugs": {
+  "homepage": "https://startbootstrap.com/template-overviews/clean-blog", "bugs": {
     "url": "https://github.com/BlackrockDigital/startbootstrap-clean-blog-jekyll/issues",
     "email": "feedback@startbootstrap.com"
   },
@@ -54,8 +53,8 @@
   },
   "main": "gulpfile.js",
   "scripts": {
-    "watch:sass": "sass --watch assets:_site/assets",
-    "build:sass": "sass assets:_site/assets",
+    "watch:sass": "sass --watch assets/main.scss:_site/assets/main.css",
+    "build:sass": "sass assets/main.scss:_site/assets/main.css",
     "watch:eleventy": "eleventy --serve",
     "build:eleventy": "eleventy",
     "start": "npm-run-all build:sass --parallel watch:*",
