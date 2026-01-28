@@ -1,11 +1,5 @@
 <div class="d-flex flex-wrap justify-content-start category-box">
-    <a class="btn btn-outline-primary" href="/posts">All</a>
-    <a class="btn btn-outline-primary" href="/audio-fx">Audio FX</a>
-    <a class="btn btn-outline-primary" href="/c-cpp">C/C++</a>
-    <a class="btn btn-outline-primary" href="/dsp">Digital Signal Processing</a>
-    <a class="btn btn-outline-primary" href="/podcast">Podcast</a>
-    <a class="btn btn-outline-primary" href="/programming-in-general">Programming in General</a>
-    <a class="btn btn-outline-primary" href="/python">Python</a>
-    <a class="btn btn-outline-primary" href="/sound-in-general">Sound in General</a>
-    <a class="btn btn-outline-primary" href="/sound-synthesis">Sound Synthesis</a>
+  {% for post_category in post_categories %}
+    <a class="btn btn-outline-primary" href="{{ post_category.permalink }}">{{ post_category.name }}</a>
+  {% endfor %}
 </div>

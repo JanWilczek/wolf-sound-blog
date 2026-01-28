@@ -1,0 +1,38 @@
+[
+  {
+    "name": "All",
+    "permalink": "/posts"
+  },
+  {
+    "name": "Audio FX",
+    "permalink": "/audio-fx"
+  },
+  {
+    "name": "C/C++",
+    "permalink": "/c-cpp"
+  },
+  {
+    "name": "Digital Signal Processing",
+    "permalink": "/dsp"
+  },
+  {
+    "name": "Podcast",
+    "permalink": "/podcast"
+  },
+  {
+    "name": "Programming in General",
+    "permalink": "/programming-in-general"
+  },
+  {
+    "name": "Python",
+    "permalink": "/python"
+  },
+  {
+    "name": "Sound in General",
+    "permalink": "/sound-in-general"
+  },
+  {
+    "name": "Sound Synthesis",
+    "permalink": "/sound-synthesis"
+  }
+]
