@@ -1,4 +1,12 @@
-@import "../_sass/styles";
+@import "../_sass/variables.scss";
+@import "../_sass/mixins.scss";
+@import "../_sass/global.scss";
+@import "../_sass/navbar.scss";
+@import "../_sass/masthead.scss";
+@import "../_sass/post.scss";
+@import "../_sass/contact.scss";
+@import "../_sass/footer.scss";
+@import "../_sass/bootstrap-overrides.scss";
 @import "../_sass/img";
 @import "../_sass/other";
 @import "../_sass/sidebar";
