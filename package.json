@@ -53,8 +53,8 @@
   },
   "main": "gulpfile.js",
   "scripts": {
-    "watch:sass": "sass --watch assets/main.scss:_site/assets/main.css",
-    "build:sass": "sass assets/main.scss:_site/assets/main.css",
+    "watch:sass": "sass --watch _sass:_site/assets/css",
+    "build:sass": "sass _sass:_site/assets/css",
     "watch:eleventy": "eleventy --serve",
     "build:eleventy": "eleventy",
     "start": "npm-run-all build:sass --parallel watch:*",
