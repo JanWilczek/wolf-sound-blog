@@ -1,3 +1,49 @@
+// Theme switching functionality
+function getPreferredTheme() {
+    const stored = localStorage.getItem('theme');
+    if (stored) return stored;
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+}
+
+function setTheme(theme) {
+    document.documentElement.setAttribute('data-bs-theme', theme);
+    updateThemeIcons(theme);
+}
+
+function updateThemeIcons(theme) {
+    const sunIcon = document.getElementById('themeIconSun');
+    const moonIcon = document.getElementById('themeIconMoon');
+    if (sunIcon && moonIcon) {
+        // Show sun in dark mode (to switch to light), moon in light mode (to switch to dark)
+        sunIcon.style.display = theme === 'dark' ? 'inline-block' : 'none';
+        moonIcon.style.display = theme === 'light' ? 'inline-block' : 'none';
+    }
+}
+
+function toggleTheme() {
+    const current = document.documentElement.getAttribute('data-bs-theme');
+    const newTheme = current === 'dark' ? 'light' : 'dark';
+    localStorage.setItem('theme', newTheme);
+    setTheme(newTheme);
+}
+
+// Listen for system preference changes
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+    if (!localStorage.getItem('theme')) {
+        setTheme(e.matches ? 'dark' : 'light');
+    }
+});
+
+// Initialize theme toggle button
+document.addEventListener('DOMContentLoaded', function() {
+    const toggleBtn = document.getElementById('themeToggle');
+    if (toggleBtn) {
+        toggleBtn.addEventListener('click', toggleTheme);
+    }
+    // Update icons on page load
+    updateThemeIcons(getPreferredTheme());
+});
+
 // Initialize Bootstrap 5 tooltips
 document.addEventListener('DOMContentLoaded', function () {
   var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))

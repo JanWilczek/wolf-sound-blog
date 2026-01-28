@@ -1,0 +1,287 @@
+// Dark mode styles using Bootstrap 5.3 data-bs-theme attribute
+$dark-bg: #1e1e1e; // Softer than pitch black #131313
+$dark-bg-elevated: #2a2a2a;
+$dark-text: #e8e8e8; // Lighter body text
+$dark-text-heading: #f5f5f5; // Even lighter for headings
+
+[data-bs-theme="dark"] {
+    // Body and general - use !important to override inline styles from _global.scss
+    --bs-body-bg: #{$dark-bg};
+    --bs-body-color: #{$dark-text};
+    background-color: $dark-bg !important;
+    color: $dark-text !important;
+
+    body {
+        background-color: $dark-bg !important;
+        color: $dark-text !important;
+    }
+
+    // Headings should be lighter
+    h1, h2, h3, h4, h5, h6 {
+        color: $dark-text-heading !important;
+    }
+
+    // Paragraphs and body text
+    p, li, span, div, td, th, label {
+        color: $dark-text;
+    }
+
+    // Links
+    a {
+        color: lighten($blue, 15%);
+
+        &:hover {
+            color: lighten($blue, 25%);
+        }
+
+        &:visited {
+            color: lighten($purple, 20%);
+        }
+    }
+
+    // Navbar when fixed/scrolled (dark background)
+    #mainNav {
+        &.is-fixed {
+            background-color: fade-out($dark-bg, 0.1);
+            border-bottom-color: $gray-600;
+
+            .navbar-brand,
+            .navbar-nav > li.nav-item > a {
+                color: $dark-text;
+
+                &:focus,
+                &:hover {
+                    color: $primary;
+                }
+            }
+        }
+
+        // Mobile navbar background
+        @media only screen and (max-width: 991px) {
+            background-color: $dark-bg;
+            border-bottom-color: $gray-600;
+
+            .navbar-brand {
+                color: $dark-text;
+            }
+
+            .navbar-toggler {
+                color: $dark-text;
+            }
+
+            .navbar-nav > li.nav-item > a {
+                color: $dark-text;
+
+                &:focus,
+                &:hover {
+                    color: $primary;
+                }
+            }
+        }
+    }
+
+    // Sidebar
+    .sidebar {
+        background-color: $dark-bg-elevated;
+        border-color: $gray-600;
+
+        .sidebar-heading {
+            color: $dark-text-heading;
+        }
+    }
+
+    // Cards
+    .card {
+        background-color: $dark-bg-elevated;
+        border-color: $gray-600;
+
+        .card-header {
+            background-color: lighten($dark-bg-elevated, 5%);
+            border-color: $gray-600;
+        }
+
+        .card-body {
+            color: $dark-text;
+        }
+    }
+
+    // Tables
+    table {
+        color: $dark-text;
+
+        th, td {
+            border-color: $gray-600;
+        }
+
+        thead th {
+            background-color: lighten($dark-bg-elevated, 5%);
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: lighten($dark-bg, 3%);
+        }
+    }
+
+    // Code blocks
+    pre, code {
+        background-color: $dark-bg-elevated;
+    }
+
+    code {
+        color: lighten($primary, 10%);
+    }
+
+    pre code {
+        color: $dark-text;
+    }
+
+    // Forms
+    .form-control,
+    .form-select {
+        background-color: $dark-bg-elevated;
+        border-color: $gray-600;
+        color: $dark-text;
+
+        &::placeholder {
+            color: $gray-500;
+        }
+
+        &:focus {
+            background-color: lighten($dark-bg-elevated, 5%);
+            border-color: $primary;
+            color: $dark-text-heading;
+        }
+    }
+
+    // Buttons - adjust secondary/light buttons
+    .btn-light {
+        background-color: $gray-600;
+        border-color: $gray-500;
+        color: $dark-text;
+
+        &:hover {
+            background-color: $gray-500;
+            border-color: $gray-400;
+        }
+    }
+
+    .btn-outline-secondary {
+        border-color: $gray-500;
+        color: $dark-text;
+
+        &:hover {
+            background-color: $gray-600;
+            color: $dark-text-heading;
+        }
+    }
+
+    // Blockquotes
+    blockquote {
+        border-left-color: $gray-500;
+        color: $gray-400;
+    }
+
+    // Horizontal rules
+    hr {
+        border-color: $gray-600;
+    }
+
+    // Category boxes and badges
+    .category-box {
+        background-color: $dark-bg-elevated;
+        border-color: $gray-600;
+    }
+
+    // Footer
+    footer {
+        background-color: $dark-bg;
+        border-top-color: $gray-600;
+    }
+
+    // Post previews
+    .post-preview {
+        a {
+            .post-title {
+                color: $dark-text-heading;
+            }
+
+            .post-subtitle {
+                color: $gray-400;
+            }
+
+            &:hover {
+                .post-title {
+                    color: $primary;
+                }
+            }
+        }
+
+        .post-meta {
+            color: $gray-500;
+        }
+    }
+
+    // Pagination
+    .pagination {
+        .page-link {
+            background-color: $dark-bg-elevated;
+            border-color: $gray-600;
+            color: $dark-text;
+
+            &:hover {
+                background-color: lighten($dark-bg-elevated, 8%);
+                color: $primary;
+            }
+        }
+
+        .page-item.active .page-link {
+            background-color: $primary;
+            border-color: $primary;
+        }
+
+        .page-item.disabled .page-link {
+            background-color: $dark-bg;
+            color: $gray-600;
+        }
+    }
+
+    // Search input and other inputs
+    input[type="text"],
+    input[type="email"],
+    input[type="search"],
+    textarea {
+        background-color: $dark-bg-elevated;
+        border-color: $gray-600;
+        color: $dark-text;
+
+        &:focus {
+            background-color: lighten($dark-bg-elevated, 5%);
+            border-color: $primary;
+        }
+    }
+
+    // Alert boxes
+    .alert {
+        border-color: $gray-600;
+    }
+
+    // Accordion
+    .accordion-item {
+        background-color: $dark-bg-elevated;
+        border-color: $gray-600;
+    }
+
+    .accordion-button {
+        background-color: $dark-bg-elevated;
+        color: $dark-text;
+
+        &:not(.collapsed) {
+            background-color: lighten($dark-bg-elevated, 5%);
+            color: $dark-text-heading;
+        }
+
+        &::after {
+            filter: invert(1);
+        }
+    }
+}

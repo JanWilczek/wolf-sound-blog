@@ -1,4 +1,13 @@
 <head>
+    <script>
+        // Early theme detection to prevent flash of wrong theme
+        (function() {
+            const stored = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const theme = stored || (prefersDark ? 'dark' : 'light');
+            document.documentElement.setAttribute('data-bs-theme', theme);
+        })();
+    </script>
     <meta charset="utf-8">
 
     {% if buildSettings.environment == "production" %}

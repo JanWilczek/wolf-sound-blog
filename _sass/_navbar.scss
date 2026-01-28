@@ -98,3 +98,65 @@
     }
   }
 }
+
+// Theme toggle button
+.theme-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px 20px;
+  font-size: 14px;
+  color: $gray-800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    color: $primary;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  i {
+    display: none; // JS controls visibility
+  }
+
+  // On large screens with transparent navbar (over masthead)
+  @media only screen and (min-width: 992px) {
+    color: $white;
+
+    &:hover {
+      color: fade-out($white, .2);
+    }
+  }
+}
+
+// When navbar is fixed (scrolled state)
+#mainNav.is-fixed .theme-toggle {
+  color: $gray-900;
+
+  &:hover {
+    color: $primary;
+  }
+}
+
+// Dark mode adjustments for theme toggle
+[data-bs-theme="dark"] {
+  .theme-toggle {
+    color: $gray-200;
+
+    &:hover {
+      color: $primary;
+    }
+  }
+
+  #mainNav.is-fixed .theme-toggle {
+    color: $gray-200;
+
+    &:hover {
+      color: $primary;
+    }
+  }
+}
