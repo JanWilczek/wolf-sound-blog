@@ -135,13 +135,6 @@ a[data-bs-toggle="collapse"] {
   }
 }
 
-.footer {
-  p {
-    color: rgba(255, 255, 255, .5);
-  }
-}
-
-
 .tagcloud {
   a {
     text-transform: uppercase;
@@ -159,48 +152,6 @@ a[data-bs-toggle="collapse"] {
       background: $primary;
       color: $white;
     }
-  }
-}
-
-
-.form-control {
-  height: 44px !important;
-  background: $white;
-  color: $black !important;
-  border-radius: 4px;
-  box-shadow: none !important;
-  border: transparent;
-
-  &:focus,
-  &:active {
-    border-color: $black;
-  }
-
-  &::-webkit-input-placeholder {
-    /* Chrome/Opera/Safari */
-    color: rgba(0, 0, 0, .7);
-  }
-
-  &::-moz-placeholder {
-    /* Firefox 19+ */
-    color: rgba(0, 0, 0, .7);
-  }
-
-  &:-ms-input-placeholder {
-    /* IE 10+ */
-    color: rgba(0, 0, 0, .7);
-  }
-
-  &:-moz-placeholder {
-    /* Firefox 18- */
-    color: rgba(0, 0, 0, .7);
-  }
-}
-
-
-.subscribe-form {
-  .form-control {
-    border: 1px solid rgba(0, 0, 0, .05);
   }
 }
 
