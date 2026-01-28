@@ -1,5 +1,12 @@
 <div class="d-flex flex-wrap justify-content-start category-box">
+  {% assign this_post_categories = categories | join: " " | downcase %}
   {% for post_category in post_categories %}
-    <a class="btn btn-outline-primary" href="{{ post_category.permalink }}">{{ post_category.name }}</a>
+    {% assign post_category_name_lowercase =  post_category.name | downcase %}
+    {% if this_post_categories contains post_category_name_lowercase %}
+      {% assign category_button_class = "btn btn-primary" %}
+    {% else %}
+      {% assign category_button_class = "btn btn-outline-primary" %}
+    {% endif %}
+    <a class="{{ category_button_class }}" href="{{ post_category.permalink }}">{{ post_category.name }}</a>
   {% endfor %}
 </div>
