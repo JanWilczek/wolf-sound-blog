@@ -5,6 +5,7 @@
 .sidebar-btn {
   width: 100%;
   padding: 10px;
+  margin: 1em 0 0;
 }
 
 #sidebar {
@@ -13,62 +14,12 @@
   z-index: 0;
   border-left: 1px solid rgba(0, 0, 0, .05);
 
-  .short-bio .card {
+  .card {
     padding: 1rem 0;
   }
 
-  .row {
-    padding: 0px 10px 0px 10px;
-  }
-
-  img {
-    max-width: 100%;
-  }
-
-  #jan-wilczek-image {
-    padding-right: -20px;
-  }
-
-  .card {
-    .row {
-      display: flex;
-      padding: 0px;
-    }
-
-    .column {
-      flex: 100%;
-      padding: 0px;
-    }
-  }
-
-  .card-title {
-    text-align: center;
-    margin: 0px;
-  }
-
-  .card-text {
-    text-align: justify;
-    margin: 0px;
-  }
-
   .card-body {
-    .row {
-      margin: 10px 0px 10px;
-    }
-
     padding: 0 1.25rem;
-  }
-
-  .newsletter-form {
-    ul {
-      list-style-type: disc;
-      list-style-position: outside;
-      margin-left: 1em;
-    }
-
-    .card {
-      background-color: $gray-300;
-    }
   }
 
   ul.components {
@@ -118,93 +69,7 @@
       }
     }
   }
-
-  .custom-menu {
-    display: inline-block;
-    position: absolute;
-    top: 20px;
-    right: 0;
-    margin-right: -20px;
-
-    .btn {
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      position: relative;
-
-      i {
-        margin-right: -40px;
-        font-size: 14px;
-      }
-
-      &.btn-primary {
-        background: transparent;
-        border-color: transparent;
-
-        &:after {
-          z-index: -1;
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          content: '';
-          transform: rotate(45deg);
-          background: $primary;
-          border-radius: 10px;
-        }
-
-        &:hover,
-        &:focus {
-          background: transparent !important;
-          border-color: transparent !important;
-        }
-      }
-    }
-  }
 }
-
-
-a[data-bs-toggle="collapse"] {
-  position: relative;
-}
-
-.dropdown-toggle::after {
-  display: block;
-  position: absolute;
-  top: 50%;
-  right: 0;
-  transform: translateY(-50%);
-}
-
-
-#content {
-  width: 100%;
-  padding: 0;
-  min-height: 100vh;
-  transition: all 0.3s;
-}
-
-
-.btn {
-  &.btn-primary {
-    background: $primary;
-    border-color: $primary;
-
-    &:hover,
-    &:focus {
-      background: $primary !important;
-      border-color: $primary !important;
-    }
-  }
-}
-
-.footer {
-  p {
-    color: rgba(255, 255, 255, .5);
-  }
-}
-
 
 .tagcloud {
   a {
@@ -226,76 +91,3 @@ a[data-bs-toggle="collapse"] {
   }
 }
 
-
-.form-control {
-  height: 44px !important;
-  background: $white;
-  color: $black !important;
-  border-radius: 4px;
-  box-shadow: none !important;
-  border: transparent;
-
-  &:focus,
-  &:active {
-    border-color: $black;
-  }
-
-  &::-webkit-input-placeholder {
-    /* Chrome/Opera/Safari */
-    color: rgba(0, 0, 0, .7);
-  }
-
-  &::-moz-placeholder {
-    /* Firefox 19+ */
-    color: rgba(0, 0, 0, .7);
-  }
-
-  &:-ms-input-placeholder {
-    /* IE 10+ */
-    color: rgba(0, 0, 0, .7);
-  }
-
-  &:-moz-placeholder {
-    /* Firefox 18- */
-    color: rgba(0, 0, 0, .7);
-  }
-}
-
-
-.subscribe-form {
-  .form-control {
-    border: 1px solid rgba(0, 0, 0, .05);
-  }
-}
-
-.checklist-banner {
-  margin-top: 0.2rem;
-  margin-bottom: 0.2rem;
-  background-color: white;
-  border: 0.1rem;
-  border-style: solid;
-  border-color: $primary;
-  border-radius: 5px;
-  padding: 0.3rem 1rem;
-}
-
-.course-progress-bar {
-  background-color: $primary;
-}
-
-.course-progress {
-  height: 2rem;
-  margin: 1rem 0;
-}
-
-.online-course-banner {
-  @extend .checklist-banner;
-  border-color: rgba(0, 0, 0, 0.125);
-  padding: 1rem;
-  margin-bottom: 1rem;
-  p {
-    margin: 0;
-    margin-top: 0.5rem;
-    margin-bottom: 1.0rem;
-  }
-}

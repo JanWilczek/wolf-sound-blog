@@ -1,38 +1,39 @@
 <nav id="sidebar">
-    <div class="px-2">
+    <div class="d-flex flex-column px-2 row-gap-2">
 
-        <div class="short-bio">
-            <div class="card">
-                <div class="card-body">
-                    <div class="d-flex flex-column align-items-center gap-2">
-                        <img loading="lazy" id="jan-wilczek-image" src="/assets/img/home/jan_wilczek.webp" width="100" height="100" alt="A photo of Jan Wilczek"/>
-                        <h5 class="card-title">Welcome to WolfSound!</h5>
-                        <p class="card-text">My name is Jan Wilczek. I am an audio programmer, a researcher in the field of music technology, and a musician. Through articles and videos from WolfSound, you will easily understand the main concepts of sound processing using software.</p>
-                          <a href="{% link collections.all, 'about.md' %}" class="btn btn-primary sidebar-btn" title="Read more about WolfSound">Read More About WolfSound</a>
-                    </div>
+        <div class="card">
+            <div class="card-body">
+                <div class="clearfix">
+                    <img class="rounded float-start me-3 mb-1" loading="lazy" id="jan-wilczek-image" src="/assets/img/home/jan_wilczek.webp" width="100" height="100" alt="A photo of Jan Wilczek"/>
+                    <h5 class="card-title m-0">Welcome to WolfSound!</h5>
+                    <p class="card-text m-0">My name is Jan Wilczek. I am an audio programmer, a researcher in the field of music technology, and a musician. Thanks to articles, videos, and courses from WolfSound, you will easily understand the main concepts of sound processing using software.</p>
+                </div>
+                <a href="{% link collections.all, 'about.md' %}" class="btn btn-primary sidebar-btn" title="Read more about WolfSound">Read More About WolfSound</a>
+            </div>
+        </div>
+        
+
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title text-center">Free Audio Plugin Developer Checklist</h5>
+                <img loading="lazy" src="/assets/img/pages/ChecklistMiniatureSmall.webp" width="100%" height="375" alt="Preview of the ultimate audio plugin developer checklist"/>
+                <div class="d-flex justify-content-center my-1">
+                  <a href="{% link collections.all, 'single-pages/checklist.html' %}" class="btn btn-primary sidebar-btn" title="Get the Ultimate Audio Plugin Developer Checklist">
+                      Get the Checklist Now
+                  </a>
                 </div>
             </div>
         </div>
 
-        <div class="checklist-banner">
-            <h5 class="text-center">Free Audio Plugin Developer Checklist</h5>
-            <img loading="lazy" src="/assets/img/pages/ChecklistMiniatureSmall.webp" width="300" height="375" alt="Preview of the ultimate audio plugin developer checklist"/>
-            <div class="d-flex justify-content-center my-1">
-              <a href="{% link collections.all, 'single-pages/checklist.html' %}" class="btn btn-primary sidebar-btn" title="Get the Ultimate Audio Plugin Developer Checklist">
-                  Get the Checklist Now
-              </a>
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Want to learn DSP fast?</h5>
+                <p class="card-text">Go through my <strong>DSP Pro online course.</strong> It will teach you everything you need to know on audio signal processing even if you don't know maths or programming.</p>
+                <a class="btn btn-primary sidebar-btn" href="{{ site.dsp_pro_url }}">Click here to check out the course</a>
             </div>
         </div>
 
-        <div class="online-course-banner">
-          <h5>Want to learn DSP fast?</h5>
-          <p>Go through my <strong>DSP Pro online course.</strong> It will teach you everything you need to know on audio signal processing even if you don't know maths or programming.</p>
-          <div>
-          <a class="btn btn-primary sidebar-btn" href="{{ site.dsp_pro_url }}">Click here to check out the course</a>
-          </div>
-        </div>
-
-        <h5>Follow me on:</h5>
+        <h5 class="mt-3 mb-0">Follow me on:</h5>
         <ul>
             <li>
                 <a href="{{ site.youtube_channel }}">
@@ -76,19 +77,16 @@
             </li>
         </ul>
 
-        <h5>Popular series:</h5>
+        <h5 class="mt-2 mb-0">Popular series:</h5>
         <ul>
             <li>
                 <a href="{% post_url collections.posts, '2020-06-20-the-secret-behind-filtering' %}">
-                    <!-- Image used for background: https://www.flickr.com/photos/53416677@N08/4972851531/in/photostream/lightbox/ -->
-                    <!-- Distributed under Attribution 2.0 Generic Creative Commons License. Link to the license: https://creativecommons.org/licenses/by/2.0/ -->
-                    <img loading="lazy" width="370" height="120" src="/assets/img/home/convolution_series_logo.webp"
-                        alt="Logo of the series of articles on convolution" />
+                    {% image "assets/img/home/convolution_series_logo.png", "Logo of the series of articles on convolution" %}
                 </a>
             </li>
         </ul>
 
-        <h5>Tag cloud</h5>
+        <h5 class="mt-3 mb-0">Tag cloud</h5>
         <div class="tagcloud">
             {% assign tags = collections.all | getAllTags | sort %}
             {% for tag in tags %}
