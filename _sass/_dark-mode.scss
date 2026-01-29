@@ -369,4 +369,10 @@ $dark-text-heading: #f5f5f5; // Even lighter for headings
             filter: invert(1);
         }
     }
+
+    // Checklist landing page
+    .landing-page-text-column {
+        background-color: $dark-bg-elevated;
+        color: $dark-text;
+    }
 }
