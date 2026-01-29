@@ -221,6 +221,19 @@ $dark-text-heading: #f5f5f5; // Even lighter for headings
         border-color: $gray-600;
     }
 
+    // Tooltips - invert for better contrast
+    .tooltip {
+        opacity: 1;
+    }
+
+    .tooltip-inner {
+        background-color: $dark-text;
+        color: $dark-bg;
+    }
+
+    .tooltip-arrow::before {
+        border-top-color: $dark-text !important;
+    }
 
     // Footer
     footer {
