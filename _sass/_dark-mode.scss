@@ -231,6 +231,11 @@ $dark-text-heading: #f5f5f5; // Even lighter for headings
 
         // Invert social icons: light background, dark icon
         .fa-stack {
+            .fa-circle,
+            .fa-inverse {
+                @include transition-all;
+            }
+
             .fa-circle {
                 color: $dark-text;
             }
