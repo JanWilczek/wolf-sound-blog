@@ -45,6 +45,17 @@ $dark-text-heading: #f5f5f5; // Even lighter for headings
         color: inherit;
     }
 
+    // Tag cloud links should keep their own styling
+    .tagcloud a,
+    .tagcloud a:visited {
+        color: $dark-text;
+        border-color: $gray-600;
+
+        &:hover {
+            color: $white;
+        }
+    }
+
     // Navbar when fixed/scrolled (dark background)
     #mainNav {
         &.is-fixed {
