@@ -208,6 +208,27 @@ $dark-text-heading: #f5f5f5; // Even lighter for headings
     footer {
         background-color: $dark-bg;
         border-top-color: $gray-600;
+
+        // Social icon links
+        .list-inline-item a,
+        .list-inline-item a:visited {
+            color: $dark-text;
+
+            &:hover {
+                color: $primary;
+            }
+        }
+
+        // Invert social icons: light background, dark icon
+        .fa-stack {
+            .fa-circle {
+                color: $dark-text;
+            }
+
+            .fa-inverse {
+                color: $dark-bg;
+            }
+        }
     }
 
     // Post previews
