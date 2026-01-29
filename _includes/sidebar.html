@@ -34,48 +34,39 @@
         </div>
 
         <h5 class="mt-3 mb-0">Follow me on:</h5>
-        <ul>
-            <li>
-                <a href="{{ site.youtube_channel }}">
-                    <div class="d-flex align-items-baseline gap-2">
-                        <i class="fab fa-youtube"></i>
-                        <span>YouTube</span>
-                    </div>
-                </a>
-            </li>
-            <li>
-                <a href="{{ site.linkedin_account }}">
-                    <div class="d-flex align-items-baseline gap-2">
-                        <i class="fab fa-linkedin"></i>
-                        <span>LinkedIn</span>
-                    </div>
-                </a>
-            </li>
-            <li>
-                <a href="{{ site.twitter_account }}">
-                    <div class="d-flex align-items-baseline gap-2">
-                        <i class="fab fa-twitter"></i>
-                        <span>Twitter</span>
-                    </div>
-                </a>
-            </li>
-            <li>
-                <a href="{{ site.facebook_page }}">
-                    <div class="d-flex align-items-baseline gap-2">
-                        <i class="fab fa-facebook"></i>
-                        <span>Facebook</span>
-                    </div>
-                </a>
-            </li>
-            <li>
-                <a href="https://github.com/{{ site.github_username }}">
-                    <div class="d-flex align-items-baseline gap-2">
-                        <i class="fab fa-github"></i>
-                        <span>GitHub</span>
-                    </div>
-                </a>
-            </li>
-        </ul>
+        <div class="d-flex flex-column">
+            {% assign socials_list_sidebar_classes = "d-flex align-items-baseline gap-2 py-1 border-bottom" %}
+            <a href="{{ site.youtube_channel }}">
+                <div class="{{ socials_list_sidebar_classes }}">
+                    <i class="fab fa-youtube"></i>
+                    <span>YouTube</span>
+                </div>
+            </a>
+            <a href="{{ site.linkedin_account }}">
+                <div class="{{ socials_list_sidebar_classes }}">
+                    <i class="fab fa-linkedin"></i>
+                    <span>LinkedIn</span>
+                </div>
+            </a>
+            <a href="{{ site.twitter_account }}">
+                <div class="{{ socials_list_sidebar_classes }}">
+                    <i class="fab fa-twitter"></i>
+                    <span>Twitter</span>
+                </div>
+            </a>
+            <a href="{{ site.facebook_page }}">
+                <div class="{{ socials_list_sidebar_classes }}">
+                    <i class="fab fa-facebook"></i>
+                    <span>Facebook</span>
+                </div>
+            </a>
+            <a href="https://github.com/{{ site.github_username }}">
+                <div class="{{ socials_list_sidebar_classes }}">
+                    <i class="fab fa-github"></i>
+                    <span>GitHub</span>
+                </div>
+            </a>
+        </div>
 
         <h5 class="mt-2 mb-0">Popular series:</h5>
         <a href="{% post_url collections.posts, '2020-06-20-the-secret-behind-filtering' %}">
