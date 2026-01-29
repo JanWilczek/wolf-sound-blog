@@ -26,8 +26,8 @@ $dark-text-heading: #f5f5f5; // Even lighter for headings
         color: $dark-text;
     }
 
-    // Links
-    a {
+    // Links (but not inside buttons)
+    a:not(.btn) {
         color: lighten($blue, 15%);
 
         &:hover {
@@ -37,6 +37,12 @@ $dark-text-heading: #f5f5f5; // Even lighter for headings
         &:visited {
             color: #d8b8ff;
         }
+    }
+
+    // Ensure button links don't inherit link colors
+    .btn a,
+    .btn a:visited {
+        color: inherit;
     }
 
     // Navbar when fixed/scrolled (dark background)
