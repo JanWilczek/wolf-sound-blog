@@ -109,7 +109,7 @@ $dark-text-heading: #f5f5f5; // Even lighter for headings
 
     // Sidebar
     #sidebar {
-        border-color: $gray-600;
+        border-left-color: rgba(255, 255, 255, 0.1);
 
         .sidebar-heading {
             color: $dark-text-heading;
