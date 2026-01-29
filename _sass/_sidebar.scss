@@ -100,19 +100,6 @@
   }
 }
 
-.btn {
-  &.btn-primary {
-    background: $primary;
-    border-color: $primary;
-
-    &:hover,
-    &:focus {
-      background: $primary !important;
-      border-color: $primary !important;
-    }
-  }
-}
-
 .tagcloud {
   a {
     text-transform: uppercase;
