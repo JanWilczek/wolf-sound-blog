@@ -131,15 +131,6 @@
   padding: 0.3rem 1rem;
 }
 
-.course-progress-bar {
-  background-color: $primary;
-}
-
-.course-progress {
-  height: 2rem;
-  margin: 1rem 0;
-}
-
 .online-course-banner {
   @extend .checklist-banner;
   border-color: rgba(0, 0, 0, 0.125);
@@ -151,3 +142,4 @@
     margin-bottom: 1.0rem;
   }
 }
+
