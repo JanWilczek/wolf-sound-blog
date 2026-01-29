@@ -119,8 +119,13 @@
     outline: none;
   }
 
-  i {
-    display: none; // JS controls visibility
+  // Show moon by default (light mode), JS controls visibility
+  #themeIconSun {
+    display: none;
+  }
+
+  #themeIconMoon {
+    display: inline-block;
   }
 
   // Mobile menu alignment
