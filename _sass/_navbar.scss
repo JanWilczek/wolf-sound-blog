@@ -105,7 +105,7 @@
   border: none;
   cursor: pointer;
   padding: 10px 20px;
-  font-size: 14px;
+  font-size: 1.25rem;
   color: $gray-800;
   display: flex;
   align-items: center;
@@ -121,6 +121,12 @@
 
   i {
     display: none; // JS controls visibility
+  }
+
+  // Mobile menu alignment
+  @media only screen and (max-width: 991px) {
+    padding: 10px 15px;
+    margin: 0 auto;
   }
 
   // On large screens with transparent navbar (over masthead)
