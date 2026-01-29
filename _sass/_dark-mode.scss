@@ -382,14 +382,29 @@ $dark-text-heading: #f5f5f5; // Even lighter for headings
 
         li.track {
             color: #000;
+
+            .control li.button:after {
+                color: #000;
+            }
         }
 
-        .control li.button:after {
+        p, span, div:not(.main-control) {
             color: #000;
         }
 
-        p, span, div {
-            color: #000;
+        // Transport controls - light text on dark background
+        .main-control {
+            color: #ddd;
+
+            .button:after {
+                color: #ddd;
+            }
+
+            .timing {
+                .time, .length {
+                    color: #ddd;
+                }
+            }
         }
     }
 }
