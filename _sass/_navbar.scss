@@ -108,8 +108,8 @@
   font-size: 1.25rem;
   color: $gray-800;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: start;
+  justify-content: start;
 
   &:hover {
     color: $primary;
@@ -125,8 +125,8 @@
 
   // Mobile menu alignment
   @media only screen and (max-width: 991px) {
-    padding: 10px 15px;
-    margin: 0 auto;
+    padding: 10px 0;
+    margin: 0;
   }
 
   // On large screens with transparent navbar (over masthead)
