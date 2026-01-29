@@ -56,6 +56,16 @@ $dark-text-heading: #f5f5f5; // Even lighter for headings
         }
     }
 
+    // Post preview links should use their own styling
+    .post-preview a,
+    .post-preview a:visited {
+        color: inherit;
+
+        &:hover {
+            color: $primary;
+        }
+    }
+
     // Navbar when fixed/scrolled (dark background)
     #mainNav {
         &.is-fixed {
@@ -244,6 +254,11 @@ $dark-text-heading: #f5f5f5; // Even lighter for headings
     // Post previews
     .post-preview {
         a {
+            .post-title,
+            .post-subtitle {
+                @include transition-all;
+            }
+
             .post-title {
                 color: $dark-text-heading;
             }
@@ -253,8 +268,9 @@ $dark-text-heading: #f5f5f5; // Even lighter for headings
             }
 
             &:hover {
-                .post-title {
-                    color: $primary;
+                .post-title,
+                .post-subtitle {
+                    color: $primary !important;
                 }
             }
         }
