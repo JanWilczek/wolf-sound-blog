@@ -375,4 +375,21 @@ $dark-text-heading: #f5f5f5; // Even lighter for headings
         background-color: $dark-bg-elevated;
         color: $dark-text;
     }
+
+    // Trackswitch audio player - preserve original light styling
+    .jquery-trackswitch {
+        color: #000;
+
+        li.track {
+            color: #000;
+        }
+
+        .control li.button:after {
+            color: #000;
+        }
+
+        p, span, div {
+            color: #000;
+        }
+    }
 }
