@@ -3,7 +3,7 @@
 
         <div class="card">
             <div class="card-body">
-                <div class="clearfix mb-2">
+                <div class="clearfix">
                     <img class="rounded float-start me-3 mb-1" loading="lazy" id="jan-wilczek-image" src="/assets/img/home/jan_wilczek.webp" width="100" height="100" alt="A photo of Jan Wilczek"/>
                     <h5 class="card-title m-0">Welcome to WolfSound!</h5>
                     <p class="card-text m-0">My name is Jan Wilczek. I am an audio programmer, a researcher in the field of music technology, and a musician. Thanks to articles, videos, and courses from WolfSound, you will easily understand the main concepts of sound processing using software.</p>
@@ -33,7 +33,7 @@
             </div>
         </div>
 
-        <h5>Follow me on:</h5>
+        <h5 class="mt-3 mb-0">Follow me on:</h5>
         <ul>
             <li>
                 <a href="{{ site.youtube_channel }}">
@@ -77,7 +77,7 @@
             </li>
         </ul>
 
-        <h5>Popular series:</h5>
+        <h5 class="mt-2 mb-0">Popular series:</h5>
         <ul>
             <li>
                 <a href="{% post_url collections.posts, '2020-06-20-the-secret-behind-filtering' %}">
@@ -89,7 +89,7 @@
             </li>
         </ul>
 
-        <h5>Tag cloud</h5>
+        <h5 class="mt-3 mb-0">Tag cloud</h5>
         <div class="tagcloud">
             {% assign tags = collections.all | getAllTags | sort %}
             {% for tag in tags %}
