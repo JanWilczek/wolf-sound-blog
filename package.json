@@ -11,7 +11,8 @@
     "theme",
     "template"
   ],
-  "homepage": "https://startbootstrap.com/template-overviews/clean-blog", "bugs": {
+  "homepage": "https://startbootstrap.com/template-overviews/clean-blog",
+  "bugs": {
     "url": "https://github.com/BlackrockDigital/startbootstrap-clean-blog-jekyll/issues",
     "email": "feedback@startbootstrap.com"
   },
