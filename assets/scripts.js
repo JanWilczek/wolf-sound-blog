@@ -37,13 +37,6 @@ function toggleTheme() {
     setTheme(newTheme);
 }
 
-// Listen for system preference changes
-window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-    if (!localStorage.getItem('theme')) {
-        setTheme(e.matches ? 'dark' : 'light');
-    }
-});
-
 // Initialize theme toggle button
 document.addEventListener('DOMContentLoaded', function() {
     const toggleBtn = document.getElementById('themeToggle');
