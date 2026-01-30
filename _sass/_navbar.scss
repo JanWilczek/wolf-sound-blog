@@ -154,7 +154,7 @@
 }
 
 // Dark mode adjustments for theme toggle
-[data-bs-theme="dark"] {
+@include color-mode(dark) {
   .theme-toggle {
     color: $gray-200;
 
