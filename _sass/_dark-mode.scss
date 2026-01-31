@@ -1,10 +1,5 @@
 
 @include color-mode(dark) {
-    // Paragraphs and body text
-    p, li, span, div, td, th, label {
-        color: $dark-text;
-    }
-
     // Links (but not inside buttons)
     a:not(.btn) {
         color: lighten($blue, 15%);
