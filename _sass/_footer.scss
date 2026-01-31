@@ -10,10 +10,6 @@ footer {
     margin-bottom: 0;
     text-align: center;
   }
-
-  a {
-    color: $gray-800;
-  }
 }
 
 @include color-mode(dark) {
