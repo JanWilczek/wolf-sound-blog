@@ -56,11 +56,25 @@ a {
 
 article, .post-content {
     a {
-        color: $blue;
+        color: var(--bs-link-color);
+        &:hover {
+          color: var(--bs-link-hover-color);
+          text-decoration: underline;
+        }
         &:visited {
             color: $purple;
         }
     }
+}
+
+@include color-mode(dark) {
+  article, .post-content {
+    a {
+      &:visited {
+        color: lighten($purple, 20%);
+      }
+    }
+  }
 }
 
 blockquote {

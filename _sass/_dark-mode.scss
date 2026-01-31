@@ -1,18 +1,5 @@
 
 @include color-mode(dark) {
-    // Links (but not inside buttons)
-    a:not(.btn) {
-        color: lighten($blue, 15%);
-
-        &:hover {
-            color: lighten($blue, 25%);
-        }
-
-        &:visited {
-            color: #d8b8ff;
-        }
-    }
-
     // Navbar when fixed/scrolled (dark background)
     #mainNav {
         &.is-fixed {
