@@ -14,18 +14,6 @@ footer {
 
 @include color-mode(dark) {
     footer {
-        border-top-color: $gray-600;
-
-        // Social icon links
-        .list-inline-item a,
-        .list-inline-item a:visited {
-            color: $body-bg;
-
-            &:hover {
-                color: $primary;
-            }
-        }
-
         // Invert social icons: light background, dark icon
         .fa-stack {
             .fa-circle,
