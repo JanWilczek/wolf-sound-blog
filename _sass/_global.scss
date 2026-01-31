@@ -145,3 +145,37 @@ table {
     background-color: $body-tertiary-bg-dark;
   }
 }
+
+@include color-mode(dark) {
+    // Trackswitch audio player - preserve original light styling
+    .jquery-trackswitch {
+        color: #000;
+
+        li.track {
+            color: #000;
+
+            .control li.button:after {
+                color: #000;
+            }
+        }
+
+        p, span, div:not(.main-control) {
+            color: #000;
+        }
+
+        // Transport controls - light text on dark background
+        .main-control {
+            color: #ddd;
+
+            .button:after {
+                color: #ddd;
+            }
+
+            .timing {
+                .time, .length {
+                    color: #ddd;
+                }
+            }
+        }
+    }
+}
