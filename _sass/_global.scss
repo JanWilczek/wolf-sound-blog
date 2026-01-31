@@ -83,6 +83,12 @@ blockquote {
   color: $gray-600;
 }
 
+@include color-mode(dark) {
+  blockquote {
+    color: $gray-500;
+  }
+}
+
 .section-heading {
   font-size: 36px;
   font-weight: 700;

@@ -1,24 +1,4 @@
-
 @include color-mode(dark) {
-    // Code blocks
-    pre, code {
-        background-color: $dark-bg-elevated;
-    }
-
-    code {
-        color: lighten($primary, 10%);
-    }
-
-    pre code {
-        color: $dark-text;
-    }
-
-    // Blockquotes
-    blockquote {
-        border-left-color: $gray-500;
-        color: $gray-400;
-    }
-
     // Checklist landing page
     .landing-page-text-column {
         background-color: $dark-bg-elevated;
