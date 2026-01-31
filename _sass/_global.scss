@@ -55,7 +55,7 @@ a {
 }
 
 article, .post-content {
-    a {
+    a:not(.btn) {
         color: var(--bs-link-color);
         &:focus,
         &:hover {
