@@ -132,6 +132,14 @@ img::-moz-selection {
   margin-bottom: 1.5rem;
 }
 
+table {
+    ul {
+        margin: 0;
+    }
+}
+
+.katex-display { overflow: auto hidden }
+
 @include color-mode(dark) {
   .card {
     background-color: $body-tertiary-bg-dark;
