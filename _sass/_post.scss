@@ -1,12 +1,7 @@
 // Styling for the post page
 .post-preview {
-  > a {
-    color: $gray-900;
-    &:focus,
-    &:hover {
-      text-decoration: none;
-      color: $primary;
-    }
+  a {
+    @include primary-on-hover;
     > .post-title {
       font-size: 30px;
       margin-top: 30px;

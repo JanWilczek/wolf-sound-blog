@@ -66,3 +66,13 @@
 @mixin sans-serif-font() {
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
+
+@mixin primary-on-hover {
+  color: var(--bs-body-color);
+  text-decoration: none;
+  @include transition-all;
+  &:focus,
+  &:hover {
+    color: $primary;
+  }
+}

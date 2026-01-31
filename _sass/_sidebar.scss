@@ -26,6 +26,14 @@
   .card-body {
     padding: 0 1.25rem;
   }
+
+  a {
+    color: $body-color;
+    @include transition-all;
+    &:hover {
+      color: $primary;
+    }
+  }
 }
 
 .tagcloud {

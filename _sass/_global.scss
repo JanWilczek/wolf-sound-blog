@@ -20,11 +20,6 @@ h5,
 h6 {
   font-weight: 800;
   line-height: 1.3;
-  /* color: inherit; */
-  /* color: $body-color; */
-  /* @include color-mode(dark) { */
-  /*   color: $body-color-dark; */
-  /* } */
   @include sans-serif-font;
 }
 
@@ -58,12 +53,7 @@ h4 {
 }
 
 a {
-  text-decoration: none;
-  @include transition-all;
-  &:focus,
-  &:hover {
-    color: $primary;
-  }
+  @include primary-on-hover;
 }
 
 article, .post-content {
