@@ -17,6 +17,8 @@ $secondary:     $ws-grey;
 $light:         $ws-light-background;
 $dark:          $ws-dark-background;
 $code-color:    $ws-orange;
+$link-color:    $blue;
+$link-hover-color: $primary;
 
 // Sizes
 $tablet-width: 768px;
@@ -26,7 +28,3 @@ $dark-bg: #1e1e1e; // Softer than pitch black #131313
 $dark-bg-elevated: #2a2a2a;
 $dark-text: #e8e8e8; // Lighter body text
 $dark-text-heading: #f5f5f5; // Even lighter for headings
-
-// Bootstrap variable overrides
-$body-color-dark : $dark-text;
-$body-bg-dark: $dark-bg;
