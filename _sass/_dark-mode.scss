@@ -81,28 +81,6 @@
         }
     }
 
-    // Sidebar
-    #sidebar {
-        .card {
-            background-color: $dark-bg-elevated;
-        }
-    }
-
-    // Cards
-    .card {
-        background-color: $dark-bg-elevated;
-        border-color: $gray-600;
-
-        .card-header {
-            background-color: lighten($dark-bg-elevated, 5%);
-            border-color: $gray-600;
-        }
-
-        .card-body {
-            color: $dark-text;
-        }
-    }
-
     // Tables
     table {
         color: $dark-text;

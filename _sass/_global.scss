@@ -110,3 +110,9 @@ img::-moz-selection {
 .main-column {
   margin-bottom: 1.5rem;
 }
+
+@include color-mode(dark) {
+  .card {
+    background-color: $body-tertiary-bg-dark;
+  }
+}
