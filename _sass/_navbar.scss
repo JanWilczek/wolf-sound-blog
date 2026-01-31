@@ -100,8 +100,8 @@
 
 @include color-mode(dark) {
   #mainNav {
-    border-bottom: 1px solid $gray-200;
     &.is-fixed {
+      border-bottom: 1px solid $gray-200;
       background-color: fade-out($body-bg-dark, .1);
     }
   }
