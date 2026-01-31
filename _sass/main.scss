@@ -1,14 +1,14 @@
-@import "variables.scss";
+@import "variables";
 
 @import "../node_modules/bootstrap/scss/bootstrap";
 
-@import "mixins.scss";
-@import "global.scss";
-@import "navbar.scss";
-@import "masthead.scss";
-@import "post.scss";
-@import "footer.scss";
-@import "bootstrap-overrides.scss";
+@import "mixins";
+@import "global";
+@import "navbar";
+@import "masthead";
+@import "post";
+@import "footer";
+@import "bootstrap-overrides";
 @import "img";
 @import "sidebar";
 @import "category-box";
