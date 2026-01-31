@@ -46,9 +46,10 @@
 }
 
 .landing-page-text-column {
-    background-color: white;
+    background: var(--bs-body-bg);
     border: 0.1rem;
     border-style: solid;
     border-color: #ef7600;
     padding: 10px;
 }
+
