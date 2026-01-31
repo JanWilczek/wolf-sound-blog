@@ -7,9 +7,6 @@ body {
 p {
   line-height: 1.5;
   margin: 1.1em 0;
-  a {
-    text-decoration: underline;
-  }
 }
 
 h1,
@@ -53,6 +50,7 @@ h4 {
 }
 
 a {
+  text-decoration: none;
   @include primary-on-hover;
 }
 

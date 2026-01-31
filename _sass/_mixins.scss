@@ -69,7 +69,6 @@
 
 @mixin primary-on-hover {
   color: var(--bs-body-color);
-  text-decoration: none;
   @include transition-all;
   &:focus,
   &:hover {
