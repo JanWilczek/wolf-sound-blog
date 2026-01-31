@@ -17,7 +17,7 @@
   }
   .navbar-nav {
     > li.nav-item {
-      > a {
+      > a { // navbar items styling
         font-size: 12px;
         font-weight: 800;
         letter-spacing: 1px;
@@ -25,6 +25,43 @@
       }
     }
   }
+
+  .theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px 20px;
+    font-size: 1.25rem;
+    display: flex;
+    align-items: start;
+    justify-content: start;
+    @include transition-all;
+    color: var(--bs-nav-link-color);
+
+    &:hover {
+      color: $primary;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    // Show moon by default (light mode), JS controls visibility
+    #themeIconSun {
+      display: none;
+    }
+
+    #themeIconMoon {
+      display: inline-block;
+    }
+
+    // Mobile menu alignment
+    @media only screen and (max-width: 991px) {
+      padding: 10px 0;
+      margin: 0;
+    }
+  }
+
   @media only screen and (min-width: 992px) {
     border-bottom: 1px solid transparent; // hide border on desktop when scrolled to top
     background: transparent;
@@ -47,6 +84,9 @@
           }
         }
       }
+    }
+    .theme-toggle {
+      color: $white;
     }
 
     -webkit-transition: background-color 0.2s;
@@ -86,6 +126,13 @@
           }
         }
       }
+      .theme-toggle {
+        color: var(--bs-body-color);
+        &:focus,
+        &:hover {
+          color: $primary;
+        }
+      }
     }
     &.is-visible {
       /* if the user changes the scrolling direction, we show the header */
@@ -111,75 +158,3 @@
   }
 }
 
-// Theme toggle button
-.theme-toggle {
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 10px 20px;
-  font-size: 1.25rem;
-  color: $gray-800;
-  display: flex;
-  align-items: start;
-  justify-content: start;
-
-  &:hover {
-    color: $primary;
-  }
-
-  &:focus {
-    outline: none;
-  }
-
-  // Show moon by default (light mode), JS controls visibility
-  #themeIconSun {
-    display: none;
-  }
-
-  #themeIconMoon {
-    display: inline-block;
-  }
-
-  // Mobile menu alignment
-  @media only screen and (max-width: 991px) {
-    padding: 10px 0;
-    margin: 0;
-  }
-
-  // On large screens with transparent navbar (over masthead)
-  @media only screen and (min-width: 992px) {
-    color: $white;
-
-    &:hover {
-      color: fade-out($white, .2);
-    }
-  }
-}
-
-// When navbar is fixed (scrolled state)
-#mainNav.is-fixed .theme-toggle {
-  color: $gray-900;
-
-  &:hover {
-    color: $primary;
-  }
-}
-
-// Dark mode adjustments for theme toggle
-@include color-mode(dark) {
-  .theme-toggle {
-    color: $gray-200;
-
-    &:hover {
-      color: $primary;
-    }
-  }
-
-  #mainNav.is-fixed .theme-toggle {
-    color: $gray-200;
-
-    &:hover {
-      color: $primary;
-    }
-  }
-}
