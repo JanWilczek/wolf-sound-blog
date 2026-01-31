@@ -95,35 +95,6 @@
         border-top-color: $dark-text !important;
     }
 
-    // Post previews
-    .post-preview {
-        a {
-            .post-title,
-            .post-subtitle {
-                @include transition-all;
-            }
-
-            .post-title {
-                color: $dark-text-heading;
-            }
-
-            .post-subtitle {
-                color: $gray-400;
-            }
-
-            &:hover {
-                .post-title,
-                .post-subtitle {
-                    color: $primary !important;
-                }
-            }
-        }
-
-        .post-meta {
-            color: $gray-500;
-        }
-    }
-
     // Pagination
     .pagination {
         .page-link {
@@ -145,21 +116,6 @@
         .page-item.disabled .page-link {
             background-color: $dark-bg;
             color: $gray-600;
-        }
-    }
-
-    // Search input and other inputs
-    input[type="text"],
-    input[type="email"],
-    input[type="search"],
-    textarea {
-        background-color: $dark-bg-elevated;
-        border-color: $gray-600;
-        color: $dark-text;
-
-        &:focus {
-            background-color: lighten($dark-bg-elevated, 5%);
-            border-color: $primary;
         }
     }
 
