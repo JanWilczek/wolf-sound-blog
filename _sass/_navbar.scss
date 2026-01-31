@@ -1,5 +1,6 @@
 // Styling for the navbar
 #mainNav {
+  border-bottom: 1px solid $gray-500;
   position: absolute;
   background-color: var(--bs-body-bg);
   @include sans-serif-font;
@@ -99,9 +100,13 @@
 
 @include color-mode(dark) {
   #mainNav {
+    border-bottom: 1px solid $gray-200;
     &.is-fixed {
       border-bottom: 1px solid $gray-200;
       background-color: fade-out($body-bg-dark, .1);
+    }
+    @media only screen and (min-width: 992px) {
+      border-bottom: 1px solid transparent;
     }
   }
 }
