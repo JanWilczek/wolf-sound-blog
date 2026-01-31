@@ -1,21 +1,5 @@
-// Dark mode styles using Bootstrap 5.3 data-bs-theme attribute
-$dark-bg: #1e1e1e; // Softer than pitch black #131313
-$dark-bg-elevated: #2a2a2a;
-$dark-text: #e8e8e8; // Lighter body text
-$dark-text-heading: #f5f5f5; // Even lighter for headings
 
 @include color-mode(dark) {
-    // Body and general - use !important to override inline styles from _global.scss
-    --bs-body-bg: #{$dark-bg};
-    --bs-body-color: #{$dark-text};
-    background-color: $dark-bg !important;
-    color: $dark-text !important;
-
-    body {
-        background-color: $dark-bg !important;
-        color: $dark-text !important;
-    }
-
     // Headings should be lighter
     h1, h2, h3, h4, h5, h6 {
         color: $dark-text-heading !important;
