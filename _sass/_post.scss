@@ -2,6 +2,10 @@
 .post-preview {
   a {
     @include primary-on-hover;
+    &:focus,
+    &:hover {
+      text-decoration: none;
+    }
     > .post-title {
       font-size: 30px;
       margin-top: 30px;
@@ -17,15 +21,8 @@
     font-style: italic;
     margin-top: 0;
     color: $gray-600;
-    > a {
-      color: $gray-900;
-      &:focus,
-      &:hover {
-        text-decoration: underline;
-        color: $primary;
-      }
-    }
   }
+
   @media only screen and (min-width: 768px) {
     > a {
       > .post-title {

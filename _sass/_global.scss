@@ -57,6 +57,7 @@ a {
 article, .post-content {
     a {
         color: var(--bs-link-color);
+        &:focus,
         &:hover {
           color: var(--bs-link-hover-color);
           text-decoration: underline;
