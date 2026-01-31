@@ -1,10 +1,5 @@
 
 @include color-mode(dark) {
-    // Headings should be lighter
-    h1, h2, h3, h4, h5, h6 {
-        color: $dark-text-heading !important;
-    }
-
     // Paragraphs and body text
     p, li, span, div, td, th, label {
         color: $dark-text;
