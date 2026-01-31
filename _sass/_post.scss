@@ -1,10 +1,10 @@
-// Styling for the post page
 .post-preview {
-  a {
-    @include primary-on-hover;
+  > a {
+    color: var(--bs-body-color);
     &:focus,
     &:hover {
       text-decoration: none;
+      color: $primary;
     }
     > .post-title {
       font-size: 30px;
@@ -21,8 +21,16 @@
     font-style: italic;
     margin-top: 0;
     color: $gray-600;
+    > a {
+      text-decoration: none;
+      color: $gray-900;
+      &:focus,
+      &:hover {
+        text-decoration: underline;
+        color: $primary;
+      }
+    }
   }
-
   @media only screen and (min-width: 768px) {
     > a {
       > .post-title {

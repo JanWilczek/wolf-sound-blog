@@ -54,7 +54,7 @@ a {
   @include primary-on-hover;
 }
 
-article, .post-content {
+.post-content {
     a:not(.btn) {
         color: var(--bs-link-color);
         &:focus,
