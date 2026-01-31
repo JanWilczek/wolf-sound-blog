@@ -13,33 +13,6 @@
         }
     }
 
-    // Ensure button links don't inherit link colors
-    .btn a,
-    .btn a:visited {
-        color: inherit;
-    }
-
-    // Tag cloud links should keep their own styling
-    .tagcloud a,
-    .tagcloud a:visited {
-        color: $dark-text;
-        border-color: $gray-600;
-
-        &:hover {
-            color: $white;
-        }
-    }
-
-    // Post preview links should use their own styling
-    .post-preview a,
-    .post-preview a:visited {
-        color: inherit;
-
-        &:hover {
-            color: $primary;
-        }
-    }
-
     // Navbar when fixed/scrolled (dark background)
     #mainNav {
         &.is-fixed {
