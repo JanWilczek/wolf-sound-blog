@@ -1,22 +1,5 @@
 
 @include color-mode(dark) {
-    // Tables
-    table {
-        color: $dark-text;
-
-        th, td {
-            border-color: $gray-600;
-        }
-
-        thead th {
-            background-color: lighten($dark-bg-elevated, 5%);
-        }
-
-        tbody tr:nth-child(even) {
-            background-color: lighten($dark-bg, 3%);
-        }
-    }
-
     // Code blocks
     pre, code {
         background-color: $dark-bg-elevated;
