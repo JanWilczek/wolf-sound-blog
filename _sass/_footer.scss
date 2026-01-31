@@ -10,4 +10,50 @@ footer {
     margin-bottom: 0;
     text-align: center;
   }
+
+  a {
+    color: $gray-800;
+  }
+}
+
+@include color-mode(dark) {
+    footer {
+        border-top-color: $gray-600;
+
+        // Social icon links
+        .list-inline-item a,
+        .list-inline-item a:visited {
+            color: $body-bg;
+
+            &:hover {
+                color: $primary;
+            }
+        }
+
+        // Invert social icons: light background, dark icon
+        .fa-stack {
+            .fa-circle,
+            .fa-inverse {
+                @include transition-all;
+            }
+
+            .fa-circle {
+                color: $body-color-dark;
+            }
+
+            .fa-inverse {
+                color: $body-bg-dark;
+            }
+
+            &:hover {
+                .fa-circle {
+                    color: $primary;
+                }
+
+                .fa-inverse {
+                    color: $body-color-dark;
+                }
+            }
+        }
+    }
 }
