@@ -30,24 +30,6 @@
         color: $dark-text;
     }
 
-    // Forms
-    .form-control,
-    .form-select {
-        background-color: $dark-bg-elevated;
-        border-color: $gray-600;
-        color: $dark-text;
-
-        &::placeholder {
-            color: $gray-500;
-        }
-
-        &:focus {
-            background-color: lighten($dark-bg-elevated, 5%);
-            border-color: $primary;
-            color: $dark-text-heading;
-        }
-    }
-
     // Buttons - adjust secondary/light buttons
     .btn-light {
         background-color: $gray-600;
@@ -74,49 +56,6 @@
     blockquote {
         border-left-color: $gray-500;
         color: $gray-400;
-    }
-
-    // Horizontal rules
-    hr {
-        border-color: $gray-600;
-    }
-
-    // Tooltips - invert for better contrast
-    .tooltip {
-        opacity: 1;
-    }
-
-    .tooltip-inner {
-        background-color: $dark-text;
-        color: $dark-bg;
-    }
-
-    .tooltip-arrow::before {
-        border-top-color: $dark-text !important;
-    }
-
-    // Pagination
-    .pagination {
-        .page-link {
-            background-color: $dark-bg-elevated;
-            border-color: $gray-600;
-            color: $dark-text;
-
-            &:hover {
-                background-color: lighten($dark-bg-elevated, 8%);
-                color: $primary;
-            }
-        }
-
-        .page-item.active .page-link {
-            background-color: $primary;
-            border-color: $primary;
-        }
-
-        .page-item.disabled .page-link {
-            background-color: $dark-bg;
-            color: $gray-600;
-        }
     }
 
     // Checklist landing page
