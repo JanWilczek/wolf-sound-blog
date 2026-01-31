@@ -1,10 +1,4 @@
 @include color-mode(dark) {
-    // Checklist landing page
-    .landing-page-text-column {
-        background-color: $dark-bg-elevated;
-        color: $dark-text;
-    }
-
     // Trackswitch audio player - preserve original light styling
     .jquery-trackswitch {
         color: #000;
