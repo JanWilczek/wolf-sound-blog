@@ -14,7 +14,7 @@
   z-index: 0;
 
   @media (min-width: 1200px) {
-    border-left: 1px solid rgba(0, 0, 0, 0.1);
+    border-left: 1px solid color-mix(in srgb, currentColor 10%, transparent);
     padding-right: .5rem;
     padding-left: .5rem;
   }
@@ -26,14 +26,6 @@
   .card-body {
     padding: 0 1.25rem;
   }
-
-  a {
-    color: $body-color;
-    @include transition-all;
-    &:hover {
-      color: $primary;
-    }
-  }
 }
 
 .tagcloud {
@@ -44,7 +36,6 @@
     margin-bottom: 7px;
     margin-right: 4px;
     border-radius: 0;
-    color: $body-color;
     border: 1px solid #ccc;
     font-size: .75rem;
 
