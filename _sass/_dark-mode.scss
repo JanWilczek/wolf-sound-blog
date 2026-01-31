@@ -204,31 +204,6 @@
         }
     }
 
-    // Alert boxes
-    .alert {
-        border-color: $gray-600;
-    }
-
-    // Accordion
-    .accordion-item {
-        background-color: $dark-bg-elevated;
-        border-color: $gray-600;
-    }
-
-    .accordion-button {
-        background-color: $dark-bg-elevated;
-        color: $dark-text;
-
-        &:not(.collapsed) {
-            background-color: lighten($dark-bg-elevated, 5%);
-            color: $dark-text-heading;
-        }
-
-        &::after {
-            filter: invert(1);
-        }
-    }
-
     // Checklist landing page
     .landing-page-text-column {
         background-color: $dark-bg-elevated;
