@@ -1,46 +1,5 @@
 
 @include color-mode(dark) {
-    // Navbar when fixed/scrolled (dark background)
-    #mainNav {
-        &.is-fixed {
-            background-color: fade-out($dark-bg, 0.1);
-            border-bottom-color: $gray-600;
-
-            .navbar-brand,
-            .navbar-nav > li.nav-item > a {
-                color: $dark-text;
-
-                &:focus,
-                &:hover {
-                    color: $primary;
-                }
-            }
-        }
-
-        // Mobile navbar background
-        @media only screen and (max-width: 991px) {
-            background-color: $dark-bg;
-            border-bottom-color: $gray-600;
-
-            .navbar-brand {
-                color: $dark-text;
-            }
-
-            .navbar-toggler {
-                color: $dark-text;
-            }
-
-            .navbar-nav > li.nav-item > a {
-                color: $dark-text;
-
-                &:focus,
-                &:hover {
-                    color: $primary;
-                }
-            }
-        }
-    }
-
     // Tables
     table {
         color: $dark-text;
