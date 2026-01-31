@@ -1,7 +1,6 @@
 // Styling for the navbar
 #mainNav {
   position: absolute;
-  border-bottom: 1px solid $gray-200;
   background-color: var(--bs-body-bg);
   @include sans-serif-font;
   .navbar-brand {
