@@ -86,11 +86,6 @@
         .card {
             background-color: $dark-bg-elevated;
         }
-
-        // Invert black logos to white
-        img[alt*="convolution"] {
-            filter: invert(1);
-        }
     }
 
     // Cards

@@ -28,6 +28,15 @@
   }
 }
 
+@include color-mode(dark) {
+  #sidebar {
+    // Invert black logo to white
+    img[alt*="convolution"] {
+        filter: invert(1);
+    }
+  }
+}
+
 .tagcloud {
   a {
     text-transform: uppercase;
