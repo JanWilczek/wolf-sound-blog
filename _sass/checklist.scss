@@ -1,3 +1,5 @@
+@import "variables";
+
 .landing-page {
     padding-top: 5rem;
     position: relative; 
@@ -41,16 +43,10 @@
     padding: 0 0.5rem;
 }
 
-.miniature {
-    height: 100%;
-    margin: 0.4rem;
-}
-
 .landing-page-text-column {
     background: var(--bs-body-bg);
     border: 0.1rem;
     border-style: solid;
-    border-color: #ef7600;
-    padding: 10px;
+    border-color: $primary;
+    padding: 1rem;
 }
-
