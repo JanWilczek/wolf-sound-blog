@@ -1,6 +1,6 @@
 // Styling for the navbar
 #mainNav {
-  border-bottom: 1px solid $gray-500;
+  border-bottom: 1px solid $gray-500; // show border on mobile
   position: absolute;
   background-color: var(--bs-body-bg);
   @include sans-serif-font;
@@ -26,7 +26,7 @@
     }
   }
   @media only screen and (min-width: 992px) {
-    border-bottom: 1px solid transparent;
+    border-bottom: 1px solid transparent; // hide border on desktop when scrolled to top
     background: transparent;
     .navbar-brand {
       padding: 10px 20px;
@@ -66,7 +66,7 @@
       -webkit-transition: -webkit-transform 0.2s;
       -moz-transition: -moz-transform 0.2s;
       transition: transform 0.2s;
-      border-bottom: 1px solid $gray-800;
+      border-bottom: 1px solid $gray-500; // show border on desktop when scrolling up
       background-color: fade-out($body-bg, .1);
       .navbar-brand {
         color: $gray-900;
@@ -100,13 +100,13 @@
 
 @include color-mode(dark) {
   #mainNav {
-    border-bottom: 1px solid $gray-200;
+    border-bottom: 1px solid $gray-200; // show border on mobile
     &.is-fixed {
-      border-bottom: 1px solid $gray-200;
+      border-bottom: 1px solid $gray-200; // show border on desktop when scrolling up
       background-color: fade-out($body-bg-dark, .1);
     }
     @media only screen and (min-width: 992px) {
-      border-bottom: 1px solid transparent;
+      border-bottom: 1px solid transparent; // hide border on desktop when scrolled to top
     }
   }
 }
