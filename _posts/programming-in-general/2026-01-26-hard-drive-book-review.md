@@ -5,6 +5,7 @@ date: 2026-01-26
 author: Jan Wilczek
 layout: post
 permalink: /hard-drive-bill-gates-biography-book-review/
+background: /assets/img/posts/programming-in-general/2026-01-26-hard-drive-book-review/Thumbnail.webp
 categories:
   - Programming In General
 tags:
@@ -15,6 +16,8 @@ tags:
 discussion_id: 2026-01-26-hard-drive-bill-gates-biography-book-review
 ---
 This book will cure your side-project procrastination!
+
+{% include 'youtube-video', video_id: 'L8ET8WDSij4' %}
 
 ## What is the book about?
 

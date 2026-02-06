@@ -5,6 +5,7 @@ date: 2026-01-14
 author: Jan Wilczek
 layout: post
 permalink: /dont-use-ai-for-audio-programming/
+background: /assets/img/posts/programming-in-general/2026-01-14-dont-use-ai-for-audio-programming/Thumbnail.webp
 categories:
   - Programming In General
 tags:
@@ -14,6 +15,8 @@ tags:
 discussion_id: 2026-01-14-dont-use-ai-for-audio-programming
 ---
 Are you using AI for audio programming? You may go deaf.
+
+{% include 'youtube-video', video_id: '7SuZO5FQCwM' %}
 
 {% capture _ %}{% increment figureId20250114  %}{% endcapture %}
 {% capture _ %}{% increment listingId20250114  %}{% endcapture %}
