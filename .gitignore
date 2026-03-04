@@ -7,12 +7,14 @@ vendor
 .vscode
 .DS_Store
 todo.md
+done.md
 
 _deploy.sh
 _deploy.bat
 _deploy.ps1
 
 .idea/
+.obsidian/
 
 # Ignore images before processing
 *.ps
