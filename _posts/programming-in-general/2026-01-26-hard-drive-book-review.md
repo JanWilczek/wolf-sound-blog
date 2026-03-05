@@ -5,6 +5,7 @@ date: 2026-01-26
 author: Jan Wilczek
 layout: post
 permalink: /hard-drive-bill-gates-biography-book-review/
+background: /assets/img/posts/programming-in-general/2026-01-26-hard-drive-book-review/Thumbnail.webp
 categories:
   - Programming In General
 tags:
@@ -15,6 +16,8 @@ tags:
 discussion_id: 2026-01-26-hard-drive-bill-gates-biography-book-review
 ---
 This book will cure your side-project procrastination!
+
+{% include 'youtube-video', video_id: 'L8ET8WDSij4' %}
 
 ## What is the book about?
 
@@ -131,4 +134,6 @@ If you can get your hands on a copy, that is, since the book is long out of prin
 This book confirmed to me that Bill Gates is an interesting and inspiring figure. While I find many of his actions morally questionable, if not outright repulsive, I cannot deny that he has used his potential and opportunity to the fullest; the "Hard Drive" title is, therefore, 100% accurate.
 
 Do you know a good book about Bill Gates? What’s your opinion on Microsoft? Is its global hegemony a good or a bad thing? How do you find Microsoft’s products and software tools? Let me know in the comments; I’d love to continue the conversation there.
+
+_Want to have the latest book reviews delivered straight to your inbox? Consider [subscribing to my newsletter]({% link collections.all, 'newsletter.md' %}). Personal contact, no spam._
 

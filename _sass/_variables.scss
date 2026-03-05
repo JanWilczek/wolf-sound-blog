@@ -1,0 +1,28 @@
+$blue:    #007bff;
+$pink:    #e83e8c;
+$green:   #28a745;
+$teal:    #0085A1;
+$cyan:    #17a2b8;
+$gray-800: #343a40;
+
+// WolfSound colors:
+$ws-orange:           #ef7600;
+$ws-grey:             #7c7c7c;
+$ws-dark-background:  #131313;
+$ws-light-background: #4c4c4c;
+
+// Bootstrap variable overrides
+$primary:       $ws-orange;
+$secondary:     $ws-grey;
+$light:         $ws-light-background;
+$dark:          $ws-dark-background;
+$code-color:    $ws-orange;
+$link-color:    $blue;
+$link-hover-color: $primary;
+
+$link-color-dark: lighten($blue, 15%);
+$link-hover-color-dark: $primary;
+
+// Sizes
+$tablet-width: 768px;
+

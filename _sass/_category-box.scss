@@ -1,0 +1,8 @@
+.category-box .btn {
+    margin: 0 0.5em 0.5em 0;
+    padding: 10px;
+    @media only screen and (max-width: 768px) {
+        margin: 0 1em 1em 0;
+        padding: 20px;
+      }
+}

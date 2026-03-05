@@ -1,0 +1,160 @@
+// Styling for the navbar
+#mainNav {
+  border-bottom: 1px solid $gray-500; // show border on mobile
+  position: absolute;
+  background-color: var(--bs-body-bg);
+  @include sans-serif-font;
+  .navbar-brand {
+    font-weight: 800;
+    color: $gray-800;
+  }
+  .navbar-toggler {
+    font-size: 12px;
+    font-weight: 800;
+    padding: 13px;
+    text-transform: uppercase;
+    color: var(--bs-body-color);
+  }
+  .navbar-nav {
+    > li.nav-item {
+      > a { // navbar items styling
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+      }
+    }
+  }
+
+  .theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px 20px;
+    font-size: 1.25rem;
+    display: flex;
+    align-items: start;
+    justify-content: start;
+    @include transition-all;
+    color: var(--bs-nav-link-color);
+
+    &:hover {
+      color: $primary;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    // Show moon by default (light mode), JS controls visibility
+    #themeIconSun {
+      display: none;
+    }
+
+    #themeIconMoon {
+      display: inline-block;
+    }
+
+    // Mobile menu alignment
+    @media only screen and (max-width: 991px) {
+      padding: 10px 0;
+      margin: 0;
+    }
+  }
+
+  @media only screen and (min-width: 992px) {
+    border-bottom: 1px solid transparent; // hide border on desktop when scrolled to top
+    background: transparent;
+    .navbar-brand {
+      padding: 10px 20px;
+      color: $white;
+      &:focus,
+      &:hover {
+        color: fade-out($white, .2);
+      }
+    }
+    .navbar-nav {
+      > li.nav-item {
+        > a {
+          padding: 10px 20px;
+          color: $white;
+          &:focus,
+          &:hover {
+            color: fade-out($white, .2);
+          }
+        }
+      }
+    }
+    .theme-toggle {
+      color: $white;
+    }
+
+    -webkit-transition: background-color 0.2s;
+    -moz-transition: background-color 0.2s;
+    transition: background-color 0.2s;
+    /* Force Hardware Acceleration in WebKit */
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    -o-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    -webkit-backface-visibility: hidden;
+    &.is-fixed {
+      /* when the user scrolls down, we hide the header right above the viewport */
+      position: fixed;
+      top: -71px;
+      -webkit-transition: -webkit-transform 0.2s;
+      -moz-transition: -moz-transform 0.2s;
+      transition: transform 0.2s;
+      border-bottom: 1px solid $gray-500; // show border on desktop when scrolling up
+      background-color: fade-out($body-bg, .1);
+      .navbar-brand {
+        color: $gray-900;
+        &:focus,
+        &:hover {
+          color: $primary;
+        }
+      }
+      .navbar-nav {
+        > li.nav-item {
+          > a {
+            color: var(--bs-body-color);
+            &:focus,
+            &:hover {
+              color: $primary;
+            }
+          }
+        }
+      }
+      .theme-toggle {
+        color: var(--bs-body-color);
+        &:focus,
+        &:hover {
+          color: $primary;
+        }
+      }
+    }
+    &.is-visible {
+      /* if the user changes the scrolling direction, we show the header */
+      -webkit-transform: translate3d(0, 100%, 0);
+      -moz-transform: translate3d(0, 100%, 0);
+      -ms-transform: translate3d(0, 100%, 0);
+      -o-transform: translate3d(0, 100%, 0);
+      transform: translate3d(0, 100%, 0);
+    }
+  }
+}
+
+@include color-mode(dark) {
+  #mainNav {
+    border-bottom: 1px solid $gray-200; // show border on mobile
+    &.is-fixed {
+      border-bottom: 1px solid $gray-200; // show border on desktop when scrolling up
+      background-color: fade-out($body-bg-dark, .1);
+    }
+    @media only screen and (min-width: 992px) {
+      border-bottom: 1px solid transparent; // hide border on desktop when scrolled to top
+    }
+  }
+}
+
