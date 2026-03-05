@@ -5,6 +5,7 @@ date: 2026-03-04
 author: Jan Wilczek
 layout: post
 permalink: /official-free-juce-course-for-audio-plugin-development/
+background: /assets/img/posts/programming-in-general/2026-03-04-juce-course/Thumbnail.webp
 categories:
   - Programming In General
 tags:
@@ -18,6 +19,10 @@ tags:
 discussion_id: 2026-03-04-juce-course
 ---
 The official JUCE audio plugin development online course is here.
+
+## Course trailer
+
+{% include 'youtube-video', video_id: '5qRkCBUw89w' %}
 
 **TL;DR: There is an official, free online course to learn audio plugin development with JUCE. [Sign up now](https://www.wolfsoundacademy.com/juce?utm_source=juce-course-announcement&utm_medium=blog) and start creating your first audio plugin.**
 
@@ -49,4 +54,8 @@ The course reflects all the best practices of the audio plugin industry and is p
 So [sign up today](https://www.wolfsoundacademy.com/juce?utm_source=juce-course-announcement&utm_medium=blog) and become an audio plugin developer!
 
 **Let me know in the comments if the course is the thing you need!**
+
+## My Audio Developer Conference 2025 presentation on the course (with Tom Poole)
+
+{% include 'youtube-video', video_id: 'MCL1BRsEEYc' %}
 
