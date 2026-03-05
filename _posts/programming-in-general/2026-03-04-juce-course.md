@@ -1,7 +1,7 @@
 ---
 title: How to learn audio plugin development with JUCE for free
 description: JUCE C++ framework has published an official free online course for complete beginners to learn audio plugin development. Read to sign up today and start creating your own audio plugins
-date: 2026-03-04
+date: 2026-03-04T09:00:00
 author: Jan Wilczek
 layout: post
 permalink: /official-free-juce-course-for-audio-plugin-development/
