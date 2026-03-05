@@ -1,5 +1,5 @@
 ---
-title: Free course for audio plugin development
+title: How to learn audio plugin development with JUCE for free
 description: JUCE C++ framework has published an official free online course for complete beginners to learn audio plugin development. Read to sign up today and start creating your own audio plugins
 date: 2026-03-04
 author: Jan Wilczek
@@ -28,9 +28,9 @@ The official JUCE audio plugin development online course is here.
 
 The most frequent question I get is, *"How can I learn to develop my own audio plugins?"*
 
-"Audio plugins" in the question refer to digital audio workstation (DAW) plugins like Ableton Live, Logic Pro, Steinberg Cubase, Reaper, Bitwig, Pro Tools, etc.
+"Audio plugins" in the question refer to plugins for digital audio workstations (DAW), like Ableton Live, Logic Pro, Steinberg Cubase, Reaper, Bitwig, Pro Tools, etc.
 
-Audio plugins are "shared libraries" that you can load in digital audio workstations (DAWs) to generate sound (sound synthesizers) or add audio effects (reverb, EQ, compression, distortion, etc.).
+Audio plugins are "shared libraries" that you can load in a DAW to generate sound (sound synthesizers) or add audio effects (reverb, EQ, compression, distortion, etc.).
 
 Most audio plugins on the market are created in C++ using the JUCE C++ framework; it has become the de facto industry standard.
 
@@ -55,7 +55,7 @@ So [sign up today](https://www.wolfsoundacademy.com/juce?utm_source=juce-course-
 
 **Let me know in the comments if the course is the thing you need!**
 
-## My Audio Developer Conference 2025 presentation on the course (with Tom Poole)
+## Watch Tom Poole and me introduce the course at the Audio Developer Conference 2025
 
 {% include 'youtube-video', video_id: 'MCL1BRsEEYc' %}
 
