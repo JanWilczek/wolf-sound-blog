@@ -15,17 +15,17 @@ tags:
   - juce
   - cmake
   - plugin
-discussion_id: 2026-03-04-juce-course
+discussion_id: 2026-03-06-cpp-online-26-workshop
 ---
-Are you a C++ developer insterested in music? Create your first music app & plugin!
+Are you a C++ developer interested in music? Create your first music app & plugin!
 
 ## What Is C++ Online?
 
-[C++ Online 2026](https://cpponline.uk) is an online only, international C++ conference which will run from 11th till 13th March 2026 and includes post-conference wokrshops.
+[C++ Online 2026](https://cpponline.uk) is an online-only, international C++ conference which will run from 11th to 13th March 2026 and includes post-conference workshops.
 
-It is organized by the same people who organize C++ On Sea, and are responsible for the online backend of CppNow, CppCon, ACCU, The Audio Developer Conference. If you don't know these conferences, let me just say that CppCon is the largest C++ conference in the world and ADC is the largest audio progamming-related conference in the world.
+It is organized by the same people who organize C++ On Sea, and are responsible for the online backend of CppNow, CppCon, ACCU, and the Audio Developer Conference. If you don't know these conferences, let me just say that CppCon is the largest C++ conference in the world, and ADC is the largest audio programming-related conference.
 
-The idea for C++ Online is to organize a conference outside of the conference-hot period of the year and allow greater participation from people who for various reasons cannot travel to in-person C++ conferences.
+The idea for C++ Online is to organize a conference outside the conference-heavy period of the year and to enable greater participation from people who, for various reasons, cannot travel to in-person C++ conferences.
 
 At the same time, C++ Online benefits from "big" names of the C++ community, including in 2026:
 * Jason Turner
@@ -39,32 +39,33 @@ At the same time, C++ Online benefits from "big" names of the C++ community, inc
 
 I don't know about you, but I deeply admire those people 😉
 
-A big feature of the conference are online workshops run wihtin two months after the main event. Just imagine, 8 hours straight with one of these C++ experts!
+A big feature of the conference is online workshops held within two months after the main event. Just imagine, 8 hours straight with one of these C++ experts!
 
 All the more am I flattered that C++ Online organizers asked me to run a conference workshop alongside these amazing professionals. The topic of the workshop is, of course, **C++ in audio**.
 
 ## "Jumpstart to C++ in Audio" Workshop
 
-I assume that you are intered in audio, i.e., you play a musical instrument, you perform electronic music, you want to add sound to your own video game, or you simply enjoy listening to music.
+I assume that you are interested in audio, i.e., you play a musical instrument, you perform electronic music, you want to add sound to your own video game, or you simply enjoy listening to music.
 
 Moreover, I assume that you have basic knowledge of C++; this is a C++ conference after all.
 
 What will you gain after going through my workshop then?
 
 * You'll understand how digital audio works in general.
-* You'll understand the role C++ plays in audio (and it is a major role, the majorest of all).
+* You'll understand the role C++ plays in audio (and it is a major role, the "majorest" of all).
 * You'll learn how to play back sound from a console app, a GUI app, a plugin, or your own game using C++.
 * You'll learn the essential C++ APIs for audio processing: PortAudio and JUCE.
 * You'll understand how audio processing works.
 * You'll implement your own audio effects: a low-pass filter and a flanger.
-* You'll turn those audio effects in a plugin with its own user interface.
-* What to do next to learn audio DSP in C++ further.
+* You'll turn those audio effects into a plugin with its own user interface.
+* You'll know how to find, understand, and implement audio-related research.
+* You'll know what to do next to learn audio DSP in C++ further.
 
 The workshop will be 90% hands-on, with very little lecturing.
 
 ## How to Attend?
 
-To book the workshop, please, [visit the workshop page](https://cpponline.uk/workshop/jumpstart-to-cpp-in-audio/).
+To book the workshop, [visit the workshop page](https://cpponline.uk/workshop/jumpstart-to-cpp-in-audio/).
 
 It contains all the details of the workshop, above all, the time slots. I give the workshop in two slots so that both hemispheres can attend.
 
@@ -74,13 +75,13 @@ If you're unsure whether to attend my workshop or you simply want to learn about
 
 Mind you that the discount code is for the main event only, not for the workshop.
 
-Only conference attendees will be able to ask questions as part of the preview session as well as the post-preview Q&A session in Gather (online conferencing platform). If you cannot make it to the preview session, it will be published later to YouTube (but with all the live failures edited, I'm afraid 😁).
+Only conference attendees will be able to ask questions during the preview session and the post-preview Q&A session in Gather (the online conferencing platform). If you cannot make it to the preview session, it will be published later on YouTube in place of the stream (but with all the live failures edited out, I'm afraid 😁).
 
 Finally, there's a sizeable student discount for both the conference and the workshop.
 
 ## Questions?
 
-If you have any questions related to the conference or the workshop, please ask them in the comments to this blog.
+If you have any questions related to the conference or the workshop, please ask them in the comments to this article.
 
 Are you planning to attend the workshop? Are you planning to attend the conference? Let me know!
 
