@@ -19,6 +19,8 @@ discussion_id: 2026-03-06-cpp-online-26-workshop
 ---
 Are you a C++ developer interested in music? Create your first music app & plugin!
 
+**TL;DR: I’ll be hosting a “Jumpstart to C++ in Audio” workshop as part of the C++ Online 2026 conference. [You can sign up on the conference website](https://cpponline.uk/workshop/jumpstart-to-cpp-in-audio/).**
+
 ## What Is C++ Online?
 
 [C++ Online 2026](https://cpponline.uk) is an online-only, international C++ conference which will run from 11th to 13th March 2026 and includes post-conference workshops.
