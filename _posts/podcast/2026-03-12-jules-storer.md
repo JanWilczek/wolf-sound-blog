@@ -1,6 +1,6 @@
 ---
 title: "Julian Storer: Creator of JUCE C++ Framework | WolfTalk #032"
-description: "Julian Storer discusses JUCE, C-Major, Tracktion, compiler design, clean code, and using AI coding tools in an audio development workflow."
+description: "Julian Storer discusses JUCE, Cmajor, Tracktion, compiler design, clean code, and using AI in audio development."
 date: 2026-03-12
 author: Jan Wilczek & Sathira Tennakoon
 layout: post
@@ -25,17 +25,16 @@ tags:
   - testing
 discussion_id: 2026-03-12-julian-storer
 ---
-
-[One-line Description]
+Learn from one of the greatest in the industry
 
 {% include 'redcircle-podcast-player', redcircle_podcast_id: '[ID]' %}
 
 ## Listen on
 
-* 🎧 [Spotify]()
-* 🎥 [YouTube]()
-* 🎧 [Apple Podcasts (iTunes)]()
-* 🎧 [TuneIn Radio]()
+* 🎧 [Spotify (TBA)](#)
+* 🎥 [YouTube (TBA)](#)
+* 🎧 [Apple Podcasts (iTunes) (TBA)](#)
+* 🎧 [TuneIn Radio (TBA)](#)
 
 [All podcast episodes.](/podcast)
 
@@ -43,7 +42,17 @@ discussion_id: 2026-03-12-julian-storer
 
 ## Introduction
 
-[Episode introduction placeholder]
+Julian "Jules" Storer is the creator of the JUCE C++ framework and the Cmajor programming language dedicated to audio.
+
+He created JUCE in the late 90s and it grew to become the most popular audio plugin development framework in the world. Apart from audio capabilities, it is a general-purpose cross-platform application development framework (Windows, macOS, Linux, Android, iOS, and embedded platforms). Most plugin companies use JUCE, whether you like it or not, it has become a de facto industry standard.
+
+You know that I love JUCE, I created with them the [official JUCE audio plugin development course](https://www.wolfsoundacademy.com/juce?utm_source=julian-storer-podcast&utm_medium=blog), and they are the sponsor of the podcast. So naturally I was super excited to be able to interview Jules!
+
+His next big thing is the Cmajor programming language. It is a C-like, LLVM-backed programming language dedicated solely to audio.
+
+He has also given many talks at the Audio Developer Conference, so I encourage you to check them out as a way to relax but also to get inspired.
+
+Jules is known for his strong opinions and dry humor, so I guarantee, you'll find yourself chuckling every few minutes 😉
 
 {% include 'podcast_cta' %}
 
@@ -51,11 +60,14 @@ discussion_id: 2026-03-12-julian-storer
 
 From this episode, you will learn:
 
-- [1]
-- [2]
-- [3]...
+- How Jules created the JUCE framework and distributed it initially
+- How to maintain such huge codebases as JUCE
+- Julian's coding principles that will make you (and me) a better dev
+- What problem does CMajor solve and how
+- Which tools is Jules using when coding, especially when it comes to AI
+- His exact everyday work routines and relax strategies
 
-This episode was recorded on [Month DD, 2026].
+This episode was recorded on January 30, 2026.
 
 ## References
 
