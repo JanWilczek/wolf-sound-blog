@@ -113,62 +113,62 @@ _Figure {% increment figureId20211022 %}. Block diagram of an FIR allpass filter
 
 ## All tags used
 
+- accessibility
+- acoustics
 - ai
-- sound wave
-- sampling (A/D conversion)
-- quantization
-- sample rate
 - aliasing
-- effects
-- python
-- software architecture
-- design principles
-- testing
+- amplifiers
+- android
+- audio generation
+- book review
 - c
-- cpp
-- convolution
-- filtering
-- maths
-- fourier
-- laplace
-- transform
-- impulse
-- template metaprogramming
-- correlation
-- matlab
-- probability
-- wavetable
-- waveform
-- sampling (sound generation)
-- juce
-- rust
 - career
+- cmajor
+- cmake
+- convolution
+- correlation
+- cpp
+- deep learning
+- design principles
+- digital audio workstation
+- effects
+- envelope
+- filtering
+- flutter
+- fourier
+- hardware
+- impulse
+- iplug2
+- java
+- javascript
+- juce
+- kotlin
+- laplace
 - learning
+- maths
+- matlab
+- plugin
+- probability
+- puredata
+- python
+- quantization
 - research
 - reverb
-- deep learning
-- virtual analog
-- amplifiers
+- rust
+- sample rate
+- sampling (A/D conversion)
+- sampling (sound generation)
 - simd
-- hardware
-- envelope
-- android
-- kotlin
-- java
-- virtual reality
+- software architecture
+- sound wave
 - spatial audio
-- acoustics
-- accessibility
-- cmake
-- plugin
-- web audio
-- javascript
-- typescript
-- book review
-- puredata
-- iplug2
 - swift
-- flutter
-- cmajor
-- digital audio workstation
-- audio generation
+- template metaprogramming
+- testing
+- transform
+- typescript
+- virtual analog
+- virtual reality
+- waveform
+- wavetable
+- web audio
