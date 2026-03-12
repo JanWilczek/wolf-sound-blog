@@ -27,7 +27,7 @@ discussion_id: 2026-03-12-julian-storer
 ---
 Does Jules really hate CMake?
 
-{% include 'redcircle-podcast-player', redcircle_podcast_id: '[ID]' %}
+{% include 'redcircle-podcast-player', redcircle_podcast_id: '06926890-3c61-4601-be6b-a2ae32eb771c' %}
 
 ## Listen on
 
