@@ -1,7 +1,7 @@
 ---
-title: "Julian Storer - Creator of JUCE C++ Framework | WolfTalk #032"
+title: "Julian Storer: Creator of JUCE C++ Framework | WolfTalk #032"
 description: "Julian Storer discusses JUCE, C-Major, Tracktion, compiler design, clean code, and using AI coding tools in an audio development workflow."
-date: 2026-03-XX
+date: 2026-03-12
 author: Jan Wilczek & Sathira Tennakoon
 layout: post
 permalink: /talk032/
@@ -23,7 +23,7 @@ tags:
   - java
   - rust
   - testing
-discussion_id: 2026-03-XX-julian-storer
+discussion_id: 2026-03-12-julian-storer
 ---
 
 [One-line Description]
@@ -47,7 +47,7 @@ discussion_id: 2026-03-XX-julian-storer
 
 {% include 'podcast_cta' %}
 
-## Episode Contents
+## Episode contents
 
 From this episode, you will learn:
 
@@ -72,21 +72,21 @@ This episode was recorded on [Month DD, 2026].
 3. Tracktion Team
    - [David Rowland](https://www.linkedin.com/in/david-rowland-478a22112/)
    - [James Woodburn](https://www.linkedin.com/in/james-woodburn-6b62304/)
-   - [Dave Christensen](https://www.linkedin.com/in/davidchritenson/)
-4. C-Major Team
+   - Dave Christensen
+4. Cmajor Team
    - [Cesare Ferrari](https://www.linkedin.com/in/cesareferrari/)
 5. [Andrej Karpathy](https://karpathy.ai/)
 
-### Jules' Projects
+### Jules' projects
 
-1. JUCE
+1. JUCE (podcast sponsor ❤️)
    - [JUCE Website](https://juce.com)
-   - [Learn JUCE](https://juce.com/learn/course/)
-2. [Waveform DAW (Previously Tracktion)](https://www.tracktion.com/products/waveform-pro)
+   - [Official JUCE audio plugin development course](https://www.wolfsoundacademy.com/juce?utm_source=julian-storer-podcast&utm_medium=blog)
+2. [Waveform DAW (previously Tracktion)](https://www.tracktion.com/products/waveform-pro)
 3. [Tracktion Engine](https://github.com/Tracktion/tracktion_engine)
-4. [C-Major](https://cmajor.dev)
+4. [Cmajor](https://cmajor.dev)
 
-### Companies & Organizations
+### Companies
 
 - [Tracktion](https://www.tracktion.com)
 - [ROLI](https://roli.com)
@@ -97,49 +97,56 @@ This episode was recorded on [Month DD, 2026].
 - [Anthropic](https://www.anthropic.com)
 - [Suno](https://suno.com)
 
-### Conferences & Communities
+### Conferences & communities
 
 - [Audio Developer Conference (ADC)](https://audio.dev)
 - [JUCE Forum](https://forum.juce.com/)
-- [KVR Audio](https://www.kvraudio.com)
+- [KVR Audio Forum](https://www.kvraudio.com/forum/)
 
 ### Developer Tools
 
-#### AI Tools
+#### AI tools
+
 - [Claude](https://claude.ai)
 - [GPT-5](https://openai.com/gpt-5/)
 
-#### Code Editors & IDEs
+#### IDEs
+
 - [VS Code](https://code.visualstudio.com)
 - [Visual Studio](https://visualstudio.microsoft.com)
 - [Xcode](https://developer.apple.com/xcode)
 
-#### Version Control
+#### Version control
+
 - [Git](https://git-scm.com)
 - [GitHub](https://github.com)
 - [SourceTree](https://www.sourcetreeapp.com)
 - [CVS](https://cvs.nongnu.org/)
 
-#### Build Systems
+#### Build systems
+
 - [CMake](https://cmake.org)
 - [Make](https://www.gnu.org/software/make/)
 
-#### Compilers & Backends
+#### Compilers
+
 - [LLVM](https://llvm.org)
 - [Clang](https://clang.llvm.org)
 
-#### Testing & Analysis
+#### Code instrumentation tools
+
 - [Valgrind](https://valgrind.org)
 - [Puppeteer](https://pptr.dev)
 - [Cppcheck](https://cppcheck.sourceforge.io)
 
 #### Frameworks
+
 - [Qt](https://www.qt.io)
 
-### Programming Languages
+### Programming languages
 
 - [C++](https://isocpp.org)
-- [C-Major](https://cmajor.dev)
+- [Cmajor](https://cmajor.dev)
 - [Rust](https://www.rust-lang.org)
 - [Java](https://www.java.com)
 - [Go](https://go.dev)
@@ -149,12 +156,12 @@ This episode was recorded on [Month DD, 2026].
 - [WebAssembly](https://webassembly.org)
 - HTML/CSS
 
-### Hardware & Gear
+### Hardware
 
 - [Novation Launchpad](https://novationmusic.com/launchpad)
 - [Dream ADA-128 Modular AD/DA Converter](https://beta.prismsound.com/products/ada-128/)
 
-### Technical Concepts
+### Technical concepts
 
 - [GNU General Public License](https://www.gnu.org/licenses/gpl-3.0.en.html)
 - Plugin formats (VST / AU / AAX / LV2)
@@ -165,3 +172,4 @@ This episode was recorded on [Month DD, 2026].
 - Static analysis and linting
 
 Thank you for listening! 🙏
+
