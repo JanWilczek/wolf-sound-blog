@@ -46,11 +46,11 @@ Julian "Jules" Storer is the creator of the JUCE C++ framework and the Cmajor pr
 
 He created JUCE in the late 90s, and it grew to become the most popular audio plugin development framework in the world. Apart from audio capabilities, it is a general-purpose cross-platform application development framework (Windows, macOS, Linux, Android, iOS, and embedded platforms). Most plugin companies use JUCE; whether you like it or not, it has become a de facto industry standard.
 
-You know that I love JUCE; I created with them the [official JUCE audio plugin development course](https://www.wolfsoundacademy.com/juce?utm_source=julian-storer-podcast&utm_medium=blog), and they are the sponsor of the podcast. So naturally, I was super excited to be able to interview Jules!
+You know that I love JUCE; I created the [official JUCE audio plugin development course](https://www.wolfsoundacademy.com/juce?utm_source=julian-storer-podcast&utm_medium=blog) with them, and they are the sponsor of the podcast. So naturally, I was super excited to be able to interview Jules!
 
 His next big thing is the Cmajor programming language. It is a C-like, LLVM-backed programming language dedicated solely to audio.
 
-He has also given many talks at the Audio Developer Conference, so I encourage you to check them out as a way to relax but also to get inspired.
+He has also given many talks at the Audio Developer Conference, so I encourage you to check them out as a way to relax and get inspired.
 
 Jules is known for his strong opinions and dry humor, so I guarantee you'll find yourself chuckling every few minutes 😉
 
