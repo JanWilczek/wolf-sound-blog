@@ -25,7 +25,7 @@ tags:
   - testing
 discussion_id: 2026-03-12-julian-storer
 ---
-Learn from one of the greatest in the industry
+Does Jules really hate CMake?
 
 {% include 'redcircle-podcast-player', redcircle_podcast_id: '[ID]' %}
 
@@ -65,7 +65,8 @@ From this episode, you will learn:
 - Julian's coding principles that will make you (and me) a better dev
 - What problem does CMajor solve, and how
 - Which tools is Jules using when coding, especially when it comes to AI
-- His exact everyday work routines and relaxation strategies
+- His exact everyday work routines and relaxation strategies, and
+- Does Jules really hate CMake?
 
 This episode was recorded on January 30, 2026.
 
