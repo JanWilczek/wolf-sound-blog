@@ -90,21 +90,22 @@ This episode was recorded on [***].
 14. [Jordan Rudess](https://www.jordanrudess.com/)
 15. [Pat Scandalis](https://ccrma.stanford.edu/people/gregory-pat-scandalis)
 16. [Douglas Repetto](https://cmc.music.columbia.edu/bios/douglas-i-repetto)
+17. Todd Telford
 
 ### Phil's Projects
 
 #### Software & Libraries
 
 * [HMSL (Hierarchical Music Specification Language)](https://github.com/philburk/hmsl)
-* JForth
-* PForth
-* [JSyn](https://github.com/philburk/jsyn)
-* JMSL
-* [PortAudio](https://www.portaudio.com/)
-* [AAudio](https://developer.android.com/ndk/guides/audio/aaudio/aaudio)
+* [JForth (subroutine threaded Forth for the Amiga Computer)](https://www.softsynth.com/jforth/)
+* [PForth (portable Forth in 'C')](https://github.com/philburk/pforth/)
+* [JSyn (modular synthesis API for Java.)](https://github.com/philburk/jsyn)
+* [JMSL (Java Music Specification Language)](https://www.algomusic.com/jmsl/)
+* [PortAudio (cross platform audio I/O API for 'C')](https://www.portaudio.com/)
+* [AAudio (Android C API)](https://developer.android.com/ndk/guides/audio/aaudio/aaudio)
+* [Syntona (Graphical Editor for JSyn)](https://philburk.github.io/syntona/)
 * [Oboe](https://github.com/google/oboe)
 * [OboeTester](https://github.com/google/oboe/tree/main/apps/OboeTester)
-* [Syntona](https://philburk.github.io/syntona/)
 * [kc-audio-bridge](https://github.com/philburk/kc-audio-bridge)
 
 #### Web & Platforms
@@ -154,6 +155,7 @@ This episode was recorded on [***].
 * [Sun Microsystems](https://en.wikipedia.org/wiki/Sun_Microsystems)
 * [Silicon Graphics](https://en.wikipedia.org/wiki/Silicon_Graphics)
 * [Netscape](https://en.wikipedia.org/wiki/Netscape)
+* [Napster](https://en.wikipedia.org/wiki/Napster)
 
 #### Standards Bodies
 
@@ -175,7 +177,7 @@ This episode was recorded on [***].
 
 ### Hardware & Platforms
 
-* Lowrey organ
+* [Lowrey organ](https://en.wikipedia.org/wiki/Lowrey_organ)
 * [Zilog Z80](https://en.wikipedia.org/wiki/Zilog_Z80)
 * [Motorola 68000](https://en.wikipedia.org/wiki/Motorola_68000)
 * [Motorola 56000 DSP](https://en.wikipedia.org/wiki/Motorola_56000)
@@ -184,7 +186,6 @@ This episode was recorded on [***].
 * [VAX](https://en.wikipedia.org/wiki/VAX)
 * [Buchla multi-function generator](https://buchla.com)
 * [Yamaha FB-01](https://usa.yamaha.com/products/contents/music_production/synth_chronology/modal/modal_fb01.html)
-* 3DO custom DSP / M2 processor
 * [Handspring Treo](https://en.wikipedia.org/wiki/Handspring_Treo)
 * [Sony Cell processor (PS3)](https://en.wikipedia.org/wiki/Cell_(processor))
 * [Raspberry Pi](https://www.raspberrypi.com/)
@@ -204,7 +205,7 @@ This episode was recorded on [***].
 
 ### Software & Developer Tools
 
-* [**JUCE** (podcast sponsor ❤️)](https://juce.com/)
+* [JUCE (podcast sponsor ❤️)](https://juce.com/)
 * [Max/MSP](https://cycling74.com/)
 * [SuperCollider](https://supercollider.github.io/)
 * [AudioMulch](http://www.audiomulch.com)
@@ -296,4 +297,13 @@ This episode was recorded on [***].
 * [ADC (Audio Developer Conference)](https://audio.dev/)
 * [Music-DSP (musicdsp.org)](https://www.musicdsp.org/)
 
-Thank you for listening!
+### Music, Culture, and Other References
+
+* [Heroes of Might and Magic III](https://en.wikipedia.org/wiki/Heroes_of_Might_and_Magic_III)
+* The Greatful Dead
+* David Bowie
+* Star Wars (Movie)
+* The Matrix (Movie)
+* [Fluxus movement](https://en.wikipedia.org/wiki/Fluxus)
+
+Thank you for listening! 🙏
