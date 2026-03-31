@@ -1,0 +1,299 @@
+---
+title: "Phil Burk: PortAudio, Android Audio, MIDI 2.0, HMSL, PlayStation Audio, JSyn & More!"
+description: "Phil Burk discusses PortAudio, AAudio, MIDI 2.0, Forth, and 40+ years building audio software from Z80 assembly to Android."
+date: 2026-04-XX [***]
+author: Jan Wilczek & Sathira Tennakoon
+layout: post
+permalink: /talk033/
+background: /assets/img/posts/podcast/talk033/Thumbnail.webp
+categories:
+  - Podcast
+tags:
+  - android
+  - c
+  - career
+  - hardware
+  - java
+  - juce
+  - kotlin
+  - learning
+discussion_id: 2026-04-XX-phil-burk [***]
+---
+
+[episode description] [***]
+
+{% include 'redcircle-podcast-player', redcircle_podcast_id: '[***]' %}
+
+## Listen on
+
+* 🎧 [Spotify](***)
+* 🎥 [YouTube](***)
+* 🎧 [Apple Podcasts (iTunes)](***)
+* 🎧 [TuneIn Radio](***)
+
+[All podcast episodes.](/podcast)
+
+[Sign up for WolfSound's newsletter!]({% link collections.all, 'newsletter.md' %})
+
+## Introduction
+
+[***]
+
+{% include 'podcast_cta' %}
+
+## Episode Contents
+
+From this episode, you will learn:
+
+[***]
+
+This episode was recorded on [***].
+
+## References
+
+### People
+
+1. Phil Burk
+   * [LinkedIn](https://www.linkedin.com/in/phil-burk-065102/)
+   * [SoftSynth (website)](https://www.softsynth.com/)
+   * [SoftSynth music page](https://www.softsynth.com/music/index.php)
+   * [Mobileer](https://www.mobileer.com/)
+   * [GitHub](https://github.com/philburk)
+   * [YouTube channel](https://www.youtube.com/@PhilBurk/videos)
+   * [YouTube presentations playlist](https://youtube.com/playlist?list=PLJ7S7sPbpsnClg7YvzpCckKID3E3MsyWR&si=JBBd6azLuceRKy4o)
+   * [SoundCloud (experimental music)](https://soundcloud.com/phil-burk/sets/experimental)
+   * [DBLP (published papers)](https://dblp.org/pid/09/3420.html)
+   * [NAMM MIDI 2.0 oral history](https://www.namm.org/library/oral-history/phil-burk)
+2. At Mills College
+   * Larry Polansky
+   * [David Rosenboom](https://davidrosenboom.com/)
+   * [Nick Didkovsky](https://www.linkedin.com/in/nickdidkovsky/)
+   * [Chris Brown](https://cbmuse.com)
+   * [John Bischoff](https://johnbischoff.com)
+3. At 3DO
+   * [RJ Mical](https://en.wikipedia.org/wiki/RJ_Mical)
+   * [Robert Marsanyi](https://www.linkedin.com/in/robert-marsanyi-39557a3/)
+   * Steve Kittrell
+   * Mike Haas
+4. At Google
+   * [Joe Britt](https://www.linkedin.com/in/joebritt/)
+   * [Robert Wu](https://robwu.nl)
+5. [Ross Bencina](https://www.rossbencina.com/)
+6. [Chuck Moore](https://en.wikipedia.org/wiki/Charles_H._Moore)
+7. [Dave Smith](https://midi.org/dave-smith-and-sequential-circuits)
+8. [John Bowen](https://midi.org/john-bowen-the-father-of-factory-presets)
+9. [David Zicarelli](https://en.wikipedia.org/wiki/David_Zicarelli)
+10. [James McCartney](https://www.linkedin.com/in/james-mccartney-9580b310/)
+11. Max Neuhaus
+12. Hal Chamberlin
+13. [Julius Smith](https://ccrma.stanford.edu/~jos/)
+14. [Jordan Rudess](https://www.jordanrudess.com/)
+15. [Pat Scandalis](https://ccrma.stanford.edu/people/gregory-pat-scandalis)
+16. [Douglas Repetto](https://cmc.music.columbia.edu/bios/douglas-i-repetto)
+
+### Phil's Projects
+
+#### Software & Libraries
+
+* [HMSL (Hierarchical Music Specification Language)](https://github.com/philburk/hmsl)
+* JForth
+* PForth
+* [JSyn](https://github.com/philburk/jsyn)
+* JMSL
+* [PortAudio](https://www.portaudio.com/)
+* [AAudio](https://developer.android.com/ndk/guides/audio/aaudio/aaudio)
+* [Oboe](https://github.com/google/oboe)
+* [OboeTester](https://github.com/google/oboe/tree/main/apps/OboeTester)
+* [Syntona](https://philburk.github.io/syntona/)
+* [kc-audio-bridge](https://github.com/philburk/kc-audio-bridge)
+
+#### Web & Platforms
+
+* [SoftSynth](https://www.softsynth.com/)
+* [Mobileer](https://www.mobileer.com/)
+* [TransJam](https://www.transjam.com)
+* [Auracle](https://auracle.org/)
+
+### Companies, Organizations & Institutions
+
+#### Game & Console
+
+* [3DO Company](https://en.wikipedia.org/wiki/The_3DO_Company)
+* [Sony PlayStation](https://www.playstation.com/)
+* [Sega](https://en.wikipedia.org/wiki/Sega)
+* [Atari](https://en.wikipedia.org/wiki/Atari)
+* [Nintendo](https://www.nintendo.com/)
+* [Microsoft (Xbox)](https://www.xbox.com/)
+
+#### Mobile & Tech
+
+* [Google (Android)](https://developer.android.com/)
+* [Apple](https://www.apple.com/)
+* [Handspring](https://en.wikipedia.org/wiki/Handspring_(company))
+* [Samsung](https://www.samsung.com/)
+* [Qualcomm](https://www.qualcomm.com/)
+* [MediaTek](https://www.mediatek.com/)
+* [Intel](https://www.intel.com/)
+
+#### Music & Audio
+
+* [Yamaha](https://www.yamaha.com/)
+* [Roland](https://www.roland.com/)
+* [Korg](https://www.korg.com/)
+* [Moog](https://www.moogmusic.com/)
+* [Akai](https://www.akaipro.com/)
+* [Kawai](https://www.kawai.co.jp/en/)
+* [Sequential Circuits](https://en.wikipedia.org/wiki/Sequential_Circuits)
+* [Kurzweil](http://kurzweil.com)
+* [DigiDesign](https://www.avid.com)
+
+#### Technology & Computing
+
+* [Motorola](https://en.wikipedia.org/wiki/Motorola)
+* [National Semiconductor](https://en.wikipedia.org/wiki/National_Semiconductor)
+* [Sun Microsystems](https://en.wikipedia.org/wiki/Sun_Microsystems)
+* [Silicon Graphics](https://en.wikipedia.org/wiki/Silicon_Graphics)
+* [Netscape](https://en.wikipedia.org/wiki/Netscape)
+
+#### Standards Bodies
+
+* [MIDI Manufacturers Association (MMA)](https://www.midi.org/)
+* [AMEI](https://www.amei.or.jp)
+
+#### Venues & Installations
+
+* [Beacon Museum (New York)](https://www.diaart.org/visit/visit-our-locations-sites/dia-beacon-beacon-united-states)
+* [Menil Museum (Houston)](https://www.menil.org/)
+* [Stommeln Synagogue (Germany)](https://www.synagoge-stommeln.de/index.php?n1=6&Direction=101)
+
+#### Universities & Research Labs
+
+* [UC Berkeley](https://www.berkeley.edu/)
+* [Mills College at Northeastern University](https://mills.northeastern.edu)
+* [Columbia University](https://www.columbia.edu/)
+* [Stanford / CCRMA](https://ccrma.stanford.edu/)
+
+### Hardware & Platforms
+
+* Lowrey organ
+* [Zilog Z80](https://en.wikipedia.org/wiki/Zilog_Z80)
+* [Motorola 68000](https://en.wikipedia.org/wiki/Motorola_68000)
+* [Motorola 56000 DSP](https://en.wikipedia.org/wiki/Motorola_56000)
+* [Commodore 64](https://en.wikipedia.org/wiki/Commodore_64)
+* [Amiga](https://en.wikipedia.org/wiki/Amiga)
+* [VAX](https://en.wikipedia.org/wiki/VAX)
+* [Buchla multi-function generator](https://buchla.com)
+* [Yamaha FB-01](https://usa.yamaha.com/products/contents/music_production/synth_chronology/modal/modal_fb01.html)
+* 3DO custom DSP / M2 processor
+* [Handspring Treo](https://en.wikipedia.org/wiki/Handspring_Treo)
+* [Sony Cell processor (PS3)](https://en.wikipedia.org/wiki/Cell_(processor))
+* [Raspberry Pi](https://www.raspberrypi.com/)
+
+### Programming Languages
+
+* [Forth](https://en.wikipedia.org/wiki/Forth_(programming_language))
+* [C](https://en.wikipedia.org/wiki/C_(programming_language))
+* [C++](https://isocpp.org/)
+* [Java](https://www.java.com/)
+* [Kotlin](https://kotlinlang.org/)
+* [Verilog](https://en.wikipedia.org/wiki/Verilog)
+* [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+* [Fortran](https://en.wikipedia.org/wiki/Fortran)
+* [PHP](https://www.php.net/)
+* [Lisp](https://en.wikipedia.org/wiki/Lisp_(programming_language))
+
+### Software & Developer Tools
+
+* [**JUCE** (podcast sponsor ❤️)](https://juce.com/)
+* [Max/MSP](https://cycling74.com/)
+* [SuperCollider](https://supercollider.github.io/)
+* [AudioMulch](http://www.audiomulch.com)
+* [Audacity](https://www.audacityteam.org/)
+* [Csound](https://csound.com/)
+* [PyAudio](https://people.csail.mit.edu/hubert/pyaudio/)
+* [GeoShred](https://moforte.com/geoshred/)
+* [Logic Pro](https://www.apple.com/logic-pro/)
+* [Kotlin Compose](https://developer.android.com/jetpack/compose)
+* Swing (Java UI)
+* [Android Studio](https://developer.android.com/studio)
+* [IntelliJ IDEA](https://www.jetbrains.com/idea/)
+* [Xcode](https://developer.apple.com/xcode/)
+* [Blender](https://www.blender.org/)
+* [Google Gemini](https://gemini.google.com/)
+* [Anthropic Claude](https://claude.ai/)
+
+### Technical Concepts & Standards
+
+#### Protocols & Standards
+
+* MIDI 1.0
+* MIDI 2.0
+* General MIDI
+* RS-232
+* OpenSL ES
+* DirectSound
+* WASAPI
+* OSS
+* ALSA
+* Core Audio
+
+#### DSP & Synthesis
+
+* Software synthesis
+* FM synthesis
+* Band-limited oscillators
+* Recursive filters
+* Resonant filters
+* Phase-locked loop
+* Sample-and-hold
+* White noise / red noise / Brownian noise
+* Granular synthesis
+* Numeric underflow (denormals)
+* Just intonation
+* Modular synthesis
+* Sample rate conversion
+* Portamento
+
+#### System Architecture
+
+* Callback-based audio
+* Shared memory FIFO
+* Round-trip latency
+* Speaker protection
+* CPU throttling
+* Seamless music streaming
+* Distributed compilation
+
+#### Hardware & Chip Design
+
+* Wire-wrapping
+* Saturation arithmetic
+* Fixed-point math
+* RISC architecture
+* DMA
+* Verilog simulation
+* Dynamic registers
+
+#### Programming Concepts
+
+* Stack-based languages
+* Reverse Polish notation
+* Cross-platform development
+* Object-oriented Forth
+* Live coding
+
+### Books & Resources
+
+* [Musical Applications of Microprocessors — Hal Chamberlin](http://sites.music.columbia.edu/cmc/courses/g6610/fall2016/week8/Musical_Applications_of_Microprocessors-Charmberlin.pdf)
+* [Audio EQ Cookbook — Robert Bristow-Johnson](https://www.musicdsp.org/en/latest/Filters/197-rbj-audio-eq-cookbook.html)
+* [Music-DSP Mailing List](https://sites.music.columbia.edu/cmc/music-dsp/)
+* Electro Notes magazine
+* National Semiconductor Data Books
+
+### Conferences & Communities
+
+* [ICMC (International Computer Music Conference)](https://www.computermusic.org/)
+* [ADC (Audio Developer Conference)](https://audio.dev/)
+* [Music-DSP (musicdsp.org)](https://www.musicdsp.org/)
+
+Thank you for listening!
