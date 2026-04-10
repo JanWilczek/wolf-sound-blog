@@ -34,7 +34,7 @@ Does Jules really hate CMake?
 * 🎧 [Spotify](https://open.spotify.com/episode/7pnmBALyxgROrvyZ9pFPAb?si=C5QQaCDqR5yLMf2StYy3sw)
 * 🎥 [YouTube](https://youtu.be/svAdgZrkUV8)
 * 🎧 [Apple Podcasts (iTunes)](https://podcasts.apple.com/podcast/id1595913701?i=1000754818310)
-* 🎧 [TuneIn Radio (TBA)](#)
+* 🎧 [TuneIn Radio (TBA)](http://tun.in/pkRvm)
 
 [All podcast episodes.](/podcast)
 
