@@ -184,5 +184,8 @@ This episode was recorded on January 30, 2026.
 - Shader languages
 - Static analysis and linting
 
+Video edited by Vadzim Vezhnavets.
+Audio post-production, mixing & mastering by Menno Klijn.
+
 Thank you for listening! 🙏
 
