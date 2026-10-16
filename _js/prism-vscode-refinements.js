@@ -5,6 +5,10 @@
 // fwcd.kotlin extension.
 const loadLanguages = require("prismjs/components/index.js");
 
+// Survives re-requiring this module, so a config reload under `--serve` can
+// find and replace the hook registered by a previous version of the module.
+const HOOK_KEY = Symbol.for("wolfsound.prism-vscode-refinements.hook");
+
 const LANGUAGE_ALIASES = {
   "c++": "cpp",
   py: "python",
@@ -155,36 +159,69 @@ const colorizeBracketPairs = (tokens) => {
   });
 };
 
+// Prism language components register themselves on the global `Prism`, so
+// point it at the given instance while loading. Languages already present on
+// the instance are left untouched.
+const loadLanguagesInto = (Prism, languages) => {
+  const globalPrism = globalThis.Prism;
+  globalThis.Prism = Prism;
+  try {
+    loadLanguages(languages);
+  } finally {
+    globalThis.Prism = globalPrism;
+  }
+};
+
+// Re-inserts the token so that a reload applies the current definition
+// instead of keeping a stale one.
+const insertTokenBefore = (Prism, language, before, name, definition) => {
+  const grammar = Prism.languages[language];
+  if (!grammar) {
+    console.warn(
+      `[prism-vscode-refinements] Language "${language}" is not loaded; ` +
+        `skipping "${name}".`,
+    );
+    return;
+  }
+  delete grammar[name];
+  Prism.languages.insertBefore(language, before, { [name]: definition });
+};
+
+const refineTokens = (env) => {
+  const language = LANGUAGE_ALIASES[env.language] ?? env.language;
+  refineKeywords(env.tokens, language);
+  markInterpolationBraces(env.tokens);
+  colorizeBracketPairs(env.tokens);
+};
+
 /**
  * Registers the VS Code refinements on the given Prism instance.
  * Intended for the `init` option of @11ty/eleventy-plugin-syntaxhighlight.
+ * Idempotent: calling it again replaces the previous registration.
  */
 const applyVsCodeRefinements = (Prism) => {
-  loadLanguages(["cpp", "python"]);
+  loadLanguagesInto(Prism, ["cpp", "python"]);
 
   // `std` in `std::vector`: entity.name.scope-resolution
-  Prism.languages.insertBefore("cpp", "keyword", {
-    "scope-resolution": {
-      pattern: /\b[A-Za-z_]\w*(?=\s*::)/,
-      alias: "class-name",
-    },
+  insertTokenBefore(Prism, "cpp", "keyword", "scope-resolution", {
+    pattern: /\b[A-Za-z_]\w*(?=\s*::)/,
+    alias: "class-name",
   });
 
   // Python only tokenises function definitions; VS Code also colours calls.
   // Inserted after `keyword` and `builtin` so those keep precedence.
-  Prism.languages.insertBefore("python", "boolean", {
-    "function-call": {
-      pattern: /\b[A-Za-z_]\w*(?=\s*\()/,
-      alias: "function",
-    },
+  insertTokenBefore(Prism, "python", "boolean", "function-call", {
+    pattern: /\b[A-Za-z_]\w*(?=\s*\()/,
+    alias: "function",
   });
 
-  Prism.hooks.add("after-tokenize", (env) => {
-    const language = LANGUAGE_ALIASES[env.language] ?? env.language;
-    refineKeywords(env.tokens, language);
-    markInterpolationBraces(env.tokens);
-    colorizeBracketPairs(env.tokens);
-  });
+  const previousHook = Prism[HOOK_KEY];
+  const hooks = Prism.hooks.all["after-tokenize"] ?? [];
+  Prism.hooks.all["after-tokenize"] = hooks.filter(
+    (hook) => hook !== previousHook,
+  );
+  Prism.hooks.add("after-tokenize", refineTokens);
+  Prism[HOOK_KEY] = refineTokens;
 };
 
 module.exports = { applyVsCodeRefinements };
