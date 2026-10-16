@@ -5,6 +5,7 @@ const markdownItAttrs = require("markdown-it-attrs");
 const markdownItTexmath = require("markdown-it-texmath");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const { applyVsCodeRefinements } = require("./_js/prism-vscode-refinements");
+const { lineNumbersPlugin } = require("./_js/prism-line-numbers");
 const katex = require("katex");
 const site = require("./_data/site.json");
 const { wordCount } = require("eleventy-plugin-wordcount");
@@ -56,6 +57,8 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(syntaxHighlight, {
     init: ({ Prism }) => applyVsCodeRefinements(Prism),
   });
+  // Must come after the syntax highlight plugin
+  eleventyConfig.addPlugin(lineNumbersPlugin);
 
   // For counting words
   eleventyConfig.addPlugin(wordCount);

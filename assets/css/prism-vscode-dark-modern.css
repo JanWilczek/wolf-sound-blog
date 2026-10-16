@@ -39,6 +39,11 @@ pre[class*="language-"] {
   white-space: normal;
 }
 
+/* Line numbers (_js/prism-line-numbers.js) */
+.line-numbers .line-numbers-rows > span::before {
+  color: #6e7681; /* editorLineNumber.foreground */
+}
+
 pre[class*="language-"] ::selection,
 code[class*="language-"] ::selection,
 pre[class*="language-"]::selection,

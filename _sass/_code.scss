@@ -1,0 +1,36 @@
+// Line-number gutter injected at build time by _js/prism-line-numbers.js.
+// Colours are defined by the Prism theme stylesheets.
+
+$line-numbers-width: 3ch; // fits snippets of up to 999 lines
+$line-numbers-gap: 1.5ch;
+
+pre[class*="language-"].line-numbers {
+  position: relative;
+  padding-left: calc(1em + #{$line-numbers-width} + #{$line-numbers-gap});
+  counter-reset: linenumber;
+
+  > code {
+    position: relative;
+    white-space: inherit;
+  }
+
+  .line-numbers-rows {
+    position: absolute;
+    top: 0;
+    left: calc(-1 * (#{$line-numbers-width} + #{$line-numbers-gap}));
+    width: $line-numbers-width;
+    pointer-events: none;
+    user-select: none;
+
+    > span {
+      display: block;
+      counter-increment: linenumber;
+
+      &::before {
+        content: counter(linenumber);
+        display: block;
+        text-align: right;
+      }
+    }
+  }
+}
