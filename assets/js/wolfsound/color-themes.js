@@ -38,7 +38,7 @@
       if (prismLink) {
         prismLink.href = theme === 'dark'
           ? '/assets/css/prism-vscode-dark-modern.css'
-          : '/assets/css/prism-coy.css';
+          : '/assets/css/prism-vscode-light-modern.css';
       }
     };
 
