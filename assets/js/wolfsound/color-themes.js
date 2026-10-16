@@ -37,7 +37,7 @@
       const prismLink = document.getElementById('prism-theme');
       if (prismLink) {
         prismLink.href = theme === 'dark'
-          ? '/assets/css/prism-tomorrow-night.css'
+          ? '/assets/css/prism-vscode-dark-modern.css'
           : '/assets/css/prism-coy.css';
       }
     };

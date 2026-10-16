@@ -1,0 +1,233 @@
+/*
+ * PrismJS theme replicating VS Code's "Dark Modern" editor theme
+ * (dark_modern.json -> dark_plus.json -> dark_vs.json), including the default
+ * bracket pair colorization. Relies on the token refinements registered in
+ * _js/prism-vscode-refinements.js.
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #cccccc; /* editor.foreground */
+  background: none;
+  font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+  font-size: 1em;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.5;
+  tab-size: 4;
+  hyphens: none;
+}
+
+pre[class*="language-"] {
+  padding: 1em;
+  margin: 0.5em 0;
+  overflow: auto;
+  border-radius: 0.3em;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+  background: #1f1f1f; /* editor.background */
+}
+
+:not(pre) > code[class*="language-"] {
+  padding: 0.1em;
+  border-radius: 0.3em;
+  white-space: normal;
+}
+
+pre[class*="language-"] ::selection,
+code[class*="language-"] ::selection,
+pre[class*="language-"]::selection,
+code[class*="language-"]::selection {
+  background: #264f78; /* editor.selectionBackground */
+}
+
+/*
+ * Identifiers Prism leaves untokenised are variables/parameters, which VS Code
+ * colours #9CDCFE through semantic highlighting (C++ extension, Pylance, ...).
+ */
+code.language-c,
+code.language-cpp,
+code.language-csharp,
+code.language-java,
+code.language-javascript,
+code.language-js,
+code.language-kotlin,
+code.language-py,
+code.language-python,
+code.language-rust,
+code.language-typescript,
+code.language-ts {
+  color: #9cdcfe;
+}
+
+/* Unquoted shell arguments: string.unquoted.argument.shell */
+code.language-bash,
+code.language-sh,
+code.language-shell {
+  color: #ce9178;
+}
+
+/* Comments */
+.token.comment,
+.token.block-comment,
+.token.prolog,
+.token.doctype,
+.token.cdata,
+.token.shebang {
+  color: #6a9955;
+}
+
+/* Punctuation and operators */
+.token.punctuation {
+  color: #cccccc;
+}
+
+.token.operator {
+  color: #d4d4d4;
+}
+
+.token.tag > .token.punctuation {
+  color: #808080; /* punctuation.definition.tag */
+}
+
+/* Keywords: storage, storage.type, keyword */
+.token.keyword,
+.token.boolean,
+.token.entity,
+.token.format-spec,
+.token.interpolation-punctuation {
+  color: #569cd6;
+}
+
+/* keyword.control */
+.token.keyword.control-flow,
+.token.atrule,
+.token.directive,
+.token.directive-hash {
+  color: #c586c0;
+}
+
+/* Literals */
+.token.string,
+.token.char,
+.token.attr-value,
+.token.template-string,
+.token.url,
+.token.deleted {
+  color: #ce9178;
+}
+
+.token.number,
+.token.inserted {
+  color: #b5cea8;
+}
+
+.token.regex {
+  color: #d16969;
+}
+
+.token.escape,
+.token.selector {
+  color: #d7ba7d;
+}
+
+/* Functions: entity.name.function, support.function */
+.token.function,
+.language-bash .token.builtin,
+.language-sh .token.builtin,
+.language-shell .token.builtin,
+.language-py .token.builtin,
+.language-python .token.builtin {
+  color: #dcdcaa;
+}
+
+/* Types: entity.name.type, entity.name.namespace, support.type */
+.token.class-name,
+.token.namespace,
+.token.builtin,
+.token.annotation,
+.token.lifetime-annotation {
+  color: #4ec9b0;
+}
+
+/* Python decorators: entity.name.function.decorator */
+.token.decorator {
+  color: #dcdcaa;
+}
+
+/* Variables: variable, support.variable, entity.other.attribute-name */
+.token.variable,
+.token.property,
+.token.attr-name,
+.token.parameter {
+  color: #9cdcfe;
+}
+
+/* variable.other.constant */
+.token.constant {
+  color: #4fc1ff;
+}
+
+/* constant.language, constant.other.option */
+.language-c .token.constant,
+.language-cpp .token.constant,
+.language-bash .token.parameter,
+.language-sh .token.parameter,
+.language-shell .token.parameter {
+  color: #569cd6;
+}
+
+/* Preprocessor: meta.preprocessor, entity.name.function.preprocessor */
+.token.macro,
+.token.macro-name {
+  color: #569cd6;
+}
+
+/* Rust macro invocations: entity.name.function.macro */
+.language-rust .token.macro {
+  color: #dcdcaa;
+}
+
+.token.tag {
+  color: #569cd6;
+}
+
+/* entity.name.label */
+.token.label {
+  color: #c8c8c8;
+}
+
+.token.bold,
+.token.important {
+  font-weight: bold;
+}
+
+.token.shebang {
+  font-weight: normal;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+/* Bracket pair colorization: editorBracketHighlight.foreground1..3 */
+.token.punctuation.brace-level-1 {
+  color: #ffd700;
+}
+
+.token.punctuation.brace-level-2 {
+  color: #da70d6;
+}
+
+.token.punctuation.brace-level-3 {
+  color: #179fff;
+}

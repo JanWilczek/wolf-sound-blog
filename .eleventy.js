@@ -4,6 +4,7 @@ const markdownItFootnote = require("markdown-it-footnote");
 const markdownItAttrs = require("markdown-it-attrs");
 const markdownItTexmath = require("markdown-it-texmath");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
+const { applyVsCodeRefinements } = require("./_js/prism-vscode-refinements");
 const katex = require("katex");
 const site = require("./_data/site.json");
 const { wordCount } = require("eleventy-plugin-wordcount");
@@ -52,7 +53,9 @@ module.exports = function (eleventyConfig) {
   });
 
   // Enable syntax highlighting
-  eleventyConfig.addPlugin(syntaxHighlight);
+  eleventyConfig.addPlugin(syntaxHighlight, {
+    init: ({ Prism }) => applyVsCodeRefinements(Prism),
+  });
 
   // For counting words
   eleventyConfig.addPlugin(wordCount);
