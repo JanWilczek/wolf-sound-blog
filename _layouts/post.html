@@ -39,47 +39,45 @@ layout: default
   </div>
 </header>
 
-  <div class="container">
-    <div class="row">
-      <div class="col-xl-8 main-column">
+  <div class="container layout-with-sidebar">
+    <div class="main-column">
 
-        {% include 'categories.html' %}
+      {% include 'categories.html' %}
 
-        <hr>
+      <hr>
 
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lite-youtube-embed/0.3.3/lite-yt-embed.min.css" integrity="sha512-jGFXuWMxJUKzdfBmoyqCXz9k2AU3Z/ZNoayoUPEBAtJZjHbTbw50AxTR1ICVPQJbSamH9ny1JwOur0x4WOdcWQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <script defer src="https://cdnjs.cloudflare.com/ajax/libs/lite-youtube-embed/0.3.3/lite-yt-embed.min.js" integrity="sha512-l8cIzs5aAJutiOPIyW/9PAvDevwTA8F17Pmge51rwmKBkjZ47tap3kRv+pI8JX9owkkBpRMuOIUE7v+Rg6os9w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lite-youtube-embed/0.3.3/lite-yt-embed.min.css" integrity="sha512-jGFXuWMxJUKzdfBmoyqCXz9k2AU3Z/ZNoayoUPEBAtJZjHbTbw50AxTR1ICVPQJbSamH9ny1JwOur0x4WOdcWQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+      <script defer src="https://cdnjs.cloudflare.com/ajax/libs/lite-youtube-embed/0.3.3/lite-yt-embed.min.js" integrity="sha512-l8cIzs5aAJutiOPIyW/9PAvDevwTA8F17Pmge51rwmKBkjZ47tap3kRv+pI8JX9owkkBpRMuOIUE7v+Rg6os9w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-        <div class="post-content">
-            {{ content }}
-        </div>
+      <div class="post-content">
+          {{ content }}
+      </div>
 
-        {% include 'share-buttons.html' %}
+      {% include 'share-buttons.html' %}
 
-        <hr>
+      <hr>
 
-        <div class="clearfix">
+      <div class="clearfix">
 
-          {% assign previousPost = collections.posts | getPreviousCollectionItem %}
-          {% if previousPost %}
-          <a class="btn btn-primary float-start" href="{{ previousPost.url }}" data-bs-toggle="tooltip" data-bs-placement="top" title="{{ previousPost.data.title | escape }}">&larr; Previous<span class="d-none d-md-inline">
-            Post</span></a>
-            {% endif %}
-          {% assign nextPost = collections.posts | getNextCollectionItem %}
-          {% if nextPost %}
-          <a class="btn btn-primary float-end" href="{{ nextPost.url }}" data-bs-toggle="tooltip" data-bs-placement="top" title="{{ nextPost.data.title | escape }}">Next<span class="d-none d-md-inline">
-              Post</span> &rarr;</a>
+        {% assign previousPost = collections.posts | getPreviousCollectionItem %}
+        {% if previousPost %}
+        <a class="btn btn-primary float-start" href="{{ previousPost.url }}" data-bs-toggle="tooltip" data-bs-placement="top" title="{{ previousPost.data.title | escape }}">&larr; Previous<span class="d-none d-md-inline">
+          Post</span></a>
           {% endif %}
-
-        </div>
-
-        {% include 'talkyard-comments.html' %}
+        {% assign nextPost = collections.posts | getNextCollectionItem %}
+        {% if nextPost %}
+        <a class="btn btn-primary float-end" href="{{ nextPost.url }}" data-bs-toggle="tooltip" data-bs-placement="top" title="{{ nextPost.data.title | escape }}">Next<span class="d-none d-md-inline">
+            Post</span> &rarr;</a>
+        {% endif %}
 
       </div>
 
-      <div class="col-xl-4">
-        {% include 'sidebar.html' %}
-      </div>
+      {% include 'talkyard-comments.html' %}
 
     </div>
+
+    <div class="sidebar-column">
+      {% include 'sidebar.html' %}
+    </div>
+
   </div>

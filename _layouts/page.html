@@ -32,17 +32,15 @@ layout: default
     </div>
   </header>
 
-  <div class="container">
-    <div class="row">
-      <div class="col-xl-8 px-2 main-column">
+  <div class="container layout-with-sidebar">
+    <div class="px-2 main-column">
 
-        {{ content }}
-
-      </div>
-      
-      <div class="col-xl-4">
-        {% include 'sidebar.html' %}
-      </div>
+      {{ content }}
 
     </div>
+    
+    <div class="sidebar-column">
+      {% include 'sidebar.html' %}
+    </div>
+
   </div>

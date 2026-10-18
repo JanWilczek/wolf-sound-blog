@@ -25,32 +25,30 @@ layout: default
     </div>
   </header>
 
-  <div class="container">
-    <div class="row">
-      <div class="col mx-auto main-column">
+  <div class="container layout-with-sidebar">
+    <div class="main-column">
 
-        {{ content }}
+      {{ content }}
 
-        {% include 'categories.html' %}
-        
-        <!-- Home Post List -->
-        <div class="d-block" id="All-preview" name="preview-block">
-        {% assign postslist = collections.posts | reverse %}
-        {% for post in postslist limit: 6 %}
-            {% include 'post-preview.html' %}
-        {% endfor %}
-        </div>
-
-        <!-- Pager -->
-        <div class="clearfix">
-          <a class="btn btn-primary float-end" href="{{"/posts" | relative_url }}">View All Posts &rarr;</a>
-        </div>
-
+      {% include 'categories.html' %}
+      
+      <!-- Home Post List -->
+      <div class="d-block" id="All-preview" name="preview-block">
+      {% assign postslist = collections.posts | reverse %}
+      {% for post in postslist limit: 6 %}
+          {% include 'post-preview.html' %}
+      {% endfor %}
       </div>
 
-      <div class="col-sm-12 col-xl-4">
-        {% include 'sidebar.html' %}
+      <!-- Pager -->
+      <div class="clearfix">
+        <a class="btn btn-primary float-end" href="{{"/posts" | relative_url }}">View All Posts &rarr;</a>
       </div>
 
     </div>
+
+    <div class="sidebar-column">
+      {% include 'sidebar.html' %}
+    </div>
+
   </div>

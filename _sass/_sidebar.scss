@@ -56,3 +56,38 @@
   }
 }
 
+// Main content + sidebar layout
+//
+// < xl:                 single column, sidebar stacked below the main content
+// xl to centered:       main column fills the container, fixed-width sidebar on the right
+// >= centered:          main column centered in the viewport, sidebar in the right margin
+
+$layout-main-width: 800px;
+$layout-sidebar-width: 300px;
+$layout-gap: 30px;
+// Smallest viewport fitting the centered main column with a sidebar-wide margin on both sides
+$layout-centered-breakpoint: $layout-main-width + 2 * ($layout-sidebar-width + $layout-gap) + 2 * 12px;
+
+.layout-with-sidebar {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+
+  @include media-breakpoint-up(xl) {
+    grid-template-columns: minmax(0, 1fr) $layout-sidebar-width;
+    column-gap: $layout-gap;
+  }
+
+  @media (min-width: $layout-centered-breakpoint) {
+    max-width: none;
+    grid-template-columns: minmax(0, 1fr) $layout-main-width minmax(0, 1fr);
+
+    > .main-column {
+      grid-column: 2;
+    }
+
+    > .sidebar-column {
+      grid-column: 3;
+      max-width: $layout-sidebar-width;
+    }
+  }
+}
