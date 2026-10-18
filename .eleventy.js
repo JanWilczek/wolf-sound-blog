@@ -10,9 +10,9 @@ const katex = require("katex");
 const site = require("./_data/site.json");
 const { wordCount } = require("eleventy-plugin-wordcount");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
-const { minify } = require("terser");
-const Image = require("@11ty/eleventy-img")
+const { minify } = require("terser");const Image = require("@11ty/eleventy-img")
 const path = require("path")
+const fs = require("fs")
 
 module.exports = function (eleventyConfig) {
   // Workaround for ES modules that don't support require()
@@ -70,6 +70,15 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("ads.txt");
   eleventyConfig.addPassthroughCopy("robots.txt");
   eleventyConfig.addPassthroughCopy(".htaccess");
+  // Self-host KaTeX styles from the same package that renders the math at build time.
+  // Only WOFF2 fonts are copied; every supported browser picks them first.
+  eleventyConfig.addPassthroughCopy({
+    "node_modules/katex/dist/katex.min.css": "assets/vendor/katex/katex.min.css",
+    "node_modules/katex/dist/fonts/*.woff2": "assets/vendor/katex/fonts",
+  });
+  eleventyConfig.addPassthroughCopy({
+    "node_modules/lite-youtube-embed/src/lite-yt-embed.{css,js}": "assets/lib/lite-youtube-embed",
+  });
 
   eleventyConfig.addCollection("posts", function (collectionApi) {
     return collectionApi.getFilteredByGlob("_posts/**/*.md");
@@ -207,6 +216,20 @@ module.exports = function (eleventyConfig) {
   });
 
   eleventyConfig.addShortcode("image", imageShortcode);
+  eleventyConfig.addShortcode("backgroundImage", backgroundImageShortcode);
+  eleventyConfig.addShortcode("avifSrcset", avifSrcsetShortcode);
+
+  // Defer offscreen images: add lazy loading to every <img> that does not set `loading` itself.
+  // Above-the-fold images should set loading="eager" explicitly.
+  eleventyConfig.addTransform("lazy-images", function (content) {
+    if (!(this.page.outputPath || "").endsWith(".html")) {
+      return content;
+    }
+    return content.replace(
+      /<img\b(?![^>]*\sloading=)/gi,
+      '<img loading="lazy" decoding="async"'
+    );
+  });
 
   return {
     dir: {
@@ -253,4 +276,49 @@ async function imageShortcode(src, alt, sizes="(min-width: 1024px) 100vw, 50vw")
     },
   };
   return Image(src, options);
+}
+
+// url should be a site-absolute path, e.g., "/assets/img/posts/dsp/2021-05-14-fast-convolution/Thumbnail.webp"
+// Generates AVIF variants of a raster image next to the original in _site.
+// Returns the generated variants ({ url, width }, ascending width) or null if the image cannot be converted.
+// widths: [null] keeps the original width; widths larger than the original are skipped.
+async function generateAvif(url, widths = [null]) {
+  const src = "." + url;
+  if (!url.startsWith("/") || !/\.(webp|png|jpe?g)$/i.test(url) || !fs.existsSync(src)) {
+    return null;
+  }
+
+  const parentDir = path.dirname(url);
+  const metadata = await Image(src, {
+    widths,
+    formats: ["avif"],
+    sharpAvifOptions: { quality: 50 },
+    urlPath: parentDir,
+    outputDir: path.join("./_site", parentDir),
+    filenameFormat: (id, src, width, format) =>
+      `${path.basename(src, path.extname(src))}-${width}w.${format}`,
+  });
+  return metadata.avif;
+}
+
+// Returns inline CSS declarations for a background image with an AVIF variant generated at build time.
+// The original file stays as the fallback for browsers without AVIF support.
+async function backgroundImageShortcode(url) {
+  const fallback = `background-image: url('${url}')`;
+  const avif = await generateAvif(url);
+  if (!avif) {
+    return fallback;
+  }
+  const fallbackType = path.extname(url).slice(1).replace("jpg", "jpeg");
+  return `${fallback}; background-image: image-set(url('${avif[0].url}') type('image/avif'), url('${url}') type('image/${fallbackType}'))`;
+}
+
+// Returns a srcset of AVIF variants for a <picture> <source type="image/avif">, e.g.,
+// {% avifSrcset "/assets/img/home/jan_wilczek.webp", 100, 200 %}
+async function avifSrcsetShortcode(url, ...widths) {
+  const avif = await generateAvif(url, widths.length ? widths : [null]);
+  if (!avif) {
+    throw new Error(`avifSrcset: cannot generate AVIF from ${url}`);
+  }
+  return avif.map((image) => `${image.url} ${image.width}w`).join(", ");
 }

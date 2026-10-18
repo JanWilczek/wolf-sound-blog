@@ -33,6 +33,7 @@
     "jquery": "^3.5.1",
     "katex": "^0.16.27",
     "lazyload": "^2.0.0-rc.2",
+    "lite-youtube-embed": "0.3.3",
     "startbootstrap-clean-blog": "^5.1.0",
     "trackswitch": "^0.1.0"
   },
@@ -50,15 +51,17 @@
     "markdown-it-texmath": "^1.0.0",
     "npm-run-all": "^4.1.5",
     "prismjs": "1.30.0",
+    "purgecss": "7.0.2",
     "sass": "^1.63.3",
     "terser": "^5.18.0"
   },
   "main": "gulpfile.js",
   "scripts": {
     "watch:sass": "sass --watch --load-path=node_modules _sass:_site/assets/css",
-    "build:sass": "sass --load-path=node_modules _sass:_site/assets/css",
+    "build:sass": "sass --style=compressed --no-source-map --load-path=node_modules _sass:_site/assets/css",
     "watch:eleventy": "eleventy --serve",
     "build:eleventy": "eleventy",
+    "build:purgecss": "node _js/purge-css.js",
     "start": "npm-run-all build:sass --parallel watch:*",
     "build": "npm-run-all build:*",
     "test": "echo \"Error: no test specified\" && exit 1"

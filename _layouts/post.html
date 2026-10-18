@@ -16,9 +16,11 @@ layout: default
 
 <!-- Page Header -->
 {% if background %}
-<header class="masthead" style="background-image: url('{{ background | prepend: site.baseurl | replace: '//', '/' }}')">
+{% assign backgroundUrl = background | prepend: site.baseurl | replace: '//', '/' %}
+<header class="masthead" style="{% backgroundImage backgroundUrl %}">
   {% else %}
-<header class="masthead" style="background-image: url('{{ site.default_background_path | prepend: site.baseurl | replace: '//', '/' }}')">
+{% assign backgroundUrl = site.default_background_path | prepend: site.baseurl | replace: '//', '/' %}
+<header class="masthead" style="{% backgroundImage backgroundUrl %}">
   {% endif %}
   <div class="overlay"></div>
   <div class="container">
@@ -46,8 +48,11 @@ layout: default
 
       <hr>
 
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lite-youtube-embed/0.3.3/lite-yt-embed.min.css" integrity="sha512-jGFXuWMxJUKzdfBmoyqCXz9k2AU3Z/ZNoayoUPEBAtJZjHbTbw50AxTR1ICVPQJbSamH9ny1JwOur0x4WOdcWQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-      <script defer src="https://cdnjs.cloudflare.com/ajax/libs/lite-youtube-embed/0.3.3/lite-yt-embed.min.js" integrity="sha512-l8cIzs5aAJutiOPIyW/9PAvDevwTA8F17Pmge51rwmKBkjZ47tap3kRv+pI8JX9owkkBpRMuOIUE7v+Rg6os9w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      {% if content contains "<lite-youtube" %}
+      <!-- lite-youtube-embed 0.3.3 (Apache-2.0), only on posts with an embedded video -->
+      <link rel="stylesheet" href="/assets/lib/lite-youtube-embed/lite-yt-embed.css">
+      <script defer src="/assets/lib/lite-youtube-embed/lite-yt-embed.js"></script>
+      {% endif %}
 
       <div class="post-content">
           {{ content }}
@@ -61,12 +66,12 @@ layout: default
 
         {% assign previousPost = collections.posts | getPreviousCollectionItem %}
         {% if previousPost %}
-        <a class="btn btn-primary float-start" href="{{ previousPost.url }}" data-bs-toggle="tooltip" data-bs-placement="top" title="{{ previousPost.data.title | escape }}">&larr; Previous<span class="d-none d-md-inline">
+        <a class="btn btn-primary float-start" href="{{ previousPost.url }}" title="{{ previousPost.data.title | escape }}">&larr; Previous<span class="d-none d-md-inline">
           Post</span></a>
           {% endif %}
         {% assign nextPost = collections.posts | getNextCollectionItem %}
         {% if nextPost %}
-        <a class="btn btn-primary float-end" href="{{ nextPost.url }}" data-bs-toggle="tooltip" data-bs-placement="top" title="{{ nextPost.data.title | escape }}">Next<span class="d-none d-md-inline">
+        <a class="btn btn-primary float-end" href="{{ nextPost.url }}" title="{{ nextPost.data.title | escape }}">Next<span class="d-none d-md-inline">
             Post</span> &rarr;</a>
         {% endif %}
 

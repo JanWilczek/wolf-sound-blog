@@ -1,0 +1,27 @@
+// Self-hosted Open Sans variable font (SIL OFL 1.1, see assets/fonts/open-sans/OFL.txt),
+// limited to the weight range 400-700 and subset to the characters used on the site.
+// Generated from https://github.com/google/fonts/blob/main/ofl/opensans/OpenSans[wdth,wght].ttf with:
+//   fonttools varLib.instancer OpenSans[wdth,wght].ttf wdth=100 wght=400:700 -o OpenSans-inst.ttf
+//   pyftsubset OpenSans-inst.ttf --unicodes="<unicode-range below>" --layout-features='*' --flavor=woff2
+
+// Latin + Polish
+@font-face {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("/assets/fonts/open-sans/open-sans-latin-pl.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308,
+    U+0329, U+2000-206F, U+20AC, U+2122, U+2190-2193, U+2212, U+2215, U+FEFF, U+FFFD, U+0104-0107,
+    U+0118-0119, U+0141-0144, U+015A-015B, U+0179-017C;
+}
+
+// Greek (downloaded only on pages that use Greek letters)
+@font-face {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("/assets/fonts/open-sans/open-sans-greek.woff2") format("woff2");
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}

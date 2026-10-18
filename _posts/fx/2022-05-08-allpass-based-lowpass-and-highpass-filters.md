@@ -305,7 +305,7 @@ if __name__ == '__main__':
 
 The resulting audio file should sound similar to the following:
 
-<audio controls>
+<audio controls preload="none">
     <source src="/assets/wav/posts/fx/2022-05-08-allpass-based-lowpass-and-highpass-filters/filtered_white_noise.flac"  type="audio/flac">
     Your browser does not support the audio tag.
 </audio>

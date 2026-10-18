@@ -4,7 +4,10 @@
         <div class="card">
             <div class="card-body">
                 <div class="clearfix">
-                    <img class="rounded float-start me-3 mb-1" loading="lazy" id="jan-wilczek-image" src="/assets/img/home/jan_wilczek.webp" width="100" height="100" alt="A photo of Jan Wilczek"/>
+                    <picture style="display: contents">
+                        <source type="image/avif" srcset="{% avifSrcset "/assets/img/home/jan_wilczek.webp", 100, 200 %}" sizes="100px">
+                        <img class="rounded float-start me-3 mb-1" loading="lazy" id="jan-wilczek-image" src="/assets/img/home/jan_wilczek.webp" width="100" height="100" alt="A photo of Jan Wilczek"/>
+                    </picture>
                     <h5 class="card-title m-0">Welcome to WolfSound!</h5>
                     <p class="card-text m-0">My name is Jan Wilczek. I am an audio programmer, a researcher in the field of music technology, and a musician. Thanks to articles, videos, and courses from WolfSound, you will easily understand the main concepts of sound processing using software.</p>
                 </div>
@@ -16,7 +19,10 @@
         <div class="card">
             <div class="card-body d-flex flex-column align-items-center">
                 <h5 class="card-title text-center">Free Audio Plugin Developer Checklist</h5>
-                <img loading="lazy" src="/assets/img/pages/ChecklistMiniature.webp" width="508" height="635" alt="Preview of the ultimate audio plugin developer checklist"/>
+                <picture style="display: contents">
+                    <source type="image/avif" srcset="{% avifSrcset "/assets/img/pages/ChecklistMiniature.webp", 300, 508 %}" sizes="(min-width: 1200px) 268px, 508px">
+                    <img loading="lazy" src="/assets/img/pages/ChecklistMiniature.webp" width="508" height="635" alt="Preview of the ultimate audio plugin developer checklist"/>
+                </picture>
                 <a href="{% link collections.all, 'single-pages/checklist.html' %}" class="btn btn-primary sidebar-btn w-100" style="max-width: 508px" title="Get the Ultimate Audio Plugin Developer Checklist">
                     Get the Checklist Now
                 </a>
@@ -68,7 +74,7 @@
 
         <h5 class="mt-4 mb-0">Popular series:</h5>
         <a href="{% post_url collections.posts, '2020-06-20-the-secret-behind-filtering' %}" style="max-width: 508px">
-            {% image "assets/img/home/convolution_series_logo.png", "Logo of the series of articles on convolution" %}
+            {% image "assets/img/home/convolution_series_logo.png", "Logo of the series of articles on convolution", "(min-width: 1200px) 300px, 508px" %}
         </a>
 
         <h5 class="mt-4 mb-0">Tag cloud</h5>

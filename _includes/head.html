@@ -23,23 +23,14 @@
         content="{{ pageDescription }}">
     <meta name="robots" content="index, follow" />
 
-    <!-- For speeding up font loading -->
-    <!-- Preconnect to Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Self-hosted Open Sans (see _sass/_fonts.scss) -->
+    <link rel="preload" href="/assets/fonts/open-sans/open-sans-latin-pl.woff2" as="font" type="font/woff2" crossorigin>
 
-    <!-- Load Open Sans with font-display swap -->
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
-
-
-    <link rel="preload" href="{{"/assets/vendor/fontawesome-free/css/all.min.css" | relative_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript>
-        <link rel="stylesheet" href="{{"/assets/vendor/fontawesome-free/css/all.min.css" | relative_url }}">
-    </noscript>
 
     <link rel="stylesheet" href="{{"/assets/css/main.css" | relative_url }}">
 
-    <link rel="shortcut icon" type="image/png" href="/favicon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/favicon/apple-touch-icon.png">
 
     {% capture canonicalUrl %}{{ site.url }}{{ page.url | url }}{% endcapture %}
     <link rel="canonical" href="{{ canonicalUrl }}">
@@ -55,9 +46,10 @@
     <!-- feed_meta -->
     <link rel="alternate" href="/feed.xml" title="WolfSound's Activity Feed" type="application/rss+xml">
 
-    <!-- KaTeX setup -->
-    <link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.16.27/dist/katex.min.css" as="style" integrity="sha384-Pu5+C18nP5dwykLJOhd2U4Xen7rjScHN/qusop27hdd2drI+lL5KvX7YntvT8yew" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.27/dist/katex.min.css" integrity="sha384-Pu5+C18nP5dwykLJOhd2U4Xen7rjScHN/qusop27hdd2drI+lL5KvX7YntvT8yew" crossorigin="anonymous"></noscript>
+    {% if content contains 'class="katex' %}
+    <!-- KaTeX styles (only on pages with math) -->
+    <link rel="stylesheet" href="/assets/vendor/katex/katex.min.css">
+    {% endif %}
 
     <!-- Additional CSS files -->
     {% if custom_css %}
