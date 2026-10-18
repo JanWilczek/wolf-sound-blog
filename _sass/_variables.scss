@@ -26,3 +26,11 @@ $link-hover-color-dark: $primary;
 // Sizes
 $tablet-width: 768px;
 
+// Main content + sidebar layout (see _sidebar.scss)
+$layout-main-width: 800px;
+$layout-sidebar-width: 300px;
+$layout-gap: 30px;
+// Smallest viewport fitting the centered main column with a sidebar-wide margin on both sides.
+// Media queries include the scrollbar, so allow for a classic (non-overlay) scrollbar too.
+$layout-scrollbar-allowance: 20px;
+$layout-centered-breakpoint: $layout-main-width + 2 * ($layout-sidebar-width + $layout-gap) + 2 * 12px + $layout-scrollbar-allowance;

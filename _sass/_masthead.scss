@@ -19,6 +19,12 @@ header.masthead {
   .container {
     position: relative;
   }
+  // Align the heading text with the centered main column (column padding = half the gutter)
+  .masthead-column {
+    @media (min-width: $layout-centered-breakpoint) {
+      width: calc(#{$layout-main-width} + var(--bs-gutter-x));
+    }
+  }
   .background-filter-addon{
     @media (max-width: #{$tablet-width - 1px}) {
       backdrop-filter: blur(20px);

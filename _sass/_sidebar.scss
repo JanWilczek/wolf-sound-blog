@@ -62,11 +62,7 @@
 // xl to centered:       main column fills the container, fixed-width sidebar on the right
 // >= centered:          main column centered in the viewport, sidebar in the right margin
 
-$layout-main-width: 800px;
-$layout-sidebar-width: 300px;
-$layout-gap: 30px;
-// Smallest viewport fitting the centered main column with a sidebar-wide margin on both sides
-$layout-centered-breakpoint: $layout-main-width + 2 * ($layout-sidebar-width + $layout-gap) + 2 * 12px;
+// Layout sizes are defined in _variables.scss
 
 .layout-with-sidebar {
   display: grid;
