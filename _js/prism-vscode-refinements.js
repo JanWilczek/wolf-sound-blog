@@ -1,5 +1,5 @@
 // Build-time Prism refinements that bring token classification closer to
-// VS Code's TextMate grammars, so that prism-vscode-dark-modern.css can
+// VS Code's TextMate grammars, so that _sass/_prism-dark.scss can
 // reproduce the Dark Modern theme. Keyword lists are taken from the grammars
 // bundled with VS Code (cpp, MagicPython, rust, java, shellscript) and the
 // fwcd.kotlin extension.

@@ -2,18 +2,6 @@
 layout: default
 ---
 
-<link id="prism-theme" rel="stylesheet" href="/assets/css/prism-vscode-light-modern.css">
-<script>
-    // Set correct Prism theme based on current theme
-    (function() {
-        const theme = document.documentElement.getAttribute('data-bs-theme');
-        const prismLink = document.getElementById('prism-theme');
-        if (prismLink && theme === 'dark') {
-            prismLink.href = '/assets/css/prism-vscode-dark-modern.css';
-        }
-    })();
-</script>
-
 <!-- Page Header -->
 {% if background %}
 {% assign backgroundUrl = background | prepend: site.baseurl | replace: '//', '/' %}

@@ -33,25 +33,14 @@
       }
     };
 
-    const updatePrismTheme = theme => {
-      const prismLink = document.getElementById('prism-theme');
-      if (prismLink) {
-        prismLink.href = theme === 'dark'
-          ? '/assets/css/prism-vscode-dark-modern.css'
-          : '/assets/css/prism-vscode-light-modern.css';
-      }
-    };
-
     const currentTheme = getPreferredTheme();
     showActiveTheme(currentTheme);
-    updatePrismTheme(currentTheme);
 
     const toggleTheme = () => {
       const current = document.documentElement.getAttribute('data-bs-theme');
       const newTheme = current === 'dark' ? 'light' : 'dark';
       setTheme(newTheme);
       showActiveTheme(newTheme);
-      updatePrismTheme(newTheme);
     }
 
     const toggleBtn = document.getElementById('themeToggle');
