@@ -36,12 +36,6 @@ layout: default
 
       <hr>
 
-      {% if content contains "<lite-youtube" %}
-      <!-- lite-youtube-embed 0.3.3 (Apache-2.0), only on posts with an embedded video -->
-      <link rel="stylesheet" href="/assets/lib/lite-youtube-embed/lite-yt-embed.css">
-      <script defer src="/assets/lib/lite-youtube-embed/lite-yt-embed.js"></script>
-      {% endif %}
-
       <div class="post-content">
           {{ content }}
       </div>
