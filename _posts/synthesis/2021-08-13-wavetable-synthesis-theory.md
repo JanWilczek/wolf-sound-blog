@@ -166,7 +166,7 @@ The diagram in Figure 3 presents an *oscillator*. An oscillator is any unit capa
 ![]({{ images | append: "/oscillator.png" }}){: alt="Oscillator symbol" }
 _Figure 4. The oscillator symbol._
 
-Additionally, what is not shown in Figure 4, an oscillator pictogram usually has some indication of what type of waveform it generates. For example, it may have the sine symbol <i class="fas fa-wave-sine"></i> inside to show that it outputs a sine wave.
+Additionally, what is not shown in Figure 4, an oscillator pictogram usually has some indication of what type of waveform it generates. For example, it may have the sine symbol inside to show that it outputs a sine wave.
 
 Oscillators are sometimes denoted using the VCO abbreviation, which stands for *voltage-controlled oscillator*. This term originates from the analog days of sound synthesis, when electric voltage determined oscillators' amplitude and frequency.
 
