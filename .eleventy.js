@@ -10,7 +10,9 @@ const katex = require("katex");
 const site = require("./_data/site.json");
 const { wordCount } = require("eleventy-plugin-wordcount");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
-const { minify } = require("terser");const Image = require("@11ty/eleventy-img")
+const { minify } = require("terser");
+// eleventy-img v7+ is ESM-only; require() returns the module namespace
+const { default: Image } = require("@11ty/eleventy-img");
 const path = require("path")
 const fs = require("fs")
 
