@@ -39,7 +39,7 @@
   },
   "devDependencies": {
     "@11ty/eleventy": "^3.1.6",
-    "@11ty/eleventy-img": "^6.0.1",
+    "@11ty/eleventy-img": "^7.1.1",
     "@11ty/eleventy-plugin-rss": "^1.2.0",
     "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.0",
     "browser-sync": "^3.0.4",
