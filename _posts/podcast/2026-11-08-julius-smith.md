@@ -29,10 +29,10 @@ CCRMA, NeXT, Yamaha synths, resampling, physical modeling, digital waveguides, v
 
 ## Listen on
 
-* 🎧 [Spotify]()
-* 🎥 [YouTube]()
-* 🎧 [Apple Podcasts (iTunes)]()
-* 🎧 [TuneIn Radio]()
+* 🎧 [Spotify](https://open.spotify.com/episode/3JSGLdOkjtRwd9F0QDOc5H?si=Wole9GoZRjCg83oo4YDXgA)
+* 🎥 [YouTube](https://youtu.be/viKjtgsL2KY)
+* 🎧 [Apple Podcasts (iTunes) (TBA)]()
+* 🎧 [TuneIn Radio (TBA)]()
 
 [All podcast episodes.](/podcast)
 
