@@ -25,7 +25,7 @@ discussion_id: 2026-11-08-julius-smith
 ---
 CCRMA, NeXT, Yamaha synths, resampling, physical modeling, digital waveguides, virtual analog, and AI: a lifetime of turning DSP research into musical tools.
 
-{% include 'redcircle-podcast-player', redcircle_podcast_id: '[ID]' %}
+{% include 'redcircle-podcast-player', redcircle_podcast_id: 'd8374dd2-7120-4964-9bd3-db7323f5a2af' %}
 
 ## Listen on
 
