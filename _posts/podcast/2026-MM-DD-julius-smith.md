@@ -1,7 +1,7 @@
 ---
 title: "Julius O. Smith III: Legendary Professor of DSP (CCRMA, NeXT, Shazam, GeoShred) | WolfTalk #034"
 description: "Julius O. Smith III on digital waveguides, physical modeling, Shazam, GeoShred, and learning DSP through decades of audio research."
-date: YYYY-MM-DD
+date: 2026-11-08
 author: Jan Wilczek & Sathira Tennakoon
 layout: post
 permalink: /talk034/
@@ -21,7 +21,7 @@ tags:
   - reverb
   - sample rate
   - virtual analog
-discussion_id: YYYY-MM-DD-julius-smith
+discussion_id: 2026-11-08-julius-smith
 ---
 
 From CCRMA and NeXT to Shazam and GeoShred: a lifetime of turning DSP research into musical tools.
