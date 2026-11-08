@@ -46,7 +46,7 @@ When browsing DSP publications related to music, his name is all over the place 
 
 It's hard to list what he's done, because he's done so much.
 
-**Professor Julius Orion Smith III** should need no introduction. He's been at the famous CCRMA institute of the Stanford University since the very beginning, first as a PhD student and then as a professor. He worked with Steve Jobs on the NeXT computer. He developed digital waveguide synthesis used in some of Yamaha's synthesizers. He worked on the Shazam audio fingerprinting algorithm. He's written four free DSP textbooks. He's authored or co-authored hundreds of publications. And on, and on, and on.
+**Professor Julius Orion Smith III** needs no introduction. He's been at the renowned CCRMA at Stanford University since the beginning, first as a PhD student and then as a professor. He worked with Steve Jobs on the NeXT computer. He developed digital waveguide synthesis used in some of Yamaha's synthesizers. He worked on the Shazam audio fingerprinting algorithm. He's written four free DSP textbooks. He's authored or co-authored hundreds of publications. And on, and on, and on.
 
 Needless to say, it was my dream since starting this podcast to interview him. **Listen to the interview to find out how you can profit from my joy 😉**
 
@@ -57,7 +57,7 @@ Needless to say, it was my dream since starting this podcast to interview him. *
 From this episode, you will learn:
 
 - How Julius Smith became one of the world's most well-known and respected DSP professors
-- The story of CCRMA at the Stanford University
+- The story of CCRMA at Stanford University
 - Behind-the-scenes of the music features of the NeXT computer
 - The story of Yamaha synthesizer development (FM and physical modeling)
 - The story of Shazam and GeoShred music apps
