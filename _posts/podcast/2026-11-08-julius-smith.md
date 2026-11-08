@@ -23,8 +23,7 @@ tags:
   - virtual analog
 discussion_id: 2026-11-08-julius-smith
 ---
-
-From CCRMA and NeXT to Shazam and GeoShred: a lifetime of turning DSP research into musical tools.
+CCRMA, NeXT, Yamaha synths, resampling, physical modeling, digital waveguides, virtual analog, and AI: a lifetime of turning DSP research into musical tools.
 
 {% include 'redcircle-podcast-player', redcircle_podcast_id: '[ID]' %}
 
@@ -41,7 +40,15 @@ From CCRMA and NeXT to Shazam and GeoShred: a lifetime of turning DSP research i
 
 ## Introduction
 
-[Episode introduction]
+When discussing DSP resources, his books come up most often.
+
+When browsing DSP publications related to music, his name is all over the place (as author, co-author, or in citations).
+
+It's hard to list what he's done, because he's done so much.
+
+**Professor Julius Orion Smith III** should need no introduction. He's been at the famous CCRMA institute of the Stanford University since the very beginning, first as a PhD student and then as a professor. He worked with Steve Jobs on the NeXT computer. He developed digital waveguide synthesis used in some of Yamaha's synthesizers. He worked on the Shazam audio fingerprinting algorithm. He's written four free DSP textbooks. He's authored or co-authored hundreds of publications. And on, and on, and on.
+
+Needless to say, it was my dream since starting this podcast to interview him. **Listen to the interview to find out how you can profit from my joy 😉**
 
 {% include 'podcast_cta' %}
 
@@ -49,14 +56,19 @@ From CCRMA and NeXT to Shazam and GeoShred: a lifetime of turning DSP research i
 
 From this episode, you will learn:
 
-- [Point 1]
-- [Point 2]
-- [Point 3]
+- How Julius Smith became one of the world's most well-known and respected DSP professors
+- The story of CCRMA at the Stanford University
+- Behind-the-scenes of the music features of the NeXT computer
+- The story of Yamaha synthesizer development (FM and physical modeling)
+- The story of Shazam and GeoShred music apps
+- How to learn DSP well
+- How to do excellent DSP research
+- How Julius uses AI for research, learning & programming
 
-This episode was recorded on [Date].
+This episode was recorded on September 23, 2026.
 
-Audio post-production, mixing & mastering by [Name].
-Video edited by [Name].
+Audio post-production, mixing & mastering by Sathira Tennakoon.
+Video edited by Vadzim Vezhnavets.
 
 ## References
 
@@ -495,3 +507,4 @@ Most links below go to the relevant chapter of Julius' free online books.
 - [The Neal Morse Band](https://nealmorse.com/)
 
 Thank you for listening! 🙏
+
