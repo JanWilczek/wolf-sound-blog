@@ -99,6 +99,7 @@ Video edited by [Name].
    - [Malcolm Slaney](https://music.stanford.edu/people/malcolm-slaney)
    - [Xavier Serra](https://www.upf.edu/web/xavier-serra)
 6. Students, collaborators, and co-authors
+   - [Kurt Werner](/talk030)
    - [Tim Stilson](https://ccrma.stanford.edu/~stilti/)
    - [Guillermo Garcia](https://ccrma.stanford.edu/~guille/)
    - [Avery Wang](https://www.seti.org/people/avery-wang/)
@@ -115,7 +116,6 @@ Video edited by [Name].
    - [Jack Little](https://www.mathworks.com/company/aboutus/founders/jacklittle.html)
 8. Researchers and educators
    - [Stefan Bilbao](https://www.acoustics.ed.ac.uk/people/dr-stefan-bilbao/)
-   - [Kurt Werner](/talk030)
    - [Meinard Müller](/talk012)
    - [Julian Storer](/talk032)
    - [Gary Kendall](https://garykendall.net/)
@@ -192,8 +192,6 @@ Video edited by [Name].
 - [System and Methods for Recognizing Sound and Music Signals in High Noise and Distortion (US 6,990,453, Wang & Smith)](https://patents.google.com/patent/US6990453B2/en)
 
 ### Companies
-
-- [Moonbase (podcast sponsor)](https://moonbase.sh/)
 
 #### Audio and music technology
 
