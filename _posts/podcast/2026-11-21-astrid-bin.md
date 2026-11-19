@@ -1,7 +1,7 @@
 ---
 title: "Designing Music Technology with Astrid Bin (RoEx) | WolfTalk #035"
 description: "Astrid Bin on designing Bela, musical interfaces, cultural assumptions in music software, and the limits of AI design tools."
-date: 2026-MM-DD
+date: 2026-11-21
 author: Jan Wilczek & Sathira Tennakoon
 layout: post
 permalink: /talk035/
@@ -20,7 +20,7 @@ tags:
   - plugin
   - puredata
   - research
-discussion_id: 2026-MM-DD-astrid-bin
+discussion_id: 2026-11-21-astrid-bin
 ---
 
 What makes a musical interface feel right?
