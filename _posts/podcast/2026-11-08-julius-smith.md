@@ -58,7 +58,7 @@ From this episode, you will learn:
 
 - How Julius Smith became one of the world's most well-known and respected DSP professors
 - The story of CCRMA at Stanford University
-- Behind-the-scenes of the music features of the NeXT computer
+- Behind the scenes of the music features of the NeXT computer
 - The story of Yamaha synthesizer development (FM and physical modeling)
 - The story of Shazam and GeoShred music apps
 - How to learn DSP well
